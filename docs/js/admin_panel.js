@@ -6,6 +6,13 @@ import {
   set,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
+import {
+  getStorage,
+  uploadBytes,
+  ref as storageRef,
+  getDownloadURL,
+} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
   authDomain: "aryanranderiya-portfolio.firebaseapp.com",
@@ -19,34 +26,78 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const database = getDatabase();
 
+const storage = getStorage();
+// const storageRef = ref(storage);
+// const imagesRef = ref(storage, "ProjectImages");
+
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("submit-project-form")
     .addEventListener("submit", function (e) {
-      console.log("DOMContentLoaded Event listener called");
-
       e.preventDefault();
 
       const title = document.getElementById("project_title").value;
-      const type = document.getElementById("project_type").value;
       const description = document.getElementById("project_description").value;
       const githubLink = document.getElementById("githubLink").value;
+
+      //  Radio Button
+      const type = document.querySelector(
+        'input[name="project_type"]:checked'
+      ).value;
+
+      // Checkbox
+      var markedCheckbox = document.querySelectorAll(
+        'input[type="checkbox"]:checked'
+      );
+
+      var tech_stack = [];
+
+      for (var checkbox of markedCheckbox) {
+        tech_stack.push(checkbox.value);
+      }
+
+      // Image
+      const fileSelector = document.getElementById("file-selector");
+      const file = fileSelector.files[0];
 
       const project_id = "project_" + title + "_" + Date.now();
       var projectsRef = ref(database, "Projects/" + project_id);
 
-      set(projectsRef, {
-        project_title: title,
-        project_type: type,
-        project_description: description,
-        github_link: githubLink,
-      })
-        .then(() => {
-          console.log("Successfully inserted!");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      if (file) {
+        const spaceRef = storageRef(
+          storage,
+          "ProjectImages/" + title.replace(" ", "_") + "-" + file.name
+        );
+
+        uploadBytes(spaceRef, file)
+          .then(() => {
+            return getDownloadURL(spaceRef);
+          })
+          .then((url) => {
+            console.log("Image uploaded successfully!");
+            var imageURL = url.toString();
+
+            set(projectsRef, {
+              project_title: title,
+              project_type: type,
+              project_tech_stack: tech_stack.join(","),
+              project_description: description,
+              banner_image_URL: imageURL,
+              github_link: githubLink,
+            })
+              .then(() => {
+                console.log("Data   Successfully inserted!");
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          })
+          .catch((error) => {
+            console.error("Error uploading image:", error.message);
+          });
+      } else {
+        console.warn("No file selected.");
+      }
 
       document.getElementById("submit-project-form").reset();
     });

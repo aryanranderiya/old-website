@@ -43,50 +43,91 @@ function processDataAndHidePreloader(snapshot) {
     var projectTitle = projectDetails.project_title;
     var projectDesc = projectDetails.project_description;
     var projectType = projectDetails.project_type;
+    var projectTechStack = projectDetails.project_tech_stack;
     var githubLink = projectDetails.github_link;
+    var banner_image_URL = projectDetails.banner_image_URL;
 
-    var projectType_icon;
-    if (projectType.toLowerCase() == "web") {
-      projectType_icon = "fa-brands fa-html5";
-    } else if (projectType.toLowerCase() == "python") {
-      projectType_icon = "fa-brands fa-python";
-    } else if (projectType.toLowerCase() == "android") {
-      projectType_icon = "fa-brands fa-android";
-    }
+    var projectTechStack_values = projectTechStack.trim().split(",");
+
+    // var projectType_icon = "fa-brands " + fa_projectTechStack_values.join(" ");
+
+    // if (projectType.toLowerCase() == "web") {
+    //   projectType_icon = "fa-brands fa-html5";
+    // } else if (projectType.toLowerCase() == "python") {
+    //   projectType_icon = "fa-brands fa-python";
+    // } else if (projectType.toLowerCase() == "android") {
+    //   projectType_icon = "fa-brands fa-android";
+    // }
 
     // console.log("type:" + projectType);
+
+    const replacements = {
+      Python: "python fa-brands",
+      Android: "android fa-brands",
+      Java: "java fa-brands",
+      HTML: "HTML5 fa-brands",
+      CSS: "CSS3-alt fa-brands",
+      JavaScript: "js fa-brands",
+      SQL: "database fa-solid ",
+    };
+
+    // var projectTechStack_values_text = projectTechStack_values;
+
+    // projectTechStack_values_text.forEach((element, index, array) => {
+    //   array[index] = replacements[element] || element.toLowerCase();
+    // });
+
+    // switch (expression) {
+    //   case x:
+    //     // code block
+    //     break;
+    //   case y:
+    //     // code block
+    //     break;
+    //   default:
+    //   // code block
+    // }
+
     const card = document.createElement("div");
     card.innerHTML = `
-      <div class="card">
-        <div class="card-content">
-            <div class="card-image"> </div>
-            <div class="card-info-wrapper">
-                <div class="card-info">
-                    <div class="card-info-title">
-                        <h3 class="card-title">${projectTitle}</h3>
-                        <div class="card-type">
-                            <div class="subtype ${projectType.toLowerCase()}">
-                                <i id="type-logo" class="${projectType_icon}"></i>
-                                <text>${projectType}</text>
+     <div class="card">
+                <div class="card-content">
+                    <div class="card-image" style="background-image: url('${banner_image_URL}');">
+                     </div>
+                    <div class="card-info-wrapper">
+                        <div class="card-info">
+                            <div class="card-info-title">
+                                <h3 class="card-title">${projectTitle}</h3>
+                                <h6 class="card-type"><i>${projectType}</i></h6>
+
+                                <div class="card-tech-stack">${projectTechStack_values
+                                  .map((element) => {
+                                    const replacedElement =
+                                      replacements[element] || element;
+
+                                    return `<i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text>`;
+                                  })
+                                  .join(" ")}
+
+                               
+                                </div>
+
                             </div>
+                            <h4 class="card-desc">${projectDesc}<h4>
                         </div>
 
                     </div>
-                    <h4 class="card-desc">${projectDesc}<h4>
+                    <div class="btns">
+                        <a class="action secondary" target="_blank" href="${githubLink}">Github Repo<span
+                                aria-hidden="true" class="icon_btn">
+                                <i class="card_button_icon fa-brands fa-github fa-2x"></i> </span></a>
+
+                        <a class="action primary" target="_blank" href="https://github.com/aryanranderiya">View
+                            Project<span aria-hidden="true" class="icon_btn">
+                                <span class="card_button_icon material-symbols-outlined fa-1.5x">open_in_new</span></a>
+                    </div>
                 </div>
-
             </div>
-            <div class="btns">
-                <a class="action secondary" target="_blank" href="${githubLink}">Github Repo<span
-                        aria-hidden="true" class="icon_btn">
-                        <i class="fa-brands fa-github fa-2x"></i> </span></a>
-
-                <a class="action primary" target="_blank" href="https://github.com/aryanranderiya">View
-                    Project<span aria-hidden="true" class="icon_btn">
-                        <span class="material-symbols-outlined fa-1.5x">open_in_new</span></a>
-            </div>
-        </div>
-    </div>
     `;
 
     document.querySelector(".cards").appendChild(card);

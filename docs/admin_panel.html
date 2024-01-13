@@ -20,18 +20,48 @@
         <p class="title">Create a New Project! </p>
 
         <div class="flex">
-            <label>
-                <input class="input" type="text" id="project_title" placeholder="" required="">
-                <span>Project Title</span>
-            </label>
-
-            <label>
-                <input class="input" id="project_type" type="text" placeholder="" required="">
-                <span>Project Type</span>
-            </label>
-
         </div>
 
+        <label>
+            <input class="input" type="text" id="project_title" placeholder="" required="">
+            <span>Project Title</span>
+        </label>
+
+        <label>
+            <span><br>Application Type: Web/Mobile/Desktop Application<br><br></span>
+            <input type="radio" id="project_type1" name="project_type" value="Mobile Application">
+            <label for="project_type1">Mobile Application</label><br>
+            <input type="radio" id="project_type2" name="project_type" value="Web Application">
+            <label for="project_type2">Web Application</label><br>
+            <input type="radio" id="project_type3" name="project_type" value="Desktop Application">
+            <label for="project_type3">Desktop Application</label><br>
+
+            <label>
+                <input type="radio" name="project_type" value="other">&nbsp;Other
+                <input type="text" name="other" value="Write In" />
+            </label>
+        </label>
+        <label>
+            <span><br>Tech Stack<br><br></span>
+
+            <input type="checkbox" id="tech_stack1" name="tech_stack" value="Python">
+            <label for="tech_stack1">Python</label><br>
+            <input type="checkbox" id="tech_stack2" name="tech_stack" value="Android">
+            <label for="tech_stack2">Android</label><br>
+            <input type="checkbox" id="tech_stack3" name="tech_stack" value="Java">
+            <label for="tech_stack3">Java</label><br>
+            <input type="checkbox" id="tech_stack4" name="tech_stack" value="HTML">
+            <label for="tech_stack4">HTML5</label><br>
+            <input type="checkbox" id="tech_stack5" name="tech_stack" value="CSS">
+            <label for="tech_stack5">CSS3</label><br>
+            <input type="checkbox" id="tech_stack6" name="tech_stack" value="JavaScript">
+            <label for="tech_stack6">JavaScript</label><br>
+            <input type="checkbox" id="tech_stack7" name="tech_stack" value="SQL">
+            <label for="tech_stack7">SQL</label><br>
+
+        </label>
+
+        <br>
         <label>
             <input class="input" id="project_description" type="text" placeholder="" required="">
             <span>Project Description</span>
@@ -41,7 +71,10 @@
             <input class="input" id="githubLink" type="text" placeholder="" required="">
             <span>Github Link</span>
         </label>
-
+        <br>
+        <label for="img">Select image:</label>
+        <input type="file" id="file-selector" accept=".jpg, .jpeg, .png">
+        <br><br>
         <button class="submit">Create New Project</button>
     </form>
 </body>

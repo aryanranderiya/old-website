@@ -63,25 +63,25 @@ function loadEverything() {
 }
 
 // ! highlight current active page
-function setActiveLink() { 
+function setActiveLink() {
   const pathName = window.location.pathname;
   const items = document.querySelectorAll(".item");
 
   items.forEach((item) => {
     const href = item.querySelector("a").getAttribute("href");
 
-    console.log("Href", href);
-    console.log("pathName", pathName);
+    // console.log("Href", href);
+    // console.log("pathName", pathName);
 
     if (pathName === href) {
       item.classList.add("active");
-      console.log("added active class");
+      // console.log("added active class");
     } else if (pathName === "/docs/" + href) {
       item.classList.add("active");
-      console.log("added active class 2");
+      // console.log("added active class 2");
     } else if (pathName === "/docs/" && href == "index.html") {
       item.classList.add("active");
-      console.log("added active class 3");
+      // console.log("added active class 3");
     } else {
       item.classList.remove("active");
     }

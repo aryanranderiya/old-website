@@ -46,20 +46,23 @@
 }
 
 .card-type {
+  margin-top: -5px;
+  margin-bottom: 10px;
   width: 100%;
   display: flex;
-  gap: 1.5em;
+  color: lightgrey;
 }
 
-.subtype {
-  width: fit-content;
-  border-radius: 10em;
-  outline-width: 2px;
-  outline-style: solid;
-  margin: 0.2em 0 0.2em 1%; /* top right bottom left*/
-  font-size: 0.8em;
-  scale: 1.1;
-  padding-right: 10px;
+.card-tech-stack {
+  font-size: 0.9em;
+}
+
+.tech_stack_icon {
+  margin-right: 0.3%;
+}
+
+.card-tech-stack {
+  color: white;
 }
 
 .subtype.android {
@@ -67,7 +70,7 @@
   outline-color: #3ddc84;
 }
 
-.subtype.java {
+.subtype.subtype.fa-java {
   color: #f89820;
   outline-color: #5382a1;
   /* outline-color: -webkit-linear-gradient(#f89820, #5382a1); */
@@ -86,7 +89,7 @@
 .card-desc {
   margin: 0.5em 0 0 0.5em; /* top right bottom left*/
   color: #b8b8b8;
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.6rem;
   height: 8em;
   overflow: hidden;
@@ -97,7 +100,6 @@
 
 .btns {
   font-family: Helvetica;
-
   display: inline-flex;
   width: 100%;
   align-items: center;
@@ -105,14 +107,18 @@
   margin-bottom: 0.3em;
 }
 
+.card_button_icon {
+  margin-left: 15px;
+}
+
 .action {
   display: flex;
   font-size: 1em;
   align-items: center;
-  border-radius: 1em;
+  border-radius: 0.6em;
   font-weight: bold;
   margin-top: 1em;
-  padding: 2% 0%;
+  padding: 1.2% 0%;
   justify-content: center;
   flex-grow: 1;
   margin: 0 5px;

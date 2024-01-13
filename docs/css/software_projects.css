@@ -26,10 +26,6 @@ body {
   src: url("../fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
 }
 
-.fa-brands,
-.material-symbols-outlined {
-  margin-left: 15px;
-}
 
 /* .logos,
 .logos-slide {

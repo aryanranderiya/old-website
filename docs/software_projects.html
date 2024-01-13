@@ -123,19 +123,26 @@
             </div>
         </div>
         <div class="cards cardhidden">
-
-            <!-- <div class="card cardhidden">
+            <!-- 
+             <div class="card">
                 <div class="card-content">
                     <div class="card-image"> </div>
                     <div class="card-info-wrapper">
                         <div class="card-info">
                             <div class="card-info-title">
                                 <h3 class="card-title">${projectTitle}</h3>
-                                <div class="card-type">
-                                    <div class="subtype ${projectType.toLowerCase()}">
-                                        <i id="type-logo" class="${projectType_icon}"></i>
-                                        <text>${projectType}</text>
-                                    </div>
+                                <h6 class="card-type " style="color: white;"><i>${projectType}</i></h3>
+
+                                <div class="card-tech-stack">${projectTechStack_values
+                                  .map((element) => {
+                                    const replacedElement =
+                                      replacements[element] || element;
+
+                                    return `<i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text>`;
+                                  })
+                                  .join(" ")}
+
+                               
                                 </div>
 
                             </div>
@@ -146,30 +153,73 @@
                     <div class="btns">
                         <a class="action secondary" target="_blank" href="${githubLink}">Github Repo<span
                                 aria-hidden="true" class="icon_btn">
-                                <i class="fa-brands fa-github fa-2x"></i> </span></a>
+                                <i class="card_button_icon fa-brands fa-github fa-2x"></i> </span></a>
 
                         <a class="action primary" target="_blank" href="https://github.com/aryanranderiya">View
                             Project<span aria-hidden="true" class="icon_btn">
-                                <span class="material-symbols-outlined fa-1.5x">open_in_new</span></a>
+                                <span class="card_button_icon material-symbols-outlined fa-1.5x">open_in_new</span></a>
                     </div>
                 </div>
-        </div> -->
+            </div> -->
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image"> </div>
+                    <div class="card-info-wrapper">
+                        <div class="card-info">
+                            <div class="card-info-title">
+                                <h3 class="card-title">Title</h3>
+                                <h6 class="card-type"><i>Desktop Application</i></h6>
+
+                                <div class=" card-tech-stack">
+                                    <i class="tech_stack_icon fa-brands fa-python"></i>
+                                    <text>Python&nbsp;</text>
+                                    <i class="tech_stack_icon fa-solid fa-database"></i>
+                                    <text>Database&nbsp;</text>
+                                </div>
+
+                            </div>
+                            <h4 class="card-desc">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sapien urna, lacinia sit
+                                amet metus nec, elementum
+                                sagittis dui. Pellentesque eget dictum dolor. Nunc at neque varius sapien porttitor
+                                sagittis. Praesent turpis purus,
+                                molestie vitae leo vel, malesuada ultrices leo. Donec iaculis vulputate vulputate.
+                                Vivamus congue urna vitae massa
+                                pulvinar, eget dignissim risus viverra. Aliquam finibus, velit eu sagittis faucibus, sem
+                                massa vehicula mi, bibendum
+                                imperdiet odio libero vitae turpis. Suspendisse libero tellus, auctor eu scelerisque
+                                eget, ultricies non tortor. Ut
+                                tempor mollis metus ut pulvinar. Suspendisse in turpis mi.
+                                <h4>
+                        </div>
+
+                    </div>
+                    <div class="btns">
+                        <a class="action secondary" target="_blank" href="${githubLink}">Github Repo<span
+                                aria-hidden="true" class="icon_btn">
+                                <i class="card_button_icon fa-brands fa-github fa-2x"></i> </span></a>
+
+                        <a class="action primary" target="_blank" href="https://github.com/aryanranderiya">View
+                            Project<span aria-hidden="true" class="icon_btn">
+                                <span class="card_button_icon material-symbols-outlined fa-1.5x">open_in_new</span></a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-    </div>
-
-    <!--! Footer -->
-    <header id="footerContainer"></header>
+        <!--! Footer -->
+        <header id="footerContainer"></header>
 
 
-    <!-- Scripts -->
+        <!-- Scripts -->
 
-    <script src="js/cursor.js"></script>
-    <script src="js/cards.js"></script>
-    <link rel='stylesheet' type='text/css' href='css/card.css'>
-    <script src="js/software_projects.js" type="module"></script>
-    <script defer src="js/navbar.js"></script>
-    <script defer src="js/footer.js"></script>
+        <script src="js/cursor.js"></script>
+        <script src="js/cards.js"></script>
+        <link rel='stylesheet' type='text/css' href='css/card.css'>
+        <script src="js/software_projects.js" type="module"></script>
+        <script defer src="js/navbar.js"></script>
+        <script defer src="js/footer.js"></script>
 
 </body>
 
