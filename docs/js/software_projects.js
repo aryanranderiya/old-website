@@ -63,11 +63,14 @@ function processDataAndHidePreloader(snapshot) {
     };
 
     const card = document.createElement("div");
+
     card.innerHTML = `
      <div class="card">
                 <div class="card-content">
-                    <div class="card-image" style="background-image: url('${banner_image_URL}');">
-                     </div>
+                    <div class="card-image" >
+                      <img class="card-image" loading="eager" src='${banner_image_URL}';">
+                      </img>
+                    </div>
                     <div class="card-info-wrapper">
                         <div class="card-info">
                             <div class="card-info-title">

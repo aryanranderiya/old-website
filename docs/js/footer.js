@@ -107,7 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           document.getElementById("navbarContainer").style.opacity = "0";
+          document.getElementById("footerContainer").style.opacity = "1";
         } else {
+          document.getElementById("footerContainer").style.opacity = "0";
           document.getElementById("navbarContainer").style.opacity = "1";
         }
       });
