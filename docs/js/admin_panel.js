@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const title = document.getElementById("project_title").value;
+      var title = document.getElementById("project_title").value;
       const description = document.getElementById("project_description").value;
       const githubLink = document.getElementById("githubLink").value;
 
@@ -60,7 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const fileSelector = document.getElementById("file-selector");
       const file = fileSelector.files[0];
 
-      const project_id = "project_" + title + "_" + Date.now();
+      const project_id =
+        "project_" + title.replace(" ", "_") + "_" + Date.now();
       var projectsRef = ref(database, "Projects/" + project_id);
 
       if (file) {
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
               github_link: githubLink,
             })
               .then(() => {
-                console.log("Data   Successfully inserted!");
+                console.log("Data Successfully inserted!");
               })
               .catch((error) => {
                 console.error(error);

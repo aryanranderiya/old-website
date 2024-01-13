@@ -47,19 +47,10 @@ function processDataAndHidePreloader(snapshot) {
     var githubLink = projectDetails.github_link;
     var banner_image_URL = projectDetails.banner_image_URL;
 
+    if (banner_image_URL == undefined) {
+      banner_image_URL = "/docs/images/bg_aryan_swirl.jpg";
+    }
     var projectTechStack_values = projectTechStack.trim().split(",");
-
-    // var projectType_icon = "fa-brands " + fa_projectTechStack_values.join(" ");
-
-    // if (projectType.toLowerCase() == "web") {
-    //   projectType_icon = "fa-brands fa-html5";
-    // } else if (projectType.toLowerCase() == "python") {
-    //   projectType_icon = "fa-brands fa-python";
-    // } else if (projectType.toLowerCase() == "android") {
-    //   projectType_icon = "fa-brands fa-android";
-    // }
-
-    // console.log("type:" + projectType);
 
     const replacements = {
       Python: "python fa-brands",
@@ -70,23 +61,6 @@ function processDataAndHidePreloader(snapshot) {
       JavaScript: "js fa-brands",
       SQL: "database fa-solid ",
     };
-
-    // var projectTechStack_values_text = projectTechStack_values;
-
-    // projectTechStack_values_text.forEach((element, index, array) => {
-    //   array[index] = replacements[element] || element.toLowerCase();
-    // });
-
-    // switch (expression) {
-    //   case x:
-    //     // code block
-    //     break;
-    //   case y:
-    //     // code block
-    //     break;
-    //   default:
-    //   // code block
-    // }
 
     const card = document.createElement("div");
     card.innerHTML = `

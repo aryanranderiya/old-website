@@ -213,7 +213,9 @@
   background-size: cover;
   border-radius: 1em;
   min-height: 150px;
-  /* width: 100%; */
+  outline-color: #999999;
+  outline-style: solid;
+  outline-width: 1px;
   background-color: #00bbff;
 }
 
