@@ -123,20 +123,16 @@ button:hover {
   position: fixed;
 }
 
-#cursoriconwave {
-  margin-top: 23px;
-  height: 10%;
-  z-index: 2001;
-  position: fixed;
-}
-
+#cursoriconwave,
 #cursoriconidea,
 #cursoriconpallette,
-#cursoriconlaptop {
+#cursoriconlaptop,
+#cursoriconwarning {
   margin-top: 23px;
   height: 10%;
   z-index: 2001;
   position: fixed;
+
   /* transition: opacity 0.2s ease; */
 }
 
@@ -159,6 +155,7 @@ button:hover {
 #cursoriconpallette,
 #cursortext,
 #cursoricondrag,
+#cursoriconwarning.invisible,
 #cursoriconwave.invisible {
   /* display: none; */
   opacity: 0;
@@ -175,6 +172,7 @@ button:hover {
 #cursoriconlaptop.active,
 #cursoriconidea.active,
 #cursoricondrag.active,
+#cursoriconwarning.active,
 #cursoriconpallette.active {
   /* display: inline-block; */
   opacity: 1;

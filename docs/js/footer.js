@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         footerContainer.innerHTML = data;
         footerContainer.style.cssText = "";
-        setActiveLink();
 
         const footer1 = document.querySelector(".footer1");
         const footer2 = document.querySelector(".footer2");

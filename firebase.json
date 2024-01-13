@@ -7,8 +7,9 @@
       "**/.*",
       "**/node_modules/**",
       "docs/js/admin_panel.js",
+      "docs/css/admin_panel.css",
       "admin_panel.html",
-      "docscssadmin_panel.css"
+      "template.html"
     ]
   }
 }

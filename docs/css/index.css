@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Helvetica;
-  src: url("../fonts/Helvetica.ttf") format("truetype");
-}
-
 * {
   user-select: none;
 }

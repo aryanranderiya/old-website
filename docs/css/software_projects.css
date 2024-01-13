@@ -13,9 +13,9 @@ body {
   width: fit-content;
   color: white;
   font-size: 13em;
-  font-weight: bolder;
+  font-weight: normal !important;
   margin-left: 5%;
-  font-family: VCR;
+  font-family: Spacer;
   margin-bottom: 3%;
   margin-top: -2.5% !important;
   line-height: 0.9em;

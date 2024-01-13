@@ -39,6 +39,29 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
         item.classList.remove("active");
       }
     });
+  })
+  .then(() => {
+    let element = document.querySelector(".navbar-brand");
+
+    let innerText = element.innerText;
+    element.innerHTML = "";
+
+    let textContainer = document.createElement("div");
+    textContainer.classList.add("block");
+
+    for (let letter of innerText) {
+      let span = document.createElement("span");
+      span.innerText = letter.trim() === "" ? "\xa0" : letter;
+      span.classList.add("letter");
+      textContainer.appendChild(span);
+    }
+
+    element.appendChild(textContainer);
+    element.appendChild(textContainer.cloneNode(true));
+
+    element.addEventListener("mouseover", () => {
+      element.classList.remove("play");
+    });
   });
 
 function loadEverything() {
