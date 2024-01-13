@@ -30,29 +30,9 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
       href = href.replace("/", "");
       href = href.replace(".html", "");
 
-      console.log(href, "Href");
-      console.log(pathName, "pathName");
+      // console.log(href, "Href");
+      // console.log(pathName, "pathName");
 
-      // if (pathName === href) {
-      //   item.classList.add("active");
-      // } else if ("/" + href === pathName + ".html") {
-      //   item.classList.add("active");
-      // } else if (pathName === "/docs/" && href == "index.html") {
-      //   item.classList.add("active");
-      // } else {
-      //   item.classList.remove("active");
-      // }
-
-      // if (pathName.trim() + ".html" === "/" + href.trim()) {
-      //   item.classList.add("active");
-      // } else if (pathName.trim() === "/" + href.trim() + ".html") {
-      //   item.classList.add("active");
-      // } else if (pathName.replace("/docs/", "") === "/" + href + ".html") {
-      //   item.classList.add("active");
-      // } else {
-      //   item.classList.remove("active");
-      //   // console.log("remove");
-      // }
       if (href === pathName || (pathName === "" && href == "index")) {
         item.classList.add("active");
       } else {

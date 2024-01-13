@@ -177,6 +177,12 @@
 
         <!-- Scripts -->
 
+        <script>
+            function redirectToProjectPage(projectId) {
+                sessionStorage.setItem("projectId", projectId);
+                window.location.href = "view_project.html";
+            }
+        </script>
         <script src="js/cursor.js"></script>
         <script src="js/cards.js"></script>
         <link rel='stylesheet' type='text/css' href='css/card.css'>

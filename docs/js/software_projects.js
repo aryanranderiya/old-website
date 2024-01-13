@@ -38,7 +38,8 @@ const projectsRef = ref(database, "Projects/");
 function processDataAndHidePreloader(snapshot) {
   snapshot.forEach((childSnapshot) => {
     const projectDetails = childSnapshot.val();
-    console.log(childSnapshot.key);
+    const projectId = childSnapshot.key;
+    console.log(projectId);
 
     var projectTitle = projectDetails.project_title;
     var projectDesc = projectDetails.project_description;
@@ -99,7 +100,7 @@ function processDataAndHidePreloader(snapshot) {
                                 aria-hidden="true" class="icon_btn">
                                 <i class="card_button_icon fa-brands fa-github fa-2x"></i> </span></a>
 
-                        <a class="action primary" target="_blank" href="https://github.com/aryanranderiya">View
+                        <a class="action primary" onclick="redirectToProjectPage('${projectId}')">View
                             Project<span aria-hidden="true" class="icon_btn">
                                 <span class="card_button_icon material-symbols-outlined fa-1.5x">open_in_new</span></a>
                     </div>
