@@ -107,9 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           document.getElementById("navbarContainer").style.opacity = "0";
-          document.getElementById("footerContainer").style.opacity = "1";
+          document.querySelector(".footer_section").style.opacity = "1";
         } else {
-          document.getElementById("footerContainer").style.opacity = "0";
+          document.querySelector(".footer_section").style.opacity = "0";
           document.getElementById("navbarContainer").style.opacity = "1";
         }
       });
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 0.4,
     });
 
     observer.observe(footerContainer);

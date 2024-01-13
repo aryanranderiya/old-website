@@ -17,7 +17,7 @@ body {
   margin-left: 5%;
   font-family: VCR;
   margin-bottom: 3%;
-  /* margin-top: -10% !important; */
+  margin-top: -2.5% !important;
   line-height: 0.9em;
 }
 
@@ -25,7 +25,6 @@ body {
   font-family: VCR;
   src: url("../fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
 }
-
 
 /* .logos,
 .logos-slide {

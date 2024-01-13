@@ -6,13 +6,58 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
   .then((data) => {
     navbarContainer.innerHTML = data;
     navbarContainer.style.cssText = "";
-    setActiveLink();
     loadEverything();
 
     const items = document.querySelectorAll(".item");
 
     items.forEach((item) => {
       item.addEventListener("mouseenter", shuffleAnimation);
+    });
+  })
+  .then(() => {
+    console.log("Setting menu Active Link");
+
+    var pathName = window.location.pathname.toString();
+    const items = document.querySelectorAll(".item");
+
+    pathName = pathName.replace("/", "");
+    pathName = pathName.replace(".html", "");
+    pathName = pathName.replace("docs/", "");
+
+    items.forEach((item) => {
+      var href = item.querySelector("a").getAttribute("href");
+
+      href = href.replace("/", "");
+      href = href.replace(".html", "");
+
+      console.log(href, "Href");
+      console.log(pathName, "pathName");
+
+      // if (pathName === href) {
+      //   item.classList.add("active");
+      // } else if ("/" + href === pathName + ".html") {
+      //   item.classList.add("active");
+      // } else if (pathName === "/docs/" && href == "index.html") {
+      //   item.classList.add("active");
+      // } else {
+      //   item.classList.remove("active");
+      // }
+
+      // if (pathName.trim() + ".html" === "/" + href.trim()) {
+      //   item.classList.add("active");
+      // } else if (pathName.trim() === "/" + href.trim() + ".html") {
+      //   item.classList.add("active");
+      // } else if (pathName.replace("/docs/", "") === "/" + href + ".html") {
+      //   item.classList.add("active");
+      // } else {
+      //   item.classList.remove("active");
+      //   // console.log("remove");
+      // }
+      if (href === pathName || (pathName === "" && href == "index")) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
     });
   });
 
@@ -59,32 +104,6 @@ function loadEverything() {
     cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 30px white";
     cursoricon1.classList.remove("active");
-  });
-}
-
-// ! highlight current active page
-function setActiveLink() {
-  const pathName = window.location.pathname;
-  const items = document.querySelectorAll(".item");
-
-  items.forEach((item) => {
-    const href = item.querySelector("a").getAttribute("href");
-
-    console.log("Href", href);
-    console.log("pathName", pathName);
-
-    if (pathName === href) {
-      item.classList.add("active");
-      // console.log("added active class");
-    } else if (pathName === "/docs/" + href) {
-      item.classList.add("active");
-      // console.log("added active class 2");
-    } else if (pathName === "/docs/" && href == "index.html") {
-      item.classList.add("active");
-      // console.log("added active class 3");
-    } else {
-      item.classList.remove("active");
-    }
   });
 }
 

@@ -166,7 +166,7 @@ logos.addEventListener("mouseover", () => {
   cursor.style.boxShadow = "none";
   // cursor.style.opacity = "10%";
   cursortext.classList.add("active");
-  cursor.classList.add("blur");
+  cursor.classList.add("partially_transparent2");
 
   // backdrop-filter: blur(100px);
   // -webkit-backdrop-filter: blur(100px);
@@ -178,7 +178,7 @@ logos.addEventListener("mouseout", () => {
   cursor.style.boxShadow = "0px 0px 30px white";
   // cursor.style.backdropFilter = "none";
   cursortext.classList.remove("active");
-  cursor.classList.remove("blur");
+  cursor.classList.remove("partially_transparent2");
 });
 
 // ! Display on the scroll
@@ -197,7 +197,7 @@ function handleIntersection1(entries, observer) {
 const observer1 = new IntersectionObserver(handleIntersection1, {
   root: null,
   rootMargin: "0px",
-  threshold: 0.3,
+  threshold: 0.2,
 });
 observer1.observe(cards);
 

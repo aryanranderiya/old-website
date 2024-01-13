@@ -130,7 +130,6 @@ a {
 .menu_items {
   padding: 4%;
 
-  margin-top: 3.5%;
   z-index: 2001;
   width: 100%;
   height: 100%;
@@ -206,6 +205,9 @@ a {
 }
 
 #websiteby {
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 2%;
   color: grey;
   font-style: italic;
   font-family: TimesDisplay;
