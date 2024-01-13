@@ -47,6 +47,12 @@ body {
   margin: 5% 6%;
   white-space: nowrap;
   position: relative;
+  filter: grayscale(100%) brightness(30%);
+  transition: filter 0.2s ease;
+}
+
+.logos:hover {
+  filter: grayscale(0%) brightness(100%);
 }
 
 .logos-slide {
