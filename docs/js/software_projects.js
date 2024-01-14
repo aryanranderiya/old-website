@@ -64,51 +64,69 @@ function processDataAndHidePreloader(snapshot) {
     };
 
     const card = document.createElement("div");
-
+    card.classList.add("card");
     card.innerHTML = `
-     <div class="card">
-                <div class="card-content">
-                    <div class="card-image" >
-                      <img class="card-image" loading="eager" src='${banner_image_URL}';">
-                      </img>
-                    </div>
-                    <div class="card-info-wrapper">
-                        <div class="card-info">
-                            <div class="card-info-title">
-                                <h3 class="card-title">${projectTitle}</h3>
-                                <h6 class="card-type"><i>${projectType}</i></h6>
+      <div class="card-content">
+          <div class="card-image" >
+            <img class="card-image" loading="eager" src='${banner_image_URL}';">
+            </img>
+          </div>
+          <div class="card-info-wrapper">
+              <div class="card-info">
+                  <div class="card-info-title">
+                      <h3 class="card-title">${projectTitle}</h3>
+                      <h6 class="card-type"><i>${projectType}</i></h6>
 
-                                <div class="card-tech-stack">${projectTechStack_values
-                                  .map((element) => {
-                                    const replacedElement =
-                                      replacements[element] || element;
+                      <div class="card-tech-stack">${projectTechStack_values
+                        .map((element) => {
+                          const replacedElement =
+                            replacements[element] || element;
 
-                                    return `<i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text>`;
-                                  })
-                                  .join(" ")}
+                          return `<i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text>`;
+                        })
+                        .join(" ")}
 
-                               
-                                </div>
+                      
+                      </div>
 
-                            </div>
-                            <h4 class="card-desc">${projectDesc}<h4>
-                        </div>
+                  </div>
+                  <h4 class="card-desc">${projectDesc}<h4>
+              </div>
 
-                    </div>
-                    <div class="btns">
-                        <a class="action secondary" target="_blank" href="${githubLink}">Github Repo<span
-                                aria-hidden="true" class="icon_btn">
-                                <i class="card_button_icon fa-brands fa-github fa-2x"></i> </span></a>
+          </div>
+          <div class="btns">
+              <a class="action secondary" target="_blank" href="${githubLink}">Github Repo<span
+                      aria-hidden="true" class="icon_btn">
+                      <i class="card_button_icon fa-brands fa-github fa-2x"></i> </span></a>
 
-                        <a class="action primary" onclick="redirectToProjectPage('${projectId}')">View
-                            Project<span aria-hidden="true" class="icon_btn">
-                                <span class="card_button_icon material-symbols-outlined fa-1.5x">open_in_new</span></a>
-                    </div>
-                </div>
-            </div>
+              <a class="action primary" onclick="redirectToProjectPage('${projectId}')">View
+                  Project<span aria-hidden="true" class="icon_btn">
+                      <span class="card_button_icon material-symbols-outlined fa-1.5x">open_in_new</span></a>
+          </div>
+      </div>
     `;
 
     document.querySelector(".cards").appendChild(card);
+
+    // ! Display on the scroll
+
+    //! First Intersection Observer
+    function handleIntersection1(entries, observer) {
+      //! Fade in the content box
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          card.style.opacity = "1";
+        } else {
+          card.style.opacity = "0";
+        }
+      });
+    }
+    const observer1 = new IntersectionObserver(handleIntersection1, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    });
+    observer1.observe(card);
   });
 
   // ! Remove the preloader and black card
@@ -181,26 +199,6 @@ logos.addEventListener("mouseout", () => {
   cursortext.classList.remove("active");
   cursor.classList.remove("partially_transparent2");
 });
-
-// ! Display on the scroll
-
-//! First Intersection Observer
-function handleIntersection1(entries, observer) {
-  //! Fade in the content box
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      cards.style.opacity = "1";
-    } else {
-      cards.style.opacity = "0";
-    }
-  });
-}
-const observer1 = new IntersectionObserver(handleIntersection1, {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.2,
-});
-observer1.observe(cards);
 
 // ! change marquee direction on scroll
 

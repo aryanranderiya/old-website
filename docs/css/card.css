@@ -11,7 +11,7 @@
   gap: 25px;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 5% !important;
+  margin-left: 5%;
   margin-bottom: 5em;
   position: relative;
   margin-top: 5em;
@@ -31,7 +31,7 @@
   flex-direction: column;
   position: relative;
   filter: grayscale(100%) brightness(30%);
-  transition: filter 0.2s ease;
+  transition: filter 0.2s ease, visibility 0.5s, opacity 0.5s ease;
 }
 
 .card-title {
@@ -337,4 +337,14 @@
 
 .link > span {
   color: white;
+}
+@media screen and (max-width: 600px) {
+  .cards {
+    margin-left: 4% !important;
+  }
+
+  .card {
+    min-width: 400px;
+    filter: grayscale(0%) brightness(100%);
+  }
 }

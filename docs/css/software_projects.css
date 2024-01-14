@@ -68,11 +68,20 @@ body {
 /* !Responsive */
 @media screen and (max-width: 600px) {
   .title-heading {
-    margin-top: 5%;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
     font-size: 5em;
   }
   .logos-slide img {
     height: 50px;
-    margin: 10px 20px;
+    margin: 20px 20px;
+  }
+
+  .animation_paragraph {
+    white-space: normal;
+  }
+
+  .logos {
+    filter: grayscale(0%) brightness(100%);
   }
 }

@@ -37,3 +37,10 @@ body {
   -webkit-animation: typing 1s steps(14, end),
     blink-caret 0.5s step-end infinite alternate;
 }
+
+@media screen and (max-width: 600px) {
+  .animation_paragraph {
+    white-space: normal;
+  }
+  
+}
