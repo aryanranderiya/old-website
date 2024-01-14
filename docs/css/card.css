@@ -265,30 +265,6 @@
 
 /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 
-@media (max-width: 500px) {
-  .card {
-    height: 180px;
-  }
-
-  .card-image {
-    height: 80px;
-  }
-
-  .card-image > i {
-    font-size: 3em;
-  }
-
-  .card-info-wrapper {
-    padding: 0px 10px;
-  }
-}
-
-@media (max-width: 320px) {
-  .card {
-    width: 100%;
-  }
-}
-
 /* -- ↓ ↓ ↓ YouTube link styles ↓ ↓ ↓ -- */
 
 #youtube-link {
@@ -344,7 +320,7 @@
   }
 
   .card {
-    min-width: 400px;
+    min-width: 400pxyes;
     filter: grayscale(0%) brightness(100%);
   }
 }

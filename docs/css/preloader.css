@@ -95,12 +95,12 @@ body {
 
 .custom-loader {
   width: 120px;
-  height: 22px;
+  height: 19px;
   border-radius: 20px;
   color: #00bbff;
   border: 3px solid;
   position: relative;
-  margin-top: 0.7em;
+  margin-top: 0.2em;
 }
 
 .custom-loader::before {
@@ -123,8 +123,8 @@ body {
 
 #loading_text {
   font-size: 1.3em;
-  font-family: Helvetica;
+  font-family: Spacer;
   font-weight: bold;
   color: #00bbff;
-  margin-top: 3em;
+  margin-top: 2em;
 }

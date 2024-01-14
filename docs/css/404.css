@@ -53,3 +53,9 @@ body {
 .button1 {
   z-index: 1000;
 }
+
+@media screen and (max-width: 600px) {
+  .fourzerofour {
+    margin: 25% 0 0 0;
+  }
+}

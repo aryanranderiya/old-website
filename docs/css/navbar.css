@@ -231,6 +231,11 @@ a {
 
   #websiteby {
     margin-top: 10%;
+    margin-bottom: 5%;
+  }
+
+  .menu_items{
+    margin-top: -5%;
   }
 }
 
