@@ -11,7 +11,7 @@ a {
 }
 body {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
 }
 
 html,
@@ -28,7 +28,7 @@ body {
 section {
   height: 100%;
   width: 100%;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
   /* scroll-snap-stop: always; */
 }
 
