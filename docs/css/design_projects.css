@@ -61,8 +61,7 @@ section {
   font-family: "Times New Roman", Times, serif;
 }
 
-.heading_title_text,
-.heading_title_text_apparel {
+.heading_title_text {
   width: 100%;
   font-family: Helvs;
   font-weight: bold;
@@ -107,8 +106,7 @@ section {
   background-color: black;
 }
 
-.heading_title,
-.heading_title_merch {
+.heading_title {
   width: 100%;
   opacity: 1;
   display: flex;
