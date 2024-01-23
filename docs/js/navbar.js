@@ -25,18 +25,23 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     pathName = pathName.replace("docs/", "");
 
     items.forEach((item) => {
-      var href = item.querySelector("a").getAttribute("href");
+      var div = item.closest("div");
+      var anchor = div.querySelector("a");
 
-      href = href.replace("/", "");
-      href = href.replace(".html", "");
+      if (anchor) {
+        var href = anchor.getAttribute("href");
 
-      // console.log(href, "Href");
-      // console.log(pathName, "pathName");
+        href = href.replace("/", "");
+        href = href.replace(".html", "");
 
-      if (href === pathName || (pathName === "" && href == "index")) {
-        item.classList.add("active");
-      } else {
-        item.classList.remove("active");
+        // console.log(href, "Href");
+        // console.log(pathName, "pathName");
+
+        if (href === pathName || (pathName === "" && href == "index")) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
       }
     });
   })
