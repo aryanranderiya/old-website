@@ -531,67 +531,67 @@
             {
                 imgSrc: 'images/apparel/Tshirt Porsche.png',
                 category: 'Apparel',
-                brand: 'Aryan',
+                brand: 'Aryan Randeriya',
                 title: 'Porsche'
             },
             {
                 imgSrc: 'images/apparel/Tshirt Interstellar.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Interstellar'
             },
             {
                 imgSrc: 'images/apparel/Tshirt Kanye.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Kanye West'
             },
             {
                 imgSrc: 'images/apparel/Tshirt Future1.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Future 1'
             },
             {
                 imgSrc: 'images/apparel/Tshirt BlueRose.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Blue Rose'
             },
             {
                 imgSrc: 'images/apparel/Tshirt Japan.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Japan'
             },
             {
                 imgSrc: 'images/apparel/Tshirt Future2.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Future 2'
             },
             {
                 imgSrc: 'images/apparel/Tshirt InterstellarOld.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Interstellar 2'
             },
             {
                 imgSrc: 'images/apparel/Tshirt Dragon.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Dragon'
             },
             {
                 imgSrc: 'images/apparel/Tshirt Nuclear.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Nuclear'
             },
             {
                 imgSrc: 'images/apparel/Tshirt Spiderverse.png',
                 category: 'Apparel',
-                brand: 'Aryan Randeiya',
+                brand: 'Aryan Randeriya',
                 title: 'Spiderverse'
             }
         ];
@@ -603,6 +603,13 @@
             merchItemsContainer.innerHTML = '';
 
             merchItemsData.forEach((item, index) => {
+
+                index++;
+
+                if (index < 10) {
+                    index = "0" + index;
+                }
+
                 const merchItem = document.createElement('div');
                 merchItem.classList.add('merch_item');
 
@@ -618,7 +625,7 @@
 
                 const shape1 = document.createElement('div');
                 shape1.classList.add('shape');
-                shape1.innerHTML = `<div id="number"><span>0</span><span>${index + 1}</span></div><div class="text-right"><span>${item.category.charAt(0)}</span>${item.category.slice(1)}</div>`;
+                shape1.innerHTML = `<div id="number"><span>${index}</span></div><div class="text-right"><span>${item.category.charAt(0)}</span>${item.category.slice(1)}</div>`;
 
                 itemCopy1.appendChild(shape1);
 
@@ -641,7 +648,6 @@
             });
         }
 
-        // Call the function to generate merch items
         generateMerchItems();
     </script>
     <script src="js/preloader.js"></script>
