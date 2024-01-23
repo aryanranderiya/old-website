@@ -12,6 +12,7 @@ footer {
 .footer_section {
   opacity: 0;
   transition: opacity 0.5s ease;
+  padding: 0;
 }
 
 .footer_main {

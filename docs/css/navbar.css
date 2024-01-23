@@ -33,6 +33,11 @@
   src: url("../fonts/SPACERR-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: Orbitron;
+  src: url("../fonts/Orbitron.ttf") format("truetype");
+}
+
 .website-title {
   /* font-weight: bold; */
   align-items: center;

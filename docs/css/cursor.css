@@ -138,7 +138,7 @@ button:hover {
 
 #cursoricondrag {
   margin-top: 23px;
-  height: 8%;
+  height: 17%;
   z-index: 2001;
   position: fixed;
   /* transition: opacity 0.2s ease; */

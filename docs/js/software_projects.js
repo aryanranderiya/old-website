@@ -77,7 +77,9 @@ function processDataAndHidePreloader(snapshot) {
                       <h3 class="card-title">${projectTitle}</h3>
                       <h6 class="card-type"><i>${projectType}</i></h6>
 
-                      <div class="card-tech-stack">${projectTechStack_values
+                      <div class="card-tech-stack">
+                      Tech Stack:&nbsp;&nbsp;
+                      ${projectTechStack_values
                         .map((element) => {
                           const replacedElement =
                             replacements[element] || element;
@@ -183,6 +185,8 @@ const logos = document.querySelector(".logos");
 logos.addEventListener("mouseover", () => {
   cursor.style.transform = "scale(6)";
   cursor.style.boxShadow = "none";
+  cursor.style.outlineWidth = "0px";
+
   // cursor.style.opacity = "10%";
   cursortext.classList.add("active");
   cursor.classList.add("partially_transparent2");

@@ -98,29 +98,29 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           });
         });
-      });
 
-    //! Fade out navbar when footer is visible
+        //! Fade out navbar when footer is visible
 
-    function handleIntersection(entries, observer) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          document.getElementById("navbarContainer").style.opacity = "0";
-          document.querySelector(".footer_section").style.opacity = "1";
-        } else {
-          document.querySelector(".footer_section").style.opacity = "0";
-          document.getElementById("navbarContainer").style.opacity = "1";
+        function handleIntersection(entries, observer) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              document.getElementById("navbarContainer").style.opacity = "0";
+              document.querySelector(".footer_section").style.opacity = "1";
+            } else {
+              document.querySelector(".footer_section").style.opacity = "0";
+              document.getElementById("navbarContainer").style.opacity = "1";
+            }
+          });
         }
+
+        const observer = new IntersectionObserver(handleIntersection, {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.4,
+        });
+
+        observer.observe(footerContainer);
       });
-    }
-
-    const observer = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.4,
-    });
-
-    observer.observe(footerContainer);
 
     // ! END
   } else {

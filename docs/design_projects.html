@@ -64,9 +64,28 @@
     <!-- ! Section 0 -->
     <section class="content0">
         <div class="title">
-            <h1 class="font-weight-bold title-heading"><br>DESIGN<br>projects</h1>
+            <h1 class="font-weight-bold title-heading"><br>DESIGN PROJECTS</h1>
             <!-- <h5 class="font-weight-bold subheading"><br>by Aryan Randeriya</h1> -->
         </div>
+
+        <div class="folders">
+            <div class="folder" id="folder_one">
+                <img src="images/collection/collection_one.png" loading="eager" class="folder_image" />
+            </div>
+
+            <div class="folder" id="folder_two">
+                <img src="images/collection/collection_two.png" loading="eager" class="folder_image" />
+            </div>
+
+            <div class="folder" id="folder_three">
+                <img src="images/collection/collection_three.png" loading="eager" class="folder_image" />
+            </div>
+
+            <div class="folder" id="folder_four">
+                <img src="images/collection/collection_four.png" loading="eager" class="folder_image" />
+            </div>
+        </div>
+
         <canvas id="ontop-gradient"></canvas>
         <canvas id="gradient-canvas"></canvas>
 
@@ -82,81 +101,335 @@
 
         <!-- ! Merchandise Designs -->
 
-        <div class="merch_slider">
-            <div class="slider-wrapper merch_slider_wrapper">
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Future2.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Nuclear.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Porsche.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Interstellar.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Kanye.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Japan.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt BlueRose.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Future1.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Dragon.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Spiderverse.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt InterstellarOld.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Future2.png" class="merch_image">
-                    </figure>
-                </div>
-                <div class="merch-slider-item">
-                    <figure>
-                        <img loading="eager" src="images/apparel/Tshirt Nuclear.png" class="merch_image">
-                    </figure>
-                </div>
-
-            </div>
-            <div class="slider-progress">
-                <div class="slider-progress-bar"></div>
+        <div class="merchdesigns">
+            <div class="merch_items" id="merchItemsContainer">
             </div>
         </div>
-    </section>
 
+        <!-- <div class="merchdesigns">
+
+            <div class="merch_items">
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Porsche.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>1</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>P</span><span>o</span><span>r</span><span>s</span><span>c</span><span>h</span><span>e</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Interstellar.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>2</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>I</span><span>n</span><span>t</span><span>e</span><span>r</span><span>s</span><span>t</span><span>e</span><span>l</span><span>l</span><span>a</span><span>r</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Kanye.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>3</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>K</span><span>a</span><span>n</span><span>y</span><span>e</span>
+                                    <span>W</span><span>e</span><span>s</span><span>t</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Future1.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>4</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>F</span><span>u</span><span>t</span><span>u</span><span>r</span><span>e</span>
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt BlueRose.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>5</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>B</span><span>l</span><span>u</span><span>e</span>
+                                    <span>R</span><span>o</span><span>s</span><span>e</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Japan.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>6</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>J</span><span>a</span><span>p</span><span>a</span><span>n</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Future2.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>7</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>F</span><span>u</span><span>t</span><span>u</span><span>r</span><span>e</span>
+                                    <span>2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt InterstellarOld.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>8</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>I</span><span>n</span><span>t</span><span>e</span><span>r</span><span>s</span><span>t</span><span>e</span><span>l</span><span>l</span><span>a</span><span>r</span>
+                                    <span>2</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Dragon.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>0</span><span>9</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>D</span><span>r</span><span>a</span><span>g</span><span>o</span><span>n</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Nuclear.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>1</span><span>0</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>N</span><span>u</span><span>c</span><span>l</span><span>e</span><span>a</span><span>r</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch_item">
+                    <div class="item-img">
+                        <img src="images/apparel/Tshirt Spiderverse.png" alt="" class="apparel_image" />
+                    </div>
+                    <div class="item-copy">
+                        <div class="item-copy-1">
+                            <div class="shape">
+                                <div id="number"><span>1</span><span>1</span></div>
+                                <div class="text-right">
+                                    <span>A</span><span>p</span><span>p</span><span>a</span><span>r</span><span>e</span><span>l</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-copy-2">
+                            <div class="shape">
+                                <div class="text-left">
+                                    <span>A</span><span>r</span><span>y</span><span>a</span><span>n</span>
+                                    <span>R</span><span>a</span><span>n</span><span>d</span><span>e</span><span>r</span><span>i</span><span>y</span><span>a</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>S</span><span>p</span><span>i</span><span>d</span><span>e</span><span>r</span><span>v</span><span>e</span><span>r</span><span>s</span><span>e</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> -->
+
+    </section>
 
     <!-- ! Section Content 2 -->
     <section class="content2">
@@ -253,7 +526,124 @@
 
     <!--! Footer -->
     <header id="footerContainer"></header>
+    <script>
+        const merchItemsData = [
+            {
+                imgSrc: 'images/apparel/Tshirt Porsche.png',
+                category: 'Apparel',
+                brand: 'Aryan',
+                title: 'Porsche'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt Interstellar.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Interstellar'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt Kanye.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Kanye West'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt Future1.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Future 1'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt BlueRose.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Blue Rose'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt Japan.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Japan'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt Future2.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Future 2'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt InterstellarOld.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Interstellar 2'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt Dragon.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Dragon'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt Nuclear.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Nuclear'
+            },
+            {
+                imgSrc: 'images/apparel/Tshirt Spiderverse.png',
+                category: 'Apparel',
+                brand: 'Aryan Randeiya',
+                title: 'Spiderverse'
+            }
+        ];
 
+
+        function generateMerchItems() {
+            const merchItemsContainer = document.getElementById('merchItemsContainer');
+
+            merchItemsContainer.innerHTML = '';
+
+            merchItemsData.forEach((item, index) => {
+                const merchItem = document.createElement('div');
+                merchItem.classList.add('merch_item');
+
+                const itemImg = document.createElement('div');
+                itemImg.classList.add('item-img');
+                itemImg.innerHTML = `<img src="${item.imgSrc}" alt="" loading="eager" class="apparel_image" />`;
+
+                const itemCopy = document.createElement('div');
+                itemCopy.classList.add('item-copy');
+
+                const itemCopy1 = document.createElement('div');
+                itemCopy1.classList.add('item-copy-1');
+
+                const shape1 = document.createElement('div');
+                shape1.classList.add('shape');
+                shape1.innerHTML = `<div id="number"><span>0</span><span>${index + 1}</span></div><div class="text-right"><span>${item.category.charAt(0)}</span>${item.category.slice(1)}</div>`;
+
+                itemCopy1.appendChild(shape1);
+
+                const itemCopy2 = document.createElement('div');
+                itemCopy2.classList.add('item-copy-2');
+
+                const shape2 = document.createElement('div');
+                shape2.classList.add('shape');
+                shape2.innerHTML = `<div class="text-left"><span>${item.brand.charAt(0)}</span>${item.brand.slice(1)}</div><div class="text-right"><span>${item.title}</span></div>`;
+
+                itemCopy2.appendChild(shape2);
+
+                itemCopy.appendChild(itemCopy1);
+                itemCopy.appendChild(itemCopy2);
+
+                merchItem.appendChild(itemImg);
+                merchItem.appendChild(itemCopy);
+
+                merchItemsContainer.appendChild(merchItem);
+            });
+        }
+
+        // Call the function to generate merch items
+        generateMerchItems();
+    </script>
     <script src="js/preloader.js"></script>
     <script defer src="js/navbar.js"></script>
     <script defer src="js/footer.js"></script>
