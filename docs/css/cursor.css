@@ -187,6 +187,7 @@ button:hover {
   /* display: inline-block; */
   opacity: 1;
   transition: opacity 0.3s ease;
+  visibility: visible;
 }
 
 /* 

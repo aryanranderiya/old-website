@@ -549,50 +549,6 @@ p {
   }
 }
 
-/* !marquee */
-
-.marquee__inner .marquee__part.outline_text {
-  color: black;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: white;
-}
-
-.marquee__group span.no_outline_text {
-  color: white;
-}
-
-.marquee {
-  width: 100%;
-  overflow: hidden;
-  height: 10vh;
-  user-select: none;
-  gap: 2rem;
-  padding-top: 5rem;
-  padding-bottom: 4rem;
-  bottom: 0;
-  position: absolute;
-  white-space: nowrap;
-}
-
-.marquee__inner {
-  display: flex;
-  width: fit-content;
-  flex: auto;
-  flex-direction: row;
-}
-
-.marquee__part {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  padding: 0 4px;
-  font-size: 3em;
-  font-family: Akira;
-  color: white;
-}
-
-/* ! marquee end */
-
 /* !Responsive */
 @media screen and (max-width: 600px) {
   .words_rotating_span {

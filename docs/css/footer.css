@@ -58,6 +58,7 @@ footer {
 .social_text,
 .page_text {
   font-size: 1.2em;
+  font-weight: bold;
 }
 
 .div_email {
@@ -135,7 +136,53 @@ footer {
 .word span {
   transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
   transform-origin: bottom;
+  background-color: transparent;
 }
+
+/* !marquee */
+
+.marquee__inner .marquee__part.outline_text {
+  color: black;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+}
+
+.marquee__group span.no_outline_text {
+  color: white;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  height: fit-content;
+  user-select: none;
+  gap: 2rem;
+  margin: 2% 0;
+  /* padding-top: 5rem; */
+  /* padding-bottom: 4rem; */
+  /* bottom: 0; */
+  /* position: absolute; */
+  white-space: nowrap;
+}
+
+.marquee__inner {
+  display: flex;
+  width: fit-content;
+  flex: auto;
+  flex-direction: row;
+}
+
+.marquee__part {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0 4px;
+  font-size: 3em;
+  font-family: Akira;
+  color: white;
+}
+
+/* ! marquee end */
 
 /* ! Responsiveness */
 
@@ -163,5 +210,12 @@ footer {
   }
   .word {
     margin-bottom: -25px;
+  }
+}
+
+/* ! CHANGE THIS */
+@media only screen and (max-width: 900px) {
+  .footer_bottom_name {
+    font-size: 7em;
   }
 }

@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
       cursor.classList.add("transparent");
       cursoricon5.classList.add("active");
       cursoricon5.style.transform = "scale(2)";
-      cursoricon5.style.visibility = "visible";
     });
 
     folder.addEventListener("mouseout", () => {
@@ -71,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
       cursor.style.boxShadow = "0px 0px 30px white";
       cursoricon5.style.transform = "none";
       cursoricon5.classList.remove("active");
-      cursoricon5.style.visibility = "hidden";
 
       folders.forEach((otherFolder) => {
         otherFolder.style.filter = "brightness(100%)";

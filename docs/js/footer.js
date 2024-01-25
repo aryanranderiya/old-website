@@ -60,6 +60,22 @@ document.addEventListener("DOMContentLoaded", function () {
           cursoricon4.classList.remove("active");
         });
 
+        //  ! Marquee
+
+        const marquee = document.querySelector(".marquee");
+
+        marquee.addEventListener("mouseover", () => {
+          cursor.style.transform = "scale(6)";
+          cursor.style.mixBlendMode = "difference";
+          cursor.style.boxShadow = "0px 0px 30px white";
+        });
+
+        marquee.addEventListener("mouseout", () => {
+          cursor.style.transform = "none";
+          cursor.style.mixBlendMode = "normal";
+          cursor.style.boxShadow = "0px 0px 30px white";
+        });
+
         //! Hover Animation on Aryan Randeriya Fotoer Text
 
         const defaultScale = 1;
@@ -120,6 +136,37 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         observer.observe(footerContainer);
+
+        // ! change marquee direction on scroll
+
+        let currentScroll = window.pageYOffset;
+        let isScrollingDown = true;
+
+        // Create a GSAP timeline without initial progress
+        let tween = gsap.to(".marquee__part", {
+          xPercent: -100,
+          repeat: -1,
+          duration: 3,
+          ease: "linear",
+        });
+
+        gsap.set(".marquee__inner", { xPercent: -50 });
+
+        window.addEventListener("wheel", function (event) {
+          if (event.deltaY > 0) {
+            isScrollingDown = true;
+          } else {
+            isScrollingDown = false;
+          }
+
+          gsap.to(tween, {
+            timeScale: isScrollingDown ? 1 : -1,
+          });
+
+          currentScroll = window.pageYOffset;
+        });
+
+        //! END OF "THEN"
       });
 
     // ! END

@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const titles = document.querySelector(".title_heading_1");
   const scroll_btn = document.querySelector(".scroll_btn");
   const main_text = document.querySelector(".typing_animation");
-  const marquee = document.querySelector(".marquee");
   const hello_world = document.querySelector(".words");
   const cursoricon2 = document.getElementById("cursoricon2");
   const cursoricon3 = document.getElementById("cursoricon3");
@@ -157,20 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //   cursor.style.mixBlendMode = "normal";
   //   cursor.style.boxShadow = "0px 0px 30px white";
   // });
-
-  //  ! Marquee
-
-  marquee.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(6)";
-    cursor.style.mixBlendMode = "difference";
-    cursor.style.boxShadow = "0px 0px 30px white";
-  });
-
-  marquee.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
-  });
 
   //! Hello World Text
 
@@ -333,33 +318,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observercoverElement.observe(coverElement);
   // ! END
-});
-
-// ! change marquee direction on scroll
-
-let currentScroll = window.pageYOffset;
-let isScrollingDown = true;
-
-// Create a GSAP timeline without initial progress
-let tween = gsap.to(".marquee__part", {
-  xPercent: -100,
-  repeat: -1,
-  duration: 3,
-  ease: "linear",
-});
-
-gsap.set(".marquee__inner", { xPercent: -50 });
-
-window.addEventListener("wheel", function (event) {
-  if (event.deltaY > 0) {
-    isScrollingDown = true;
-  } else {
-    isScrollingDown = false;
-  }
-
-  gsap.to(tween, {
-    timeScale: isScrollingDown ? 1 : -1,
-  });
-
-  currentScroll = window.pageYOffset;
 });
