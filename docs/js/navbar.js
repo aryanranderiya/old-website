@@ -5,7 +5,7 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
   .then((response) => response.text())
   .then((data) => {
     navbarContainer.innerHTML = data;
-    navbarContainer.style.cssText = "";
+    document.querySelector(".navbar").style.opacity = "0";
     loadEverything();
 
     const items = document.querySelectorAll(".item");

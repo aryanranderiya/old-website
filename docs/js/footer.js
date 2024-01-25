@@ -116,17 +116,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         //! Fade out navbar when footer is visible
+        let footerIntersected = false;
 
         function handleIntersection(entries, observer) {
           entries.forEach((entry) => {
+            console.log(footerIntersected);
+
             if (entry.isIntersecting) {
-              document.getElementById("navbarContainer").style.opacity = "0";
+              if (footerIntersected) {
+                document.querySelector(".navbar").style.opacity = "0";
+              }
               document.querySelector(".footer_section").style.opacity = "1";
             } else {
+              if (footerIntersected) {
+                document.querySelector(".navbar").style.opacity = "1";
+              }
               document.querySelector(".footer_section").style.opacity = "0";
-              document.getElementById("navbarContainer").style.opacity = "1";
             }
           });
+
+          if (
+            entries[0].target.id === "footerContainer" &&
+            entries[0].boundingClientRect.top > 0
+          ) {
+            footerIntersected = true;
+          }
         }
 
         const observer = new IntersectionObserver(handleIntersection, {
@@ -165,6 +179,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
           currentScroll = window.pageYOffset;
         });
+
+        // ! Section Scroll Snapping
+
+        // gsap.registerPlugin(ScrollTrigger);
+
+        // const sections = document.querySelectorAll("section");
+
+        // gsap.registerPlugin(ScrollTrigger);
+
+        // gsap.utils.toArray("section").forEach((section, index) => {
+        //   ScrollTrigger.create({
+        //     trigger: section,
+        //     start: "top center",
+        //     end: "bottom center",
+        //     toggleClass: "active",
+        //     onEnter: () => animateSection(section),
+        //     onEnterBack: () => animateSection(section),
+        //   });
+        // });
+
+        // function animateSection(section) {
+        //   console.log("animated");
+        //   gsap.to(section, {
+        //     duration: 0.5,
+        //     ease: "power4.out",
+        //   });
+        // }
 
         //! END OF "THEN"
       });

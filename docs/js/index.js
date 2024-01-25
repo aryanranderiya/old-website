@@ -16,29 +16,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const subContent = document.querySelector(".subcontent3");
-  const content2 = document.querySelector(".content2");
-
-  const navbar = document.querySelector(".navbar");
 
   //! First Intersection Observer
   function handleIntersection1(entries, observer) {
-    //! Fade in the content box
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in");
-        entry.target.classList.add("zoom-out");
-        // document.querySelector(".navbar").style.opacity = "1";
-      } else {
-        entry.target.classList.remove("fade-in");
-        entry.target.classList.remove("zoom-out");
-        // document.querySelector(".navbar").style.opacity = "0";
-      }
+    requestAnimationFrame(() => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+        } else {
+          entry.target.style.opacity = "0";
+        }
+      });
     });
   }
   const observer1 = new IntersectionObserver(handleIntersection1, {
     root: null,
     rootMargin: "0px",
-    threshold: 0.3,
+    threshold: 0.2,
   });
   observer1.observe(subContent);
 
@@ -53,10 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
       welcoming.style.opacity = "0";
       // document.querySelector(".sect_welcoming").style.visibility = "hidden";
       cursor.style.mixBlendMode = "normal";
-      cursor.style.transform = "none";
       cursor.style.boxShadow = "0px 0px 30px white";
       document.querySelector(".scroll_btn").style.opacity = "1";
-      cursor.style.visibility = "visible";
+      // cursor.style.visibility = "";
     }, 800);
 
     setTimeout(function () {
@@ -69,15 +62,15 @@ document.addEventListener("DOMContentLoaded", function () {
   wrapperElement.addEventListener("animationend", removeHelloWorldCover);
 
   const cover = document.querySelector(".titles");
-  const titles = document.querySelector(".title_heading_1");
   const scroll_btn = document.querySelector(".scroll_btn");
-  const main_text = document.querySelector(".typing_animation");
   const hello_world = document.querySelector(".words");
   const cursoricon2 = document.getElementById("cursoricon2");
   const cursoricon3 = document.getElementById("cursoricon3");
 
   // ! Titles & Cover
   cover.addEventListener("mouseover", () => {
+    cursor.style.visibility = "visible";
+
     cursor.style.transform = "scale(8)";
     cursor.style.boxShadow = "none";
     cursor.classList.add("blur");
@@ -88,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor.style.transform = "none";
     cursor.style.boxShadow = "0px 0px 30px white";
     cursor.classList.remove("blur");
-
     cursoricon2.classList.remove("active");
   });
 
@@ -257,9 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleIntersection(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        document.getElementById("navbarContainer").style.opacity = "1";
-
-        // document.querySelector(".navbar").style.opacity = "1";
+        document.querySelector(".navbar").style.opacity = "1";
 
         content1Titles.forEach((title, index) => {
           gsap.to(title, {
@@ -271,8 +261,6 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         });
       } else {
-        // document.querySelector(".navbar").style.opacity = "0";
-
         content1Titles.forEach((title) => {
           gsap.to(title, {
             opacity: 0,
@@ -300,9 +288,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleIntersectionCover(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        document.getElementById("navbarContainer").style.opacity = "0";
+        document.querySelector(".navbar").style.opacity = "0";
       } else {
-        document.getElementById("navbarContainer").style.opacity = "1";
+        document.querySelector(".navbar").style.opacity = "1";
       }
     });
   }

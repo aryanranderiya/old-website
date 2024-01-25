@@ -28,7 +28,7 @@ body {
 section {
   height: 100%;
   width: 100%;
-  /* scroll-snap-align: start; */
+  /* scroll-snap-align: center; */
   /* scroll-snap-stop: always; */
 }
 
@@ -232,26 +232,14 @@ header {
   height: 70%;
   width: 100%;
   margin: 4em;
-  /* margin-top: 5.5em; */
-  margin-top: -2.5%;
   border-radius: 5em;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 1;
-  /* opacity: 0; */
-  transition: transform 0.2s ease;
-  transform: scale(1.25);
-}
-
-.fade-in {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-out {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  /* transform: scale(1.25); */
 }
 
 .zoom-out {

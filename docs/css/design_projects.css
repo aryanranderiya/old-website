@@ -7,9 +7,6 @@ body {
   position: relative;
   overflow-x: hidden !important;
   overflow: hidden;
-  /* scroll-behavior: smooth; */
-  /* -webkit-scroll-snap-type: y mandatory; */
-  /* scroll-snap-type: y mandatory; */
   background-color: black !important;
 }
 /* body {
@@ -22,8 +19,8 @@ section {
   padding: 5% 0;
   height: fit-content;
   width: 100%;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* scroll-snap-align: start;
+  scroll-snap-stop: always; */
 }
 
 .content0 {

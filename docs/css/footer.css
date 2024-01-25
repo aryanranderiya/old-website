@@ -3,6 +3,14 @@
   src: url("../fonts/Helvetica.ttf") format("truetype");
 }
 
+body {
+  scroll-snap-type: y mandatory; /* Enable mandatory vertical scrolling */
+}
+
+section {
+  scroll-snap-align: start;
+}
+
 footer {
   /* height: 100%; */
   padding-top: 20px;
@@ -16,7 +24,7 @@ footer {
 }
 
 .footer_main {
-  margin: 5% 5%;
+  margin: 2% 5%;
 }
 
 .footer1 {
@@ -157,7 +165,7 @@ footer {
   height: fit-content;
   user-select: none;
   gap: 2rem;
-  margin: 2% 0;
+  /* margin: 2% 0; */
   /* padding-top: 5rem; */
   /* padding-bottom: 4rem; */
   /* bottom: 0; */
@@ -213,20 +221,27 @@ footer {
   }
 }
 
-@media only screen and (max-width: 1080px) {
-  .footer_bottom_name {
-    /* font-size: 5em; */
-  }
-}
-
 /* ! CHANGE THIS */
 @media only screen and (min-width: 1000px) {
   .footer_bottom_name {
-    font-size: 11.5em;
+    font-size: 10em;
     margin-top: -90px;
   }
 
   .word {
     margin-bottom: -90px;
+  }
+
+  #letstalk {
+    font-size: 6em;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .footer_bottom_name {
+    font-size: 16.5em;
+  }
+  .word {
+    margin-bottom: -120px;
   }
 }
