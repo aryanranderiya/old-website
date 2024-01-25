@@ -17,31 +17,27 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
   .then(() => {
     console.log("Setting menu Active Link");
 
-    var pathName = window.location.pathname.toString();
-    const items = document.querySelectorAll(".item");
+    
+    const pathName = window.location.pathname
+      .toString()
+      .replace("/docs/", "")
+      .replace(".html", "")
+      .replace("/", "");
 
-    pathName = pathName.replace("/", "");
-    pathName = pathName.replace(".html", "");
-    pathName = pathName.replace("docs/", "");
+    const items = document.querySelectorAll(".menu_items .item");
 
     items.forEach((item) => {
-      var div = item.closest("div");
-      var anchor = div.querySelector("a");
+      const anchor = item.parentElement;
 
-      if (anchor) {
-        var href = anchor.getAttribute("href");
+      var href = anchor.getAttribute("href");
 
-        href = href.replace("/", "");
-        href = href.replace(".html", "");
+      console.log(href, "Href");
+      console.log(pathName, "pathName");
 
-        // console.log(href, "Href");
-        // console.log(pathName, "pathName");
-
-        if (href === pathName || (pathName === "" && href == "index")) {
-          item.classList.add("active");
-        } else {
-          item.classList.remove("active");
-        }
+      if (href === pathName || (pathName === "" && href == "index")) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
       }
     });
   })

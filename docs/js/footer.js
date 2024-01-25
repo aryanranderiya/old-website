@@ -120,8 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function handleIntersection(entries, observer) {
           entries.forEach((entry) => {
-            console.log(footerIntersected);
-
             if (entry.isIntersecting) {
               if (footerIntersected) {
                 document.querySelector(".navbar").style.opacity = "0";
@@ -143,20 +141,53 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
 
-        const observer = new IntersectionObserver(handleIntersection, {
-          root: null,
-          rootMargin: "0px",
-          threshold: 0.4,
-        });
+        function handleIntersectionTwo(entries, observer) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              document.querySelector(".navbar").style.opacity = "0";
+              document.querySelector(".footer_section").style.opacity = "1";
+            } else {
+              document.querySelector(".navbar").style.opacity = "1";
+              document.querySelector(".footer_section").style.opacity = "0";
+            }
+          });
+        }
 
-        observer.observe(footerContainer);
+        const currentURL = window.location.href;
+
+        const isIndexPage =
+          currentURL === "aryanranderiya.com" ||
+          currentURL.includes("index") ||
+          currentURL.endsWith("/docs/") ||
+          currentURL.endsWith("/docs/index") ||
+          currentURL.endsWith("/docs/index.html");
+
+        if (isIndexPage) {
+          console.log("index");
+
+          const observer = new IntersectionObserver(handleIntersection, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.4,
+          });
+
+          observer.observe(footerContainer);
+        } else {
+          console.log("not index");
+          const observer = new IntersectionObserver(handleIntersectionTwo, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.4,
+          });
+
+          observer.observe(footerContainer);
+        }
 
         // ! change marquee direction on scroll
 
         let currentScroll = window.pageYOffset;
         let isScrollingDown = true;
 
-        // Create a GSAP timeline without initial progress
         let tween = gsap.to(".marquee__part", {
           xPercent: -100,
           repeat: -1,
