@@ -3,7 +3,17 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: #000000 !important;
+  /* background-color: #000000 !important; */
+
+  background-color: black !important;
+  /* background-image: radial-gradient(
+    at 50% -100%,
+    rgb(14, 165, 233) 0,
+    transparent 100%
+  ); */
+
+  /* background: #00bbff; */
+  /* background: radial-gradient(at center top, #00bbff, black, black); */
 }
 
 * {

@@ -17,7 +17,6 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
   .then(() => {
     console.log("Setting menu Active Link");
 
-    
     const pathName = window.location.pathname
       .toString()
       .replace("/docs/", "")

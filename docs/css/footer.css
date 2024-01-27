@@ -17,10 +17,18 @@ footer {
   background-color: black;
 }
 
+.social_text,
+.page_text,
+.footer1 {
+  position: relative;
+  z-index: 1;
+}
+
 .footer_section {
   opacity: 0;
   transition: opacity 0.5s ease;
   padding: 0;
+  z-index: 1;
 }
 
 .footer_main {

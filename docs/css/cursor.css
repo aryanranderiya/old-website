@@ -27,14 +27,32 @@ button:hover {
   background: white;
   pointer-events: none;
   box-shadow: 0px 0px 30px white;
-
   transform: translate(-50%, -50%);
-  transition: transform 0.2s ease-out; /* Add transition property */
-
+  transition: transform 0.2s ease-out;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.cursor_glow_div {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cursor_glow {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background-image: linear-gradient(#00bbff 50%, black);
+  filter: blur(250px);
+  transition: all 450ms ease-out;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+  /* z-index: -1; */
 }
 
 .cursor.blur {
@@ -189,10 +207,3 @@ button:hover {
   transition: opacity 0.3s ease;
   visibility: visible;
 }
-
-/* 
-.titles:hover + .cursor {
-  opacity: 1;
-  transform: scale(6);
-  mix-blend-mode: difference;
-} */

@@ -1,4 +1,141 @@
 document.addEventListener("DOMContentLoaded", function () {
+  var cursor_glow = document.querySelector(".cursor_glow_div");
+
+  document.addEventListener("mousemove", function (e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
+  });
+
+  //! Generate Merch Cards
+
+  const merchItemsData = [
+    {
+      imgSrc: "images/apparel/Tshirt Porsche.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Porsche",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt Interstellar.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Interstellar",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt Kanye.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Kanye West",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt Future1.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Future 1",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt BlueRose.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Blue Rose",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt Japan.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Japan",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt Future2.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Future 2",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt InterstellarOld.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Interstellar 2",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt Dragon.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Dragon",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt Nuclear.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Nuclear",
+    },
+    {
+      imgSrc: "images/apparel/Tshirt Spiderverse.png",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Spiderverse",
+    },
+  ];
+
+  function generateMerchItems() {
+    const merchItemsContainer = document.getElementById("merchItemsContainer");
+
+    merchItemsContainer.innerHTML = "";
+
+    merchItemsData.forEach((item, index) => {
+      index++;
+
+      if (index < 10) {
+        index = "0" + index;
+      }
+
+      const merchItem = document.createElement("div");
+      merchItem.classList.add("merch_item");
+
+      const itemImg = document.createElement("div");
+      itemImg.classList.add("item-img");
+      itemImg.innerHTML = `<img src="${item.imgSrc}" alt="" loading="eager" class="apparel_image" />`;
+
+      const itemCopy = document.createElement("div");
+      itemCopy.classList.add("item-copy");
+
+      const itemCopy1 = document.createElement("div");
+      itemCopy1.classList.add("item-copy-1");
+
+      const shape1 = document.createElement("div");
+      shape1.classList.add("shape");
+      shape1.innerHTML = `<div id="number"><span>${index}</span></div><div class="text-right"><span>${item.category.charAt(
+        0
+      )}</span>${item.category.slice(1)}</div>`;
+
+      itemCopy1.appendChild(shape1);
+
+      const itemCopy2 = document.createElement("div");
+      itemCopy2.classList.add("item-copy-2");
+
+      const shape2 = document.createElement("div");
+      shape2.classList.add("shape");
+      shape2.innerHTML = `<div class="text-left"><span>${item.brand.charAt(
+        0
+      )}</span>${item.brand.slice(1)}</div><div class="text-right"><span>${
+        item.title
+      }</span></div>`;
+
+      itemCopy2.appendChild(shape2);
+
+      itemCopy.appendChild(itemCopy1);
+      itemCopy.appendChild(itemCopy2);
+
+      merchItem.appendChild(itemImg);
+      merchItem.appendChild(itemCopy);
+
+      merchItemsContainer.appendChild(merchItem);
+    });
+  }
+
+  generateMerchItems();
+
   const title = document.querySelector(".title-heading");
   const heading_title = document.querySelector(".heading_title");
 
