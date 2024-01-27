@@ -1,6 +1,8 @@
 // const projectId = new URLSearchParams(window.location.search).get("id");
 // console.log(projectId);
 
+window.location.replace("https://aryanranderiya.com/404");
+
 const projectId = sessionStorage.getItem("projectId");
 
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
@@ -47,6 +49,4 @@ onValue(projectRef, processData);
 
 // ! rest of content
 
-document.addEventListener("DOMContentLoaded", function () {
-
-});
+document.addEventListener("DOMContentLoaded", function () {});

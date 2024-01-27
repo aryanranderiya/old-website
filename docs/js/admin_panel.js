@@ -1,3 +1,5 @@
+window.location.replace("https://aryanranderiya.com/404");
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 
 import {

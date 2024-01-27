@@ -58,6 +58,7 @@ section {
   top: 10%;
   width: 100%;
   display: block;
+  filter: brightness(80%);
 }
 
 .mockup_video_laptop {
