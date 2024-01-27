@@ -5,33 +5,100 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
   .then((response) => response.text())
   .then((data) => {
     navbarContainer.innerHTML = data;
-    document.querySelector(".navbar").style.opacity = "0";
-    loadEverything();
 
+    const navbar = document.querySelector(".navbar");
+    navbar.style.opacity = "0";
+    const cursoricon1 = document.getElementById("cursoricon1");
+    const cursoricon2 = document.getElementById("cursoricon2");
+    const cursoricon5 = document.getElementById("cursoricon5");
+    const navbar_menu = document.querySelector(".navbar_menu");
+    const checkbox = document.getElementById("hamburgerCheckbox");
+    const body = document.querySelector("body");
     const navbar_menu_btn = document.querySelector(".navbar_menu_btn");
-    navbar_menu_btn.addEventListener("mouseover", cursoricon5_mouseOver);
-    navbar_menu_btn.addEventListener("mouseout", cursoricon5_mouseOut);
-
     const contact_button = document.querySelector(".contact_button");
-    contact_button.addEventListener("mouseover", cursoricon5_mouseOver);
-    contact_button.addEventListener("mouseout", cursoricon5_mouseOut);
+    const items = document.querySelectorAll(".menu_items .item");
+    const title = document.querySelector(".title-container");
 
-    const items = document.querySelectorAll(".item");
-
-    items.forEach((item) => {
-      item.addEventListener("mouseenter", shuffleAnimation);
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" || event.keyCode === 27) {
+        navbar_menu.classList.remove("show");
+        body.style.overflow = "auto";
+        console.log("Escape Key Pressed: Menu Hidden.");
+        checkbox.checked = false;
+      }
     });
-  })
-  .then(() => {
+
+    checkbox.addEventListener("click", function () {
+      //! Show the Menu when checked
+      if (this.checked) {
+        navbar_menu.classList.add("show");
+        body.style.overflow = "hidden";
+        console.log("Menu Btn Checked");
+      } else {
+        navbar_menu.classList.remove("show");
+        body.style.overflow = "auto";
+        console.log("Menu Btn Unchecked");
+      }
+    });
+
+    // ! Cursor Menu Hover Effect
+    navbar_menu.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(5)", "none", "difference");
+      addClass(cursoricon1, "active");
+      removeClass(cursoricon2, "active");
+    });
+
+    navbar_menu.addEventListener("mouseout", () => {
+      cursorTransformShadowBlend();
+      removeClass(cursoricon1, "active");
+    });
+
+    title.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.5)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    title.addEventListener("mouseout", () => {
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
+    });
+
+    navbar_menu_btn.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.5)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    navbar_menu_btn.addEventListener("mouseout", () => {
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
+    });
+
+    contact_button.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.5)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    contact_button.addEventListener("mouseout", () => {
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
+    });
+
+    //!  Set Active Link to Menu Item (Highlight Current Page)
     const pathName = window.location.pathname
       .toString()
       .replace("/docs/", "")
       .replace(".html", "")
       .replace("/", "");
 
-    const items = document.querySelectorAll(".menu_items .item");
-
     items.forEach((item) => {
+      item.addEventListener("mouseenter", shuffleAnimation);
+
       const anchor = item.parentElement;
       var href = anchor.getAttribute("href");
 
@@ -46,6 +113,7 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     });
   })
   .then(() => {
+    //! Text Animation on Hover
     let element = document.querySelector(".navbar-brand");
 
     let innerText = element.innerText;
@@ -68,52 +136,6 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
       element.classList.remove("play");
     });
   });
-
-function loadEverything() {
-  const cursoricon1 = document.getElementById("cursoricon1");
-  const navbar_menu = document.querySelector(".navbar_menu");
-  const checkbox = document.getElementById("hamburgerCheckbox");
-  const body = document.querySelector("body");
-  const menu_items = document.querySelector(".navbar_menu");
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" || event.keyCode === 27) {
-      navbar_menu.classList.remove("show");
-      body.style.overflow = "auto";
-      console.log("Escape Key Pressed: Menu Hidden.");
-      checkbox.checked = false;
-    }
-  });
-
-  checkbox.addEventListener("click", function () {
-    //! Show the Menu when checked
-    if (this.checked) {
-      navbar_menu.classList.add("show");
-      body.style.overflow = "hidden";
-      console.log("Menu Btn Checked");
-    } else {
-      navbar_menu.classList.remove("show");
-      body.style.overflow = "auto";
-      console.log("Menu Btn Unchecked");
-    }
-  });
-
-  // ! Cursor Menu Hover Effect
-  navbar_menu.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(5)";
-    cursor.style.mixBlendMode = "difference";
-    cursor.style.boxShadow = "none";
-    cursoricon1.classList.add("active");
-    cursoricon2.classList.remove("active");
-  });
-
-  navbar_menu.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoricon1.classList.remove("active");
-  });
-}
 
 // ! Text Letters Shuffle
 
@@ -161,14 +183,21 @@ function shuffleAnimation(event) {
   }, intervalDuration);
 }
 
-cursoricon5_mouseOver = function () {
-  cursor.style.boxShadow = "none";
-  cursor.classList.add("transparent");
-  cursoricon5.classList.add("active");
-};
+//! Functions
 
-cursoricon5_mouseOut = function () {
-  cursor.classList.remove("transparent");
-  cursor.style.boxShadow = "0px 0px 30px white";
-  cursoricon5.classList.remove("active");
-};
+function cursorTransformShadowBlend(
+  param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
+  param_mixBlendMode = "normal"
+) {
+  cursor.style.transform = param_transform;
+  cursor.style.boxShadow = param_boxShadow;
+  cursor.style.mixBlendMode = param_mixBlendMode;
+}
+
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
+}

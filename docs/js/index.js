@@ -289,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cursoriconwave.classList.remove("invisible");
     cursoriconX.classList.remove("active");
   }
+
   function makeInvisible(element) {
     element.classList.remove("active");
     element.classList.add("invisible");
