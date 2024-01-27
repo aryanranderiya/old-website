@@ -31,13 +31,24 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     checkbox.addEventListener("click", function () {
       //! Show the Menu when checked
       if (this.checked) {
+        console.log("check");
         navbar_menu.classList.add("show");
+
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = "1";
+          }, 300 * index);
+        });
+
         body.style.overflow = "hidden";
-        console.log("Menu Btn Checked");
       } else {
+        console.log("uncheck");
+
+        items.forEach((item) => {
+          item.style.opacity = "0";
+        });
         navbar_menu.classList.remove("show");
         body.style.overflow = "auto";
-        console.log("Menu Btn Unchecked");
       }
     });
 

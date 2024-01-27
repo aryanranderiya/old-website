@@ -1,25 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
   const contentElement = document.querySelector(".content1");
-  const subContent = document.querySelector(".subcontent3");
+  const subContent3 = document.querySelector(".subcontent3");
   const scrollBtn = document.querySelector(".scroll_btn");
   const section_content1 = document.querySelector(".section_content1");
   const cursor_glow_div_two = document.querySelector(".cursor_glow_div_two");
   const welcoming = document.querySelector(".welcoming");
-  const cover = document.querySelector(".titles");
+  const cover = document.querySelector(".cover");
   const scroll_btn = document.querySelector(".scroll_btn");
   const hello_world = document.querySelector(".words");
-  const cursoricon2 = document.getElementById("cursoricon2");
-  const cursoricon3 = document.getElementById("cursoricon3");
   const words_rotating_span = document.querySelector(".words_rotating_span");
   const content1 = document.querySelector(".content1");
-  const cursoriconwave = document.getElementById("cursoriconwave");
-  const cursoriconidea = document.getElementById("cursoriconidea");
-  const cursoriconlaptop = document.getElementById("cursoriconlaptop");
-  const cursoriconpallette = document.getElementById("cursoriconpallette");
   const subcontent1 = document.querySelector(".subcontent1");
   const content1Titles = document.querySelectorAll(".content1_title");
   const navbar = document.querySelector(".navbar");
   const coverElement = document.querySelector(".cover");
+
+  const cursoricon2 = document.getElementById("cursoricon2");
+  const cursoricon3 = document.getElementById("cursoricon3");
+  const cursoriconwave = document.getElementById("cursoriconwave");
+  const cursoriconidea = document.getElementById("cursoriconidea");
+  const cursoriconlaptop = document.getElementById("cursoriconlaptop");
+  const cursoriconpallette = document.getElementById("cursoriconpallette");
   const span_designer = document.getElementById("span_designer");
   const span_dev = document.getElementById("span_dev");
   const span_entrepreneur = document.getElementById("span_entre");
@@ -53,7 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         navbar.style.opacity = "0";
+        navbar.style.visibility = "hidden";
       } else {
+        navbar.style.visibility = "visible";
         navbar.style.opacity = "1";
       }
     });
@@ -91,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     threshold: 0.2,
   });
 
-  observer1.observe(subContent);
+  observer1.observe(subContent3);
   observer2.observe(section_content1);
   observercoverElement.observe(coverElement);
 
@@ -101,10 +104,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // !!coverElement.scrollIntoView({ behavior: "smooth" });
       document.body.style.overflow = "auto";
       welcoming.style.opacity = "0";
-      // document.querySelector(".sect_welcoming").style.visibility = "hidden";
       cursor.style.mixBlendMode = "normal";
       cursor.style.boxShadow = "0px 0px 30px white";
       scrollBtn.style.opacity = "1";
+      section_content1.style.opacity = "1";
+
+      // document.querySelector(".sect_welcoming").style.visibility = "hidden";
       // cursor.style.visibility = "";
     }, 800);
 
