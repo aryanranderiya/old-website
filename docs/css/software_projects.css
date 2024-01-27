@@ -3,17 +3,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  /* background-color: #000000 !important; */
-
   background-color: black !important;
-  /* background-image: radial-gradient(
-    at 50% -100%,
-    rgb(14, 165, 233) 0,
-    transparent 100%
-  ); */
-
-  /* background: #00bbff; */
-  /* background: radial-gradient(at center top, #00bbff, black, black); */
 }
 
 * {
@@ -29,6 +19,8 @@ body {
   margin-bottom: 3%;
   margin-top: -2.5% !important;
   line-height: 0.9em;
+  position: relative;
+  z-index: 1;
 }
 
 @font-face {
@@ -36,18 +28,8 @@ body {
   src: url("../fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
 }
 
-/* .logos,
-.logos-slide {
-  display: flex;
-  gap: 5em;
-  margin: 3% 5%;
-}
-*/
-
 .logos_tools {
-  /* background: white; */
   height: 100px;
-  /* filter: grayscale(); */
 }
 
 /*!Logos animation */
@@ -67,7 +49,6 @@ body {
 
 .logos-slide {
   display: inline-block;
-  /* animation: 20s slide infinite normal; */
 }
 
 .logos-slide img {

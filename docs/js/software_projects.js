@@ -142,66 +142,70 @@ function processDataAndHidePreloader(snapshot) {
 document.addEventListener("DOMContentLoaded", function () {
   onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 
+  var cursor_glow = document.querySelector(".cursor_glow_div");
+
+  document.addEventListener("mousemove", function (e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
+  });
+
   // ! REMOVE THIS :- !!!
   // blackCover.classList.remove("visible");
   // document.body.style.overflow = "auto";
   // terminal_bling.classList.add("animation_paragraph");
-});
 
-//! Software Projects Title
+  //! Software Projects Title
 
-software_projects_title.addEventListener("mouseover", () => {
-  cursor.style.transform = "scale(10)";
-  cursor.style.mixBlendMode = "difference";
-  cursor.style.boxShadow = "none";
-});
+  software_projects_title.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(10)";
+    cursor.style.mixBlendMode = "difference";
+    cursor.style.boxShadow = "none";
+  });
 
-software_projects_title.addEventListener("mouseout", () => {
-  cursor.style.transform = "none";
-  cursor.style.mixBlendMode = "normal";
-  cursor.style.boxShadow = "0px 0px 50px white";
-});
-
-//! Cards Cursor Title
-
-document.addEventListener("mouseover", function (event) {
-  if (event.target.classList.contains("card")) {
-    cursor.style.transform = "scale(1)";
-    cursor.style.boxShadow =
-      "0px 0px 20px white, 0px 0px 35px white, 0px 0px 50px white, 0px 0px 60px white,  0px 0px 70px white,0px 0px 80px white,0px 0px 95px white, 0px 0px 110px white";
-  }
-});
-
-document.addEventListener("mouseout", function (event) {
-  if (event.target.classList.contains("card")) {
+  software_projects_title.addEventListener("mouseout", () => {
     cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 50px white";
+  });
+
+  //! Cards Cursor Title
+
+  document.addEventListener("mouseover", function (event) {
+    if (event.target.classList.contains("card")) {
+      cursor.style.transform = "scale(1)";
+      cursor.style.boxShadow =
+        "0px 0px 20px white, 0px 0px 35px white, 0px 0px 50px white, 0px 0px 60px white,  0px 0px 70px white,0px 0px 80px white,0px 0px 95px white, 0px 0px 110px white";
+    }
+  });
+
+  document.addEventListener("mouseout", function (event) {
+    if (event.target.classList.contains("card")) {
+      cursor.style.transform = "none";
+      cursor.style.boxShadow = "0px 0px 30px white";
+    }
+  });
+
+  //! Logos Cursor Title
+  const logos = document.querySelector(".logos");
+
+  logos.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(6)";
+    cursor.style.boxShadow = "none";
+    cursor.style.outlineWidth = "0px";
+    cursortext.classList.add("active");
+    cursor.classList.add("partially_transparent2");
+  });
+
+  logos.addEventListener("mouseout", () => {
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 30px white";
-  }
-});
+    cursortext.classList.remove("active");
+    cursor.classList.remove("partially_transparent2");
+  });
 
-//! Logos Cursor Title
-const logos = document.querySelector(".logos");
-
-logos.addEventListener("mouseover", () => {
-  cursor.style.transform = "scale(6)";
-  cursor.style.boxShadow = "none";
-  cursor.style.outlineWidth = "0px";
-
-  // cursor.style.opacity = "10%";
-  cursortext.classList.add("active");
-  cursor.classList.add("partially_transparent2");
-
-  // backdrop-filter: blur(100px);
-  // -webkit-backdrop-filter: blur(100px);
-});
-
-logos.addEventListener("mouseout", () => {
-  cursor.style.transform = "none";
-  cursor.style.mixBlendMode = "normal";
-  cursor.style.boxShadow = "0px 0px 30px white";
-  // cursor.style.backdropFilter = "none";
-  cursortext.classList.remove("active");
-  cursor.classList.remove("partially_transparent2");
+  // ! END OF DOMCONTENTLOADED
 });
 
 // ! change marquee direction on scroll
