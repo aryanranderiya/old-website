@@ -1,13 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const contentElement = document.querySelector(".content1");
+  const subContent = document.querySelector(".subcontent3");
+  const scrollBtn = document.querySelector(".scroll_btn");
+  const section_content1 = document.querySelector(".section_content1");
+  const cursor_glow_div_two = document.querySelector(".cursor_glow_div_two");
+  const welcoming = document.querySelector(".welcoming");
+  const cover = document.querySelector(".titles");
+  const scroll_btn = document.querySelector(".scroll_btn");
+  const hello_world = document.querySelector(".words");
+  const cursoricon2 = document.getElementById("cursoricon2");
+  const cursoricon3 = document.getElementById("cursoricon3");
+  const words_rotating_span = document.querySelector(".words_rotating_span");
+  const content1 = document.querySelector(".content1");
+  const cursoriconwave = document.getElementById("cursoriconwave");
+  const cursoriconidea = document.getElementById("cursoriconidea");
+  const cursoriconlaptop = document.getElementById("cursoriconlaptop");
+  const cursoriconpallette = document.getElementById("cursoriconpallette");
+  const subcontent1 = document.querySelector(".subcontent1");
+  const content1Titles = document.querySelectorAll(".content1_title");
+  const navbar = document.querySelector(".navbar");
+  const coverElement = document.querySelector(".cover");
+  const span_designer = document.getElementById("span_designer");
+  const span_dev = document.getElementById("span_dev");
+  const span_entrepreneur = document.getElementById("span_entre");
+
   // ! Scroll on button click
 
-  document.querySelector(".scroll_btn").addEventListener("click", function (e) {
-    console.log("Scroll Button Clicked");
+  scrollBtn.addEventListener("click", function (e) {
+    cursorTransformShadowBlend();
     cursoricon2.classList.remove("active");
-    cursor.style.transform = "none";
-    cursor.style.boxShadow = "0px 0px 30px white";
-
-    const contentElement = document.querySelector(".content1");
 
     contentElement.scrollIntoView({
       top: contentElement.offsetTop,
@@ -15,9 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const subContent = document.querySelector(".subcontent3");
-
-  //! First Intersection Observer
+  //! Intersection Observer
   function handleIntersection1(entries, observer) {
     requestAnimationFrame(() => {
       entries.forEach((entry) => {
@@ -29,254 +48,191 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-  const observer1 = new IntersectionObserver(handleIntersection1, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.2,
-  });
-  observer1.observe(subContent);
 
-  const section_content1 = document.querySelector(".section_content1");
+  function handleIntersection2(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navbar.style.opacity = "0";
+      } else {
+        navbar.style.opacity = "1";
+      }
+    });
+  }
 
   function handleIntersectionGradient(entries, observer) {
     requestAnimationFrame(() => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          document.querySelector(".cursor_glow_div_two").style.opacity = "1";
-          document.querySelector(".cursor_glow_div_two").style.visibility =
-            "visible";
+          cursor_glow_div_two.style.opacity = "1";
+          cursor_glow_div_two.style.visibility = "visible";
         } else {
-          document.querySelector(".cursor_glow_div_two").style.opacity = "0";
-          document.querySelector(".cursor_glow_div_two").style.visibility =
-            "hidden";
+          cursor_glow_div_two.style.opacity = "0";
+          cursor_glow_div_two.style.visibility = "hidden";
         }
       });
     });
   }
-  const observerGradient = new IntersectionObserver(
-    handleIntersectionGradient,
-    {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.2,
-    }
-  );
-  observerGradient.observe(section_content1);
 
-  cursor.style.visibility = "hidden";
+  const observer1 = new IntersectionObserver(handleIntersection1, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  });
+
+  const observercoverElement = new IntersectionObserver(handleIntersection2, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  });
+
+  const observer2 = new IntersectionObserver(handleIntersectionGradient, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2,
+  });
+
+  observer1.observe(subContent);
+  observer2.observe(section_content1);
+  observercoverElement.observe(coverElement);
 
   // ! Scroll after animation finishes:
   function removeHelloWorldCover() {
     setTimeout(function () {
       // !!coverElement.scrollIntoView({ behavior: "smooth" });
       document.body.style.overflow = "auto";
-      const welcoming = document.querySelector(".welcoming");
       welcoming.style.opacity = "0";
       // document.querySelector(".sect_welcoming").style.visibility = "hidden";
       cursor.style.mixBlendMode = "normal";
       cursor.style.boxShadow = "0px 0px 30px white";
-      document.querySelector(".scroll_btn").style.opacity = "1";
+      scrollBtn.style.opacity = "1";
       // cursor.style.visibility = "";
     }, 800);
 
     setTimeout(function () {
-      document.querySelector(".welcoming").remove();
+      welcoming.remove();
       // document.querySelector(".sect_welcoming").remove();
     }, 1600);
   }
 
-  const wrapperElement = document.querySelector(".words_rotating_span");
-  wrapperElement.addEventListener("animationend", removeHelloWorldCover);
-
-  const cover = document.querySelector(".titles");
-  const scroll_btn = document.querySelector(".scroll_btn");
-  const hello_world = document.querySelector(".words");
-  const cursoricon2 = document.getElementById("cursoricon2");
-  const cursoricon3 = document.getElementById("cursoricon3");
+  words_rotating_span.addEventListener("animationend", removeHelloWorldCover);
 
   // ! Titles & Cover
   cover.addEventListener("mouseover", () => {
-    cursor.style.visibility = "visible";
-
-    cursor.style.transform = "scale(8)";
-    cursor.style.boxShadow = "none";
-    cursor.classList.add("blur");
-    cursoricon2.classList.add("active");
+    cursorTransformShadowBlend("scale(8)", "none");
+    addClass(cursor, "blur");
+    addClass(cursoricon2, "active");
   });
 
   cover.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursor.classList.remove("blur");
-    cursoricon2.classList.remove("active");
+    cursorTransformShadowBlend();
+    removeClass(cursor, "blur");
+    removeClass(cursoricon2, "active");
   });
 
   //! Scroll Button
 
   scroll_btn.addEventListener("mouseover", (event) => {
     event.stopPropagation();
-    cursor.style.transform = "none";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursor.style.mixBlendMode = "normal";
+    cursorTransformShadowBlend();
     cursoricon2.classList.remove("active");
   });
 
   scroll_btn.addEventListener("mouseout", (event) => {
     event.stopPropagation();
-    cursor.style.transform = "scale(8)";
-    cursor.style.boxShadow = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursoricon2.classList.add("active");
+    cursorTransformShadowBlend("scale(8)");
+    addClass(cursoricon2, "active");
   });
 
   //! Project Buttons
 
   btn1.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(2)";
-    cursor.style.mixBlendMode = "difference";
-    cursor.style.boxShadow = "none";
-    cursoricon2.classList.remove("active");
-    cursoricon3.classList.add("active");
+    cursorTransformShadowBlend("scale(2)", "none", "difference");
+    removeClass(cursoricon2, "active");
+    addClass(cursoricon3, "active");
   });
 
   btn1.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoricon3.classList.remove("active");
+    cursorTransformShadowBlend();
+    removeClass(cursoricon3, "active");
   });
 
   btn2.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(2)";
-    cursor.style.mixBlendMode = "difference";
-    cursor.style.boxShadow = "none";
-    cursoricon2.classList.remove("active");
-    cursoricon3.classList.add("active");
+    cursorTransformShadowBlend("scale(2)", "none", "difference");
+    removeClass(cursoricon2, "active");
+    addClass(cursoricon3, "active");
   });
 
   btn2.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoricon3.classList.remove("active");
+    cursorTransformShadowBlend();
+    removeClass(cursoricon3, "active");
   });
-
-  //! Homepage Text
-
-  // main_text.addEventListener("mouseover", () => {
-  //   cursoricon2.style.opacity = "0";
-  //   cursor.style.transform = "scale(8)";
-  //   cursor.style.mixBlendMode = "difference";
-  //   cursor.style.boxShadow = "none";
-  // });
-
-  // main_text.addEventListener("mouseout", () => {
-  //   cursor.style.transform = "none";
-  //   cursor.style.mixBlendMode = "normal";
-  //   cursor.style.boxShadow = "0px 0px 30px white";
-  // });
 
   //! Hello World Text
 
   hello_world.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(15)";
-    cursor.style.mixBlendMode = "difference";
-    cursor.style.boxShadow = "none";
+    cursorTransformShadowBlend("scale(15)", "none", "difference");
   });
 
   hello_world.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
+    cursorTransformShadowBlend();
   });
 
   // ! Pallette, Laptop & Idea Cursor
 
-  const span_designer = document.getElementById("span_designer");
-
   span_designer.addEventListener("mouseover", () => {
-    cursor.style.transform = "none";
-    cursor.style.boxShadow = "none";
-    cursor.classList.add("transparent");
-    cursoriconwave.classList.remove("active");
-    cursoriconwave.classList.add("invisible");
-    cursoriconpallette.classList.add("active");
+    cursorTransformShadowBlend(undefined, "none", undefined);
+    makeInvisible(cursoriconwave);
+    addClass(cursor, "transparent");
+    addClass(cursoriconpallette, "active");
+  });
+
+  span_dev.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend(undefined, "none", undefined);
+    makeInvisible(cursoriconwave);
+    addClass(cursor, "transparent");
+    addClass(cursoriconlaptop, "active");
+  });
+
+  span_entrepreneur.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend(undefined, "none", undefined);
+    makeInvisible(cursoriconwave);
+    addClass(cursor, "transparent");
+    addClass(cursoriconidea, "active");
   });
 
   span_designer.addEventListener("mouseout", () => {
-    cursor.classList.remove("transparent");
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoriconwave.classList.add("active");
-    cursoriconwave.classList.remove("invisible");
-    cursoriconpallette.classList.remove("active");
-  });
-
-  const span_dev = document.getElementById("span_dev");
-
-  span_dev.addEventListener("mouseover", () => {
-    cursor.style.transform = "none";
-    cursor.style.boxShadow = "none";
-    cursor.classList.add("transparent");
-    cursoriconwave.classList.remove("active");
-    cursoriconwave.classList.add("invisible");
-    cursoriconlaptop.classList.add("active");
+    normalCursorEmojiSpan(cursoriconpallette);
   });
 
   span_dev.addEventListener("mouseout", () => {
-    cursor.classList.remove("transparent");
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoriconwave.classList.add("active");
-    cursoriconwave.classList.remove("invisible");
-
-    cursoriconlaptop.classList.remove("active");
+    normalCursorEmojiSpan(cursoriconlaptop);
   });
 
-  const span_entre = document.getElementById("span_entre");
-
-  span_entre.addEventListener("mouseover", () => {
-    cursor.style.transform = "none";
-    cursor.style.boxShadow = "none";
-    cursor.classList.add("transparent");
-    cursoriconwave.classList.remove("active");
-    cursoriconwave.classList.add("invisible");
-    cursoriconidea.classList.add("active");
-  });
-
-  span_entre.addEventListener("mouseout", () => {
-    cursor.classList.remove("transparent");
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoriconwave.classList.add("active");
-    cursoriconwave.classList.remove("invisible");
-    cursoriconidea.classList.remove("active");
+  span_entrepreneur.addEventListener("mouseout", () => {
+    normalCursorEmojiSpan(cursoriconidea);
   });
 
   // ! Wave icon cursor
 
-  const content1 = document.querySelector(".content1");
-  const cursoriconwave = document.getElementById("cursoriconwave");
-
   content1.addEventListener("mouseover", () => {
-    cursor.style.transform = "none";
-    cursor.style.boxShadow = "none";
-    cursor.classList.add("transparent");
-    cursoriconwave.classList.add("active");
-    cursoricon2.classList.remove("active");
+    cursorTransformShadowBlend();
+    addClass(cursor, "transparent");
+    addClass(cursoriconwave, "active");
+    removeClass(cursoricon2, "active");
   });
 
   content1.addEventListener("mouseout", () => {
-    cursor.classList.remove("transparent");
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoriconwave.classList.remove("active");
+    cursorTransformShadowBlend();
+    removeClass(cursor, "transparent");
+    removeClass(cursoriconwave, "active");
   });
 
   //! Animate "Hey, I'm Aryan description text in Content 1 Section"
-  const subcontent1 = document.querySelector(".subcontent1");
-  const content1Titles = document.querySelectorAll(".content1_title");
 
-  function handleIntersection(entries, observer) {
+  function handleIntersectionSubcontent(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        document.querySelector(".navbar").style.opacity = "1";
+        navbar.style.opacity = "1";
 
         content1Titles.forEach((title, index) => {
           gsap.to(title, {
@@ -301,29 +257,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const observer = new IntersectionObserver(handleIntersection, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  });
-
-  observer.observe(subcontent1);
-
-  // ! Fade out navbar if title cover is in view
-  const coverElement = document.querySelector(".cover");
-
-  function handleIntersectionCover(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        document.querySelector(".navbar").style.opacity = "0";
-      } else {
-        document.querySelector(".navbar").style.opacity = "1";
-      }
-    });
-  }
-
-  const observercoverElement = new IntersectionObserver(
-    handleIntersectionCover,
+  const observer_subcontent1 = new IntersectionObserver(
+    handleIntersectionSubcontent,
     {
       root: null,
       rootMargin: "0px",
@@ -331,6 +266,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   );
 
-  observercoverElement.observe(coverElement);
+  observer_subcontent1.observe(subcontent1);
+
   // ! END
+
+  // ! Functions
+
+  function cursorTransformShadowBlend(
+    param_transform = "none",
+    param_boxShadow = "0px 0px 30px white",
+    param_mixBlendMode = "normal"
+  ) {
+    cursor.style.transform = param_transform;
+    cursor.style.boxShadow = param_boxShadow;
+    cursor.style.mixBlendMode = param_mixBlendMode;
+  }
+
+  function normalCursorEmojiSpan(cursoriconX) {
+    cursor.classList.remove("transparent");
+    cursor.style.boxShadow = "0px 0px 30px white";
+    cursoriconwave.classList.add("active");
+    cursoriconwave.classList.remove("invisible");
+    cursoriconX.classList.remove("active");
+  }
+  function makeInvisible(element) {
+    element.classList.remove("active");
+    element.classList.add("invisible");
+  }
+
+  function addClass(element, className) {
+    element.classList.add(className);
+  }
+  function removeClass(element, className) {
+    element.classList.remove(className);
+  }
 });

@@ -8,6 +8,14 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     document.querySelector(".navbar").style.opacity = "0";
     loadEverything();
 
+    const navbar_menu_btn = document.querySelector(".navbar_menu_btn");
+    navbar_menu_btn.addEventListener("mouseover", cursoricon5_mouseOver);
+    navbar_menu_btn.addEventListener("mouseout", cursoricon5_mouseOut);
+
+    const contact_button = document.querySelector(".contact_button");
+    contact_button.addEventListener("mouseover", cursoricon5_mouseOver);
+    contact_button.addEventListener("mouseout", cursoricon5_mouseOut);
+
     const items = document.querySelectorAll(".item");
 
     items.forEach((item) => {
@@ -25,7 +33,6 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
 
     items.forEach((item) => {
       const anchor = item.parentElement;
-
       var href = anchor.getAttribute("href");
 
       // console.log(href, "Href");
@@ -153,3 +160,15 @@ function shuffleAnimation(event) {
     }
   }, intervalDuration);
 }
+
+cursoricon5_mouseOver = function () {
+  cursor.style.boxShadow = "none";
+  cursor.classList.add("transparent");
+  cursoricon5.classList.add("active");
+};
+
+cursoricon5_mouseOut = function () {
+  cursor.classList.remove("transparent");
+  cursor.style.boxShadow = "0px 0px 30px white";
+  cursoricon5.classList.remove("active");
+};

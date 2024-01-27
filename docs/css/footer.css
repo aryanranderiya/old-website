@@ -188,6 +188,11 @@ footer {
   flex-direction: row;
 }
 
+@font-face {
+  font-family: Akira;
+  src: url("../fonts/Akira.ttf") format("truetype");
+}
+
 .marquee__part {
   display: flex;
   align-items: center;
