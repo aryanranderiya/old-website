@@ -30,7 +30,7 @@
   min-height: 540px;
   flex-direction: column;
   position: relative;
-  filter: grayscale(100%) brightness(30%);
+  filter: grayscale(100%) brightness(20%);
   transition: filter 0.2s ease, visibility 0.5s, opacity 0.5s ease;
 }
 

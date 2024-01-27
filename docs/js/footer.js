@@ -163,8 +163,6 @@ document.addEventListener("DOMContentLoaded", function () {
           currentURL.endsWith("/docs/index.html");
 
         if (isIndexPage) {
-          console.log("index");
-
           const observer = new IntersectionObserver(handleIntersection, {
             root: null,
             rootMargin: "0px",
@@ -173,7 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
           observer.observe(footerContainer);
         } else {
-          console.log("not index");
           const observer = new IntersectionObserver(handleIntersectionTwo, {
             root: null,
             rootMargin: "0px",
@@ -210,33 +207,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
           currentScroll = window.pageYOffset;
         });
-
-        // ! Section Scroll Snapping
-
-        // gsap.registerPlugin(ScrollTrigger);
-
-        // const sections = document.querySelectorAll("section");
-
-        // gsap.registerPlugin(ScrollTrigger);
-
-        // gsap.utils.toArray("section").forEach((section, index) => {
-        //   ScrollTrigger.create({
-        //     trigger: section,
-        //     start: "top center",
-        //     end: "bottom center",
-        //     toggleClass: "active",
-        //     onEnter: () => animateSection(section),
-        //     onEnterBack: () => animateSection(section),
-        //   });
-        // });
-
-        // function animateSection(section) {
-        //   console.log("animated");
-        //   gsap.to(section, {
-        //     duration: 0.5,
-        //     ease: "power4.out",
-        //   });
-        // }
 
         //! END OF "THEN"
       });

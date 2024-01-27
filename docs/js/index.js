@@ -36,6 +36,33 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   observer1.observe(subContent);
 
+  const section_content1 = document.querySelector(".section_content1");
+
+  function handleIntersectionGradient(entries, observer) {
+    requestAnimationFrame(() => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          document.querySelector(".cursor_glow_div_two").style.opacity = "1";
+          document.querySelector(".cursor_glow_div_two").style.visibility =
+            "visible";
+        } else {
+          document.querySelector(".cursor_glow_div_two").style.opacity = "0";
+          document.querySelector(".cursor_glow_div_two").style.visibility =
+            "hidden";
+        }
+      });
+    });
+  }
+  const observerGradient = new IntersectionObserver(
+    handleIntersectionGradient,
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.2,
+    }
+  );
+  observerGradient.observe(section_content1);
+
   cursor.style.visibility = "hidden";
 
   // ! Scroll after animation finishes:

@@ -27,8 +27,6 @@ initializeApp(firebaseConfig);
 const database = getDatabase();
 
 const storage = getStorage();
-// const storageRef = ref(storage);
-// const imagesRef = ref(storage, "ProjectImages");
 
 document.addEventListener("DOMContentLoaded", function () {
   document

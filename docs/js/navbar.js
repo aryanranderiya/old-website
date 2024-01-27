@@ -15,8 +15,6 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     });
   })
   .then(() => {
-    console.log("Setting menu Active Link");
-
     const pathName = window.location.pathname
       .toString()
       .replace("/docs/", "")
@@ -30,8 +28,8 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
 
       var href = anchor.getAttribute("href");
 
-      console.log(href, "Href");
-      console.log(pathName, "pathName");
+      // console.log(href, "Href");
+      // console.log(pathName, "pathName");
 
       if (href === pathName || (pathName === "" && href == "index")) {
         item.classList.add("active");

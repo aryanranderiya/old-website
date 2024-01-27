@@ -2,7 +2,6 @@
 // console.log(projectId);
 
 const projectId = sessionStorage.getItem("projectId");
-console.log("Project ID:", projectId);
 
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
 

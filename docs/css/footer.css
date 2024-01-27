@@ -4,7 +4,7 @@
 }
 
 body {
-  scroll-snap-type: y mandatory; /* Enable mandatory vertical scrolling */
+  scroll-snap-type: y mandatory;
 }
 
 section {
@@ -12,7 +12,6 @@ section {
 }
 
 footer {
-  /* height: 100%; */
   padding-top: 20px;
   background-color: black;
 }
@@ -36,7 +35,6 @@ footer {
 }
 
 .footer1 {
-  /* width: 100vw; */
   display: flex;
 }
 
@@ -122,10 +120,12 @@ footer {
 
 .footer_bottom_name {
   color: white;
-  font-size: 15em;
+  font-size: 14em;
   font-weight: bolder;
   font-family: Helvs;
   margin-top: -90px;
+  z-index: 1;
+  position: relative;
 }
 
 .footer_hr {
@@ -247,7 +247,7 @@ footer {
 
 @media only screen and (min-width: 1500px) {
   .footer_bottom_name {
-    font-size: 16.5em;
+    font-size: 16em;
   }
   .word {
     margin-bottom: -120px;

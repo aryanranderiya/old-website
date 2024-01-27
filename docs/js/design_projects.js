@@ -136,10 +136,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   generateMerchItems();
 
+  // ! Titles
+
   const title = document.querySelector(".title-heading");
   const heading_title = document.querySelector(".heading_title");
-
-  // ! Titles
 
   title.addEventListener("mouseover", () => {
     cursor.style.transform = "scale(10)";
@@ -158,18 +158,24 @@ document.addEventListener("DOMContentLoaded", function () {
     //! Fade in the content box
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // heading_title.style.opacity = "1";
+        entry.target.style.opacity = "1";
       } else {
-        // heading_title.style.opacity = "0";
+        entry.target.style.opacity = "0";
       }
     });
   }
   const observer1 = new IntersectionObserver(handleIntersection, {
     root: null,
     rootMargin: "0px",
-    threshold: 1,
+    threshold: 0.8,
   });
   observer1.observe(heading_title);
+
+  const merch_items = document.querySelectorAll(".merch_item");
+
+  merch_items.forEach((merch_item) => {
+    observer1.observe(merch_item);
+  });
 
   //! Scroll to div when clicked on folder
 
@@ -186,6 +192,8 @@ document.addEventListener("DOMContentLoaded", function () {
   folders.forEach((folder) => {
     folder.style.transition =
       " filter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1)";
+
+    folder.style.zIndex = "1";
 
     folder.addEventListener("mouseover", () => {
       folder.style.filter = "brightness(100%)";

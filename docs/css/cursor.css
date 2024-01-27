@@ -35,13 +35,21 @@ button:hover {
   justify-content: center;
 }
 
-.cursor_glow_div {
+.cursor_glow_div,
+.cursor_glow_div_two {
   position: fixed;
   pointer-events: none;
   z-index: 0;
 }
 
-.cursor_glow {
+.cursor_glow_div_two {
+  transition: opacity 1.5s ease;
+  opacity: 1;
+  visibility: hidden;
+}
+
+.cursor_glow,
+.cursor_glow_two {
   position: absolute;
   width: 650px;
   height: 650px;
@@ -52,7 +60,6 @@ button:hover {
   left: 0;
   top: 0;
   transform: translate(calc(-50% + 15px), -50%);
-  /* z-index: -1; */
 }
 
 .cursor.blur {
@@ -86,7 +93,7 @@ button:hover {
 
 @font-face {
   font-family: PROXON;
-  src: url("../fonts/PROXON.otf") format("truetype");
+  src: url("../fonts/PROXON.ttf") format("truetype");
 }
 
 #cursortext {
