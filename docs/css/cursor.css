@@ -46,10 +46,23 @@ button:hover {
   transition: opacity 1.5s ease;
   opacity: 1;
   visibility: hidden;
+  position: relative; /* Add position: relative */
 }
 
-.cursor_glow,
 .cursor_glow_two {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-image: linear-gradient(#00bbff 50%, black);
+  filter: blur(200px);
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 60%);
+  transition: all 450ms ease-out;
+}
+
+.cursor_glow {
   position: absolute;
   width: 650px;
   height: 650px;

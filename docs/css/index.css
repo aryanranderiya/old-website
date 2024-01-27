@@ -176,7 +176,7 @@ header {
   left: 45%;
   transform: translate(-50%, -50%);
   padding: 10px;
-  /* z-index: 100; */
+  z-index: 1;
   background: transparent;
 }
 

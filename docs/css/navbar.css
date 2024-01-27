@@ -73,7 +73,6 @@
 
 /* ! Menu Hamburger */
 .navbar_menu_btn {
-  margin-left: auto;
   margin-right: 1%;
   margin-top: 0.2%;
   margin-bottom: -0.3%;
@@ -330,4 +329,179 @@ a {
 
 .letter:nth-child(16) {
   transition-delay: 0.45s;
+}
+
+/*!  Contact me button */
+
+.contact_button {
+  margin-left: auto;
+  position: relative;
+  padding: 5px 25px;
+  background: transparent;
+  font-size: 16px;
+  font-family: Helvs;
+  /* font-weight: bold; */
+  color: #fff;
+  box-shadow: 0px 0px 30px 0px #00bbff;
+  border-radius: 100px;
+  border: 1px;
+  border-style: solid;
+  border-color: #00bbff;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.contact_icon {
+  margin-right: 3px;
+}
+
+.star-1,
+.star-2,
+.star-3,
+.star-4,
+.star-5,
+.star-6 {
+  opacity: 0;
+}
+
+.star-1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #00bbff);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.contact_button:hover {
+  background: #00bbff;
+  color: #000;
+  box-shadow: 0 0 80px #00bbff8c;
+}
+
+.contact_button:hover .star-1 {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 20px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+  opacity: 1;
+}
+
+.contact_button:hover .star-2 {
+  position: absolute;
+  top: 35%;
+  left: -25%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+  opacity: 1;
+}
+
+.contact_button:hover .star-3 {
+  position: absolute;
+  top: 80%;
+  left: -10%;
+  width: 10px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+  opacity: 1;
+}
+
+.contact_button:hover .star-4 {
+  position: absolute;
+  top: -25%;
+  left: 105%;
+  width: 20px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+  opacity: 1;
+}
+
+.contact_button:hover .star-5 {
+  position: absolute;
+  top: 30%;
+  left: 112%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+  opacity: 1;
+}
+
+.contact_button:hover .star-6 {
+  position: absolute;
+  top: 80%;
+  left: 105%;
+  width: 10px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+  opacity: 1;
+}
+
+.fil0 {
+  fill: #fffdef;
 }
