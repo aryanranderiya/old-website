@@ -44,3 +44,9 @@ function processData(snapshot) {
 }
 
 onValue(projectRef, processData);
+
+// ! rest of content
+
+document.addEventListener("DOMContentLoaded", function () {
+
+});
