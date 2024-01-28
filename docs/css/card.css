@@ -57,14 +57,11 @@
 
 .card-tech-stack {
   font-size: 0.9em;
+  color: white;
 }
 
 .tech_stack_icon {
   margin-right: 0.3%;
-}
-
-.card-tech-stack {
-  color: white;
 }
 
 .subtype.android {

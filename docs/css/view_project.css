@@ -15,18 +15,26 @@ section {
   width: 100%;
 }
 
-.subcontent1,
-.subcontent2 {
-  height: 100%;
-  width: 100%;
-}
-
-.subcontent1_title {
+.subcontent1_titledesc {
+  /* display: flex;
+  justify-content: center;
   width: 100%;
   text-align: center;
   margin-top: 10%;
   z-index: 1;
   position: relative;
+  flex-direction: row; */
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-wrap: wrap;
+  z-index: 1;
+  margin-top: 10%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .project_title {
@@ -36,6 +44,15 @@ section {
   font-weight: bold;
   letter-spacing: 0.1ch;
   text-shadow: 0px 0px 70px black;
+}
+
+.project_desc {
+  text-align: center;
+  width: 700px;
+  text-wrap: wrap;
+  font-size: 1em;
+  color: white;
+  font-family: Helvs;
 }
 
 .mockup {
@@ -49,7 +66,6 @@ section {
 .mockup-container {
   position: relative;
   width: 100%;
-  height: 0;
   padding-top: 100%;
 }
 
@@ -62,11 +78,12 @@ section {
 }
 
 .mockup_video_laptop {
+  padding-top: 50px;
   position: absolute;
   left: 12%;
-  top: 11.5%;
+  top: 5%;
   width: 75%;
-  height: 50%;
+  height: 55%;
   z-index: 1;
   cursor: none;
 }
@@ -76,7 +93,34 @@ section {
   cursor: none;
 }
 
-.mockup_video_laptop::-webkit-media-controls-panel,
-.mockup_video_laptop::media-controls-panel {
-  cursor: none;
+.project_type {
+  display: flex;
+  align-items: center;
+}
+
+.p_type {
+  color: white;
+  font-size: 1.2em;
+  font-family: Spacer;
+}
+
+.p_type_icon {
+  font-size: 1.2em;
+}
+.tech_stack {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.tech_stack_item {
+  font-size: 1em;
+  color: white;
+  border-radius: 100px;
+  border-style: solid;
+  border-color: white;
+  width: fit-content;
+  min-width: 90px;
+  padding: 0px 15px;
+  text-align: center;
 }

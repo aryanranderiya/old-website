@@ -1,7 +1,7 @@
 // const projectId = new URLSearchParams(window.location.search).get("id");
 // console.log(projectId);
 
-window.location.replace("https://aryanranderiya.com/404");
+// window.location.replace("https://aryanranderiya.com/404");
 
 const projectId = sessionStorage.getItem("projectId");
 
