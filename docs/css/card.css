@@ -1,5 +1,6 @@
 :root {
-  --card-color: #212121;
+  /* --card-color: #212121; */
+  --card-color: black;
 }
 
 * {
@@ -30,7 +31,7 @@
   min-height: 540px;
   flex-direction: column;
   position: relative;
-  filter: grayscale(100%) brightness(20%);
+  /* filter: grayscale(100%) brightness(20%); */
   transition: filter 0.2s ease, visibility 0.5s, opacity 0.5s ease;
 }
 
@@ -95,15 +96,6 @@
   flex-wrap: wrap;
   text-overflow: ellipsis;
   font-family: Helvs;
-}
-
-.btns {
-  font-family: Helvetica;
-  display: inline-flex;
-  width: 100%;
-  align-items: center;
-  margin-top: 0.5em;
-  margin-bottom: 0.3em;
 }
 
 .card_button_icon {
@@ -320,4 +312,23 @@
     min-width: 400pxyes;
     filter: grayscale(0%) brightness(100%);
   }
+}
+
+/* !Buttons */
+
+.buttons {
+  font-family: Helvetica;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5em;
+  z-index: 1001;
+  margin-bottom: 5%;
+  width: 100%;
+  justify-content: center;
+}
+
+.button_secondary {
+  max-width: 370px;
+  min-width: 370px;
+  margin-right: 0;
 }

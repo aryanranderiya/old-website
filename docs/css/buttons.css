@@ -1,0 +1,111 @@
+.button_blue,
+.button_primary,
+.button_secondary {
+  font-size: 17px;
+  overflow: hidden;
+  align-items: center;
+  position: relative;
+  display: flex;
+  margin-top: 3em;
+  margin-right: 1em;
+  height: 2.8em;
+  padding: 0.35em;
+  padding-right: 3.3em;
+  padding-left: 1.2em;
+  border-radius: 15px;
+}
+
+.button_primary .icon,
+.button_blue .icon,
+.button_secondary .icon {
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 10px;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.button_blue {
+  background: #00bbff;
+  color: white;
+  border: none;
+}
+
+.button_primary {
+  background: white;
+  color: black;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.button_secondary {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  background: black;
+  color: white;
+  font-weight: 500;
+}
+
+.button_blue .icon {
+  background: white;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #84deff;
+}
+
+.button_primary .icon {
+  background: black;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em rgb(0, 0, 0, 0.2);
+}
+
+.button_secondary .icon {
+  background: white;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em rgb(0, 0, 0, 0.2);
+}
+
+.button_blue:hover .icon,
+.button_primary:hover .icon,
+.button_secondary:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.button_blue:hover .icon svg,
+.button_primary:hover .icon svg,
+.button_secondary:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.button_blue:active .icon,
+.button_primary:active .icon,
+.button_secondary:active .icon {
+  transform: scale(0.95);
+}
+
+.button_blue .icon svg,
+.button_primary .icon svg,
+.button_secondary .icon svg {
+  width: 1.1em;
+  transition: transform 0.1s;
+  color: #00bbff;
+}
+
+.btn_icon_1 {
+  color: white;
+  font-size: 1.4em;
+}
+
+.btn_icon_2 {
+  color: black;
+  font-size: 1.4em;
+}
+
+/* !Responsive */
+@media screen and (max-width: 600px) {
+  .button_blue {
+    font-size: 12px;
+  }
+}

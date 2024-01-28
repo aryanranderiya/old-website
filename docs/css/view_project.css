@@ -66,7 +66,7 @@ section {
 .mockup-container {
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  padding-top: 65%;
 }
 
 .mockup_laptop {
@@ -77,15 +77,19 @@ section {
   filter: brightness(80%);
 }
 
-.mockup_video_laptop {
-  padding-top: 50px;
+.video-container {
   position: absolute;
   left: 12%;
-  top: 5%;
-  width: 75%;
-  height: 55%;
+  top: 17%;
+  width: 76%;
   z-index: 1;
   cursor: none;
+  overflow: hidden;
+}
+
+.mockup_video_laptop {
+  width: 100%;
+  height: 150%;
 }
 
 .mockup_video_laptop:hover {
@@ -95,19 +99,31 @@ section {
 
 .project_type {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  justify-items: center;
 }
 
 .p_type {
+  display: flex;
+  flex-direction: row;
   color: white;
-  font-size: 1.2em;
-  font-family: Spacer;
+  font-family: Helvs;
+  gap: 7px;
 }
 
 .p_type_icon {
-  font-size: 1.2em;
+  font-size: 1.7em !important;
+  align-self: center;
 }
+.p_type_text {
+  font-size: 1.3em;
+  align-self: center;
+}
+
 .tech_stack {
+  margin-top: 1%;
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -119,8 +135,26 @@ section {
   border-radius: 100px;
   border-style: solid;
   border-color: white;
+  border-width: 2px;
   width: fit-content;
   min-width: 90px;
   padding: 0px 15px;
   text-align: center;
+}
+
+.project_info_text {
+  margin: 2% 8%;
+  color: white;
+  font-family: Helvs;
+  font-size: 1.5em;
+  text-align: justify;
+}
+
+/* !Buttons */
+
+.buttons {
+  margin-bottom: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

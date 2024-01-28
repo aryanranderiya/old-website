@@ -16,6 +16,7 @@ section {
 * {
   user-select: none;
 }
+
 .title-heading {
   width: fit-content;
   color: white;

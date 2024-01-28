@@ -10,6 +10,7 @@
     <link rel='stylesheet' type='text/css' href='css/cursor.css'>
     <link rel='stylesheet' type='text/css' href='css/preloader.css'>
     <link rel='stylesheet' type='text/css' href='css/navbar.css'>
+    <link rel='stylesheet' type='text/css' href='css/buttons.css'>
     <script src="https://kit.fontawesome.com/2fafe620ef.js" crossorigin="anonymous"></script>
 
 </head>
@@ -37,6 +38,7 @@
     <!--! Custom Cursor -->
 
     <div class="cursor">
+        <h1 id="cursortext">Languages</h1>
         <span class="material-symbols-rounded " id="cursoricon1">
             arrow_forward
         </span>
@@ -48,6 +50,12 @@
         </span>
         <i class="fa-regular fa-comments" id="cursoricon4"></i>
         <img src="images/ios_icon_point_top.png" id="cursoricon5">
+
+        <img src="images/ios_icon_handwave.png" id="cursoriconwave">
+        <img src="images/ios_icon_idea.png" id="cursoriconidea">
+        <img src="images/ios_icon_laptop.png" id="cursoriconlaptop">
+        <img src="images/ios_icon_pallette.png" id="cursoriconpallette">
+
     </div>
 
 
@@ -61,8 +69,10 @@
 
                 <div class="project_type">
                     <div class="p_type">
-                        <i class="p_type_icon fa-solid fa-laptop-code"></i>
-                        <text>Desktop Application</text>
+                        <span class="material-symbols-outlined p_type_icon">
+                            laptop_mac
+                        </span>
+                        <text class="p_type_text">Desktop Application</text>
                     </div>
                 </div>
 
@@ -93,14 +103,43 @@
             <div class="mockup">
                 <div class="mockup-container">
                     <img src="images/macbook.png" class="mockup_laptop">
-                    <video controls class="mockup_video_laptop" autoplay
-                        controlsList="nodownload noplaybackrate noremoteplayback" disablePictureInPicture loop>
-                        <source src="videos/demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h7 style="color:white"> Project Demo</h7>
-
+                    <div class="video-container">
+                        <video controls class="mockup_video_laptop" autoplay
+                            controlsList="nodownload noplaybackrate noremoteplayback" disablePictureInPicture loop>
+                            <source src="videos/test2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="subcontent3">
+            <h3 class="project_info_text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas interdum augue ut blandit.
+                Quisque auctor dui
+                ac nulla semper tempor sit amet et tortor. Suspendisse auctor tellus ante, quis consectetur elit dapibus
+                in. Nullam
+                porta efficitur augue. Etiam euismod odio sed velit fermentum tincidunt. Nulla non neque semper,
+                condimentum arcu et,
+                ullamcorper ligula. Integer vel nisi ut nisl elementum ornare rhoncus non orci. Cras semper scelerisque
+                augue, hendrerit
+                malesuada turpis vestibulum ut. Phasellus tempor pretium est et hendrerit.
+            </h3>
+
+            <div class="buttons">
+                <button class="button_primary">
+                    Github Repository
+                    <div class="icon">
+                        <i class="fa-brands fa-github btn_icon_1"></i>
+                    </div>
+                </button>
+                <button class="button_secondary">
+                    Try it Out
+                    <div class="icon">
+                        <i class="fa-solid fa-square-arrow-up-right btn_icon_2"></i>
+                    </div>
+                </button>
             </div>
         </div>
     </section>
@@ -108,11 +147,8 @@
     <!--! Footer -->
     <header id="footerContainer"></header>
 
-
-    <!-- Scripts -->
-
+    <!--! Scripts -->
     <script src="js/view_project.js" type="module"></script>
-
     <script defer src="js/navbar.js"></script>
     <script defer src="js/footer.js"></script>
     <script src="js/cursor.js"></script>

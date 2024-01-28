@@ -39,7 +39,7 @@ function processDataAndHidePreloader(snapshot) {
   snapshot.forEach((childSnapshot) => {
     const projectDetails = childSnapshot.val();
     const projectId = childSnapshot.key;
-    console.log(projectId);
+    // console.log(projectId);
 
     var projectTitle = projectDetails.project_title;
     var projectDesc = projectDetails.project_description;
@@ -96,14 +96,15 @@ function processDataAndHidePreloader(snapshot) {
               </div>
 
           </div>
-          <div class="btns">
-              <a class="action secondary" target="_blank" href="${githubLink}">Github Repo<span
-                      aria-hidden="true" class="icon_btn">
-                      <i class="card_button_icon fa-brands fa-github fa-2x"></i> </span></a>
-
-              <a class="action primary" onclick="redirectToProjectPage('${projectId}')">View
-                  Project<span aria-hidden="true" class="icon_btn">
-                      <span class="card_button_icon material-symbols-outlined fa-1.5x">open_in_new</span></a>
+          <div class="buttons">
+            <a onclick="redirectToProjectPage('${projectId}')">
+            <button class="button_secondary">
+                      View Project
+                <div class="icon">
+                    <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
+                </div>
+              </button>
+            </a>
           </div>
       </div>
     `;

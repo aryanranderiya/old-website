@@ -49,4 +49,50 @@ onValue(projectRef, processData);
 
 // ! rest of content
 
-document.addEventListener("DOMContentLoaded", function () {});
+document.addEventListener("DOMContentLoaded", function () {
+  const button_primary = document.querySelector(".button_primary");
+  const button_secondary = document.querySelector(".button_secondary");
+  const cursoricon3 = document.getElementById("cursoricon3");
+  const cursoricon5 = document.getElementById("cursoricon5");
+
+  button_primary.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(1.5)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  button_primary.addEventListener("mouseout", () => {
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+    cursorTransformShadowBlend();
+  });
+
+  button_secondary.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(1.5)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  button_secondary.addEventListener("mouseout", () => {
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+    cursorTransformShadowBlend();
+  });
+});
+
+function cursorTransformShadowBlend(
+  param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
+  param_mixBlendMode = "normal"
+) {
+  cursor.style.transform = param_transform;
+  cursor.style.boxShadow = param_boxShadow;
+  cursor.style.mixBlendMode = param_mixBlendMode;
+}
+
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
+}
