@@ -204,7 +204,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-        
       cursor.style.boxShadow = "none";
       cursor.classList.add("transparent");
       cursoricon5.classList.add("active");

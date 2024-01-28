@@ -78,7 +78,6 @@ function processDataAndHidePreloader(snapshot) {
                       <h6 class="card-type"><i>${projectType}</i></h6>
 
                       <div class="card-tech-stack">
-                      Tech Stack:&nbsp;&nbsp;
                       ${projectTechStack_values
                         .map((element) => {
                           const replacedElement =
@@ -130,6 +129,31 @@ function processDataAndHidePreloader(snapshot) {
       threshold: 0.3,
     });
     observer1.observe(card);
+
+    //! Brightness
+    const cards = document.querySelectorAll(".card");
+    const logos = document.querySelector(".logos");
+
+    cards.forEach((card) => {
+      card.addEventListener("mouseover", () => {
+        card.classList.remove("grayscale");
+        logos.style.filter = "brightness(100%) grayscale(0%)";
+
+        cards.forEach((otherCard) => {
+          if (otherCard !== card) {
+            otherCard.classList.add("grayscale");
+          }
+        });
+      });
+
+      card.addEventListener("mouseout", () => {
+        logos.style.filter = "brightness(20%) grayscale(100%)";
+
+        cards.forEach((otherCard) => {
+          otherCard.classList.remove("grayscale");
+        });
+      });
+    });
   });
 
   // ! Remove the preloader and black card
@@ -141,6 +165,8 @@ function processDataAndHidePreloader(snapshot) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  const logos = document.querySelector(".logos");
+
   onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 
   var cursor_glow = document.querySelector(".cursor_glow_div");
@@ -188,9 +214,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //! Logos Cursor Title
-  const logos = document.querySelector(".logos");
 
   logos.addEventListener("mouseover", () => {
+    logos.style.filter = "brightness(100%) grayscale(0%)";
+
     cursor.style.transform = "scale(6)";
     cursor.style.boxShadow = "none";
     cursor.style.outlineWidth = "0px";
@@ -199,6 +226,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   logos.addEventListener("mouseout", () => {
+    logos.style.filter = "brightness(30%)  grayscale(100%)";
+
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 30px white";

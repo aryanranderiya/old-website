@@ -123,14 +123,7 @@ section {
 
 .folder {
   transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  /* filter: brightness(50%); */
 }
-
-/* .folder:hover {
-  transform: scale(1.2);
-  filter: brightness(100%);
-  z-index: 1;
-} */
 
 .folder_image {
   width: 420px;
