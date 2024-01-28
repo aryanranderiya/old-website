@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
   logos.addEventListener("mouseover", () => {
     logos.style.filter = "brightness(100%) grayscale(0%)";
 
-    cursor.style.transform = "scale(6)";
+    cursor.style.transform = "scale(8)";
     cursor.style.boxShadow = "none";
     cursor.style.outlineWidth = "0px";
     cursortext.classList.add("active");
