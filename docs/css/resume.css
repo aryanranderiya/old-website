@@ -27,7 +27,6 @@ section {
 .titlediv {
   margin-top: 10%;
   width: 100%;
-  text-align: center;
 }
 
 .title {
@@ -35,6 +34,16 @@ section {
   color: white;
   font-family: Helvs;
   font-weight: bold;
+  text-align: center;
+}
+
+.subtitle {
+  color: rgb(170, 170, 170);
+  font-family: Helvs;
+  width: 100%;
+  font-size: 0.9em;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .resume_image {
