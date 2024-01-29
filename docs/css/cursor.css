@@ -175,7 +175,7 @@ button:hover {
 
 #cursoricon4 {
   color: white;
-  font-size: 0.6em !important;
+  font-size: 0.5em !important;
   z-index: 2001;
   position: fixed;
   font-weight: bold;

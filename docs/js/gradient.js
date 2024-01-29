@@ -631,15 +631,6 @@ class Gradient {
               ((this.computedCanvasStyle = getComputedStyle(this.el)),
               this.waitForCssVars());
           }));
-    /*
-        this.scrollObserver = await s.create(.1, !1),
-        this.scrollObserver.observe(this.el),
-        this.scrollObserver.onSeparate(() => {
-            window.removeEventListener("scroll", this.handleScroll), window.removeEventListener("mousedown", this.handleMouseDown), window.removeEventListener("mouseup", this.handleMouseUp), window.removeEventListener("keydown", this.handleKeyDown), this.isIntersecting = !1, this.conf.playing && this.pause()
-        }), 
-        this.scrollObserver.onIntersect(() => {
-            window.addEventListener("scroll", this.handleScroll), window.addEventListener("mousedown", this.handleMouseDown), window.addEventListener("mouseup", this.handleMouseUp), window.addEventListener("keydown", this.handleKeyDown), this.isIntersecting = !0, this.addIsLoadedClass(), this.play()
-        })*/
   }
   disconnect() {
     this.scrollObserver &&

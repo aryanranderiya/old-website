@@ -363,24 +363,12 @@ const scroll = new DragScroll({
   bar: ".slider-progress-bar",
 });
 
-// const merch_scroll = new DragScroll({
-//   el: ".merch_slider",
-//   wrap: ".slider-wrapper",
-//   item: ".merch-slider-item",
-//   bar: ".slider-progress-bar",
-// });
-
 const animateScroll = () => {
   requestAnimationFrame(animateScroll);
   scroll.raf();
 };
 animateScroll();
 
-// const animateScroll2 = () => {
-//   requestAnimationFrame(animateScroll2);
-//   merch_scroll.raf();
-// };
-// animateScroll2();
 //! Header Scrolling End
 
 //! Change cursor to drag when hover on headers
@@ -401,48 +389,33 @@ slider.addEventListener("mouseout", () => {
   cursoricondrag.classList.remove("active");
 });
 
-//! Change cursor to drag when hover on merch
-
-// const merch_slider = document.querySelector(".merch_slider");
-
-// merch_slider.addEventListener("mouseover", () => {
-//   cursor.style.transform = "none";
-//   cursor.style.boxShadow = "none";
-//   cursor.classList.add("transparent");
-//   cursoricondrag.classList.add("active");
-// });
-
-// merch_slider.addEventListener("mouseout", () => {
-//   cursor.classList.remove("transparent");
-//   cursor.style.boxShadow = "0px 0px 30px white";
-//   cursoricondrag.classList.remove("active");
-// });
-
 // ! Merch designs hover
 
-// document.querySelectorAll(".merch_item").forEach((item) => {
-//   item.addEventListener("mouseenter", function () {
-//     gsap.set(this.querySelectorAll("span"), { opacity: 0 });
-//     gsap.to(this.querySelectorAll("span"), {
-//       opacity: 1,
-//       duration: 0.075,
-//       stagger: {
-//         from: "random",
-//         each: 0.02,
-//       },
-//       ease: "power2.out",
-//     });
-//   });
+/*
+document.querySelectorAll(".merch_item").forEach((item) => {
+  item.addEventListener("mouseenter", function () {
+    gsap.set(this.querySelectorAll("span"), { opacity: 0 });
+    gsap.to(this.querySelectorAll("span"), {
+      opacity: 1,
+      duration: 0.075,
+      stagger: {
+        from: "random",
+        each: 0.02,
+      },
+      ease: "power2.out",
+    });
+  });
 
-//   item.addEventListener("mouseleave", function () {
-//     gsap.to(this.querySelectorAll("span"), {
-//       opacity: 0,
-//       duration: 0.075,
-//       stagger: {
-//         from: "random",
-//         each: 0.02,
-//       },
-//       ease: "power2.in",
-//     });
-//   });
-// });
+  item.addEventListener("mouseleave", function () {
+    gsap.to(this.querySelectorAll("span"), {
+      opacity: 0,
+      duration: 0.075,
+      stagger: {
+        from: "random",
+        each: 0.02,
+      },
+      ease: "power2.in",
+    });
+  });
+});
+*/

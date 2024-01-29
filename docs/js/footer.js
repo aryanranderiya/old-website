@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         footer1.addEventListener("mouseover", () => {
-          cursor.style.transform = "scale(7)";
+          cursor.style.transform = "scale(8)";
           cursor.style.boxShadow = "none";
           cursor.style.outlineWidth = "0.1px";
           cursor.classList.add("partially_transparent");
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const marquee = document.querySelector(".marquee");
 
         marquee.addEventListener("mouseover", () => {
-          cursor.style.transform = "scale(6)";
+          cursor.style.transform = "scale(7)";
           cursor.style.mixBlendMode = "difference";
           cursor.style.boxShadow = "0px 0px 30px white";
         });
@@ -97,10 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
               let scale = defaultScale;
 
               if (i === index) {
-                // Scale the hovered span to 2
                 scale = maxScale;
               } else if (i === index - 1 || i === index + 1) {
-                // Scale the side neighbors to 1.5
                 scale = neighborScale;
               }
 

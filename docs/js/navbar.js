@@ -1,5 +1,3 @@
-//! Add Navigation bar
-
 const navbarContainer = document.getElementById("navbarContainer");
 fetch("navbar.html") //! Fetch navbar html into the element navbar
   .then((response) => response.text())

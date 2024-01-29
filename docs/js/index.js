@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const content1Titles = document.querySelectorAll(".content1_title");
   const navbar = document.querySelector(".navbar");
   const coverElement = document.querySelector(".cover");
+  const buttons_blue = document.querySelectorAll(".button_blue");
 
   const cursoricon2 = document.getElementById("cursoricon2");
   const cursoricon3 = document.getElementById("cursoricon3");
@@ -123,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ! Titles & Cover
   cover.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(8)", "none");
+    cursorTransformShadowBlend("scale(9)", "none");
     addClass(cursor, "blur");
     addClass(cursoricon2, "active");
   });
@@ -144,42 +145,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   scroll_btn.addEventListener("mouseout", (event) => {
     event.stopPropagation();
-    cursorTransformShadowBlend("scale(8)");
+    cursorTransformShadowBlend("scale(9)");
     addClass(cursoricon2, "active");
   });
 
   //! Project Buttons
 
-  btn1.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(2)", "none", "difference");
-    removeClass(cursoricon2, "active");
-    addClass(cursoricon3, "active");
-  });
+  buttons_blue.forEach((button_blue) => {
+    button_blue.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(3)", "none", "difference");
+      removeClass(cursoricon2, "active");
+      addClass(cursoricon3, "active");
+    });
 
-  btn1.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-    removeClass(cursoricon3, "active");
-  });
-
-  btn2.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(2)", "none", "difference");
-    removeClass(cursoricon2, "active");
-    addClass(cursoricon3, "active");
-  });
-
-  btn2.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-    removeClass(cursoricon3, "active");
-  });
-
-  //! Hello World Text
-
-  hello_world.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(15)", "none", "difference");
-  });
-
-  hello_world.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
+    button_blue.addEventListener("mouseout", () => {
+      cursorTransformShadowBlend();
+      removeClass(cursoricon3, "active");
+    });
   });
 
   // ! Pallette, Laptop & Idea Cursor
