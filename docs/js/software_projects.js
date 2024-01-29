@@ -45,7 +45,6 @@ function processDataAndHidePreloader(snapshot) {
     var projectDesc = projectDetails.project_description;
     var projectType = projectDetails.project_type;
     var projectTechStack = projectDetails.project_tech_stack;
-    var githubLink = projectDetails.github_link;
     var banner_image_URL = projectDetails.banner_image_URL;
 
     if (banner_image_URL == undefined) {

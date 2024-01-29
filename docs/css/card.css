@@ -26,8 +26,8 @@
   display: flex;
   max-width: 400px;
   min-width: 400px;
-  max-height: 540px;
-  min-height: 540px;
+  max-height: 560px;
+  min-height: 560px;
   flex-direction: column;
   position: relative;
   transition: filter 0.2s ease, opacity 0.5s ease;
@@ -52,11 +52,13 @@
 }
 
 .card-type {
+  font-size: 1em;
+
   margin-top: -5px;
   margin-bottom: 10px;
   width: 100%;
   display: flex;
-  color: lightgrey;
+  color: rgb(126, 126, 126);
 }
 
 .card-tech-stack {
@@ -69,13 +71,12 @@
 }
 
 .card-desc {
-  margin: 0.5em 0 0 0.5em; /* top right bottom left*/
-  color: #b8b8b8;
-  font-size: 1em;
-  line-height: 1.6rem;
+  color: rgb(160, 160, 160);
+  margin: 0.5em 0 0 0.5em;
+  font-size: 0.9em;
+  line-height: 1.5rem;
   height: 8em;
-  overflow: hidden;
-  flex-wrap: wrap;
+  display: relative;
   text-overflow: ellipsis;
   font-family: Helvs;
 }
@@ -255,4 +256,6 @@
   max-width: 370px;
   min-width: 370px;
   margin-right: 0;
+  margin-top: 0;
+  margin-bottom: -1em;
 }

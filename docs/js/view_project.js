@@ -40,13 +40,72 @@ function processData(snapshot) {
   var projectTechStack = snapshotData.project_tech_stack;
   var githubLink = snapshotData.github_link;
   var banner_image_URL = snapshotData.banner_image_URL;
+  var demoDownloadURL = snapshotData.demo_file_URL;
 
   const text_project_title = document.querySelector(".project_title");
+  const project_desc = document.querySelector(".project_desc");
+  const p_type_text = document.querySelector(".p_type_text");
+  const p_type_icon = document.querySelector(".p_type_icon");
+  const tech_stack = document.querySelector(".tech_stack");
+  const btn_github_anchor = document.querySelector(".btn_github_anchor");
+  const project_info_text = document.querySelector(".project_info_text");
+  const mockup_video_laptop = document.querySelector(".mockup_video_laptop");
+
+  // Set icon for project time to mobile or pc
+  if (projectType.includes("Mobile")) {
+    p_type_icon.innerHTML =
+      '<span class="material-symbols-outlined p_type_icon"> phone_iphone</span>';
+  } else if (projectType.includes("Desktop") || projectType.includes("Web")) {
+    p_type_icon.innerHTML =
+      '<span class="material-symbols-outlined p_type_icon"> laptop_mac</span>';
+  }
+
   text_project_title.innerHTML = projectTitle;
+  p_type_text.innerHTML = projectType;
+  project_info_text.innerHTML = projectDesc;
+  project_desc.remove();
+  mockup_video_laptop.src = demoDownloadURL;
+  console.log("demo url: " + demoDownloadURL);
+  // project_desc.innerHTML = projectDesc;
+
+  // Set icons for tech stack
+  var projectTechStack_values = projectTechStack.trim().split(",");
+
+  const replacements = {
+    Python: "python fa-brands",
+    Android: "android fa-brands",
+    Java: "java fa-brands",
+    HTML: "HTML5 fa-brands",
+    CSS: "CSS3-alt fa-brands",
+    JavaScript: "js fa-brands",
+    SQL: "database fa-solid ",
+  };
+
+  tech_stack.innerHTML = `${projectTechStack_values
+    .map((element) => {
+      const replacedElement = replacements[element] || element;
+
+      return `<div class="tech_stack_item">
+        <i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
+    })
+    .join(" ")}`;
+
+  // Set href for github link
+  if (githubLink == null || githubLink == "" || githubLink == "null") {
+    document.querySelector(".button_primary").remove();
+    document.querySelector(".btn_github_anchor").remove();
+  } else {
+    btn_github_anchor.href = githubLink;
+  }
+
+  setTimeout(function () {
+    const blackCover = document.querySelector(".black_cover");
+    blackCover.classList.remove("visible");
+    document.body.style.overflow = "auto";
+  }, 100);
 }
 
 onValue(projectRef, processData);
-
 // ! rest of content
 
 document.addEventListener("DOMContentLoaded", function () {

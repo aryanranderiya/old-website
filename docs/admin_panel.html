@@ -22,10 +22,8 @@
         <div class="flex">
         </div>
 
-        <label>
-            <input class="input" type="text" id="project_title" placeholder="" required="">
-            <span>Project Title</span>
-        </label>
+        <span>Project Title</span>
+        <input class="input" type="text" id="project_title" placeholder="Enter Project Title" required="">
 
         <label>
             <span><br>Application Type: Web/Mobile/Desktop Application<br><br></span>
@@ -41,9 +39,9 @@
                 <input type="text" name="other" value="Write In" />
             </label>
         </label>
+
         <label>
             <span><br>Tech Stack<br><br></span>
-
             <input type="checkbox" id="tech_stack1" name="tech_stack" value="Python">
             <label for="tech_stack1">Python</label><br>
             <input type="checkbox" id="tech_stack2" name="tech_stack" value="Android">
@@ -58,23 +56,39 @@
             <label for="tech_stack6">JavaScript</label><br>
             <input type="checkbox" id="tech_stack7" name="tech_stack" value="SQL">
             <label for="tech_stack7">SQL</label><br>
-
         </label>
 
         <br>
-        <label>
-            <input class="input" id="project_description" type="text" placeholder="" required="">
-            <span>Project Description</span>
+
+        <label for="opensource">Open Source Project
+            <input type="checkbox" id="opensource" name="opensource" value="opensource">
         </label>
 
         <label>
-            <input class="input" id="githubLink" type="text" placeholder="" required="">
-            <span>Github Link</span>
+            <span><br>Demo Type?<br><br></span>
+            <input type="radio" id="demo_type1" name="demo_type" value="demo_pc">
+            <label for="demo_type1">PC (Laptop/Computer)</label><br>
+            <input type="radio" id="demo_type2" name="demo_type" value="demo_laptop">
+            <label for="demo_type2">Mobile</label><br>
         </label>
         <br>
+
+        <span>Project Description</span>
+        <input class="input" id="project_description" type="text" placeholder="Enter Description" required="">
+        <br>
+
+        <span>Github Link</span>
+        <input class="input" id="githubLink" type="text" placeholder="Enter Github Link" required="">
+        <br>
+
+        <label for="img">Project Demo:</label>
+        <input type="file" id="file-selector-demo" accept=".jpg, .jpeg, .png, .mp4">
+        <br>
+
         <label for="img">Select image:</label>
-        <input type="file" id="file-selector" accept=".jpg, .jpeg, .png">
-        <br><br>
+        <input type="file" id="file-selector-image" accept=".jpg, .jpeg, .png">
+        <br>
+
         <button class="submit">Create New Project</button>
     </form>
 </body>
