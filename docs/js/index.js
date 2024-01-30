@@ -167,21 +167,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // ! Pallette, Laptop & Idea Cursor
 
   span_designer.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none", undefined);
+    cursorTransformShadowBlend(undefined, "none");
     makeInvisible(cursoriconwave);
     addClass(cursor, "transparent");
     addClass(cursoriconpallette, "active");
   });
 
   span_dev.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none", undefined);
+    cursorTransformShadowBlend(undefined, "none");
     makeInvisible(cursoriconwave);
     addClass(cursor, "transparent");
     addClass(cursoriconlaptop, "active");
   });
 
   span_entrepreneur.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none", undefined);
+    cursorTransformShadowBlend(undefined, "none");
     makeInvisible(cursoriconwave);
     addClass(cursor, "transparent");
     addClass(cursoriconidea, "active");

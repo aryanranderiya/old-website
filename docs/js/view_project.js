@@ -66,9 +66,9 @@ function processData(snapshot) {
   //! Set data from database
   text_project_title.innerHTML = projectTitle;
   ptype_text.innerHTML = projectType;
-  p_info_text.innerHTML = projectDesc;
-  project_desc.remove();
-  // project_desc.innerHTML = projectDesc;
+  project_desc.innerHTML = projectDesc;
+  // p_info_text.innerHTML = projectDesc;
+  p_info_text.remove();
 
   setupMockups(demo_type, demoDownloadURL);
 
@@ -103,14 +103,68 @@ function processData(snapshot) {
   }
 }
 
+//!  Intersection Observer for scrolling into view
+function handIntersectionScroller_mobile(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.scrollIntoView({
+        behavior: "auto",
+        block: "end",
+      });
+
+      scrollElementIntotheView(entry.target);
+    } else {
+      console.log(entry.target);
+      console.log("test2");
+    }
+  });
+}
+
+function handIntersectionScroller_pc(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+      });
+    } else {
+      console.log(entry.target);
+      console.log("test2");
+    }
+  });
+}
+
+const observerScroller_pc = new IntersectionObserver(
+  handIntersectionScroller_pc,
+  {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+    immediate: true,
+  }
+);
+
+const observerScroller_mobile = new IntersectionObserver(
+  handIntersectionScroller_mobile,
+  {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.4,
+    immediate: true,
+  }
+);
+
 //! DOMContentLoaded
 
 const mockup_laptop_image = document.querySelector(".mockup_laptop.image");
+
+onValue(projectRef, processData);
 
 document.addEventListener("DOMContentLoaded", function () {
   const button_primary = document.querySelector(".button_primary");
   const button_secondary = document.querySelector(".button_secondary");
   const cursoricon5 = document.getElementById("cursoricon5");
+  const mockups = document.querySelectorAll(".mockup");
 
   if (button_primary) handleButtonEvents(button_primary);
   if (button_secondary) handleButtonEvents(button_secondary);
@@ -129,24 +183,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  hoverDevices();
+  hoverDevices(mockups);
+  playbackControlsSetup();
 });
 
-onValue(projectRef, processData);
+const controls_container = document.querySelector(".video_controls_container");
+const otherControls = document.querySelector(".video_controls_others");
+const playbackControls = document.querySelector(".video_controls_playback");
+const controlIcons = document.querySelector(".icons");
+const icon_control_playback = document.querySelector("#control_playback");
+const dot = document.querySelector(".dot");
 
 //! Intersection Observer handle Intersection
 function handleIntersection1(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
+      mockup_laptop_image.style.opacity = "1";
       entry.target.style.opacity = "1";
       entry.target.style.filter = "grayscale(0%)";
       entry.target.play();
-      mockup_laptop_image.style.opacity = "1";
+
+      dot.classList.remove("visible");
+      controlIcons.style.opacity = "1";
+      otherControls.classList.remove("hidden");
+      playbackControls.classList.remove("hidden");
+      controls_container.classList.remove("hidden");
+      controls_container.style.opacity = "1";
+      icon_control_playback.classList.remove("hidden");
     } else {
+      mockup_laptop_image.style.opacity = "0.3";
       entry.target.style.opacity = "0.3";
       entry.target.style.filter = "grayscale(100%)";
       entry.target.pause();
-      mockup_laptop_image.style.opacity = "0.3";
+
+      dot.classList.add("visible");
+      controlIcons.style.opacity = "0";
+      otherControls.classList.add("hidden");
+      playbackControls.classList.add("hidden");
+      controls_container.classList.add("hidden");
+      setTimeout(() => {
+        controls_container.style.opacity = "0";
+      }, 700);
+      icon_control_playback.classList.add("hidden");
     }
   });
 }
@@ -165,13 +243,13 @@ const observer2 = createIntersectionObserver(0.8);
 
 // ! Functions
 
-function hoverDevices() {
-  const mockups = document.querySelectorAll(".mockup");
-  const mockup_pc = document.querySelector(".mockup_pc");
-  const mockup_phone = document.querySelector(".mockup_phone");
+const mockup_pc = document.querySelector(".mockup_pc");
+const mockup_phone = document.querySelector(".mockup_phone");
+
+function hoverDevices(mockups) {
+  const cursortext = document.getElementById("cursortext");
   const mobileMedia = document.querySelector(".mockup_media_mobile");
   const laptopMedia = document.querySelector(".mockup_media_laptop.video");
-  const cursortext = document.getElementById("cursortext");
   cursortext.style.color = "black";
 
   mockup_phone.addEventListener("click", () => playPauseVideo(mobileMedia));
@@ -251,30 +329,37 @@ function removeCover() {
   }, 500);
 }
 
+const laptopVideo = document.querySelector(".mockup_media_laptop.video");
+const mobileVideo = document.querySelector(".mockup_media_mobile.video");
+
 function setupMockups(demo_type, demoDownloadURL) {
   const mockup_pc = document.querySelector(".mockup_pc");
   const mockup_phone = document.querySelector(".mockup_phone");
   const mockupContainer = document.querySelectorAll(".mockup_container");
   const laptopMedia = document.querySelector(".mockup_media_laptop.video");
   const laptopImage = document.querySelector(".mockup_media_laptop.image");
-  const laptopVideo = document.querySelector(".mockup_media_laptop.video");
-  const mobileMedia = document.querySelector(".mockup_media_mobile.video");
+
+  const containerPhone = document.querySelector(".container-mobile");
+  const containerPC = document.querySelector(".container-laptop");
 
   if (demo_type == "demo_pc") {
     observer2.observe(laptopMedia);
+    observerScroller_pc.observe(containerPC);
     mockup_pc.classList.add("visible");
     laptopMedia.src = demoDownloadURL;
     laptopMedia.addEventListener("loadeddata", removeCover);
     mockupContainer.forEach((element) => element.classList.add("pc"));
     // END OF IF CONDITION
   } else if (demo_type == "demo_mobile") {
-    observer1.observe(mobileMedia);
+    observer1.observe(mobileVideo);
+    observerScroller_mobile.observe(containerPhone);
     mockup_phone.classList.add("visible");
-    mobileMedia.src = demoDownloadURL;
-    mobileMedia.addEventListener("loadeddata", removeCover);
+    mobileVideo.src = demoDownloadURL;
+    mobileVideo.addEventListener("loadeddata", removeCover);
     // END OF IF ELSE CONDITION
   } else {
     observer2.observe(laptopMedia);
+    observerScroller_mobile.observe(containerPC);
     mockup_pc.classList.add("visible");
     laptopImage.src = demoDownloadURL;
     laptopImage.style.display = "block";
@@ -282,5 +367,23 @@ function setupMockups(demo_type, demoDownloadURL) {
     laptopMedia.addEventListener("loadeddata", removeCover);
     mockupContainer.forEach((element) => element.classList.add("pc"));
     // END OF ELSE
+  }
+}
+
+function playbackControlsSetup() {
+  const control_playback = document.querySelector("#control_playback");
+  const control_rewind = document.querySelector("#control_rewind");
+  const control_forward = document.querySelector("#control_forward");
+  const control_backward = document.querySelector("#control_backward");
+
+  const isVisible = (element) => {
+    const computedStyle = window.getComputedStyle(element);
+    return computedStyle.display !== "none";
+  };
+
+  if (mockup_pc.style.display == "none") {
+    console.log("mobile");
+  } else if (mockup_phone.style.display == "none") {
+    console.log("laptop");
   }
 }
