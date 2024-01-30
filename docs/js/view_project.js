@@ -1,6 +1,10 @@
 // const projectId = new URLSearchParams(window.location.search).get("id");
 // console.log(projectId);
 
+window.onbeforeunload = () => {
+  window.scrollTo(0, 0);
+}; // Scroll to top when page is refreshed
+
 // window.location.replace("https://aryanranderiya.com/404");
 
 const projectId = sessionStorage.getItem("projectId");
@@ -43,6 +47,7 @@ function processData(snapshot) {
   var demoDownloadURL = snapshotData.demo_file_URL;
   var demo_type = snapshotData.demo_type;
 
+  const mockupContainer = document.querySelectorAll(".mockup_container");
   const text_project_title = document.querySelector(".project_title");
   const project_desc = document.querySelector(".project_desc");
   const p_type_text = document.querySelector(".p_type_text");
@@ -50,9 +55,17 @@ function processData(snapshot) {
   const tech_stack = document.querySelector(".tech_stack");
   const btn_github_anchor = document.querySelector(".btn_github_anchor");
   const project_info_text = document.querySelector(".project_info_text");
-  const mockupContainer = document.querySelectorAll(".mockup_container");
+  const mockup_laptop_image = document.querySelector(".mockup_laptop.image");
 
   const mockup_media_laptop = document.querySelector(
+    ".mockup_media_laptop.video"
+  );
+
+  const mockup_media_laptop_image = document.querySelector(
+    ".mockup_media_laptop.image"
+  );
+
+  const mockup_media_laptop_video = document.querySelector(
     ".mockup_media_laptop.video"
   );
 
@@ -87,6 +100,36 @@ function processData(snapshot) {
   //   mockup_media_mobile = document.querySelector(".mockup_media_mobile.image");
   // }
 
+  //! Intersection Observer
+  function handleIntersection1(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.filter = "grayscale(0%)";
+        entry.target.play();
+        mockup_laptop_image.style.opacity = "1";
+        console.log("entered");
+      } else {
+        entry.target.style.opacity = "0.3";
+        entry.target.style.filter = "grayscale(100%)";
+        entry.target.pause();
+        mockup_laptop_image.style.opacity = "0.3";
+        console.log("exited");
+      }
+    });
+  }
+  const observer1 = new IntersectionObserver(handleIntersection1, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.7,
+  });
+
+  const observer2 = new IntersectionObserver(handleIntersection1, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.8,
+  });
+
   if (demo_type == "demo_pc") {
     document.querySelector(".mockup_pc").classList.add("visible");
     mockupContainer.forEach((mockupContainerelement) => {
@@ -94,30 +137,29 @@ function processData(snapshot) {
     });
     mockup_media_laptop.src = demoDownloadURL;
     console.log("pc demo made visible");
+
+    observer2.observe(mockup_media_laptop);
   } else if (demo_type == "demo_mobile") {
     document.querySelector(".mockup_phone").classList.add("visible");
     mockup_media_mobile.src = demoDownloadURL;
     console.log("mobile demo made visible");
+    observer1.observe(mockup_media_mobile);
   } else {
     mockupContainer.forEach((mockupContainerelement) => {
       mockupContainerelement.classList.add("pc");
     });
-    const mockup_media_laptop_image = document.querySelector(
-      ".mockup_media_laptop.image"
-    );
 
-    const mockup_media_laptop_video = document.querySelector(
-      ".mockup_media_laptop.video"
-    );
     document.querySelector(".mockup_pc").classList.add("visible");
 
     mockup_media_laptop_image.src = demoDownloadURL;
     mockup_media_laptop_image.style.display = "block";
     mockup_media_laptop_video.style.display = "none";
+    observer2.observe(mockup_media_laptop);
+
     console.log("No Mockup found in database.");
   }
 
-  // Set icons for tech stack
+  //! Set icons for tech stack
   var projectTechStack_values = projectTechStack.trim().split(",");
 
   const replacements = {
@@ -139,7 +181,7 @@ function processData(snapshot) {
     })
     .join(" ")}`;
 
-  // Set href for github link
+  //! Set href for github link
   if (githubLink == null || githubLink == "" || githubLink == "null") {
     document.querySelector(".button_primary").remove();
     document.querySelector(".btn_github_anchor").remove();
@@ -196,10 +238,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function hoverDevices() {
   const mockups = document.querySelectorAll(".mockup");
+  const mockups_containers = document.querySelectorAll(".mockup_container");
   const mockup_pc = document.querySelector(".mockup_pc");
   const mockup_phone = document.querySelector(".mockup_phone");
   const mockup_media_mobile = document.querySelector(".mockup_media_mobile");
-  const mockup_media_laptop = document.querySelector(".mockup_media_laptop");
+  const mockup_media_laptop = document.querySelector(
+    ".mockup_media_laptop.video"
+  );
   const cursortext = document.getElementById("cursortext");
 
   cursortext.style.color = "black";
@@ -224,28 +269,63 @@ function hoverDevices() {
     });
   });
 
-  let flag_playing_once = true;
-
   // ! Change this
-  // const playPauseVideo = (videoElement) => {
-  //   if (videoElement.paused) {
-  //     videoElement.style.filter = "brightness(30%)";
-  //     cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
-  //     videoElement.play();
-  //   } else {
-  //     videoElement.style.filter = "brightness(100%)";
+
+  // setInterval(() => {
+  //   if (mockup_media_mobile.playing)
   //     cursortext.innerHTML = 'Pause<br><i class="fa-solid fa-pause"></i>';
-  //     videoElement.pause();
-  //   }
-  // };
+  //   else if (mockup_media_mobile.paused)
+  //     cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
 
-  // mockup_phone.addEventListener("click", () => {
-  //   playPauseVideo(mockup_media_mobile);
-  // });
+  //   if (mockup_media_laptop.playing)
+  //     cursortext.innerHTML = 'Pause<br><i class="fa-solid fa-pause"></i>';
+  //   else if (mockup_media_laptop.paused)
+  //     cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
+  // }, 0);
 
-  // mockup_pc.addEventListener("click", () => {
-  //   playPauseVideo(mockup_media_laptop);
-  // });
+  mockup_phone.addEventListener("click", () => {
+    playPauseVideo(mockup_media_mobile);
+  });
+
+  mockup_pc.addEventListener("click", () => {
+    playPauseVideo(mockup_media_laptop);
+  });
+
+  const playPauseVideo = (videoElement) => {
+    if (videoElement.paused) {
+      videoElement.style.opacity = "1";
+      videoElement.style.filter = "grayscale(0%)";
+      videoElement.play();
+      // console.log("played");
+    } else if (videoElement.playing) {
+      videoElement.style.opacity = "0.3";
+      videoElement.style.filter = "grayscale(100%)";
+      videoElement.pause();
+      // console.log("paused");
+    }
+  };
+
+  const changeCursorTextPlayback = (videoElement) => {
+    if (videoElement.playing) {
+      cursortext.innerHTML = 'Pause<br><i class="fa-solid fa-pause"></i>';
+    } else {
+      cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
+    }
+  };
+
+  mockup_media_mobile.addEventListener("play", () =>
+    changeCursorTextPlayback(mockup_media_mobile)
+  );
+  mockup_media_mobile.addEventListener("pause", () =>
+    changeCursorTextPlayback(mockup_media_mobile)
+  );
+
+  mockup_media_laptop.addEventListener("play", () =>
+    changeCursorTextPlayback(mockup_media_laptop)
+  );
+  mockup_media_laptop.addEventListener("pause", () =>
+    changeCursorTextPlayback(mockup_media_laptop)
+  );
 }
 
 function cursorTransformShadowBlend(
@@ -264,3 +344,14 @@ function addClass(element, className) {
 function removeClass(element, className) {
   element.classList.remove(className);
 }
+
+Object.defineProperty(HTMLMediaElement.prototype, "playing", {
+  get: function () {
+    return !!(
+      this.currentTime > 0 &&
+      !this.paused &&
+      !this.ended &&
+      this.readyState > 2
+    );
+  },
+});

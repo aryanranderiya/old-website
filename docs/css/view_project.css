@@ -73,7 +73,11 @@ section {
 
 .mockup_media_laptop,
 .mockup_media_mobile {
-  transition: filter 0.2s ease;
+  filter: grayscale(100%);
+  opacity: 30%;
+
+  /* transition: filter 0.2s ease; */
+  transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
 .mockup_mobile {
@@ -94,7 +98,8 @@ section {
   position: absolute;
   top: 10%;
   width: 100%;
-  filter: brightness(80%);
+  filter: brightness(100%);
+  transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
 .container-laptop,
