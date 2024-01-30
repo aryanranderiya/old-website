@@ -111,11 +111,6 @@ function handIntersectionScroller_mobile(entries, observer) {
         behavior: "auto",
         block: "end",
       });
-
-      scrollElementIntotheView(entry.target);
-    } else {
-      console.log(entry.target);
-      console.log("test2");
     }
   });
 }
@@ -127,9 +122,6 @@ function handIntersectionScroller_pc(entries, observer) {
         behavior: "auto",
         block: "center",
       });
-    } else {
-      console.log(entry.target);
-      console.log("test2");
     }
   });
 }
@@ -158,6 +150,9 @@ const observerScroller_mobile = new IntersectionObserver(
 
 const mockup_laptop_image = document.querySelector(".mockup_laptop.image");
 
+const control_play = document.getElementById("control_playback");
+const control_pause = document.getElementById("control_playback_pause");
+
 onValue(projectRef, processData);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -184,7 +179,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   hoverDevices(mockups);
-  playbackControlsSetup();
 });
 
 const controls_container = document.querySelector(".video_controls_container");
@@ -209,6 +203,10 @@ function handleIntersection1(entries, observer) {
       playbackControls.classList.remove("hidden");
       controls_container.classList.remove("hidden");
       controls_container.style.opacity = "1";
+
+      // ! CHANGE THIS
+      // control_play.style.opacity = "0";
+      // control_pause.style.opacity = "1";
       icon_control_playback.classList.remove("hidden");
     } else {
       mockup_laptop_image.style.opacity = "0.3";
@@ -224,6 +222,7 @@ function handleIntersection1(entries, observer) {
       setTimeout(() => {
         controls_container.style.opacity = "0";
       }, 700);
+
       icon_control_playback.classList.add("hidden");
     }
   });
@@ -272,9 +271,15 @@ function hoverDevices(mockups) {
   });
 
   const changeCursorText = (video) => {
-    video.playing
-      ? (cursortext.innerHTML = 'Pause<br><i class="fa-solid fa-pause"></i>')
-      : (cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>');
+    if (video.playing) {
+      cursortext.innerHTML = 'Pause<br><i class="fa-solid fa-pause"></i>';
+      // control_pause.style.opacity = "1";
+      // control_playback.style.opacity = "0";
+    } else {
+      cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
+      // control_playback.style.opacity = "1";
+      // control_pause.style.opacity = "0";
+    }
   };
 
   const mediaElements = [mobileMedia, laptopMedia];
@@ -290,6 +295,15 @@ function playPauseVideo(video) {
   video.style.opacity = isPaused ? "1" : "0.3";
   video.style.filter = isPaused ? "grayscale(0%)" : "grayscale(100%)";
   isPaused ? video.play() : video.pause();
+
+  // ! CHANGE THIS
+  // if (isPaused) {
+  //   control_pause.style.opacity = "1";
+  //   control_play.style.opacity = "0";
+  // } else {
+  //   control_play.style.opacity = "1";
+  //   control_pause.style.opacity = "0";
+  // }
 }
 
 function cursorTransformShadowBlend(
@@ -368,22 +382,28 @@ function setupMockups(demo_type, demoDownloadURL) {
     mockupContainer.forEach((element) => element.classList.add("pc"));
     // END OF ELSE
   }
+
+  playbackControlsSetup();
 }
 
 function playbackControlsSetup() {
-  const control_playback = document.querySelector("#control_playback");
-  const control_rewind = document.querySelector("#control_rewind");
-  const control_forward = document.querySelector("#control_forward");
-  const control_backward = document.querySelector("#control_backward");
+  const computedStyle_pc = window.getComputedStyle(mockup_pc);
+  const computedStyle_phone = window.getComputedStyle(mockup_phone);
 
-  const isVisible = (element) => {
-    const computedStyle = window.getComputedStyle(element);
-    return computedStyle.display !== "none";
-  };
-
-  if (mockup_pc.style.display == "none") {
-    console.log("mobile");
-  } else if (mockup_phone.style.display == "none") {
-    console.log("laptop");
+  if (computedStyle_pc.display == "none") {
+    controlVideo(mobileVideo);
+  } else if (computedStyle_phone.display == "none") {
+    controlVideo(laptopVideo);
   }
+}
+
+function controlVideo(element) {
+  const control_rewind = document.getElementById("control_rewind");
+  const control_forward = document.getElementById("control_forward");
+  const control_backward = document.getElementById("control_backward");
+  // const playback_icons_main = document.querySelector(".icons_main");
+  control_rewind.addEventListener("click", () => (element.currentTime = 0));
+  control_forward.addEventListener("click", () => (element.currentTime += 5));
+  control_backward.addEventListener("click", () => (element.currentTime -= 5));
+  // playback_icons_main.addEventListener("click", () => playPauseVideo(element));
 }
