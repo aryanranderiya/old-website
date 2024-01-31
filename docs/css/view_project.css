@@ -357,7 +357,13 @@ section {
   }
 }
 
-/* .video_controls_container.animate {
-  transition-duration: 0.3s;
-  transform: scaleX(-200%);
-} */
+#progress-bar {
+  position: sticky;
+  bottom: 0px;
+  z-index: 2;
+  --progress: 0;
+  height: 6px;
+  width: var(--progress);
+  background-color: #00bbff;
+  transition: opacity 0.5s ease;
+}
