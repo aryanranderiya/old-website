@@ -98,33 +98,43 @@
             </div>
         </div>
         <div class="marginLeft">
-            <form action="">
+            <form action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="10359aab-8f36-40fa-84c2-82fea18b7599">
+                <input type="hidden" name="redirect" value="https://aryanranderiya.com/contact?success">
 
                 <div class="form_row">
-                    <input type="text" name="" id="" class="form_input" placeholder="NAME" required>
-                    <input type="email" name="" id="" class="form_input" placeholder="E-MAIL" required>
+                    <input type="text" name="name" id="form_name" class="form_input" placeholder="NAME" required>
+                    <input type="email" name="email" id="form_email" class="form_input" placeholder="E-MAIL" required>
                 </div>
                 <div class="form_row">
-                    <!-- <input type="email" name="" id="" class="form_input" placeholder="E-MAIL" required> -->
-
-                    <textarea name="" id="form_textarea" cols="200" rows="5" class="form_input"
+                    <textarea name="message" id="form_textarea" cols="200" rows="5" class="form_input"
                         placeholder="MESSAGE"></textarea>
+
                 </div>
+                <div class="form_row">
+                    <div class="h-captcha" data-captcha="true"></div>
+                </div>
+                <div class="form_row">
+                    <button type="submit">Submit Form</button>
 
-                <a href="" class="btn_github_anchor">
-                    <button class="button_secondary">
-                        Github Repository
-                        <div class="icon">
-                            <i class="fa-brands fa-github btn_icon_2"></i>
-                        </div>
-                    </button>
-                </a>
-
+                    <!-- <a href="" class="btn_github_anchor">
+                        <button class="button_primary">
+                            SEND MESSAGE
+                            <div class="icon primary_icon">
+                                <i class="fa-solid fa-comments btn_icon_1"></i>
+                            </div>
+                        </button>
+                    </a> -->
+                </div>
             </form>
+            <div class="disclaimer">
+                <span id="disclaimer_span"><i class="fa-solid fa-circle-info"></i>These messages will go straight to my
+                    Inbox!</span>
+            </div>
             <div class="disclaimer">
                 <span id="disclaimer_span"><i class="fa-solid fa-circle-info"></i>All fields are required.</span>
             </div>
-        </div>
     </section>
 
     <section class="marquee">
@@ -201,9 +211,17 @@
     </div>
 
 </body>
+<script>
+    const isSuccess = new URLSearchParams(window.location.search).get('success');
+
+    if (isSuccess) {
+        alert("Thank you for Contacting me! I'll get back to you ASAP!");
+    }
+</script>
 <script defer src="js/navbar.js"></script>
 <script src="js/cursor.js"></script>
 <script src="js/contact.js"></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 <!-- <script src="js/footer.js"></script> -->
 
 </html>

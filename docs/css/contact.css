@@ -60,6 +60,10 @@ body {
   height: 100%;
 }
 
+form {
+  margin-bottom: 5%;
+}
+
 .form_input {
   width: 40%;
   background-color: black;
@@ -132,6 +136,21 @@ body {
 }
 
 .social_icon {
-  color: white;
+  color: white !important;
   font-size: 1.3em !important;
+}
+
+.button_primary {
+  font-size: 1.5em !important;
+  width: 300px;
+  border-radius: 100px !important;
+}
+
+.primary_icon {
+  padding: 20px;
+  border-radius: 200px !important;
+}
+
+.btn_icon_1 {
+  font-size: 1.1em !important;
 }
