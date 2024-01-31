@@ -21,12 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
         footer1.addEventListener("mouseover", () => {
           cursor.style.transform = "scale(8)";
           cursor.style.boxShadow = "none";
+          cursor.style.outlineStyle = "solid";
+          cursor.style.outlineColor = "white";
           cursor.style.outlineWidth = "0.1px";
           cursor.classList.add("partially_transparent");
           cursoricon4.classList.add("active");
         });
 
         footer1.addEventListener("mouseout", () => {
+          cursor.style.outline = "none";
           cursor.style.transform = "none";
           cursor.style.mixBlendMode = "normal";
           cursor.style.boxShadow = "0px 0px 30px white";

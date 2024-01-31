@@ -72,6 +72,7 @@ footer {
 .social_text,
 .page_text {
   color: white;
+  z-index: 1;
 }
 
 .social_text,

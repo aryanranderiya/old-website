@@ -373,3 +373,7 @@ section {
   bottom: 0px;
   z-index: 1005;
 }
+
+.cursor_glow_div {
+  margin-top: -10% !important;
+}
