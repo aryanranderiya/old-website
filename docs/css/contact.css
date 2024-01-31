@@ -1,0 +1,137 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #000000 !important;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: PROXON;
+  src: url("../fonts/PROXON.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Helvs;
+  src: url("../fonts/Helvetica.ttf") format("truetype");
+}
+
+.navbar {
+  opacity: 1 !important;
+}
+
+* {
+  user-select: none;
+}
+
+.title_div {
+  margin: 6% 11%;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 4%;
+}
+
+.title {
+  color: white;
+  font-size: 7.5em;
+  width: fit-content;
+  font-family: Helvs;
+  font-weight: bold;
+}
+
+#letswork,
+#together {
+  width: 100%;
+  display: flex;
+  margin: 0 100px;
+}
+
+#letswork {
+  justify-content: start;
+}
+
+#together {
+  justify-content: end;
+}
+
+.content1 {
+  height: 100%;
+}
+
+.form_input {
+  width: 40%;
+  background-color: black;
+  outline-color: white;
+  outline-style: solid;
+  outline-width: 1px;
+  border-radius: 50px;
+  font-size: 2em;
+  color: white;
+  padding: 1% 2%;
+}
+
+::placeholder {
+  color: white;
+  font-family: Helvs;
+}
+
+::-ms-input-placeholder {
+  color: white;
+  font-family: Helvs;
+}
+
+.form_row {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+#form_textarea {
+  padding: 1% 2%;
+  margin: 2%;
+  width: 81%;
+  border-radius: 40px;
+}
+
+.marginLeft {
+  margin-left: auto;
+  margin: 0 11%;
+}
+
+.marginRight {
+}
+
+.contacts {
+  margin-left: 11%;
+}
+
+.disclaimer {
+  text-align: end;
+  width: 100%;
+}
+
+#disclaimer_span {
+  color: grey;
+  margin: 0 10%;
+}
+
+.fa-circle-info {
+  margin-right: 1%;
+}
+.social_text {
+  font-weight: normal !important;
+}
+
+.social a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.social_icon {
+  color: white;
+  font-size: 1.3em !important;
+}

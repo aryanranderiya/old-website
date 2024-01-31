@@ -17,6 +17,10 @@ footer {
   background-color: black;
 }
 
+.content2 {
+  display: flex;
+}
+
 .social_text,
 .page_text,
 .footer1 {
@@ -102,6 +106,7 @@ footer {
 .page_link:hover .page_text,
 .social:hover .icon,
 .social:hover .social_text,
+.social:hover .social_icon,
 .div_email:hover .icon,
 .div_email:hover .social_text {
   color: #00bbff;
