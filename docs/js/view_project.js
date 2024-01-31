@@ -164,6 +164,7 @@ const mockup_laptop_image = document.querySelector(".mockup_laptop.image");
 const playbackControls = document.querySelector(".video_controls_playback");
 const controls_container = document.querySelector(".video_controls_container");
 const icons_main_replay = document.getElementById("icons_main_replay");
+const progressBar = document.querySelector("#progress-bar");
 
 onValue(projectRef, processData);
 
@@ -283,17 +284,20 @@ function hoverDevices(mockups) {
       control_pause.style.opacity = "1";
       control_play.style.opacity = "0";
       icons_main_replay.style.opacity = "0";
+      playback_icons_main.style.display = "";
     } else if (video.ended) {
       cursortext.innerHTML = 'Restart<br><i class="fa-solid fa-repeat"></i>';
       control_pause.style.opacity = "0";
       control_play.style.opacity = "0";
       icons_main_replay.style.opacity = "1";
+      playback_icons_main.style.display = "contents";
       video.style.opacity = "0.3";
       video.style.filter = "grayscale(100%)";
     } else {
       cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
       control_pause.style.opacity = "0";
       control_play.style.opacity = "1";
+      playback_icons_main.style.display = "";
       icons_main_replay.style.opacity = "0";
     }
   };
@@ -361,26 +365,29 @@ function setupMockups(demo_type, demoDownloadURL) {
 
   if (demo_type == "demo_pc") {
     observer2.observe(laptopVideo);
-    observerScroller_pc.observe(containerPC);
-    mockup_pc.classList.add("visible");
+    setVideoProgressBar(laptopVideo);
     laptopVideo.src = demoDownloadURL;
+    mockup_pc.classList.add("visible");
+    observerScroller_pc.observe(containerPC);
     laptopVideo.addEventListener("loadeddata", removeCover);
     mockupContainer.forEach((element) => element.classList.add("pc"));
     // END OF IF CONDITION
   } else if (demo_type == "demo_mobile") {
     observer1.observe(mobileVideo);
-    observerScroller_mobile.observe(containerPhone);
-    mockup_phone.classList.add("visible");
+    setVideoProgressBar(mobileVideo);
     mobileVideo.src = demoDownloadURL;
+    mockup_phone.classList.add("visible");
+    observerScroller_mobile.observe(containerPhone);
     mobileVideo.addEventListener("loadeddata", removeCover);
     // END OF IF ELSE CONDITION
   } else {
     observer2.observe(laptopVideo);
-    observerScroller_mobile.observe(containerPC);
+    setVideoProgressBar(laptopVideo);
     mockup_pc.classList.add("visible");
     laptopImage.src = demoDownloadURL;
-    laptopImage.style.display = "block";
     laptopVideo.style.display = "none";
+    laptopImage.style.display = "block";
+    observerScroller_mobile.observe(containerPC);
     laptopVideo.addEventListener("loadeddata", removeCover);
     mockupContainer.forEach((element) => element.classList.add("pc"));
     // END OF ELSE
@@ -411,5 +418,14 @@ function controlVideo(element) {
   icons_main_replay.addEventListener("click", () => {
     // element.currentTime = 0;
     playPauseVideo((element.currentTime = 0));
+  });
+}
+
+function setVideoProgressBar(video) {
+  video.addEventListener("timeupdate", () => {
+    const videoDuration = video.duration;
+    const currentTime = video.currentTime;
+    const progressPercent = (currentTime / videoDuration) * 100;
+    progressBar.style.setProperty("--progress", `${progressPercent}%`);
   });
 }
