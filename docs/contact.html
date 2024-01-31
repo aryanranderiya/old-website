@@ -98,10 +98,11 @@
             </div>
         </div>
         <div class="marginLeft">
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form action="https://api.web3forms.com/submit" method="POST" id="form">
 
                 <input type="hidden" name="access_key" value="10359aab-8f36-40fa-84c2-82fea18b7599">
                 <input type="hidden" name="redirect" value="https://aryanranderiya.com/contact?success">
+                <input type="hidden" name="subject" value="[aryanranderiya.com] New Contact Form Submission Received">
 
                 <div class="form_row">
                     <input type="text" name="name" id="form_name" class="form_input" placeholder="NAME" required>
@@ -116,21 +117,19 @@
                     <div class="h-captcha" data-captcha="true"></div>
                 </div>
                 <div class="form_row">
-                    <button type="submit">Submit Form</button>
 
-                    <!-- <a href="" class="btn_github_anchor">
-                        <button class="button_primary">
-                            SEND MESSAGE
-                            <div class="icon primary_icon">
-                                <i class="fa-solid fa-comments btn_icon_1"></i>
-                            </div>
-                        </button>
-                    </a> -->
+                    <button class="button_primary" onclick="document.getElementById('form').submit();">
+                        SEND MESSAGE
+                        <div class="icon primary_icon">
+                            <i class="fa-solid fa-comments btn_icon_1"></i>
+                        </div>
+                    </button>
                 </div>
             </form>
             <div class="disclaimer">
-                <span id="disclaimer_span"><i class="fa-solid fa-circle-info"></i>These messages will go straight to my
-                    Inbox!</span>
+                <span id="disclaimer_span">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    These messages will go straight to my Inbox!</span>
             </div>
             <div class="disclaimer">
                 <span id="disclaimer_span"><i class="fa-solid fa-circle-info"></i>All fields are required.</span>
