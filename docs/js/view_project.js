@@ -317,6 +317,7 @@ function playPauseVideo(video) {
   isPaused ? video.play() : video.pause();
   control_play.style.opacity = isPaused ? "0" : "1";
   control_pause.style.opacity = isPaused ? "1" : "0";
+  progressBar.style.backgroundColor = isPaused ? "white" : "#4d4d4d";
 }
 
 function cursorTransformShadowBlend(
