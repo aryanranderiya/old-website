@@ -1,3 +1,11 @@
+var cursor_glow = document.querySelector(".cursor_glow_div");
+
+document.addEventListener("mousemove", function (e) {
+  var x = e.clientX;
+  var y = e.clientY;
+  cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
+});
+
 const marquee = document.querySelector(".marquee");
 const footer_bottom_name = document.querySelector(".footer_bottom_name");
 
@@ -92,18 +100,13 @@ wordContainers.forEach((wordContainer) => {
   });
 });
 
-// Send Email
+const urlParams = new URLSearchParams(window.location.search);
+const successParam = urlParams.get("success");
+if (successParam == "true") {
+  alert("Thank you for Contacting me! I will get back to you ASAP! :)");
+}
+console.log("Success Param: ", successParam);
 
-function sendEmail() {
-  Email.send({
-    Host: "smtp.gmail.com",
-    Username: "aryan.k.randeriya@gmail.com",
-    Password: "password",
-    To: "aryan.k.randeriya@gmail.com",
-    From: document.getElementById("form_email").value,
-    Subject: `Contact Form Submission [${
-      document.getElementById("form_name").value
-    }]`,
-    Body: document.getElementById("form_textarea").value,
-  }).then((message) => alert(message));
+function formSubmit() {
+  document.getElementById("form").submit();
 }

@@ -53,8 +53,11 @@
                 <span id="together"> TOGETHER</span>
             </h1>
         </div>
-
     </section>
+
+    <div class="cursor_glow_div">
+        <span class="cursor_glow"></span>
+    </div>
 
     <section class="content2">
         <div class="marginRight contacts">
@@ -101,7 +104,7 @@
             <form action="https://api.web3forms.com/submit" method="POST" id="form">
 
                 <input type="hidden" name="access_key" value="10359aab-8f36-40fa-84c2-82fea18b7599">
-                <input type="hidden" name="redirect" value="https://aryanranderiya.com/contact?success">
+                <input type="hidden" name="redirect" value="https://aryanranderiya.com/contact?success=true">
                 <input type="hidden" name="subject" value="[aryanranderiya.com] New Contact Form Submission Received">
 
                 <div class="form_row">
@@ -118,7 +121,7 @@
                 </div>
                 <div class="form_row">
 
-                    <button class="button_primary" onclick="document.getElementById('form').submit();">
+                    <button class="button_primary" onclick="formSubmit()">
                         SEND MESSAGE
                         <div class="icon primary_icon">
                             <i class="fa-solid fa-comments btn_icon_1"></i>
@@ -210,13 +213,7 @@
     </div>
 
 </body>
-<script>
-    const isSuccess = new URLSearchParams(window.location.search).get('success');
 
-    if (isSuccess) {
-        alert("Thank you for Contacting me! I'll get back to you ASAP!");
-    }
-</script>
 <script defer src="js/navbar.js"></script>
 <script src="js/cursor.js"></script>
 <script src="js/contact.js"></script>
