@@ -169,6 +169,16 @@ const progressBar = document.querySelector("#progress-bar");
 onValue(projectRef, processData);
 
 document.addEventListener("DOMContentLoaded", function () {
+  var cursor_glow = document.querySelector(".cursor_glow_div");
+
+  document.addEventListener("mousemove", function (e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    cursor_glow.style.transform = `translate(${x}px, ${y}px)`;
+    // cursor_glow.style.transform = `translate(calc(${x}px - 50%), calc(${y}px - 160%)`;
+    // cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
+  });
+
   const button_primary = document.querySelector(".button_primary");
   const button_secondary = document.querySelector(".button_secondary");
   const cursoricon5 = document.getElementById("cursoricon5");

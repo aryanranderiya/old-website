@@ -66,10 +66,12 @@ form {
 
 .form_input {
   width: 40%;
-  background-color: black;
+  /* backdrop-filter: blur(100px); */
+  /* -webkit-backdrop-filter: blur(100px); */
+  background-color: rgba(0, 0, 0, 0);
   outline-color: white;
   outline-style: solid;
-  outline-width: 1px;
+  outline-width: 2px;
   border-radius: 50px;
   font-size: 2em;
   color: white;
@@ -103,9 +105,6 @@ form {
 .marginLeft {
   margin-left: auto;
   margin: 0 11%;
-}
-
-.marginRight {
 }
 
 .contacts {
@@ -153,4 +152,12 @@ form {
 
 .btn_icon_1 {
   font-size: 1.1em !important;
+}
+
+* {
+  z-index: 1;
+}
+
+.social:hover .social_icon {
+  color: #00bbff !important;
 }
