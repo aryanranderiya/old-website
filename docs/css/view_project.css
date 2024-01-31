@@ -255,6 +255,10 @@ section {
   width: 60px;
   border-radius: 100px;
   margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 .video_controls_others {
@@ -265,11 +269,11 @@ section {
 
 .video_controls_others.hidden {
   width: 60px;
-  transform: translateX(55px);
+  transform: translateX(40px);
   transition: width 0.1s ease;
 }
 .video_controls_playback.hidden {
-  transform: translateX(-18px);
+  transform: translateX(-35px);
   transition: width 0.1s ease;
 }
 
@@ -315,6 +319,11 @@ section {
 #control_playback.hidden {
   opacity: 0;
   display: none;
+}
+
+#icons_main_replay {
+  opacity: 0;
+  transition: opacity 0.1s ease;
 }
 
 .dot {

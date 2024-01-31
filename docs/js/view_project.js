@@ -148,10 +148,22 @@ const observerScroller_mobile = new IntersectionObserver(
 
 //! DOMContentLoaded
 
-const mockup_laptop_image = document.querySelector(".mockup_laptop.image");
-
+const dot = document.querySelector(".dot");
+const controlIcons = document.querySelector(".icons");
+const mockup_pc = document.querySelector(".mockup_pc");
+const mockup_phone = document.querySelector(".mockup_phone");
 const control_play = document.getElementById("control_playback");
-const control_pause = document.getElementById("control_playback_pause");
+const playback_icons_main = document.querySelector(".icons.main");
+const icon_main = document.querySelector(".icon_main");
+const control_pause = document.getElementById("icons_main_pause");
+const otherControls = document.querySelector(".video_controls_others");
+const mobileVideo = document.querySelector(".mockup_media_mobile.video");
+const laptopVideo = document.querySelector(".mockup_media_laptop.video");
+const icon_control_playback = document.querySelector("#control_playback");
+const mockup_laptop_image = document.querySelector(".mockup_laptop.image");
+const playbackControls = document.querySelector(".video_controls_playback");
+const controls_container = document.querySelector(".video_controls_container");
+const icons_main_replay = document.getElementById("icons_main_replay");
 
 onValue(projectRef, processData);
 
@@ -181,13 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
   hoverDevices(mockups);
 });
 
-const controls_container = document.querySelector(".video_controls_container");
-const otherControls = document.querySelector(".video_controls_others");
-const playbackControls = document.querySelector(".video_controls_playback");
-const controlIcons = document.querySelector(".icons");
-const icon_control_playback = document.querySelector("#control_playback");
-const dot = document.querySelector(".dot");
-
 //! Intersection Observer handle Intersection
 function handleIntersection1(entries, observer) {
   entries.forEach((entry) => {
@@ -203,16 +208,22 @@ function handleIntersection1(entries, observer) {
       playbackControls.classList.remove("hidden");
       controls_container.classList.remove("hidden");
       controls_container.style.opacity = "1";
-
       // ! CHANGE THIS
-      // control_play.style.opacity = "0";
-      // control_pause.style.opacity = "1";
+      control_play.style.opacity = "0";
+      control_pause.style.opacity = "1";
       icon_control_playback.classList.remove("hidden");
+      icon_main.style.visibility = "visible";
     } else {
+      icon_main.style.visibility = "hidden";
+
       mockup_laptop_image.style.opacity = "0.3";
       entry.target.style.opacity = "0.3";
       entry.target.style.filter = "grayscale(100%)";
       entry.target.pause();
+
+      // ! CHANGE THIS
+      control_play.style.opacity = "1";
+      control_pause.style.opacity = "0";
 
       dot.classList.add("visible");
       controlIcons.style.opacity = "0";
@@ -221,7 +232,7 @@ function handleIntersection1(entries, observer) {
       controls_container.classList.add("hidden");
       setTimeout(() => {
         controls_container.style.opacity = "0";
-      }, 700);
+      }, 500);
 
       icon_control_playback.classList.add("hidden");
     }
@@ -242,17 +253,13 @@ const observer2 = createIntersectionObserver(0.8);
 
 // ! Functions
 
-const mockup_pc = document.querySelector(".mockup_pc");
-const mockup_phone = document.querySelector(".mockup_phone");
-
 function hoverDevices(mockups) {
   const cursortext = document.getElementById("cursortext");
   const mobileMedia = document.querySelector(".mockup_media_mobile");
-  const laptopMedia = document.querySelector(".mockup_media_laptop.video");
   cursortext.style.color = "black";
 
   mockup_phone.addEventListener("click", () => playPauseVideo(mobileMedia));
-  mockup_pc.addEventListener("click", () => playPauseVideo(laptopMedia));
+  mockup_pc.addEventListener("click", () => playPauseVideo(laptopVideo));
 
   mockups.forEach((mockup) => {
     mockup.addEventListener("mouseover", () => {
@@ -273,16 +280,25 @@ function hoverDevices(mockups) {
   const changeCursorText = (video) => {
     if (video.playing) {
       cursortext.innerHTML = 'Pause<br><i class="fa-solid fa-pause"></i>';
-      // control_pause.style.opacity = "1";
-      // control_playback.style.opacity = "0";
+      control_pause.style.opacity = "1";
+      control_play.style.opacity = "0";
+      icons_main_replay.style.opacity = "0";
+    } else if (video.ended) {
+      cursortext.innerHTML = 'Restart<br><i class="fa-solid fa-repeat"></i>';
+      control_pause.style.opacity = "0";
+      control_play.style.opacity = "0";
+      icons_main_replay.style.opacity = "1";
+      video.style.opacity = "0.3";
+      video.style.filter = "grayscale(100%)";
     } else {
       cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
-      // control_playback.style.opacity = "1";
-      // control_pause.style.opacity = "0";
+      control_pause.style.opacity = "0";
+      control_play.style.opacity = "1";
+      icons_main_replay.style.opacity = "0";
     }
   };
 
-  const mediaElements = [mobileMedia, laptopMedia];
+  const mediaElements = [mobileMedia, laptopVideo];
   mediaElements.forEach((element) => {
     changeCursorText(element);
     element.addEventListener("play", () => changeCursorText(element));
@@ -295,15 +311,8 @@ function playPauseVideo(video) {
   video.style.opacity = isPaused ? "1" : "0.3";
   video.style.filter = isPaused ? "grayscale(0%)" : "grayscale(100%)";
   isPaused ? video.play() : video.pause();
-
-  // ! CHANGE THIS
-  // if (isPaused) {
-  //   control_pause.style.opacity = "1";
-  //   control_play.style.opacity = "0";
-  // } else {
-  //   control_play.style.opacity = "1";
-  //   control_pause.style.opacity = "0";
-  // }
+  control_play.style.opacity = isPaused ? "0" : "1";
+  control_pause.style.opacity = isPaused ? "1" : "0";
 }
 
 function cursorTransformShadowBlend(
@@ -343,25 +352,19 @@ function removeCover() {
   }, 500);
 }
 
-const laptopVideo = document.querySelector(".mockup_media_laptop.video");
-const mobileVideo = document.querySelector(".mockup_media_mobile.video");
-
 function setupMockups(demo_type, demoDownloadURL) {
-  const mockup_pc = document.querySelector(".mockup_pc");
-  const mockup_phone = document.querySelector(".mockup_phone");
   const mockupContainer = document.querySelectorAll(".mockup_container");
-  const laptopMedia = document.querySelector(".mockup_media_laptop.video");
   const laptopImage = document.querySelector(".mockup_media_laptop.image");
 
   const containerPhone = document.querySelector(".container-mobile");
   const containerPC = document.querySelector(".container-laptop");
 
   if (demo_type == "demo_pc") {
-    observer2.observe(laptopMedia);
+    observer2.observe(laptopVideo);
     observerScroller_pc.observe(containerPC);
     mockup_pc.classList.add("visible");
-    laptopMedia.src = demoDownloadURL;
-    laptopMedia.addEventListener("loadeddata", removeCover);
+    laptopVideo.src = demoDownloadURL;
+    laptopVideo.addEventListener("loadeddata", removeCover);
     mockupContainer.forEach((element) => element.classList.add("pc"));
     // END OF IF CONDITION
   } else if (demo_type == "demo_mobile") {
@@ -372,13 +375,13 @@ function setupMockups(demo_type, demoDownloadURL) {
     mobileVideo.addEventListener("loadeddata", removeCover);
     // END OF IF ELSE CONDITION
   } else {
-    observer2.observe(laptopMedia);
+    observer2.observe(laptopVideo);
     observerScroller_mobile.observe(containerPC);
     mockup_pc.classList.add("visible");
     laptopImage.src = demoDownloadURL;
     laptopImage.style.display = "block";
     laptopVideo.style.display = "none";
-    laptopMedia.addEventListener("loadeddata", removeCover);
+    laptopVideo.addEventListener("loadeddata", removeCover);
     mockupContainer.forEach((element) => element.classList.add("pc"));
     // END OF ELSE
   }
@@ -401,9 +404,12 @@ function controlVideo(element) {
   const control_rewind = document.getElementById("control_rewind");
   const control_forward = document.getElementById("control_forward");
   const control_backward = document.getElementById("control_backward");
-  // const playback_icons_main = document.querySelector(".icons_main");
   control_rewind.addEventListener("click", () => (element.currentTime = 0));
   control_forward.addEventListener("click", () => (element.currentTime += 5));
   control_backward.addEventListener("click", () => (element.currentTime -= 5));
-  // playback_icons_main.addEventListener("click", () => playPauseVideo(element));
+  playback_icons_main.addEventListener("click", () => playPauseVideo(element));
+  icons_main_replay.addEventListener("click", () => {
+    // element.currentTime = 0;
+    playPauseVideo((element.currentTime = 0));
+  });
 }

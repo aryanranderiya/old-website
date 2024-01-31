@@ -100,7 +100,7 @@
                 <div class="mockup_container">
                     <img loading="eager" src="images/iPhone.png" class="mockup_mobile image">
                     <div class="container-mobile">
-                        <video class="mockup_media_mobile video" loop muted="muted">
+                        <video class="mockup_media_mobile video" muted="muted">
                             <source src="" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -113,8 +113,7 @@
                     <img src="images/macbook.png" class="mockup_laptop image">
                     <div class="container-laptop">
                         <img loading="eager" src="" class="mockup_media_laptop image">
-
-                        <video loading="eager" class="mockup_media_laptop video" loop muted="muted">
+                        <video loading="eager" class="mockup_media_laptop video" muted="muted">
                             <source src="" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -129,21 +128,23 @@
                         <i id="control_rewind" class="fa-solid fa-rotate-left control_icon"></i>
                         <i id="control_backward" class="fa-solid fa-backward-fast control_icon"></i>
                         <i id="control_forward" class="fa-solid fa-forward-fast control_icon"></i>
-                        <!-- <i class="fa-regular fa-circle-pause control_icon"></i> -->
                     </div>
                 </div>
                 <div class="video_controls_playback">
+                    <div class="dot"></div>
                     <div class="icons main">
-                        <div class="dot"></div>
                         <i id="control_playback" class="fa-solid fa-play control_icon icon_main"></i>
                         <i id="icons_main_pause" class="fa-solid fa-pause control_icon icon_main"></i>
-                        <!-- <i class="fa-solid fa-arrows-rotate control_icon"></i> -->
+                        <i id="icons_main_replay" class="fa-solid fa-arrows-rotate control_icon"></i>
                     </div>
                 </div>
             </div>
-
         </div>
 
+
+        <div id="progress-bar"></div>
+        <div class="bar_container">
+        </div>
 
         <div class="subcontent3">
             <h3 class="project_info_text">
