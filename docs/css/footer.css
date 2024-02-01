@@ -255,11 +255,24 @@ footer {
 /* ! Responsiveness */
 
 @media only screen and (max-width: 600px) {
+  .marquee__part {
+    font-size: 2em;
+  }
+  .div_email {
+    margin-bottom: 0px;
+  }
+
   .footer_bottom_name {
-    font-size: 3.7em;
+    font-size: 3.3em;
     margin-top: -5px;
     margin-bottom: -20px;
+    margin-top: 0px;
+    padding-top: 0px;
   }
+  .bottom_name_container {
+    gap: 0.15em;
+  }
+
   #letstalk {
     font-size: 3.6em;
   }
@@ -267,17 +280,29 @@ footer {
     font-size: 5em;
   }
 
+  .social_icon,
+  .page_icon,
+  .page_icon_open,
+  .icon {
+    font-size: 0.8em;
+  }
+
   .social_text,
   .page_text {
-    font-size: 1em;
+    font-size: 0.9em;
+    font-weight: normal;
   }
 
   .copyright {
-    margin-top: 50px;
-    font-size: 1em;
+    /* margin-top: 100px; */
+    font-size: 0.7em;
+    margin-bottom: -50%;
   }
   .word {
     margin-bottom: -25px;
+  }
+  .text_oustide_footer {
+    margin-top: 5%;
   }
 }
 
@@ -316,7 +341,7 @@ footer {
 .social_icon,
 .page_icon {
   color: white !important;
-  font-size: 1.2em !important;
+  font-size: 1.2em;
   z-index: 1;
 }
 

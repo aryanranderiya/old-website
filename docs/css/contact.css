@@ -70,7 +70,9 @@ form {
 }
 
 .form_input {
-  width: 40%;
+  margin: 1%;
+
+  width: 100%;
   /* backdrop-filter: blur(100px); */
   /* -webkit-backdrop-filter: blur(100px); */
   background-color: rgba(0, 0, 0, 0);
@@ -97,13 +99,13 @@ form {
   width: 100%;
   display: flex;
   gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 #form_textarea {
-  padding: 1% 2%;
-  margin: 2%;
-  width: 81%;
+  /* padding: 1% 2%; */
+  margin: 1%;
+  width: 100%;
   border-radius: 40px;
 }
 
@@ -123,7 +125,7 @@ form {
 
 #disclaimer_span {
   color: grey;
-  margin: 0 10%;
+  /* margin: 0 10%; */
 }
 
 .fa-circle-info {
@@ -134,8 +136,9 @@ form {
 }
 
 .button_primary {
+  height: 3em !important;
   font-size: 1.5em !important;
-  width: 300px;
+  width: 100% !important;
   border-radius: 100px !important;
 }
 
@@ -167,4 +170,18 @@ hr {
   width: 75%;
   border-style: solid;
   border-top: 2px solid white !important;
+}
+
+#btn_captcha_row {
+  margin-top: -5%;
+  align-items: flex-end;
+  /* justify-content: space-around; */
+}
+
+.h-captcha {
+  margin-left: 1%;
+  margin-bottom: -10px !important;
+}
+
+#form_textarea {
 }
