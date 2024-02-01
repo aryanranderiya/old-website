@@ -18,6 +18,43 @@ document.addEventListener("DOMContentLoaded", function () {
           ".footer_bottom_name"
         );
 
+        const pageLinks = document.querySelectorAll(".page_link");
+        const socials = document.querySelectorAll(".social");
+        const google_icon = document.querySelector(".google_icon");
+
+        socials.forEach((social) => {
+          social.addEventListener("mouseover", function () {
+            google_icon.style.fontSize = "10em";
+            google_icon.style.transform = "rotate(360deg)";
+          });
+
+          social.addEventListener("mouseout", function () {
+            google_icon.style.fontSize = "9em";
+            google_icon.style.transform = "rotate(0)";
+          });
+        });
+
+        pageLinks.forEach((pageLink) => {
+          const pageLinkIcon = pageLink.querySelector(".icon");
+          pageLinkIcon.style.transition = "all 0.1s ease";
+
+          pageLink.addEventListener("mouseover", function () {
+            pageLinkIcon.style.fontSize = "2em";
+            google_icon.style.fontSize = "10em";
+            google_icon.style.transform = "rotate(360deg)";
+
+            setTimeout(() => {
+              pageLinkIcon.style.fontSize = "1.5em";
+            }, 150);
+          });
+
+          pageLink.addEventListener("mouseout", function () {
+            pageLinkIcon.style.fontSize = "1.5em";
+            google_icon.style.fontSize = "9em";
+            google_icon.style.transform = "rotate(0)";
+          });
+        });
+
         footer1.addEventListener("mouseover", () => {
           cursor.style.transform = "scale(8)";
           cursor.style.boxShadow = "none";
@@ -123,12 +160,12 @@ document.addEventListener("DOMContentLoaded", function () {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               if (footerIntersected) {
-                document.querySelector(".navbar").style.opacity = "0";
+                document.querySelector(".navbar").classList.add("hide");
               }
               document.querySelector(".footer_section").style.opacity = "1";
             } else {
               if (footerIntersected) {
-                document.querySelector(".navbar").style.opacity = "1";
+                document.querySelector(".navbar").classList.remove("hide");
               }
               document.querySelector(".footer_section").style.opacity = "0";
             }
@@ -145,10 +182,10 @@ document.addEventListener("DOMContentLoaded", function () {
         function handleIntersectionTwo(entries, observer) {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              document.querySelector(".navbar").style.opacity = "0";
+              // document.querySelector(".navbar").style.opacity = "0";
               document.querySelector(".footer_section").style.opacity = "1";
             } else {
-              document.querySelector(".navbar").style.opacity = "1";
+              // document.querySelector(".navbar").style.opacity = "1";
               document.querySelector(".footer_section").style.opacity = "0";
             }
           });

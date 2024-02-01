@@ -5,7 +5,22 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     navbarContainer.innerHTML = data;
 
     const navbar = document.querySelector(".navbar");
-    navbar.style.opacity = "0";
+    // navbar.style.opacity = "0";
+
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        navbar.classList.add("hide");
+      } else {
+        navbar.classList.remove("hide");
+      }
+
+      lastScrollTop = scrollTop;
+    });
+
     const cursoricon1 = document.getElementById("cursoricon1");
     const cursoricon2 = document.getElementById("cursoricon2");
     const cursoricon5 = document.getElementById("cursoricon5");
@@ -35,7 +50,7 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
         items.forEach((item, index) => {
           setTimeout(() => {
             item.style.opacity = "1";
-          }, 300 * index);
+          }, 200 * index);
         });
 
         body.style.overflow = "hidden";

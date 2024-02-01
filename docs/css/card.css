@@ -53,7 +53,6 @@
 
 .card-type {
   font-size: 1em;
-
   margin-top: -5px;
   margin-bottom: 10px;
   width: 100%;
@@ -88,7 +87,7 @@
 .card:hover::before {
   opacity: 1;
 }
-/* 
+
 .card::before,
 .card::after {
   border-radius: inherit;
@@ -117,7 +116,7 @@
     transparent 40%
   );
   z-index: 1;
-} */
+}
 
 .card > .card-content {
   background-color: var(--card-color);
@@ -128,7 +127,6 @@
   inset: 1px;
   padding: 10px;
   position: absolute;
-  /* z-index: 2; */
 }
 
 .card-image {

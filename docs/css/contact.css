@@ -4,7 +4,11 @@ body {
   padding: 0;
   width: 100%;
   background-color: #000000 !important;
-  overflow-x: hidden;
+}
+
+html {
+  overflow: hidden !important;
+  overflow-y: scroll !important;
 }
 
 @font-face {
@@ -29,8 +33,9 @@ body {
   margin: 6% 11%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: start;
-  margin-bottom: 4%;
+  margin-bottom: 0;
 }
 
 .title {
@@ -128,17 +133,6 @@ form {
   font-weight: normal !important;
 }
 
-.social a {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-
-.social_icon {
-  color: white !important;
-  font-size: 1.3em !important;
-}
-
 .button_primary {
   font-size: 1.5em !important;
   width: 300px;
@@ -158,6 +152,19 @@ form {
   z-index: 1;
 }
 
-.social:hover .social_icon {
-  color: #00bbff !important;
+.content2 {
+  align-items: flex-start;
+}
+
+.div_hr {
+  position: relative;
+  display: flex;
+  margin-bottom: 3%;
+  width: 100%;
+}
+
+hr {
+  width: 75%;
+  border-style: solid;
+  border-top: 2px solid white !important;
 }
