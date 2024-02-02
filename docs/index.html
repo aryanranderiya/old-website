@@ -25,7 +25,7 @@
   <link rel='stylesheet' type='text/css' href='css/cursor.css'>
   <link rel='stylesheet' type='text/css' href='css/preloader.css'>
   <link rel='stylesheet' type='text/css' href='css/rotating_text.css'>
-  <link rel='stylesheet' type='text/css' href='css/animated_gradient_cursormovement.css'>
+  <!-- <link rel='stylesheet' type='text/css' href='css/animated_gradient_cursormovement.css'> -->
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -130,7 +130,7 @@
           </text>
         </div>
       </div>
-      <button class="scroll_btn">
+      <button class="scroll_btn" aria-label="Scroll Below">
         <svg class="svgArrow" height="32">
           <path
             d="M22.782 13.8 17 19.582 11.218 13.8a1 1 0 0 0-1.414 1.414L16.29 21.7a.992.992 0 0 0 .71.292.997.997 0 0 0 .71-.292l6.486-6.486a1 1 0 0 0-1.414-1.414z">
@@ -144,6 +144,11 @@
   <header id="navbarContainer"></header>
 
   <!-- ! Content Div 1 -->
+
+  <div class="cursor_glow_div" style="visibility: visible;">
+    <span class="cursor_glow"></span>
+  </div>
+
   <section class="section_content1">
 
     <div class="content1">
@@ -157,6 +162,8 @@
       </div>
 
       <div class="subcontent2">
+
+
         <div class="cursor_glow_div_two">
           <span class="cursor_glow_two"></span>
         </div>
@@ -168,9 +175,9 @@
 
   <section class="section2">
 
-    <div class="cursor_glow_div_two" style="visibility: visible;">
+    <!-- <div class="cursor_glow_div_two" style="visibility: visible;">
       <span class="cursor_glow_two"></span>
-    </div>
+    </div> -->
 
     <div class="bento_grid">
       <div class="bento_card">
@@ -211,9 +218,7 @@
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png"
             class="bento_icon_tool">
           <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Photopea_logo.svg" class="bento_icon_tool">
-
           <h1 class="alignend"> My Tools </h1>
-
         </div>
       </div>
 
@@ -264,7 +269,7 @@
 
         <div class="buttons">
           <a href="design_projects" target="_blank">
-            <button class="button_blue">
+            <button class="button_blue" aria-label="View Graphic Design Projects">
               Graphic Design Projects&nbsp;&nbsp;
               <div class="icon">
                 <span style="color:black;" class="material-symbols-outlined">palette</span>
@@ -273,7 +278,7 @@
           </a>
 
           <a href="software_projects" target="_blank">
-            <button class="button_blue">
+            <button class="button_blue" aria-label="View Software Development Projects">
               Software Projects&nbsp;&nbsp;
               <div class="icon">
                 <span style="color:black;" class="material-symbols-outlined">
@@ -345,7 +350,7 @@
   <script src="js/footer.js"></script>
   <script src="js/cursor.js"></script>
   <script type="module" src="js/index_applygradient.js"></script>
-  <script src="js/animated_gradient_cursormovement.js"></script>
+  <!-- <script src="js/animated_gradient_cursormovement.js"></script> -->
 
   <script type="application/ld+json">
     {

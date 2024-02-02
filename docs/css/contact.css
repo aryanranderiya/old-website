@@ -15,16 +15,6 @@ html {
   overflow-y: scroll !important;
 }
 
-@font-face {
-  font-family: PROXON;
-  src: url("../fonts/PROXON.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Helvs;
-  src: url("../fonts/Helvetica.ttf") format("truetype");
-}
-
 .navbar {
   opacity: 1 !important;
 }
