@@ -229,6 +229,34 @@ document.addEventListener("DOMContentLoaded", function () {
   function removeClass(element, className) {
     element.classList.remove(className);
   }
+
+  function handleIntersectionSubcontent(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navbar.style.opacity = "1";
+
+        content1Titles.forEach((title, index) => {
+          gsap.to(title, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "power1.out",
+            stagger: 0.1 * index,
+          });
+        });
+      } else {
+        content1Titles.forEach((title) => {
+          gsap.to(title, {
+            opacity: 0,
+            y: 100,
+            duration: 0.2,
+            ease: "power1.out",
+            stagger: 0.1,
+          });
+        });
+      }
+    });
+  }
 });
 
 //! Intersection Observer
@@ -267,33 +295,5 @@ function handleIntersectionGradient(entries, observer) {
         cursor_glow_div_two.style.visibility = "hidden";
       }
     });
-  });
-}
-
-function handleIntersectionSubcontent(entries, observer) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      navbar.style.opacity = "1";
-
-      content1Titles.forEach((title, index) => {
-        gsap.to(title, {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          ease: "power1.out",
-          stagger: 0.1 * index,
-        });
-      });
-    } else {
-      content1Titles.forEach((title) => {
-        gsap.to(title, {
-          opacity: 0,
-          y: 100,
-          duration: 0.2,
-          ease: "power1.out",
-          stagger: 0.1,
-        });
-      });
-    }
   });
 }

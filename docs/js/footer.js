@@ -234,19 +234,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         gsap.set(".marquee__inner", { xPercent: -50 });
 
-        window.addEventListener("wheel", function (event) {
-          if (event.deltaY > 0) {
-            isScrollingDown = true;
-          } else {
-            isScrollingDown = false;
-          }
+        window.addEventListener(
+          "wheel",
+          function (event) {
+            if (event.deltaY > 0) {
+              isScrollingDown = true;
+            } else {
+              isScrollingDown = false;
+            }
 
-          gsap.to(tween, {
-            timeScale: isScrollingDown ? 1 : -1,
-          });
+            gsap.to(tween, {
+              timeScale: isScrollingDown ? 1 : -1,
+            });
 
-          currentScroll = window.pageYOffset;
-        });
+            currentScroll = window.pageYOffset; 
+          },
+          { passive: true }
+        );
 
         //! END OF "THEN"
       });
