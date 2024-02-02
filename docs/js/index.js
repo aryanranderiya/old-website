@@ -257,6 +257,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  function handleIntersection2(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navbar.style.opacity = "0";
+        navbar.style.visibility = "hidden";
+      } else {
+        navbar.style.visibility = "visible";
+        navbar.style.opacity = "1";
+      }
+    });
+  }
 });
 
 //! Intersection Observer

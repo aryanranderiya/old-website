@@ -92,13 +92,6 @@ header {
   display: inline;
   margin: 1em 0 0 0.5em;
   text-align: center;
-  /* transition: transform 0.1s ease-in-out; */
-}
-
-.socials i:hover {
-  animation: bounce 0.5s ease-out;
-  /* transform: scale(2); */
-  /* transition: transform 0.1s ease-in-out; */
 }
 
 .buttons {
@@ -126,9 +119,13 @@ header {
   height: 100%;
 }
 
+.title_heading_1 {
+  color: white;
+}
+
 .my_portfolio {
   font-size: 3em;
-  font-family: IllusionSerif;
+  /* font-family: IllusionSerif; */
 }
 
 .aryan_randeriya {
@@ -343,136 +340,7 @@ header {
   font-size: 18px;
   opacity: 1;
   bottom: unset;
-  /* transform: translateY(-30px); */
   transition-duration: 0.2s;
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
-@font-face {
-  font-display: swap;
-  font-family: IllusionSerif;
-  src: url("../fonts/IllusionSerif-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: TimesDisplay;
-  src: url("../fonts/times.ttf") format("truetype");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: TimesBD;
-  src: url("../fonts/timesbd.ttf") format("truetype");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: TimesI;
-  src: url("../fonts/timesi.ttf") format("truetype");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: TimesBI;
-  src: url("../fonts/timesbi.ttf") format("truetype");
-}
-
-/* ! Perspective text */
-
-/* .right {
-  margin-top: -5%;
-  flex-grow: 1;
-  height: 100%;
-  text-align: right;
-  justify-content: center;
-  align-items: center;
-  margin-right: 5%;
-}
-
-.left {
-  margin-top: -5%;
-  flex-grow: 1;
-  height: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-.perspective-text {
-  width: fit-content;
-  color: white;
-  font-family: Arial;
-  font-size: 58px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  text-transform: uppercase;
-}
-
-.perspective-line {
-  height: 50px;
-  overflow: hidden;
-  position: relative;
-}
-
-p {
-  margin: 0;
-  height: 50px;
-  line-height: 50px;
-  transition: all 0.5s ease-in-out;
-}
-
-.perspective-line:nth-child(odd) {
-  transform: skew(60deg, -30deg) scaleY(0.667);
-}
-
-.perspective-line:nth-child(even) {
-  transform: skew(0deg, -30deg) scaleY(1.337);
-}
-
-.perspective-text:hover p {
-  transform: translate(0, -50px);
-}
-
-.perspective-line:nth-child(1) {
-  left: 29px;
-}
-
-.perspective-line:nth-child(2) {
-  left: 58px;
-  background: #00bbff;
-}
-
-.perspective-line:nth-child(3) {
-  left: 87px;
-  background: #ffffff;
-  color: #00bbff;
-}
-
-.perspective-line:nth-child(4) {
-  left: 116px;
-  background: #00bbff;
-}
-
-.perspective-line:nth-child(5) {
-  left: 145px;
 }
 
 .bento_grid {
@@ -729,4 +597,37 @@ h6 {
   .marquee__part {
     font-size: 2em;
   }
+}
+@font-face {
+  font-display: swap;
+  font-family: IllusionSerif;
+  src: url("../fonts/IllusionSerif-Regular.ttf") format("truetype"),
+    url("../fonts/IllusionSerif-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: TimesDisplay;
+  src: url("../fonts/times.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: TimesBD;
+  src: url("../fonts/timesbd.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: TimesI;
+  src: url("../fonts/timesi.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: TimesBI;
+  src: url("../fonts/timesbi.ttf") format("truetype");
 }

@@ -4,6 +4,24 @@
   src: url("../fonts/Helvetica.ttf") format("truetype");
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+* {
+  font-family: Helvs;
+}
+
 body {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;

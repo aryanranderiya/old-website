@@ -27,7 +27,7 @@ html {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 2em;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -272,7 +272,7 @@ a {
   text-decoration: none;
   line-height: 40px;
   color: #00bbff;
-  height: 50px;
+  height: 30px;
   overflow: hidden;
   color: white !important;
   font-family: Spacer !important;
