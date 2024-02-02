@@ -126,10 +126,6 @@ header {
   height: 100%;
 }
 
-.title_heading_1 {
-  color: white;
-}
-
 .my_portfolio {
   font-size: 3em;
   font-family: IllusionSerif;
@@ -137,7 +133,7 @@ header {
 
 .aryan_randeriya {
   font-size: 7em;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .section_content1 {

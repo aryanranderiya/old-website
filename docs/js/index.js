@@ -46,45 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //! Intersection Observer
-  function handleIntersection1(entries, observer) {
-    requestAnimationFrame(() => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-        } else {
-          entry.target.style.opacity = "0";
-        }
-      });
-    });
-  }
-
-  function handleIntersection2(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navbar.style.opacity = "0";
-        navbar.style.visibility = "hidden";
-      } else {
-        navbar.style.visibility = "visible";
-        navbar.style.opacity = "1";
-      }
-    });
-  }
-
-  function handleIntersectionGradient(entries, observer) {
-    requestAnimationFrame(() => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          cursor_glow_div_two.style.opacity = "1";
-          cursor_glow_div_two.style.visibility = "visible";
-        } else {
-          cursor_glow_div_two.style.opacity = "0";
-          cursor_glow_div_two.style.visibility = "hidden";
-        }
-      });
-    });
-  }
-
   const observer1 = new IntersectionObserver(handleIntersection1, {
     root: null,
     rootMargin: "0px",
@@ -224,34 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //! Animate "Hey, I'm Aryan description text in Content 1 Section"
 
-  function handleIntersectionSubcontent(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navbar.style.opacity = "1";
-
-        content1Titles.forEach((title, index) => {
-          gsap.to(title, {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            ease: "power1.out",
-            stagger: 0.1 * index,
-          });
-        });
-      } else {
-        content1Titles.forEach((title) => {
-          gsap.to(title, {
-            opacity: 0,
-            y: 100,
-            duration: 0.2,
-            ease: "power1.out",
-            stagger: 0.1,
-          });
-        });
-      }
-    });
-  }
-
   const observer_subcontent1 = new IntersectionObserver(
     handleIntersectionSubcontent,
     {
@@ -297,3 +230,70 @@ document.addEventListener("DOMContentLoaded", function () {
     element.classList.remove(className);
   }
 });
+
+//! Intersection Observer
+function handleIntersection1(entries, observer) {
+  requestAnimationFrame(() => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+      } else {
+        entry.target.style.opacity = "0";
+      }
+    });
+  });
+}
+
+function handleIntersection2(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      navbar.style.opacity = "0";
+      navbar.style.visibility = "hidden";
+    } else {
+      navbar.style.visibility = "visible";
+      navbar.style.opacity = "1";
+    }
+  });
+}
+
+function handleIntersectionGradient(entries, observer) {
+  requestAnimationFrame(() => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        cursor_glow_div_two.style.opacity = "1";
+        cursor_glow_div_two.style.visibility = "visible";
+      } else {
+        cursor_glow_div_two.style.opacity = "0";
+        cursor_glow_div_two.style.visibility = "hidden";
+      }
+    });
+  });
+}
+
+function handleIntersectionSubcontent(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      navbar.style.opacity = "1";
+
+      content1Titles.forEach((title, index) => {
+        gsap.to(title, {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          ease: "power1.out",
+          stagger: 0.1 * index,
+        });
+      });
+    } else {
+      content1Titles.forEach((title) => {
+        gsap.to(title, {
+          opacity: 0,
+          y: 100,
+          duration: 0.2,
+          ease: "power1.out",
+          stagger: 0.1,
+        });
+      });
+    }
+  });
+}
