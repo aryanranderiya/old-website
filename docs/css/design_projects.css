@@ -10,14 +10,24 @@ body {
   background-color: black !important;
 }
 
+body {
+  scroll-snap-type: none !important;
+}
+
 section {
   padding: 5% 0;
-  height: fit-content;
+  height: auto;
   width: 100%;
+  scroll-snap-align: none !important;
 }
 
 .content0 {
   padding: 0;
+}
+
+.section2 {
+  display: contents;
+  height: 100%;
 }
 
 @font-face {
@@ -29,6 +39,22 @@ section {
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
+}
+
+.heading_title {
+  display: flex;
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  margin: 2% 5%;
+  /* width: 100%;
+  opacity: 1;
+  display: flex;
+  margin-bottom: 3%;
+  transition: opacity 1s ease;
+  z-index: 1;
+  position: relative;
+  align-items: baseline; */
 }
 
 .title-heading {
@@ -60,11 +86,14 @@ section {
   font-weight: bold;
   font-size: 8em;
   color: white;
-  margin: 1%;
 }
 
 .heading_title_text_apparel {
   text-align: end;
+}
+
+#headerstitle {
+  margin-top: 15%;
 }
 
 #ontop-gradient {
@@ -100,17 +129,6 @@ section {
   background-color: black;
 }
 
-.heading_title {
-  width: 100%;
-  opacity: 1;
-  display: flex;
-  margin-bottom: 3%;
-  align-items: center;
-  transition: opacity 1s ease;
-  z-index: 1;
-  position: relative;
-}
-
 .folders {
   margin: 0 0;
   width: 100%;
@@ -138,9 +156,15 @@ section {
 }
 
 .title_icon {
+  align-self: center;
+  justify-self: center;
   font-size: 5.5em;
   color: white;
-  margin: 0 2.5%;
+  /* margin: 0 2.5%; */
+}
+
+#title_apparel {
+  margin-left: -10%;
 }
 
 .images {
@@ -184,6 +208,7 @@ img {
 /*! Headers */
 .slider {
   width: 100%;
+  align-self: center;
 }
 
 .slider-wrapper {
@@ -309,9 +334,9 @@ img {
 
 /* ! Merch Designs */
 
-.content1 {
-  height: fit-content;
-}
+/* .content1 {
+  height: 100%;
+} */
 
 .merchdesigns {
   height: 100%;
