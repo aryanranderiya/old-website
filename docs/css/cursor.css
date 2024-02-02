@@ -134,6 +134,7 @@ button:hover {
 }
 
 @font-face {
+  font-display: swap;
   font-family: PROXON;
   src: url("../fonts/PROXON.ttf") format("truetype");
 }

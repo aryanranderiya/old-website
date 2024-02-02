@@ -43,6 +43,7 @@ header {
 }
 
 @font-face {
+  font-display: swap;
   font-family: Akira;
   src: url("../fonts/Akira.ttf") format("truetype");
 }
@@ -367,26 +368,31 @@ header {
 }
 
 @font-face {
+  font-display: swap;
   font-family: IllusionSerif;
   src: url("../fonts/IllusionSerif-Regular.ttf") format("truetype");
 }
 
 @font-face {
+  font-display: swap;
   font-family: TimesDisplay;
   src: url("../fonts/times.ttf") format("truetype");
 }
 
 @font-face {
+  font-display: swap;
   font-family: TimesBD;
   src: url("../fonts/timesbd.ttf") format("truetype");
 }
 
 @font-face {
+  font-display: swap;
   font-family: TimesI;
   src: url("../fonts/timesi.ttf") format("truetype");
 }
 
 @font-face {
+  font-display: swap;
   font-family: TimesBI;
   src: url("../fonts/timesbi.ttf") format("truetype");
 }

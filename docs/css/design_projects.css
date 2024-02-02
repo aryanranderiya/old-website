@@ -21,6 +21,7 @@ section {
 }
 
 @font-face {
+  font-display: swap;
   font-family: "DirtyLine";
   src: url("../fonts/Dirtyline 36daysoftype 2022.woff") format("woff"),
     url("../fonts/Dirtyline 36daysoftype 2022.woff2") format("woff2"),

@@ -30,11 +30,13 @@
 }
 
 @font-face {
+  font-display: swap;
   font-family: Spacer;
   src: url("../fonts/SPACERR-Regular.ttf") format("truetype");
 }
 
 @font-face {
+  font-display: swap;
   font-family: Orbitron;
   src: url("../fonts/Orbitron.ttf") format("truetype");
 }
