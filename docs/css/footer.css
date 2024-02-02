@@ -1,5 +1,5 @@
 @font-face {
-  font-display: swap;
+  /* font-display: swap; */
   font-family: Helvs;
   src: url("../fonts/Helvetica.ttf") format("truetype");
 }
