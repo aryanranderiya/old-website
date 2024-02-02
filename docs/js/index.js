@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const span_dev = document.getElementById("span_dev");
   const span_entrepreneur = document.getElementById("span_entre");
 
-  var cursor_glow = document.querySelector(".cursor_glow_div_two");
+  // var cursor_glow = document.querySelector(".cursor_glow_div");
 
-  document.addEventListener("mousemove", function (e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
-  });
+  // document.addEventListener("mousemove", function (e) {
+  //   var x = e.clientX;
+  //   var y = e.clientY;
+  //   cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
+  // });
 
   // ! Scroll on button click
 
