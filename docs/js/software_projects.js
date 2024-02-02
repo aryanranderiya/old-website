@@ -48,7 +48,7 @@ function processDataAndHidePreloader(snapshot) {
     var banner_image_URL = projectDetails.banner_image_URL;
 
     if (banner_image_URL == undefined) {
-      banner_image_URL = "/docs/images/bg_aryan_swirl.jpg";
+      banner_image_URL = "/docs/media/bg_aryan_swirl.jpg";
     }
     var projectTechStack_values = projectTechStack.trim().split(",");
 

@@ -100,13 +100,13 @@ async function insertFetchData() {
   if (fileBanner) {
     const bannerStorageRef = storageRef(
       storage,
-      "ProjectImages/" + title.replace(" ", "_") + "-" + fileBanner.name
+      "Projectmedia/" + title.replace(" ", "_") + "-" + fileBanner.name
     );
 
     if (fileDemo) {
       const demoStorageRef = storageRef(
         storage,
-        "ProjectImages/" + title.replace(" ", "_") + "-" + fileDemo.name
+        "Projectmedia/" + title.replace(" ", "_") + "-" + fileDemo.name
       );
 
       console.log("Uploading Banner to DB");
