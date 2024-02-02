@@ -575,12 +575,7 @@ h6 {
 
 .card_title {
   font-weight: bold;
-  font-size: 2.5em;
-}
-
-#fav_langs {
-  font-weight: bold;
-  font-size: 2em;
+  font-size: 2.3em;
 }
 
 .bento_icon_tool {
@@ -594,19 +589,20 @@ h6 {
   font-family: Helvs;
 }
 
-#github_logo {
+#github_logo,
+#javapython {
   justify-self: center;
   align-self: center;
   position: absolute;
+}
+
+#github_logo {
   margin-bottom: 30px;
   height: 250px;
 }
 
 #javapython {
-  justify-self: center;
-  align-self: center;
-  position: absolute;
-  height: 250px;
+  height: 230px;
   margin-bottom: 50px;
 }
 

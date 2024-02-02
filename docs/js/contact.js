@@ -12,7 +12,7 @@ const footer_bottom_name = document.querySelector(".footer_bottom_name");
 marquee.addEventListener("mouseover", () => {
   cursor.style.transform = "scale(7)";
   cursor.style.mixBlendMode = "difference";
-  cursor.style.boxShadow = "0px 0px 30px white";
+  cursor.style.boxShadow = "none";
 });
 
 marquee.addEventListener("mouseout", () => {

@@ -6,6 +6,10 @@ body {
   background-color: #000000 !important;
 }
 
+/* .material-symbols-rounded {
+  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" -25, "opsz" 24 !important;
+} */
+
 html {
   overflow: hidden !important;
   overflow-y: scroll !important;
@@ -109,13 +113,14 @@ form {
   border-radius: 40px;
 }
 
-.marginLeft {
-  margin-left: auto;
-  margin: 0 11%;
+.formright {
+  margin-right: 9%;
+  margin-left: 3%;
+  /* margin: 0 9%; */
 }
 
 .contacts {
-  margin-left: 11%;
+  margin-left: 9%;
 }
 
 .disclaimer {
@@ -133,6 +138,11 @@ form {
 }
 .social_text {
   font-weight: normal !important;
+}
+
+.mail_text {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
 }
 
 .button_primary {
@@ -167,7 +177,7 @@ form {
 }
 
 hr {
-  width: 75%;
+  width: 85%;
   border-style: solid;
   border-top: 2px solid white !important;
 }
@@ -184,4 +194,15 @@ hr {
 }
 
 #form_textarea {
+}
+
+.mail_icon {
+  margin: 0 !important;
+}
+
+.description {
+  color: white;
+  /* font-weight: bold; */
+  text-align: justify;
+  margin-bottom: 5%;
 }

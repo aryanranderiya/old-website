@@ -15,6 +15,8 @@ section {
 footer {
   padding-top: 20px;
   background-color: black;
+  z-index: 1;
+  position: relative;
 }
 
 .content2 {
@@ -53,16 +55,26 @@ footer {
   font-size: 7em;
   color: white;
   font-weight: bolder;
+  align-self: end;
 }
 
 .divRight,
-.divLeft,
-.page_links {
+.divLeft {
   display: flex;
   align-content: center;
   justify-content: center;
   flex-direction: column;
   width: max-content;
+  flex-wrap: wrap;
+}
+
+.page_links {
+  flex-wrap: wrap;
+  align-content: start;
+}
+
+.divLeft {
+  align-self: flex-start;
 }
 
 .marginLeft {
@@ -95,13 +107,15 @@ footer {
 
 .div_email {
   margin-bottom: 40px;
+  color: white;
 }
 
 .div_email,
 .social,
 .page_link {
   /* width: 100%; */
-  display: inline-flex;
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -121,7 +135,7 @@ footer {
 .social:hover .social_text,
 .social:hover .social_icon,
 .div_email:hover .icon,
-.div_email:hover .social_text,
+.div_email:hover .mail_text,
 .social:hover .social_icon,
 .page_link:hover .page_icon {
   color: #00bbff !important;
@@ -164,7 +178,7 @@ footer {
 }
 
 .footer_bottom_name {
-  padding-top: 50px;
+  /* padding-top: 50px; */
   /* margin-top: 100px; */
   color: white;
   font-size: 14em;
@@ -226,6 +240,7 @@ footer {
   /* bottom: 0; */
   /* position: absolute; */
   white-space: nowrap;
+  z-index: 2;
 }
 
 .marquee__inner {
@@ -347,4 +362,19 @@ footer {
 
 .page_icon_open {
   transition: font-size 0.5s ease !important;
+}
+
+.mail_text {
+  z-index: 1;
+  position: relative;
+  color: white;
+  font-size: 3em;
+  text-decoration: underline !important;
+  /* text-decoration-color: white; */
+  /* text-decoration-thickness: 50%; */
+}
+
+.mail_icon {
+  font-size: 4em;
+  margin-bottom: -17px;
 }

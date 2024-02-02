@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
         footerContainer.style.cssText = "";
 
         const footer1 = document.querySelector(".footer1");
+
         const footer2 = document.querySelector(".footer2");
+        const letstalk = document.querySelector("#letstalk");
 
         const cursoricon4 = document.getElementById("cursoricon4");
         const cursoricon5 = document.getElementById("cursoricon5");
@@ -24,12 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         socials.forEach((social) => {
           social.addEventListener("mouseover", function () {
-            google_icon.style.fontSize = "10em";
+            // google_icon.style.fontSize = "10em";
             google_icon.style.transform = "rotate(360deg)";
           });
 
           social.addEventListener("mouseout", function () {
-            google_icon.style.fontSize = "9em";
+            // google_icon.style.fontSize = "9em";
             google_icon.style.transform = "rotate(0)";
           });
         });
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           pageLink.addEventListener("mouseover", function () {
             pageLinkIcon.style.fontSize = "2em";
-            google_icon.style.fontSize = "10em";
+            // google_icon.style.fontSize = "10em";
             google_icon.style.transform = "rotate(360deg)";
 
             setTimeout(() => {
@@ -50,12 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
           pageLink.addEventListener("mouseout", function () {
             pageLinkIcon.style.fontSize = "1.5em";
-            google_icon.style.fontSize = "9em";
+            // google_icon.style.fontSize = "9em";
             google_icon.style.transform = "rotate(0)";
           });
         });
 
-        footer1.addEventListener("mouseover", () => {
+        letstalk.addEventListener("mouseover", () => {
           cursor.style.transform = "scale(8)";
           cursor.style.boxShadow = "none";
           cursor.style.outlineStyle = "solid";
@@ -65,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
           cursoricon4.classList.add("active");
         });
 
-        footer1.addEventListener("mouseout", () => {
+        letstalk.addEventListener("mouseout", () => {
           cursor.style.outline = "none";
           cursor.style.transform = "none";
           cursor.style.mixBlendMode = "normal";
@@ -107,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         marquee.addEventListener("mouseover", () => {
           cursor.style.transform = "scale(7)";
           cursor.style.mixBlendMode = "difference";
-          cursor.style.boxShadow = "0px 0px 30px white";
+          cursor.style.boxShadow = "none";
         });
 
         marquee.addEventListener("mouseout", () => {
