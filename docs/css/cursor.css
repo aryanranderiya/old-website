@@ -211,14 +211,6 @@ button:hover {
   /* transition: opacity 0.2s ease; */
 }
 
-#cursoriconstar {
-  /* margin-top: 23px; */
-  height: 30%;
-  z-index: 2001;
-  position: fixed;
-  transition: opacity 0.2s ease;
-}
-
 #cursoricon1,
 #cursoricon2,
 #cursoricon3,
@@ -230,7 +222,6 @@ button:hover {
 #cursoriconpallette,
 #cursortext,
 #cursoricondrag,
-#cursoriconstar,
 #cursoriconwarning.invisible,
 #cursoriconwave.invisible {
   /* display: none; */
@@ -249,7 +240,6 @@ button:hover {
 #cursoriconidea.active,
 #cursoricondrag.active,
 #cursoriconwarning.active,
-#cursoriconstar.active,
 #cursoriconpallette.active {
   /* display: inline-block; */
   opacity: 1;

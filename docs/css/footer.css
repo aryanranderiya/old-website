@@ -1,3 +1,8 @@
+body{
+  overflow-x: hidden !important;
+}
+
+
 @font-face {
   /* font-display: swap; */
   font-family: Helvs;
@@ -25,6 +30,8 @@ p {
 body {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+
 }
 
 section {
@@ -33,7 +40,7 @@ section {
 
 footer {
   padding-top: 20px;
-  background-color: black;
+  /* background-color: black; */
   z-index: 1;
   position: relative;
 }

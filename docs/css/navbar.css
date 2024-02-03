@@ -80,11 +80,11 @@ html {
   height: 100%;
   width: 0%;
   right: -100%;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   /* background-color: rgba(0, 0, 0, 1); */
 
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1000;
 }
 
@@ -211,8 +211,9 @@ a {
 }
 
 .menu_item_icon {
+  line-height: 1.1 !important;
   margin-left: auto;
-  font-size: 5em !important;
+  font-size: 4.8em !important;
 }
 
 .horizontal_line {

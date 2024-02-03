@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ! Titles
 
   const title = document.querySelector(".title-heading");
-  const heading_title = document.querySelector(".heading_title");
+  const heading_titles = document.querySelectorAll(".heading_title");
 
   title.addEventListener("mouseover", () => {
     cursor.style.transform = "scale(10)";
@@ -169,7 +169,10 @@ document.addEventListener("DOMContentLoaded", function () {
     rootMargin: "0px",
     threshold: 0.8,
   });
-  observer1.observe(heading_title);
+
+  heading_titles.forEach((heading_title) => {
+    observer1.observe(heading_title);
+  });
 
   const merch_items = document.querySelectorAll(".merch_item");
 
@@ -219,27 +222,6 @@ document.addEventListener("DOMContentLoaded", function () {
       folders.forEach((otherFolder) => {
         otherFolder.style.filter = "brightness(100%)";
       });
-    });
-  });
-
-  const heading_titles = document.querySelectorAll(".heading_title");
-  const cursoriconstar = document.getElementById("cursoriconstar");
-
-  heading_titles.forEach((heading) => {
-    heading.addEventListener("mouseover", () => {
-      cursor.style.transform = "none";
-      cursor.style.boxShadow = "none";
-      cursor.classList.add("transparent");
-      cursoriconstar.classList.add("active");
-      cursor.style.mixBlendMode = "difference";
-    });
-
-    heading.addEventListener("mouseout", () => {
-      cursor.style.mixBlendMode = "normal";
-
-      cursor.classList.remove("transparent");
-      cursor.style.boxShadow = "0px 0px 30px white";
-      cursoriconstar.classList.remove("active");
     });
   });
 });
@@ -293,8 +275,8 @@ class DragScroll {
     this.maxScroll = this.wrapWidth - this.el.clientWidth;
   }
 
-  handleWheel(e) {
-    this.progress += e.deltaY;
+  handleWheel() {
+    this.progress = window.scrollY;
     this.move();
   }
 

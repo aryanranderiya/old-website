@@ -1,16 +1,19 @@
 html,
 body {
-  margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   position: relative;
-  overflow-x: hidden !important;
-  overflow: hidden;
   background-color: black !important;
+  /* scroll-behavior: smooth; */
 }
 
 body {
+  width: 100vw;
+  overflow-x: hidden !important;
+  overflow: hidden !important;
+  overflow-y: visible !important;
+
   scroll-snap-type: none !important;
 }
 
@@ -46,12 +49,13 @@ section {
   z-index: 1;
   position: relative;
   width: 100%;
-  margin: 2% 5%;
+  margin: 2% 0%;
+  transition: opacity 0.3s ease;
+
   /* width: 100%;
   opacity: 1;
   display: flex;
   margin-bottom: 3%;
-  transition: opacity 1s ease;
   z-index: 1;
   position: relative;
   align-items: baseline; */
@@ -160,11 +164,7 @@ section {
   justify-self: center;
   font-size: 5.5em;
   color: white;
-  /* margin: 0 2.5%; */
-}
-
-#title_apparel {
-  margin-left: -10%;
+  margin: 0 2.5%;
 }
 
 .images {
@@ -364,7 +364,6 @@ img {
   height: 400px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
   transition: opacity 0.5s ease;
 }
 

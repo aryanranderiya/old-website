@@ -3,7 +3,7 @@ const btn_download = document.querySelector(".btn_download");
 document.addEventListener("DOMContentLoaded", function () {
   const footer = document.querySelector("#footerContainer");
   const progressBar = document.querySelector("#progress-bar");
-  const button = document.querySelector(".button");
+  const button = document.querySelector(".download_button");
   const downloadresume_text = document.querySelector(".downloadresume_text");
   const svgIcon = document.querySelector(".svgIcon");
 
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   button.addEventListener("mouseover", () => {
     if (!footerIntersectedFlag) {
+      console.log("test1");
       downloadresume_text.classList.add("hovered");
       svgIcon.classList.add("hovered");
     }
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   button.addEventListener("mouseout", () => {
     if (!footerIntersectedFlag) {
+      console.log("test2");
       downloadresume_text.classList.remove("hovered");
       svgIcon.classList.remove("hovered");
     }
@@ -31,28 +33,48 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         progressBar.style.opacity = "0";
-        btn_download.style.position = "relative";
+        // btn_download.style.opacity = "0";
+        // btn_download.style.position = "relative";
         button.classList.add("hovered");
         svgIcon.classList.add("hovered");
         downloadresume_text.classList.add("hovered");
         footerIntersectedFlag = true;
       } else {
         footerIntersectedFlag = false;
-
         progressBar.style.opacity = "1";
-        btn_download.style.position = "sticky";
-        btn_download.style.bottom = "20px";
+        // btn_download.style.opacity = "1";
+        // btn_download.style.position = "fixed";
         button.classList.remove("hovered");
         svgIcon.classList.remove("hovered");
         downloadresume_text.classList.remove("hovered");
       }
     });
   }
+
+  //! First Intersection Observer
+  function handleIntersection2(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        btn_download.style.opacity = "0";
+      } else {
+        btn_download.style.opacity = "1";
+      }
+    });
+  }
+
   const observer1 = new IntersectionObserver(handleIntersection, {
     root: null,
     rootMargin: "0px",
     threshold: 0.1,
   });
+
+  const observer2 = new IntersectionObserver(handleIntersection2, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  });
+
+  observer2.observe(footer);
   observer1.observe(footer);
 });
 
@@ -61,11 +83,11 @@ function updateProgressBarandBtn() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100 + "%";
 
-  if (parseInt(scrollPercent) >= 5) {
-    btn_download.style.opacity = "1";
-  } else {
-    btn_download.style.opacity = "0";
-  }
+  // if (parseInt(scrollPercent) >= 5) {
+  //   btn_download.style.opacity = "1";
+  // } else {
+  //   btn_download.style.opacity = "0";
+  // }
 
   document
     .querySelector("#progress-bar")
