@@ -261,7 +261,9 @@ function handleIntersection1(entries, observer) {
 
       // ! CHANGE THIS
       control_play.style.opacity = "0";
+      icons_main_replay.style.opacity = "0";
       control_pause.style.opacity = "1";
+
       icon_control_playback.classList.remove("hidden");
       icon_main.style.visibility = "visible";
     } else {
@@ -275,6 +277,7 @@ function handleIntersection1(entries, observer) {
       // ! CHANGE THIS
       control_play.style.opacity = "1";
       control_pause.style.opacity = "0";
+      icons_main_replay.style.opacity = "0";
 
       dot.classList.add("visible");
       controlIcons.style.opacity = "0";
@@ -333,13 +336,13 @@ function hoverDevices(mockups) {
       control_pause.style.opacity = "1";
       control_play.style.opacity = "0";
       icons_main_replay.style.opacity = "0";
-      playback_icons_main.style.display = "";
+      // playback_icons_main.style.display = "";
     } else if (video.ended) {
       cursortext.innerHTML = 'Restart<br><i class="fa-solid fa-repeat"></i>';
       control_pause.style.opacity = "0";
       control_play.style.opacity = "0";
       icons_main_replay.style.opacity = "1";
-      playback_icons_main.style.display = "contents";
+      // playback_icons_main.style.display = "flex";
       video.style.opacity = "0.3";
       video.style.filter = "grayscale(100%)";
     } else {
@@ -347,7 +350,7 @@ function hoverDevices(mockups) {
       control_pause.style.opacity = "0";
       control_play.style.opacity = "1";
       playback_icons_main.style.display = "";
-      icons_main_replay.style.opacity = "0";
+      // icons_main_replay.style.opacity = "0";
     }
   };
 
@@ -366,6 +369,7 @@ function playPauseVideo(video) {
   isPaused ? video.play() : video.pause();
   control_play.style.opacity = isPaused ? "0" : "1";
   control_pause.style.opacity = isPaused ? "1" : "0";
+  icons_main_replay.style.opacity = "0";
   progressBar.style.backgroundColor = isPaused ? "white" : "#4d4d4d";
 }
 

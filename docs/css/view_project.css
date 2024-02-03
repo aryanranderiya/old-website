@@ -204,6 +204,25 @@ section {
   font-size: 1.1em;
   text-align: justify;
   font-weight: normal;
+  display: flex;
+  flex-direction: column;
+}
+
+.project_info_text h1,
+.project_info_text h2,
+.project_info_text h3 {
+  margin-top: 2%;
+}
+
+.project_info_text p {
+  flex-direction: column;
+  display: flex;
+}
+
+.project_info_text img {
+  display: flex;
+  align-self: center;
+  margin: 2% 0;
 }
 
 /* !Buttons */
@@ -300,6 +319,7 @@ section {
 }
 
 .icon_main {
+  display: flex;
   position: absolute;
   z-index: 1;
   line-height: 1;

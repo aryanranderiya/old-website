@@ -31,31 +31,18 @@ const database = getDatabase();
 const storage = getStorage();
 
 document.addEventListener("DOMContentLoaded", function () {
-  // setTimeout(() => {
-  //   const techStackCheck = document.querySelectorAll(
-  //     'input[name="tech_stack"]:checked'
-  //   );
-  //   var tech_stack = [];
-  //   for (var checkbox of techStackCheck) {
-  //     tech_stack.push(checkbox.value);
-  //   }
-
-  //   console.log("test" + tech_stack.join(","));
-  // }, 5000);
-
   document
     .getElementById("submit-project-form")
     .addEventListener("submit", function (e) {
       e.preventDefault();
-
       insertFetchData();
     });
 });
 
+function init() {}
+
 async function insertFetchData() {
   const databaseRecordCount = (await countDatabaseRecords()) + 1;
-  console.log("dbrc: " + databaseRecordCount);
-
   var title = document.getElementById("project_title").value;
   const description = document.getElementById("project_description").value;
   const fileSelectorBanner = document.getElementById("file-selector-image");
@@ -65,7 +52,9 @@ async function insertFetchData() {
   const fileDemo = fileSelectorDemo.files[0];
   const fileDocumentation = fileSelectorDoc.files[0];
 
-  let githubLink, bannerDownloadURL, demoDownloadURL, documentationURL;
+  const opensource = document.querySelector('input[name="opensource"]:checked');
+  let githubLink,
+    tech_stack = [];
 
   const type = document.querySelector(
     'input[name="project_type"]:checked'
@@ -75,19 +64,16 @@ async function insertFetchData() {
     'input[name="tech_stack"]:checked'
   );
 
-  const opensource = document.querySelector('input[name="opensource"]:checked');
-
   const demo_type = document.querySelector(
     'input[name="demo_type"]:checked'
   ).value;
 
-  if (opensource) githubLink = document.getElementById("githubLink").value;
-  else githubLink = null;
-
-  var tech_stack = [];
   for (var checkbox of techStackCheck) {
     tech_stack.push(checkbox.value);
   }
+
+  if (opensource) githubLink = document.getElementById("githubLink").value;
+  else githubLink = null;
 
   const project_id =
     databaseRecordCount +
@@ -99,96 +85,127 @@ async function insertFetchData() {
 
   var projectsRef = ref(database, "Projects/" + project_id);
 
-  if (fileBanner) {
-    const bannerStorageRef = storageRef(
-      storage,
-      "ProjectMedia/" + title.replace(" ", "_") + "/" + fileBanner.name
-    );
+  // let [bannerDownloadURL, , documentURL, demoDownloadURL] = await Promise.all(
+  //   [
+  //     uploadMedia(fileBanner, title, "Banner"),
+  //     uploadMedia(fileDocumentation, title, "Documentation"),
+  //     uploadMedia(fileDemo, title, "Demo"),
+  //   ]
+  // );
 
-    if (fileDocumentation) {
-      const documentationStorageRef = storageRef(
-        storage,
-        "ProjectMedia/" + title.replace(" ", "_") + "/" + fileDocumentation.name
-      );
+  // let bannerDownloadURL = await uploadMedia(fileBanner, title, "Banner");
+  // let demoDownloadURL = await uploadMedia(fileDemo, title, "Demo");
+  // let documentURL = await uploadMedia(
+  //   fileDocumentation,
+  //   title,
+  //   "Documentation"
+  // );
 
-      if (fileDemo) {
-        const demoStorageRef = storageRef(
-          storage,
-          "ProjectMedia/" + title.replace(" ", "_") + "/" + fileDemo.name
-        );
+  uploadMedia(fileBanner, title, "Banner")
+    .then((bannerDownloadURL) => {
+      uploadMedia(fileDocumentation, title, "Doc")
+        .then((documentURL) => {
+          uploadMedia(fileDemo, title, "Demo")
+            .then((demoDownloadURL) => {
+              const projectData = {
+                project_title: title,
+                project_type: type,
+                project_tech_stack: tech_stack.join(","),
+                project_description: description,
+                banner_image_URL: bannerDownloadURL,
+                demo_file_URL: demoDownloadURL,
+                documentation_URL: documentURL,
+                github_link: githubLink,
+                demo_type: demo_type,
+              };
 
-        console.log("Uploading Banner to DB");
-        uploadBytes(bannerStorageRef, fileBanner)
-          .then(() => {
-            console.log("Successfully Uploaded Banner to DB");
-            getDownloadURL(bannerStorageRef).then((url) => {
-              bannerDownloadURL = url.toString();
+              console.log(`
+                Uploading Data to DB:
+                - Title: ${title}
+                - Type: ${type}
+                - Tech Stack: ${tech_stack.join(",")}
+                - Description: ${description}
+                - Banner Image URL: ${bannerDownloadURL}
+                - Demo File URL: ${demoDownloadURL}
+                - Documentation File URL" ${documentURL}
+                - GitHub Link: ${githubLink}
+                - Demo Type: ${demo_type}
+              `);
 
-              console.log("Uploading Demo Media to DB");
-              uploadBytes(demoStorageRef, fileDemo).then(() => {
-                console.log("Successfully Uploaded Demo Media to DB");
-                getDownloadURL(demoStorageRef).then((url) => {
-                  demoDownloadURL = url.toString();
+              console.log("Uploading Data: " + projectData);
 
-                  console.log("Uploading Documentation to DB");
-                  uploadBytes(documentationStorageRef, fileDocumentation).then(
-                    () => {
-                      console.log("Successfully Uploaded Documentation to DB");
-                      getDownloadURL(documentationStorageRef).then((url) => {
-                        documentationURL = url.toString();
-
-                        console.log(`
-                          Uploading Data to DB:
-                          - Title: ${title}
-                          - Type: ${type}
-                          - Tech Stack: ${tech_stack.join(",")}
-                          - Description: ${description}
-                          - Banner Image URL: ${bannerDownloadURL}
-                          - Demo File URL: ${demoDownloadURL}
-                          - Documentation File URL" ${documentationURL}
-                          - GitHub Link: ${githubLink}
-                          - Demo Type: ${demo_type}
-                        `);
-
-                        set(projectsRef, {
-                          project_title: title,
-                          project_type: type,
-                          project_tech_stack: tech_stack.join(","),
-                          project_description: description,
-                          banner_image_URL: bannerDownloadURL,
-                          demo_file_URL: demoDownloadURL,
-                          github_link: githubLink,
-                          demo_type: demo_type,
-                          documentation_URL: documentationURL,
-                        })
-                          .then(() => {
-                            console.log("Data Successfully inserted!");
-                          })
-                          .catch((error) => {
-                            console.error(error);
-                          });
-                      });
-                    }
-                  );
+              set(projectsRef, projectData)
+                .then(() => {
+                  console.log("Data Successfully inserted!");
+                  console.log(projectData);
+                })
+                .catch((e) => {
+                  console.log(e);
                 });
-              });
+            })
+            .catch((e) => {
+              console.log(e);
             });
-          })
-
-          .catch((error) => {
-            console.error("Error uploading image:", error);
-          });
-      } else {
-        console.log("No file selected. (Mockup)");
-      }
-    } else {
-      console.log("No file selected. (Documentation )");
-    }
-  } else {
-    console.warn("No file selected. (Banner)");
-  }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 
   document.getElementById("submit-project-form").reset();
+}
+
+// async function uploadMedia(file, title, mediaType) {
+//   if (file) {
+//     const ref = storageRef(
+//       storage,
+//       `ProjectMedia/${title.replace(" ", "_")}/${file.name}`
+//     );
+//     console.log(`Uploading ${mediaType} to DB`);
+
+//     uploadBytes(ref, file)
+//       .then(() => {
+//         getDownloadURL(ref).then((url) => {
+//           console.log(`Successfully Uploaded ${mediaType} to DB`);
+//           console.log(`${mediaType} url: ${url}`);
+//           return url;
+//         });
+//       })
+//       .catch((error) => {
+//         console.error(
+//           `Error uploading ${mediaType} media THIS IS A TEST:`,
+//           error
+//         );
+//       });
+//   } else {
+//     return null;
+//   }
+// }
+
+async function uploadMedia(file, title, mediaType) {
+  if (file) {
+    const ref = storageRef(
+      storage,
+      `ProjectMedia/${title.replace(" ", "_")}/${file.name}`
+    );
+    console.log(`Uploading ${mediaType} to DB`);
+
+    try {
+      await uploadBytes(ref, file);
+      const url = await getDownloadURL(ref);
+      console.log(`Successfully Uploaded ${mediaType} to DB`);
+      console.log(`${mediaType} url: ${url}`);
+      return url;
+    } catch (error) {
+      console.error(`Error uploading ${mediaType} media:`, error);
+      throw error;
+    }
+  } else {
+    return null;
+  }
 }
 
 async function countDatabaseRecords() {
@@ -210,3 +227,5 @@ async function countDatabaseRecords() {
     throw error;
   }
 }
+
+// async function uploadtheData(storageRef, file, mediaType) {}

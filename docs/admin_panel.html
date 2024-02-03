@@ -23,11 +23,12 @@
         </div>
 
         <span>Project Title</span>
-        <input class="input" type="text" id="project_title" placeholder="Enter Project Title" required="">
+        <input class="input" type="text" id="project_title" placeholder="Enter Project Title" required=""
+            value="testtitle">
 
         <label>
             <span><br>Application Type: Web/Mobile/Desktop Application<br><br></span>
-            <input type="radio" id="project_type1" name="project_type" value="Mobile Application">
+            <input type="radio" id="project_type1" name="project_type" value="Mobile Application" checked>
             <label for="project_type1">Mobile Application</label><br>
             <input type="radio" id="project_type2" name="project_type" value="Web Application">
             <label for="project_type2">Web Application</label><br>
@@ -36,13 +37,13 @@
 
             <label>
                 <input type="radio" name="project_type" value="other">&nbsp;Other
-                <input type="text" name="other" value="Write In" />
+                <input type="text" name="other" placeholder="Write In" />
             </label>
         </label>
 
         <label>
             <span><br>Tech Stack<br><br></span>
-            <input type="checkbox" id="tech_stack1" name="tech_stack" value="Python">
+            <input type="checkbox" id="tech_stack1" name="tech_stack" value="Python" checked>
             <label for="tech_stack1">Python</label><br>
             <input type="checkbox" id="tech_stack2" name="tech_stack" value="Android">
             <label for="tech_stack2">Android</label><br>
@@ -61,12 +62,12 @@
         <br>
 
         <label for="opensource">Open Source Project
-            <input type="checkbox" id="opensource" name="opensource" value="opensource">
+            <input type="checkbox" id="opensource" name="opensource" value="opensource" checked>
         </label>
 
         <label>
             <span><br>Demo Type?<br><br></span>
-            <input type="radio" id="demo_type1" name="demo_type" value="demo_pc">
+            <input type="radio" id="demo_type1" name="demo_type" value="demo_pc" checked>
             <label for="demo_type1">PC (Laptop/Computer)</label><br>
             <input type="radio" id="demo_type2" name="demo_type" value="demo_mobile">
             <label for="demo_type2">Mobile</label><br>
@@ -76,23 +77,24 @@
         <br>
 
         <span>Project Description</span>
-        <input class="input" id="project_description" type="text" placeholder="Enter Description" required="">
+        <input class="input" id="project_description" type="text" placeholder="Enter Description" required=""
+            value="testdesc">
         <br>
 
         <span>Github Link</span>
-        <input class="input" id="githubLink" type="text" placeholder="Enter Github Link" required="">
+        <input class="input" id="githubLink" type="text" placeholder="Enter Github Link" value="testgithub">
         <br>
 
         <label>Project Demo:</label>
-        <input type="file" id="file-selector-demo" accept=".jpg, .jpeg, .png, .mp4">
+        <input type="file" id="file-selector-demo" accept=".jpg, .jpeg, .png, .mp4" required>
         <br>
 
         <label>Project Banner Image:</label>
-        <input type="file" id="file-selector-image" accept=".jpg, .jpeg, .png">
+        <input type="file" id="file-selector-image" accept=".jpg, .jpeg, .png" required>
         <br>
 
         <label>Project Documentation: (MarkDown)</label>
-        <input type="file" id="file-selector-doc" accept=".md">
+        <input type="file" id="file-selector-doc" accept=".md" required>
         <br>
 
         <button class="submit">Create New Project</button>
