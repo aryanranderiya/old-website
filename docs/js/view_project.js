@@ -1,5 +1,7 @@
 // const projectId = new URLSearchParams(window.location.search).get("id");
 
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
 //! Scroll to top when page is refreshed
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
@@ -35,7 +37,7 @@ const projectRef = ref(database, "Projects/" + projectId);
 
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
 
-function processData(snapshot) {
+async function processData(snapshot) {
   const snapshotData = snapshot.val();
 
   var projectTitle = snapshotData.project_title;
@@ -45,6 +47,7 @@ function processData(snapshot) {
   var githubLink = snapshotData.github_link;
   var demoDownloadURL = snapshotData.demo_file_URL;
   var demo_type = snapshotData.demo_type;
+  var documentationURL = snapshotData.documentation_URL;
 
   const text_project_title = document.querySelector(".project_title");
   const project_desc = document.querySelector(".project_desc");
@@ -67,8 +70,36 @@ function processData(snapshot) {
   text_project_title.innerHTML = projectTitle;
   ptype_text.innerHTML = projectType;
   project_desc.innerHTML = projectDesc;
-  // p_info_text.innerHTML = projectDesc;
-  p_info_text.remove();
+
+  //!  Fetch Documentation
+  if (documentationURL) {
+    fetch(documentationURL)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then((textContent) => {
+        p_info_text.innerHTML = marked.parse(textContent);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  } else {
+    p_info_text.innerHTML = "No Documentation.";
+  }
+  // try {
+  //   const response = await fetch(documentationURL);
+  //   if (!response.ok)
+  //     throw new Error(`Failed to fetch file: ${response.statusText}`);
+
+  //   const markdownContent = await response.text();
+
+  //   p_info_text.innerHTML = marked(markdownContent);
+  // } catch (error) {
+  //   console.error("Error fetching or processing Markdown file:", error);
+  // }
 
   setupMockups(demo_type, demoDownloadURL);
 
@@ -145,6 +176,12 @@ const observerScroller_mobile = new IntersectionObserver(
     immediate: true,
   }
 );
+function scrollToTop() {
+  window.scrollTo({
+    bottom: 0,
+    behavior: "smooth",
+  });
+}
 
 //! DOMContentLoaded
 
@@ -165,19 +202,18 @@ const playbackControls = document.querySelector(".video_controls_playback");
 const controls_container = document.querySelector(".video_controls_container");
 const icons_main_replay = document.getElementById("icons_main_replay");
 const progressBar = document.querySelector("#progress-bar");
+const btnScrollTop = document.querySelector(".scrolltotop");
 
 onValue(projectRef, processData);
 
 document.addEventListener("DOMContentLoaded", function () {
-  var cursor_glow = document.querySelector(".cursor_glow_div");
+  // var cursor_glow = document.querySelector(".cursor_glow_div");
 
-  document.addEventListener("mousemove", function (e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    cursor_glow.style.transform = `translate(${x}px, ${y}px)`;
-    // cursor_glow.style.transform = `translate(calc(${x}px - 50%), calc(${y}px - 160%)`;
-    // cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
-  });
+  // document.addEventListener("mousemove", function (e) {
+  //   var x = e.clientX;
+  //   var y = e.clientY;
+  //   cursor_glow.style.transform = `translate(${x}px, ${y}px)`;
+  // });
 
   const button_primary = document.querySelector(".button_primary");
   const button_secondary = document.querySelector(".button_secondary");
@@ -186,6 +222,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (button_primary) handleButtonEvents(button_primary);
   if (button_secondary) handleButtonEvents(button_secondary);
+
+  btnScrollTop.addEventListener("click", scrollToTop);
 
   function handleButtonEvents(button) {
     button.addEventListener("mouseover", () => {
@@ -219,14 +257,16 @@ function handleIntersection1(entries, observer) {
       playbackControls.classList.remove("hidden");
       controls_container.classList.remove("hidden");
       controls_container.style.opacity = "1";
+      progressBar.style.backgroundColor = "white";
+
       // ! CHANGE THIS
       control_play.style.opacity = "0";
       control_pause.style.opacity = "1";
       icon_control_playback.classList.remove("hidden");
       icon_main.style.visibility = "visible";
     } else {
+      progressBar.style.backgroundColor = "#4d4d4d";
       icon_main.style.visibility = "hidden";
-
       mockup_laptop_image.style.opacity = "0.3";
       entry.target.style.opacity = "0.3";
       entry.target.style.filter = "grayscale(100%)";
@@ -241,11 +281,10 @@ function handleIntersection1(entries, observer) {
       otherControls.classList.add("hidden");
       playbackControls.classList.add("hidden");
       controls_container.classList.add("hidden");
+      icon_control_playback.classList.add("hidden");
       setTimeout(() => {
         controls_container.style.opacity = "0";
       }, 500);
-
-      icon_control_playback.classList.add("hidden");
     }
   });
 }

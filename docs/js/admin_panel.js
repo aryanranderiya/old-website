@@ -60,10 +60,12 @@ async function insertFetchData() {
   const description = document.getElementById("project_description").value;
   const fileSelectorBanner = document.getElementById("file-selector-image");
   const fileSelectorDemo = document.getElementById("file-selector-demo");
+  const fileSelectorDoc = document.getElementById("file-selector-doc");
   const fileBanner = fileSelectorBanner.files[0];
   const fileDemo = fileSelectorDemo.files[0];
+  const fileDocumentation = fileSelectorDoc.files[0];
 
-  let githubLink, bannerDownloadURL, demoDownloadURL;
+  let githubLink, bannerDownloadURL, demoDownloadURL, documentationURL;
 
   const type = document.querySelector(
     'input[name="project_type"]:checked'
@@ -100,68 +102,87 @@ async function insertFetchData() {
   if (fileBanner) {
     const bannerStorageRef = storageRef(
       storage,
-      "Projectmedia/" + title.replace(" ", "_") + "-" + fileBanner.name
+      "ProjectMedia/" + title.replace(" ", "_") + "/" + fileBanner.name
     );
 
-    if (fileDemo) {
-      const demoStorageRef = storageRef(
+    if (fileDocumentation) {
+      const documentationStorageRef = storageRef(
         storage,
-        "Projectmedia/" + title.replace(" ", "_") + "-" + fileDemo.name
+        "ProjectMedia/" + title.replace(" ", "_") + "/" + fileDocumentation.name
       );
 
-      console.log("Uploading Banner to DB");
-      uploadBytes(bannerStorageRef, fileBanner)
-        .then(() => {
-          console.log("Successfully Uploaded Banner to DB");
+      if (fileDemo) {
+        const demoStorageRef = storageRef(
+          storage,
+          "ProjectMedia/" + title.replace(" ", "_") + "/" + fileDemo.name
+        );
 
-          getDownloadURL(bannerStorageRef).then((url) => {
-            bannerDownloadURL = url.toString();
+        console.log("Uploading Banner to DB");
+        uploadBytes(bannerStorageRef, fileBanner)
+          .then(() => {
+            console.log("Successfully Uploaded Banner to DB");
+            getDownloadURL(bannerStorageRef).then((url) => {
+              bannerDownloadURL = url.toString();
 
-            console.log("Uploading Demo Media to DB");
-            uploadBytes(demoStorageRef, fileDemo).then(() => {
-              console.log("Successfully Uploaded Demo Media to DB");
+              console.log("Uploading Demo Media to DB");
+              uploadBytes(demoStorageRef, fileDemo).then(() => {
+                console.log("Successfully Uploaded Demo Media to DB");
+                getDownloadURL(demoStorageRef).then((url) => {
+                  demoDownloadURL = url.toString();
 
-              getDownloadURL(bannerStorageRef).then((url) => {
-                demoDownloadURL = url.toString();
+                  console.log("Uploading Documentation to DB");
+                  uploadBytes(documentationStorageRef, fileDocumentation).then(
+                    () => {
+                      console.log("Successfully Uploaded Documentation to DB");
+                      getDownloadURL(documentationStorageRef).then((url) => {
+                        documentationURL = url.toString();
 
-                console.log(`
-                  Uploading Data to DB:
-                  - Title: ${title}
-                  - Type: ${type}
-                  - Tech Stack: ${tech_stack.join(",")}
-                  - Description: ${description}
-                  - Banner Image URL: ${bannerDownloadURL}
-                  - Demo File URL: ${demoDownloadURL}
-                  - GitHub Link: ${githubLink}
-                  - Demo Type: ${demo_type}
-                `);
+                        console.log(`
+                          Uploading Data to DB:
+                          - Title: ${title}
+                          - Type: ${type}
+                          - Tech Stack: ${tech_stack.join(",")}
+                          - Description: ${description}
+                          - Banner Image URL: ${bannerDownloadURL}
+                          - Demo File URL: ${demoDownloadURL}
+                          - Documentation File URL" ${documentationURL}
+                          - GitHub Link: ${githubLink}
+                          - Demo Type: ${demo_type}
+                        `);
 
-                set(projectsRef, {
-                  project_title: title,
-                  project_type: type,
-                  project_tech_stack: tech_stack.join(","),
-                  project_description: description,
-                  banner_image_URL: bannerDownloadURL,
-                  demo_file_URL: demoDownloadURL,
-                  github_link: githubLink,
-                  demo_type: demo_type,
-                })
-                  .then(() => {
-                    console.log("Data Successfully inserted!");
-                  })
-                  .catch((error) => {
-                    console.error(error);
-                  });
+                        set(projectsRef, {
+                          project_title: title,
+                          project_type: type,
+                          project_tech_stack: tech_stack.join(","),
+                          project_description: description,
+                          banner_image_URL: bannerDownloadURL,
+                          demo_file_URL: demoDownloadURL,
+                          github_link: githubLink,
+                          demo_type: demo_type,
+                          documentation_URL: documentationURL,
+                        })
+                          .then(() => {
+                            console.log("Data Successfully inserted!");
+                          })
+                          .catch((error) => {
+                            console.error(error);
+                          });
+                      });
+                    }
+                  );
+                });
               });
             });
-          });
-        })
+          })
 
-        .catch((error) => {
-          console.error("Error uploading image:", error);
-        });
+          .catch((error) => {
+            console.error("Error uploading image:", error);
+          });
+      } else {
+        console.log("No file selected. (Mockup)");
+      }
     } else {
-      console.log("No file selected. (Mockup)");
+      console.log("No file selected. (Documentation )");
     }
   } else {
     console.warn("No file selected. (Banner)");

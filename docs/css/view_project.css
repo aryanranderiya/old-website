@@ -201,8 +201,9 @@ section {
   margin: 2% 8%;
   color: white;
   font-family: Helvs;
-  font-size: 1.5em;
+  font-size: 1.1em;
   text-align: justify;
+  font-weight: normal;
 }
 
 /* !Buttons */
@@ -215,8 +216,9 @@ section {
 }
 
 .video_controls_container {
-  position: sticky;
-  bottom: 10px;
+  width: 100%;
+  position: fixed;
+  bottom: 20px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -376,4 +378,23 @@ section {
 
 .cursor_glow_div {
   margin-top: -10% !important;
+}
+
+.scrolltotop {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  border-radius: 100px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+#scrolltop_icon {
+  font-size: 3em;
 }
