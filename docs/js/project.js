@@ -37,6 +37,8 @@ const projectRef = ref(database, "Projects/" + projectId);
 
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
 
+onValue(projectRef, processData);
+
 async function processData(snapshot) {
   const snapshotData = snapshot.val();
 
@@ -48,6 +50,17 @@ async function processData(snapshot) {
   var demoDownloadURL = snapshotData.demo_file_URL;
   var demo_type = snapshotData.demo_type;
   var documentationURL = snapshotData.documentation_URL;
+
+  // window.location.hash = projectTitle;
+
+  let project_title_temp = projectTitle.replace(" ", "");
+
+  document.title = projectTitle;
+
+  const nextState = { additionalInformation: "Updated the URL with JS" };
+
+  window.history.pushState(nextState, projectTitle, project_title_temp);
+  window.history.replaceState(nextState, projectTitle, project_title_temp);
 
   const text_project_title = document.querySelector(".project_title");
   const project_desc = document.querySelector(".project_desc");
@@ -183,8 +196,6 @@ function scrollToTop() {
   });
 }
 
-//! DOMContentLoaded
-
 const dot = document.querySelector(".dot");
 const controlIcons = document.querySelector(".icons");
 const mockup_pc = document.querySelector(".mockup_pc");
@@ -203,8 +214,6 @@ const controls_container = document.querySelector(".video_controls_container");
 const icons_main_replay = document.getElementById("icons_main_replay");
 const progressBar = document.querySelector("#progress-bar");
 const btnScrollTop = document.querySelector(".scrolltotop");
-
-onValue(projectRef, processData);
 
 document.addEventListener("DOMContentLoaded", function () {
   // var cursor_glow = document.querySelector(".cursor_glow_div");

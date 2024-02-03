@@ -158,33 +158,6 @@ async function insertFetchData() {
   document.getElementById("submit-project-form").reset();
 }
 
-// async function uploadMedia(file, title, mediaType) {
-//   if (file) {
-//     const ref = storageRef(
-//       storage,
-//       `ProjectMedia/${title.replace(" ", "_")}/${file.name}`
-//     );
-//     console.log(`Uploading ${mediaType} to DB`);
-
-//     uploadBytes(ref, file)
-//       .then(() => {
-//         getDownloadURL(ref).then((url) => {
-//           console.log(`Successfully Uploaded ${mediaType} to DB`);
-//           console.log(`${mediaType} url: ${url}`);
-//           return url;
-//         });
-//       })
-//       .catch((error) => {
-//         console.error(
-//           `Error uploading ${mediaType} media THIS IS A TEST:`,
-//           error
-//         );
-//       });
-//   } else {
-//     return null;
-//   }
-// }
-
 async function uploadMedia(file, title, mediaType) {
   if (file) {
     const ref = storageRef(
