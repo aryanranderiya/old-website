@@ -40,83 +40,89 @@ const projectRef = ref(database, "Projects/" + projectId);
 
 onValue(projectRef, processData);
 
-async function processData(snapshot) {
-  const snapshotData = snapshot.val();
+// ! INIT
+const dot = document.querySelector(".dot");
+const mockups = document.querySelectorAll(".mockup");
+const controlIcons = document.querySelector(".icons");
+const iconMain = document.querySelector(".icon_main");
+const mockup_pc = document.querySelector(".mockup_pc");
+const tech_stack = document.querySelector(".tech_stack");
+const ptypeText = document.querySelector(".p_type_text");
+const ptypeIcon = document.querySelector(".p_type_icon");
+const progressBar = document.querySelector("#progress-bar");
+const btnScrollTop = document.querySelector(".scrolltotop");
+const tryAnchor = document.querySelector(".btn_try_anchor");
+const mockup_phone = document.querySelector(".mockup_phone");
+const pInfoText = document.querySelector(".project_info_text");
+const containerPC = document.querySelector(".container-laptop");
+const primaryButton = document.querySelector(".button_primary");
+const controlPlay = document.querySelector("#control_playback");
+const controlPause = document.getElementById("icons_main_pause");
+const githubAnchor = document.querySelector(".btn_github_anchor");
+const textProjectTitle = document.querySelector(".project_title");
+const playback_icons_main = document.querySelector(".icons.main");
+const containerPhone = document.querySelector(".container-mobile");
+const projectDescription = document.querySelector(".project_desc");
+const secondaryButton = document.querySelector(".button_secondary");
+const iconsMainReplay = document.getElementById("icons_main_replay");
+const mockupContainer = document.querySelectorAll(".mockup_container");
+const otherControls = document.querySelector(".video_controls_others");
+const mobileVideo = document.querySelector(".mockup_media_mobile.video");
+const laptopVideo = document.querySelector(".mockup_media_laptop.video");
+const laptopImage = document.querySelector(".mockup_media_laptop.image");
+const mockupLaptopImage = document.querySelector(".mockup_laptop.image");
+const playbackControls = document.querySelector(".video_controls_playback");
+const controlsContainer = document.querySelector(".video_controls_container");
 
-  var projectTitle = snapshotData.project_title;
-  var projectDesc = snapshotData.project_description;
-  var projectType = snapshotData.project_type;
-  var projectTechStack = snapshotData.project_tech_stack;
-  var githubLink = snapshotData.github_link;
-  var tryProjectLink = snapshotData.tryProjectLink;
-  var demoDownloadURL = snapshotData.demo_file_URL;
-  var demo_type = snapshotData.demo_type;
-  var documentationURL = snapshotData.documentation_URL;
+// ! INIT END
 
-  let project_title_temp = projectTitle.replace(/ /g, "");
-  document.title = projectTitle;
-
+function setPageUrl(tab_title) {
+  let title_url = tab_title.replace(/ /g, "");
   const nextState = { additionalInformation: "Updated the URL with JS" };
-  window.history.pushState(nextState, projectTitle, project_title_temp);
-  window.history.replaceState(nextState, projectTitle, project_title_temp);
+  window.history.pushState(nextState, tab_title, title_url);
+  window.history.replaceState(nextState, tab_title, title_url);
+}
 
-  const text_project_title = document.querySelector(".project_title");
-  const project_desc = document.querySelector(".project_desc");
-  const ptype_text = document.querySelector(".p_type_text");
-  const ptype_icon = document.querySelector(".p_type_icon");
-  const p_info_text = document.querySelector(".project_info_text");
-  const tech_stack = document.querySelector(".tech_stack");
-  const primaryButton = document.querySelector(".button_primary");
-  const secondaryButton = document.querySelector(".button_secondary");
-  const githubAnchor = document.querySelector(".btn_github_anchor");
-  const tryAnchor = document.querySelector(".btn_try_anchor");
-  // !Set icon for project time to mobile or pc
-  if (projectType.includes("Mobile"))
-    ptype_icon.innerHTML =
-      '<span class="material-symbols-outlined p_type_icon"> phone_iphone</span>';
-  else if (projectType.includes("Desktop") || projectType.includes("Web"))
-    ptype_icon.innerHTML =
-      '<span class="material-symbols-outlined p_type_icon"> laptop_mac</span>';
-
-  //! Set data from database
-  text_project_title.innerHTML = projectTitle;
-  ptype_text.innerHTML = projectType;
-  project_desc.innerHTML = projectDesc;
-
-  //!  Fetch Documentation
-  if (documentationURL) {
-    fetch(documentationURL)
+function setupDocumentation(p_documentationURL, pInfoText) {
+  if (p_documentationURL) {
+    fetch(p_documentationURL)
       .then((response) => {
-        if (!response.ok) {
+        if (!response.ok)
           throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+
         return response.text();
       })
       .then((textContent) => {
-        p_info_text.innerHTML = marked.parse(textContent);
+        pInfoText.innerHTML = marked.parse(textContent);
       })
       .catch((error) => {
         console.error("Fetch Documentation error:", error);
       });
   } else {
-    p_info_text.innerHTML = "No Documentation.";
+    pInfoText.innerHTML = "No Documentation.";
   }
-  // try {
-  //   const response = await fetch(documentationURL);
-  //   if (!response.ok)
-  //     throw new Error(`Failed to fetch file: ${response.statusText}`);
+}
 
-  //   const markdownContent = await response.text();
+function setHrefandBtn(link, btn, anchor) {
+  if (!link) {
+    btn?.remove();
+    anchor?.remove();
+  } else {
+    anchor.href = link;
+  }
+}
 
-  //   p_info_text.innerHTML = marked(markdownContent);
-  // } catch (error) {
-  //   console.error("Error fetching or processing Markdown file:", error);
-  // }
+function setProjectTypeIcon(p_type) {
+  if (p_type.includes("Mobile"))
+    ptypeIcon.innerHTML =
+      '<span class="material-symbols-outlined p_type_icon"> phone_iphone</span>';
+  else if (p_type.includes("Desktop") || p_type.includes("Web"))
+    ptypeIcon.innerHTML =
+      '<span class="material-symbols-outlined p_type_icon"> laptop_mac</span>';
+}
 
-  setupMockups(demo_type, demoDownloadURL);
-
-  //! Set icons for tech stack
-  var projectTechStack_values = projectTechStack.trim().split(",");
+function setTechStack(p_techStack) {
+  var projectTechStack_values = p_techStack.trim().split(",");
 
   const replacements = {
     Python: "python fa-brands",
@@ -136,31 +142,44 @@ async function processData(snapshot) {
         <i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
     })
     .join(" ")}`;
+}
 
-  //! Set href for github link
-  if (!githubLink) {
-    primaryButton?.remove();
-    githubAnchor?.remove();
-  } else {
-    githubAnchor.href = githubLink;
-  }
+function setOthers(p_title, p_type, p_desc) {
+  textProjectTitle.innerHTML = p_title;
+  ptypeText.innerHTML = p_type;
+  projectDescription.innerHTML = p_desc;
+  document.title = p_title;
+}
 
-  if (!tryProjectLink) {
-    secondaryButton?.remove();
-    tryAnchor?.remove();
-  } else {
-    tryAnchor.href = tryProjectLink;
-  }
+// ! Start Processing & Setting Data
+async function processData(snapshot) {
+  const snapshotData = snapshot.val();
+
+  var p_title = snapshotData.project_title;
+  var p_desc = snapshotData.project_description;
+  var p_type = snapshotData.project_type;
+  var p_techStack = snapshotData.project_tech_stack;
+  var p_githubLink = snapshotData.github_link;
+  var p_tryProjectLink = snapshotData.tryProjectLink;
+  var p_demoURL = snapshotData.demo_file_URL;
+  var p_demoType = snapshotData.demo_type;
+  var p_documentationURL = snapshotData.documentation_URL;
+
+  setOthers(p_title, p_type, p_desc);
+  setProjectTypeIcon(p_type, ptypeIcon);
+  setPageUrl(p_title);
+  setupDocumentation(p_documentationURL, pInfoText);
+  setupMockups(p_demoType, p_demoURL);
+  setTechStack(p_techStack);
+  setHrefandBtn(p_githubLink, primaryButton, githubAnchor);
+  setHrefandBtn(p_tryProjectLink, secondaryButton, tryAnchor);
 }
 
 //!  Intersection Observer for scrolling into view
 function handIntersectionScroller_mobile(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.scrollIntoView({
-        behavior: "auto",
-        block: "end",
-      });
+      entry.target.scrollIntoView({ behavior: "auto", block: "end" });
     }
   });
 }
@@ -168,141 +187,44 @@ function handIntersectionScroller_mobile(entries, observer) {
 function handIntersectionScroller_pc(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.scrollIntoView({
-        behavior: "auto",
-        block: "center",
-      });
+      entry.target.scrollIntoView({ behavior: "auto", block: "center" });
     }
   });
 }
 
 const observerScroller_pc = new IntersectionObserver(
   handIntersectionScroller_pc,
-  {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-    immediate: true,
-  }
+  { root: null, rootMargin: "0px", threshold: 0.5, immediate: true }
 );
 
 const observerScroller_mobile = new IntersectionObserver(
   handIntersectionScroller_mobile,
-  {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.4,
-    immediate: true,
-  }
+  { root: null, rootMargin: "0px", threshold: 0.4, immediate: true }
 );
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
 
-const dot = document.querySelector(".dot");
-const controlIcons = document.querySelector(".icons");
-const mockup_pc = document.querySelector(".mockup_pc");
-const mockup_phone = document.querySelector(".mockup_phone");
-const control_play = document.getElementById("control_playback");
-const playback_icons_main = document.querySelector(".icons.main");
-const icon_main = document.querySelector(".icon_main");
-const control_pause = document.getElementById("icons_main_pause");
-const otherControls = document.querySelector(".video_controls_others");
-const mobileVideo = document.querySelector(".mockup_media_mobile.video");
-const laptopVideo = document.querySelector(".mockup_media_laptop.video");
-const laptopImage = document.querySelector(".mockup_media_laptop.img");
-const icon_control_playback = document.querySelector("#control_playback");
-const mockup_laptop_image = document.querySelector(".mockup_laptop.image");
-const playbackControls = document.querySelector(".video_controls_playback");
-const controls_container = document.querySelector(".video_controls_container");
-const icons_main_replay = document.getElementById("icons_main_replay");
-const progressBar = document.querySelector("#progress-bar");
-const btnScrollTop = document.querySelector(".scrolltotop");
-const mockups = document.querySelectorAll(".mockup");
-
-document.addEventListener("DOMContentLoaded", function () {
-  // var cursor_glow = document.querySelector(".cursor_glow_div");
-
-  // document.addEventListener("mousemove", function (e) {
-  //   var x = e.clientX;
-  //   var y = e.clientY;
-  //   cursor_glow.style.transform = `translate(${x}px, ${y}px)`;
-  // });
-
-  const button_primary = document.querySelector(".button_primary");
-  const button_secondary = document.querySelector(".button_secondary");
-  const cursoricon5 = document.getElementById("cursoricon5");
-
-  if (button_primary) handleButtonEvents(button_primary);
-  if (button_secondary) handleButtonEvents(button_secondary);
-
-  btnScrollTop.addEventListener("click", scrollToTop);
-
-  function handleButtonEvents(button) {
-    button.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.5)", "none");
-      addClass(cursor, "transparent");
-      addClass(cursoricon5, "active");
-    });
-
-    button.addEventListener("mouseout", () => {
-      removeClass(cursor, "transparent");
-      removeClass(cursoricon5, "active");
-      cursorTransformShadowBlend();
-    });
-  }
-});
-
-//! Intersection Observer handle Intersection
+//! Intersection Observer for Mobile and PC Video
 function handleIntersection1(entries, observer) {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      mockup_laptop_image.style.opacity = "1";
-      entry.target.style.opacity = "1";
-      entry.target.style.filter = "grayscale(0%)";
-      entry.target.play();
-
-      dot.classList.remove("visible");
-      controlIcons.style.opacity = "1";
-      otherControls.classList.remove("hidden");
-      playbackControls.classList.remove("hidden");
-      controls_container.classList.remove("hidden");
-      controls_container.style.opacity = "1";
-      progressBar.style.backgroundColor = "white";
-
-      // ! CHANGE THIS
-      control_play.style.opacity = "0";
-      icons_main_replay.style.opacity = "0";
-      control_pause.style.opacity = "1";
-
-      icon_control_playback.classList.remove("hidden");
-      icon_main.style.visibility = "visible";
-    } else {
-      progressBar.style.backgroundColor = "#4d4d4d";
-      icon_main.style.visibility = "hidden";
-      mockup_laptop_image.style.opacity = "0.3";
-      entry.target.style.opacity = "0.3";
-      entry.target.style.filter = "grayscale(100%)";
-      entry.target.pause();
-
-      // ! CHANGE THIS
-      control_play.style.opacity = "1";
-      control_pause.style.opacity = "0";
-      icons_main_replay.style.opacity = "0";
-
-      dot.classList.add("visible");
-      controlIcons.style.opacity = "0";
-      otherControls.classList.add("hidden");
-      playbackControls.classList.add("hidden");
-      controls_container.classList.add("hidden");
-      icon_control_playback.classList.add("hidden");
-      setTimeout(() => {
-        controls_container.style.opacity = "0";
-      }, 500);
-    }
+    const isIntersecting = entry.isIntersecting;
+    entry.target[isIntersecting ? "play" : "pause"]();
+    entry.target.style.filter = isIntersecting
+      ? "grayscale(0%)"
+      : "grayscale(100%)";
+    entry.target.style.opacity = isIntersecting ? "1" : "0.3";
+    iconsMainReplay.style.opacity = "0";
+    dot.classList.toggle("visible", !isIntersecting);
+    controlIcons.style.opacity = isIntersecting ? "1" : "0";
+    controlPlay.style.opacity = isIntersecting ? "0" : "1";
+    controlPause.style.opacity = isIntersecting ? "1" : "0";
+    otherControls.classList.toggle("hidden", !isIntersecting);
+    playbackControls.classList.toggle("hidden", !isIntersecting);
+    controlsContainer.classList.toggle("hidden", !isIntersecting);
+    mockupLaptopImage.style.opacity = isIntersecting ? "1" : "0.3";
+    setTimeout(() => {
+      controlsContainer.style.opacity = isIntersecting ? "1" : "0";
+    }, 500);
+    iconMain.style.visibility = isIntersecting ? "visible" : "hidden";
+    progressBar.style.backgroundColor = isIntersecting ? "white" : "#4d4d4d";
   });
 }
 
@@ -310,47 +232,15 @@ function handleIntersection1(entries, observer) {
 function handleIntersectionImage(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      mockup_laptop_image.style.opacity = "1";
+      mockupLaptopImage.style.opacity = "1";
       entry.target.style.opacity = "1";
       entry.target.style.filter = "grayscale(0%)";
-
-      // dot.classList.remove("visible");
-      // controlIcons.style.opacity = "1";
-      // otherControls.classList.remove("hidden");
-      // playbackControls.classList.remove("hidden");
-      // controls_container.classList.remove("hidden");
-      // controls_container.style.opacity = "1";
-      // progressBar.style.backgroundColor = "white";
-
-      // // ! CHANGE THIS
-      // control_play.style.opacity = "0";
-      // icons_main_replay.style.opacity = "0";
-      // control_pause.style.opacity = "1";
-
-      // icon_control_playback.classList.remove("hidden");
-      // icon_main.style.visibility = "visible";
     } else {
       progressBar.style.backgroundColor = "#4d4d4d";
-      icon_main.style.visibility = "hidden";
-      mockup_laptop_image.style.opacity = "0.3";
+      iconMain.style.visibility = "hidden";
+      mockupLaptopImage.style.opacity = "0.3";
       entry.target.style.opacity = "0.3";
       entry.target.style.filter = "grayscale(100%)";
-      // entry.target.pause();
-
-      // // ! CHANGE THIS
-      // control_play.style.opacity = "1";
-      // control_pause.style.opacity = "0";
-      // icons_main_replay.style.opacity = "0";
-
-      // dot.classList.add("visible");
-      // controlIcons.style.opacity = "0";
-      // otherControls.classList.add("hidden");
-      // playbackControls.classList.add("hidden");
-      // controls_container.classList.add("hidden");
-      // icon_control_playback.classList.add("hidden");
-      // setTimeout(() => {
-      //   controls_container.style.opacity = "0";
-      // }, 500);
     }
   });
 }
@@ -364,17 +254,49 @@ function createIntersectionObserver(threshold) {
   });
 }
 
-function createIntersectionObserverImage(threshold) {
-  return new IntersectionObserver(handleIntersectionImage, {
-    root: null,
-    rootMargin: "0px",
-    threshold,
-  });
-}
-
 const observer1 = createIntersectionObserver(0.7);
 const observer2 = createIntersectionObserver(0.8);
-const observerImage = createIntersectionObserverImage(0.8);
+const observerImage = new IntersectionObserver(handleIntersectionImage, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.8,
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var cursor_glow = document.querySelector(".cursor_glow_div");
+
+  document.addEventListener("mousemove", function (e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    cursor_glow.style.transform = `translate(${x}px, ${y}px)`;
+  });
+
+  const button_primary = document.querySelector(".button_primary");
+  const button_secondary = document.querySelector(".button_secondary");
+  const cursoricon5 = document.getElementById("cursoricon5");
+
+  if (button_primary) addEventListeners(button_primary);
+  if (button_secondary) addEventListeners(button_secondary);
+
+  btnScrollTop.addEventListener(
+    "click",
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  );
+
+  function addEventListeners(button) {
+    button.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.5)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    button.addEventListener("mouseout", () => {
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
+    });
+  }
+});
 
 // ! Functions
 
@@ -405,24 +327,21 @@ function hoverDevices(mockups) {
   const changeCursorText = (video) => {
     if (video.playing) {
       cursortext.innerHTML = 'Pause<br><i class="fa-solid fa-pause"></i>';
-      control_pause.style.opacity = "1";
-      control_play.style.opacity = "0";
-      icons_main_replay.style.opacity = "0";
-      // playback_icons_main.style.display = "";
+      controlPause.style.opacity = "1";
+      controlPlay.style.opacity = "0";
+      iconsMainReplay.style.opacity = "0";
     } else if (video.ended) {
       cursortext.innerHTML = 'Restart<br><i class="fa-solid fa-repeat"></i>';
-      control_pause.style.opacity = "0";
-      control_play.style.opacity = "0";
-      icons_main_replay.style.opacity = "1";
-      // playback_icons_main.style.display = "flex";
+      controlPause.style.opacity = "0";
+      controlPlay.style.opacity = "0";
+      iconsMainReplay.style.opacity = "1";
       video.style.opacity = "0.3";
       video.style.filter = "grayscale(100%)";
     } else {
       cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
-      control_pause.style.opacity = "0";
-      control_play.style.opacity = "1";
+      controlPause.style.opacity = "0";
+      controlPlay.style.opacity = "1";
       playback_icons_main.style.display = "";
-      // icons_main_replay.style.opacity = "0";
     }
   };
 
@@ -439,10 +358,109 @@ function playPauseVideo(video) {
   video.style.opacity = isPaused ? "1" : "0.3";
   video.style.filter = isPaused ? "grayscale(0%)" : "grayscale(100%)";
   isPaused ? video.play() : video.pause();
-  control_play.style.opacity = isPaused ? "0" : "1";
-  control_pause.style.opacity = isPaused ? "1" : "0";
-  icons_main_replay.style.opacity = "0";
+  controlPlay.style.opacity = isPaused ? "0" : "1";
+  controlPause.style.opacity = isPaused ? "1" : "0";
+  iconsMainReplay.style.opacity = "0";
   progressBar.style.backgroundColor = isPaused ? "white" : "#4d4d4d";
+}
+
+function removeCover() {
+  setTimeout(function () {
+    const blackCover = document.querySelector(".black_cover");
+    blackCover.classList.remove("visible");
+    document.body.style.overflow = "auto";
+  }, 500);
+}
+
+function setMockup(
+  mediaObserver,
+  mediaElement,
+  demoURL,
+  observerScroller_pc,
+  container,
+  mockup
+) {
+  mediaObserver.observe(mediaElement);
+  setVideoProgressBar(mediaElement);
+  mediaElement.src = demoURL;
+  mockup.classList.add("visible");
+  observerScroller_pc.observe(container);
+  mediaElement.addEventListener("loadeddata", removeCover);
+  playbackControlsSetup();
+  hoverDevices(mockups);
+}
+
+function setupMockups(demo_type, demoDownloadURL) {
+  if (demo_type == "demo_pc") {
+    mockupContainer.forEach((element) => element.classList.add("pc"));
+    setMockup(
+      observer2,
+      laptopVideo,
+      demoDownloadURL,
+      observerScroller_pc,
+      containerPC,
+      mockup_pc
+    );
+    // END OF IF
+  } else if (demo_type == "demo_mobile") {
+    setMockup(
+      observer1,
+      mobileVideo,
+      demoDownloadURL,
+      observerScroller_mobile,
+      containerPhone,
+      mockup_phone
+    );
+    // END OF IF ELSE CONDITION
+  } else if (demo_type == "demo_pc_image") {
+    observerImage.observe(laptopImage);
+    mockup_pc.classList.add("visible");
+    laptopImage.src = demoDownloadURL;
+    laptopVideo.style.display = "none";
+    laptopImage.style.display = "block";
+    controlsContainer.style.visibility = "hidden";
+    laptopImage.addEventListener("load", removeCover);
+    mockupContainer.forEach((element) => element.classList.add("pc"));
+    // END OF ELSE
+  } else if (demo_type == "none") {
+    controlsContainer.style.visibility = "hidden";
+    removeCover();
+    //END OF IF ELSE
+  }
+}
+
+function playbackControlsSetup() {
+  const computedStyle_pc = window.getComputedStyle(mockup_pc);
+  const computedStyle_phone = window.getComputedStyle(mockup_phone);
+
+  if (computedStyle_pc.display == "none") {
+    controlVideo(mobileVideo);
+  } else if (computedStyle_phone.display == "none") {
+    controlVideo(laptopVideo);
+  }
+}
+
+function controlVideo(element) {
+  const control_rewind = document.getElementById("control_rewind");
+  const control_forward = document.getElementById("control_forward");
+  const control_backward = document.getElementById("control_backward");
+  control_rewind.addEventListener("click", () => (element.currentTime = 0));
+  control_forward.addEventListener("click", () => (element.currentTime += 5));
+  control_backward.addEventListener("click", () => (element.currentTime -= 5));
+  playback_icons_main.addEventListener("click", () => playPauseVideo(element));
+  iconsMainReplay.addEventListener("click", () => {
+    // element.currentTime = 0;
+    playPauseVideo((element.currentTime = 0));
+  });
+}
+
+function setVideoProgressBar(video) {
+  video.addEventListener("timeupdate", () => {
+    const videoDuration = video.duration;
+    const currentTime = video.currentTime;
+    const progressPercent = (currentTime / videoDuration) * 100;
+    progressBar.style.setProperty("--progress", `${progressPercent}%`);
+  });
 }
 
 function cursorTransformShadowBlend(
@@ -472,98 +490,3 @@ Object.defineProperty(HTMLMediaElement.prototype, "playing", {
     );
   },
 });
-
-function removeCover() {
-  setTimeout(function () {
-    const blackCover = document.querySelector(".black_cover");
-    blackCover.classList.remove("visible");
-    document.body.style.overflow = "auto";
-    console.log("Loaded Data.");
-  }, 500);
-}
-
-function setupMockups(demo_type, demoDownloadURL) {
-  const mockupContainer = document.querySelectorAll(".mockup_container");
-  const laptopImage = document.querySelector(".mockup_media_laptop.image");
-
-  const containerPhone = document.querySelector(".container-mobile");
-  const containerPC = document.querySelector(".container-laptop");
-
-  try {
-    if (demo_type == "demo_pc") {
-      observer2.observe(laptopVideo);
-      setVideoProgressBar(laptopVideo);
-      laptopVideo.src = demoDownloadURL;
-      mockup_pc.classList.add("visible");
-      observerScroller_pc.observe(containerPC);
-      laptopVideo.addEventListener("loadeddata", removeCover);
-      mockupContainer.forEach((element) => element.classList.add("pc"));
-      playbackControlsSetup();
-      hoverDevices(mockups);
-
-      // END OF IF CONDITION
-    } else if (demo_type == "demo_mobile") {
-      observer1.observe(mobileVideo);
-      setVideoProgressBar(mobileVideo);
-      mobileVideo.src = demoDownloadURL;
-      mockup_phone.classList.add("visible");
-      observerScroller_mobile.observe(containerPhone);
-      mobileVideo.addEventListener("loadeddata", removeCover);
-      playbackControlsSetup();
-      hoverDevices(mockups);
-
-      // END OF IF ELSE CONDITION
-    } else {
-      // removeCover();
-      console.log("test");
-
-      observerImage.observe(laptopImage);
-      mockup_pc.classList.add("visible");
-      laptopImage.src = demoDownloadURL;
-      laptopVideo.style.display = "none";
-      laptopImage.style.display = "block";
-      controls_container.style.visibility = "hidden";
-      // observerScroller_mobile.observe(containerPC);
-      // setVideoProgressBar(laptopVideo);
-      laptopImage.addEventListener("load", removeCover);
-      mockupContainer.forEach((element) => element.classList.add("pc"));
-      // END OF ELSE
-    }
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-function playbackControlsSetup() {
-  const computedStyle_pc = window.getComputedStyle(mockup_pc);
-  const computedStyle_phone = window.getComputedStyle(mockup_phone);
-
-  if (computedStyle_pc.display == "none") {
-    controlVideo(mobileVideo);
-  } else if (computedStyle_phone.display == "none") {
-    controlVideo(laptopVideo);
-  }
-}
-
-function controlVideo(element) {
-  const control_rewind = document.getElementById("control_rewind");
-  const control_forward = document.getElementById("control_forward");
-  const control_backward = document.getElementById("control_backward");
-  control_rewind.addEventListener("click", () => (element.currentTime = 0));
-  control_forward.addEventListener("click", () => (element.currentTime += 5));
-  control_backward.addEventListener("click", () => (element.currentTime -= 5));
-  playback_icons_main.addEventListener("click", () => playPauseVideo(element));
-  icons_main_replay.addEventListener("click", () => {
-    // element.currentTime = 0;
-    playPauseVideo((element.currentTime = 0));
-  });
-}
-
-function setVideoProgressBar(video) {
-  video.addEventListener("timeupdate", () => {
-    const videoDuration = video.duration;
-    const currentTime = video.currentTime;
-    const progressPercent = (currentTime / videoDuration) * 100;
-    progressBar.style.setProperty("--progress", `${progressPercent}%`);
-  });
-}

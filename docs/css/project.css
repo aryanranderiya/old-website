@@ -17,6 +17,8 @@ section {
   scroll-snap-align: center;
   height: 100%;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .subcontent1_titledesc {
@@ -44,9 +46,9 @@ section {
 .project_desc {
   margin-top: 1%;
   text-align: justify;
-  width: 750px;
+  width: 60%;
   text-wrap: wrap;
-  font-size: 1em;
+  font-size: 1.2em;
   color: white;
   font-family: Helvs;
 }
@@ -193,7 +195,7 @@ section {
   border-width: 2px;
   width: fit-content;
   min-width: 90px;
-  padding: 0px 15px;
+  padding: 5px 15px;
   text-align: center;
 }
 
@@ -217,6 +219,10 @@ section {
 .project_info_text p {
   flex-direction: column;
   display: flex;
+}
+
+.project_info_text a {
+  color: #00bbff;
 }
 
 .project_info_text img {
@@ -358,8 +364,6 @@ section {
 
 .dot.visible {
   animation: heightWidth 0.5s both normal;
-  /* height: 60px;
-  width: 60px; */
 }
 
 @keyframes heightWidth {
@@ -395,10 +399,6 @@ section {
   position: fixed;
   bottom: 0px;
   z-index: 1005;
-}
-
-.cursor_glow_div {
-  margin-top: -10% !important;
 }
 
 .scrolltotop {

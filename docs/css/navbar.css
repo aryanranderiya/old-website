@@ -22,16 +22,6 @@ html {
   overflow-x: hidden;
 }
 
-.navbar-brand {
-  display: inline-block;
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
-  margin-right: 1rem;
-  font-size: 2em;
-  line-height: inherit;
-  white-space: nowrap;
-}
-
 .navbar.hide {
   transform: translateY(-100%);
 }
@@ -272,13 +262,16 @@ a {
 
 .navbar-brand {
   text-decoration: none;
-  line-height: 40px;
+  line-height: 23px;
   color: #00bbff;
   height: 30px;
   overflow: hidden;
   color: white !important;
-  font-family: Spacer !important;
   font-size: 30px;
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 2em;
+  white-space: nowrap;
 }
 
 .letter {

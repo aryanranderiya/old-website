@@ -12,8 +12,8 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease-out;
   z-index: -1;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(80px);
 }
 
 .black_cover.visible {
@@ -95,14 +95,13 @@ body {
 
 .custom-loader {
   width: 120px;
-  height: 19px;
+  height: 13px;
   border-radius: 20px;
   color: #00bbff;
-  border: 3px solid;
+  border: 2px solid;
   position: relative;
   margin-top: 0.2em;
 }
-
 .custom-loader::before {
   content: "";
   position: absolute;
