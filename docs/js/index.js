@@ -1,12 +1,12 @@
+const cursor_glow_div_two = document.querySelector(".cursor_glow_div_two");
+
 document.addEventListener("DOMContentLoaded", function () {
   const contentElement = document.querySelector(".content1");
   const subContent3 = document.querySelector(".subcontent3");
-  const scrollBtn = document.querySelector(".scroll_btn");
   const section_content1 = document.querySelector(".section_content1");
-  const cursor_glow_div_two = document.querySelector(".cursor_glow_div_two");
   const welcoming = document.querySelector(".welcoming");
   const cover = document.querySelector(".cover");
-  const scroll_btn = document.querySelector(".scroll_btn");
+  const scrollBtn = document.querySelector(".scroll_btn");
   const hello_world = document.querySelector(".words");
   const words_rotating_span = document.querySelector(".words_rotating_span");
   const content1 = document.querySelector(".content1");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
   const coverElement = document.querySelector(".cover");
   const buttons_blue = document.querySelectorAll(".button_blue");
-
+  const title_heading_1 = document.querySelector(".title_heading_1");
   const cursoricon2 = document.getElementById("cursoricon2");
   const cursoricon3 = document.getElementById("cursoricon3");
   const cursoriconwave = document.getElementById("cursoriconwave");
@@ -26,13 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const span_dev = document.getElementById("span_dev");
   const span_entrepreneur = document.getElementById("span_entre");
 
-  var cursor_glow = document.querySelector(".cursor_glow_div");
+  cursor.style.boxShadow = "none";
 
-  document.addEventListener("mousemove", function (e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
-  });
+  // var cursor_glow = document.querySelector(".cursor_glow_div");
+
+  // document.addEventListener("mousemove", function (e) {
+  //   var x = e.clientX;
+  //   var y = e.clientY;
+  //   cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
+  // });
 
   // ! Scroll on button click
 
@@ -92,30 +94,30 @@ document.addEventListener("DOMContentLoaded", function () {
   words_rotating_span.addEventListener("animationend", removeHelloWorldCover);
 
   // ! Titles & Cover
-  cover.addEventListener("mouseover", () => {
+  title_heading_1.addEventListener("mouseover", () => {
     cursorTransformShadowBlend("scale(9)", "none");
     addClass(cursor, "blur");
     addClass(cursoricon2, "active");
   });
 
-  cover.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
+  title_heading_1.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend(undefined, "none");
     removeClass(cursor, "blur");
     removeClass(cursoricon2, "active");
   });
 
   //! Scroll Button
 
-  scroll_btn.addEventListener("mouseover", (event) => {
+  scrollBtn.addEventListener("mouseover", (event) => {
     event.stopPropagation();
     cursorTransformShadowBlend();
     cursoricon2.classList.remove("active");
   });
 
-  scroll_btn.addEventListener("mouseout", (event) => {
+  scrollBtn.addEventListener("mouseout", (event) => {
     event.stopPropagation();
-    cursorTransformShadowBlend("scale(9)");
-    addClass(cursoricon2, "active");
+    // cursorTransformShadowBlend("scale(9)", "none");
+    // addClass(cursoricon2, "active");
   });
 
   //! Project Buttons
@@ -170,18 +172,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ! Wave icon cursor
 
-  content1.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend();
-    addClass(cursor, "transparent");
-    addClass(cursoriconwave, "active");
-    removeClass(cursoricon2, "active");
+  const observerContent1 = new IntersectionObserver((entries) => {
+    const isIntersecting = entries[0].isIntersecting;
+
+    if (isIntersecting) {
+      cursorTransformShadowBlend();
+      addClass(cursor, "transparent");
+      addClass(cursoriconwave, "active");
+      removeClass(cursoricon2, "active");
+    } else {
+      cursorTransformShadowBlend();
+      removeClass(cursor, "transparent");
+      removeClass(cursoriconwave, "active");
+    }
   });
 
-  content1.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-    removeClass(cursor, "transparent");
-    removeClass(cursoriconwave, "active");
-  });
+  observerContent1.observe(content1);
+
+  // content1.addEventListener("mouseover", () => {
+  //   cursorTransformShadowBlend();
+  //   addClass(cursor, "transparent");
+  //   addClass(cursoriconwave, "active");
+  //   removeClass(cursoricon2, "active");
+  // });
+
+  // content1.addEventListener("mouseout", () => {
+  //   cursorTransformShadowBlend();
+  //   removeClass(cursor, "transparent");
+  //   removeClass(cursoriconwave, "active");
+  // });
 
   //! Animate "Hey, I'm Aryan description text in Content 1 Section"
 
@@ -300,11 +319,11 @@ function handleIntersectionGradient(entries, observer) {
   requestAnimationFrame(() => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        cursor_glow_div_two.style.opacity = "1";
-        cursor_glow_div_two.style.visibility = "visible";
+        // cursor_glow_div_two.style.opacity = "1";
+        // cursor_glow_div_two.style.visibility = "visible";
       } else {
-        cursor_glow_div_two.style.opacity = "0";
-        cursor_glow_div_two.style.visibility = "hidden";
+        // cursor_glow_div_two.style.opacity = "0";
+        // cursor_glow_div_two.style.visibility = "hidden";
       }
     });
   });
