@@ -75,9 +75,10 @@
   font-size: 0.9em;
   line-height: 1.5rem;
   height: 8em;
-  display: relative;
+  /* display: relative; */
   text-overflow: ellipsis;
   font-family: Helvs;
+  font-weight: normal;
 }
 
 .card_button_icon {

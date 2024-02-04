@@ -22,6 +22,18 @@
           }
         ]
       }
+    ],
+    "redirects": [
+      {
+        "source": "/TicketBus",
+        "destination": "https://aryanranderiya.com/Project?id=2_project_TicketBus_1705162807451",
+        "type": 301
+      },
+      {
+        "source": "/SpotifyTools",
+        "destination": "https://aryanranderiya.com/Project.html?id=3_project_Spotify_Tools_1705162766118",
+        "type": 301
+      }
     ]
   }
 }

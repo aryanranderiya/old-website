@@ -7,9 +7,10 @@ window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
 
-// window.location.replace("https://aryanranderiya.com/404");
+// const projectId = sessionStorage.getItem("projectId");
 
-const projectId = sessionStorage.getItem("projectId");
+const urlParams = new URLSearchParams(window.location.search);
+const projectId = urlParams.get("id");
 
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
 
@@ -47,18 +48,15 @@ async function processData(snapshot) {
   var projectType = snapshotData.project_type;
   var projectTechStack = snapshotData.project_tech_stack;
   var githubLink = snapshotData.github_link;
+  var tryProjectLink = snapshotData.tryProjectLink;
   var demoDownloadURL = snapshotData.demo_file_URL;
   var demo_type = snapshotData.demo_type;
   var documentationURL = snapshotData.documentation_URL;
 
-  // window.location.hash = projectTitle;
-
-  let project_title_temp = projectTitle.replace(" ", "");
-
+  let project_title_temp = projectTitle.replace(/ /g, "");
   document.title = projectTitle;
 
   const nextState = { additionalInformation: "Updated the URL with JS" };
-
   window.history.pushState(nextState, projectTitle, project_title_temp);
   window.history.replaceState(nextState, projectTitle, project_title_temp);
 
@@ -69,8 +67,9 @@ async function processData(snapshot) {
   const p_info_text = document.querySelector(".project_info_text");
   const tech_stack = document.querySelector(".tech_stack");
   const primaryButton = document.querySelector(".button_primary");
+  const secondaryButton = document.querySelector(".button_secondary");
   const githubAnchor = document.querySelector(".btn_github_anchor");
-
+  const tryAnchor = document.querySelector(".btn_try_anchor");
   // !Set icon for project time to mobile or pc
   if (projectType.includes("Mobile"))
     ptype_icon.innerHTML =
@@ -97,7 +96,7 @@ async function processData(snapshot) {
         p_info_text.innerHTML = marked.parse(textContent);
       })
       .catch((error) => {
-        console.error("Fetch error:", error);
+        console.error("Fetch Documentation error:", error);
       });
   } else {
     p_info_text.innerHTML = "No Documentation.";
@@ -145,6 +144,13 @@ async function processData(snapshot) {
   } else {
     githubAnchor.href = githubLink;
   }
+
+  if (!tryProjectLink) {
+    secondaryButton?.remove();
+    tryAnchor?.remove();
+  } else {
+    tryAnchor.href = tryProjectLink;
+  }
 }
 
 //!  Intersection Observer for scrolling into view
@@ -191,7 +197,7 @@ const observerScroller_mobile = new IntersectionObserver(
 );
 function scrollToTop() {
   window.scrollTo({
-    bottom: 0,
+    top: 0,
     behavior: "smooth",
   });
 }
@@ -207,6 +213,7 @@ const control_pause = document.getElementById("icons_main_pause");
 const otherControls = document.querySelector(".video_controls_others");
 const mobileVideo = document.querySelector(".mockup_media_mobile.video");
 const laptopVideo = document.querySelector(".mockup_media_laptop.video");
+const laptopImage = document.querySelector(".mockup_media_laptop.img");
 const icon_control_playback = document.querySelector("#control_playback");
 const mockup_laptop_image = document.querySelector(".mockup_laptop.image");
 const playbackControls = document.querySelector(".video_controls_playback");
@@ -214,6 +221,7 @@ const controls_container = document.querySelector(".video_controls_container");
 const icons_main_replay = document.getElementById("icons_main_replay");
 const progressBar = document.querySelector("#progress-bar");
 const btnScrollTop = document.querySelector(".scrolltotop");
+const mockups = document.querySelectorAll(".mockup");
 
 document.addEventListener("DOMContentLoaded", function () {
   // var cursor_glow = document.querySelector(".cursor_glow_div");
@@ -227,7 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const button_primary = document.querySelector(".button_primary");
   const button_secondary = document.querySelector(".button_secondary");
   const cursoricon5 = document.getElementById("cursoricon5");
-  const mockups = document.querySelectorAll(".mockup");
 
   if (button_primary) handleButtonEvents(button_primary);
   if (button_secondary) handleButtonEvents(button_secondary);
@@ -247,8 +254,6 @@ document.addEventListener("DOMContentLoaded", function () {
       cursorTransformShadowBlend();
     });
   }
-
-  hoverDevices(mockups);
 });
 
 //! Intersection Observer handle Intersection
@@ -301,6 +306,55 @@ function handleIntersection1(entries, observer) {
   });
 }
 
+//! Intersection Observer handle Intersection
+function handleIntersectionImage(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      mockup_laptop_image.style.opacity = "1";
+      entry.target.style.opacity = "1";
+      entry.target.style.filter = "grayscale(0%)";
+
+      // dot.classList.remove("visible");
+      // controlIcons.style.opacity = "1";
+      // otherControls.classList.remove("hidden");
+      // playbackControls.classList.remove("hidden");
+      // controls_container.classList.remove("hidden");
+      // controls_container.style.opacity = "1";
+      // progressBar.style.backgroundColor = "white";
+
+      // // ! CHANGE THIS
+      // control_play.style.opacity = "0";
+      // icons_main_replay.style.opacity = "0";
+      // control_pause.style.opacity = "1";
+
+      // icon_control_playback.classList.remove("hidden");
+      // icon_main.style.visibility = "visible";
+    } else {
+      progressBar.style.backgroundColor = "#4d4d4d";
+      icon_main.style.visibility = "hidden";
+      mockup_laptop_image.style.opacity = "0.3";
+      entry.target.style.opacity = "0.3";
+      entry.target.style.filter = "grayscale(100%)";
+      // entry.target.pause();
+
+      // // ! CHANGE THIS
+      // control_play.style.opacity = "1";
+      // control_pause.style.opacity = "0";
+      // icons_main_replay.style.opacity = "0";
+
+      // dot.classList.add("visible");
+      // controlIcons.style.opacity = "0";
+      // otherControls.classList.add("hidden");
+      // playbackControls.classList.add("hidden");
+      // controls_container.classList.add("hidden");
+      // icon_control_playback.classList.add("hidden");
+      // setTimeout(() => {
+      //   controls_container.style.opacity = "0";
+      // }, 500);
+    }
+  });
+}
+
 //! Create Intersection Observer
 function createIntersectionObserver(threshold) {
   return new IntersectionObserver(handleIntersection1, {
@@ -310,8 +364,17 @@ function createIntersectionObserver(threshold) {
   });
 }
 
+function createIntersectionObserverImage(threshold) {
+  return new IntersectionObserver(handleIntersectionImage, {
+    root: null,
+    rootMargin: "0px",
+    threshold,
+  });
+}
+
 const observer1 = createIntersectionObserver(0.7);
 const observer2 = createIntersectionObserver(0.8);
+const observerImage = createIntersectionObserverImage(0.8);
 
 // ! Functions
 
@@ -426,37 +489,49 @@ function setupMockups(demo_type, demoDownloadURL) {
   const containerPhone = document.querySelector(".container-mobile");
   const containerPC = document.querySelector(".container-laptop");
 
-  if (demo_type == "demo_pc") {
-    observer2.observe(laptopVideo);
-    setVideoProgressBar(laptopVideo);
-    laptopVideo.src = demoDownloadURL;
-    mockup_pc.classList.add("visible");
-    observerScroller_pc.observe(containerPC);
-    laptopVideo.addEventListener("loadeddata", removeCover);
-    mockupContainer.forEach((element) => element.classList.add("pc"));
-    // END OF IF CONDITION
-  } else if (demo_type == "demo_mobile") {
-    observer1.observe(mobileVideo);
-    setVideoProgressBar(mobileVideo);
-    mobileVideo.src = demoDownloadURL;
-    mockup_phone.classList.add("visible");
-    observerScroller_mobile.observe(containerPhone);
-    mobileVideo.addEventListener("loadeddata", removeCover);
-    // END OF IF ELSE CONDITION
-  } else {
-    observer2.observe(laptopVideo);
-    setVideoProgressBar(laptopVideo);
-    mockup_pc.classList.add("visible");
-    laptopImage.src = demoDownloadURL;
-    laptopVideo.style.display = "none";
-    laptopImage.style.display = "block";
-    observerScroller_mobile.observe(containerPC);
-    laptopVideo.addEventListener("loadeddata", removeCover);
-    mockupContainer.forEach((element) => element.classList.add("pc"));
-    // END OF ELSE
-  }
+  try {
+    if (demo_type == "demo_pc") {
+      observer2.observe(laptopVideo);
+      setVideoProgressBar(laptopVideo);
+      laptopVideo.src = demoDownloadURL;
+      mockup_pc.classList.add("visible");
+      observerScroller_pc.observe(containerPC);
+      laptopVideo.addEventListener("loadeddata", removeCover);
+      mockupContainer.forEach((element) => element.classList.add("pc"));
+      playbackControlsSetup();
+      hoverDevices(mockups);
 
-  playbackControlsSetup();
+      // END OF IF CONDITION
+    } else if (demo_type == "demo_mobile") {
+      observer1.observe(mobileVideo);
+      setVideoProgressBar(mobileVideo);
+      mobileVideo.src = demoDownloadURL;
+      mockup_phone.classList.add("visible");
+      observerScroller_mobile.observe(containerPhone);
+      mobileVideo.addEventListener("loadeddata", removeCover);
+      playbackControlsSetup();
+      hoverDevices(mockups);
+
+      // END OF IF ELSE CONDITION
+    } else {
+      // removeCover();
+      console.log("test");
+
+      observerImage.observe(laptopImage);
+      mockup_pc.classList.add("visible");
+      laptopImage.src = demoDownloadURL;
+      laptopVideo.style.display = "none";
+      laptopImage.style.display = "block";
+      controls_container.style.visibility = "hidden";
+      // observerScroller_mobile.observe(containerPC);
+      // setVideoProgressBar(laptopVideo);
+      laptopImage.addEventListener("load", removeCover);
+      mockupContainer.forEach((element) => element.classList.add("pc"));
+      // END OF ELSE
+    }
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 function playbackControlsSetup() {

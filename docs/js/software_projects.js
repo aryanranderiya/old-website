@@ -95,7 +95,7 @@ function processDataAndHidePreloader(snapshot) {
 
           </div>
           <div class="buttons">
-            <a onclick="redirectToProjectPage('${projectId}')">
+            <a href="Project.html?id=${projectId}" >
             <button class="button_secondary" aria-label="View Project Info">
                       View Project
                 <div class="icon">
