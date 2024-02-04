@@ -9,7 +9,6 @@ body {
 body {
   overflow: scroll;
   scroll-behavior: smooth;
-  overflow-x: hidden !important;
 }
 
 section {

@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.style.overflow = "auto";
       welcoming.style.opacity = "0";
       cursor.style.mixBlendMode = "normal";
-      cursor.style.boxShadow = "0px 0px 30px white";
+      // cursor.style.boxShadow = "0px 0px 30px white";
       scrollBtn.style.opacity = "1";
       section_content1.style.opacity = "1";
 
@@ -172,35 +172,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ! Wave icon cursor
 
-  const observerContent1 = new IntersectionObserver((entries) => {
-    const isIntersecting = entries[0].isIntersecting;
+  // const observerContent1 = new IntersectionObserver((entries) => {
+  //   const isIntersecting = entries[0].isIntersecting;
 
-    if (isIntersecting) {
-      cursorTransformShadowBlend();
-      addClass(cursor, "transparent");
-      addClass(cursoriconwave, "active");
-      removeClass(cursoricon2, "active");
-    } else {
-      cursorTransformShadowBlend();
-      removeClass(cursor, "transparent");
-      removeClass(cursoriconwave, "active");
-    }
+  //   if (isIntersecting) {
+  //     cursorTransformShadowBlend();
+  //     addClass(cursor, "transparent");
+  //     addClass(cursoriconwave, "active");
+  //     removeClass(cursoricon2, "active");
+  //   } else {
+  //     cursorTransformShadowBlend();
+  //     removeClass(cursor, "transparent");
+  //     removeClass(cursoriconwave, "active");
+  //   }
+  // });
+
+  // observerContent1.observe(content1);
+
+  content1.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend();
+    addClass(cursor, "transparent");
+    cursoriconwave.style.opacity = "1";
+    addClass(cursoriconwave, "active");
+    removeClass(cursoricon2, "active");
   });
 
-  observerContent1.observe(content1);
-
-  // content1.addEventListener("mouseover", () => {
-  //   cursorTransformShadowBlend();
-  //   addClass(cursor, "transparent");
-  //   addClass(cursoriconwave, "active");
-  //   removeClass(cursoricon2, "active");
-  // });
-
-  // content1.addEventListener("mouseout", () => {
-  //   cursorTransformShadowBlend();
-  //   removeClass(cursor, "transparent");
-  //   removeClass(cursoriconwave, "active");
-  // });
+  content1.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    cursoriconwave.style.opacity = "0";
+    removeClass(cursor, "transparent");
+    removeClass(cursoriconwave, "active");
+  });
 
   //! Animate "Hey, I'm Aryan description text in Content 1 Section"
 
@@ -232,14 +234,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function normalCursorEmojiSpan(cursoriconX) {
     cursor.classList.remove("transparent");
     cursor.style.boxShadow = "0px 0px 30px white";
-    cursoriconwave.classList.add("active");
-    cursoriconwave.classList.remove("invisible");
+    cursoriconwave.style.opacity = "1";
+    cursoriconwave.style.transform = "scale(1)";
     cursoriconX.classList.remove("active");
-  }
-
-  function makeInvisible(element) {
-    element.classList.remove("active");
-    element.classList.add("invisible");
   }
 
   function addClass(element, className) {
@@ -247,6 +244,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   function removeClass(element, className) {
     element.classList.remove(className);
+  }
+
+  function makeInvisible(element) {
+    element.style.transform = "scale(0)";
+    element.style.opacity = "0";
   }
 
   function handleIntersectionSubcontent(entries, observer) {
