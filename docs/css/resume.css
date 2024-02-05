@@ -163,3 +163,21 @@ body {
   display: none;
   transform: translateX(-200%);
 }
+
+@media screen and (max-width: 600px) {
+  .title {
+    margin-top: 25%;
+    font-size: 3.5em;
+  }
+  .btn_download {
+    margin-top: 10%;
+    opacity: 1 !important;
+    position: relative;
+  }
+  .resume_image {
+    width: 90%;
+  }
+  .cursor_glow_div_three {
+    width: 100%;
+  }
+}

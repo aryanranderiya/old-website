@@ -1,7 +1,6 @@
-body{
+body {
   overflow-x: hidden !important;
 }
-
 
 @font-face {
   /* font-display: swap; */
@@ -30,8 +29,7 @@ p {
 body {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-    overflow-x: hidden;
-
+  overflow-x: hidden;
 }
 
 section {
@@ -346,6 +344,15 @@ footer {
   .text_oustide_footer {
     margin-top: 5%;
   }
+
+  .mail_text,
+  .mail_icon {
+    font-size: 1.3em !important;
+  }
+
+  .footer2 {
+    margin-top: 7%;
+  }
 }
 
 /* ! CHANGE THIS */
@@ -403,5 +410,5 @@ footer {
 
 .mail_icon {
   font-size: 4em;
-  margin-bottom: -17px;
+  /* margin-bottom: -17px; */
 }

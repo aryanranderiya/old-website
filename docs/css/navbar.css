@@ -87,10 +87,6 @@
 /* ! Menu Hamburger */
 .navbar_menu_btn {
   margin-right: 1.5%;
-  /* 
-  margin-top: 0.2%;
-  margin-bottom: -0.3%; */
-  /* margin-bottom: 1%; */
 }
 
 .hamburger input {
@@ -549,11 +545,17 @@ a {
     font-size: 2em !important;
   }
 
+  .menu_item {
+    margin: 0;
+  }
+
   .item {
     margin-top: 15%;
   }
 
   #websiteby {
+    margin-right: -100px !important;
+    font-size: 0.7em;
     margin-top: 10%;
     margin-bottom: 5%;
   }

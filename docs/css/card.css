@@ -227,14 +227,18 @@
 .link > span {
   color: white;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   .cards {
     margin-left: 4% !important;
   }
 
   .card {
-    min-width: 400pxyes;
+    min-width: 360px;
     filter: grayscale(0%) brightness(100%);
+  }
+
+  .button_secondary {
+    min-width: 340px !important;
   }
 }
 
