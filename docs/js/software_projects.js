@@ -1,3 +1,5 @@
+fetchGithubData();
+
 const blackCover = document.querySelector(".black_cover");
 const terminal_bling = document.querySelector(".terminal_bling");
 const cursortext = document.getElementById("cursortext");
@@ -268,3 +270,129 @@ window.addEventListener("scroll", function () {
 
   currentScroll = window.pageYOffset;
 });
+
+async function fetchColors() {
+  const colorsResponse = await fetch(
+    "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
+  );
+
+  return await colorsResponse.json();
+}
+
+function searchColor(langColorsArray, language) {
+  for (const color in langColorsArray) {
+    if (language === color) return langColorsArray[color].color;
+  }
+}
+
+async function fetchGithubData() {
+  const github_cards = document.querySelector(".github_cards");
+
+  const response = await fetch(
+    "https://api.github.com/users/aryanranderiya/repos?sort=updated"
+  );
+  const repoArray = await response.json();
+
+  let languagesColorsArray = await fetchColors();
+
+  repoArray.forEach((repo) => {
+    let colourHex = searchColor(languagesColorsArray, repo.language);
+
+    const github_card = document.createElement("div");
+    github_card.classList.add("github_card");
+    github_cards.appendChild(github_card);
+    // console.log("Name: " + repo.full_name);
+    // console.log("description: " + repo.description);
+    // console.log("language: " + repo.language);
+    // stargazers_count;
+    // updated_at;
+    // created_at;
+    // homepage; // Link of website / demo
+    // topics; // Array
+    // console.log("html_url: " + repo.html_url);
+
+    const lastUpdatedDate = new Date(repo.pushed_at);
+    const currentDate = new Date();
+    const timeDifference = currentDate - lastUpdatedDate;
+    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    // console.log(`Days difference: ${daysDifference}`);
+
+    let time_left;
+
+    if (daysDifference <= 1) {
+      const hoursDifference = Math.floor(
+        (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      time_left = hoursDifference + " Hours";
+    } else time_left = daysDifference + " Days";
+
+    github_card.innerHTML = `
+      <div class="github_title_div">
+          <i class="fa-solid fa-book-bookmark github_title_icon"></i>
+          <a href='${repo.html_url}' target="_blank">
+            <span class="github_title">${repo.name}</span>
+          </a>
+          <div class="archive_logo">Visible</div>
+      </div>
+      <div class="github_desc_div">
+          <span class="github_description">
+          ${repo.description}
+          </span>
+      </div>
+      <div class="github_topics"></div>
+      <div class="github_bottom_div">
+          <div class="github_bottom_div_part">
+              <div class="color_circle" style="background-color: ${colourHex}"></div>
+              <span class="github_language">${repo.language}</span>
+          </div>
+          <div class="github_bottom_div_part">
+              <i class="fa-regular fa-star github_star_icon"></i>
+              <span class="github_star_count">${repo.stargazers_count}</span>
+          </div>
+          <div class="github_bottom_div_part">
+              <span class="github_last_updated">Last Pushed ${time_left} ago</span>
+          </div>
+      </div>
+      <div class="github_btn_div">
+        <a href='${repo.html_url}' target="_blank">
+          <button class="github_btn">View ${repo.name} on Github</button>
+        </a>
+      </div>
+    `;
+
+    // github.com/topics
+
+    if (repo.language === null) {
+      document.querySelector(".color_circle").remove();
+      document.querySelector(".github_language").remove();
+      document.querySelector(".github_star_icon").style.marginLeft = "-20px";
+    }
+
+    //! Set Visibility
+    let visibility = "Public";
+    const archiveLogo = github_card.querySelector(".archive_logo");
+    if (repo.archived === true) {
+      visibility = "Public Archive";
+      archiveLogo.classList.add("archived");
+    }
+    archiveLogo.textContent = visibility;
+
+    //! Set Github Topics
+    const github_topics = github_card.querySelector(".github_topics");
+    if (repo.topics.length != 0) {
+      repo.topics.forEach((topic) => {
+        const github_topic = document.createElement("div");
+        const topic_anchor = document.createElement("a");
+        topic_anchor.href = `https://github.com/topics/${topic}`;
+        topic_anchor.target = "_blank";
+        github_topic.classList.add("github_topic");
+        github_topic.textContent = topic;
+        github_topics.appendChild(topic_anchor);
+        topic_anchor.appendChild(github_topic);
+      });
+    } else {
+      github_topics.remove();
+    }
+  });
+}
