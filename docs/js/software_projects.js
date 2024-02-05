@@ -300,6 +300,8 @@ async function fetchGithubData() {
 
     const github_card = document.createElement("div");
     github_card.classList.add("github_card");
+    github_card.id = repo.name;
+    // github_card.setAttribute("id", repo.name);
     github_cards.appendChild(github_card);
     // console.log("Name: " + repo.full_name);
     // console.log("description: " + repo.description);
@@ -375,10 +377,16 @@ async function fetchGithubData() {
       </div>
     `;
 
-    if (repo.language === null) {
-      document.querySelector(".color_circle").remove();
-      document.querySelector(".github_language").remove();
-      document.querySelector(".github_star_icon").style.marginLeft = "-20px";
+    if (
+      repo.language == "null" ||
+      repo.language == null ||
+      repo.language === undefined
+    ) {
+      let id = repo.name;
+      const card_temp = document.querySelector(`#${id}`);
+      card_temp.querySelector(".color_circle").remove();
+      card_temp.querySelector(".github_language").remove();
+      card_temp.querySelector(".github_star_icon").style.marginLeft = "-20px";
     }
 
     //! Set Visibility
@@ -407,6 +415,23 @@ async function fetchGithubData() {
       github_topics.remove();
     }
 
+    //! Intersection Observer
+    function handleIntersection1(entries, observer) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+        } else {
+          entry.target.style.opacity = "0";
+        }
+      });
+    }
+    const observer1 = new IntersectionObserver(handleIntersection1, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.4,
+    });
+
+    observer1.observe(document.querySelector(".github_heading_div"));
     observer1.observe(github_card);
 
     const github_btn_divs = document.querySelectorAll(".github_btn_div");
@@ -442,23 +467,6 @@ async function fetchGithubData() {
     });
   });
 }
-
-//! Intersection Observer
-function handleIntersection1(entries, observer) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-    } else {
-      entry.target.style.opacity = "0";
-    }
-  });
-}
-const observer1 = new IntersectionObserver(handleIntersection1, {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.4,
-});
-observer1.observe(document.querySelector(".github_heading_div"));
 
 //! Functions
 
