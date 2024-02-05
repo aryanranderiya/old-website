@@ -311,21 +311,35 @@ async function fetchGithubData() {
     // topics; // Array
     // console.log("html_url: " + repo.html_url);
 
+    //! Set Last Pushed Time
     const lastUpdatedDate = new Date(repo.pushed_at);
     const currentDate = new Date();
     const timeDifference = currentDate - lastUpdatedDate;
     const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hoursDifference = Math.floor(
+      (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
 
-    // console.log(`Days difference: ${daysDifference}`);
+    const minutesDifference = Math.floor(
+      (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+    );
 
     let time_left;
-
     if (daysDifference <= 1) {
-      const hoursDifference = Math.floor(
-        (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      time_left = hoursDifference + " Hours";
-    } else time_left = daysDifference + " Days";
+      if (hoursDifference <= 1 && hoursDifference > 0)
+        time_left = hoursDifference + " Hour";
+      else if (hoursDifference > 1) time_left = hoursDifference + " Hours";
+      else if (minutesDifference > 0)
+        time_left = minutesDifference + " Minutes";
+      else time_left = "Less than a minute";
+    } else {
+      time_left = daysDifference + " Days";
+    }
+    // ! Set Description
+    let description = repo.description;
+    if (repo.description === null) {
+      description = "No Description";
+    }
 
     github_card.innerHTML = `
       <div class="github_title_div">
@@ -337,7 +351,7 @@ async function fetchGithubData() {
       </div>
       <div class="github_desc_div">
           <span class="github_description">
-          ${repo.description}
+          ${description}
           </span>
       </div>
       <div class="github_topics"></div>
@@ -360,8 +374,6 @@ async function fetchGithubData() {
         </a>
       </div>
     `;
-
-    // github.com/topics
 
     if (repo.language === null) {
       document.querySelector(".color_circle").remove();
@@ -394,5 +406,75 @@ async function fetchGithubData() {
     } else {
       github_topics.remove();
     }
+
+    observer1.observe(github_card);
+
+    const github_btn_divs = document.querySelectorAll(".github_btn_div");
+
+    github_btn_divs.forEach((github_btn_div) => {
+      github_btn_div.addEventListener("mouseover", () => {
+        cursorTransformShadowBlend("scale(1.5)", "none");
+        addClass(cursor, "transparent");
+        addClass(cursoricon5, "active");
+      });
+
+      github_btn_div.addEventListener("mouseout", () => {
+        removeClass(cursor, "transparent");
+        removeClass(cursoricon5, "active");
+        cursorTransformShadowBlend();
+      });
+    });
+
+    const github_titles = document.querySelectorAll(".github_title");
+
+    github_titles.forEach((github_title) => {
+      github_title.addEventListener("mouseover", () => {
+        cursorTransformShadowBlend("scale(1.5)", "none");
+        addClass(cursor, "transparent");
+        addClass(cursoricon5, "active");
+      });
+
+      github_title.addEventListener("mouseout", () => {
+        removeClass(cursor, "transparent");
+        removeClass(cursoricon5, "active");
+        cursorTransformShadowBlend();
+      });
+    });
   });
+}
+
+//! Intersection Observer
+function handleIntersection1(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+    } else {
+      entry.target.style.opacity = "0";
+    }
+  });
+}
+const observer1 = new IntersectionObserver(handleIntersection1, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.4,
+});
+observer1.observe(document.querySelector(".github_heading_div"));
+
+//! Functions
+
+function cursorTransformShadowBlend(
+  param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
+  param_mixBlendMode = "normal"
+) {
+  cursor.style.transform = param_transform;
+  cursor.style.boxShadow = param_boxShadow;
+  cursor.style.mixBlendMode = param_mixBlendMode;
+}
+
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
 }
