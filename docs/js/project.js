@@ -265,10 +265,9 @@ const observerImage = new IntersectionObserver(handleIntersectionImage, {
 document.addEventListener("DOMContentLoaded", function () {
   var cursor_glow = document.querySelector(".cursor_glow_div");
 
-  document.addEventListener("mousemove", function (e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    cursor_glow.style.transform = `translate(${x}px, ${y}px)`;
+  document.addEventListener("mousemove", (e) => {
+    cursor_glow.style.left = e.clientX + "px";
+    cursor_glow.style.top = e.clientY + "px";
   });
 
   const button_primary = document.querySelector(".button_primary");
@@ -423,8 +422,11 @@ function setupMockups(demo_type, demoDownloadURL) {
     mockupContainer.forEach((element) => element.classList.add("pc"));
     // END OF ELSE
   } else if (demo_type == "none") {
+    laptopVideo.style.display = "none";
+    laptopImage.style.display = "none";
     controlsContainer.style.visibility = "hidden";
     removeCover();
+    console.log("hi test");
     //END OF IF ELSE
   }
 }

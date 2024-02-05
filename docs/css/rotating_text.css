@@ -1,5 +1,4 @@
 @font-face {
-  font-display: swap;
   font-family: "DirtyLine";
   src: url("../fonts/Dirtyline 36daysoftype 2022.woff") format("woff"),
     url("../fonts/Dirtyline 36daysoftype 2022.woff2") format("woff2"),
@@ -162,7 +161,7 @@
   border-radius: 7px;
   background: rgb(255, 255, 255);
   transition: 0.5s;
-  animation: progress_bar_loading 3s ease-out forwards;
+  animation: progress_bar_loading 3s ease-out ;
 }
 
 @keyframes progress_bar_loading {

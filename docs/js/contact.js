@@ -1,9 +1,8 @@
 var cursor_glow = document.querySelector(".cursor_glow_div");
 
-document.addEventListener("mousemove", function (e) {
-  var x = e.clientX;
-  var y = e.clientY;
-  cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
+document.addEventListener("mousemove", (e) => {
+  cursor_glow.style.left = e.clientX + "px";
+  cursor_glow.style.top = e.clientY + "px";
 });
 
 const marquee = document.querySelector(".marquee");

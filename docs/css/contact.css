@@ -142,9 +142,19 @@ form {
   border-radius: 100px !important;
 }
 
-.primary_icon {
+.button_primary .icon {
   padding: 20px;
   border-radius: 200px !important;
+}
+
+.primaryiconother {
+  height: 1em !important;
+  width: 1em !important;
+  right: 0.1em !important;
+}
+
+.button_primary:hover .icon {
+  width: calc(100% - 1.85em) !important;
 }
 
 .btn_icon_1 {
@@ -183,16 +193,70 @@ hr {
   margin-bottom: -10px !important;
 }
 
-#form_textarea {
-}
-
-.mail_icon {
-  margin: 0 !important;
-}
-
 .description {
+  font-size: 1em;
   color: white;
-  /* font-weight: bold; */
+  font-weight: normal;
   text-align: justify;
   margin-bottom: 5%;
 }
+
+.mail_icon {
+  margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 2.8em;
+    margin-top: 15%;
+  }
+
+  #letswork,
+  #together {
+    width: 100%;
+    display: flex;
+    margin: 0;
+  }
+
+  .content2,
+  .form_row {
+    flex-direction: column;
+  }
+  .form_row {
+    gap: 0.3em;
+  }
+
+  .description {
+    width: 320px;
+  }
+  #form_textarea {
+    margin-top: 0.3em;
+    padding: 5% 2%;
+    border-radius: 25px;
+  }
+
+  #btn_captcha_row {
+    margin-top: 1em;
+    align-items: center;
+    width: 105%;
+  }
+  .button_primary {
+    margin-top: 1em !important;
+  }
+  #form {
+    margin: 10% 0;
+  }
+
+  .marquee__part {
+    font-size: 1.5em !important;
+  }
+  .marquee__inner .marquee__part.outline_text {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+  }
+}
+
+/* #anchor {
+  background-color: red !important;
+} */
