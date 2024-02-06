@@ -1,330 +1,356 @@
-const cursor_glow_div_two = document.querySelector(".cursor_glow_div_two");
-
-document.addEventListener("DOMContentLoaded", function () {
-  const contentElement = document.querySelector(".content1");
-  const subContent3 = document.querySelector(".subcontent3");
-  const section_content1 = document.querySelector(".section_content1");
-  const welcoming = document.querySelector(".welcoming");
-  const cover = document.querySelector(".cover");
-  const scrollBtn = document.querySelector(".scroll_btn");
-  const hello_world = document.querySelector(".words");
-  const words_rotating_span = document.querySelector(".words_rotating_span");
-  const content1 = document.querySelector(".content1");
-  const subcontent1 = document.querySelector(".subcontent1");
-  const content1Titles = document.querySelectorAll(".content1_title");
-  const navbar = document.querySelector(".navbar");
-  const coverElement = document.querySelector(".cover");
-  const buttons_blue = document.querySelectorAll(".button_blue");
-  const title_heading_1 = document.querySelector(".title_heading_1");
-  const cursoricon2 = document.getElementById("cursoricon2");
-  const cursoricon3 = document.getElementById("cursoricon3");
-  const cursoriconwave = document.getElementById("cursoriconwave");
-  const cursoriconidea = document.getElementById("cursoriconidea");
-  const cursoriconlaptop = document.getElementById("cursoriconlaptop");
-  const cursoriconpallette = document.getElementById("cursoriconpallette");
-  const span_designer = document.getElementById("span_designer");
-  const span_dev = document.getElementById("span_dev");
-  const span_entrepreneur = document.getElementById("span_entre");
-
-  cursor.style.boxShadow = "none";
-
-  // var cursor_glow = document.querySelector(".cursor_glow_div");
-
-  // document.addEventListener("mousemove", function (e) {
-  //   var x = e.clientX;
-  //   var y = e.clientY;
-  //   cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
-  // });
-
-  // ! Scroll on button click
-
-  scrollBtn.addEventListener("click", function (e) {
-    cursorTransformShadowBlend();
-    cursoricon2.classList.remove("active");
-
-    contentElement.scrollIntoView({
-      top: contentElement.offsetTop,
-      behavior: "smooth",
-    });
-  });
-
-  const observer1 = new IntersectionObserver(handleIntersection1, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  });
-
-  const observercoverElement = new IntersectionObserver(handleIntersection2, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  });
-
-  const observer2 = new IntersectionObserver(handleIntersectionGradient, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.2,
-  });
-
-  observer1.observe(subContent3);
-  observer2.observe(section_content1);
-  observercoverElement.observe(coverElement);
-
-  // ! After animation finishes:
-  function removeHelloWorldCover() {
-    setTimeout(() => {
-      document.body.style.overflow = "auto";
-      welcoming.classList.add("hide");
-
-      document.querySelector(".my_portfolio").classList.add("show");
-      document.querySelector(".aryan_randeriya").classList.add("show");
-
-      cursor.style.mixBlendMode = "normal";
-      scrollBtn.style.opacity = "1";
-      section_content1.style.opacity = "1";
-      // cursor.style.boxShadow = "0px 0px 30px white";
-    }, 500);
-
-    setTimeout(function () {
-      welcoming.remove();
-    }, 1600);
+const a10_0x548b30 = a10_0x1bf7;
+function a10_0x1bf7(_0x99f80, _0x573ea9) {
+  const _0x2aa620 = a10_0x2aa6();
+  return (
+    (a10_0x1bf7 = function (_0x1bf72b, _0x2965ae) {
+      _0x1bf72b = _0x1bf72b - 0xf5;
+      let _0x1af25e = _0x2aa620[_0x1bf72b];
+      return _0x1af25e;
+    }),
+    a10_0x1bf7(_0x99f80, _0x573ea9)
+  );
+}
+(function (_0x3e6ea6, _0x3f00fd) {
+  const _0x250935 = a10_0x1bf7,
+    _0x2c2507 = _0x3e6ea6();
+  while (!![]) {
+    try {
+      const _0xce99ef =
+        parseInt(_0x250935(0xf9)) / 0x1 +
+        (parseInt(_0x250935(0x138)) / 0x2) *
+          (parseInt(_0x250935(0x114)) / 0x3) +
+        -parseInt(_0x250935(0x118)) / 0x4 +
+        -parseInt(_0x250935(0x136)) / 0x5 +
+        (parseInt(_0x250935(0x11d)) / 0x6) *
+          (parseInt(_0x250935(0x12c)) / 0x7) +
+        (-parseInt(_0x250935(0x10e)) / 0x8) *
+          (-parseInt(_0x250935(0x126)) / 0x9) +
+        (-parseInt(_0x250935(0x108)) / 0xa) *
+          (parseInt(_0x250935(0x11e)) / 0xb);
+      if (_0xce99ef === _0x3f00fd) break;
+      else _0x2c2507["push"](_0x2c2507["shift"]());
+    } catch (_0x1acf82) {
+      _0x2c2507["push"](_0x2c2507["shift"]());
+    }
   }
-
-  words_rotating_span.addEventListener("animationend", removeHelloWorldCover);
-
-  // ! Titles & Cover
-  title_heading_1.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(9)", "none");
-    addClass(cursor, "blur");
-    addClass(cursoricon2, "active");
-  });
-
-  title_heading_1.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend(undefined, "none");
-    removeClass(cursor, "blur");
-    removeClass(cursoricon2, "active");
-  });
-
-  //! Scroll Button
-
-  scrollBtn.addEventListener("mouseover", (event) => {
-    event.stopPropagation();
-    cursorTransformShadowBlend();
-    cursoricon2.classList.remove("active");
-  });
-
-  scrollBtn.addEventListener("mouseout", (event) => {
-    event.stopPropagation();
-    // cursorTransformShadowBlend("scale(9)", "none");
-    // addClass(cursoricon2, "active");
-  });
-
-  //! Project Buttons
-
-  buttons_blue.forEach((button_blue) => {
-    button_blue.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(3)", "none", "difference");
-      removeClass(cursoricon2, "active");
-      addClass(cursoricon3, "active");
+})(a10_0x2aa6, 0xdecfa);
+const cursor_glow_div_two = document["querySelector"](a10_0x548b30(0x11a));
+document[a10_0x548b30(0x12e)](a10_0x548b30(0x11f), function () {
+  const _0x5cf80c = a10_0x548b30,
+    _0x220973 = document["querySelector"](_0x5cf80c(0x10b)),
+    _0x121366 = document[_0x5cf80c(0x101)](".subcontent3"),
+    _0x48918f = document[_0x5cf80c(0x101)](_0x5cf80c(0x13a)),
+    _0x2bbe65 = document[_0x5cf80c(0x101)](".welcoming"),
+    _0x3d241f = document[_0x5cf80c(0x101)](_0x5cf80c(0xfe)),
+    _0x5e1cbf = document[_0x5cf80c(0x101)](_0x5cf80c(0x111)),
+    _0xcd45de = document[_0x5cf80c(0x101)](".words"),
+    _0x16d6ea = document[_0x5cf80c(0x101)](_0x5cf80c(0x123)),
+    _0xffd507 = document["querySelector"](_0x5cf80c(0x10b)),
+    _0x2ad286 = document[_0x5cf80c(0x101)](_0x5cf80c(0x134)),
+    _0x2b0126 = document[_0x5cf80c(0x112)](".content1_title"),
+    _0x452946 = document["querySelector"](".navbar"),
+    _0xc949a9 = document[_0x5cf80c(0x101)](_0x5cf80c(0xfe)),
+    _0x1b0558 = document[_0x5cf80c(0x112)](_0x5cf80c(0xf8)),
+    _0x5aae04 = document[_0x5cf80c(0x101)](_0x5cf80c(0x121)),
+    _0x41222a = document["getElementById"](_0x5cf80c(0x12f)),
+    _0x3ae4eb = document[_0x5cf80c(0x10a)]("cursoricon3"),
+    _0x3c1377 = document[_0x5cf80c(0x10a)](_0x5cf80c(0x132)),
+    _0x51bc34 = document["getElementById"](_0x5cf80c(0xff)),
+    _0x41a17e = document[_0x5cf80c(0x10a)](_0x5cf80c(0x100)),
+    _0x2e4189 = document["getElementById"](_0x5cf80c(0xf5)),
+    _0x48a257 = document[_0x5cf80c(0x10a)]("span_designer"),
+    _0x552089 = document["getElementById"](_0x5cf80c(0x110)),
+    _0x4bb7fd = document["getElementById"](_0x5cf80c(0x12b));
+  (cursor[_0x5cf80c(0x125)][_0x5cf80c(0x104)] = _0x5cf80c(0x131)),
+    _0x5e1cbf["addEventListener"](_0x5cf80c(0x116), function (_0x569ea0) {
+      const _0x1145ab = _0x5cf80c;
+      _0x580a69(),
+        _0x41222a["classList"][_0x1145ab(0xfb)](_0x1145ab(0x115)),
+        _0x220973[_0x1145ab(0x119)]({
+          top: _0x220973[_0x1145ab(0xfd)],
+          behavior: _0x1145ab(0x12a),
+        });
     });
-
-    button_blue.addEventListener("mouseout", () => {
-      cursorTransformShadowBlend();
-      removeClass(cursoricon3, "active");
-    });
-  });
-
-  // ! Pallette, Laptop & Idea Cursor
-
-  span_designer.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none");
-    makeInvisible(cursoriconwave);
-    addClass(cursor, "transparent");
-    addClass(cursoriconpallette, "active");
-  });
-
-  span_dev.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none");
-    makeInvisible(cursoriconwave);
-    addClass(cursor, "transparent");
-    addClass(cursoriconlaptop, "active");
-  });
-
-  span_entrepreneur.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none");
-    makeInvisible(cursoriconwave);
-    addClass(cursor, "transparent");
-    addClass(cursoriconidea, "active");
-  });
-
-  span_designer.addEventListener("mouseout", () => {
-    normalCursorEmojiSpan(cursoriconpallette);
-  });
-
-  span_dev.addEventListener("mouseout", () => {
-    normalCursorEmojiSpan(cursoriconlaptop);
-  });
-
-  span_entrepreneur.addEventListener("mouseout", () => {
-    normalCursorEmojiSpan(cursoriconidea);
-  });
-
-  // ! Wave icon cursor
-
-  // const observerContent1 = new IntersectionObserver((entries) => {
-  //   const isIntersecting = entries[0].isIntersecting;
-
-  //   if (isIntersecting) {
-  //     cursorTransformShadowBlend();
-  //     addClass(cursor, "transparent");
-  //     addClass(cursoriconwave, "active");
-  //     removeClass(cursoricon2, "active");
-  //   } else {
-  //     cursorTransformShadowBlend();
-  //     removeClass(cursor, "transparent");
-  //     removeClass(cursoriconwave, "active");
-  //   }
-  // });
-
-  // observerContent1.observe(content1);
-
-  content1.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend();
-    addClass(cursor, "transparent");
-    cursoriconwave.style.opacity = "1";
-    addClass(cursoriconwave, "active");
-    removeClass(cursoricon2, "active");
-  });
-
-  content1.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-    cursoriconwave.style.opacity = "0";
-    removeClass(cursor, "transparent");
-    removeClass(cursoriconwave, "active");
-  });
-
-  //! Animate "Hey, I'm Aryan description text in Content 1 Section"
-
-  const observer_subcontent1 = new IntersectionObserver(
-    handleIntersectionSubcontent,
-    {
+  const _0x402fae = new IntersectionObserver(handleIntersection1, {
+      root: null,
+      rootMargin: _0x5cf80c(0x135),
+      threshold: 0.5,
+    }),
+    _0x2b21fd = new IntersectionObserver(_0x53094f, {
+      root: null,
+      rootMargin: _0x5cf80c(0x135),
+      threshold: 0.5,
+    }),
+    _0x2df469 = new IntersectionObserver(handleIntersectionGradient, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
-    }
-  );
-
-  observer_subcontent1.observe(subcontent1);
-
-  // ! END
-
-  // ! Functions
-
-  function cursorTransformShadowBlend(
-    param_transform = "none",
-    param_boxShadow = "0px 0px 30px white",
-    param_mixBlendMode = "normal"
+      threshold: 0.2,
+    });
+  _0x402fae[_0x5cf80c(0x128)](_0x121366),
+    _0x2df469["observe"](_0x48918f),
+    _0x2b21fd[_0x5cf80c(0x128)](_0xc949a9);
+  function _0x3b1d69() {
+    setTimeout(() => {
+      const _0x16bb24 = a10_0x1bf7;
+      (document[_0x16bb24(0x113)][_0x16bb24(0x125)][_0x16bb24(0x129)] =
+        _0x16bb24(0x103)),
+        _0x2bbe65["classList"][_0x16bb24(0x10f)](_0x16bb24(0x107)),
+        document["querySelector"](".my_portfolio")[_0x16bb24(0xf6)][
+          _0x16bb24(0x10f)
+        ]("show"),
+        document["querySelector"](_0x16bb24(0x130))[_0x16bb24(0xf6)][
+          _0x16bb24(0x10f)
+        ](_0x16bb24(0x10d)),
+        (cursor[_0x16bb24(0x125)]["mixBlendMode"] = _0x16bb24(0x10c)),
+        (_0x5e1cbf["style"][_0x16bb24(0x102)] = "1"),
+        (_0x48918f[_0x16bb24(0x125)][_0x16bb24(0x102)] = "1");
+    }, 0x1f4),
+      setTimeout(function () {
+        const _0x18d453 = a10_0x1bf7;
+        _0x2bbe65[_0x18d453(0xfb)]();
+      }, 0x640);
+  }
+  _0x16d6ea["addEventListener"](_0x5cf80c(0x105), _0x3b1d69),
+    _0x5aae04["addEventListener"](_0x5cf80c(0x109), () => {
+      const _0x400a49 = _0x5cf80c;
+      _0x580a69(_0x400a49(0x124), "none"),
+        _0x217fe9(cursor, "blur"),
+        _0x217fe9(_0x41222a, "active");
+    }),
+    _0x5aae04[_0x5cf80c(0x12e)](_0x5cf80c(0x11c), () => {
+      const _0x3ca101 = _0x5cf80c;
+      _0x580a69(undefined, _0x3ca101(0x131)),
+        _0x4a5bee(cursor, _0x3ca101(0xf7)),
+        _0x4a5bee(_0x41222a, _0x3ca101(0x115));
+    }),
+    _0x5e1cbf[_0x5cf80c(0x12e)](_0x5cf80c(0x109), (_0x4ac43b) => {
+      const _0xb3f28b = _0x5cf80c;
+      _0x4ac43b[_0xb3f28b(0x120)](),
+        _0x580a69(),
+        _0x41222a[_0xb3f28b(0xf6)]["remove"](_0xb3f28b(0x115));
+    }),
+    _0x5e1cbf["addEventListener"]("mouseout", (_0x51e29f) => {
+      _0x51e29f["stopPropagation"]();
+    }),
+    _0x1b0558[_0x5cf80c(0xfa)]((_0x277b63) => {
+      const _0x361b27 = _0x5cf80c;
+      _0x277b63["addEventListener"](_0x361b27(0x109), () => {
+        const _0xaefef3 = _0x361b27;
+        _0x580a69(_0xaefef3(0x106), "none", "difference"),
+          _0x4a5bee(_0x41222a, _0xaefef3(0x115)),
+          _0x217fe9(_0x3ae4eb, _0xaefef3(0x115));
+      }),
+        _0x277b63[_0x361b27(0x12e)]("mouseout", () => {
+          const _0x3f4162 = _0x361b27;
+          _0x580a69(), _0x4a5bee(_0x3ae4eb, _0x3f4162(0x115));
+        });
+    }),
+    _0x48a257[_0x5cf80c(0x12e)]("mouseover", () => {
+      const _0x40640b = _0x5cf80c;
+      _0x580a69(undefined, _0x40640b(0x131)),
+        _0x2a162a(_0x3c1377),
+        _0x217fe9(cursor, _0x40640b(0x139)),
+        _0x217fe9(_0x2e4189, _0x40640b(0x115));
+    }),
+    _0x552089[_0x5cf80c(0x12e)](_0x5cf80c(0x109), () => {
+      const _0x466c80 = _0x5cf80c;
+      _0x580a69(undefined, _0x466c80(0x131)),
+        _0x2a162a(_0x3c1377),
+        _0x217fe9(cursor, _0x466c80(0x139)),
+        _0x217fe9(_0x41a17e, "active");
+    }),
+    _0x4bb7fd[_0x5cf80c(0x12e)](_0x5cf80c(0x109), () => {
+      const _0x244408 = _0x5cf80c;
+      _0x580a69(undefined, _0x244408(0x131)),
+        _0x2a162a(_0x3c1377),
+        _0x217fe9(cursor, _0x244408(0x139)),
+        _0x217fe9(_0x51bc34, _0x244408(0x115));
+    }),
+    _0x48a257[_0x5cf80c(0x12e)](_0x5cf80c(0x11c), () => {
+      _0xbaf75a(_0x2e4189);
+    }),
+    _0x552089["addEventListener"](_0x5cf80c(0x11c), () => {
+      _0xbaf75a(_0x41a17e);
+    }),
+    _0x4bb7fd["addEventListener"]("mouseout", () => {
+      _0xbaf75a(_0x51bc34);
+    }),
+    _0xffd507[_0x5cf80c(0x12e)]("mouseover", () => {
+      const _0x2c9971 = _0x5cf80c;
+      _0x580a69(),
+        _0x217fe9(cursor, _0x2c9971(0x139)),
+        (_0x3c1377["style"]["opacity"] = "1"),
+        _0x217fe9(_0x3c1377, "active"),
+        _0x4a5bee(_0x41222a, _0x2c9971(0x115));
+    }),
+    _0xffd507[_0x5cf80c(0x12e)](_0x5cf80c(0x11c), () => {
+      const _0x42b7e2 = _0x5cf80c;
+      _0x580a69(),
+        (_0x3c1377[_0x42b7e2(0x125)][_0x42b7e2(0x102)] = "0"),
+        _0x4a5bee(cursor, _0x42b7e2(0x139)),
+        _0x4a5bee(_0x3c1377, _0x42b7e2(0x115));
+    });
+  const _0x55e125 = new IntersectionObserver(_0x5002eb, {
+    root: null,
+    rootMargin: _0x5cf80c(0x135),
+    threshold: 0.5,
+  });
+  _0x55e125[_0x5cf80c(0x128)](_0x2ad286);
+  function _0x580a69(
+    _0x157a73 = _0x5cf80c(0x131),
+    _0xde0381 = _0x5cf80c(0x117),
+    _0x5de72a = _0x5cf80c(0x10c)
   ) {
-    cursor.style.transform = param_transform;
-    cursor.style.boxShadow = param_boxShadow;
-    cursor.style.mixBlendMode = param_mixBlendMode;
+    const _0x54ba81 = _0x5cf80c;
+    (cursor[_0x54ba81(0x125)][_0x54ba81(0x137)] = _0x157a73),
+      (cursor["style"][_0x54ba81(0x104)] = _0xde0381),
+      (cursor[_0x54ba81(0x125)]["mixBlendMode"] = _0x5de72a);
   }
-
-  function normalCursorEmojiSpan(cursoriconX) {
-    cursor.classList.remove("transparent");
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoriconwave.style.opacity = "1";
-    cursoriconwave.style.transform = "scale(1)";
-    cursoriconX.classList.remove("active");
+  function _0xbaf75a(_0xad2ec9) {
+    const _0x312966 = _0x5cf80c;
+    cursor[_0x312966(0xf6)][_0x312966(0xfb)](_0x312966(0x139)),
+      (cursor[_0x312966(0x125)]["boxShadow"] = _0x312966(0x117)),
+      (_0x3c1377["style"][_0x312966(0x102)] = "1"),
+      (_0x3c1377[_0x312966(0x125)]["transform"] = _0x312966(0x11b)),
+      _0xad2ec9["classList"]["remove"](_0x312966(0x115));
   }
-
-  function addClass(element, className) {
-    element.classList.add(className);
+  function _0x217fe9(_0x47976f, _0x22d925) {
+    const _0x56197c = _0x5cf80c;
+    _0x47976f[_0x56197c(0xf6)][_0x56197c(0x10f)](_0x22d925);
   }
-  function removeClass(element, className) {
-    element.classList.remove(className);
+  function _0x4a5bee(_0x4f5e7a, _0x24a64f) {
+    const _0x2281ca = _0x5cf80c;
+    _0x4f5e7a[_0x2281ca(0xf6)][_0x2281ca(0xfb)](_0x24a64f);
   }
-
-  function makeInvisible(element) {
-    element.style.transform = "scale(0)";
-    element.style.opacity = "0";
+  function _0x2a162a(_0x32eb38) {
+    const _0x231b53 = _0x5cf80c;
+    (_0x32eb38[_0x231b53(0x125)]["transform"] = _0x231b53(0x12d)),
+      (_0x32eb38["style"]["opacity"] = "0");
   }
-
-  function handleIntersectionSubcontent(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // navbar.style.opacity = "1";
-        content1Titles.forEach((title, index) => {
-          setTimeout(() => {
-            title.classList.add("show");
-          }, index * 150);
-        });
-        // content1Titles.forEach((title, index) => {
-        //   gsap.to(title, {
-        //     opacity: 1,
-        //     y: 0,
-        //     duration: 0.4,
-        //     ease: "power1.out",
-        //     stagger: 0.1 * index,
-        //   });
-        // });
-      } else {
-        content1Titles.forEach((title) => {
-          title.classList.remove("show");
-        });
-        // content1Titles.forEach((title) => {
-        //   gsap.to(title, {
-        //     opacity: 0,
-        //     y: 100,
-        //     duration: 0.2,
-        //     ease: "power1.out",
-        //     stagger: 0.1,
-        //   });
-        // });
-      }
+  function _0x5002eb(_0x3c113a, _0x5ab5f7) {
+    const _0x3dc88e = _0x5cf80c;
+    _0x3c113a[_0x3dc88e(0xfa)]((_0x2b315b) => {
+      const _0x6c1c2d = _0x3dc88e;
+      _0x2b315b[_0x6c1c2d(0x127)]
+        ? _0x2b0126["forEach"]((_0x2115b5, _0x5ebe03) => {
+            setTimeout(() => {
+              const _0x562467 = a10_0x1bf7;
+              _0x2115b5[_0x562467(0xf6)][_0x562467(0x10f)]("show");
+            }, _0x5ebe03 * 0x96);
+          })
+        : _0x2b0126["forEach"]((_0x1f0b5e) => {
+            const _0x49b0bf = _0x6c1c2d;
+            _0x1f0b5e[_0x49b0bf(0xf6)][_0x49b0bf(0xfb)](_0x49b0bf(0x10d));
+          });
     });
   }
-
-  function handleIntersection2(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (navbar) {
-          navbar.style.opacity = "0";
-          navbar.style.visibility = "hidden";
-        }
-      } else {
-        if (navbar) {
-          navbar.style.visibility = "visible";
-          navbar.style.opacity = "1";
-        }
-      }
+  function _0x53094f(_0x3485fa, _0x1b4432) {
+    const _0x6d59c8 = _0x5cf80c;
+    _0x3485fa[_0x6d59c8(0xfa)]((_0x31cb9b) => {
+      const _0x4e8fb2 = _0x6d59c8;
+      _0x31cb9b[_0x4e8fb2(0x127)]
+        ? _0x452946 &&
+          ((_0x452946[_0x4e8fb2(0x125)][_0x4e8fb2(0x102)] = "0"),
+          (_0x452946[_0x4e8fb2(0x125)][_0x4e8fb2(0xfc)] = "hidden"))
+        : _0x452946 &&
+          ((_0x452946[_0x4e8fb2(0x125)][_0x4e8fb2(0xfc)] = _0x4e8fb2(0x133)),
+          (_0x452946["style"][_0x4e8fb2(0x102)] = "1"));
     });
   }
 });
-
-//! Intersection Observer
-function handleIntersection1(entries, observer) {
+function handleIntersection1(_0x33aa59, _0x2bcf87) {
   requestAnimationFrame(() => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-      } else {
-        entry.target.style.opacity = "0";
-      }
+    const _0x3f61c3 = a10_0x1bf7;
+    _0x33aa59[_0x3f61c3(0xfa)]((_0x208b7a) => {
+      const _0x30b2be = _0x3f61c3;
+      _0x208b7a["isIntersecting"]
+        ? (_0x208b7a[_0x30b2be(0x122)][_0x30b2be(0x125)][_0x30b2be(0x102)] =
+            "1")
+        : (_0x208b7a["target"]["style"]["opacity"] = "0");
     });
   });
 }
-
-function handleIntersectionGradient(entries, observer) {
+function handleIntersectionGradient(_0x11f7db, _0x5ba28b) {
   requestAnimationFrame(() => {
-    entries.forEach((entry) => {
-      // if (entry.isIntersecting) {
-      //   cursor_glow_div_two.style.opacity = "1";
-      //   cursor_glow_div_two.style.visibility = "visible";
-      // } else {
-      //   cursor_glow_div_two.style.opacity = "0";
-      //   cursor_glow_div_two.style.visibility = "hidden";
-      // }
-    });
+    const _0x622e8f = a10_0x1bf7;
+    _0x11f7db[_0x622e8f(0xfa)]((_0x3ab4a5) => {});
   });
+}
+function a10_0x2aa6() {
+  const _0x1b8c88 = [
+    "forEach",
+    "remove",
+    "visibility",
+    "offsetTop",
+    ".cover",
+    "cursoriconidea",
+    "cursoriconlaptop",
+    "querySelector",
+    "opacity",
+    "auto",
+    "boxShadow",
+    "animationend",
+    "scale(3)",
+    "hide",
+    "800440ZwIaSq",
+    "mouseover",
+    "getElementById",
+    ".content1",
+    "normal",
+    "show",
+    "13936OJFOdg",
+    "add",
+    "span_dev",
+    ".scroll_btn",
+    "querySelectorAll",
+    "body",
+    "155757FWuvKs",
+    "active",
+    "click",
+    "0px\x200px\x2030px\x20white",
+    "2145488lUmkOo",
+    "scrollIntoView",
+    ".cursor_glow_div_two",
+    "scale(1)",
+    "mouseout",
+    "24LTMBBm",
+    "11MHfeJV",
+    "DOMContentLoaded",
+    "stopPropagation",
+    ".title_heading_1",
+    "target",
+    ".words_rotating_span",
+    "scale(9)",
+    "style",
+    "1404enInCv",
+    "isIntersecting",
+    "observe",
+    "overflow",
+    "smooth",
+    "span_entre",
+    "1515836grrZbl",
+    "scale(0)",
+    "addEventListener",
+    "cursoricon2",
+    ".aryan_randeriya",
+    "none",
+    "cursoriconwave",
+    "visible",
+    ".subcontent1",
+    "0px",
+    "8280350PpPZYx",
+    "transform",
+    "24nrjVoi",
+    "transparent",
+    ".section_content1",
+    "cursoriconpallette",
+    "classList",
+    "blur",
+    ".button_blue",
+    "1424148ZlWcZC",
+  ];
+  a10_0x2aa6 = function () {
+    return _0x1b8c88;
+  };
+  return a10_0x2aa6();
 }

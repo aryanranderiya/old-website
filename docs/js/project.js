@@ -95,6 +95,9 @@ function setupDocumentation(p_documentationURL, pInfoText) {
       .then((textContent) => {
         pInfoText.innerHTML = marked.parse(textContent);
       })
+      .then(() => {
+        if (pInfoText) setupAnimation(pInfoText);
+      })
       .catch((error) => {
         console.error("Fetch Documentation error:", error);
       });
@@ -149,6 +152,35 @@ function setOthers(p_title, p_type, p_desc) {
   ptypeText.innerHTML = p_type;
   projectDescription.innerHTML = p_desc;
   document.title = p_title;
+}
+
+function intersectionTranslate(entries, observer) {
+  entries.forEach((entry) => {
+    const child = entry.target.querySelector(".pInfoText_child");
+
+    if (entry.isIntersecting) {
+      child.classList.add("show");
+    } else {
+      child.classList.remove("show");
+    }
+  });
+}
+
+const observerTranslate = new IntersectionObserver(intersectionTranslate, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.7,
+});
+
+function setupAnimation(pInfoText) {
+  for (const child of pInfoText.children) {
+    const container = document.createElement("div");
+    container.classList.add("pInfoText_container");
+    child.classList.add("pInfoText_child");
+    child.parentNode.replaceChild(container, child);
+    container.appendChild(child);
+    observerTranslate.observe(container);
+  }
 }
 
 // ! Start Processing & Setting Data
@@ -429,7 +461,6 @@ function setupMockups(demo_type, demoDownloadURL) {
     laptopImage.style.display = "none";
     controlsContainer.style.visibility = "hidden";
     removeCover();
-    console.log("hi test");
     //END OF IF ELSE
   }
 }
@@ -495,3 +526,26 @@ Object.defineProperty(HTMLMediaElement.prototype, "playing", {
     );
   },
 });
+
+//! First Intersection Observer
+function handleIntersection(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      progressBar.style.opacity = "0";
+      // btn_download.style.opacity = "0";
+      // btn_download.style.position = "relative";
+      button.classList.add("hovered");
+      svgIcon.classList.add("hovered");
+      downloadresume_text.classList.add("hovered");
+      footerIntersectedFlag = true;
+    } else {
+      footerIntersectedFlag = false;
+      progressBar.style.opacity = "1";
+      // btn_download.style.opacity = "1";
+      // btn_download.style.position = "fixed";
+      button.classList.remove("hovered");
+      svgIcon.classList.remove("hovered");
+      downloadresume_text.classList.remove("hovered");
+    }
+  });
+}

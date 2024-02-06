@@ -23,12 +23,9 @@
   <link defer rel='stylesheet' type='text/css' href='css/index.css'>
   <link rel='stylesheet' type='text/css' href='css/buttons.css'>
   <link rel='stylesheet' type='text/css' href='css/cursor.css'>
-  <!-- <link rel='stylesheet' type='text/css' href='css/preloader.css'> -->
   <link rel='stylesheet' type='text/css' href='css/rotating_text.css'>
-  <!-- <link rel='stylesheet' type='text/css' href='css/animated_gradient_cursormovement.css'> -->
-
+  <link rel='stylesheet' type='text/css' href='css/animated_gradient_cursormovement.css'>
   <link rel='stylesheet' type='text/css' href='css/materialSymbolsOutlined.css'>
-
   <script defer src="https://kit.fontawesome.com/2fafe620ef.js" crossorigin="anonymous"></script>
 
 </head>
@@ -155,10 +152,6 @@
 
   <!-- ! Content Div 1 -->
 
-  <!-- <div class="cursor_glow_div" style="visibility: visible;">
-    <span class="cursor_glow"></span>
-  </div> -->
-
   <section class="section_content1">
 
     <div class="content1">
@@ -169,7 +162,7 @@
         <div class="content1_title_container">
           <p class="content1_title" id="imaryan">I'm Aryan</p>
         </div>
-        <div class="content1_title_container">
+        <div class="content1_title_container" id="description_container">
           <p class="content1_title" id="description">— a <span id="span_designer">Designer</span>, <span
               id="span_dev">Software
               Developer</span>, & <span id="span_entre">Aspiring Entrepreneur</span> with a
@@ -180,94 +173,93 @@
       </div>
 
       <div class="subcontent2">
-
-        <!-- <div class="cursor_glow_div_two">
-          <span class="cursor_glow_two"></span>
-        </div> -->
         <canvas class="animated_cursormovement_canvas"></canvas>
       </div>
 
     </div>
   </section>
 
-  <!-- <section class="section2">
+  <!-- <section class="section2"> 
 
-    <div class="bento_grid">
-      <div class="bento_card">
-        <div class="bento_card_content">
-          <div class="bento_shadow topdown"></div>
-          <h1 class="alignstart card_title"> My Services </h1>
-          <div class="services">
-            <h1 class="aligncenter service"> App Development </h1>
-            <h1 class="aligncenter service"> Web Development </h1>
-            <h1 class="aligncenter service"> Clothing Design </h1>
-            <h1 class="aligncenter service"> Social Media Branding </h1>
-            <h1 class="aligncenter service"> Advertisement Design </h1>
-            <h1 class="aligncenter service"> Poster Design </h1>
+    <div class="grid_container">
+      <div class="bento_grid">
+        <div class="bento_card">
+          <div class="bento_card_content">
+            <div class="bento_shadow topdown"></div>
+            <h1 class="alignstart card_title"> My Services </h1>
+            <div class="services">
+              <h1 class="aligncenter service"> App Development </h1>
+              <h1 class="aligncenter service"> Web Development </h1>
+              <h1 class="aligncenter service"> Clothing Design </h1>
+              <h1 class="aligncenter service"> Social Media Branding </h1>
+              <h1 class="aligncenter service"> Advertisement Design </h1>
+              <h1 class="aligncenter service"> Poster Design </h1>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="bento_card">
-        <div class="bento_card_content">
-          <div class="bento_shadow"></div>
-          <h6 class="alignend"> Designing Since </h6>
-          <h1 class="alignstart" id="year"> 2019 </h1>
+        <div class="bento_card">
+          <div class="bento_card_content">
+            <div class="bento_shadow"></div>
+            <h6 class="alignend"> Designing Since </h6>
+            <h1 class="alignstart" id="year"> 2019 </h1>
+          </div>
         </div>
-      </div>
 
-      <div class="bento_card">
-        <div class="bento_card_content">
-          <div class="bento_shadow"></div>
-          <h6 class="alignend"> Coding Since </h6>
-          <h1 class="alignstart" id="year"> 2023 </h1>
+        <div class="bento_card">
+          <div class="bento_card_content">
+            <div class="bento_shadow"></div>
+            <h6 class="alignend"> Coding Since </h6>
+            <h1 class="alignstart" id="year"> 2023 </h1>
+          </div>
         </div>
-      </div>
 
-      <div class="bento_card">
-        <div class="bento_card_content">
-          <div class="bento_shadow"></div>
-          <h1 class="alignend"> My Tools </h1>
+        <div class="bento_card">
+          <div class="bento_card_content">
+            <div class="bento_shadow"></div>
+            <h1 class="alignend"> My Tools </h1>
+          </div>
         </div>
-      </div>
 
-      <div class="bento_card">
-        <div class="bento_card_content">
-          <div class="bento_shadow"></div>
+        <div class="bento_card">
+          <div class="bento_card_content">
+            <div class="bento_shadow"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="bento_card">
-        <div class="bento_card_content">
-          <div class="bento_shadow"></div>
+        <div class="bento_card">
+          <div class="bento_card_content">
+            <div class="bento_shadow"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="bento_card">
-        <div class="bento_card_content">
-          <div class="bento_shadow"></div>
-          <h1 class="alignend" id="reponum">13</h1>
-          <h1 class="alignend card_title"> Github Repos </h1>
-          <img src="media/github_logo.png" alt="Github Logo" id="github_logo">
+        <div class="bento_card">
+          <div class="bento_card_content">
+            <div class="bento_shadow"></div>
+            <h1 class="alignend" id="reponum">13</h1>
+            <h1 class="alignend card_title"> Github Repos </h1>
+            <img src="media/github_logo.png" alt="Github Logo" id="github_logo">
+          </div>
         </div>
-      </div>
 
-      <div class="bento_card columns3to4">
-        <div class="bento_card_content">
-          <div class="bento_shadow"></div>
+        <div class="bento_card columns3to4">
+          <div class="bento_card_content">
+            <div class="bento_shadow"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="bento_card">
-        <div class="bento_card_content">
-          <div class="bento_shadow half"></div>
-          <h1 class="alignend card_title" id="fav_langs">Favourite Languages </h1>
-          <img src="media/javapython.png" alt="Java & Python" id="javapython">
+        <div class="bento_card">
+          <div class="bento_card_content">
+            <div class="bento_shadow half"></div>
+            <h1 class="alignend card_title" id="fav_langs">Favourite Languages </h1>
+            <img src="media/javapython.png" alt="Java & Python" id="javapython">
+          </div>
         </div>
-      </div>
 
-    </div>
-  </section> -->
+      </div>
+    </div> 
+
+   </section> -->
 
   <!-- ! Content Div 2 -->
   <section>
@@ -330,6 +322,7 @@
   <script src="js/navbar.js"></script>
   <script src="js/footer.js"></script>
   <script src="js/cursor.js"></script>
+  <script src="js/animated_gradient_cursormovement.js"></script>
   <script type="module" src="js/index_applygradient.js"></script>
 
   <script type="application/ld+json">

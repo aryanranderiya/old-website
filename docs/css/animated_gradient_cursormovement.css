@@ -1,6 +1,6 @@
 .animated_cursormovement_canvas {
   z-index: 20;
-  filter: blur(150px);
+  filter: blur(100px);
 }
 
 /* .subcontent2 {

@@ -35,7 +35,6 @@ footer_bottom_name.addEventListener("mouseout", () => {
 });
 
 // ! change marquee direction on scroll
-
 let currentScroll = window.pageYOffset;
 let isScrollingDown = true;
 

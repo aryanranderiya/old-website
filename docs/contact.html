@@ -9,6 +9,7 @@
     <link rel='stylesheet' type='text/css' href='css/cursor.css'>
     <link rel='stylesheet' type='text/css' href='css/footer.css'>
     <link rel='stylesheet' type='text/css' href='css/buttons.css'>
+    <link rel='stylesheet' type='text/css' href='css/preloader.css'>
 
     <!--! GSAP -->
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>.
@@ -22,6 +23,30 @@
 </head>
 
 <body>
+
+    <div class="black_cover visible center-content">
+
+        <div class="preloader">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <text id="loading_text">Loading...</text>
+            <div class="custom-loader"></div>
+        </div>
+        <div class="custom-shape-divider-top-1707225707">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
+
 
     <!--! Custom Cursor -->
     <div class="cursor">
@@ -127,8 +152,7 @@
                         placeholder="MESSAGE"></textarea>
 
                 </div>
-                <!-- <div class="form_row">
-                </div> -->
+
                 <div class="form_row" id="btn_captcha_row">
 
                     <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
@@ -229,6 +253,7 @@
 <script defer src="js/navbar.js"></script>
 <script src="js/cursor.js"></script>
 <script src="js/contact.js"></script>
+<script src="js/preloader.js"></script>
 <script src="https://web3forms.com/client/script.js" async defer></script>
 <!-- <script src="js/footer.js"></script> -->
 
