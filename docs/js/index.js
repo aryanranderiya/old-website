@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleIntersectionSubcontent(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        navbar.style.opacity = "1";
+        // navbar.style.opacity = "1";
         content1Titles.forEach((title, index) => {
           setTimeout(() => {
             title.classList.add("show");
@@ -288,11 +288,15 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleIntersection2(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        navbar.style.opacity = "0";
-        navbar.style.visibility = "hidden";
+        if (navbar) {
+          navbar.style.opacity = "0";
+          navbar.style.visibility = "hidden";
+        }
       } else {
-        navbar.style.visibility = "visible";
-        navbar.style.opacity = "1";
+        if (navbar) {
+          navbar.style.visibility = "visible";
+          navbar.style.opacity = "1";
+        }
       }
     });
   }
@@ -308,18 +312,6 @@ function handleIntersection1(entries, observer) {
         entry.target.style.opacity = "0";
       }
     });
-  });
-}
-
-function handleIntersection2(entries, observer) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      navbar.style.opacity = "0";
-      navbar.style.visibility = "hidden";
-    } else {
-      navbar.style.visibility = "visible";
-      navbar.style.opacity = "1";
-    }
   });
 }
 
