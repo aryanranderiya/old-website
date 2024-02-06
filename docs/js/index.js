@@ -70,20 +70,20 @@ document.addEventListener("DOMContentLoaded", function () {
   observer2.observe(section_content1);
   observercoverElement.observe(coverElement);
 
-  // ! Scroll after animation finishes:
+  // ! After animation finishes:
   function removeHelloWorldCover() {
-    setTimeout(function () {
-      // !!coverElement.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
       document.body.style.overflow = "auto";
-      welcoming.style.opacity = "0";
+      welcoming.classList.add("hide");
+
+      document.querySelector(".my_portfolio").classList.add("show");
+      document.querySelector(".aryan_randeriya").classList.add("show");
+
       cursor.style.mixBlendMode = "normal";
-      // cursor.style.boxShadow = "0px 0px 30px white";
       scrollBtn.style.opacity = "1";
       section_content1.style.opacity = "1";
-
-      // document.querySelector(".sect_welcoming").style.visibility = "hidden";
-      // cursor.style.visibility = "";
-    }, 800);
+      // cursor.style.boxShadow = "0px 0px 30px white";
+    }, 500);
 
     setTimeout(function () {
       welcoming.remove();
@@ -255,26 +255,31 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         navbar.style.opacity = "1";
-
-        content1Titles.forEach((title, index) => {
-          gsap.to(title, {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            ease: "power1.out",
-            stagger: 0.1 * index,
-          });
+        content1Titles.forEach((title) => {
+          title.classList.add("show");
         });
+        // content1Titles.forEach((title, index) => {
+        //   gsap.to(title, {
+        //     opacity: 1,
+        //     y: 0,
+        //     duration: 0.4,
+        //     ease: "power1.out",
+        //     stagger: 0.1 * index,
+        //   });
+        // });
       } else {
         content1Titles.forEach((title) => {
-          gsap.to(title, {
-            opacity: 0,
-            y: 100,
-            duration: 0.2,
-            ease: "power1.out",
-            stagger: 0.1,
-          });
+          title.classList.remove("show");
         });
+        // content1Titles.forEach((title) => {
+        //   gsap.to(title, {
+        //     opacity: 0,
+        //     y: 100,
+        //     duration: 0.2,
+        //     ease: "power1.out",
+        //     stagger: 0.1,
+        //   });
+        // });
       }
     });
   }

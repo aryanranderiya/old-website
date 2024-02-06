@@ -35,6 +35,12 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" || event.keyCode === 27) {
         navbar_menu.classList.remove("show");
+
+        items.forEach((item) => {
+          item.classList.remove("show");
+          item.style.opacity = "0";
+        });
+
         body.style.overflow = "auto";
         console.log("Escape Key Pressed: Menu Hidden.");
         checkbox.checked = false;
@@ -44,21 +50,20 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     checkbox.addEventListener("click", function () {
       //! Show the Menu when checked
       if (this.checked) {
-        console.log("check");
         navbar_menu.classList.add("show");
 
         items.forEach((item, index) => {
           setTimeout(() => {
+            item.classList.add("show");
             item.style.opacity = "1";
-          }, 200 * index);
+          }, 100 * index);
         });
 
         body.style.overflow = "hidden";
       } else {
-        console.log("uncheck");
-
         items.forEach((item) => {
           item.style.opacity = "0";
+          item.classList.remove("show");
         });
         navbar_menu.classList.remove("show");
         body.style.overflow = "auto";

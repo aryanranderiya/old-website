@@ -64,6 +64,11 @@ header {
   align-content: center;
   justify-items: center;
   align-items: center;
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.welcoming.hide {
+  transform: translateY(-100%);
 }
 
 .sect_welcoming {
@@ -128,13 +133,33 @@ header {
   color: white;
 }
 
+.my_portfolio,
+.aryan_randeriya {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 .my_portfolio {
   font-size: 3em;
   font-family: Times;
+  transform: translateY(-100%);
   /* font-family: IllusionSerif; */
 }
 
+.my_portfolio_container,
+.aryan_randeriya_container {
+  overflow: hidden;
+}
+
+.my_portfolio.show,
+.aryan_randeriya.show {
+  transform: translateY(0%);
+}
+
 .aryan_randeriya {
+  transform: translateY(100%);
   font-size: 6em;
   font-family: "Times New Roman", Times, serif;
 }
@@ -145,17 +170,27 @@ header {
 
 .content1_title {
   justify-content: center;
-  /* width: 100%; */
   color: white;
-  /* font-weight: bold; */
   font-family: Helvetica;
   font-size: 3.5em;
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease,
+    transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 1;
+  transform: translateY(100%);
   opacity: 0;
+}
+
+.content1_title_container {
+  overflow: hidden;
 }
 
 .content1_title:hover {
   color: #00bbff;
+}
+
+.content1_title.show {
+  opacity: 1;
+  transform: translateY(0%);
 }
 
 #span_designer:hover,
@@ -165,8 +200,11 @@ header {
   text-decoration: underline;
 }
 
-#hey {
+#hey_container {
   margin-left: -10%;
+}
+
+#hey {
   margin-bottom: 40px;
 }
 #imaryan {

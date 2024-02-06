@@ -4,21 +4,29 @@ body {
 .black_cover {
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
-  z-index: -1;
+  opacity: 1;
+  transition: opacity 0.3s ease-out,
+    transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 999999999;
   backdrop-filter: blur(80px);
   -webkit-backdrop-filter: blur(80px);
+  /* transform: translateY(-50%); */
 }
-
+/* 
 .black_cover.visible {
   opacity: 1;
   z-index: 999999999;
+} */
+
+.black_cover.hide,
+.preloader.hide {
+  /* opacity: 0; */
+  transform: translateY(-100%);
 }
 
 .preloader {

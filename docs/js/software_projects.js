@@ -158,11 +158,11 @@ function processDataAndHidePreloader(snapshot) {
   });
 
   // ! Remove the preloader and black card
-  setTimeout(function () {
-    blackCover.classList.remove("visible");
-    document.body.style.overflow = "auto";
-    terminal_bling.classList.add("animation_paragraph");
-  }, 1000);
+  // setTimeout(function () {
+  //   blackCover.classList.remove("visible");
+  //   document.body.style.overflow = "auto";
+  //   terminal_bling.classList.add("animation_paragraph");
+  // }, 1000);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
