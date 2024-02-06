@@ -64,11 +64,12 @@ header {
   align-content: center;
   justify-items: center;
   align-items: center;
-  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: translateY(0%);
+  transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .welcoming.hide {
-  transform: translateY(-100%);
+  transform: translateY(-150%);
 }
 
 .sect_welcoming {
@@ -674,4 +675,23 @@ h6 {
   font-display: swap;
   font-family: TimesBI;
   src: url("../fonts/timesbi.ttf") format("truetype");
+}
+
+.custom-shape-divider-top-1707225707 .shape-fill {
+  /* fill: rgb(8, 8, 8); */
+  fill: black;
+}
+.custom-shape-divider-top-1707225707 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 500px;
+}
+.custom-shape-divider-top-1707225707 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  transform: rotate(180deg) translateY(-99%);
 }

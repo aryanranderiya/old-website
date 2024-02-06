@@ -155,34 +155,14 @@ document.addEventListener("DOMContentLoaded", function () {
         function handleIntersection(entries, observer) {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              if (footerIntersected) {
+              animateFooterContent();
+              if (footerIntersected)
                 document.querySelector(".navbar").classList.add("hide");
-              }
-              document.querySelector(".footer_section").style.opacity = "1";
-
-              pageLinks.forEach((link, index) => {
-                setTimeout(() => {
-                  link.classList.add("show");
-                }, 100 * index);
-              });
-              socials.forEach((social, index) => {
-                setTimeout(() => {
-                  social.classList.add("show");
-                }, 100 * index);
-              });
-              console.log("Test1");
             } else {
-              if (footerIntersected) {
+              animateOutFooterContent();
+
+              if (footerIntersected)
                 document.querySelector(".navbar").classList.remove("hide");
-              }
-              console.log("Test2");
-              pageLinks.forEach((link) => {
-                link.classList.remove("show");
-              });
-              socials.forEach((social) => {
-                social.classList.add("show");
-              });
-              document.querySelector(".footer_section").style.opacity = "0";
             }
           });
 
@@ -194,30 +174,45 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
 
+        function animateFooterContent() {
+          pageLinks.forEach((link, index) => {
+            setTimeout(() => {
+              link.classList.add("show");
+            }, 100 * index);
+          });
+
+          socials.forEach((social, index) => {
+            setTimeout(() => {
+              social.classList.add("show");
+            }, 100 * index);
+          });
+          wordContainers.forEach((wordContainer) => {
+            wordContainer.classList.add("show");
+          });
+          document.querySelector(".footer_section").style.opacity = "1";
+          document.querySelector(".div_email").classList.add("show");
+          letstalk.classList.add("show");
+        }
+
+        function animateOutFooterContent() {
+          pageLinks.forEach((link) => {
+            link.classList.remove("show");
+          });
+          socials.forEach((social) => {
+            social.classList.remove("show");
+          });
+          wordContainers.forEach((wordContainer) => {
+            wordContainer.classList.remove("show");
+          });
+          document.querySelector(".div_email").classList.remove("show");
+          document.querySelector(".footer_section").style.opacity = "0";
+          letstalk.classList.remove("show");
+        }
+
         function handleIntersectionTwo(entries, observer) {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              document.querySelector(".footer_section").style.opacity = "1";
-
-              pageLinks.forEach((link, index) => {
-                setTimeout(() => {
-                  link.classList.add("show");
-                }, 100 * index);
-              });
-              socials.forEach((social, index) => {
-                setTimeout(() => {
-                  social.classList.add("show");
-                }, 100 * index);
-              });
-            } else {
-              pageLinks.forEach((link) => {
-                link.classList.remove("show");
-              });
-              socials.forEach((social) => {
-                social.classList.add("show");
-              });
-              document.querySelector(".footer_section").style.opacity = "0";
-            }
+            if (entry.isIntersecting) animateFooterContent();
+            else animateOutFooterContent();
           });
         }
 

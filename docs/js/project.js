@@ -364,9 +364,12 @@ function playPauseVideo(video) {
 }
 
 function removeCover() {
+  const blackCover = document.querySelector(".black_cover");
+  const preloader = document.querySelector(".preloader");
+
   setTimeout(function () {
-    const blackCover = document.querySelector(".black_cover");
-    blackCover.classList.remove("visible");
+    blackCover.classList.add("hide");
+    preloader.classList.add("hide");
     document.body.style.overflow = "auto";
   }, 500);
 }

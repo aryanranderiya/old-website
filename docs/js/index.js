@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(function () {
       welcoming.remove();
-      // document.querySelector(".sect_welcoming").remove();
     }, 1600);
   }
 
@@ -255,8 +254,10 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         navbar.style.opacity = "1";
-        content1Titles.forEach((title) => {
-          title.classList.add("show");
+        content1Titles.forEach((title, index) => {
+          setTimeout(() => {
+            title.classList.add("show");
+          }, index * 150);
         });
         // content1Titles.forEach((title, index) => {
         //   gsap.to(title, {
@@ -325,13 +326,13 @@ function handleIntersection2(entries, observer) {
 function handleIntersectionGradient(entries, observer) {
   requestAnimationFrame(() => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // cursor_glow_div_two.style.opacity = "1";
-        // cursor_glow_div_two.style.visibility = "visible";
-      } else {
-        // cursor_glow_div_two.style.opacity = "0";
-        // cursor_glow_div_two.style.visibility = "hidden";
-      }
+      // if (entry.isIntersecting) {
+      //   cursor_glow_div_two.style.opacity = "1";
+      //   cursor_glow_div_two.style.visibility = "visible";
+      // } else {
+      //   cursor_glow_div_two.style.opacity = "0";
+      //   cursor_glow_div_two.style.visibility = "hidden";
+      // }
     });
   });
 }

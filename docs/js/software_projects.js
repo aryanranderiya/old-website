@@ -1,9 +1,7 @@
 fetchGithubData();
 
-const blackCover = document.querySelector(".black_cover");
-const terminal_bling = document.querySelector(".terminal_bling");
 const cursortext = document.getElementById("cursortext");
-
+const title_Heading = document.querySelector(".title-heading");
 var cards = document.querySelector(".cards");
 
 //! Scroll to the top on reload
@@ -156,13 +154,6 @@ function processDataAndHidePreloader(snapshot) {
       });
     });
   });
-
-  // ! Remove the preloader and black card
-  // setTimeout(function () {
-  //   blackCover.classList.remove("visible");
-  //   document.body.style.overflow = "auto";
-  //   terminal_bling.classList.add("animation_paragraph");
-  // }, 1000);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -178,20 +169,15 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
   });
 
-  // ! REMOVE THIS :- !!!
-  // blackCover.classList.remove("visible");
-  // document.body.style.overflow = "auto";
-  // terminal_bling.classList.add("animation_paragraph");
-
   //! Software Projects Title
 
-  software_projects_title.addEventListener("mouseover", () => {
+  title_Heading.addEventListener("mouseover", () => {
     cursor.style.transform = "scale(10)";
     cursor.style.mixBlendMode = "difference";
     cursor.style.boxShadow = "none";
   });
 
-  software_projects_title.addEventListener("mouseout", () => {
+  title_Heading.addEventListener("mouseout", () => {
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 50px white";
@@ -235,6 +221,35 @@ document.addEventListener("DOMContentLoaded", function () {
     cursortext.classList.remove("active");
     cursor.classList.remove("partially_transparent2");
   });
+
+  //! Handle Intersection Translate Y
+
+  let alreadyanimatedflag = false;
+  let timeout;
+
+  function handleIntersectionTranslate(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (!alreadyanimatedflag) timeout = 700;
+        else timeout = 0;
+
+        setTimeout(() => {
+          title_Heading.classList.add("show");
+        }, timeout);
+        alreadyanimatedflag = true;
+      } else {
+        title_Heading.classList.remove("show");
+      }
+    });
+  }
+  const observerTranslate = new IntersectionObserver(
+    handleIntersectionTranslate,
+    {
+      threshold: 0.7,
+    }
+  );
+
+  observerTranslate.observe(document.querySelector(".title"));
 
   // ! END OF DOMCONTENTLOADED
 });

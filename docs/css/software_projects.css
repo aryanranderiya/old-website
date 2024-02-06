@@ -14,6 +14,10 @@ section {
   scroll-snap-align: start;
 }
 
+.title {
+  overflow: hidden;
+}
+
 .title-heading {
   width: fit-content;
   color: white;
@@ -26,8 +30,14 @@ section {
   line-height: 0.9em;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.title-heading.show {
+  transform: translateY(0%);
+}
 @font-face {
   font-display: swap;
   font-family: VCR;

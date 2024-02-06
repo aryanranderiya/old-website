@@ -80,6 +80,7 @@ footer {
   color: white;
   font-weight: bolder;
   align-self: end;
+  margin-bottom: 0;
 }
 
 .divRight,
@@ -98,19 +99,31 @@ footer {
 }
 
 .social,
-.page_link {
+.page_link,
+#letstalk,
+.div_email {
   transform: translateY(100%);
   transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .social.show,
-.page_link.show {
+.page_link.show,
+#letstalk.show,
+.div_email.show,
+.word.show {
   transform: translateY(0%);
 }
 
 .social_link_container,
-.page_link_container {
+.page_link_container,
+.letstalkcontainer,
+.div_email_container {
   overflow: hidden;
+}
+
+.letstalkcontainer {
+  margin-bottom: 1%;
+  display: flex;
 }
 
 .divLeft {
@@ -146,7 +159,7 @@ footer {
 }
 
 .div_email {
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   color: white;
 }
 
@@ -248,6 +261,8 @@ footer {
   display: flex;
   overflow: hidden;
   margin-bottom: -100px;
+  transform: translateY(50%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .word span {
