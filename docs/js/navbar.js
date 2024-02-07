@@ -59,18 +59,25 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
           setTimeout(() => {
             item.classList.add("show");
             item.style.opacity = "1";
-          }, 100 * index);
+          }, 150 * index);
         });
 
         body.style.overflow = "hidden";
       } else {
-        items.forEach((item) => {
-          item.style.opacity = "0";
-          item.classList.remove("show");
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = "0";
+            item.classList.remove("show");
+          }, index * 50);
         });
-        div_nav_menu_image.style.visibilty = "hidden";
-        navbar_menu.classList.remove("show");
-        body.style.overflow = "auto";
+        setTimeout(() => {
+          navbar_menu.classList.remove("show");
+        }, 300);
+
+        setTimeout(() => {
+          div_nav_menu_image.style.visibilty = "hidden";
+          body.style.overflow = "auto";
+        }, 1100);
       }
     });
 

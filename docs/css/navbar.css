@@ -63,9 +63,9 @@
 }
 
 .navbar_menu {
-  opacity: 0;
-  transition: all 1.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* opacity: 0; */
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: translateX(100%);
   position: fixed;
   height: 100%;
@@ -78,15 +78,10 @@
 }
 
 .navbar_menu.show {
+  transition: all 1.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: translateX(0%);
-  /* width: 100%; */
-  /* right: 0; */
-  opacity: 1;
-}
-
-.navbar_menu.hide {
-  transform: translateX(0%);
-  opacity: 1;
+  /* opacity: 1; */
 }
 
 /* ! Menu Hamburger */
@@ -166,7 +161,7 @@ a {
   width: 100%;
   color: white;
   display: flex;
-  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   align-items: center;
   transform: translateX(15%);
 
