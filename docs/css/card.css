@@ -131,20 +131,15 @@
 }
 
 .card-image {
-  align-items: center;
-  height: 150px;
-  justify-content: center;
+  height: auto;
   overflow: hidden;
   background-image: url("../media/bg_aryan_swirl.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   border-radius: 1em;
-  min-height: 150px;
-  outline-color: #999999;
-  outline-style: solid;
-  outline-width: 1px;
   background-color: #00bbff;
+}
+
+.card-image-div {
+  display: flex;
 }
 
 .card-info-wrapper {
@@ -152,13 +147,6 @@
   flex-grow: 1;
   justify-content: flex-start;
 }
-
-/* .card-info {
-  align-items: flex-start;
-  display: flex;
-  gap: 10px;
-  margin-top: auto; 
-} */
 
 .card-info > i {
   font-size: 1em;
@@ -239,6 +227,18 @@
 
   .button_secondary {
     min-width: 340px !important;
+  }
+
+  .card-title {
+    font-size: 1.6em;
+  }
+
+  .card-type {
+    font-size: 0.9em;
+  }
+
+  .card-desc {
+    font-size: 0.9em;
   }
 }
 

@@ -66,7 +66,7 @@ function processDataAndHidePreloader(snapshot) {
     card.classList.add("card");
     card.innerHTML = `
       <div class="card-content">
-          <div class="card-image" >
+          <div class="card-image-div" >
             <img class="card-image" loading="eager" src='${banner_image_URL}';">
             </img>
           </div>
@@ -360,10 +360,12 @@ async function fetchGithubData() {
 
     github_card.innerHTML = `
       <div class="github_title_div">
-          <i class="fa-solid fa-book-bookmark github_title_icon"></i>
-          <a href='${repo.html_url}' target="_blank">
-            <span class="github_title">${repo.name}</span>
-          </a>
+          <div class="title_logo_container">
+            <i class="fa-solid fa-book-bookmark github_title_icon"></i>
+            <a href='${repo.html_url}' target="_blank">
+              <span class="github_title">${repo.name}</span>
+            </a>
+          </div>
           <div class="archive_logo">Visible</div>
       </div>
       <div class="github_desc_div">

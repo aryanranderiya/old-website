@@ -24,6 +24,7 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     const cursoricon1 = document.getElementById("cursoricon1");
     const cursoricon2 = document.getElementById("cursoricon2");
     const cursoricon5 = document.getElementById("cursoricon5");
+    const nav_menu_image = document.getElementById("nav_menu_image");
     const navbar_menu = document.querySelector(".navbar_menu");
     const checkbox = document.getElementById("hamburgerCheckbox");
     const body = document.querySelector("body");
@@ -31,11 +32,12 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
     const contact_button = document.querySelector(".contact_button");
     const items = document.querySelectorAll(".menu_items .item");
     const title = document.querySelector(".title-container");
+    const div_nav_menu_image = document.querySelector(".div_nav_menu_image");
 
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" || event.keyCode === 27) {
         navbar_menu.classList.remove("show");
-
+        div_nav_menu_image.style.visibilty = "hidden";
         items.forEach((item) => {
           item.classList.remove("show");
           item.style.opacity = "0";
@@ -51,6 +53,7 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
       //! Show the Menu when checked
       if (this.checked) {
         navbar_menu.classList.add("show");
+        div_nav_menu_image.style.visibilty = "visible";
 
         items.forEach((item, index) => {
           setTimeout(() => {
@@ -65,14 +68,71 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
           item.style.opacity = "0";
           item.classList.remove("show");
         });
+        div_nav_menu_image.style.visibilty = "hidden";
         navbar_menu.classList.remove("show");
         body.style.overflow = "auto";
       }
     });
 
+    const image = document.querySelector(".nav_menu_image_image");
+
+    items.forEach((item) => {
+      const key = item.querySelector(".menu_item").getAttribute("id");
+      console.log(key);
+      let src;
+
+      switch (key) {
+        case "home":
+          src = "media/ss_Index.png";
+          break;
+
+        case "software":
+          src = "media/ss_SoftwareProjects.png";
+          break;
+
+        case "design":
+          src = "media/ss_DesignProjects.png";
+          break;
+
+        case "resume":
+          src = "media/ss_Resume.png";
+          break;
+
+        case "contact":
+          src = "media/ss_Contact.png";
+          break;
+
+        default:
+          break;
+      }
+
+      item.addEventListener("mouseover", (event) => {
+        // image.style.opacity = "0";
+        image.style.transform = "scale(0)";
+        setTimeout(() => {
+          image.style.transform = "scale(1)";
+          // image.style.opacity = "1";
+          image.src = src;
+        }, 200);
+        nav_menu_image.classList.add("active");
+      });
+
+      item.addEventListener("mouseout", () => {
+        image.style.transform = "scale(0)";
+        nav_menu_image.classList.remove("active");
+      });
+    });
+
+    // document.addEventListener("mousemove", (e) => {
+    //   requestAnimationFrame(() => {
+    //     nav_menu_image.style.left = e.clientX + "px";
+    //     nav_menu_image.style.top = e.clientY + "px";
+    //   });
+    // });
+
     // ! Cursor Menu Hover Effect
     navbar_menu.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(5)", "none", "difference");
+      cursorTransformShadowBlend("scale(6)", "none");
       addClass(cursoricon1, "active");
       removeClass(cursoricon2, "active");
     });
@@ -183,7 +243,7 @@ function shuffleAnimation(event) {
 
   target.dataset.animating = true;
 
-  const words = target.querySelectorAll(".word");
+  const words = target.querySelectorAll(".menu_item");
   const originalWords = Array.from(words).map((word) => word.textContent);
 
   let shuffles = 0;

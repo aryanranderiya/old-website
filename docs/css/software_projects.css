@@ -74,8 +74,20 @@ section {
 
 /* !Responsive */
 @media screen and (max-width: 600px) {
+  .github_title_div {
+    flex-direction: column !important;
+  }
+
+  .github_description {
+    font-size: 0.9em !important;
+  }
+
+  .github_topic {
+    font-size: 0.75em !important;
+  }
+
   .github_heading {
-    font-size: 2.8em !important;
+    font-size: 2.5em !important;
   }
 
   #g_logo {
@@ -107,6 +119,23 @@ section {
 
   .logos {
     filter: grayscale(0%) brightness(100%);
+  }
+
+  .archive_logo {
+    align-self: baseline;
+    margin-left: 0 !important;
+    margin-top: 2%;
+    font-size: 0.8em !important;
+  }
+
+  .github_bottom_div {
+    align-items: normal !important;
+  }
+
+  .github_language,
+  .github_last_updated,
+  .github_star_count {
+    font-size: 0.8em !important;
   }
 }
 
@@ -192,6 +221,14 @@ section {
   align-items: center;
 }
 
+.github_title_div {
+  flex-direction: row;
+}
+
+.title_logo_container {
+  align-self: normal;
+}
+
 .github_desc_div {
   margin-top: 3%;
   margin-bottom: 3%;
@@ -206,9 +243,12 @@ section {
   color: #00bbff;
   font-family: Helvs;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .archive_logo {
+  max-width: 100px;
+  width: auto;
   color: grey;
   margin-left: auto;
   border-radius: 20px;
@@ -222,6 +262,7 @@ section {
   display: flex;
   align-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .archive_logo.archived {
