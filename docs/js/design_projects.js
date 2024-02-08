@@ -187,8 +187,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.getElementById("folder_two").addEventListener("click", function () {
-    document.querySelector(".content2").scrollIntoView({ behavior: "smooth" });
+    document.querySelector(".section2").scrollIntoView({ behavior: "smooth" });
   });
+
+  document
+    .getElementById("folder_three")
+    .addEventListener("click", function () {
+      document
+        .querySelector(".content3")
+        .scrollIntoView({ behavior: "smooth" });
+    });
 
   var folders = document.querySelectorAll(".folder");
 
@@ -371,33 +379,62 @@ slider.addEventListener("mouseout", () => {
   cursoricondrag.classList.remove("active");
 });
 
-// ! Merch designs hover
+// ! Anime Headers
+// let target = 0;
+// let current = 0;
+// let ease = 0.075;
 
-/*
-document.querySelectorAll(".merch_item").forEach((item) => {
-  item.addEventListener("mouseenter", function () {
-    gsap.set(this.querySelectorAll("span"), { opacity: 0 });
-    gsap.to(this.querySelectorAll("span"), {
-      opacity: 1,
-      duration: 0.075,
-      stagger: {
-        from: "random",
-        each: 0.02,
-      },
-      ease: "power2.out",
-    });
-  });
+// const slider_anime = document.querySelector(".slider_anime");
+// const slider_animeWrapper = document.querySelector(".slider_anime-wrapper");
+// const slides = document.querySelectorAll(".slide");
 
-  item.addEventListener("mouseleave", function () {
-    gsap.to(this.querySelectorAll("span"), {
-      opacity: 0,
-      duration: 0.075,
-      stagger: {
-        from: "random",
-        each: 0.02,
-      },
-      ease: "power2.in",
-    });
-  });
-});
-*/
+// let maxScroll = slider_animeWrapper.offsetWidth - window.innerWidth;
+
+// function lerp2(start, end, factor) {
+//   return start + (end - start) * factor;
+// }
+
+// function updateScaleAndPosition() {
+//   slides.forEach((slide) => {
+//     const rect = slide.getBoundingClientRect();
+//     const centerPosition = (rect.left + rect.right) / 2;
+//     const distanceFromCenter = centerPosition - window.innerWidth / 2;
+
+//     let scale, offsetX;
+//     if (distanceFromCenter > 0) {
+//       scale = Math.min(1.75, 1 + distanceFromCenter / window.innerWidth);
+//       offsetX = (scale - 1) * 300;
+//     } else {
+//       scale = Math.max(
+//         0.5,
+//         1 - Math.abs(distanceFromCenter) / window.innerWidth
+//       );
+//       offsetX = 0;
+//     }
+
+//     gsap.set(slide, { scale: scale, x: offsetX });
+//   });
+// }
+
+// function update() {
+//   current = lerp2(current, target, ease);
+
+//   gsap.set(".slider_anime-wrapper", {
+//     x: -current,
+//   });
+
+//   updateScaleAndPosition();
+
+//   requestAnimationFrame(update);
+// }
+// window.addEventListener("resize", () => {
+//   maxScroll = slider_animeWrapper.offsetWidth - window.innerWidth;
+// });
+
+// window.addEventListener("wheel", (e) => {
+//   target += e.deltaY;
+//   target = Math.max(0, target);
+//   target = Math.min(maxScroll, target);
+// });
+
+// update();

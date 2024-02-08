@@ -29,7 +29,7 @@ section {
 }
 
 .section2 {
-  display: contents;
+  /* display: contents; */
   height: 100%;
 }
 
@@ -85,7 +85,7 @@ section {
   color: white;
 }
 
-.heading_title_text_apparel {
+.heading_title_text_right {
   text-align: end;
 }
 
@@ -219,11 +219,15 @@ img {
 
 .slider-item figure {
   position: relative;
-  padding-bottom: 50%;
+  padding-bottom: 40%;
   overflow: hidden;
+  /* width: 100%;
+  height: 100%; */
 }
 
 .slider-item figure img {
+  /* width: 900px; */
+  height: auto;
   position: absolute;
   width: 100%;
   object-fit: cover;
@@ -298,7 +302,7 @@ img {
   }
 
   .heading_title_text,
-  .heading_title_text_apparel {
+  .heading_title_text_right {
     font-size: 2.5em;
     margin: 1%;
   }
@@ -493,4 +497,33 @@ img {
 .merch_item:hover .shape {
   opacity: 1;
   transform: scale(1);
+}
+
+.slider_anime {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider_anime-wrapper {
+  /* position: absolute; */
+  top: 0;
+  width: max-content;
+  padding: 0 600px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.animeslide {
+  width: auto;
+  height: 400px;
+  background: #e3e3e3;
+}
+
+.animeslide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
