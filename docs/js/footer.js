@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         pageLinks.forEach((pageLink) => {
           const pageLinkIcon = pageLink.querySelector(".icon");
-          pageLinkIcon.style.transition = "all 0.1s ease";
+          pageLinkIcon.style.transition = "all 0.1s ease"; -webkit-transition = "all 0.1s ease";
 
           pageLink.addEventListener("mouseover", function () {
             pageLinkIcon.style.fontSize = "2em";

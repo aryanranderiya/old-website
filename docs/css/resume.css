@@ -65,6 +65,7 @@ body {
   position: fixed;
   bottom: 30px;
   transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s ease;
 }
 
 #progress-bar {
@@ -76,6 +77,7 @@ body {
   width: var(--progress);
   background-color: #00bbff;
   transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s ease;
 }
 
 /*! Button Style */
@@ -91,6 +93,7 @@ body {
   box-shadow: 0px 0px 0px 3px #00bbffb0;
   filter: drop-shadow(0px -5px 30px black);
   transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   position: relative;
   /* 
 
@@ -98,7 +101,7 @@ body {
 
   font-weight: 600;
   cursor: pointer;
-  transition-duration: 0.3s;
+  transition-duration: 0.3s; -webkit-transition-duration: 0.3s;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -109,12 +112,14 @@ body {
   color: white;
   font-size: 1.7em !important;
   transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
 }
 
 .download_button:hover {
   width: 160px;
   border-radius: 50px;
   transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   background-color: #00bbff;
   align-items: center;
 }
@@ -122,6 +127,7 @@ body {
 .download_button:hover .svgIcon {
   /* width: 20px; */
   transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   transform: translateY(-200%);
 }
 
@@ -133,12 +139,14 @@ body {
   white-space: nowrap;
   opacity: 1;
   transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
 }
 
 .downloadresume_text.hovered {
   opacity: 1;
   visibility: visible;
   transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   font-size: 15px;
   display: flex;
 }
@@ -148,6 +156,7 @@ body {
   width: 170px;
   border-radius: 50px;
   transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   background-color: #00bbff;
 }
 
@@ -156,10 +165,12 @@ body {
   opacity: 1;
   bottom: unset;
   transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
 }
 
 .svgIcon.hovered {
   transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   display: none;
   transform: translateX(-200%);
 }

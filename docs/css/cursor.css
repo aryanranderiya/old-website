@@ -3,7 +3,7 @@
       10 10,
     auto;
 
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease; -webkit-transition: filter 0.3s ease;
 }
 
 a,
@@ -29,6 +29,7 @@ button:hover {
   box-shadow: 0px 0px 30px white;
   transform: translate(-50%, -50%);
   transition: transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s ease-out;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,12 +67,14 @@ button:hover {
   background-image: radial-gradient(#00bbff 50%, black);
   filter: blur(200px);
   transition: all 450ms ease-out;
+  -webkit-transition: all 450ms ease-out;
   margin-top: -50%;
   z-index: 0;
 }
 
 .cursor_glow_div_two {
   transition: opacity 1.5s ease;
+  -webkit-transition: opacity 1.5s ease;
   opacity: 1;
   visibility: hidden;
   position: relative;
@@ -88,6 +91,7 @@ button:hover {
   top: 0%;
   transform: translate(-50%, 60%);
   transition: all 450ms ease-out;
+  -webkit-transition: all 450ms ease-out;
 }
 
 .cursor_glow {
@@ -99,6 +103,7 @@ button:hover {
   background-image: radial-gradient(#00bbff 20%, black 60%);
   filter: blur(100px);
   transition: all 450ms ease-out;
+  -webkit-transition: all 450ms ease-out;
   left: 0;
   top: 0;
   transform: translate(-50%, -50%);
@@ -199,8 +204,6 @@ button:hover {
   height: 10%;
   z-index: 2001;
   position: fixed;
-
-  /* transition: opacity 0.2s ease; */
 }
 
 #cursoricondrag {
@@ -208,7 +211,6 @@ button:hover {
   height: 17%;
   z-index: 2001;
   position: fixed;
-  /* transition: opacity 0.2s ease; */
 }
 
 #cursoricon1,
@@ -227,6 +229,7 @@ button:hover {
   /* display: none; */
   opacity: 0;
   transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
 }
 
 #cursoricon1.active,
@@ -244,5 +247,6 @@ button:hover {
   /* display: inline-block; */
   opacity: 1;
   transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
   visibility: visible;
 }

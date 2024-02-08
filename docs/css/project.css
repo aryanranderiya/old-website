@@ -83,8 +83,9 @@ section {
   filter: grayscale(100%);
   opacity: 30%;
 
-  /* transition: filter 0.2s ease; */
+  /* transition: filter 0.2s ease; -webkit-transition: filter 0.2s ease; */
   transition: opacity 0.2s ease, filter 0.2s ease;
+  -webkit-transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
 .mockup_mobile {
@@ -103,6 +104,7 @@ section {
   top: 10%;
   filter: brightness(100%);
   transition: opacity 0.2s ease, filter 0.2s ease;
+  -webkit-transition: opacity 0.2s ease, filter 0.2s ease;
   aspect-ratio: initial;
 }
 
@@ -251,6 +253,7 @@ section {
   z-index: 2;
   opacity: 1;
   transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
 }
 
 .video_controls_container.hidden {
@@ -299,10 +302,12 @@ section {
   width: 60px;
   transform: translateX(40px);
   transition: width 0.1s ease;
+  -webkit-transition: width 0.1s ease;
 }
 .video_controls_playback.hidden {
   transform: translateX(-35px);
   transition: width 0.1s ease;
+  -webkit-transition: width 0.1s ease;
 }
 
 .icons {
@@ -331,6 +336,7 @@ section {
   z-index: 1;
   line-height: 1;
   transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.1s ease;
 }
 
 .control_icon {
@@ -352,6 +358,7 @@ section {
 #icons_main_replay {
   opacity: 0;
   transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.1s ease;
 }
 
 .dot {
@@ -392,6 +399,8 @@ section {
   width: var(--progress);
   background-color: white;
   transition: opacity 0.5s ease, width 0.4s ease, background-color 0.3s ease;
+  -webkit-transition: opacity 0.5s ease, width 0.4s ease,
+    background-color 0.3s ease;
 }
 
 .bar_container {

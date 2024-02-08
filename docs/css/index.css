@@ -66,12 +66,14 @@ header {
   opacity: 1;
   display: grid;
   transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
   justify-content: center;
   align-content: center;
   justify-items: center;
   align-items: center;
   transform: translateY(0%);
   transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .welcoming.hide {
@@ -146,6 +148,7 @@ header {
   height: 100%;
   justify-content: center;
   transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .my_portfolio {
@@ -181,6 +184,8 @@ header {
   font-family: Helvetica;
   font-size: 3.5em;
   transition: opacity 0.5s ease,
+    transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: opacity 0.5s ease,
     transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   opacity: 1;
   transform: translateY(100%);
@@ -271,17 +276,20 @@ header {
   z-index: 1;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
   /* transform: scale(1.25); */
 }
 
 .zoom-out {
   transform: scale(1);
   transition: transform 0.4s ease;
+  -webkit-transition: transform 0.4s ease;
 }
 
 .zoom-in {
   transform: scale(3);
   transition: transform 0.4s ease;
+  -webkit-transition: transform 0.4s ease;
 }
 
 #ontop-gradient {
@@ -302,6 +310,7 @@ header {
   outline-style: solid;
   outline-width: 1px;
   transition: box-shadow 0.5s ease;
+  -webkit-transition: box-shadow 0.5s ease;
 }
 
 #gradient-canvas {
@@ -347,15 +356,18 @@ header {
   background-color: rgb(255, 255, 255, 0.1);
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
   overflow: hidden;
   position: relative;
   /* z-index: 500; */
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
+  -webkit-transition: opacity 1.5s ease-in-out;
 }
 
 .svgArrow {
   transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
   align-items: center;
   fill: white;
 }
@@ -364,6 +376,7 @@ header {
   width: 140px;
   border-radius: 50px;
   transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
   background-color: rgb(0, 0, 0, 0.2);
 
   align-items: center;
@@ -372,6 +385,7 @@ header {
 .scroll_btn:hover .svgArrow {
   width: 20px;
   transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
   transform: translateY(200%);
 }
 
@@ -381,6 +395,7 @@ header {
   content: "View Website";
   color: white;
   transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
   font-size: 0px;
   background: transparent;
   font-family: Timesi;
@@ -391,6 +406,7 @@ header {
   opacity: 1;
   bottom: unset;
   transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
 }
 
 .grid_container {
