@@ -9,18 +9,9 @@
   justify-content: center;
   transition: opacity 0.5s ease;
   opacity: 1;
-  /* background-image: linear-gradient(
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0)
-  ); */
   padding-top: 20px;
   transition: transform 0.2s ease;
 }
-
-/* html {
-  overflow-x: hidden;
-} */
 
 .navbar.hide {
   transform: translateY(-100%);
@@ -164,8 +155,6 @@ a {
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   align-items: center;
   transform: translateX(15%);
-
-  /* transition: color 0.3s ease, transform 0.5s ease, all 1s ease, opacity 1s ease; */
 }
 
 .menu_item {
@@ -174,6 +163,7 @@ a {
   font-weight: bolder !important;
   text-transform: uppercase;
   width: 100%;
+  font-size: clamp(2em, 5vw, 4em);
 }
 
 .item.active {
@@ -529,7 +519,6 @@ a {
 
   .container-fluid {
     justify-content: space-between;
-    /* width: 50%; */
   }
 
   .navbar_menu_btn {
@@ -544,9 +533,7 @@ a {
   .item {
     margin-top: 25px;
   }
-}
 
-@media only screen and (max-width: 600px) {
   .menu_item,
   .menu_item_icon {
     font-size: 2em !important;

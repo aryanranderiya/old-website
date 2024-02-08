@@ -30,6 +30,7 @@ html {
   flex-direction: column;
   justify-content: start;
   margin-bottom: 0;
+  overflow: hidden;
 }
 
 .title {
@@ -38,6 +39,12 @@ html {
   width: fit-content;
   font-family: Helvs;
   font-weight: bold;
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.title.show {
+  transform: translateY(0%);
 }
 
 #letswork,
@@ -70,23 +77,31 @@ form {
   /* backdrop-filter: blur(100px); */
   /* -webkit-backdrop-filter: blur(100px); */
   background-color: rgba(0, 0, 0, 0);
-  outline-color: white;
+  outline-color: grey;
   outline-style: solid;
   outline-width: 2px;
   border-radius: 50px;
   font-size: 2em;
-  color: white;
+  color: grey;
   padding: 1% 2%;
 }
 
 ::placeholder {
-  color: white;
+  color: grey;
   font-family: Helvs;
 }
 
 ::-ms-input-placeholder {
   color: white;
   font-family: Helvs;
+}
+
+.form_input:focus {
+  backdrop-filter: blur(100px);
+  outline-color: white;
+  color: white;
+
+  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 .form_row {
@@ -260,3 +275,22 @@ hr {
 /* #anchor {
   background-color: red !important;
 } */
+
+.description_div,
+.div_email,
+.social {
+  overflow: hidden;
+}
+
+.div_email > *,
+.social > *,
+.description {
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: translateY(100%);
+}
+
+.div_email > *.show,
+.social > *.show,
+.description.show {
+  transform: translateY(0%);
+}

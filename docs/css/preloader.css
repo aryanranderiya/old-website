@@ -159,3 +159,10 @@ body {
   line-height: 0;
   transform: rotate(180deg) translateY(-99%);
 }
+
+@media screen and (max-width: 600px) {
+  .black_cover.hide,
+  .preloader.hide {
+    transform: translateY(-180%) !important;
+  }
+}

@@ -1,3 +1,38 @@
+// document.addEventListener("DOMContentLoaded", function () {
+//   console.log("test");
+//   setTimeout(() => {}, 1000);
+// });
+
+const title = document.querySelector(".title");
+const title_div = document.querySelector(".title_div");
+const emailElements = document.querySelectorAll(".div_email > *");
+const socialElements = document.querySelectorAll(".social > *");
+const description = document.querySelector(".description");
+
+function handleIntersection(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        title.classList.add("show");
+        description.classList.add("show");
+        emailElements.forEach((element) => element.classList.add("show"));
+        socialElements.forEach((element, index) => {
+          setTimeout(() => {
+            element.classList.add("show");
+          }, index * 50);
+        });
+      }, 850);
+    }
+  });
+}
+const observer1 = new IntersectionObserver(handleIntersection, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.5,
+});
+
+observer1.observe(title_div);
+
 var cursor_glow = document.querySelector(".cursor_glow_div");
 
 document.addEventListener("mousemove", (e) => {
@@ -103,7 +138,6 @@ const successParam = urlParams.get("success");
 if (successParam == "true") {
   alert("Thank you for Contacting me! I will get back to you ASAP! :)");
 }
-console.log("Success Param: ", successParam);
 
 function formSubmit() {
   document.getElementById("form").submit();

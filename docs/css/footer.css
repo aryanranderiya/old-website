@@ -76,7 +76,8 @@ footer {
 
 #letstalk {
   font-family: Helvs;
-  font-size: 7em;
+  font-size: clamp(3em, 10vw, 7em);
+
   color: white;
   font-weight: bolder;
   align-self: end;
@@ -140,7 +141,7 @@ footer {
 
 .google_icon {
   color: white;
-  font-size: 9em;
+  font-size: clamp(4em, 15vw, 9em);
   font-weight: bolder;
   transition: font-size 0.2s ease, transform 0.4s ease;
 }
@@ -234,7 +235,7 @@ footer {
   padding-top: 50px;
   margin-top: 10px;
   color: white;
-  font-size: 14em;
+  font-size: clamp(3em, 15vw, 14em);
   font-weight: bolder;
   font-family: Helvs;
   z-index: 1;
@@ -333,22 +334,15 @@ footer {
     margin-bottom: 0px;
   }
 
-  .footer_bottom_name {
-    font-size: 3.3em;
+  /* .footer_bottom_name {
     margin-top: -5px;
     margin-bottom: -20px;
     margin-top: 0px;
     padding-top: 0px;
-  }
+  } */
+
   .bottom_name_container {
     gap: 0.15em;
-  }
-
-  #letstalk {
-    font-size: 3.6em;
-  }
-  .google_icon {
-    font-size: 5em;
   }
 
   .social_icon,
@@ -376,39 +370,18 @@ footer {
     margin-top: 5%;
   }
 
-  .mail_text,
-  .mail_icon {
-    font-size: 1.3em !important;
-  }
-
   .footer2 {
     margin-top: 7%;
   }
 }
 
-/* ! CHANGE THIS */
-@media only screen and (min-width: 1000px) {
-  .footer_bottom_name {
-    font-size: 10em;
-    margin-top: -90px;
-  }
-
-  .word {
-    margin-bottom: -90px;
-  }
-
-  #letstalk {
-    font-size: 6em;
-  }
-}
-
 @media only screen and (min-width: 1500px) {
-  .footer_bottom_name {
+  /* .footer_bottom_name {
     font-size: 16em;
-  }
-  .word {
+  } */
+  /* .word {
     margin-bottom: -120px;
-  }
+  } */
 }
 
 .social a,
@@ -433,13 +406,10 @@ footer {
   z-index: 1;
   position: relative;
   color: white;
-  font-size: 3em;
+  font-size: clamp(1.3em, 6vw, 3em);
   text-decoration: underline !important;
-  /* text-decoration-color: white; */
-  /* text-decoration-thickness: 50%; */
 }
 
 .mail_icon {
-  font-size: 4em;
-  /* margin-bottom: -17px; */
+  font-size: clamp(1.3em, 6vw, 3em);
 }
