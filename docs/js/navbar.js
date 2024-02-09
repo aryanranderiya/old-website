@@ -43,8 +43,8 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
           item.style.opacity = "0";
         });
 
+        // console.log("Escape Key Pressed: Menu Hidden.");
         body.style.overflow = "auto";
-        console.log("Escape Key Pressed: Menu Hidden.");
         checkbox.checked = false;
       }
     });
@@ -85,7 +85,6 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
 
     items.forEach((item) => {
       const key = item.querySelector(".menu_item").getAttribute("id");
-      console.log(key);
       let src;
 
       switch (key) {

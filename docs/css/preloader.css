@@ -4,10 +4,7 @@ body {
 .black_cover {
   height: 100%;
   width: 100%;
-  /* background-color: rgb(8, 8, 8); */
-
   background-color: #00bbff;
-  /* background-color: rgba(0, 0, 0, 0.9); */
   position: fixed;
   top: 0;
   left: 0;
@@ -15,15 +12,14 @@ body {
   transition: opacity 0.3s ease-out,
     transform 3s cubic-bezier(0.1, 0.82, 0.165, 1.2);
   z-index: 999999999;
-  backdrop-filter: blur(80px);
-  -webkit-backdrop-filter: blur(80px);
-  /* transform: translateY(-50%); */
+  /* backdrop-filter: blur(200px); */
+  /* -webkit-backdrop-filter: blur(80px); */
 }
 
 .black_cover.hide,
 .preloader.hide {
   /* opacity: 0; */
-  transform: translateY(-150%);
+  transform: translateY(-170%);
 }
 
 .preloader {
@@ -47,12 +43,11 @@ body {
 }
 
 .spinner > div {
-  background-color: transparent;
+  /* background-color: transparent; */
   height: 100%;
   position: absolute;
   width: 100%;
-  /* border: 3.5px solid #00bbff; */
-  border: 3.5px solid black;
+  border: 3px solid black;
 }
 
 .spinner div:nth-of-type(1) {
@@ -97,13 +92,10 @@ body {
   }
 }
 
-/* Progress loading */
-
 .custom-loader {
   width: 120px;
   height: 13px;
   border-radius: 20px;
-  /* color: #00bbff; */
   color: black;
   border: 2px solid;
   position: relative;
@@ -115,7 +107,6 @@ body {
   margin: 2px;
   inset: 0 100% 0 0;
   border-radius: inherit;
-  /* background: #00bbff; */
   background: black;
   animation: p6 2s infinite;
 }
@@ -126,30 +117,21 @@ body {
   }
 }
 
-/* Text*/
-
 #loading_text {
-  font-size: 1.3em;
+  font-size: 1.5em;
   font-family: Spacer;
-  /* font-weight: bold; */
   color: black;
-  /* color: #00bbff; */
   margin-top: 2em;
 }
 
 .custom-shape-divider-top-1707225707 .shape-fill {
-  /* fill: rgb(8, 8, 8); */
   fill: #00bbff;
-
-  backdrop-filter: blur(80px);
-  -webkit-backdrop-filter: blur(80px);
 }
 .custom-shape-divider-top-1707225707 svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 500px;
-  backdrop-filter: blur(80px);
 }
 .custom-shape-divider-top-1707225707 {
   position: absolute;

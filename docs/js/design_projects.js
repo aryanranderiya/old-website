@@ -11,67 +11,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const merchItemsData = [
     {
-      imgSrc: "media/apparel/Tshirt Porsche.png",
+      imgSrc: "media/apparel/Tshirt Porsche.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Porsche",
     },
     {
-      imgSrc: "media/apparel/Tshirt Interstellar.png",
+      imgSrc: "media/apparel/Tshirt Interstellar.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Interstellar",
     },
     {
-      imgSrc: "media/apparel/Tshirt Kanye.png",
+      imgSrc: "media/apparel/Tshirt Kanye.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Kanye West",
     },
     {
-      imgSrc: "media/apparel/Tshirt Future1.png",
+      imgSrc: "media/apparel/Tshirt Future1.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Future 1",
     },
     {
-      imgSrc: "media/apparel/Tshirt BlueRose.png",
+      imgSrc: "media/apparel/Tshirt BlueRose.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Blue Rose",
     },
     {
-      imgSrc: "media/apparel/Tshirt Japan.png",
+      imgSrc: "media/apparel/Tshirt Japan.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Japan",
     },
     {
-      imgSrc: "media/apparel/Tshirt Future2.png",
+      imgSrc: "media/apparel/Tshirt MiH.webp",
+      category: "Apparel",
+      brand: "Aryan Randeriya",
+      title: "Make It Happen",
+    },
+    {
+      imgSrc: "media/apparel/Tshirt Future2.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Future 2",
     },
     {
-      imgSrc: "media/apparel/Tshirt InterstellarOld.png",
+      imgSrc: "media/apparel/Tshirt InterstellarOld.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Interstellar 2",
     },
     {
-      imgSrc: "media/apparel/Tshirt Dragon.png",
+      imgSrc: "media/apparel/Tshirt Dragon.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Dragon",
     },
     {
-      imgSrc: "media/apparel/Tshirt Nuclear.png",
+      imgSrc: "media/apparel/Tshirt Nuclear.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Nuclear",
     },
     {
-      imgSrc: "media/apparel/Tshirt Spiderverse.png",
+      imgSrc: "media/apparel/Tshirt Spiderverse.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
       title: "Spiderverse",
@@ -197,6 +203,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .querySelector(".content3")
         .scrollIntoView({ behavior: "smooth" });
     });
+
+  document.getElementById("folder_four").addEventListener("click", function () {
+    document.querySelector(".content4").scrollIntoView({ behavior: "smooth" });
+  });
 
   var folders = document.querySelectorAll(".folder");
 
@@ -380,61 +390,116 @@ slider.addEventListener("mouseout", () => {
 });
 
 // ! Anime Headers
-// let target = 0;
-// let current = 0;
-// let ease = 0.075;
 
-// const slider_anime = document.querySelector(".slider_anime");
-// const slider_animeWrapper = document.querySelector(".slider_anime-wrapper");
-// const slides = document.querySelectorAll(".slide");
+const control_forward = document.querySelector("#control_forward");
+const control_backward = document.querySelector("#control_backward");
+const anime_images = document.querySelectorAll(".anime-slider img");
+const anime_headers_text = document.querySelector("#anime_headers_text");
+const content3 = document.querySelector(".content3");
+const video_controls_others = document.querySelector(".video_controls_others");
+const icons = document.querySelector(".icons");
+const video_controls_container = document.querySelector(
+  ".video_controls_container"
+);
+const dot = document.querySelector(".dot");
 
-// let maxScroll = slider_animeWrapper.offsetWidth - window.innerWidth;
+let translateno = 0;
+let index = 1;
+control_forward.addEventListener("click", () => {
+  translateno += 100;
+  index++;
+  if (index > 18) index = 1;
+  if (translateno > 1700) translateno = 0;
+  anime_headers_text.innerHTML = `${index}/18`;
+  anime_images.forEach((anime_image) => {
+    anime_image.style.transform = `translateX(-${translateno}%)`;
+  });
+});
 
-// function lerp2(start, end, factor) {
-//   return start + (end - start) * factor;
-// }
+control_backward.addEventListener("click", () => {
+  translateno -= 100;
+  index--;
+  if (translateno < 0) translateno = 1700;
+  if (index < 1) index = 18;
+  anime_headers_text.innerHTML = `${index}/18`;
+  anime_images.forEach((anime_image) => {
+    anime_image.style.transform = `translateX(-${translateno}%)`;
+  });
+});
 
-// function updateScaleAndPosition() {
-//   slides.forEach((slide) => {
-//     const rect = slide.getBoundingClientRect();
-//     const centerPosition = (rect.left + rect.right) / 2;
-//     const distanceFromCenter = centerPosition - window.innerWidth / 2;
+function handleIntersectionAnime(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      icons.classList.remove("hidden");
+      video_controls_others.classList.remove("hidden");
+      video_controls_container.classList.remove("hidden");
+      dot.classList.remove("visible");
+      video_controls_container.style.opacity = "1";
+    } else {
+      icons.classList.add("hidden");
+      entry.target.style.opacity = "0";
+      dot.classList.add("visible");
+      video_controls_container.classList.add("hidden");
+      video_controls_others.classList.add("hidden");
+      setTimeout(() => {
+        video_controls_container.style.opacity = "0";
+      }, 1000);
+    }
+  });
+}
+const observerAnime = new IntersectionObserver(handleIntersectionAnime, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.5,
+});
 
-//     let scale, offsetX;
-//     if (distanceFromCenter > 0) {
-//       scale = Math.min(1.75, 1 + distanceFromCenter / window.innerWidth);
-//       offsetX = (scale - 1) * 300;
-//     } else {
-//       scale = Math.max(
-//         0.5,
-//         1 - Math.abs(distanceFromCenter) / window.innerWidth
-//       );
-//       offsetX = 0;
-//     }
+observerAnime.observe(content3);
 
-//     gsap.set(slide, { scale: scale, x: offsetX });
+// ! Thumbnails
+
+const content4 = document.querySelector(".content4");
+
+function handleIntersectionThumbnail(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+    } else {
+      entry.target.style.opacity = "0";
+    }
+  });
+}
+const observerTB = new IntersectionObserver(handleIntersectionThumbnail, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
+});
+
+observerTB.observe(content4);
+
+// const thumbnail_images = document.querySelectorAll(".thumbnail_image");
+// thumbnail_images.forEach((element) => {
+//   console.log("hi");
+//   element.addEventListener("mouseover", () => {
+//     console.log("test");
+//     element.classList.add("hover");
 //   });
-// }
-
-// function update() {
-//   current = lerp2(current, target, ease);
-
-//   gsap.set(".slider_anime-wrapper", {
-//     x: -current,
+//   element.addEventListener("mouseout", () => {
+//     console.log("test2");
+//     element.classList.remove("hover");
 //   });
-
-//   updateScaleAndPosition();
-
-//   requestAnimationFrame(update);
-// }
-// window.addEventListener("resize", () => {
-//   maxScroll = slider_animeWrapper.offsetWidth - window.innerWidth;
 // });
 
-// window.addEventListener("wheel", (e) => {
-//   target += e.deltaY;
-//   target = Math.max(0, target);
-//   target = Math.min(maxScroll, target);
-// });
+const thumbnail_images = document.querySelectorAll(".thumbnail_image");
 
-// update();
+thumbnail_images.forEach((element) => {
+  element.addEventListener("mouseover", () => {
+    console.log("test1");
+    element.classList.add("hover");
+  });
+
+  element.addEventListener("mouseout", () => {
+    console.log("test2");
+    element.classList.remove("hover");
+  });
+});
