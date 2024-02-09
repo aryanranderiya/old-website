@@ -281,9 +281,8 @@ footer {
   user-select: none;
   gap: 2rem;
   margin: 2% 0;
-
   white-space: nowrap;
-  z-index: 2;
+  z-index: 1;
 }
 
 .marquee__inner {

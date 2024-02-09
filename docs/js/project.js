@@ -309,10 +309,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (button_primary) addEventListeners(button_primary);
   if (button_secondary) addEventListeners(button_secondary);
 
-  btnScrollTop.addEventListener(
-    "click",
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  );
+  btnScrollTop.addEventListener("click", () => {
+    console.log("test");
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
 
   function addEventListeners(button) {
     button.addEventListener("mouseover", () => {
@@ -526,26 +526,3 @@ Object.defineProperty(HTMLMediaElement.prototype, "playing", {
     );
   },
 });
-
-//! First Intersection Observer
-function handleIntersection(entries, observer) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      progressBar.style.opacity = "0";
-      // btn_download.style.opacity = "0";
-      // btn_download.style.position = "relative";
-      button.classList.add("hovered");
-      svgIcon.classList.add("hovered");
-      downloadresume_text.classList.add("hovered");
-      footerIntersectedFlag = true;
-    } else {
-      footerIntersectedFlag = false;
-      progressBar.style.opacity = "1";
-      // btn_download.style.opacity = "1";
-      // btn_download.style.position = "fixed";
-      button.classList.remove("hovered");
-      svgIcon.classList.remove("hovered");
-      downloadresume_text.classList.remove("hovered");
-    }
-  });
-}

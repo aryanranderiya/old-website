@@ -405,7 +405,7 @@ section {
 .scrolltotop {
   width: 60px;
   height: 60px;
-  background-color: white;
+  background-color: red;
   position: fixed;
   bottom: 20px;
   right: 50px;
@@ -414,11 +414,17 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  pointer-events: all;
+  z-index: 500;
 }
 
 #scrolltop_icon {
   font-size: 3em;
+  z-index: 500;
+}
+
+.scrolltoptop_container {
+  z-index: 500;
 }
 
 @media screen and (max-width: 600px) {
