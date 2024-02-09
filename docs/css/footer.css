@@ -21,7 +21,8 @@ p {
   margin-bottom: 1rem;
 }
 
-footer > * {
+footer > *,
+.menu_items > * {
   font-family: Helvs;
 }
 
@@ -313,6 +314,10 @@ footer {
 /* ! Responsiveness */
 
 @media only screen and (max-width: 600px) {
+  .div_nav_menu_image {
+    display: none;
+  }
+
   .marquee__part {
     font-size: 2em;
   }

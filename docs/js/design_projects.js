@@ -142,7 +142,6 @@ function generateMerchItems(heading_titles) {
   merchItemsData[0].items.forEach((item, index) => {});
 
   heading_titles.forEach((title) => normalObserver.observe(title));
-  // merch_items.forEach((item) =>);
 }
 
 function foldersHover(folders) {
@@ -166,7 +165,7 @@ function foldersHover(folders) {
     folder.addEventListener("mouseout", () => {
       removeClass(cursoricon5, "active");
       removeClass(cursor, "transparent");
-      cursorTransformShadowBlend("scale(2)", "none", "normal");
+      cursorTransformShadowBlend(undefined, "none", "normal");
       folders.forEach((other) => {
         other.style.filter = "brightness(100%)";
       });

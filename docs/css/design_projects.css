@@ -70,6 +70,8 @@ section {
   margin-left: 5%;
   color: white;
   font-family: Helvs;
+  position: relative;
+  z-index: 1;
 }
 
 .heading_title_text {
@@ -78,10 +80,6 @@ section {
   font-weight: bold;
   font-size: 8em;
   color: white;
-}
-
-.heading_title_text_right {
-  text-align: end;
 }
 
 #headerstitle {
@@ -195,9 +193,15 @@ img {
   white-space: nowrap;
 }
 
+.slider_container_overflow {
+  width: 90%;
+  overflow: hidden;
+}
+
 .slider-item {
   display: inline-block;
   width: 1400px;
+  overflow: hidden;
 }
 
 .slider-item figure {
@@ -277,8 +281,7 @@ img {
     margin-bottom: 20%;
   }
 
-  .heading_title_text,
-  .heading_title_text_right {
+  .heading_title_text {
     font-size: 2.5em;
     margin: 1%;
   }
@@ -611,6 +614,7 @@ img {
 
 .content3 {
   transition: opacity 0.3s ease;
+  overflow: hidden;
 }
 
 .anime_header_carousel {
@@ -621,7 +625,7 @@ img {
 
 .anime-slider-wrapper {
   position: relative;
-  max-width: 90rem;
+  max-width: 70%;
 }
 
 .anime-slider {
