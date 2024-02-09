@@ -316,17 +316,7 @@ async function fetchGithubData() {
     const github_card = document.createElement("div");
     github_card.classList.add("github_card");
     github_card.id = repo.name;
-    // github_card.setAttribute("id", repo.name);
     github_cards.appendChild(github_card);
-    // console.log("Name: " + repo.full_name);
-    // console.log("description: " + repo.description);
-    // console.log("language: " + repo.language);
-    // stargazers_count;
-    // updated_at;
-    // created_at;
-    // homepage; // Link of website / demo
-    // topics; // Array
-    // console.log("html_url: " + repo.html_url);
 
     //! Set Last Pushed Time
     const lastUpdatedDate = new Date(repo.pushed_at);
