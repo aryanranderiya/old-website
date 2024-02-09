@@ -1,5 +1,4 @@
 :root {
-  /* --card-color: #212121; */
   --card-color: black;
 }
 
@@ -76,7 +75,6 @@
   font-size: 0.9em;
   line-height: 1.5rem;
   height: 8em;
-  /* display: relative; */
   text-overflow: ellipsis;
   font-family: Helvs;
   font-weight: normal;
@@ -157,32 +155,6 @@
 
 .card-info-title {
   margin: 0 10px;
-}
-/*
-.card-info-title > h4 {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.85em;
-  margin-top: 8px;
-} */
-
-/* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
-
-/* -- ↓ ↓ ↓ YouTube link styles ↓ ↓ ↓ -- */
-
-#youtube-link {
-  bottom: 10px;
-}
-
-#youtube-link > i {
-  color: rgb(239, 83, 80);
-}
-
-#source-link {
-  bottom: 60px;
-}
-
-#source-link > i {
-  color: rgb(94, 106, 210);
 }
 
 .link {

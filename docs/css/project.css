@@ -82,15 +82,12 @@ section {
 .mockup_media_mobile {
   filter: grayscale(100%);
   opacity: 30%;
-
-  /* transition: filter 0.2s ease; -webkit-transition: filter 0.2s ease; */
   transition: opacity 0.2s ease, filter 0.2s ease;
   -webkit-transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
 .mockup_mobile {
   aspect-ratio: initial;
-
   height: 850px;
   position: absolute;
   top: 10%;
@@ -139,16 +136,12 @@ section {
   min-height: 820px;
   max-height: 820px;
   height: 100%;
-  /* max-width: 390px;
-  min-width: 390px; */
   width: 100%;
   position: relative;
   z-index: -1;
 }
 
 .mockup_media_laptop.image {
-  /* max-height: 100%;
-  min-height: 100%; */
   display: none;
 }
 
@@ -173,7 +166,6 @@ section {
 }
 
 .p_type_icon {
-  /* font-size: 1.7em !important; */
   align-self: center;
 }
 .p_type_text {

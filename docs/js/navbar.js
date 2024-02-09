@@ -89,23 +89,23 @@ fetch("navbar.html") //! Fetch navbar html into the element navbar
 
       switch (key) {
         case "home":
-          src = "media/ss_Index.png";
+          src = "media/ss_Index.webp";
           break;
 
         case "software":
-          src = "media/ss_SoftwareProjects.png";
+          src = "media/ss_SoftwareProjects.webp";
           break;
 
         case "design":
-          src = "media/ss_DesignProjects.png";
+          src = "media/ss_DesignProjects.webp";
           break;
 
         case "resume":
-          src = "media/ss_Resume.png";
+          src = "media/ss_Resume.webp";
           break;
 
         case "contact":
-          src = "media/ss_Contact.png";
+          src = "media/ss_Contact.webp";
           break;
 
         default:

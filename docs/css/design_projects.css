@@ -2,10 +2,8 @@ html,
 body {
   padding: 0;
   width: 100%;
-  /* height: 100vh; */
   position: relative;
   background-color: black !important;
-  /* scroll-behavior: smooth; */
 }
 
 body {
@@ -13,7 +11,6 @@ body {
   overflow-x: hidden !important;
   overflow: hidden !important;
   overflow-y: visible !important;
-
   scroll-snap-type: none !important;
 }
 
@@ -29,7 +26,6 @@ section {
 }
 
 .section2 {
-  /* display: contents; */
   height: 100%;
 }
 
@@ -108,7 +104,6 @@ section {
 }
 
 #gradient-canvas {
-  /* margin-top: 2%; */
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -118,7 +113,6 @@ section {
   width: 100%;
   height: 100%;
   z-index: -2;
-
   --gradient-color-1: #ffffff;
   --gradient-color-2: #34b4fe;
   --gradient-color-3: #000000;
@@ -130,7 +124,6 @@ section {
   margin: 0 0;
   width: 100%;
   display: flex;
-  /* gap: 10px; */
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -168,14 +161,6 @@ section {
 hr {
   color: white;
 }
-/* .img-carousel {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  overflow: hidden;
-  pointer-events: none;
-  margin-top: 1em;
-}*/
 
 .merch_image {
   height: 200px;
@@ -341,10 +326,6 @@ img {
 
 /* ! Merch Designs */
 
-/* .content1 {
-  height: 100%;
-} */
-
 .merchdesigns {
   height: 100%;
 }
@@ -396,7 +377,6 @@ img {
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* padding: 20px; */
 }
 
 .item-copy > div {
@@ -416,14 +396,12 @@ img {
   backdrop-filter: blur(5px);
   color: #fff;
   font-size: 12px;
-  /* padding: 10px; */
   padding-top: 15px;
   padding-bottom: 10px;
   opacity: 0;
   transform: scale(0.75);
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-
   outline-width: 1000px;
   outline-color: white !important;
 }
@@ -461,7 +439,6 @@ img {
 }
 
 @font-face {
-  /* font-display: swap; */
   font-family: Orbitron;
   src: url("../fonts/Orbitron.ttf") format("truetype");
 }
@@ -623,7 +600,7 @@ img {
   }
 }
 
-/* ANime Headers */
+/* Anime Headers */
 
 #anime_headers_text {
   font-family: Helvs;
@@ -631,8 +608,6 @@ img {
   margin: 0;
   line-height: 1.6;
 }
-
-/* carousel */
 
 .content3 {
   transition: opacity 0.3s ease;
@@ -675,7 +650,7 @@ img {
   margin-top: -1%;
 }
 
-/* !thumbnails */
+/*! Thumbnails */
 
 .content4 {
   transition: opacity 1s ease;

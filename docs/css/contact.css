@@ -6,10 +6,6 @@ body {
   background-color: #000000 !important;
 }
 
-/* .material-symbols-rounded {
-  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" -25, "opsz" 24 !important;
-} */
-
 html {
   overflow: hidden !important;
   overflow-y: scroll !important;
@@ -73,10 +69,7 @@ form {
 
 .form_input {
   margin: 1%;
-
   width: 100%;
-  /* backdrop-filter: blur(100px); */
-  /* -webkit-backdrop-filter: blur(100px); */
   background-color: rgba(0, 0, 0, 0);
   outline-color: grey;
   outline-style: solid;
@@ -101,8 +94,6 @@ form {
   backdrop-filter: blur(100px);
   outline-color: white;
   color: white;
-
-  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 .form_row {
@@ -113,7 +104,6 @@ form {
 }
 
 #form_textarea {
-  /* padding: 1% 2%; */
   margin: 1%;
   width: 100%;
   border-radius: 40px;
@@ -122,7 +112,6 @@ form {
 .formright {
   margin-right: 9%;
   margin-left: 3%;
-  /* margin: 0 9%; */
 }
 
 .contacts {
@@ -136,7 +125,6 @@ form {
 
 #disclaimer_span {
   color: grey;
-  /* margin: 0 10%; */
 }
 
 .fa-circle-info {
@@ -201,7 +189,6 @@ hr {
 #btn_captcha_row {
   margin-top: -5%;
   align-items: flex-end;
-  /* justify-content: space-around; */
 }
 
 .h-captcha {
@@ -272,11 +259,6 @@ hr {
     -webkit-text-stroke-color: white;
   }
 }
-
-/* #anchor {
-  background-color: red !important;
-} */
-
 .description_div,
 .div_email,
 .social {

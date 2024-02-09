@@ -95,17 +95,6 @@ body {
   transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   position: relative;
-  /* 
-
-  position: relative; 
-
-  font-weight: 600;
-  cursor: pointer;
-  transition-duration: 0.3s; -webkit-transition-duration: 0.3s;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-   */
 }
 
 .svgIcon {
@@ -125,7 +114,6 @@ body {
 }
 
 .download_button:hover .svgIcon {
-  /* width: 20px; */
   transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transform: translateY(-200%);

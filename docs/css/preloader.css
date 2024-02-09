@@ -12,13 +12,10 @@ body {
   transition: opacity 0.3s ease-out,
     transform 3s cubic-bezier(0.1, 0.82, 0.165, 1.2);
   z-index: 999999999;
-  /* backdrop-filter: blur(200px); */
-  /* -webkit-backdrop-filter: blur(80px); */
 }
 
 .black_cover.hide,
 .preloader.hide {
-  /* opacity: 0; */
   transform: translateY(-170%);
   -webkit-transform: translateY(-170%);
 }
@@ -44,7 +41,6 @@ body {
 }
 
 .spinner > div {
-  /* background-color: transparent; */
   height: 100%;
   position: absolute;
   width: 100%;
