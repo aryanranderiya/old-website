@@ -40,11 +40,6 @@ section {
 .title-heading.show {
   transform: translateY(0%);
 }
-@font-face {
-  font-display: swap;
-  font-family: VCR;
-  src: url("../fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
-}
 
 .logos_tools {
   height: 100px;
@@ -145,12 +140,6 @@ section {
 }
 
 /*! Github Cards */
-
-@font-face {
-  font-display: swap;
-  font-family: Alliance;
-  src: url("../fonts/Alliance.otf") format("opentype");
-}
 
 .github_heading_div {
   transition: opacity 0.5s ease;

@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var cursor_glow = document.querySelector(".cursor_glow_div");
   const merch_items = document.querySelectorAll(".merch_item");
   const heading_titles = document.querySelectorAll(".heading_title");
-
   document.addEventListener("mousemove", function (e) {
     cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
   });
@@ -23,9 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "mouseover",
     cursorTransformShadowBlend("scale(10)", "none", "difference")
   );
-
-  heading_titles.forEach((title) => normalObserver.observe(title));
-  merch_items.forEach((item) => normalObserver.observe(item));
 
   folder1.addEventListener("click", () =>
     content1.scrollIntoView({ behavior: "smooth" })
@@ -43,94 +39,62 @@ document.addEventListener("DOMContentLoaded", function () {
     content4.scrollIntoView({ behavior: "smooth" })
   );
 
-  generateMerchItems();
+  generateMerchItems(heading_titles);
   foldersHover(folders);
   normalHeaders(slider);
   animeHeaders();
   thumbnails();
 });
 
-function generateMerchItems() {
+function generateMerchItems(heading_titles) {
   const merchItemsData = [
     {
-      imgSrc: "media/apparel/Tshirt Porsche.webp",
       category: "Apparel",
       brand: "Aryan Randeriya",
-      title: "Porsche",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt Interstellar.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Interstellar",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt Kanye.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Kanye West",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt Future1.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Future 1",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt BlueRose.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Blue Rose",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt Japan.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Japan",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt MiH.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Make It Happen",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt Future2.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Future 2",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt InterstellarOld.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Interstellar 2",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt Dragon.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Dragon",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt Nuclear.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Nuclear",
-    },
-    {
-      imgSrc: "media/apparel/Tshirt Spiderverse.webp",
-      category: "Apparel",
-      brand: "Aryan Randeriya",
-      title: "Spiderverse",
+      items: [
+        { imgSrc: "media/apparel/Tshirt Porsche.webp", title: "Porsche" },
+        {
+          imgSrc: "media/apparel/Tshirt Interstellar.webp",
+          title: "Interstellar",
+        },
+        { imgSrc: "media/apparel/Tshirt Kanye.webp", title: "Kanye West" },
+        { imgSrc: "media/apparel/Tshirt Future1.webp", title: "Future 1" },
+        { imgSrc: "media/apparel/Tshirt BlueRose.webp", title: "Blue Rose" },
+        { imgSrc: "media/apparel/Tshirt Japan.webp", title: "Japan" },
+        { imgSrc: "media/apparel/Tshirt MiH.webp", title: "Make It Happen" },
+        { imgSrc: "media/apparel/Tshirt Future2.webp", title: "Future 2" },
+        {
+          imgSrc: "media/apparel/Tshirt InterstellarOld.webp",
+          title: "Interstellar 2",
+        },
+        { imgSrc: "media/apparel/Tshirt Dragon.webp", title: "Dragon" },
+        { imgSrc: "media/apparel/Tshirt Nuclear.webp", title: "Nuclear" },
+        {
+          imgSrc: "media/apparel/Tshirt Spiderverse.webp",
+          title: "Spiderverse",
+        },
+      ],
     },
   ];
+
+  function handleIntersection(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+      } else entry.target.style.opacity = "0";
+    });
+  }
+  const normalObserver = new IntersectionObserver(handleIntersection, {
+    root: null,
+    threshold: 0.8,
+  });
 
   const merchItemsContainer = document.getElementById("merchItemsContainer");
 
   merchItemsContainer.innerHTML = "";
 
-  merchItemsData.forEach((item, index) => {
+  let index = 0;
+  for (const item of merchItemsData[0].items) {
     index++;
 
     if (index < 10) {
@@ -152,9 +116,7 @@ function generateMerchItems() {
 
     const shape1 = document.createElement("div");
     shape1.classList.add("shape");
-    shape1.innerHTML = `<div id="number"><span>${index}</span></div><div class="text-right"><span>${item.category.charAt(
-      0
-    )}</span>${item.category.slice(1)}</div>`;
+    shape1.innerHTML = `<div id="number"><span>${index}</span></div><div class="text-right"><span>Apparel</span></div>`;
 
     itemCopy1.appendChild(shape1);
 
@@ -163,11 +125,7 @@ function generateMerchItems() {
 
     const shape2 = document.createElement("div");
     shape2.classList.add("shape");
-    shape2.innerHTML = `<div class="text-left"><span>${item.brand.charAt(
-      0
-    )}</span>${item.brand.slice(1)}</div><div class="text-right"><span>${
-      item.title
-    }</span></div>`;
+    shape2.innerHTML = `<div class="text-left"><span>Aryan Randeriya</span></div><div class="text-right"><span>${item.title}</span></div>`;
 
     itemCopy2.appendChild(shape2);
 
@@ -178,38 +136,39 @@ function generateMerchItems() {
     merchItem.appendChild(itemCopy);
 
     merchItemsContainer.appendChild(merchItem);
-  });
+    normalObserver.observe(merchItem);
+  }
+
+  merchItemsData[0].items.forEach((item, index) => {});
+
+  heading_titles.forEach((title) => normalObserver.observe(title));
+  // merch_items.forEach((item) =>);
 }
 
 function foldersHover(folders) {
-  folders.forEach((folder) => {
-    folder.style.transition =
-      " filter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1)";
+  const cursoricon5 = document.querySelector("#cursoricon5");
 
+  folders.forEach((folder) => {
     folder.style.zIndex = "1";
+    folder.style.transition = "filter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1)";
 
     folder.addEventListener("mouseover", () => {
-      folder.style.filter = "brightness(100%)";
-
-      folders.forEach((otherFolder) => {
-        if (otherFolder !== folder) {
-          otherFolder.style.filter = "brightness(20%)";
-        }
+      folders.forEach((other) => {
+        if (other !== folder) other.style.filter = "brightness(20%)";
       });
 
-      cursor.style.boxShadow = "none";
-      cursor.classList.add("transparent");
-      cursoricon5.classList.add("active");
-      cursoricon5.style.transform = "scale(2)";
+      folder.style.filter = "brightness(100%)";
+      addClass(cursoricon5, "active");
+      addClass(cursor, "transparent");
+      cursorTransformShadowBlend("scale(2)", "none", "normal");
     });
 
     folder.addEventListener("mouseout", () => {
-      cursor.classList.remove("transparent");
-      cursoricon5.style.transform = "none";
-      cursoricon5.classList.remove("active");
-
-      folders.forEach((otherFolder) => {
-        otherFolder.style.filter = "brightness(100%)";
+      removeClass(cursoricon5, "active");
+      removeClass(cursor, "transparent");
+      cursorTransformShadowBlend("scale(2)", "none", "normal");
+      folders.forEach((other) => {
+        other.style.filter = "brightness(100%)";
       });
     });
   });
@@ -422,8 +381,8 @@ function animeHeaders() {
 }
 
 function thumbnails() {
-  const thumbnails = document.querySelectorAll(".thumbnail_image");
   const content4 = document.querySelector(".content4");
+  const thumbnails = document.querySelectorAll(".thumbnail_image");
 
   function thumbnailIntersection(entries) {
     entries.forEach(
@@ -463,15 +422,3 @@ function addClass(element, className) {
 function removeClass(element, className) {
   element.classList.remove(className);
 }
-
-// First Intersection Observer for the titles
-function handleIntersection(entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.style.opacity = "1";
-    else entry.target.style.opacity = "0";
-  });
-}
-const normalObserver = new IntersectionObserver(handleIntersection, {
-  root: null,
-  threshold: 0.8,
-});
