@@ -1,6 +1,6 @@
 html,
 body {
-  padding: 0;
+  /* padding: 0; */
   width: 100%;
   position: relative;
   background-color: black !important;
@@ -50,18 +50,24 @@ section {
   -webkit-transition: opacity 0.3s ease;
 }
 
+.title {
+  display: flex;
+  justify-content: center;
+}
+
 .title-heading {
   height: fit-content;
   width: fit-content;
-  margin-top: 3%;
+  margin-top: clamp(3%, 20vw, 15%);
   color: white;
-  font-size: 10em;
+  font-size: clamp(3em, 10vw, 10em);
   font-weight: bolder;
   margin: 0 5%;
   font-family: DirtyLine;
   letter-spacing: 10px;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .subheading {
@@ -270,12 +276,6 @@ img {
 /* !Responsiveness */
 
 @media screen and (max-width: 600px) {
-  .title-heading {
-    font-size: 3em;
-    margin-top: 15%;
-    text-align: center;
-  }
-
   section {
     height: fit-content;
     margin-bottom: 20%;
