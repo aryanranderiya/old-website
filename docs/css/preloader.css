@@ -20,6 +20,7 @@ body {
 .preloader.hide {
   /* opacity: 0; */
   transform: translateY(-170%);
+  -webkit-transform: translateY(-170%);
 }
 
 .preloader {
