@@ -5,14 +5,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const section2 = document.querySelector(".section2");
   const content3 = document.querySelector(".content3");
   const content4 = document.querySelector(".content4");
+  const content5 = document.querySelector(".content5");
   const folder1 = document.getElementById("folder_one");
   const folder2 = document.getElementById("folder_two");
   const folder4 = document.getElementById("folder_four");
+  const folder5 = document.getElementById("folder_five");
   const folder3 = document.getElementById("folder_three");
   const title = document.querySelector(".title-heading");
   var cursor_glow = document.querySelector(".cursor_glow_div");
   const merch_items = document.querySelectorAll(".merch_item");
   const heading_titles = document.querySelectorAll(".heading_title");
+  const popup_image = document.querySelector(".popup_image");
+  const close_text = document.querySelector(".close_text");
+  const popup_image_container = document.querySelector(
+    ".popup_image_container"
+  );
+
   document.addEventListener("mousemove", function (e) {
     cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
   });
@@ -39,11 +47,23 @@ document.addEventListener("DOMContentLoaded", function () {
     content4.scrollIntoView({ behavior: "smooth" })
   );
 
+  folder5.addEventListener("click", () =>
+    content5.scrollIntoView({ behavior: "smooth" })
+  );
+
   generateMerchItems(heading_titles);
   foldersHover(folders);
   normalHeaders(slider);
   animeHeaders();
-  thumbnails();
+  thumbnails(popup_image, popup_image_container, close_text);
+  advertisements(popup_image, popup_image_container, close_text);
+
+  popup_image_container.addEventListener("click", (event) => {
+    closePopup(popup_image_container, popup_image, event);
+  });
+  close_text.addEventListener("click", (event) => {
+    closePopup(popup_image_container, popup_image, event);
+  });
 });
 
 function generateMerchItems(heading_titles) {
@@ -379,7 +399,7 @@ function animeHeaders() {
   observerAnime.observe(content3);
 }
 
-function thumbnails() {
+function thumbnails(popup_image, popup_image_container, close_text) {
   const content4 = document.querySelector(".content4");
   const thumbnails = document.querySelectorAll(".thumbnail_image");
 
@@ -402,7 +422,33 @@ function thumbnails() {
     observerTB2.observe(image);
     image.addEventListener("mouseover", () => addClass(image, "hover"));
     image.addEventListener("mouseout", () => removeClass(image, "hover"));
+    image.addEventListener("click", () => {
+      popup_image.src = image.getAttribute("src");
+      setTimeout(() => {
+        addClass(popup_image_container, "show");
+        addClass(popup_image, "show");
+      }, 100);
+    });
   });
+}
+
+function advertisements(popup_image, popup_image_container, close_text) {
+  const advert_images = document.querySelectorAll(".advert_image");
+
+  advert_images.forEach((image) => {
+    image.addEventListener("click", () => {
+      popup_image.src = image.getAttribute("src");
+      setTimeout(() => {
+        addClass(popup_image_container, "show");
+        addClass(popup_image, "show");
+      }, 100);
+    });
+  });
+}
+
+function closePopup(popup_image_container, popup_image) {
+  removeClass(popup_image_container, "show");
+  removeClass(popup_image, "show");
 }
 
 // Functions
