@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const footerContainer = document.getElementById("footerContainer");
+  const navbar = document.querySelector(".navbar");
 
   if (footerContainer) {
     fetch("footer.html")
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const allSocial = document.querySelectorAll(".social");
         const googleIcon = document.querySelector(".google_icon");
         const bottomName = document.querySelector(".footer_bottom_name");
+        const div_email = document.querySelector(".div_email");
 
         allSocial.forEach((social) => {
           social.addEventListener("mouseover", function () {
@@ -90,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const marquee = document.querySelector(".marquee");
 
         marquee.addEventListener("mouseover", () =>
-          cursorTransformShadowBlend("scale(7)", "none", "difference")
+          cursorTransformShadowBlend("scale(7)", "none", "saturation")
         );
 
         marquee.addEventListener("mouseout", () =>
@@ -141,13 +143,11 @@ document.addEventListener("DOMContentLoaded", function () {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               animateFooterContent();
-              if (footerIntersected)
-                document.querySelector(".navbar").classList.add("hide");
+              if (footerIntersected) addClass(navbar, "hide");
             } else {
               animateOutFooterContent();
 
-              if (footerIntersected)
-                document.querySelector(".navbar").classList.remove("hide");
+              if (footerIntersected) removeClass(navbar, "hide");
             }
           });
 
@@ -169,8 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
           );
           wordContainers.forEach((container) => addClass(container, "show"));
           addClass(letstalk, "show");
+          addClass(div_email, "show");
           document.querySelector(".footer_section").style.opacity = "1";
-          document.querySelector(".div_email").classList.add("show");
         }
 
         function animateOutFooterContent() {
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
           allSocial.forEach((social) => removeClass(social, "show"));
           wordContainers.forEach((container) => removeClass(container, "show"));
           removeClass(letstalk, "show");
-          document.querySelector(".div_email").classList.remove("show");
+          removeClass(div_email, "show");
           document.querySelector(".footer_section").style.opacity = "0";
         }
 

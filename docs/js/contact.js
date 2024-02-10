@@ -3,7 +3,7 @@ const title_div = document.querySelector(".title_div");
 const emailElements = document.querySelectorAll(".div_email > *");
 const socialElements = document.querySelectorAll(".social > *");
 const description = document.querySelector(".description");
-
+const cursoricon4 = document.querySelector("#cursoricon4");
 document.addEventListener("DOMContentLoaded", function () {
   cursorGlow();
   addHoverListeners();
@@ -25,29 +25,21 @@ function addHoverListeners() {
   const footer_bottom_name = document.querySelector(".footer_bottom_name");
 
   marquee.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(7)";
-    cursor.style.mixBlendMode = "difference";
-    cursor.style.boxShadow = "none";
+    cursorTransformShadowBlend("scale(7)", "none", "difference");
   });
 
   marquee.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
+    cursorTransformShadowBlend();
   });
 
   footer_bottom_name.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(10)";
-    cursor.style.boxShadow = "none";
-    cursor.style.mixBlendMode = "difference";
-    cursoricon4.classList.add("active");
+    cursorTransformShadowBlend("scale(10)", "none", "difference");
+    addClass(cursoricon4, "active");
   });
 
   footer_bottom_name.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursoricon4.classList.remove("active");
+    cursorTransformShadowBlend();
+    removeClass(cursoricon4, "active");
   });
 }
 
@@ -146,7 +138,7 @@ function formSubmit() {
 
   const urlParams = new URLSearchParams(window.location.search);
   const successParam = urlParams.get("success");
-  if (successParam == "true")
+if (successParam == "true")
     alert("Thank you for Contacting me! I will get back to you ASAP! :)");
 }
 
@@ -155,4 +147,14 @@ function addClass(element, className) {
 }
 function removeClass(element, className) {
   element.classList.remove(className);
+}
+
+function cursorTransformShadowBlend(
+  param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
+  param_mixBlendMode = "normal"
+) {
+  cursor.style.transform = param_transform;
+  cursor.style.boxShadow = param_boxShadow;
+  cursor.style.mixBlendMode = param_mixBlendMode;
 }

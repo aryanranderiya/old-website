@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
   });
 
-  title.addEventListener("mouseout", cursorTransformShadowBlend());
   title.addEventListener(
     "mouseover",
     cursorTransformShadowBlend("scale(10)", "none", "difference")
   );
+  title.addEventListener("mouseout", cursorTransformShadowBlend());
 
   addFolderListeners();
   generateMerchItems(heading_titles);
@@ -189,7 +189,7 @@ function foldersHover(folders) {
     folder.addEventListener("mouseout", () => {
       removeClass(cursoricon5, "active");
       removeClass(cursor, "transparent");
-      cursorTransformShadowBlend(undefined, "none", "normal");
+      cursorTransformShadowBlend("none", "none", "normal");
       folders.forEach((other) => {
         other.style.filter = "brightness(100%)";
       });
@@ -403,9 +403,10 @@ function animeHeaders() {
   observerAnime.observe(content3);
 }
 
-function thumbnails(popup_image, popup_image_container, close_text) {
+function thumbnails(popup_image, popup_image_container) {
   const content4 = document.querySelector(".content4");
   const thumbnails = document.querySelectorAll(".thumbnail_image");
+  const cursoriconmagnify = document.querySelector("#cursoriconmagnify");
 
   function thumbnailIntersection(entries) {
     entries.forEach(
@@ -433,11 +434,14 @@ function thumbnails(popup_image, popup_image_container, close_text) {
         addClass(popup_image, "show");
       }, 100);
     });
+
+    changeCursortoMagnify(image, cursoriconmagnify);
   });
 }
 
-function advertisements(popup_image, popup_image_container, close_text) {
+function advertisements(popup_image, popup_image_container) {
   const advert_images = document.querySelectorAll(".advert_image");
+  const cursoriconmagnify = document.querySelector("#cursoriconmagnify");
 
   advert_images.forEach((image) => {
     image.addEventListener("click", () => {
@@ -447,6 +451,22 @@ function advertisements(popup_image, popup_image_container, close_text) {
         addClass(popup_image, "show");
       }, 100);
     });
+
+    changeCursortoMagnify(image, cursoriconmagnify);
+  });
+}
+
+function changeCursortoMagnify(image, cursoriconmagnify) {
+  image.addEventListener("mouseover", () => {
+    addClass(cursoriconmagnify, "active");
+    addClass(cursor, "transparent");
+    cursorTransformShadowBlend("scale(1.5)", "none", "normal");
+  });
+
+  image.addEventListener("mouseout", () => {
+    removeClass(cursoriconmagnify, "active");
+    removeClass(cursor, "transparent");
+    cursorTransformShadowBlend(undefined, "none", "normal");
   });
 }
 
@@ -458,6 +478,7 @@ function closePopup(popup_image_container, popup_image) {
 // Functions
 function cursorTransformShadowBlend(
   param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
   param_mixBlendMode = "normal"
 ) {
   cursor.style.transform = param_transform;

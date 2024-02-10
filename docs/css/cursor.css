@@ -168,8 +168,17 @@
   text-align: center;
 }
 
-#cursoricon5 {
+#cursoricon5,
+#cursoriconmagnify {
   margin-top: 23px;
+  height: 40px;
+  z-index: 2001;
+  position: fixed;
+}
+
+#cursoriconmagnify {
+  margin-top: -20px;
+  margin-left: -10px;
   height: 40px;
   z-index: 2001;
   position: fixed;
@@ -205,7 +214,8 @@
 #cursortext,
 #cursoricondrag,
 #cursoriconwarning.invisible,
-#cursoriconwave {
+#cursoriconwave,
+#cursoriconmagnify {
   opacity: 0;
   transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
@@ -222,7 +232,8 @@
 #cursoriconidea.active,
 #cursoricondrag.active,
 #cursoriconwarning.active,
-#cursoriconpallette.active {
+#cursoriconpallette.active,
+#cursoriconmagnify.active {
   opacity: 1;
   transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;

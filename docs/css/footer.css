@@ -94,6 +94,10 @@ footer {
   flex-wrap: wrap;
 }
 
+.divRight > * {
+  font-family: Helvs;
+}
+
 .page_links {
   flex-wrap: wrap;
   align-content: start;
@@ -237,7 +241,7 @@ footer {
 
 .bottom_name_container {
   display: flex;
-  gap: 0.3em;
+  gap: 0.1em;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -249,7 +253,7 @@ footer {
   height: fit-content;
   display: flex;
   overflow: hidden;
-  margin-bottom: -100px;
+  margin-bottom: -50px;
   transform: translateY(50%);
   transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);

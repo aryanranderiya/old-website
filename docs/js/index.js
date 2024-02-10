@@ -41,7 +41,7 @@ function addListeners(scrollBtn) {
 
   scrollBtn.addEventListener("click", function (e) {
     cursorTransformShadowBlend();
-    cursoricon2.classList.remove("active");
+    removeClass(cursoricon2, "active");
 
     contentElement.scrollIntoView({
       top: contentElement.offsetTop,
@@ -67,7 +67,7 @@ function addListeners(scrollBtn) {
   scrollBtn.addEventListener("mouseover", (event) => {
     event.stopPropagation();
     cursorTransformShadowBlend();
-    cursoricon2.classList.remove("active");
+    removeClass(cursoricon2, "active");
   });
 
   scrollBtn.addEventListener("mouseout", (event) => {
@@ -172,11 +172,11 @@ function cursorTransformShadowBlend(
 }
 
 function normalCursorEmojiSpan(cursoriconX) {
-  cursor.classList.remove("transparent");
   cursor.style.boxShadow = "0px 0px 30px white";
   cursoriconwave.style.opacity = "1";
   cursoriconwave.style.transform = "scale(1)";
-  cursoriconX.classList.remove("active");
+  removeClass(cursoriconX, "active");
+  removeClass(cursor, "transparent");
 }
 
 function addClass(element, className) {

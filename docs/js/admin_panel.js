@@ -187,5 +187,3 @@ async function countDatabaseRecords() {
     throw error;
   }
 }
-
-// async function uploadtheData(storageRef, file, mediaType) {}

@@ -303,7 +303,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (button_secondary) addEventListeners(button_secondary);
 
   btnScrollTop.addEventListener("click", () => {
-    console.log("test");
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
@@ -344,13 +343,13 @@ function hoverDevices(mockups) {
       cursor.style.outlineWidth = "0.01em";
       cursor.style.outlineColor = "black";
       cursor.style.outlineStyle = "solid";
-      cursortext.classList.add("active");
+      addClass(cursortext, "active");
       cursorTransformShadowBlend("scale(7)", "none");
     });
 
     mockup.addEventListener("mouseout", () => {
       cursor.style.outline = "none";
-      cursortext.classList.remove("active");
+      removeClass(cursortext, "active");
       cursorTransformShadowBlend("none", "0px 0px 30px white", "normal");
     });
   });
@@ -400,8 +399,8 @@ function removeCover() {
   const preloader = document.querySelector(".preloader");
 
   setTimeout(function () {
-    blackCover.classList.add("hide");
-    preloader.classList.add("hide");
+    addClass(blackCover, "hide");
+    addClass(preloader, "hide");
     document.body.style.overflow = "auto";
   }, 500);
 }
@@ -448,7 +447,7 @@ function setupMockups(demo_type, demoDownloadURL) {
     // END OF IF ELSE CONDITION
   } else if (demo_type == "demo_pc_image") {
     observerImage.observe(laptopImage);
-    mockup_pc.classList.add("visible");
+    addClass(mockup_pc, "visible");
     laptopImage.src = demoDownloadURL;
     laptopVideo.style.display = "none";
     laptopImage.style.display = "block";

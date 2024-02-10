@@ -11,15 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   button.addEventListener("mouseover", () => {
     if (!footerIntersectedFlag) {
-      downloadresume_text.classList.add("hovered");
-      svgIcon.classList.add("hovered");
+      addClass(downloadresume_text, "hovered");
+      addClass(svgIcon, "hovered");
     }
   });
 
   button.addEventListener("mouseout", () => {
     if (!footerIntersectedFlag) {
-      downloadresume_text.classList.remove("hovered");
-      svgIcon.classList.remove("hovered");
+      removeClass(downloadresume_text, "hovered");
+      removeClass(svgIcon, "hovered");
     }
   });
 
@@ -30,16 +30,16 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         progressBar.style.opacity = "0";
-        button.classList.add("hovered");
-        svgIcon.classList.add("hovered");
-        downloadresume_text.classList.add("hovered");
+        addClass(button, "hovered");
+        addClass(svgIcon, "hovered");
+        addClass(downloadresume_text, "hovered");
         footerIntersectedFlag = true;
       } else {
         footerIntersectedFlag = false;
         progressBar.style.opacity = "1";
-        button.classList.remove("hovered");
-        svgIcon.classList.remove("hovered");
-        downloadresume_text.classList.remove("hovered");
+        removeClass(button, "hovered");
+        removeClass(svgIcon, "hovered");
+        removeClass(downloadresume_text, "hovered");
       }
     });
   }
@@ -66,8 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observer2.observe(footer);
   observer1.observe(footer);
-
-  const canvas = document.getElementById("pdf-canvas");
 });
 
 //!   Set width of progress bar
@@ -78,4 +76,21 @@ function updateProgressBarandBtn() {
   document
     .querySelector("#progress-bar")
     .style.setProperty("--progress", scrollPercent);
+}
+
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
+}
+
+function cursorTransformShadowBlend(
+  param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
+  param_mixBlendMode = "normal"
+) {
+  cursor.style.transform = param_transform;
+  cursor.style.boxShadow = param_boxShadow;
+  cursor.style.mixBlendMode = param_mixBlendMode;
 }
