@@ -1,25 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".slider");
   const folders = document.querySelectorAll(".folder");
-  const content1 = document.querySelector(".content1");
-  const section2 = document.querySelector(".section2");
-  const content3 = document.querySelector(".content3");
-  const content4 = document.querySelector(".content4");
-  const content5 = document.querySelector(".content5");
-  const folder1 = document.getElementById("folder_one");
-  const folder2 = document.getElementById("folder_two");
-  const folder4 = document.getElementById("folder_four");
-  const folder5 = document.getElementById("folder_five");
-  const folder3 = document.getElementById("folder_three");
   const title = document.querySelector(".title-heading");
-  var cursor_glow = document.querySelector(".cursor_glow_div");
-  const merch_items = document.querySelectorAll(".merch_item");
+  const cursor_glow = document.querySelector(".cursor_glow_div");
   const heading_titles = document.querySelectorAll(".heading_title");
-  const popup_image = document.querySelector(".popup_image");
-  const close_text = document.querySelector(".close_text");
-  const popup_image_container = document.querySelector(
-    ".popup_image_container"
-  );
+  const popupImage = document.querySelector(".popup_image");
+  const closeText = document.querySelector(".close_text");
+  const popupContainer = document.querySelector(".popup_image_container");
 
   document.addEventListener("mousemove", function (e) {
     cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
@@ -30,6 +17,35 @@ document.addEventListener("DOMContentLoaded", function () {
     "mouseover",
     cursorTransformShadowBlend("scale(10)", "none", "difference")
   );
+
+  addFolderListeners();
+  generateMerchItems(heading_titles);
+  foldersHover(folders);
+  normalHeaders(slider);
+  animeHeaders();
+  thumbnails(popupImage, popupContainer, closeText);
+  advertisements(popupImage, popupContainer, closeText);
+
+  popupContainer.addEventListener("click", (event) => {
+    closePopup(popupContainer, popupImage, event);
+  });
+  closeText.addEventListener("click", (event) => {
+    closePopup(popupContainer, popupImage, event);
+  });
+});
+
+function addFolderListeners() {
+  const content1 = document.querySelector(".content1");
+  const section2 = document.querySelector(".section2");
+  const content3 = document.querySelector(".content3");
+  const content4 = document.querySelector(".content4");
+  const content5 = document.querySelector(".content5");
+
+  const folder1 = document.getElementById("folder_one");
+  const folder2 = document.getElementById("folder_two");
+  const folder3 = document.getElementById("folder_three");
+  const folder4 = document.getElementById("folder_four");
+  const folder5 = document.getElementById("folder_five");
 
   folder1.addEventListener("click", () =>
     content1.scrollIntoView({ behavior: "smooth" })
@@ -50,21 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   folder5.addEventListener("click", () =>
     content5.scrollIntoView({ behavior: "smooth" })
   );
-
-  generateMerchItems(heading_titles);
-  foldersHover(folders);
-  normalHeaders(slider);
-  animeHeaders();
-  thumbnails(popup_image, popup_image_container, close_text);
-  advertisements(popup_image, popup_image_container, close_text);
-
-  popup_image_container.addEventListener("click", (event) => {
-    closePopup(popup_image_container, popup_image, event);
-  });
-  close_text.addEventListener("click", (event) => {
-    closePopup(popup_image_container, popup_image, event);
-  });
-});
+}
 
 function generateMerchItems(heading_titles) {
   const merchItemsData = [
@@ -122,29 +124,31 @@ function generateMerchItems(heading_titles) {
     }
 
     const merchItem = document.createElement("div");
-    merchItem.classList.add("merch_item");
+    addClass(merchItem, "merch_item");
 
     const itemImg = document.createElement("div");
-    itemImg.classList.add("item-img");
+    addClass(itemImg, "item-img");
+
     itemImg.innerHTML = `<img src="${item.imgSrc}" alt="" loading="eager" class="apparel_image" />`;
 
     const itemCopy = document.createElement("div");
-    itemCopy.classList.add("item-copy");
+    addClass(itemCopy, "item-copy");
 
     const itemCopy1 = document.createElement("div");
-    itemCopy1.classList.add("item-copy-1");
+    addClass(itemCopy1, "item-copy-1");
 
     const shape1 = document.createElement("div");
-    shape1.classList.add("shape");
+    addClass(shape1, "shape");
     shape1.innerHTML = `<div id="number"><span>${index}</span></div><div class="text-right"><span>Apparel</span></div>`;
 
     itemCopy1.appendChild(shape1);
 
     const itemCopy2 = document.createElement("div");
-    itemCopy2.classList.add("item-copy-2");
+    addClass(itemCopy2, "item-copy-2");
 
     const shape2 = document.createElement("div");
-    shape2.classList.add("shape");
+    addClass(shape2, "shape");
+
     shape2.innerHTML = `<div class="text-left"><span>Aryan Randeriya</span></div><div class="text-right"><span>${item.title}</span></div>`;
 
     itemCopy2.appendChild(shape2);

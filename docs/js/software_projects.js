@@ -2,9 +2,7 @@ fetchGithubData();
 
 const cursortext = document.getElementById("cursortext");
 const title_Heading = document.querySelector(".title-heading");
-var cards = document.querySelector(".cards");
 
-//! Scroll to the top on reload
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
@@ -33,23 +31,124 @@ initializeApp(firebaseConfig);
 const database = getDatabase();
 const projectsRef = ref(database, "Projects/");
 
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
+// ! FIREBASE INIT END --------------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
+
+  const cursor_glow = document.querySelector(".cursor_glow_div");
+  document.addEventListener("mousemove", function (e) {
+    cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
+  });
+
+  addMouseHovers();
+  marqueeScrollAnimation();
+
+  // Handle Intersection Translate Y
+  let alreadyanimatedflag = false;
+  let timeout;
+
+  function handleIntersectionTranslate(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (!alreadyanimatedflag) timeout = 700;
+        else timeout = 0;
+        setTimeout(() => addClass(title_Heading, "show"), timeout);
+        alreadyanimatedflag = true;
+      } else removeClass(title_Heading, "show");
+    });
+  }
+  const observerTranslate = new IntersectionObserver(
+    handleIntersectionTranslate,
+    {
+      threshold: 0.7,
+    }
+  );
+
+  observerTranslate.observe(document.querySelector(".title"));
+
+  // ! END OF DOMCONTENTLOADED
+});
+
+// Functions
+function addMouseHovers() {
+  document.querySelector(".cards").onmousemove = (e) => {
+    for (const card of document.getElementsByClassName("card")) {
+      const rect = card.getBoundingClientRect(),
+        x = e.clientX - rect.left,
+        y = e.clientY - rect.top;
+
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    }
+  };
+
+  const logos = document.querySelector(".logos");
+
+  // Software Projects Title
+  title_Heading.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(10)";
+    cursor.style.mixBlendMode = "difference";
+    cursor.style.boxShadow = "none";
+  });
+
+  title_Heading.addEventListener("mouseout", () => {
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 50px white";
+  });
+
+  // Cards Cursor Title
+
+  document.addEventListener("mouseover", function (event) {
+    if (event.target.classList.contains("card")) {
+      cursor.style.transform = "scale(1)";
+      cursor.style.boxShadow =
+        "0px 0px 20px white, 0px 0px 35px white, 0px 0px 50px white, 0px 0px 60px white,  0px 0px 70px white,0px 0px 80px white,0px 0px 95px white, 0px 0px 110px white";
+    }
+  });
+
+  document.addEventListener("mouseout", function (event) {
+    if (event.target.classList.contains("card")) {
+      cursor.style.transform = "none";
+      cursor.style.boxShadow = "0px 0px 30px white";
+    }
+  });
+
+  // Logos Cursor Title
+
+  logos.addEventListener("mouseover", () => {
+    logos.style.filter = "brightness(100%) grayscale(0%)";
+    cursor.style.transform = "scale(8)";
+    cursor.style.boxShadow = "none";
+    cursor.style.outlineWidth = "0px";
+    addClass(cursortext, "active");
+    addClass(cursor, "partially_transparent2");
+  });
+
+  logos.addEventListener("mouseout", () => {
+    logos.style.filter = "brightness(30%)  grayscale(100%)";
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 30px white";
+    removeClass(cursortext, "active");
+    removeClass(cursor, "partially_transparent2");
+  });
+}
 
 function processDataAndHidePreloader(snapshot) {
   snapshot.forEach((childSnapshot) => {
     const projectDetails = childSnapshot.val();
     const projectId = childSnapshot.key;
-    // console.log(projectId);
-
-    var projectTitle = projectDetails.project_title;
-    var projectDesc = projectDetails.project_description;
-    var projectType = projectDetails.project_type;
+    const projectTitle = projectDetails.project_title;
+    const projectDesc = projectDetails.project_description;
+    const projectType = projectDetails.project_type;
     var projectTechStack = projectDetails.project_tech_stack;
     var banner_image_URL = projectDetails.banner_image_URL;
 
-    if (banner_image_URL == undefined) {
+    if (banner_image_URL == undefined)
       banner_image_URL = "/docs/media/bg_aryan_swirl.jpg";
-    }
+
     var projectTechStack_values = projectTechStack.trim().split(",");
 
     const replacements = {
@@ -63,7 +162,7 @@ function processDataAndHidePreloader(snapshot) {
     };
 
     const card = document.createElement("div");
-    card.classList.add("card");
+    addClass(card, "card");
     card.innerHTML = `
       <div class="card-content">
           <div class="card-image-div" >
@@ -85,19 +184,15 @@ function processDataAndHidePreloader(snapshot) {
                           return `<i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text>`;
                         })
                         .join(" ")}
-
-                      
                       </div>
-
                   </div>
                   <h4 class="card-desc">${projectDesc}<h4>
               </div>
-
           </div>
           <div class="buttons">
             <a href="Project.html?id=${projectId}" >
             <button class="button_secondary" aria-label="View Project Info">
-                      View Project
+                View Project
                 <div class="icon">
                     <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
                 </div>
@@ -109,17 +204,11 @@ function processDataAndHidePreloader(snapshot) {
 
     document.querySelector(".cards").appendChild(card);
 
-    // ! Display on the scroll
-
-    //! First Intersection Observer
+    //! Intersection Observer
     function handleIntersection1(entries, observer) {
-      //! Fade in the content box
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          card.style.opacity = "1";
-        } else {
-          card.style.opacity = "0";
-        }
+        if (entry.isIntersecting) card.style.opacity = "1";
+        else card.style.opacity = "0";
       });
     }
     const observer1 = new IntersectionObserver(handleIntersection1, {
@@ -129,162 +218,60 @@ function processDataAndHidePreloader(snapshot) {
     });
     observer1.observe(card);
 
-    //! Brightness
-    const cards = document.querySelectorAll(".card");
-    const logos = document.querySelector(".logos");
+    hoverOnCards();
+  });
+}
 
-    cards.forEach((card) => {
-      card.addEventListener("mouseover", () => {
-        card.classList.remove("grayscale");
-        logos.style.filter = "brightness(100%) grayscale(0%)";
+function hoverOnCards() {
+  const allCard = document.querySelectorAll(".card");
+  const logos = document.querySelector(".logos");
 
-        cards.forEach((otherCard) => {
-          if (otherCard !== card) {
-            otherCard.classList.add("grayscale");
-          }
-        });
+  allCard.forEach((card) => {
+    card.addEventListener("mouseover", () => {
+      removeClass(card, "grayscale");
+      logos.style.filter = "brightness(100%) grayscale(0%)";
+
+      allCard.forEach((otherCard) => {
+        if (otherCard !== card) addClass(otherCard, "grayscale");
       });
+    });
 
-      card.addEventListener("mouseout", () => {
-        logos.style.filter = "brightness(20%) grayscale(100%)";
-
-        cards.forEach((otherCard) => {
-          otherCard.classList.remove("grayscale");
-        });
-      });
+    card.addEventListener("mouseout", () => {
+      logos.style.filter = "brightness(20%) grayscale(100%)";
+      allCard.forEach((otherCard) => removeClass(otherCard, "grayscale"));
     });
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const logos = document.querySelector(".logos");
+function marqueeScrollAnimation() {
+  // ! change marquee direction on scroll
+  gsap.registerPlugin(ScrollTrigger);
 
-  onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
+  let currentScroll = 0;
+  let isScrollingDown = true;
 
-  var cursor_glow = document.querySelector(".cursor_glow_div");
+  let tween = gsap
+    .to(".logos-slide", {
+      xPercent: -100,
+      repeat: -1,
+      duration: 10,
+      ease: "linear",
+    })
+    .totalProgress(0.5);
 
-  document.addEventListener("mousemove", function (e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    cursor_glow.style.transform = `translate3d(calc(${x}px), calc(${y}px), 0)`;
-  });
+  gsap.set(".logos-slide", { xPercent: -50 });
 
-  //! Software Projects Title
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > currentScroll) isScrollingDown = false;
+    else isScrollingDown = true;
 
-  title_Heading.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(10)";
-    cursor.style.mixBlendMode = "difference";
-    cursor.style.boxShadow = "none";
-  });
-
-  title_Heading.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 50px white";
-  });
-
-  //! Cards Cursor Title
-
-  document.addEventListener("mouseover", function (event) {
-    if (event.target.classList.contains("card")) {
-      cursor.style.transform = "scale(1)";
-      cursor.style.boxShadow =
-        "0px 0px 20px white, 0px 0px 35px white, 0px 0px 50px white, 0px 0px 60px white,  0px 0px 70px white,0px 0px 80px white,0px 0px 95px white, 0px 0px 110px white";
-    }
-  });
-
-  document.addEventListener("mouseout", function (event) {
-    if (event.target.classList.contains("card")) {
-      cursor.style.transform = "none";
-      cursor.style.boxShadow = "0px 0px 30px white";
-    }
-  });
-
-  //! Logos Cursor Title
-
-  logos.addEventListener("mouseover", () => {
-    logos.style.filter = "brightness(100%) grayscale(0%)";
-
-    cursor.style.transform = "scale(8)";
-    cursor.style.boxShadow = "none";
-    cursor.style.outlineWidth = "0px";
-    cursortext.classList.add("active");
-    cursor.classList.add("partially_transparent2");
-  });
-
-  logos.addEventListener("mouseout", () => {
-    logos.style.filter = "brightness(30%)  grayscale(100%)";
-
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    cursortext.classList.remove("active");
-    cursor.classList.remove("partially_transparent2");
-  });
-
-  //! Handle Intersection Translate Y
-
-  let alreadyanimatedflag = false;
-  let timeout;
-
-  function handleIntersectionTranslate(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (!alreadyanimatedflag) timeout = 700;
-        else timeout = 0;
-
-        setTimeout(() => {
-          title_Heading.classList.add("show");
-        }, timeout);
-        alreadyanimatedflag = true;
-      } else {
-        title_Heading.classList.remove("show");
-      }
+    gsap.to(tween, {
+      timeScale: isScrollingDown ? 1 : -1,
     });
-  }
-  const observerTranslate = new IntersectionObserver(
-    handleIntersectionTranslate,
-    {
-      threshold: 0.7,
-    }
-  );
 
-  observerTranslate.observe(document.querySelector(".title"));
-
-  // ! END OF DOMCONTENTLOADED
-});
-
-// ! change marquee direction on scroll
-
-gsap.registerPlugin(ScrollTrigger);
-
-let currentScroll = 0;
-let isScrollingDown = true;
-
-let tween = gsap
-  .to(".logos-slide", {
-    xPercent: -100,
-    repeat: -1,
-    duration: 10,
-    ease: "linear",
-  })
-  .totalProgress(0.5);
-
-gsap.set(".logos-slide", { xPercent: -50 });
-
-window.addEventListener("scroll", function () {
-  if (window.pageYOffset > currentScroll) {
-    isScrollingDown = false;
-  } else {
-    isScrollingDown = true;
-  }
-
-  gsap.to(tween, {
-    timeScale: isScrollingDown ? 1 : -1,
+    currentScroll = window.pageYOffset;
   });
-
-  currentScroll = window.pageYOffset;
-});
+}
 
 async function fetchColors() {
   const colorsResponse = await fetch(
@@ -314,7 +301,7 @@ async function fetchGithubData() {
     let colourHex = searchColor(languagesColorsArray, repo.language);
 
     const github_card = document.createElement("div");
-    github_card.classList.add("github_card");
+    addClass(github_card, "github_card");
     github_card.id = repo.name;
     github_cards.appendChild(github_card);
 
@@ -344,9 +331,7 @@ async function fetchGithubData() {
     }
     // ! Set Description
     let description = repo.description;
-    if (repo.description === null) {
-      description = "No Description";
-    }
+    if (repo.description === null) description = "No Description";
 
     github_card.innerHTML = `
       <div class="github_title_div">
@@ -401,7 +386,7 @@ async function fetchGithubData() {
     const archiveLogo = github_card.querySelector(".archive_logo");
     if (repo.archived === true) {
       visibility = "Public Archive";
-      archiveLogo.classList.add("archived");
+      addClass(archiveLogo, "archived");
     }
     archiveLogo.textContent = visibility;
 
@@ -413,7 +398,7 @@ async function fetchGithubData() {
         const topic_anchor = document.createElement("a");
         topic_anchor.href = `https://github.com/topics/${topic}`;
         topic_anchor.target = "_blank";
-        github_topic.classList.add("github_topic");
+        addClass(github_topic, "github_topic");
         github_topic.textContent = topic;
         github_topics.appendChild(topic_anchor);
         topic_anchor.appendChild(github_topic);

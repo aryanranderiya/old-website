@@ -149,6 +149,7 @@ a {
 
 .item.show {
   transform: translateX(0%);
+  opacity: 1;
 }
 
 .item {

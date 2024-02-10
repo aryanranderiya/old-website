@@ -1,32 +1,49 @@
-const cursoriconwarning = document.getElementById("cursoriconwarning");
-const cursoricon5 = document.getElementById("cursoricon5");
-const content = document.querySelector(".content");
+document.addEventListener("DOMContentLoaded", function () {
+  const cursoriconwarning = document.getElementById("cursoriconwarning");
+  const cursoricon5 = document.getElementById("cursoricon5");
+  const content = document.querySelector(".content");
+  const button = document.getElementById("btn1");
 
-content.addEventListener("mouseover", () => {
-  cursor.style.transform = "none";
-  cursor.style.boxShadow = "none";
-  cursor.classList.add("transparent");
-  cursoriconwarning.classList.add("active");
+  content.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("none", "none");
+    addClass(cursoriconwarning, "active");
+    addClass(cursor, "transparent");
+  });
+
+  content.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    removeClass(cursoriconwarning, "active");
+    removeClass(cursor, "transparent");
+  });
+
+  button.addEventListener("mouseover", () => {
+    cursoriconwarning.style.opacity = "0";
+    cursoricon5.style.opacity = "1";
+    addClass(cursoricon5, "active");
+  });
+
+  button.addEventListener("mouseout", () => {
+    cursoriconwarning.style.opacity = "1";
+    cursoricon5.style.transform = "scale(1.3)";
+    cursoricon5.style.opacity = "0";
+    removeClass(cursoricon5, "active");
+  });
 });
 
-content.addEventListener("mouseout", () => {
-  cursor.classList.remove("transparent");
-  cursor.style.boxShadow = "0px 0px 30px white";
-  cursoriconwarning.classList.remove("active");
-});
+// Functions
+function cursorTransformShadowBlend(
+  param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
+  param_mixBlendMode = "normal"
+) {
+  cursor.style.transform = param_transform;
+  cursor.style.boxShadow = param_boxShadow;
+  cursor.style.mixBlendMode = param_mixBlendMode;
+}
 
-const button = document.getElementById("btn1");
-
-button.addEventListener("mouseover", () => {
-  cursoriconwarning.style.opacity = "0";
-  cursoricon5.style.opacity = "1";
-
-  cursoricon5.classList.add("active");
-});
-
-button.addEventListener("mouseout", () => {
-  cursoriconwarning.style.opacity = "1";
-  cursoricon5.style.transform = "scale(1.3)";
-  cursoricon5.classList.remove("active");
-  cursoricon5.style.opacity = "0";
-});
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
+}

@@ -1,284 +1,30 @@
 const navbarContainer = document.getElementById("navbarContainer");
-fetch("navbar.html") //! Fetch navbar html into the element navbar
+fetch("navbar.html")
   .then((response) => response.text())
   .then((data) => {
     navbarContainer.innerHTML = data;
 
     const navbar = document.querySelector(".navbar");
-    // navbar.style.opacity = "0";
+    const navbar_menu = document.querySelector(".navbar_menu");
+    const items = document.querySelectorAll(".menu_items .item");
 
     let lastScrollTop = 0;
 
     window.addEventListener("scroll", function () {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop) {
-        navbar.classList.add("hide");
-      } else {
-        navbar.classList.remove("hide");
-      }
-
+      if (scrollTop > lastScrollTop) addClass(navbar, "hide");
+      else removeClass(navbar, "hide");
       lastScrollTop = scrollTop;
     });
 
-    const cursoricon1 = document.getElementById("cursoricon1");
-    const cursoricon2 = document.getElementById("cursoricon2");
-    const cursoricon5 = document.getElementById("cursoricon5");
-    const nav_menu_image = document.getElementById("nav_menu_image");
-    const navbar_menu = document.querySelector(".navbar_menu");
-    const checkbox = document.getElementById("hamburgerCheckbox");
-    const body = document.querySelector("body");
-    const navbar_menu_btn = document.querySelector(".navbar_menu_btn");
-    const contact_button = document.querySelector(".contact_button");
-    const items = document.querySelectorAll(".menu_items .item");
-    const title = document.querySelector(".title-container");
-    const div_nav_menu_image = document.querySelector(".div_nav_menu_image");
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" || event.keyCode === 27) {
-        navbar_menu.classList.remove("show");
-        div_nav_menu_image.style.visibilty = "hidden";
-        items.forEach((item) => {
-          item.classList.remove("show");
-          item.style.opacity = "0";
-        });
-
-        // console.log("Escape Key Pressed: Menu Hidden.");
-        body.style.overflow = "auto";
-        checkbox.checked = false;
-      }
-    });
-
-    checkbox.addEventListener("click", function () {
-      //! Show the Menu when checked
-      if (this.checked) {
-        navbar_menu.classList.add("show");
-        div_nav_menu_image.style.visibilty = "visible";
-
-        items.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add("show");
-            item.style.opacity = "1";
-          }, 150 * index);
-        });
-
-        body.style.overflow = "hidden";
-      } else {
-        items.forEach((item, index) => {
-          setTimeout(() => {
-            item.style.opacity = "0";
-            item.classList.remove("show");
-          }, index * 50);
-        });
-        setTimeout(() => {
-          navbar_menu.classList.remove("show");
-        }, 300);
-
-        setTimeout(() => {
-          div_nav_menu_image.style.visibilty = "hidden";
-          body.style.overflow = "auto";
-        }, 1100);
-      }
-    });
-
-    const image = document.querySelector(".nav_menu_image_image");
-
-    items.forEach((item) => {
-      const key = item.querySelector(".menu_item").getAttribute("id");
-      let src;
-
-      switch (key) {
-        case "home":
-          src = "media/ss_Index.webp";
-          break;
-
-        case "software":
-          src = "media/ss_SoftwareProjects.webp";
-          break;
-
-        case "design":
-          src = "media/ss_DesignProjects.webp";
-          break;
-
-        case "resume":
-          src = "media/ss_Resume.webp";
-          break;
-
-        case "contact":
-          src = "media/ss_Contact.webp";
-          break;
-
-        default:
-          break;
-      }
-
-      item.addEventListener("mouseover", (event) => {
-        // image.style.opacity = "0";
-        image.style.transform = "scale(0)";
-        setTimeout(() => {
-          image.style.transform = "scale(1)";
-          // image.style.opacity = "1";
-          image.src = src;
-        }, 200);
-        nav_menu_image.classList.add("active");
-      });
-
-      item.addEventListener("mouseout", () => {
-        image.style.transform = "scale(0)";
-        nav_menu_image.classList.remove("active");
-      });
-    });
-
-    // document.addEventListener("mousemove", (e) => {
-    //   requestAnimationFrame(() => {
-    //     nav_menu_image.style.left = e.clientX + "px";
-    //     nav_menu_image.style.top = e.clientY + "px";
-    //   });
-    // });
-
-    // ! Cursor Menu Hover Effect
-    navbar_menu.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(6)", "none");
-      addClass(cursoricon1, "active");
-      removeClass(cursoricon2, "active");
-    });
-
-    navbar_menu.addEventListener("mouseout", () => {
-      cursorTransformShadowBlend();
-      removeClass(cursoricon1, "active");
-    });
-
-    title.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.5)", "none");
-      addClass(cursor, "transparent");
-      addClass(cursoricon5, "active");
-    });
-
-    title.addEventListener("mouseout", () => {
-      removeClass(cursor, "transparent");
-      removeClass(cursoricon5, "active");
-      cursorTransformShadowBlend();
-    });
-
-    navbar_menu_btn.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.5)", "none");
-      addClass(cursor, "transparent");
-      addClass(cursoricon5, "active");
-    });
-
-    navbar_menu_btn.addEventListener("mouseout", () => {
-      removeClass(cursor, "transparent");
-      removeClass(cursoricon5, "active");
-      cursorTransformShadowBlend();
-    });
-
-    contact_button.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.5)", "none");
-      addClass(cursor, "transparent");
-      addClass(cursoricon5, "active");
-    });
-
-    contact_button.addEventListener("mouseout", () => {
-      removeClass(cursor, "transparent");
-      removeClass(cursoricon5, "active");
-      cursorTransformShadowBlend();
-    });
-
-    //!  Set Active Link to Menu Item (Highlight Current Page)
-    const pathName = window.location.pathname
-      .toString()
-      .replace("/docs/", "")
-      .replace(".html", "")
-      .replace("/", "");
-
-    items.forEach((item) => {
-      item.addEventListener("mouseenter", shuffleAnimation);
-
-      const anchor = item.parentElement;
-      var href = anchor.getAttribute("href");
-
-      // console.log(href, "Href");
-      // console.log(pathName, "pathName");
-
-      if (href === pathName || (pathName === "" && href == "index")) {
-        item.classList.add("active");
-      } else {
-        item.classList.remove("active");
-      }
-    });
-  })
-  .then(() => {
-    //! Text Animation on Hover
-    let element = document.querySelector(".navbar-brand");
-
-    let innerText = element.innerText;
-    element.innerHTML = "";
-
-    let textContainer = document.createElement("div");
-    textContainer.classList.add("block");
-
-    for (let letter of innerText) {
-      let span = document.createElement("span");
-      span.innerText = letter.trim() === "" ? "\xa0" : letter;
-      span.classList.add("letter");
-      textContainer.appendChild(span);
-    }
-
-    element.appendChild(textContainer);
-    element.appendChild(textContainer.cloneNode(true));
-
-    element.addEventListener("mouseover", () => {
-      element.classList.remove("play");
-    });
+    handleMenuOpening(items, navbar_menu);
+    addHoverImage(items);
+    addMouseListeners(navbar_menu);
+    setActiveLink(items);
+    textAnimateOnHover();
   });
 
-// ! Text Letters Shuffle
-
-function getRandomCharacter() {
-  const chars =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  return chars[Math.floor(Math.random() * chars.length)];
-}
-
-function shuffleAnimation(event) {
-  const target = event.currentTarget;
-
-  if (target.dataset.animating) {
-    return;
-  }
-
-  target.dataset.animating = true;
-
-  const words = target.querySelectorAll(".menu_item");
-  const originalWords = Array.from(words).map((word) => word.textContent);
-
-  let shuffles = 0;
-  const maxShuffles = 10;
-  const intervalDuration = 200 / maxShuffles;
-
-  let animationInterval = setInterval(() => {
-    if (shuffles >= maxShuffles) {
-      clearInterval(animationInterval);
-      words.forEach((word, index) => {
-        word.textContent = originalWords[index];
-      });
-
-      delete target.dataset.animating;
-    } else {
-      words.forEach((word) => {
-        const length = word.textContent.length;
-        let shuffledText = "";
-        for (let i = 0; i < length; i++) {
-          shuffledText += getRandomCharacter();
-        }
-        word.textContent = shuffledText;
-      });
-      shuffles++;
-    }
-  }, intervalDuration);
-}
-
-//! Functions
+// Functions
 
 function cursorTransformShadowBlend(
   param_transform = "none",
@@ -295,4 +41,219 @@ function addClass(element, className) {
 }
 function removeClass(element, className) {
   element.classList.remove(className);
+}
+
+function addMouseListeners(navbar_menu) {
+  const cursoricon1 = document.getElementById("cursoricon1");
+  const cursoricon2 = document.getElementById("cursoricon2");
+  const cursoricon5 = document.getElementById("cursoricon5");
+  const navbar_menu_btn = document.querySelector(".navbar_menu_btn");
+  const contact_button = document.querySelector(".contact_button");
+  const title = document.querySelector(".title-container");
+
+  navbar_menu.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(6)", "none");
+    addClass(cursoricon1, "active");
+    removeClass(cursoricon2, "active");
+  });
+
+  navbar_menu.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    removeClass(cursoricon1, "active");
+  });
+
+  title.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(1.5)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  title.addEventListener("mouseout", () => {
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+    cursorTransformShadowBlend();
+  });
+
+  navbar_menu_btn.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(1.5)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  navbar_menu_btn.addEventListener("mouseout", () => {
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+    cursorTransformShadowBlend();
+  });
+
+  contact_button.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(1.5)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  contact_button.addEventListener("mouseout", () => {
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+    cursorTransformShadowBlend();
+  });
+}
+
+function addHoverImage(items) {
+  const image = document.querySelector(".nav_menu_image_image");
+  const nav_menu_image = document.getElementById("nav_menu_image");
+
+  items.forEach((item) => {
+    const key = item.querySelector(".menu_item").getAttribute("id");
+    let src;
+
+    switch (key) {
+      case "home":
+        src = "media/ss_Index.webp";
+        break;
+
+      case "software":
+        src = "media/ss_SoftwareProjects.webp";
+        break;
+
+      case "design":
+        src = "media/ss_DesignProjects.webp";
+        break;
+
+      case "resume":
+        src = "media/ss_Resume.webp";
+        break;
+
+      case "contact":
+        src = "media/ss_Contact.webp";
+        break;
+
+      default:
+        break;
+    }
+
+    item.addEventListener("mouseover", (event) => {
+      image.style.transform = "scale(0)";
+      setTimeout(() => {
+        image.style.transform = "scale(1)";
+        image.src = src;
+      }, 200);
+      addClass(nav_menu_image, "active");
+    });
+
+    item.addEventListener("mouseout", () => {
+      image.style.transform = "scale(0)";
+      removeClass(nav_menu_image, "active");
+    });
+  });
+}
+
+function handleMenuOpening(items, navbar_menu) {
+  const body = document.querySelector("body");
+  const checkbox = document.getElementById("hamburgerCheckbox");
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" || event.keyCode === 27) {
+      removeClass(navbar_menu, "show");
+      body.style.overflow = "auto";
+      checkbox.checked = false;
+      items.forEach((item) => removeClass(item, "show"));
+    }
+  });
+
+  checkbox.addEventListener("click", function () {
+    //! Show the Menu when checked
+    if (this.checked) {
+      addClass(navbar_menu, "show");
+      body.style.overflow = "hidden";
+      items.forEach((item, index) =>
+        setTimeout(() => addClass(item, "show"), 150 * index)
+      );
+    } else {
+      setTimeout(() => removeClass(navbar_menu, "show"), 300);
+      setTimeout(() => (body.style.overflow = "auto"), 1100);
+      items.forEach((item, index) =>
+        setTimeout(() => removeClass(item, "show"), index * 50)
+      );
+    }
+  });
+}
+
+function setActiveLink(items) {
+  //!  Set Active Link to Menu Item (Highlight Current Page)
+  const pathName = window.location.pathname
+    .replace("/docs/", "")
+    .replace(".html", "")
+    .replace("/", "");
+
+  items.forEach((item) => {
+    item.addEventListener("mouseenter", shuffleAnimation);
+    var href = item.parentElement.getAttribute("href");
+
+    if (href === pathName || (pathName === "" && href == "index"))
+      addClass(item, "active");
+    else removeClass(item, "active");
+  });
+}
+
+function textAnimateOnHover() {
+  //! Text Animation on Hover
+  let element = document.querySelector(".navbar-brand");
+
+  let innerText = element.innerText;
+  element.innerHTML = "";
+
+  let textContainer = document.createElement("div");
+  addClass(textContainer, "block");
+
+  for (let letter of innerText) {
+    let span = document.createElement("span");
+    span.innerText = letter.trim() === "" ? "\xa0" : letter;
+    addClass(span, "letter");
+    textContainer.appendChild(span);
+  }
+
+  element.appendChild(textContainer);
+  element.appendChild(textContainer.cloneNode(true));
+  element.addEventListener("mouseover", () => removeClass(element, "play"));
+}
+
+// ! Text Letters Shuffle
+function getRandomCharacter() {
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  return chars[Math.floor(Math.random() * chars.length)];
+}
+
+function shuffleAnimation(event) {
+  const target = event.currentTarget;
+
+  if (target.dataset.animating) return;
+
+  target.dataset.animating = true;
+
+  const words = target.querySelectorAll(".menu_item");
+  const originalWords = Array.from(words).map((word) => word.textContent);
+
+  let shuffles = 0;
+  const maxShuffles = 10;
+  const intervalDuration = 200 / maxShuffles;
+
+  let animationInterval = setInterval(() => {
+    if (shuffles >= maxShuffles) {
+      clearInterval(animationInterval);
+      words.forEach((word, index) => (word.textContent = originalWords[index]));
+      delete target.dataset.animating;
+    } else {
+      words.forEach((word) => {
+        const length = word.textContent.length;
+        let shuffledText = "";
+        for (let i = 0; i < length; i++) {
+          shuffledText += getRandomCharacter();
+        }
+        word.textContent = shuffledText;
+      });
+      shuffles++;
+    }
+  }, intervalDuration);
 }

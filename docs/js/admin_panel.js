@@ -1,4 +1,4 @@
-// window.location.replace("https://aryanranderiya.com/404");
+window.location.replace("https://aryanranderiya.com/404");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 
@@ -85,28 +85,15 @@ async function insertFetchData() {
 
   var projectsRef = ref(database, "Projects/" + project_id);
 
-  // let [bannerDownloadURL, , documentURL, demoDownloadURL] = await Promise.all(
-  //   [
-  //     uploadMedia(fileBanner, title, "Banner"),
-  //     uploadMedia(fileDocumentation, title, "Documentation"),
-  //     uploadMedia(fileDemo, title, "Demo"),
-  //   ]
-  // );
-
-  // let bannerDownloadURL = await uploadMedia(fileBanner, title, "Banner");
-  // let demoDownloadURL = await uploadMedia(fileDemo, title, "Demo");
-  // let documentURL = await uploadMedia(
-  //   fileDocumentation,
-  //   title,
-  //   "Documentation"
-  // );
-
   uploadMedia(fileBanner, title, "Banner")
     .then((bannerDownloadURL) => {
+      // then do this
       uploadMedia(fileDocumentation, title, "Doc")
         .then((documentURL) => {
+          // then do this
           uploadMedia(fileDemo, title, "Demo")
             .then((demoDownloadURL) => {
+              // then do this
               const projectData = {
                 project_title: title,
                 project_type: type,

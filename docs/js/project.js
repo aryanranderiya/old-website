@@ -340,6 +340,8 @@ document.addEventListener("DOMContentLoaded", function () {
   close_text.addEventListener("click", (event) => {
     closePopup(popup_image_container, popup_image, event);
   });
+
+  
 });
 
 // ! Functions

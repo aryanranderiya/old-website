@@ -8,26 +8,22 @@ document.addEventListener("DOMContentLoaded", function () {
         footerContainer.innerHTML = data;
         footerContainer.style.cssText = "";
 
-        const footer1 = document.querySelector(".footer1");
         const footer2 = document.querySelector(".footer2");
         const letstalk = document.querySelector("#letstalk");
         const cursoricon4 = document.getElementById("cursoricon4");
         const cursoricon5 = document.getElementById("cursoricon5");
         const pageLinks = document.querySelectorAll(".page_link");
-        const socials = document.querySelectorAll(".social");
-        const google_icon = document.querySelector(".google_icon");
+        const allSocial = document.querySelectorAll(".social");
+        const googleIcon = document.querySelector(".google_icon");
+        const bottomName = document.querySelector(".footer_bottom_name");
 
-        const footer_bottom_name = document.querySelector(
-          ".footer_bottom_name"
-        );
-
-        socials.forEach((social) => {
+        allSocial.forEach((social) => {
           social.addEventListener("mouseover", function () {
-            google_icon.style.transform = "rotate(360deg)";
+            googleIcon.style.transform = "rotate(360deg)";
           });
 
           social.addEventListener("mouseout", function () {
-            google_icon.style.transform = "rotate(0)";
+            googleIcon.style.transform = "rotate(0)";
           });
         });
 
@@ -38,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           pageLink.addEventListener("mouseover", function () {
             pageLinkIcon.style.fontSize = "2em";
-            google_icon.style.transform = "rotate(360deg)";
+            googleIcon.style.transform = "rotate(360deg)";
 
             setTimeout(() => {
               pageLinkIcon.style.fontSize = "1.5em";
@@ -47,71 +43,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
           pageLink.addEventListener("mouseout", function () {
             pageLinkIcon.style.fontSize = "1.5em";
-            // google_icon.style.fontSize = "9em";
-            google_icon.style.transform = "rotate(0)";
+            googleIcon.style.transform = "rotate(0)";
           });
         });
 
         letstalk.addEventListener("mouseover", () => {
-          cursor.style.transform = "scale(8)";
-          cursor.style.boxShadow = "none";
+          cursorTransformShadowBlend("scale(8)", "none");
           cursor.style.outlineStyle = "solid";
           cursor.style.outlineColor = "white";
           cursor.style.outlineWidth = "0.1px";
-          cursor.classList.add("partially_transparent");
-          cursoricon4.classList.add("active");
+          addClass(cursor, "partially_transparent");
+          addClass(cursoricon4, "active");
         });
 
         letstalk.addEventListener("mouseout", () => {
           cursor.style.outline = "none";
-          cursor.style.transform = "none";
-          cursor.style.mixBlendMode = "normal";
-          cursor.style.boxShadow = "0px 0px 30px white";
-          cursor.classList.remove("partially_transparent");
-          cursoricon4.classList.remove("active");
+          cursorTransformShadowBlend("none");
+          removeClass(cursor, "partially_transparent");
+          removeClass(cursoricon4, "active");
         });
 
         footer2.addEventListener("mouseover", () => {
-          cursor.style.boxShadow = "none";
-          cursor.classList.add("transparent");
-          cursoricon5.classList.add("active");
+          cursorTransformShadowBlend(undefined, "none");
+          addClass(cursor, "transparent");
+          addClass(cursoricon5, "active");
         });
 
         footer2.addEventListener("mouseout", () => {
-          cursor.classList.remove("transparent");
-          cursor.style.boxShadow = "0px 0px 30px white";
-          cursoricon5.classList.remove("active");
+          cursorTransformShadowBlend();
+          removeClass(cursor, "transparent");
+          removeClass(cursoricon5, "active");
         });
 
-        footer_bottom_name.addEventListener("mouseover", () => {
-          cursor.style.transform = "scale(10)";
-          cursor.style.boxShadow = "none";
-          cursor.style.mixBlendMode = "difference";
-          cursoricon4.classList.add("active");
+        bottomName.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend("scale(10)", "none", "difference");
+          addClass(cursoricon4, "active");
         });
 
-        footer_bottom_name.addEventListener("mouseout", () => {
-          cursor.style.transform = "none";
-          cursor.style.mixBlendMode = "normal";
-          cursor.style.boxShadow = "0px 0px 30px white";
-          cursoricon4.classList.remove("active");
+        bottomName.addEventListener("mouseout", () => {
+          cursorTransformShadowBlend();
+          removeClass(cursoricon4, "active");
         });
 
         //  ! Marquee
 
         const marquee = document.querySelector(".marquee");
 
-        marquee.addEventListener("mouseover", () => {
-          cursor.style.transform = "scale(7)";
-          cursor.style.mixBlendMode = "difference";
-          cursor.style.boxShadow = "none";
-        });
+        marquee.addEventListener("mouseover", () =>
+          cursorTransformShadowBlend("scale(7)", "none", "difference")
+        );
 
-        marquee.addEventListener("mouseout", () => {
-          cursor.style.transform = "none";
-          cursor.style.mixBlendMode = "normal";
-          cursor.style.boxShadow = "0px 0px 30px white";
-        });
+        marquee.addEventListener("mouseout", () =>
+          cursorTransformShadowBlend()
+        );
 
         //! Hover Animation on Aryan Randeriya Fotoer Text
 
@@ -176,38 +160,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function animateFooterContent() {
-          pageLinks.forEach((link, index) => {
-            setTimeout(() => {
-              link.classList.add("show");
-            }, 100 * index);
-          });
+          pageLinks.forEach((link, index) =>
+            setTimeout(() => addClass(link, "show"), 100 * index)
+          );
 
-          socials.forEach((social, index) => {
-            setTimeout(() => {
-              social.classList.add("show");
-            }, 100 * index);
-          });
-          wordContainers.forEach((wordContainer) => {
-            wordContainer.classList.add("show");
-          });
+          allSocial.forEach((social, index) =>
+            setTimeout(() => addClass(social, "show"), 100 * index)
+          );
+          wordContainers.forEach((container) => addClass(container, "show"));
+          addClass(letstalk, "show");
           document.querySelector(".footer_section").style.opacity = "1";
           document.querySelector(".div_email").classList.add("show");
-          letstalk.classList.add("show");
         }
 
         function animateOutFooterContent() {
-          pageLinks.forEach((link) => {
-            link.classList.remove("show");
-          });
-          socials.forEach((social) => {
-            social.classList.remove("show");
-          });
-          wordContainers.forEach((wordContainer) => {
-            wordContainer.classList.remove("show");
-          });
+          pageLinks.forEach((link) => removeClass(link, "show"));
+          allSocial.forEach((social) => removeClass(social, "show"));
+          wordContainers.forEach((container) => removeClass(container, "show"));
+          removeClass(letstalk, "show");
           document.querySelector(".div_email").classList.remove("show");
           document.querySelector(".footer_section").style.opacity = "0";
-          letstalk.classList.remove("show");
         }
 
         function handleIntersectionTwo(entries, observer) {
@@ -259,11 +231,8 @@ document.addEventListener("DOMContentLoaded", function () {
         gsap.set(".marquee__inner", { xPercent: -50 });
 
         window.addEventListener("wheel", function (event) {
-          if (event.deltaY > 0) {
-            isScrollingDown = true;
-          } else {
-            isScrollingDown = false;
-          }
+          if (event.deltaY > 0) isScrollingDown = true;
+          else isScrollingDown = false;
 
           gsap.to(tween, {
             timeScale: isScrollingDown ? 1 : -1,
@@ -280,3 +249,20 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Element with ID 'footerContainer' not found.");
   }
 });
+
+function cursorTransformShadowBlend(
+  param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
+  param_mixBlendMode = "normal"
+) {
+  cursor.style.transform = param_transform;
+  cursor.style.boxShadow = param_boxShadow;
+  cursor.style.mixBlendMode = param_mixBlendMode;
+}
+
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
+}

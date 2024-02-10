@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   button.addEventListener("mouseover", () => {
     if (!footerIntersectedFlag) {
-      console.log("test1");
       downloadresume_text.classList.add("hovered");
       svgIcon.classList.add("hovered");
     }
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   button.addEventListener("mouseout", () => {
     if (!footerIntersectedFlag) {
-      console.log("test2");
       downloadresume_text.classList.remove("hovered");
       svgIcon.classList.remove("hovered");
     }
@@ -49,11 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
   //! First Intersection Observer
   function handleIntersection2(entries, observer) {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        btn_download.style.opacity = "0";
-      } else {
-        btn_download.style.opacity = "1";
-      }
+      if (entry.isIntersecting) btn_download.style.opacity = "0";
+      else btn_download.style.opacity = "1";
     });
   }
 
@@ -71,18 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observer2.observe(footer);
   observer1.observe(footer);
+
+  const canvas = document.getElementById("pdf-canvas");
 });
 
 //!   Set width of progress bar
 function updateProgressBarandBtn() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100 + "%";
-
-  // if (parseInt(scrollPercent) >= 5) {
-  //   btn_download.style.opacity = "1";
-  // } else {
-  //   btn_download.style.opacity = "0";
-  // }
 
   document
     .querySelector("#progress-bar")
