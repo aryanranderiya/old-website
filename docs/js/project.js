@@ -1,13 +1,9 @@
-// const projectId = new URLSearchParams(window.location.search).get("id");
-
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
 //! Scroll to top when page is refreshed
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
-
-// const projectId = sessionStorage.getItem("projectId");
 
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = urlParams.get("id");
@@ -73,9 +69,10 @@ const laptopImage = document.querySelector(".mockup_media_laptop.image");
 const mockupLaptopImage = document.querySelector(".mockup_laptop.image");
 const playbackControls = document.querySelector(".video_controls_playback");
 const controlsContainer = document.querySelector(".video_controls_container");
-const popup_image_container = document.querySelector(".popup_image_container");
-const popup_image = document.querySelector(".popup_image");
+const popupContainer = document.querySelector(".popup_image_container");
+const popupImage = document.querySelector(".popup_image");
 const close_text = document.querySelector(".close_text");
+
 // ! INIT END
 
 function setPageUrl(tab_title) {
@@ -114,9 +111,7 @@ function setHrefandBtn(link, btn, anchor) {
   if (!link) {
     btn?.remove();
     anchor?.remove();
-  } else {
-    anchor.href = link;
-  }
+  } else anchor.href = link;
 }
 
 function setProjectTypeIcon(p_type) {
@@ -158,34 +153,28 @@ function setOthers(p_title, p_type, p_desc) {
   document.title = p_title;
 }
 
-function intersectionTranslate(entries, observer) {
+function popupIntersection(entries, observer) {
   entries.forEach((entry) => {
     const child = entry.target.querySelector(".pInfoText_child");
-
-    if (entry.isIntersecting) {
-      child.classList.add("show");
-    } else {
-      child.classList.remove("show");
-    }
+    if (entry.isIntersecting) addClass(child, "show");
+    else removeClass(child, "show");
   });
 }
 
-const observerTranslate = new IntersectionObserver(intersectionTranslate, {
-  root: null,
-  rootMargin: "0px",
+const observerPopup = new IntersectionObserver(popupIntersection, {
   threshold: 0.7,
 });
 
 function setupAnimation(pInfoText) {
-  addImagesPopupEvents(popup_image, popup_image_container, pInfoText.children);
+  addImagesPopupEvents(popupImage, popupContainer, pInfoText.children);
 
   for (const child of pInfoText.children) {
     const container = document.createElement("div");
-    container.classList.add("pInfoText_container");
-    child.classList.add("pInfoText_child");
+    addClass(container, "pInfoText_container");
+    addClass(child, "pInfoText_child");
     child.parentNode.replaceChild(container, child);
     container.appendChild(child);
-    observerTranslate.observe(container);
+    observerPopup.observe(container);
   }
 }
 
@@ -214,19 +203,17 @@ async function processData(snapshot) {
 }
 
 //!  Intersection Observer for scrolling into view
-function handIntersectionScroller_mobile(entries, observer) {
+function handIntersectionScroller_mobile(entries) {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting)
       entry.target.scrollIntoView({ behavior: "auto", block: "end" });
-    }
   });
 }
 
-function handIntersectionScroller_pc(entries, observer) {
+function handIntersectionScroller_pc(entries) {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting)
       entry.target.scrollIntoView({ behavior: "auto", block: "center" });
-    }
   });
 }
 
@@ -334,14 +321,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  popup_image_container.addEventListener("click", (event) => {
-    closePopup(popup_image_container, popup_image, event);
+  popupContainer.addEventListener("click", (event) => {
+    closePopup(popupContainer, popupImage, event);
   });
   close_text.addEventListener("click", (event) => {
-    closePopup(popup_image_container, popup_image, event);
+    closePopup(popupContainer, popupImage, event);
   });
-
-  
 });
 
 // ! Functions
