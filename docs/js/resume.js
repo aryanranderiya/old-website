@@ -6,8 +6,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector(".download_button");
   const downloadresume_text = document.querySelector(".downloadresume_text");
   const svgIcon = document.querySelector(".svgIcon");
+  const resume_image = document.querySelector(".resume_image");
 
   var footerIntersectedFlag = false;
+
+  resume_image.addEventListener("mouseover", () => {
+    cursor.style.backgroundColor = "#00bbff";
+    cursor.style.boxShadow = "0px 0px 30px #00bbff";
+  });
+
+  resume_image.addEventListener("mouseout", () => {
+    cursor.style.backgroundColor = "white";
+    cursor.style.boxShadow = "0px 0px 30px white";
+  });
 
   button.addEventListener("mouseover", () => {
     if (!footerIntersectedFlag) {

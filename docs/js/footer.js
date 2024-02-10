@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const marquee = document.querySelector(".marquee");
 
         marquee.addEventListener("mouseover", () =>
-          cursorTransformShadowBlend("scale(7)", "none", "saturation")
+          cursorTransformShadowBlend("scale(7)", "none", "difference")
         );
 
         marquee.addEventListener("mouseout", () =>

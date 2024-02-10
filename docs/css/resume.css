@@ -44,11 +44,13 @@ body {
 }
 
 .resume_image {
-  margin-top: -90px;
-  width: 74%;
-  height: 2040px;
+  width: 75%;
+  margin-top: 5%;
+  height: 100%;
   z-index: 2;
+  aspect-ratio: initial;
   pointer-events: all;
+  filter: grayscale(100%);
 }
 .pdf_container {
   margin: 5% 0;
@@ -190,9 +192,8 @@ body {
   }
 
   .resume_image {
-    margin-top: -30px;
     width: 90%;
-    height: 780px !important;
+    margin-bottom: 5%;
   }
   .pdf_container {
     margin: 5% 0;
