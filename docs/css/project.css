@@ -417,6 +417,8 @@ section {
   align-items: center;
   pointer-events: all;
   z-index: 10;
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
 #scrolltop_icon {

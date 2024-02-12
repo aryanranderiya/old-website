@@ -302,8 +302,15 @@ document.addEventListener("DOMContentLoaded", function () {
   if (button_primary) addEventListeners(button_primary);
   if (button_secondary) addEventListeners(button_secondary);
 
+  window.onscroll = function () {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+      btnScrollTop.style.opacity = 1;
+    else btnScrollTop.style.opacity = 0;
+  };
+
   btnScrollTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   });
 
   function addEventListeners(button) {
@@ -542,17 +549,17 @@ function addImagesPopupEvents(popup_image, popup_image_container, children) {
         }, 100);
       });
 
-      const cursoricon5 = document.getElementById("cursoricon5");
+      const cursoriconmagnify = document.getElementById("cursoriconmagnify");
 
       child.addEventListener("mouseover", () => {
         cursorTransformShadowBlend("scale(1.5)", "none");
         addClass(cursor, "transparent");
-        addClass(cursoricon5, "active");
+        addClass(cursoriconmagnify, "active");
       });
 
       child.addEventListener("mouseout", () => {
         removeClass(cursor, "transparent");
-        removeClass(cursoricon5, "active");
+        removeClass(cursoriconmagnify, "active");
         cursorTransformShadowBlend();
       });
     }

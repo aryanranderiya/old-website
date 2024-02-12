@@ -7,9 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupImage = document.querySelector(".popup_image");
   const closeText = document.querySelector(".close_text");
   const popupContainer = document.querySelector(".popup_image_container");
+  const btnScrollTop = document.querySelector(".scrolltotop");
 
   document.addEventListener("mousemove", function (e) {
     cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
+  });
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+      btnScrollTop.style.opacity = 1;
+    else btnScrollTop.style.opacity = 0;
+  };
+
+  btnScrollTop.addEventListener("click", () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   });
 
   title.addEventListener(
