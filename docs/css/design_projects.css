@@ -657,7 +657,8 @@ img {
 
 /*! Thumbnails */
 
-.content4 {
+.content4,
+.content5 {
   transition: opacity 1s ease;
   display: relative;
   z-index: 1;
@@ -814,4 +815,58 @@ img {
 
 .scrolltoptop_container {
   z-index: 500;
+}
+
+.content5 > * {
+  position: relative;
+  z-index: 1;
+}
+
+.fallout_images {
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10%;
+  /* padding: 3% 0; */
+}
+
+.fallout_title {
+  background-color: black;
+  margin-bottom: 0;
+  padding: 3% 0;
+}
+
+#fallout1 {
+  margin-top: -5px;
+  width: 80%;
+}
+.fallout_cards {
+  display: flex;
+  direction: row;
+  gap: 3%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fallout_cards > * {
+  width: 45%;
+  margin-top: 3%;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: GothamBold;
+  src: url("../fonts/Gotham-Bold.otf") format("opentype");
+  src: url("../fonts/GothamBold.ttf") format("truetype");
+}
+
+#fallout_secondarytitle {
+  width: 55%;
+  color: white;
+  font-family: GothamBold;
+  font-size: 2.4vw;
+  /* font-weight: bold; */
+  text-align: left;
 }
