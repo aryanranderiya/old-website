@@ -840,12 +840,12 @@ img {
 .scrolltotop {
   width: 60px;
   height: 60px;
-  background-color: white;
+  background-color: black;
   position: fixed;
   bottom: 20px;
   right: 50px;
   border-radius: 100px;
-  color: black;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -853,6 +853,8 @@ img {
   z-index: 10;
   transition: opacity 0.3s ease;
   opacity: 0;
+  border: none;
+  box-shadow: 0px 0px 30px 10px #00bbff;
 }
 
 #scrolltop_icon {
