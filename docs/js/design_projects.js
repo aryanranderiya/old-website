@@ -52,12 +52,14 @@ function addFolderListeners() {
   const content3 = document.querySelector(".content3");
   const content4 = document.querySelector(".content4");
   const content5 = document.querySelector(".content5");
+  const content6 = document.querySelector(".content6");
 
   const folder1 = document.getElementById("folder_one");
   const folder2 = document.getElementById("folder_two");
   const folder3 = document.getElementById("folder_three");
   const folder4 = document.getElementById("folder_four");
   const folder5 = document.getElementById("folder_five");
+  const folder6 = document.getElementById("folder_six");
 
   folder1.addEventListener("click", () =>
     content1.scrollIntoView({ behavior: "smooth" })
@@ -77,6 +79,10 @@ function addFolderListeners() {
 
   folder5.addEventListener("click", () =>
     content5.scrollIntoView({ behavior: "smooth" })
+  );
+
+  folder6.addEventListener("click", () =>
+    content6.scrollIntoView({ behavior: "smooth" })
   );
 }
 
