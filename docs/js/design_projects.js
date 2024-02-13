@@ -23,7 +23,6 @@ function handleIntersectionTitle(entries) {
     const title = entry.target.querySelector(".title-heading");
 
     if (entry.isIntersecting) {
-      console.log(hasntIntersectedYet);
       if (hasntIntersectedYet) {
         setTimeout(() => title.classList.add("show"), 700);
         hasntIntersectedYet = false;

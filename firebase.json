@@ -14,15 +14,20 @@
 
     "headers": [
       {
-        "source": "**",
+        "source": "**/*.@(jpg|jpeg|gif|png|bmp|svg|webp)",
         "headers": [
           {
             "key": "Cache-Control",
             "value": "max-age=31536000"
-          },
+          }
+        ]
+      },
+      {
+        "source": "**",
+        "headers": [
           {
-            "source": "/service-worker.js",
-            "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+            "key": "Cache-Control",
+            "value": "max-age=0"
           }
         ]
       }
