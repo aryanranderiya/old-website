@@ -12,6 +12,7 @@ body {
   overflow: hidden;
   overflow-y: visible;
   scroll-snap-type: none !important;
+  scroll-behavior: smooth;
 }
 
 section {

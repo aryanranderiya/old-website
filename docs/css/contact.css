@@ -278,3 +278,7 @@ hr {
 .description.show {
   transform: translateY(0%);
 }
+
+.word {
+  transform: translateX(0%) !important;
+}

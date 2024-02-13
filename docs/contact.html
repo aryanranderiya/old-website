@@ -16,7 +16,6 @@
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script async src="https://kit.fontawesome.com/2fafe620ef.js" crossorigin="anonymous"></script>
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
     <link defer rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,500,1,-25" />
@@ -109,7 +108,7 @@
                     <h5 class="social_text mail_text">aryan.k.randeriya@gmail.com</h5>
                 </a>
             </div>
-            
+
             <div class="social">
                 <span class="material-symbols-rounded icon">subdirectory_arrow_right</span>
                 <a href="https://www.linkedin.com/in/aryanranderiya">
@@ -256,6 +255,44 @@
 <script src="js/contact.js"></script>
 <script src="js/preloader.js"></script>
 <script src="https://web3forms.com/client/script.js" async defer></script>
-<!-- <script src="js/footer.js"></script> -->
+
+<script>
+    //! Hover Animation on Aryan Randeriya Fotoer Text
+
+    const defaultScale = 1;
+    const maxScale = 1.5;
+    const neighborScale = 1.2;
+
+    const wordContainers = document.querySelectorAll(
+        ".footer_bottom_name .bottom_name_container .word"
+    );
+
+    wordContainers.forEach((wordContainer) => {
+        const spans = wordContainer.querySelectorAll("span");
+
+        wordContainer.addEventListener("mouseover", (e) => {
+            const target = e.target;
+            const index = Array.from(spans).indexOf(target);
+
+            spans.forEach((span, i) => {
+                let scale = defaultScale;
+
+                if (i === index) {
+                    scale = maxScale;
+                } else if (i === index - 1 || i === index + 1) {
+                    scale = neighborScale;
+                }
+
+                span.style.transform = `scaleY(${scale})`;
+            });
+        });
+
+        wordContainer.addEventListener("mouseout", () => {
+            spans.forEach((span) => {
+                span.style.transform = `scaleY(${defaultScale})`;
+            });
+        });
+    });
+</script>
 
 </html>
