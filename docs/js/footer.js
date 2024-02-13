@@ -49,22 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         });
 
-        title_div.addEventListener("mouseover", () => {
-          cursorTransformShadowBlend("scale(8)", "none");
-          cursor.style.outlineStyle = "solid";
-          cursor.style.outlineColor = "white";
-          cursor.style.outlineWidth = "0.1px";
-          addClass(cursor, "partially_transparent");
-          addClass(cursoricon4, "active");
-        });
-
-        title_div.addEventListener("mouseout", () => {
-          cursor.style.outline = "none";
-          cursorTransformShadowBlend("none");
-          removeClass(cursor, "partially_transparent");
-          removeClass(cursoricon4, "active");
-        });
-
         footer2.addEventListener("mouseover", () => {
           cursorTransformShadowBlend(undefined, "none");
           addClass(cursor, "transparent");

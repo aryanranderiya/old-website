@@ -409,12 +409,14 @@ function animeHeaders() {
   const headersText = document.querySelector("#anime_headers_text");
   const animeImages = document.querySelectorAll(".anime-slider img");
   const otherControls = document.querySelector(".video_controls_others");
+  const cursoricon5 = document.querySelector("#cursoricon5");
   const controlsContainer = document.querySelector(".video_controls_container");
-
   let translate = 0,
     index = 1;
 
   controlForward.addEventListener("click", () => {
+    controlForward.style.transform = "scale(1.1)";
+    setTimeout(() => (controlForward.style.transform = "scale(1)"), 200);
     translate += 100;
     index++;
     if (index > 18) index = 1;
@@ -427,6 +429,8 @@ function animeHeaders() {
   });
 
   controlBack.addEventListener("click", () => {
+    controlBack.style.transform = "scale(1.2)";
+    setTimeout(() => (controlBack.style.transform = "scale(1)"), 200);
     translate -= 100;
     index--;
     if (translate < 0) translate = 1700;
@@ -437,6 +441,30 @@ function animeHeaders() {
     });
   });
 
+  controlForward.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend(undefined, "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  controlForward.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+  });
+
+  controlBack.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend(undefined, "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  controlBack.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+  });
+
   function handleIntersectionAnime(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -445,14 +473,12 @@ function animeHeaders() {
         removeClass(otherControls, "hidden");
         removeClass(controlsContainer, "hidden");
         controlsContainer.style.opacity = "1";
-        entry.target.style.opacity = "1";
       } else {
-        entry.target.style.opacity = "0";
         addClass(dot, "visible");
         addClass(icons, "hidden");
         addClass(otherControls, "hidden");
         addClass(controlsContainer, "hidden");
-        setTimeout(() => (controlsContainer.style.opacity = "0"), 1000);
+        setTimeout(() => (controlsContainer.style.opacity = "0"), 500);
       }
     });
   }
