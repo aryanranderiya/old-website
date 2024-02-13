@@ -1,7 +1,50 @@
+function handleIntersectionTitles2(entries) {
+  entries.forEach((entry) => {
+    let text = entry.target.querySelector(".heading_title_text");
+    let icon = entry.target.querySelector(".title_icon");
+
+    if (entry.isIntersecting) {
+      text.classList.add("show");
+      icon.classList.add("show");
+    } else {
+      text.classList.remove("show");
+      icon.classList.remove("show");
+    }
+  });
+}
+const titleobserver2 = new IntersectionObserver(handleIntersectionTitles2, {
+  threshold: 0.5,
+});
+
+let hasntIntersectedYet = true;
+
+function handleIntersectionTitle(entries) {
+  entries.forEach((entry) => {
+    const title = entry.target.querySelector(".title-heading");
+
+    if (entry.isIntersecting) {
+      console.log(hasntIntersectedYet);
+      if (hasntIntersectedYet) {
+        setTimeout(() => title.classList.add("show"), 700);
+        hasntIntersectedYet = false;
+      } else {
+        title.classList.add("show");
+        hasntIntersectedYet = false;
+      }
+    } else {
+      title.classList.remove("show");
+    }
+  });
+}
+const titleobserver = new IntersectionObserver(handleIntersectionTitle, {
+  threshold: 0.5,
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".slider");
   const folders = document.querySelectorAll(".folder");
   const title = document.querySelector(".title-heading");
+  const titlediv = document.querySelector(".title");
   const cursor_glow = document.querySelector(".cursor_glow_div");
   const heading_titles = document.querySelectorAll(".heading_title");
   const popupImage = document.querySelector(".popup_image");
@@ -30,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   title.addEventListener("mouseout", cursorTransformShadowBlend());
 
+  titleobserver.observe(titlediv);
+
   addFolderListeners();
   generateMerchItems(heading_titles);
   foldersHover(folders);
@@ -44,6 +89,18 @@ document.addEventListener("DOMContentLoaded", function () {
   closeText.addEventListener("click", (event) => {
     closePopup(popupContainer, popupImage, event);
   });
+});
+
+function handleIntersection(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+    } else entry.target.style.opacity = "0";
+  });
+}
+const normalObserver = new IntersectionObserver(handleIntersection, {
+  root: null,
+  threshold: 0.8,
 });
 
 function addFolderListeners() {
@@ -117,18 +174,6 @@ function generateMerchItems(heading_titles) {
     },
   ];
 
-  function handleIntersection(entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-      } else entry.target.style.opacity = "0";
-    });
-  }
-  const normalObserver = new IntersectionObserver(handleIntersection, {
-    root: null,
-    threshold: 0.8,
-  });
-
   const merchItemsContainer = document.getElementById("merchItemsContainer");
 
   merchItemsContainer.innerHTML = "";
@@ -183,15 +228,14 @@ function generateMerchItems(heading_titles) {
 
   merchItemsData[0].items.forEach((item, index) => {});
 
-  heading_titles.forEach((title) => normalObserver.observe(title));
+  heading_titles.forEach((title) => titleobserver2.observe(title));
 }
 
 function foldersHover(folders) {
   const cursoricon5 = document.querySelector("#cursoricon5");
 
   folders.forEach((folder) => {
-    folder.style.zIndex = "1";
-    folder.style.transition = "filter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1)";
+    normalObserver.observe(folder);
 
     folder.addEventListener("mouseover", () => {
       folders.forEach((other) => {

@@ -46,13 +46,25 @@ section {
   position: relative;
   width: 100%;
   margin: 2% 0%;
-  transition: opacity 0.3s ease;
-  -webkit-transition: opacity 0.3s ease;
+  overflow: hidden;
+  /* transition: opacity 0.3s ease,
+    transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: opacity 0.3s ease,
+    transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);*/
 }
+
+/* .heading_title.show {
+  transform: translateY(0%);
+  transition: opacity 0.3s ease,
+    transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: opacity 0.3s ease,
+    transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+} */
 
 .title {
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .title-heading {
@@ -68,6 +80,30 @@ section {
   position: relative;
   z-index: 1;
   text-align: center;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.title-heading.show {
+  transform: translateY(0%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.title_icon,
+.heading_title_text {
+  transform: translateY(105%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.title_icon.show,
+.heading_title_text.show {
+  transform: translateY(0%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .subheading {
@@ -135,8 +171,12 @@ section {
 }
 
 .folder {
-  transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -webkit-transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 1;
+
+  transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 1s ease, filter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 1s ease, filter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .folder_image {
