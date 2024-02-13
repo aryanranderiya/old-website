@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         footerContainer.innerHTML = data;
         footerContainer.style.cssText = "";
-
         const footer2 = document.querySelector(".footer2");
+
         const letstalk = document.querySelector("#letstalk");
         const cursoricon4 = document.getElementById("cursoricon4");
         const cursoricon5 = document.getElementById("cursoricon5");
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         });
 
-        letstalk.addEventListener("mouseover", () => {
+        title_div.addEventListener("mouseover", () => {
           cursorTransformShadowBlend("scale(8)", "none");
           cursor.style.outlineStyle = "solid";
           cursor.style.outlineColor = "white";
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
           addClass(cursoricon4, "active");
         });
 
-        letstalk.addEventListener("mouseout", () => {
+        title_div.addEventListener("mouseout", () => {
           cursor.style.outline = "none";
           cursorTransformShadowBlend("none");
           removeClass(cursor, "partially_transparent");
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
           cursorTransformShadowBlend()
         );
 
-        //! Hover Animation on Aryan Randeriya Fotoer Text
+        //! Hover Animation on Aryan Randeriya Footer Text
 
         const defaultScale = 1;
         const maxScale = 1.5;

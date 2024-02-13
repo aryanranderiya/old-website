@@ -42,7 +42,7 @@ const titleobserver = new IntersectionObserver(handleIntersectionTitle, {
 document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".slider");
   const folders = document.querySelectorAll(".folder");
-  const title = document.querySelector(".title-heading");
+  const titleHeading = document.querySelector(".title-heading");
   const titlediv = document.querySelector(".title");
   const cursor_glow = document.querySelector(".cursor_glow_div");
   const heading_titles = document.querySelectorAll(".heading_title");
@@ -62,16 +62,16 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   btnScrollTop.addEventListener("click", () => {
-    // document.body.scrollTop = 0;
-    // document.documentElement.scrollTop = 0;
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  title.addEventListener(
-    "mouseover",
-    cursorTransformShadowBlend("scale(10)", "none", "difference")
-  );
-  title.addEventListener("mouseout", cursorTransformShadowBlend());
+  titlediv.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(10)", "none", "difference");
+  });
+
+  titlediv.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+  });
 
   titleobserver.observe(titlediv);
 
@@ -554,4 +554,3 @@ function addClass(element, className) {
 function removeClass(element, className) {
   element.classList.remove(className);
 }
-

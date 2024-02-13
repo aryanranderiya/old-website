@@ -257,7 +257,7 @@ a {
 
 .navbar-brand:hover .letter,
 .navbar-brand.play .letter {
-  transform: translateY(-100%);
+  transform: translateY(-120%);
 }
 
 .navbar-brand .block:last-child {

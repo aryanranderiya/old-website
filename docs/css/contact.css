@@ -75,7 +75,7 @@ form {
   outline-style: solid;
   outline-width: 2px;
   border-radius: 50px;
-  font-size: 2em;
+  font-size: 1.5em;
   color: grey;
   padding: 1% 2%;
 }
@@ -107,6 +107,8 @@ form {
   margin: 1%;
   width: 100%;
   border-radius: 40px;
+  margin-bottom: 2%;
+  padding: 2%;
 }
 
 .formright {
@@ -124,6 +126,7 @@ form {
 }
 
 #disclaimer_span {
+  font-family: Helvs;
   color: grey;
 }
 
@@ -135,26 +138,31 @@ form {
 }
 
 .mail_text {
-  font-size: 1.2em !important;
+  font-size: 1.3em !important;
   font-weight: bold !important;
 }
 
 .button_primary {
   height: 3em !important;
-  font-size: 1.5em !important;
+  font-size: 1.2em !important;
   width: 100% !important;
   border-radius: 100px !important;
+  outline: none;
+  border: none;
 }
 
 .button_primary .icon {
-  padding: 20px;
+  padding: 19px;
   border-radius: 200px !important;
+  border: none;
+  outline: none;
+  background-color: #00bbff !important;
 }
 
 .primaryiconother {
   height: 1em !important;
   width: 1em !important;
-  right: 0.1em !important;
+  right: 0em !important;
 }
 
 .button_primary:hover .icon {
@@ -259,6 +267,10 @@ hr {
     -webkit-text-stroke-color: white;
   }
 }
+
+.div_email {
+  margin-bottom: 10%;
+}
 .description_div,
 .div_email,
 .social {
@@ -281,4 +293,9 @@ hr {
 
 .word {
   transform: translateX(0%) !important;
+}
+
+
+input:hover{
+  cursor: ty;
 }

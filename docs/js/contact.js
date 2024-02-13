@@ -1,13 +1,20 @@
 const title = document.querySelector(".title");
 const title_div = document.querySelector(".title_div");
 const emailElements = document.querySelectorAll(".div_email > *");
+const div_email = document.querySelector(".div_email");
 const socialElements = document.querySelectorAll(".social > *");
+const social = document.querySelectorAll(".social");
 const description = document.querySelector(".description");
 const cursoricon4 = document.querySelector("#cursoricon4");
+const cursoricon5 = document.querySelector("#cursoricon5");
+const cursoricontyping = document.querySelector("#cursoricontyping");
+const inputs = document.querySelectorAll(".form_input");
+const button_primary = document.querySelector(".button_primary");
+
 document.addEventListener("DOMContentLoaded", function () {
   cursorGlow();
   addHoverListeners();
-  changeMarqueeDirection();
+  // changeMarqueeDirection();
   largeNameHover();
 });
 
@@ -41,36 +48,104 @@ function addHoverListeners() {
     cursorTransformShadowBlend();
     removeClass(cursoricon4, "active");
   });
-}
 
-function changeMarqueeDirection() {
-  // ! change marquee direction on scroll
-  let currentScroll = window.pageYOffset;
-  let isScrollingDown = true;
-
-  let tween = gsap.to(".marquee__part", {
-    xPercent: -100,
-    repeat: -1,
-    duration: 3,
-    ease: "linear",
+  title_div.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(8)", "none");
+    cursor.style.outlineStyle = "solid";
+    cursor.style.outlineColor = "white";
+    cursor.style.outlineWidth = "0.1px";
+    addClass(cursor, "partially_transparent");
+    addClass(cursoricon4, "active");
   });
 
-  gsap.set(".marquee__inner", { xPercent: -50 });
+  title_div.addEventListener("mouseout", () => {
+    cursor.style.outline = "none";
+    cursorTransformShadowBlend("none");
+    removeClass(cursor, "partially_transparent");
+    removeClass(cursoricon4, "active");
+  });
 
-  window.addEventListener("wheel", function (event) {
-    if (event.deltaY > 0) {
-      isScrollingDown = true;
-    } else {
-      isScrollingDown = false;
-    }
+  button_primary.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(1.5)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
 
-    gsap.to(tween, {
-      timeScale: isScrollingDown ? 1 : -1,
+  button_primary.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+  });
+
+  div_email.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend(undefined, "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  div_email.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+  });
+
+  social.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend(undefined, "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
     });
 
-    currentScroll = window.pageYOffset;
+    element.addEventListener("mouseout", () => {
+      cursorTransformShadowBlend();
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+    });
+  });
+
+  inputs.forEach((input) => {
+    input.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend(undefined, "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricontyping, "active");
+    });
+
+    input.addEventListener("mouseout", () => {
+      cursorTransformShadowBlend();
+      removeClass(cursor, "transparent");
+      removeClass(cursoricontyping, "active");
+    });
   });
 }
+
+// function changeMarqueeDirection() {}
+
+// ! change marquee direction on scroll
+let currentScroll = window.pageYOffset;
+let isScrollingDown = true;
+
+let tween = gsap.to(".marquee__part", {
+  xPercent: -100,
+  repeat: -1,
+  duration: 3,
+  ease: "linear",
+});
+
+gsap.set(".marquee__inner", { xPercent: -50 });
+
+window.addEventListener("wheel", function (event) {
+  if (event.deltaY > 0) {
+    isScrollingDown = true;
+  } else {
+    isScrollingDown = false;
+  }
+
+  gsap.to(tween, {
+    timeScale: isScrollingDown ? 1 : -1,
+  });
+
+  currentScroll = window.pageYOffset;
+});
 
 function largeNameHover() {
   //! Hover Animation on Aryan Randeriya Fotoer Text
@@ -138,7 +213,7 @@ function formSubmit() {
 
   const urlParams = new URLSearchParams(window.location.search);
   const successParam = urlParams.get("success");
-if (successParam == "true")
+  if (successParam == "true")
     alert("Thank you for Contacting me! I will get back to you ASAP! :)");
 }
 

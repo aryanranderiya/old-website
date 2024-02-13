@@ -155,7 +155,7 @@
   background: rgb(255, 255, 255);
   transition: 0.5s;
   -webkit-transition: 0.5s;
-  animation: progress_bar_loading 3s normal;
+  animation: progress_bar_loading 3s forwards;
 }
 
 @keyframes progress_bar_loading {

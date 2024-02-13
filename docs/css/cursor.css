@@ -168,8 +168,7 @@
   text-align: center;
 }
 
-#cursoricon5,
-#cursoriconmagnify {
+#cursoricon5 {
   margin-top: 23px;
   height: 40px;
   z-index: 2001;
@@ -183,7 +182,13 @@
   z-index: 2001;
   position: fixed;
 }
-
+#cursoricontyping {
+  /* margin-top: -20px; */
+  /* margin-left: -10px; */
+  height: 35px;
+  z-index: 2001;
+  position: fixed;
+}
 #cursoriconwave,
 #cursoriconidea,
 #cursoriconpallette,
@@ -215,7 +220,8 @@
 #cursoricondrag,
 #cursoriconwarning.invisible,
 #cursoriconwave,
-#cursoriconmagnify {
+#cursoriconmagnify,
+#cursoricontyping {
   opacity: 0;
   transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
@@ -233,7 +239,8 @@
 #cursoricondrag.active,
 #cursoriconwarning.active,
 #cursoriconpallette.active,
-#cursoriconmagnify.active {
+#cursoriconmagnify.active,
+#cursoricontyping.active {
   opacity: 1;
   transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
