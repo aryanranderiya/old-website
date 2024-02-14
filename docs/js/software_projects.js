@@ -37,15 +37,54 @@ onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 
 document.addEventListener("DOMContentLoaded", function () {
   const cursor_glow = document.querySelector(".cursor_glow_div");
+
   document.addEventListener("mousemove", function (e) {
     cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
   });
 
+  modifyScrollBar();
+
   addMouseHovers();
   marqueeScrollAnimation();
+  document.addEventListener("scroll", updateProgressBarandBtn);
 
   // ! END OF DOMCONTENTLOADED
 });
+
+function modifyScrollBar() {
+  cursortext.textContent = "0";
+  const scrollbarContainerParent = document.querySelector(
+    ".scrollbar_progress_container_parent"
+  );
+  scrollbarContainerParent.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(5)";
+    cursor.style.boxShadow = "none";
+    cursor.style.outlineWidth = "0px";
+    addClass(cursortext, "active");
+    addClass(cursor, "transparent");
+    updateProgressBarandBtn();
+  });
+
+  scrollbarContainerParent.addEventListener("mouseout", () => {
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 30px white";
+    removeClass(cursortext, "active");
+    removeClass(cursor, "transparent");
+  });
+}
+
+function updateProgressBarandBtn() {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  const scrollPercent = percentage + "%";
+
+  document
+    .querySelector(".scrollbar_progress")
+    .style.setProperty("--height", scrollPercent);
+
+  cursortext.textContent = Math.round(percentage) + "%";
+}
 
 // Functions
 function addMouseHovers() {
@@ -95,6 +134,7 @@ function addMouseHovers() {
   // Logos Cursor Title
 
   logos.addEventListener("mouseover", () => {
+    cursortext.textContent = "Skills";
     logos.style.filter = "brightness(100%) grayscale(0%)";
     cursor.style.transform = "scale(8)";
     cursor.style.boxShadow = "none";
@@ -104,6 +144,7 @@ function addMouseHovers() {
   });
 
   logos.addEventListener("mouseout", () => {
+    cursortext.textContent = "";
     logos.style.filter = "brightness(30%)  grayscale(100%)";
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";

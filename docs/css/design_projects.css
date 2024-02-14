@@ -10,7 +10,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
   overflow: hidden;
-  overflow-y: visible;
+  overflow-y: scroll !important;
   scroll-snap-type: none !important;
   scroll-behavior: smooth;
 }

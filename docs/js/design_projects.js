@@ -1,3 +1,5 @@
+const cursortext = document.querySelector("#cursortext");
+
 function handleIntersectionTitles2(entries) {
   entries.forEach((entry) => {
     let text = entry.target.querySelector(".heading_title_text");
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   titleobserver.observe(titlediv);
-
+  modifyScrollBar();
   addFolderListeners();
   generateMerchItems(heading_titles);
   foldersHover(folders);
@@ -89,7 +91,44 @@ document.addEventListener("DOMContentLoaded", function () {
   closeText.addEventListener("click", (event) => {
     closePopup(popupContainer, popupImage, event);
   });
+
+  document.addEventListener("scroll", updateProgressBarandBtn);
 });
+
+function modifyScrollBar() {
+  cursortext.textContent = "0";
+  const scrollbarContainerParent = document.querySelector(
+    ".scrollbar_progress_container_parent"
+  );
+  scrollbarContainerParent.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(5)";
+    cursor.style.boxShadow = "none";
+    cursor.style.outlineWidth = "0px";
+    addClass(cursortext, "active");
+    addClass(cursor, "transparent");
+    updateProgressBarandBtn();
+  });
+
+  scrollbarContainerParent.addEventListener("mouseout", () => {
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 30px white";
+    removeClass(cursortext, "active");
+    removeClass(cursor, "transparent");
+  });
+}
+
+function updateProgressBarandBtn() {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  const scrollPercent = percentage + "%";
+
+  document
+    .querySelector(".scrollbar_progress")
+    .style.setProperty("--height", scrollPercent);
+
+  cursortext.textContent = Math.round(percentage) + "%";
+}
 
 function handleIntersection(entries) {
   entries.forEach((entry) => {
