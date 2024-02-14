@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         footerContainer.innerHTML = data;
         footerContainer.style.cssText = "";
+        const footer1 = document.querySelector(".footer1");
         const footer2 = document.querySelector(".footer2");
 
         const letstalk = document.querySelector("#letstalk");
@@ -29,6 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         });
 
+        footer1.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend("scale(8)", "none");
+          cursor.style.outlineStyle = "solid";
+          cursor.style.outlineColor = "white";
+          cursor.style.outlineWidth = "0.1px";
+          addClass(cursor, "partially_transparent");
+          addClass(cursoricon4, "active");
+        });
+
+        footer1.addEventListener("mouseout", () => {
+          cursor.style.outline = "none";
+          cursorTransformShadowBlend("none");
+          removeClass(cursor, "partially_transparent");
+          removeClass(cursoricon4, "active");
+        });
+
         pageLinks.forEach((pageLink) => {
           const pageLinkIcon = pageLink.querySelector(".icon");
           pageLinkIcon.style.transition = "all 0.1s ease";
@@ -47,6 +64,18 @@ document.addEventListener("DOMContentLoaded", function () {
             pageLinkIcon.style.fontSize = "1.5em";
             googleIcon.style.transform = "rotate(0)";
           });
+        });
+
+        div_email.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend(undefined, "none");
+          addClass(cursor, "transparent");
+          addClass(cursoricon5, "active");
+        });
+
+        div_email.addEventListener("mouseout", () => {
+          cursorTransformShadowBlend();
+          removeClass(cursor, "transparent");
+          removeClass(cursoricon5, "active");
         });
 
         footer2.addEventListener("mouseover", () => {

@@ -202,6 +202,16 @@ function processDataAndHidePreloader(snapshot) {
       </div>
     `;
 
+    const cardImages = document.querySelectorAll(".card-image");
+    cardImages.forEach(function (img) {
+      img.onload = function () {
+        img.src = img.getAttribute("data-src");
+      };
+
+      // Start loading the image by setting the src attribute
+      img.src = img.getAttribute("data-src");
+    });
+
     document.querySelector(".cards").appendChild(card);
 
     //! Intersection Observer

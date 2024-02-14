@@ -132,8 +132,9 @@
 .card-image {
   height: auto;
   overflow: hidden;
-  background-image: url("../media/bg_aryan_swirl.jpg");
+  /* background-image: ; */
   border-radius: 1em;
+  src: url("../media/bg_aryan_swirl.jpg");
   background-color: #00bbff;
 }
 
