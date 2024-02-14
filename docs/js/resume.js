@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var footerIntersectedFlag = false;
 
   resume_image.addEventListener("mouseover", () => {
-    cursor.style.backgroundColor = "#00bbff";
+    cursor.style.background = "#00bbff";
     cursor.style.boxShadow = "0px 0px 30px #00bbff";
   });
 
   resume_image.addEventListener("mouseout", () => {
-    cursor.style.backgroundColor = "white";
+    cursor.style.background = "";
     cursor.style.boxShadow = "0px 0px 30px white";
   });
 
