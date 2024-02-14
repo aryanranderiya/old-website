@@ -16,7 +16,7 @@ section {
 
 .title {
   margin-left: 5%;
-  overflow: hidden;
+overflow: hidden;
   width: fit-content;
   margin-top: clamp(-2.5%, 1vw, 10%);
 }
