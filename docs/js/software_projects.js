@@ -33,9 +33,9 @@ const projectsRef = ref(database, "Projects/");
 
 // ! FIREBASE INIT END --------------------------------------------------------------------------------------
 
-document.addEventListener("DOMContentLoaded", function () {
-  onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
+onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 
+document.addEventListener("DOMContentLoaded", function () {
   const cursor_glow = document.querySelector(".cursor_glow_div");
   document.addEventListener("mousemove", function (e) {
     cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
@@ -43,29 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   addMouseHovers();
   marqueeScrollAnimation();
-
-  // Handle Intersection Translate Y
-  let alreadyanimatedflag = false;
-  let timeout;
-
-  function handleIntersectionTranslate(entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (!alreadyanimatedflag) timeout = 700;
-        else timeout = 0;
-        setTimeout(() => addClass(title_Heading, "show"), timeout);
-        alreadyanimatedflag = true;
-      } else removeClass(title_Heading, "show");
-    });
-  }
-  const observerTranslate = new IntersectionObserver(
-    handleIntersectionTranslate,
-    {
-      threshold: 0.5,
-    }
-  );
-
-  observerTranslate.observe(document.querySelector(".title"));
 
   // ! END OF DOMCONTENTLOADED
 });
@@ -166,7 +143,7 @@ function processDataAndHidePreloader(snapshot) {
     card.innerHTML = `
       <div class="card-content">
           <div class="card-image-div" >
-            <img class="card-image" loading="eager" src='${banner_image_URL}';">
+            <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.jpg" data-src="${banner_image_URL}">
             </img>
           </div>
           <div class="card-info-wrapper">
@@ -202,16 +179,6 @@ function processDataAndHidePreloader(snapshot) {
       </div>
     `;
 
-    const cardImages = document.querySelectorAll(".card-image");
-    cardImages.forEach(function (img) {
-      img.onload = function () {
-        img.src = img.getAttribute("data-src");
-      };
-
-      // Start loading the image by setting the src attribute
-      img.src = img.getAttribute("data-src");
-    });
-
     document.querySelector(".cards").appendChild(card);
 
     //! Intersection Observer
@@ -230,6 +197,8 @@ function processDataAndHidePreloader(snapshot) {
 
     hoverOnCards();
   });
+
+  removePreloader();
 }
 
 function hoverOnCards() {
@@ -250,6 +219,15 @@ function hoverOnCards() {
       logos.style.filter = "brightness(20%) grayscale(100%)";
       allCard.forEach((otherCard) => removeClass(otherCard, "grayscale"));
     });
+  });
+
+  const cardImages = document.querySelectorAll(".card-image");
+  cardImages.forEach(function (img) {
+    img.onload = function () {
+      img.src = img.getAttribute("data-src");
+    };
+
+    img.src = img.getAttribute("data-src");
   });
 }
 
@@ -487,4 +465,38 @@ function addClass(element, className) {
 }
 function removeClass(element, className) {
   element.classList.remove(className);
+}
+
+function removePreloader() {
+  const blackCover = document.querySelector(".black_cover");
+  const preloader = document.querySelector(".preloader");
+
+  setTimeout(function () {
+    blackCover.classList.add("hide");
+    preloader.classList.add("hide");
+    document.body.style.overflow = "auto";
+  }, 500);
+
+  // Handle Intersection Translate Y
+  let alreadyanimatedflag = false;
+  let timeout;
+
+  function handleIntersectionTranslate(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (!alreadyanimatedflag) timeout = 700;
+        else timeout = 0;
+        setTimeout(() => addClass(title_Heading, "show"), timeout);
+        alreadyanimatedflag = true;
+      } else removeClass(title_Heading, "show");
+    });
+  }
+  const observerTranslate = new IntersectionObserver(
+    handleIntersectionTranslate,
+    {
+      threshold: 0.5,
+    }
+  );
+
+  observerTranslate.observe(document.querySelector(".title"));
 }

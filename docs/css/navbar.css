@@ -124,7 +124,7 @@ body {
 .hamburger:hover .line-top-bottom,
 .hamburger:hover .line,
 .hamburger:hover .line.line-top-bottom {
-  stroke: #636363;
+  stroke: #00bbff;
 }
 
 /* ! Menu Items */
