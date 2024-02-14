@@ -181,7 +181,7 @@ section {
 }
 
 .tech_stack_item {
-  font-size: 1em;
+  font-size: clamp(0.5em, 3vw, 1em);
   color: white;
   border-radius: 100px;
   border-style: solid;
@@ -221,9 +221,9 @@ section {
 }
 
 .project_info_text img {
+  height: 400px;
   display: flex;
   align-self: center;
-  margin: 2% 0;
 }
 
 /* !Buttons */
@@ -462,13 +462,16 @@ section {
   }
 
   .project_info_text img {
-    height: 80px;
+    height: 160px;
     margin: 7% 0;
   }
-
   .video_controls_container {
     margin-top: 15%;
     position: relative;
+  }
+
+  .tech_stack_item {
+    padding: 5px 0.2%;
   }
 }
 
