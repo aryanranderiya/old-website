@@ -29,11 +29,9 @@ function handleNavbarIntersection() {
   function handleIntersection2(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("hey1");
         navbar.style.opacity = "0";
         navbar.style.visibility = "hidden";
       } else {
-        console.log("hey2");
         navbar.style.visibility = "visible";
         navbar.style.opacity = "1";
       }
