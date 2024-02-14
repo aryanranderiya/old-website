@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   modifyScrollBar();
 
   addMouseHovers();
-  // marqueeScrollAnimation();
+  marqueeScrollAnimation();
   document.addEventListener("scroll", updateProgressBarandBtn);
 
   // ! END OF DOMCONTENTLOADED
