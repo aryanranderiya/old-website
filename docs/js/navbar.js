@@ -1,31 +1,33 @@
-sessionStorage.setItem("navbarloaded", false);
+async function loadNavbar() {
+  const navbarContainer = document.getElementById("navbarContainer");
 
-const navbarContainer = document.getElementById("navbarContainer");
-fetch("navbar.html")
-  .then((response) => response.text())
-  .then((data) => {
-    navbarContainer.innerHTML = data;
+  return fetch("navbar.html")
+    .then((response) => response.text())
+    .then((data) => {
+      navbarContainer.innerHTML = data;
 
-    const navbar = document.querySelector(".navbar");
-    const navbar_menu = document.querySelector(".navbar_menu");
-    const items = document.querySelectorAll(".menu_items .item");
+      const navbar = document.querySelector(".navbar");
+      const navbar_menu = document.querySelector(".navbar_menu");
+      const items = document.querySelectorAll(".menu_items .item");
 
-    let lastScrollTop = 0;
+      let lastScrollTop = 0;
 
-    window.addEventListener("scroll", function () {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) addClass(navbar, "hide");
-      else removeClass(navbar, "hide");
-      lastScrollTop = scrollTop;
+      window.addEventListener("scroll", function () {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) addClass(navbar, "hide");
+        else removeClass(navbar, "hide");
+        lastScrollTop = scrollTop;
+      });
+
+      handleMenuOpening(items, navbar_menu);
+      addHoverImage(items);
+      addMouseListeners(navbar_menu);
+      setActiveLink(items);
+      textAnimateOnHover();
     });
+}
 
-    handleMenuOpening(items, navbar_menu);
-    addHoverImage(items);
-    addMouseListeners(navbar_menu);
-    setActiveLink(items);
-    textAnimateOnHover();
-    sessionStorage.setItem("navbarloaded", true);
-  });
+loadNavbar();
 
 // Functions
 

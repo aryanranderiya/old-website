@@ -6,7 +6,6 @@ const welcoming = document.querySelector(".welcoming");
 document.addEventListener("DOMContentLoaded", function () {
   const subContent3 = document.querySelector(".subcontent3");
   const rotatingWords = document.querySelector(".words_rotating_span");
-  let hasnavbarloaded = sessionStorage.getItem("navbarloaded");
 
   cursor.style.boxShadow = "none";
 
@@ -18,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     threshold: 0.5,
   }).observe(subContent3);
 
-  if (hasnavbarloaded === "true") {
+  loadNavbar().then(() => {
     handleNavbarIntersection();
-  }
+  });
 });
 
 function handleNavbarIntersection() {
@@ -30,9 +29,11 @@ function handleNavbarIntersection() {
   function handleIntersection2(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        console.log("hey1");
         navbar.style.opacity = "0";
         navbar.style.visibility = "hidden";
       } else {
+        console.log("hey2");
         navbar.style.visibility = "visible";
         navbar.style.opacity = "1";
       }
