@@ -98,7 +98,7 @@ section {
 }
 
 .subheading {
-  font-size: 1.7em;
+  font-size: 1.4em;
   font-weight: normal;
   margin-left: 5%;
   color: white;
@@ -851,7 +851,7 @@ img {
   transition: opacity 0.3s ease;
   opacity: 0;
   border: none;
-  box-shadow: 0px 0px 30px 10px #00bbff;
+  box-shadow: 0px 0px 60px 15px #00bbff;
 }
 
 #scrolltop_icon {

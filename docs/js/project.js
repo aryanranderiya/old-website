@@ -72,6 +72,7 @@ const controlsContainer = document.querySelector(".video_controls_container");
 const popupContainer = document.querySelector(".popup_image_container");
 const popupImage = document.querySelector(".popup_image");
 const close_text = document.querySelector(".close_text");
+const cursortext2 = document.querySelector("#cursortext2");
 
 // ! INIT END
 
@@ -309,8 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   btnScrollTop.addEventListener("click", () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   function addEventListeners(button) {
@@ -333,6 +333,9 @@ document.addEventListener("DOMContentLoaded", function () {
   close_text.addEventListener("click", (event) => {
     closePopup(popupContainer, popupImage, event);
   });
+
+  modifyScrollBar();
+  document.addEventListener("scroll", updateProgressBarandBtn);
 });
 
 // ! Functions
@@ -564,4 +567,37 @@ function addImagesPopupEvents(popup_image, popup_image_container, children) {
       });
     }
   }
+}
+
+function modifyScrollBar() {
+  const scrollbarContainerParent = document.querySelector(
+    ".scrollbar_progress_container_parent"
+  );
+  scrollbarContainerParent.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(5)";
+    cursor.style.boxShadow = "none";
+    cursor.style.outlineWidth = "0px";
+    addClass(cursortext2, "active");
+    addClass(cursor, "transparent");
+  });
+
+  scrollbarContainerParent.addEventListener("mouseout", () => {
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 30px white";
+    removeClass(cursortext2, "active");
+    removeClass(cursor, "transparent");
+  });
+}
+
+function updateProgressBarandBtn() {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  const scrollPercent = percentage + "%";
+
+  document
+    .querySelector(".scrollbar_progress")
+    .style.setProperty("--height", scrollPercent);
+
+  cursortext2.textContent = Math.round(percentage) + "%";
 }

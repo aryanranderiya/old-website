@@ -62,13 +62,14 @@
 
 .progress-helloworld {
   content: "";
-  width: 1px;
+  width: 0%;
   height: 3px;
   border-radius: 7px;
   background: rgb(255, 255, 255);
   transition: 0.5s;
   -webkit-transition: 0.5s;
-  animation: progress_bar_loading 3s forwards;
+  transition: width 3s ease-in-out;
+  animation: progress_bar_loading 2.5s ease-in-out forwards;
 }
 
 @keyframes progress_bar_loading {

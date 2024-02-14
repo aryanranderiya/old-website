@@ -137,6 +137,19 @@
   text-shadow: 0px 0px 50px black;
 }
 
+#cursortext2 {
+  margin-bottom: -10%;
+  color: white;
+  font-size: 3px !important;
+  z-index: 2001;
+  position: fixed;
+  text-align: center;
+  font-family: PROXON;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 50px black;
+}
+
 #cursoricon1 {
   color: black;
   font-size: 0.7em !important;
@@ -220,6 +233,7 @@
 #cursoriconidea,
 #cursoriconpallette,
 #cursortext,
+#cursortext2,
 #cursoricondrag,
 #cursoriconwarning.invisible,
 #cursoriconwave,
@@ -236,6 +250,7 @@
 #cursoricon4.active,
 #cursoricon5.active,
 #cursoriconwave.active,
+#cursortext2.active,
 #cursortext.active,
 #cursoriconlaptop.active,
 #cursoriconidea.active,
@@ -265,7 +280,7 @@
   display: flex;
   align-content: center;
   left: 20px;
-  top: 20%;
+  top: 25%;
   background-color: rgba(255, 255, 255, 0.2);
   height: 60vh;
   width: 5px;

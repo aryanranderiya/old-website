@@ -1,6 +1,7 @@
 fetchGithubData();
 
 const cursortext = document.getElementById("cursortext");
+const cursortext2 = document.getElementById("cursortext2");
 const title_Heading = document.querySelector(".title-heading");
 
 window.onbeforeunload = () => {
@@ -45,14 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
   modifyScrollBar();
 
   addMouseHovers();
-  marqueeScrollAnimation();
+  // marqueeScrollAnimation();
   document.addEventListener("scroll", updateProgressBarandBtn);
 
   // ! END OF DOMCONTENTLOADED
 });
 
 function modifyScrollBar() {
-  cursortext.textContent = "0";
   const scrollbarContainerParent = document.querySelector(
     ".scrollbar_progress_container_parent"
   );
@@ -60,7 +60,7 @@ function modifyScrollBar() {
     cursor.style.transform = "scale(5)";
     cursor.style.boxShadow = "none";
     cursor.style.outlineWidth = "0px";
-    addClass(cursortext, "active");
+    addClass(cursortext2, "active");
     addClass(cursor, "transparent");
     updateProgressBarandBtn();
   });
@@ -69,7 +69,7 @@ function modifyScrollBar() {
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 30px white";
-    removeClass(cursortext, "active");
+    removeClass(cursortext2, "active");
     removeClass(cursor, "transparent");
   });
 }
@@ -83,7 +83,7 @@ function updateProgressBarandBtn() {
     .querySelector(".scrollbar_progress")
     .style.setProperty("--height", scrollPercent);
 
-  cursortext.textContent = Math.round(percentage) + "%";
+  cursortext2.textContent = Math.round(percentage) + "%";
 }
 
 // Functions
@@ -134,7 +134,6 @@ function addMouseHovers() {
   // Logos Cursor Title
 
   logos.addEventListener("mouseover", () => {
-    cursortext.textContent = "Skills";
     logos.style.filter = "brightness(100%) grayscale(0%)";
     cursor.style.transform = "scale(8)";
     cursor.style.boxShadow = "none";
@@ -144,7 +143,6 @@ function addMouseHovers() {
   });
 
   logos.addEventListener("mouseout", () => {
-    cursortext.textContent = "";
     logos.style.filter = "brightness(30%)  grayscale(100%)";
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";

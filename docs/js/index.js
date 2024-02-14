@@ -1,12 +1,13 @@
 const cursorGlowDiv2 = document.querySelector(".cursor_glow_div_two");
 const cursoriconwave = document.getElementById("cursoriconwave");
-const navbar = document.querySelector(".navbar");
 const scrollBtn = document.querySelector(".scroll_btn");
+const welcoming = document.querySelector(".welcoming");
 
 document.addEventListener("DOMContentLoaded", function () {
   const subContent3 = document.querySelector(".subcontent3");
   const rotatingWords = document.querySelector(".words_rotating_span");
   const coverElement = document.querySelector(".cover");
+  const navbar = document.querySelector(".navbar");
 
   cursor.style.boxShadow = "none";
 
@@ -18,9 +19,23 @@ document.addEventListener("DOMContentLoaded", function () {
     threshold: 0.5,
   }).observe(subContent3);
 
-  new IntersectionObserver(handleIntersection2, {
+  function handleIntersection2(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("hey");
+        navbar.style.opacity = "0";
+        navbar.style.visibility = "hidden";
+      } else {
+        navbar.style.visibility = "visible";
+        navbar.style.opacity = "1";
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(handleIntersection2, {
     threshold: 0.5,
-  }).observe(coverElement);
+  });
+  observer.observe(coverElement);
 });
 
 function addListeners(scrollBtn) {
@@ -193,8 +208,6 @@ function makeInvisible(element) {
 }
 
 function removeBlackCover() {
-  scrollBtn;
-  const welcoming = document.querySelector(".welcoming");
   const section_content1 = document.querySelector(".section_content1");
 
   setTimeout(() => {
@@ -210,22 +223,6 @@ function removeBlackCover() {
   }, 500);
 
   setTimeout(() => welcoming.remove(), 1600);
-}
-
-function handleIntersection2(entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      if (navbar) {
-        navbar.style.opacity = "0";
-        navbar.style.visibility = "hidden";
-      }
-    } else {
-      if (navbar) {
-        navbar.style.visibility = "visible";
-        navbar.style.opacity = "1";
-      }
-    }
-  });
 }
 
 function handleIntersection1(entries) {
