@@ -148,6 +148,6 @@ Used HTML, CSS, vanilla Javascript and Firebase as Realtime Database, Cloud Stor
 
 ## Footer
 
-![](https://github.com/aryanranderiya/Portfolio/assets/64796509/734a2488-44b0-4433-9b45-eec0602c24bf)
+![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304816745-734a2488-44b0-4433-9b45-eec0602c24bf.png?alt=media&token=2d2d3a0d-c78c-4e40-9b41-2e7f7a181ec0)
 
 Thank you for Viewing!
