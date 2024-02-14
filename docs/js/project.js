@@ -249,7 +249,7 @@ function handleIntersection1(entries, observer) {
       controlsContainer.style.opacity = isIntersecting ? "1" : "0";
     }, 500);
     iconMain.style.visibility = isIntersecting ? "visible" : "hidden";
-    progressBar.style.backgroundColor = isIntersecting ? "white" : "#4d4d4d";
+    progressBar.style.backgroundColor = isIntersecting ? "#00bbff" : "#4d4d4d";
   });
 }
 

@@ -942,3 +942,22 @@ img {
 #control_backward {
   transition: transform 0.1s ease-in-out;
 }
+
+.div_hoveronme_container {
+  position: absolute;
+  display: grid;
+  place-items: normal;
+  height: 100%;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.hoveronme_text {
+  margin-top: 70%;
+  font-size: 3em;
+  color: white;
+  font-family: Helvs;
+  text-transform: uppercase;
+  font-weight: bold;
+}

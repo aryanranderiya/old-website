@@ -229,6 +229,16 @@ function hoverOnCards() {
 
     img.src = img.getAttribute("data-src");
   });
+
+  const button_secondaryAll = document.querySelectorAll(".button_secondary");
+  button_secondaryAll.forEach((btn) => {
+    btn.addEventListener("mouseover", () => {
+      cursor.style.mixBlendMode = "difference";
+    });
+    btn.addEventListener("mouseout", () => {
+      cursor.style.mixBlendMode = "normal";
+    });
+  });
 }
 
 function marqueeScrollAnimation() {

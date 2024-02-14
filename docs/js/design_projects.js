@@ -495,6 +495,8 @@ function thumbnails(popup_image, popup_image_container) {
   const content4 = document.querySelector(".content4");
   const thumbnails = document.querySelectorAll(".thumbnail_image");
   const cursoriconmagnify = document.querySelector("#cursoriconmagnify");
+  const thumbnail_container = document.querySelector(".thumbnail_container");
+  const div_hoveronme1 = document.querySelector("#div_hoveronme_container_one");
 
   function thumbnailIntersection(entries) {
     entries.forEach(
@@ -524,6 +526,13 @@ function thumbnails(popup_image, popup_image_container) {
     });
 
     changeCursortoMagnify(image, cursoriconmagnify);
+  });
+
+  thumbnail_container.addEventListener("mouseover", () => {
+    div_hoveronme1.style.opacity = "0";
+  });
+  thumbnail_container.addEventListener("mouseout", () => {
+    div_hoveronme1.style.opacity = "1";
   });
 }
 
