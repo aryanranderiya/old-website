@@ -1,3 +1,5 @@
+sessionStorage.setItem("navbarloaded", false);
+
 const navbarContainer = document.getElementById("navbarContainer");
 fetch("navbar.html")
   .then((response) => response.text())
@@ -22,6 +24,7 @@ fetch("navbar.html")
     addMouseListeners(navbar_menu);
     setActiveLink(items);
     textAnimateOnHover();
+    sessionStorage.setItem("navbarloaded", true);
   });
 
 // Functions

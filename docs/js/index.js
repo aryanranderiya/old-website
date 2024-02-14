@@ -6,8 +6,7 @@ const welcoming = document.querySelector(".welcoming");
 document.addEventListener("DOMContentLoaded", function () {
   const subContent3 = document.querySelector(".subcontent3");
   const rotatingWords = document.querySelector(".words_rotating_span");
-  const coverElement = document.querySelector(".cover");
-  const navbar = document.querySelector(".navbar");
+  let hasnavbarloaded = sessionStorage.getItem("navbarloaded");
 
   cursor.style.boxShadow = "none";
 
@@ -19,10 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
     threshold: 0.5,
   }).observe(subContent3);
 
+  if (hasnavbarloaded === "true") {
+    handleNavbarIntersection();
+  }
+});
+
+function handleNavbarIntersection() {
+  const navbar = document.querySelector(".navbar");
+  const coverElement = document.querySelector(".cover");
+
   function handleIntersection2(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("hey");
         navbar.style.opacity = "0";
         navbar.style.visibility = "hidden";
       } else {
@@ -36,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     threshold: 0.5,
   });
   observer.observe(coverElement);
-});
+}
 
 function addListeners(scrollBtn) {
   const buttons_blue = document.querySelectorAll(".button_blue");
