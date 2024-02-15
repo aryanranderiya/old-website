@@ -370,17 +370,20 @@ function hoverDevices(mockups) {
       controlPause.style.opacity = "1";
       controlPlay.style.opacity = "0";
       iconsMainReplay.style.opacity = "0";
+      iconsMainReplay.style.visibility = "hidden";
     } else if (video.ended) {
       cursortext.innerHTML = 'Restart<br><i class="fa-solid fa-repeat"></i>';
       controlPause.style.opacity = "0";
       controlPlay.style.opacity = "0";
       iconsMainReplay.style.opacity = "1";
+      iconsMainReplay.style.visibility = "visible";
       video.style.opacity = "0.3";
       video.style.filter = "grayscale(100%)";
     } else {
       cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
       controlPause.style.opacity = "0";
       controlPlay.style.opacity = "1";
+      iconsMainReplay.style.visibility = "hidden";
       playback_icons_main.style.display = "";
     }
   };
@@ -401,6 +404,7 @@ function playPauseVideo(video) {
   controlPlay.style.opacity = isPaused ? "0" : "1";
   controlPause.style.opacity = isPaused ? "1" : "0";
   iconsMainReplay.style.opacity = "0";
+  iconsMainReplay.style.visibility = "hidden";
   progressBar.style.backgroundColor = isPaused ? "white" : "#4d4d4d";
 }
 
