@@ -1,3 +1,11 @@
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+  dataLayer.push(arguments);
+}
+gtag("js", new Date());
+
+gtag("config", "G-S3XP36W3P9");
+
 const cursorGlowDiv2 = document.querySelector(".cursor_glow_div_two");
 const cursoriconwave = document.getElementById("cursoriconwave");
 const scrollBtn = document.querySelector(".scroll_btn");
