@@ -21,14 +21,11 @@
 
 
   <!--! CSS -->
+  <!-- <link rel="preload" href="./fonts/Dirtyline 36daysoftype 2022.woff2" crossorigin="anonymous" as="font" -->
+  <!-- type="font/woff2"> -->
+  <!-- <link rel="preload" href="./fonts/IllusionSerif-Regular.woff2" crossorigin="anonymous" as="font" type="font/woff2"> -->
+
   <link defer rel='stylesheet' type='text/css' href='css/index.css'>
-  <link rel='stylesheet' type='text/css' href='css/buttons.css'>
-  <link rel='stylesheet' type='text/css' href='css/cursor.css'>
-  <link rel='stylesheet' type='text/css' href='css/rotating_text.css'>
-  <link rel='stylesheet' type='text/css' href='css/animated_gradient_cursormovement.css'>
-  <link rel='stylesheet' type='text/css' href='css/materialSymbolsOutlined.css'>
-  <script defer src="https://kit.fontawesome.com/2fafe620ef.js" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"></script>
 
 </head>
 
@@ -37,10 +34,6 @@
 
     <div class="welcoming">
       <div class="words" id="text_change">
-        <!-- <span class="words_rotating_span" id="main_hello_world">
-          <text id="hello">hELLO,&nbsp;</text>
-          <text id="world">World!</text>
-        </span> -->
         <span class="words_rotating_span">Bonjour le Monde!</span>
         <span class="words_rotating_span">Ciao, Mondo!</span>
         <span class="words_rotating_span">Olá, Mundo!</span>
@@ -92,11 +85,11 @@
         <span class="material-symbols-rounded " id="cursoricon2">arrow_downward</span>
         <span class="material-symbols-rounded" id="cursoricon3">open_in_new</span>
         <i class="fa-regular fa-comments" id="cursoricon4"></i>
-        <img src="media/icons/ios_icon_point_top.webp" id="cursoricon5">
-        <img src="media/icons/ios_icon_handwave.webp" id="cursoriconwave">
-        <img src="media/icons/ios_icon_idea.webp" id="cursoriconidea">
-        <img src="media/icons/ios_icon_laptop.webp" id="cursoriconlaptop">
-        <img src="media/icons/ios_icon_pallette.webp" id="cursoriconpallette">
+        <img src="media/icons/ios_icon_point_top.webp" id="cursoricon5" alt="Cursor Icon">
+        <img src="media/icons/ios_icon_handwave.webp" id="cursoriconwave" alt="Cursor Icon">
+        <img src="media/icons/ios_icon_idea.webp" id="cursoriconidea" alt="Cursor Icon">
+        <img src="media/icons/ios_icon_laptop.webp" id="cursoriconlaptop" alt="Cursor Icon">
+        <img src="media/icons/ios_icon_pallette.webp" id="cursoriconpallette" alt="Cursor Icon">
       </div>
 
       <div class="titles center-content">
@@ -245,7 +238,7 @@
         <canvas id="ontop-gradient"></canvas>
         <canvas id="gradient-canvas"></canvas>
 
-        <img src="media/snapchat_laptop_wave.png" alt="" class="snapchat_sticker">
+        <img src="media/snapchat_laptop_wave.webp" alt="Snapchat Sticker" class="snapchat_sticker" width="257px">
 
         <div class="buttons">
           <a href="DesignProjects" target="_blank" aria-label="Link to View Software Projects">
@@ -270,19 +263,19 @@
         </div>
 
         <div class="socials">
-          <a href="https://www.linkedin.com/in/aryanranderiya" target="_blank">
+          <a href="https://www.linkedin.com/in/aryanranderiya" target="_blank" aria-label="LinkedIn Profile">
             <i class="fa-brands fa-linkedin socials_icon"></i></a>
 
-          <a href="https://www.github.com/aryanranderiya" target="_blank">
+          <a href="https://www.github.com/aryanranderiya" target="_blank" aria-label="Github Profile">
             <i class="fa-brands fa-github socials_icon"></i></a>
 
-          <a href="https://www.behance.net/aryanranderiya" target="_blank">
+          <a href="https://www.behance.net/aryanranderiya" target="_blank" aria-label="Behance Profile">
             <i class="fa-brands fa-behance socials_icon"></i></a>
 
-          <a href="https://www.twitter.com/aryanranderiya" target="_blank">
+          <a href="https://www.twitter.com/aryanranderiya" target="_blank" aria-label="Twitter Profile">
             <i class="fa-brands fa-twitter socials_icon"></i></a>
 
-          <a href="https://www.instagram.com/aryanranderiya" target="_blank">
+          <a href="https://www.instagram.com/aryanranderiya" target="_blank" aria-label="Instagram Profile">
             <i class="fa-brands fa-instagram instagram-icon socials_icon"></i></a>
         </div>
       </div>
@@ -296,13 +289,18 @@
   <footer id="footerContainer" class="footerContainer section"></footer>
 
   <!--! Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link defer rel='stylesheet' type='text/css' href='css/cursor.css'>
+  <link defer rel='stylesheet' type='text/css' href='css/buttons.css'>
+  <link defer rel='stylesheet' type='text/css' href='css/materialSymbolsOutlined.css'>
   <script defer type="module" src="js/index.js"></script>
+  <script src="js/cursor.js"></script>
   <script src="js/navbar.js"></script>
   <script src="js/footer.js"></script>
-  <script src="js/cursor.js"></script>
   <script src="js/animated_gradient_cursormovement.js"></script>
   <script type="module" src="js/index_applygradient.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://kit.fontawesome.com/2fafe620ef.js" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"></script>
 
   <script type="application/ld+json">
     {

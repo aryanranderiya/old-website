@@ -121,7 +121,7 @@
 @font-face {
   font-display: swap;
   font-family: PROXON;
-  src: url("../fonts/PROXON.ttf") format("truetype");
+  src: url("../fonts/PROXON.woff2") format("truetype");
 }
 
 #cursortext {
@@ -298,6 +298,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .cursor {
+    opacity: 0;
+  }
+
   .cursor_glow_three {
     width: 400px;
   }

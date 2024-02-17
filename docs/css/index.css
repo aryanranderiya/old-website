@@ -1,3 +1,44 @@
+@font-face {
+  font-display: swap;
+  font-family: DirtyLine;
+  src: url("../fonts/Dirtyline 36daysoftype 2022.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: IllusionSerif;
+  src: url("../fonts/IllusionSerif-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* @font-face {
+  font-display: swap;
+  font-family: "DirtyLine";
+  src: url("../fonts/Dirtyline 36daysoftype 2022.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+} */
+
+/* @font-face {
+  font-display: optional;
+  font-family: TimesDisplay;
+  src: url("../fonts/times.woff2") format("woff2");
+} */
+
+/* @font-face {
+  font-display: optional;
+  font-family: TimesBD;
+  src: url("../fonts/timesbd.woff2") format("woff2");
+} */
+/* 
+@font-face {
+  font-display: optional;
+  font-family: TimesI;
+  src: url("../fonts/timesi.woff2") format("woff2");
+} */
+
 html,
 body {
   margin: 0;
@@ -54,11 +95,6 @@ header {
   background-color: #000000 !important;
 }
 
-@font-face {
-  font-display: swap;
-  font-family: Akira;
-  src: url("../fonts/Akira.ttf") format("truetype");
-}
 .welcoming {
   position: fixed;
   width: 100%;
@@ -580,11 +616,6 @@ h6 {
     height: 1000px !important;
   }
 
-  .words_rotating_span {
-    font-size: 50px;
-    margin-bottom: 1px;
-  }
-
   #gradient-canvas {
     border-radius: 2em;
   }
@@ -616,39 +647,6 @@ h6 {
     font-size: 2em;
   }
 }
-@font-face {
-  font-display: swap;
-  font-family: IllusionSerif;
-  src: url("../fonts/IllusionSerif-Regular.ttf") format("truetype"),
-    url("../fonts/IllusionSerif-Regular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
-}
-
-@font-face {
-  font-display: swap;
-  font-family: TimesDisplay;
-  src: url("../fonts/times.ttf") format("truetype");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: TimesBD;
-  src: url("../fonts/timesbd.ttf") format("truetype");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: TimesI;
-  src: url("../fonts/timesi.ttf") format("truetype");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: TimesBI;
-  src: url("../fonts/timesbi.ttf") format("truetype");
-}
 
 .custom-shape-divider-top-1707225707 .shape-fill {
   fill: black;
@@ -675,4 +673,97 @@ h6 {
 
 .snapchat_sticker {
   height: 40%;
+}
+
+/* !Rotating Text */
+
+#text_change {
+  color: white;
+  font-size: clamp(2em, 10vw, 10em);
+}
+
+.words {
+  overflow: hidden;
+  height: 1em;
+}
+
+.words_rotating_span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  color: white;
+  animation: spin_words 2.5s ease-out forwards;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+#hello {
+  font-family: DirtyLine;
+}
+
+#world {
+  font-family: DirtyLine;
+}
+
+#main_hello_world {
+  display: flex;
+}
+
+@keyframes spin_words {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1900%);
+  }
+}
+
+.progress-loader-helloworld {
+  margin-top: 5em;
+  width: 20%;
+  background: rgba(236, 236, 238, 0.253);
+  height: 3px;
+  border-radius: 7px;
+}
+
+.progress-helloworld {
+  content: "";
+  width: 0%;
+  height: 3px;
+  border-radius: 7px;
+  background: rgb(255, 255, 255);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: width 3s ease-in-out;
+  animation: progress_bar_loading 2.5s ease-in-out forwards;
+}
+
+@keyframes progress_bar_loading {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* !Responsive */
+@media screen and (max-width: 600px) {
+  .progress-loader-helloworld {
+    margin-top: 40px;
+  }
+
+  .words {
+    height: 1em;
+  }
+}
+
+.animated_cursormovement_canvas {
+  z-index: 20;
+  filter: blur(100px);
 }

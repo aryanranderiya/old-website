@@ -15,11 +15,14 @@
     <meta property="og:url" content="https://www.aryanranderiya.com/Resume">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/media/ss_Resume.webp">
-    <link rel='stylesheet' type='text/css' href='css/cursor.css'>
+
     <link rel='stylesheet' type='text/css' href='css/resume.css'>
     <link rel='stylesheet' type='text/css' href='css/preloader.css'>
-    <link rel='stylesheet' type='text/css' href='css/navbar.css'>
-    <link rel='stylesheet' type='text/css' href='css/buttons.css'>
+
+    <link defer rel='stylesheet' type='text/css' href='css/cursor.css'>
+    <link defer rel='stylesheet' type='text/css' href='css/navbar.css'>
+    <link defer rel='stylesheet' type='text/css' href='css/buttons.css'>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
@@ -55,9 +58,9 @@
     <header id="navbarContainer"></header>
 
     <!--! Custom Cursor -->
-
     <div class="cursor">
         <h1 id="cursortext">Languages</h1>
+        <h1 id="cursortext2">0%</h1>
         <span class="material-symbols-rounded " id="cursoricon1">
             arrow_forward
         </span>
@@ -68,23 +71,33 @@
             open_in_new
         </span>
         <i class="fa-regular fa-comments" id="cursoricon4"></i>
-        <img src="media/icons/ios_icon_point_top.webp" id="cursoricon5">
-        <img src="media/icons/ios_icon_handwave.webp" id="cursoriconwave">
-        <img src="media/icons/ios_icon_idea.webp" id="cursoriconidea">
-        <img src="media/icons/ios_icon_laptop.webp" id="cursoriconlaptop">
-        <img src="media/icons/ios_icon_pallette.webp" id="cursoriconpallette">
-
+        <img alt="Cursor Icon" src="media/icons/ios_icon_point_top.webp" id="cursoricon5">
+        <img alt="Cursor Icon" src="media/icons/ios_icon_handwave.webp" id="cursoriconwave">
+        <img alt="Cursor Icon" src="media/icons/ios_icon_idea.webp" id="cursoriconidea">
+        <img alt="Cursor Icon" src="media/icons/ios_icon_laptop.webp" id="cursoriconlaptop">
+        <img alt="Cursor Icon" src="media/icons/ios_icon_pallette.webp" id="cursoriconpallette">
     </div>
-
 
     <!--! Section 1 -->
     <section class="section1">
         <div class="titlediv">
             <h1 class="title">My Resume</h1>
-            <h6 class="subtitle">Last Updated 1st Feb 2024</h6>
+            <span class="subtitle">Last Updated 1st Feb 2024</span>
         </div>
         <div class="subcontent1">
-            <img src="media/Resume.webp" class="resume_image">
+            <!-- <img src="media/Resume.webp" class="resume_image" alt="Resume Image"> -->
+            <img sizes="(max-width: 2484px) 100vw, 2484px" srcset="
+            ./media/Resume/Resume_hk1ptl_c_scale,w_460.webp 460w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_685.webp 685w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_938.webp 938w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_1140.webp 1140w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_1343.webp 1343w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_1548.webp 1548w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_1746.webp 1746w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_1954.webp 1954w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_2210.webp 2210w,
+            ./media/Resume/Resume_hk1ptl_c_scale,w_2484.webp 2484w"
+                src="./media/Resume/Resume_hk1ptl_c_scale,w_2484.webp" class="resume_image" alt="Resume Image">
             <!-- <div class="pdf_container">
                 <embed src="media/Resume.pdf#zoom=175" class="resume_image" />
             </div> -->

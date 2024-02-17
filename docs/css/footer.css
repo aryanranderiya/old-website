@@ -4,7 +4,13 @@ body {
 
 @font-face {
   font-family: Helvs;
-  src: url("../fonts/Helvetica.ttf") format("truetype");
+  src: url("../fonts/Helvetica.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Akira;
+  src: url("../fonts/Akira.woff2") format("woff2");
 }
 
 h1,
@@ -298,13 +304,6 @@ footer {
   flex: auto;
   flex-direction: row;
 }
-
-@font-face {
-  font-display: swap;
-  font-family: Akira;
-  src: url("../fonts/Akira.ttf") format("truetype");
-}
-
 .marquee__part {
   display: flex;
   align-items: center;

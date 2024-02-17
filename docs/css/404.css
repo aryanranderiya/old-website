@@ -14,7 +14,7 @@ body {
 @font-face {
   font-display: swap;
   font-family: Helvs;
-  src: url("../fonts/Helvetica.ttf") format("truetype");
+  src: url("../fonts/Helvetica.woff2") format("woff2");
 }
 
 .content {
@@ -59,4 +59,9 @@ body {
   .fourzerofour {
     margin: 25% 0 0 0;
   }
+}
+
+.animated_cursormovement_canvas {
+  z-index: 20;
+  filter: blur(100px);
 }

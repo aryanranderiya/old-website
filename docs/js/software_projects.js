@@ -163,7 +163,7 @@ function processDataAndHidePreloader(snapshot) {
     var banner_image_URL = projectDetails.banner_image_URL;
 
     if (banner_image_URL == undefined)
-      banner_image_URL = "/docs/media/bg_aryan_swirl.jpg";
+      banner_image_URL = "/docs/media/bg_aryan_swirl.webp";
 
     var projectTechStack_values = projectTechStack.trim().split(",");
 
@@ -182,14 +182,14 @@ function processDataAndHidePreloader(snapshot) {
     card.innerHTML = `
       <div class="card-content">
           <div class="card-image-div" >
-            <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.jpg" data-src="${banner_image_URL}">
+            <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.jpg" data-src="${banner_image_URL}" alt="Project Card Image">
             </img>
           </div>
           <div class="card-info-wrapper">
               <div class="card-info">
                   <div class="card-info-title">
-                      <h3 class="card-title">${projectTitle}</h3>
-                      <h6 class="card-type"><i>${projectType}</i></h6>
+                      <span class="card-title">${projectTitle}</span>
+                      <span class="card-type"><i>${projectType}</i></span>
 
                       <div class="card-tech-stack">
                       ${projectTechStack_values
@@ -202,7 +202,7 @@ function processDataAndHidePreloader(snapshot) {
                         .join(" ")}
                       </div>
                   </div>
-                  <h4 class="card-desc">${projectDesc}<h4>
+                  <span class="card-desc">${projectDesc}<span>
               </div>
           </div>
           <div class="buttons">
