@@ -1,5 +1,5 @@
 @font-face {
-  font-display: swap;
+  /* font-display: swap; */
   font-family: DirtyLine;
   src: url("../fonts/Dirtyline 36daysoftype 2022.woff2") format("woff2");
 }
@@ -684,7 +684,7 @@ h6 {
 
 .words {
   overflow: hidden;
-  height: 1em;
+  height: 1.4em;
 }
 
 .words_rotating_span {
@@ -723,7 +723,7 @@ h6 {
 }
 
 .progress-loader-helloworld {
-  margin-top: 5em;
+  margin-top: 2%;
   width: 20%;
   background: rgba(236, 236, 238, 0.253);
   height: 3px;
@@ -755,11 +755,7 @@ h6 {
 /* !Responsive */
 @media screen and (max-width: 600px) {
   .progress-loader-helloworld {
-    margin-top: 40px;
-  }
-
-  .words {
-    height: 1em;
+    margin-top: 5%;
   }
 }
 
