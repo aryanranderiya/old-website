@@ -19,7 +19,7 @@ async function loadNavbar() {
         lastScrollTop = scrollTop;
       });
 
-      handleMenuOpening(items, navbar_menu);
+      handleMenuOpening(items, navbar_menu, navbar);
       addHoverImage(items);
       addMouseListeners(navbar_menu);
       setActiveLink(items);
@@ -153,7 +153,7 @@ function addHoverImage(items) {
   });
 }
 
-function handleMenuOpening(items, navbar_menu) {
+function handleMenuOpening(items, navbar_menu, navbar) {
   const body = document.querySelector("body");
   const checkbox = document.getElementById("hamburgerCheckbox");
 
@@ -169,6 +169,10 @@ function handleMenuOpening(items, navbar_menu) {
   checkbox.addEventListener("click", function () {
     //! Show the Menu when checked
     if (this.checked) {
+      setTimeout(() => {
+        removeClass(navbar, "hide");
+      }, 1);
+      addClass(navbar, "show");
       addClass(navbar_menu, "show");
       body.style.overflow = "hidden";
       items.forEach((item, index) =>
