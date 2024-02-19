@@ -198,6 +198,7 @@ footer {
 .div_email:hover .mail_text,
 .social:hover .social_icon,
 .page_link:hover .page_icon {
+  transition: color 0.2s ease;
   color: #00bbff !important;
 }
 
