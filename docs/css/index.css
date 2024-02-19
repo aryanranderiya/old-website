@@ -672,7 +672,8 @@ h6 {
 }
 
 .snapchat_sticker {
-  height: 40%;
+  aspect-ratio: initial;
+  width: 30%;
 }
 
 /* !Rotating Text */
