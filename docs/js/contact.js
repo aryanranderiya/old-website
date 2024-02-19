@@ -12,9 +12,12 @@ const inputs = document.querySelectorAll(".form_input");
 const button_primary = document.querySelector(".button_primary");
 const form = document.getElementById("form");
 
-window.onload = function () {
-  form.reset();
-};
+window.addEventListener("pageshow", function (event) {
+  var page = event.target;
+  if (page === window || page === document) {
+    form.reset();
+  }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   cursorGlow();
