@@ -149,7 +149,7 @@ footer {
 .google_icon {
   color: white;
   font-size: clamp(4em, 15vw, 9em) !important;
-  font-weight: bolder;
+  font-weight: bolder !important;
   transition: font-size 0.2s ease, transform 0.4s ease;
   -webkit-transition: font-size 0.2s ease, transform 0.4s ease;
 }

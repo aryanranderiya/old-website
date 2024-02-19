@@ -10,11 +10,15 @@ const cursoricon5 = document.querySelector("#cursoricon5");
 const cursoricontyping = document.querySelector("#cursoricontyping");
 const inputs = document.querySelectorAll(".form_input");
 const button_primary = document.querySelector(".button_primary");
+const form = document.getElementById("form");
+
+window.onload = function () {
+  form.reset();
+};
 
 document.addEventListener("DOMContentLoaded", function () {
   cursorGlow();
   addHoverListeners();
-  // changeMarqueeDirection();
   largeNameHover();
 });
 
@@ -118,8 +122,6 @@ function addHoverListeners() {
   });
 }
 
-// function changeMarqueeDirection() {}
-
 // ! change marquee direction on scroll
 let currentScroll = window.pageYOffset;
 let isScrollingDown = true;
@@ -207,15 +209,6 @@ const observer1 = new IntersectionObserver(handleIntersection, {
 });
 
 observer1.observe(title_div);
-
-function formSubmit() {
-  document.getElementById("form").submit();
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const successParam = urlParams.get("success");
-  if (successParam == "true")
-    alert("Thank you for Contacting me! I will get back to you ASAP! :)");
-}
 
 function addClass(element, className) {
   element.classList.add(className);

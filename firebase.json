@@ -42,6 +42,26 @@
         "source": "/SpotifyTools",
         "destination": "https://aryanranderiya.com/Project.html?id=3_project_Spotify_Tools_1705162766118",
         "type": 301
+      },
+      {
+        "source": "/contact",
+        "destination": "/Contact",
+        "type": 301
+      },
+      {
+        "source": "/designprojects",
+        "destination": "/DesignProjects",
+        "type": 301
+      },
+      {
+        "source": "/softwareprojects",
+        "destination": "/SoftwareProjects",
+        "type": 301
+      },
+      {
+        "source": "/resume",
+        "destination": "/Resume",
+        "type": 301
       }
     ]
   }

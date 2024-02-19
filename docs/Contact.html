@@ -144,8 +144,12 @@
             <form action="https://api.web3forms.com/submit" method="POST" id="form">
 
                 <input type="hidden" name="access_key" value="10359aab-8f36-40fa-84c2-82fea18b7599">
-                <input type="hidden" name="redirect" value="https://aryanranderiya.com/Contact?success=true">
-                <input type="hidden" name="subject" value="[aryanranderiya.com] New Contact Form Submission Received">
+                <!-- <input type="hidden" name="redirect" value="https://aryanranderiya.com/Contact"> -->
+                <input type="hidden" name="from_name" value="aryanranderiya.com">
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+                <input type="hidden" name="subject" value="New Contact Form Submission Received!">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                 <div class="form_row">
                     <input type="text" name="name" id="form_name" class="form_input" placeholder="NAME" required>
@@ -153,12 +157,12 @@
                 </div>
                 <div class="form_row">
                     <textarea name="message" id="form_textarea" cols="200" rows="5" class="form_input"
-                        placeholder="MESSAGE"></textarea>
+                        placeholder="MESSAGE" required></textarea>
                 </div>
 
                 <div class="form_row" id="btn_captcha_row">
                     <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
-                    <button class="button_primary" onclick="formSubmit()" aria-label="Send Message">
+                    <button type="submit" class="button_primary" aria-label="Send Message">
                         SEND MESSAGE
                         <div class="icon primary_icon primaryiconother">
                             <i class="fa-solid fa-comments btn_icon_1"></i>
