@@ -171,7 +171,7 @@ function handleMenuOpening(items, navbar_menu, navbar) {
     if (this.checked) {
       setTimeout(() => {
         removeClass(navbar, "hide");
-      }, 1);
+      }, 20);
       addClass(navbar, "show");
       addClass(navbar_menu, "show");
       body.style.overflow = "hidden";
