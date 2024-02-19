@@ -12,6 +12,7 @@
   padding-right: 3.3em;
   padding-left: 1.2em;
   border-radius: 15px;
+  /* border: none; */
 }
 
 .button_primary .icon,
@@ -37,6 +38,9 @@
 }
 
 .button_primary {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
   background: white;
   color: black;
   font-weight: 500;

@@ -22,15 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
   largeNameHover();
 });
 
-function cursorGlow() {
-  const cursor_glow = document.querySelector(".cursor_glow_div");
-
-  document.addEventListener("mousemove", (e) => {
-    cursor_glow.style.left = e.clientX + "px";
-    cursor_glow.style.top = e.clientY + "px";
-  });
-}
-
 function addHoverListeners() {
   const marquee = document.querySelector(".marquee");
   const footer_bottom_name = document.querySelector(".footer_bottom_name");
