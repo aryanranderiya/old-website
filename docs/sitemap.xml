@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+      xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+
+
+<url>
+  <loc>https://aryanranderiya.com/</loc>
+  <lastmod>2024-02-22T14:56:14+00:00</lastmod>
+  <priority>1.00</priority>
+   <image:image>
+    <image:loc>https://aryanranderiya.com/media/Website-Homepage.png</image:loc>
+    <image:title>Aryan Randeriya Portfolio Homepage</image:title>
+  </image:image>
+</url>
+<url>
+  <loc>https://aryanranderiya.com/DesignProjects</loc>
+  <lastmod>2024-02-22T14:56:14+00:00</lastmod>
+  <priority>0.80</priority>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/ss_DesignProjects.webp</image:loc>
+    <image:title>Aryan Randeriya Portfolio Design Projects</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Porsche.webp</image:loc>
+    <image:title> Apparel Design: Porsche</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Interstellar.webp</image:loc>
+    <image:title> Apparel Design: Interstellar</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Kanye.webp</image:loc>
+    <image:title> Apparel Design: Kanye West</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Future1.webp</image:loc>
+    <image:title> Apparel Design: Future 1</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20BlueRose.webp</image:loc>
+    <image:title> Apparel Design: Blue Rose</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Japan.webp</image:loc>
+    <image:title> Apparel Design: Japan</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20MiH.webp</image:loc>
+    <image:title> Apparel Design: Make It Happen</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Future2.webp</image:loc>
+    <image:title> Apparel Design: Future 2</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20InterstellarOld.webp</image:loc>
+    <image:title> Apparel Design: Interstellar 2</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Dragon.webp</image:loc>
+    <image:title> Apparel Design: Dragon</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Nuclear.webp</image:loc>
+    <image:title> Apparel Design: Nuclear</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Spiderverse.webp</image:loc>
+    <image:title> Apparel Design: Spiderverse</image:title>
+  </image:image>
+
+</url>
+<url>
+  <loc>https://aryanranderiya.com/SoftwareProjects</loc>
+  <lastmod>2024-02-22T14:56:14+00:00</lastmod>
+  <priority>0.80</priority>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/ss_SoftwareProjects.webp</image:loc>
+    <image:title>Aryan Randeriya Portfolio Software Projects</image:title>
+  </image:image>
+</url>
+<url>
+  <loc>https://aryanranderiya.com/Contact</loc>
+  <lastmod>2024-02-22T14:56:14+00:00</lastmod>
+  <priority>0.70</priority>
+    <image:image>
+    <image:loc>https://aryanranderiya.com/media/ss_Contact.webp</image:loc>
+    <image:title>Aryan Randeriya Portfolio Software Projects</image:title>
+  </image:image>
+</url>
+<url>
+  <loc>https://aryanranderiya.com/Resume</loc>
+  <lastmod>2024-02-22T14:56:14+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+
+</urlset>
