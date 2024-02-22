@@ -67,6 +67,26 @@
         "source": "/success",
         "destination": "/Success",
         "type": 301
+      },
+      {
+        "source": "/LinkedIn",
+        "destination": "https://www.linkedin.com/in/aryanranderiya/",
+        "type": 301
+      },
+      {
+        "source": "/linkedin",
+        "destination": "https://www.linkedin.com/in/aryanranderiya/",
+        "type": 301
+      },
+      {
+        "source": "/Github",
+        "destination": "https://github.com/aryanranderiya",
+        "type": 301
+      },
+      {
+        "source": "/github",
+        "destination": "https://github.com/aryanranderiya",
+        "type": 301
       }
     ]
   }
