@@ -12,6 +12,7 @@ html {
 }
 
 @font-face {
+  font-display: swap;
   font-family: Helvs;
   src: url("../fonts/Helvetica.woff2") format("woff2");
 }
