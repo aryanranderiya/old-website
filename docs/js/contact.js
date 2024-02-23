@@ -11,6 +11,7 @@ const cursoricontyping = document.querySelector("#cursoricontyping");
 const inputs = document.querySelectorAll(".form_input");
 const button_primary = document.querySelector(".button_primary");
 const form = document.getElementById("form");
+const cursor_glow = document.querySelector(".cursor_glow_div");
 
 window.addEventListener("pageshow", function (event) {
   var page = event.target;
@@ -20,9 +21,13 @@ window.addEventListener("pageshow", function (event) {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  cursorGlow();
   addHoverListeners();
   largeNameHover();
+});
+
+document.addEventListener("mousemove", (e) => {
+  cursor_glow.style.left = e.clientX + "px";
+  cursor_glow.style.top = e.clientY + "px";
 });
 
 function addHoverListeners() {

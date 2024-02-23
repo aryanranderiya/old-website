@@ -368,10 +368,9 @@ header {
 /* ! Scroll button */
 
 .scroll_btn {
-  /* bottom: 5%; */
-  margin-bottom: 5%;
-  width: 50px;
+  margin-bottom: 2%;
   height: 50px;
+  aspect-ratio: 1/1;
   border-radius: 50%;
   border: none;
   display: flex;
@@ -382,18 +381,18 @@ header {
   outline-style: solid;
   background-color: rgb(255, 255, 255, 0.1);
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-  transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.3s;
+  -webkit-transition-duration: 0.4s;
   overflow: hidden;
   position: sticky;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-  -webkit-transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out, width 10s ease-in-out;
+  -webkit-transition: opacity 1.5s ease-in-out, width 10s ease-in-out;
 }
 
 .svgArrow {
-  transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   align-items: center;
   fill: white;
 }
@@ -401,17 +400,16 @@ header {
 .scroll_btn:hover {
   width: 140px;
   border-radius: 50px;
-  transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   background-color: rgb(0, 0, 0, 0.2);
-
   align-items: center;
 }
 
 .scroll_btn:hover .svgArrow {
   width: 20px;
-  transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   transform: translateY(200%);
 }
 
@@ -420,19 +418,20 @@ header {
   bottom: -20px;
   content: "View Website";
   color: white;
-  transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
   font-size: 0px;
   background: transparent;
   font-family: Timesi;
+  font-style: italic;
 }
 
 .scroll_btn:hover::before {
   font-size: 18px;
   opacity: 1;
   bottom: unset;
-  transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
 }
 
 .grid_container {
@@ -577,8 +576,8 @@ h6 {
   .button_primary .icon,
   .button_blue .icon,
   .button_secondary .icon {
-    height: auto;
-    width: auto;
+    height: auto !important;
+    width: auto !important;
   }
 
   hr {
@@ -599,6 +598,8 @@ h6 {
   .button_blue {
     margin-top: 10px !important;
     width: 100% !important;
+    padding-right: 2.3em !important;
+    border-radius: 9px !important;
   }
 
   .button_blue .icon {
@@ -671,7 +672,7 @@ h6 {
 
 .snapchat_sticker {
   aspect-ratio: initial;
-  width: clamp(10%, 50vw, 17%);
+  width: clamp(100px, 50vw, 300px);
 }
 
 /* !Rotating Text */

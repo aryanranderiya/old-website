@@ -39,8 +39,9 @@ onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 document.addEventListener("DOMContentLoaded", function () {
   const cursor_glow = document.querySelector(".cursor_glow_div");
 
-  document.addEventListener("mousemove", function (e) {
-    cursor_glow.style.transform = `translate3d(calc(${e.clientX}px), calc(${e.clientY}px), 0)`;
+  document.addEventListener("mousemove", (e) => {
+    cursor_glow.style.left = e.clientX + "px";
+    cursor_glow.style.top = e.clientY + "px";
   });
 
   modifyScrollBar();
