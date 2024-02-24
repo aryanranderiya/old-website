@@ -196,6 +196,9 @@ header {
 .aryan_randeriya_container {
   overflow: hidden;
 }
+.my_portfolio_container {
+  height: 50%;
+}
 
 .my_portfolio.show,
 .aryan_randeriya.show {
