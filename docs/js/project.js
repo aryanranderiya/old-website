@@ -128,21 +128,17 @@ function setTechStack(p_techStack) {
   var projectTechStack_values = p_techStack.trim().split(",");
 
   const replacements = {
-    Python: "python fa-brands",
-    Android: "android fa-brands",
-    Java: "java fa-brands",
-    HTML: "HTML5 fa-brands",
-    CSS: "CSS3-alt fa-brands",
-    JavaScript: "js fa-brands",
-    SQL: "database fa-solid ",
+    HTML: "HTML5-plain colored",
+    CSS: "CSS3-plain colored",
+    Express: "express-original",
+    Flask: "flask-original",
   };
 
   tech_stack.innerHTML = `${projectTechStack_values
     .map((element) => {
-      const replacedElement = replacements[element] || element;
-
-      return `<div class="tech_stack_item">
-        <i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
+      const replacedElement =
+        replacements[element] || element + "-plain colored";
+      return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
     })
     .join(" ")}`;
 }

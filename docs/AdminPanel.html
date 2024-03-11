@@ -24,8 +24,7 @@
         </div>
 
         <span>Project Title</span>
-        <input class="input" type="text" id="project_title" placeholder="Enter Project Title" required=""
-            value="testtitle">
+        <input class="input" type="text" id="project_title" placeholder="Enter Project Title" required="">
 
         <label>
             <span><br>Application Type: Web/Mobile/Desktop Application<br><br></span>
@@ -44,26 +43,48 @@
 
         <label>
             <span><br>Tech Stack<br><br></span>
-            <input type="checkbox" id="tech_stack1" name="tech_stack" value="Python" checked>
+            <input type="checkbox" id="tech_stack1" name="tech_stack" value="Python">
             <label for="tech_stack1">Python</label><br>
+
             <input type="checkbox" id="tech_stack2" name="tech_stack" value="Android">
             <label for="tech_stack2">Android</label><br>
+
             <input type="checkbox" id="tech_stack3" name="tech_stack" value="Java">
             <label for="tech_stack3">Java</label><br>
+
             <input type="checkbox" id="tech_stack4" name="tech_stack" value="HTML">
             <label for="tech_stack4">HTML5</label><br>
+
             <input type="checkbox" id="tech_stack5" name="tech_stack" value="CSS">
             <label for="tech_stack5">CSS3</label><br>
+
             <input type="checkbox" id="tech_stack6" name="tech_stack" value="JavaScript">
             <label for="tech_stack6">JavaScript</label><br>
+
             <input type="checkbox" id="tech_stack7" name="tech_stack" value="SQL">
             <label for="tech_stack7">SQL</label><br>
+
+            <input type="checkbox" id="tech_stack8" name="tech_stack" value="MongoDB">
+            <label for="tech_stack8">MongoDB</label><br>
+
+            <input type="checkbox" id="tech_stack9" name="tech_stack" value="Express">
+            <label for="tech_stack9">Express</label><br>
+
+            <input type="checkbox" id="tech_stack10" name="tech_stack" value="React">
+            <label for="tech_stack10">React</label><br>
+
+            <input type="checkbox" id="tech_stack11" name="tech_stack" value="Nodejs">
+            <label for="tech_stack11">Node.js</label><br>
+
+            <input type="checkbox" id="tech_stack12" name="tech_stack" value="Flask">
+            <label for="tech_stack12">Flask</label><br>
+
         </label>
 
         <br>
 
         <label for="opensource">Open Source Project
-            <input type="checkbox" id="opensource" name="opensource" value="opensource" checked>
+            <input type="checkbox" id="opensource" name="opensource" value="opensource">
         </label>
 
         <label>
@@ -80,16 +101,15 @@
         <br>
 
         <span>Project Description</span>
-        <input class="input" id="project_description" type="text" placeholder="Enter Description" required=""
-            value="testdesc">
+        <input class="input" id="project_description" type="text" placeholder="Enter Description" required="">
         <br>
 
         <span>Github Link</span>
-        <input class="input" id="githubLink" type="text" placeholder="Enter Github Link" value="testgithub">
+        <input class="input" id="githubLink" type="url" placeholder="Enter Github Link">
         <br>
 
         <label>Project Demo:</label>
-        <input type="file" id="file-selector-demo" accept=".jpg, .jpeg, .png, .mp4" required>
+        <input type="file" id="file-selector-demo" accept=".jpg, .jpeg, .png, .mp4">
         <br>
 
         <label>Project Banner Image:</label>
@@ -97,7 +117,11 @@
         <br>
 
         <label>Project Documentation: (MarkDown)</label>
-        <input type="file" id="file-selector-doc" accept=".md" required>
+        <input type="file" id="file-selector-doc" accept=".md">
+        <br>
+
+        <label>Try Project Link</label>
+        <input class="input" id="tryProjectLink" type="url" placeholder="Enter Project Link">
         <br>
 
         <button class="submit">Create New Project</button>

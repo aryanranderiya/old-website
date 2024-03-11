@@ -167,15 +167,11 @@ function processDataAndHidePreloader(snapshot) {
       banner_image_URL = "/docs/media/bg_aryan_swirl.webp";
 
     var projectTechStack_values = projectTechStack.trim().split(",");
-
     const replacements = {
-      Python: "python fa-brands",
-      Android: "android fa-brands",
-      Java: "java fa-brands",
-      HTML: "HTML5 fa-brands",
-      CSS: "CSS3-alt fa-brands",
-      JavaScript: "js fa-brands",
-      SQL: "database fa-solid ",
+      HTML: "HTML5-plain colored",
+      CSS: "CSS3-plain colored",
+      Express: "express-original",
+      Flask: "flask-original",
     };
 
     const card = document.createElement("div");
@@ -196,9 +192,8 @@ function processDataAndHidePreloader(snapshot) {
                       ${projectTechStack_values
                         .map((element) => {
                           const replacedElement =
-                            replacements[element] || element;
-
-                          return `<i class="tech_stack_icon fa-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text>`;
+                            replacements[element] || element + "-plain colored";
+                          return `<i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text>`;
                         })
                         .join(" ")}
                       </div>

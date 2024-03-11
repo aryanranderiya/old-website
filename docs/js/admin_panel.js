@@ -1,4 +1,4 @@
-window.location.replace("https://aryanranderiya.com/404");
+// window.location.replace("https://aryanranderiya.com/404");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 
@@ -48,6 +48,9 @@ async function insertFetchData() {
   const fileSelectorBanner = document.getElementById("file-selector-image");
   const fileSelectorDemo = document.getElementById("file-selector-demo");
   const fileSelectorDoc = document.getElementById("file-selector-doc");
+  const tryProjectLink =
+    document.getElementById("tryProjectLink").value || null;
+
   const fileBanner = fileSelectorBanner.files[0];
   const fileDemo = fileSelectorDemo.files[0];
   const fileDocumentation = fileSelectorDoc.files[0];
@@ -104,6 +107,7 @@ async function insertFetchData() {
                 documentation_URL: documentURL,
                 github_link: githubLink,
                 demo_type: demo_type,
+                tryProjectLink: tryProjectLink,
               };
 
               console.log(`
