@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cursoriconwarning = document.getElementById("cursoriconwarning");
   const cursoricon5 = document.getElementById("cursoricon5");
   const content = document.querySelector(".content");
+  const hyperlink = document.querySelector(".hyperlink");
   const button = document.getElementById("btn1");
 
   content.addEventListener("mouseover", () => {
@@ -23,6 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   button.addEventListener("mouseout", () => {
+    cursoriconwarning.style.opacity = "1";
+    cursoricon5.style.transform = "scale(1.3)";
+    cursoricon5.style.opacity = "0";
+    removeClass(cursoricon5, "active");
+  });
+
+  hyperlink.addEventListener("mouseover", () => {
+    cursoriconwarning.style.opacity = "0";
+    cursoricon5.style.opacity = "1";
+    addClass(cursoricon5, "active");
+  });
+
+  hyperlink.addEventListener("mouseout", () => {
     cursoriconwarning.style.opacity = "1";
     cursoricon5.style.transform = "scale(1.3)";
     cursoricon5.style.opacity = "0";
