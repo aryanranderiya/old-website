@@ -16,7 +16,7 @@ section {
 
 .title {
   margin-left: 5%;
-overflow: hidden;
+  overflow: hidden;
   width: fit-content;
   margin-top: clamp(-2.5%, 1vw, 10%);
 }
@@ -41,7 +41,7 @@ overflow: hidden;
   transform: translateY(0%);
 }
 
-.logos_tools {
+.logos-slide > * {
   height: 100px;
 }
 
@@ -50,18 +50,12 @@ overflow: hidden;
 .logos {
   align-self: center;
   justify-self: center;
-  /* width: 100%; */
   margin: 5% 6%;
   white-space: nowrap;
   position: relative;
-  filter: grayscale(100%) brightness(20%);
   transition: filter 0.2s ease;
   -webkit-transition: filter 0.2s ease;
   overflow: hidden;
-}
-
-.logos:hover {
-  filter: grayscale(0%) brightness(100%);
 }
 
 .logos-slide {
@@ -158,7 +152,7 @@ overflow: hidden;
   font-size: 7em;
   font-family: Helvs;
   color: white;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .github_logos {
@@ -203,10 +197,10 @@ overflow: hidden;
   margin-top: 2%;
   width: 400px;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(10, 10, 10, 0.8);
   border-radius: 15px;
   padding: 20px;
-  outline: solid 1px grey;
+  border: 2px solid rgb(48, 48, 48);
   display: flex;
   flex-direction: column;
 }
@@ -252,10 +246,9 @@ overflow: hidden;
   height: 100%;
   border-color: grey;
   border-style: solid;
-  border-width: 1px;
-  padding: 2px 12px;
+  border-width: 2px;
+  padding: 1px 12px;
   font-size: 0.9em;
-  font-weight: bold;
   display: flex;
   align-content: center;
   flex-wrap: wrap;
@@ -274,7 +267,7 @@ overflow: hidden;
 .github_description {
   color: lightgray;
   font-weight: normal;
-  font-size: 1em;
+  font-size: 0.92em;
   height: auto;
   max-height: 140px;
   overflow: hidden;
@@ -303,10 +296,6 @@ overflow: hidden;
   gap: 3px;
 }
 
-.github_topic {
-  margin-top: 1%;
-}
-
 .github_bottom_div_part {
   display: flex;
   flex-direction: row;
@@ -316,17 +305,21 @@ overflow: hidden;
 
 .github_topic {
   width: auto;
-  font-size: 0.9em;
-  padding: 5px 14px;
+  font-size: 0.85em;
+  padding: 4px 10px;
   border-radius: 50px;
-  background-color: #111d2f;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgb(48, 48, 48);
   color: #2dadf7;
-  font-weight: bold;
   font-family: Helvs;
+  margin-top: 1%;
+  font-weight: bold;
 }
 
 .github_topic:hover {
-  background-color: #1faaeb;
+  border: 2px solid rgb(48, 48, 48);
+  border-color: #00bbff;
+  background-color: #00bbff;
   color: white;
 }
 
@@ -354,7 +347,7 @@ overflow: hidden;
   width: 100%;
   margin-left: auto;
   appearance: none;
-  background-color: #fafbfc;
+  background-color: rgb(230, 230, 230);
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,

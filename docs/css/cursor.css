@@ -132,7 +132,7 @@
   position: fixed;
   text-align: center;
   font-family: PROXON;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: uppercase;
   text-shadow: 0px 0px 50px black;
 }

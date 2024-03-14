@@ -1,6 +1,5 @@
 fetchGithubData();
 
-const cursortext = document.getElementById("cursortext");
 const cursortext2 = document.getElementById("cursortext2");
 const title_Heading = document.querySelector(".title-heading");
 
@@ -134,23 +133,31 @@ function addMouseHovers() {
 
   // Logos Cursor Title
 
-  logos.addEventListener("mouseover", () => {
-    logos.style.filter = "brightness(100%) grayscale(0%)";
-    cursor.style.transform = "scale(8)";
-    cursor.style.boxShadow = "none";
-    cursor.style.outlineWidth = "0px";
-    addClass(cursortext, "active");
-    addClass(cursor, "partially_transparent2");
-  });
+  logos.addEventListener(
+    "mouseover",
+    () => {
+      // logos.style.filter = "brightness(100%) grayscale(0%)";
+      cursor.style.transform = "scale(8)";
+      cursor.style.boxShadow = "none";
+      cursor.style.outlineWidth = "0px";
+      addClass(cursortext, "active");
+      addClass(cursor, "partially_transparent2");
+    },
+    { passive: true }
+  );
 
-  logos.addEventListener("mouseout", () => {
-    logos.style.filter = "brightness(30%)  grayscale(100%)";
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    removeClass(cursortext, "active");
-    removeClass(cursor, "partially_transparent2");
-  });
+  logos.addEventListener(
+    "mouseout",
+    () => {
+      // logos.style.filter = "brightness(30%)  grayscale(100%)";
+      cursor.style.transform = "none";
+      cursor.style.mixBlendMode = "normal";
+      cursor.style.boxShadow = "0px 0px 30px white";
+      removeClass(cursortext, "active");
+      removeClass(cursor, "partially_transparent2");
+    },
+    { passive: true }
+  );
 }
 
 function processDataAndHidePreloader(snapshot) {
@@ -158,7 +165,9 @@ function processDataAndHidePreloader(snapshot) {
     const projectDetails = childSnapshot.val();
     const projectId = childSnapshot.key;
     const projectTitle = projectDetails.project_title;
-    const projectDesc = projectDetails.project_description;
+    const projectDesc =
+      projectDetails.project_short_description ||
+      projectDetails.project_description;
     const projectType = projectDetails.project_type;
     var projectTechStack = projectDetails.project_tech_stack;
     var banner_image_URL = projectDetails.banner_image_URL;
@@ -201,16 +210,16 @@ function processDataAndHidePreloader(snapshot) {
                   <span class="card-desc">${projectDesc}<span>
               </div>
           </div>
-          <div class="buttons">
-            <a href="Project.html?id=${projectId}" >
-            <button class="button_secondary" aria-label="View Project Info">
-                View Project
-                <div class="icon">
-                    <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
-                </div>
-              </button>
-            </a>
-          </div>
+      </div>
+      <div class="buttons">
+        <a href="Project.html?id=${projectId}" >
+        <button class="button_secondary" aria-label="View Project Info">
+            View Project
+            <div class="icon">
+                <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
+            </div>
+          </button>
+        </a>
       </div>
     `;
 
@@ -243,7 +252,7 @@ function hoverOnCards() {
   allCard.forEach((card) => {
     card.addEventListener("mouseover", () => {
       removeClass(card, "grayscale");
-      logos.style.filter = "brightness(100%) grayscale(0%)";
+      // logos.style.filter = "brightness(100%) grayscale(0%)";
 
       allCard.forEach((otherCard) => {
         if (otherCard !== card) addClass(otherCard, "grayscale");
@@ -251,7 +260,7 @@ function hoverOnCards() {
     });
 
     card.addEventListener("mouseout", () => {
-      logos.style.filter = "brightness(20%) grayscale(100%)";
+      // logos.style.filter = "brightness(20%) grayscale(100%)";
       allCard.forEach((otherCard) => removeClass(otherCard, "grayscale"));
     });
   });

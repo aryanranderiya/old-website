@@ -1,5 +1,6 @@
 :root {
-  --card-color: black;
+  --card-color: rgba(10, 10, 10, 0.8);
+  /* --card-color: red; */
 }
 
 * {
@@ -20,18 +21,19 @@
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--card-color);
   border-radius: 1em;
   display: flex;
   max-width: 400px;
   min-width: 400px;
-  max-height: 490px;
-  min-height: 490px;
+  max-height: 460px;
+  min-height: 460px;
   flex-direction: column;
   position: relative;
   transition: filter 0.2s ease, opacity 0.5s ease;
   -webkit-transition: filter 0.2s ease, opacity 0.5s ease;
   filter: grayscale(0%) brightness(100%);
+  border: 1px solid rgb(48, 48, 48);
 }
 
 .card.grayscale {
@@ -90,7 +92,7 @@
   opacity: 1;
 }
 
-.card::before,
+/* .card::before,
 .card::after {
   border-radius: inherit;
   content: "";
@@ -100,9 +102,9 @@
   position: absolute;
   top: 0px;
   width: 100%;
-}
+} */
 
-.card::before {
+/* .card::before {
   background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 1),
@@ -118,15 +120,13 @@
     transparent 40%
   );
   z-index: 1;
-}
+} */
 
 .card > .card-content {
-  background-color: var(--card-color);
   border-radius: inherit;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  inset: 1px;
   padding: 10px;
   position: absolute;
 }
@@ -142,6 +142,7 @@
   background-color: #00bbff;
   background-image: url(../media//bg_aryan_swirl.webp);
   background-size: contain;
+  border: 2px solid rgb(48, 48, 48);
 }
 
 .card-image-div {
@@ -228,18 +229,20 @@
   font-family: Helvetica;
   display: inline-flex;
   align-items: center;
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   z-index: 1001;
-  margin-bottom: 5%;
+  /* margin-bottom: 5%; */
   width: 100%;
   justify-content: center;
-  box-shadow: 0px -25px 25px 3px black;
+  bottom: -1px;
+  position: absolute;
 }
 
 .button_secondary {
-  max-width: 370px;
-  min-width: 370px;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: -1em;
+  max-width: 403px;
+  min-width: 403px;
+  margin: 0;
+  background: rgba(10, 10, 10, 0.8);
+  border: 2px solid rgb(48, 48, 48);
+  box-shadow: 0px -25px 30px 0px black;
 }
