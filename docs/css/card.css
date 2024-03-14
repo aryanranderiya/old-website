@@ -25,8 +25,8 @@
   display: flex;
   max-width: 400px;
   min-width: 400px;
-  max-height: 560px;
-  min-height: 560px;
+  max-height: 490px;
+  min-height: 490px;
   flex-direction: column;
   position: relative;
   transition: filter 0.2s ease, opacity 0.5s ease;
@@ -69,14 +69,17 @@
 }
 
 .card-desc {
+  overflow: hidden;
   color: rgb(160, 160, 160);
   margin: 0.5em 0 0 0.5em;
-  font-size: 0.9em;
-  line-height: 1.5rem;
-  height: 8em;
+  font-size: 0.94em;
+  line-height: 1.4rem;
+  height: 10em;
+  width: 100%;
   text-overflow: ellipsis;
   font-family: Helvs;
   font-weight: normal;
+  display: flex;
 }
 
 .card_button_icon {
@@ -132,10 +135,13 @@
   height: auto;
   width: 100%;
   max-height: 150px;
+  min-height: 150px;
   overflow: hidden;
   border-radius: 1em;
   object-fit: cover;
   background-color: #00bbff;
+  background-image: url(../media//bg_aryan_swirl.webp);
+  background-size: contain;
 }
 
 .card-image-div {
@@ -227,6 +233,7 @@
   margin-bottom: 5%;
   width: 100%;
   justify-content: center;
+  box-shadow: 0px -25px 25px 3px black;
 }
 
 .button_secondary {

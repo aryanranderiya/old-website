@@ -254,13 +254,13 @@ function handleIntersection1(entries, observer) {
 function handleIntersectionImage(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      mockupLaptopImage.style.opacity = "1";
+      // mockupLaptopImage.style.opacity = "1";
       entry.target.style.opacity = "1";
       entry.target.style.filter = "grayscale(0%)";
     } else {
       progressBar.style.backgroundColor = "#4d4d4d";
       iconMain.style.visibility = "hidden";
-      mockupLaptopImage.style.opacity = "0.3";
+      // mockupLaptopImage.style.opacity = "0.3";
       entry.target.style.opacity = "0.3";
       entry.target.style.filter = "grayscale(100%)";
     }

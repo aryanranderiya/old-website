@@ -121,14 +121,16 @@ section {
 
 .container-laptop {
   top: 15.5%;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
 .mockup_media_laptop {
-  max-height: 525px;
-  min-height: 525px;
-  height: 100%;
+  /* max-height: 525px; */
+  /* min-height: 525px; */
+  min-width: 940px;
+  max-width: 940px;
+  width: 100%;
   z-index: 1;
 }
 
