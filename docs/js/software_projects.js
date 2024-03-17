@@ -54,10 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function searchCards() {
   const search_project = document.querySelector("#search_project");
   const cards = document.querySelectorAll(".card");
-  const filter_btn = document.querySelector(".filter");
+  // const filter_btn = document.querySelector(".filter");
   const filter_btn_svg = document.querySelector(".filter svg");
   const dropdown = document.querySelector(".dropdown");
-  search_project.addEventListener("keyup", (e) => {
+
+  search_project.addEventListener("input", (e) => {
     var searchText = e.target.value.trim().toLowerCase();
 
     cards.forEach((card) => {
@@ -90,37 +91,40 @@ function searchCards() {
     });
   });
 
-  filter_btn.addEventListener("click", () => {
-    filter_btn.classList.toggle("clicked");
-    filter_btn_svg.classList.toggle("clicked");
-    dropdown.classList.toggle("open");
-  });
+  // filter_btn.addEventListener("click", () => {
+  //   filter_btn.classList.toggle("clicked");
+  //   filter_btn_svg.classList.toggle("clicked");
+  //   dropdown.classList.toggle("open");
+  // });
 }
 
-function filterCards() {
-  const checkboxes = document.querySelectorAll(".filter_checkbox");
-  const cards = document.querySelectorAll(".card");
+// function filterCards() {
+//   const checkboxes = document.querySelectorAll(".filter_checkbox");
+//   const cards = document.querySelectorAll(".card");
 
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", function () {
-      cards.forEach((card) => {
-        if (this.checked) {
-          const tech_stack = card.querySelectorAll(".card-tech-stack");
-          tech_stack.forEach((element) => {
-            var techstack = element.textContent.trim().toLowerCase();
+//   checkboxes.forEach((checkbox) => {
+//     checkbox.addEventListener("change", function () {
+//       const checkedValues = Array.from(checkboxes)
+//         .filter((cb) => cb.checked)
+//         .map((cb) => cb.value.toLowerCase());
 
-            if (!techstack.includes(checkbox.value.toLowerCase())) {
-              card.style.display = "none";
-            } else {
-              card.style.display = "flex";
-            }
-          });
-        } else {
-        }
-      });
-    });
-  });
-}
+//       cards.forEach((card) => {
+//         const tech_stack = card.querySelectorAll(".card-tech-stack");
+//         let displayCard = false;
+
+//         tech_stack.forEach((element) => {
+//           var techstack = element.textContent.trim().toLowerCase();
+
+//           if (checkedValues.some((value) => techstack.includes(value))) {
+//             displayCard = true;
+//           }
+//         });
+
+//         card.style.display = displayCard ? "flex" : "none";
+//       });
+//     });
+//   });
+// }
 
 function modifyScrollBar() {
   const scrollbarContainerParent = document.querySelector(
@@ -314,20 +318,20 @@ function processDataAndHidePreloader(snapshot) {
 
   removePreloader();
 
-  const dropdown = document.querySelector(".dropdown");
-  const tech_stack = document.querySelectorAll(".card-tech-stack text");
-  tech_stack.forEach((element) => {
-    var value = element.textContent.trim();
-    if (!document.getElementById(value)) {
-      var label = document.createElement("label");
-      addClass(label, "dropdown_label");
-      label.innerHTML = `<input type="checkbox" value="${value}" id="${value}" class="filter_checkbox">${value}</label>`;
-      dropdown.appendChild(label);
-    }
-  });
+  // const dropdown = document.querySelector(".dropdown");
+  // const tech_stack = document.querySelectorAll(".card-tech-stack text");
+  // tech_stack.forEach((element) => {
+  //   var value = element.textContent.trim();
+  //   if (!document.getElementById(value)) {
+  //     var label = document.createElement("label");
+  //     addClass(label, "dropdown_label");
+  //     label.innerHTML = `<input type="checkbox" value="${value}" id="${value}" class="filter_checkbox">${value}</label>`;
+  //     dropdown.appendChild(label);
+  //   }
+  // });
 
   searchCards();
-  filterCards();
+  // filterCards();
 }
 
 function hoverOnCards() {
@@ -337,7 +341,6 @@ function hoverOnCards() {
   allCard.forEach((card) => {
     card.addEventListener("mouseover", () => {
       removeClass(card, "grayscale");
-      // logos.style.filter = "brightness(100%) grayscale(0%)";
 
       allCard.forEach((otherCard) => {
         if (otherCard !== card) addClass(otherCard, "grayscale");
@@ -345,7 +348,6 @@ function hoverOnCards() {
     });
 
     card.addEventListener("mouseout", () => {
-      // logos.style.filter = "brightness(20%) grayscale(100%)";
       allCard.forEach((otherCard) => removeClass(otherCard, "grayscale"));
     });
   });
