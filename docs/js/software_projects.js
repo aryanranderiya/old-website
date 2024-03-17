@@ -48,9 +48,79 @@ document.addEventListener("DOMContentLoaded", function () {
   addMouseHovers();
   marqueeScrollAnimation();
   document.addEventListener("scroll", updateProgressBarandBtn);
-
   // ! END OF DOMCONTENTLOADED
 });
+
+function searchCards() {
+  const search_project = document.querySelector("#search_project");
+  const cards = document.querySelectorAll(".card");
+  const filter_btn = document.querySelector(".filter");
+  const filter_btn_svg = document.querySelector(".filter svg");
+  const dropdown = document.querySelector(".dropdown");
+  search_project.addEventListener("keyup", (e) => {
+    var searchText = e.target.value.trim().toLowerCase();
+
+    cards.forEach((card) => {
+      const title = card.querySelector(".card-title").textContent.toLowerCase();
+
+      const type = card.querySelector(".card-type").textContent.toLowerCase();
+
+      const tech_stack = card.querySelectorAll(".card-tech-stack");
+
+      const description = card
+        .querySelector(".card-desc")
+        .textContent.toLowerCase();
+
+      tech_stack.forEach((element) => {
+        var techstack = element.textContent.toLowerCase();
+
+        if (
+          !title.includes(searchText) &&
+          !description.includes(searchText) &&
+          !type.includes(searchText) &&
+          !techstack.includes(searchText)
+        ) {
+          card.style.display = "none";
+        } else {
+          card.style.display = "flex";
+        }
+
+        if (searchText === "") card.style.display = "flex";
+      });
+    });
+  });
+
+  filter_btn.addEventListener("click", () => {
+    filter_btn.classList.toggle("clicked");
+    filter_btn_svg.classList.toggle("clicked");
+    dropdown.classList.toggle("open");
+  });
+}
+
+function filterCards() {
+  const checkboxes = document.querySelectorAll(".filter_checkbox");
+  const cards = document.querySelectorAll(".card");
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      cards.forEach((card) => {
+        if (this.checked) {
+          const tech_stack = card.querySelectorAll(".card-tech-stack");
+          tech_stack.forEach((element) => {
+            var techstack = element.textContent.trim().toLowerCase();
+
+            if (!techstack.includes(checkbox.value.toLowerCase())) {
+              card.style.display = "none";
+            } else {
+              card.style.display = "flex";
+            }
+          });
+        } else {
+        }
+      });
+    });
+  });
+}
 
 function modifyScrollBar() {
   const scrollbarContainerParent = document.querySelector(
@@ -243,6 +313,21 @@ function processDataAndHidePreloader(snapshot) {
   });
 
   removePreloader();
+
+  const dropdown = document.querySelector(".dropdown");
+  const tech_stack = document.querySelectorAll(".card-tech-stack text");
+  tech_stack.forEach((element) => {
+    var value = element.textContent.trim();
+    if (!document.getElementById(value)) {
+      var label = document.createElement("label");
+      addClass(label, "dropdown_label");
+      label.innerHTML = `<input type="checkbox" value="${value}" id="${value}" class="filter_checkbox">${value}</label>`;
+      dropdown.appendChild(label);
+    }
+  });
+
+  searchCards();
+  filterCards();
 }
 
 function hoverOnCards() {
@@ -333,7 +418,7 @@ async function fetchGithubData() {
   const github_cards = document.querySelector(".github_cards");
 
   const response = await fetch(
-    "https://api.github.com/users/aryanranderiya/repos?sort=updated"
+    "https://api.github.com/users/aryanranderiya/repos?sort=pushed"
   );
   const repoArray = await response.json();
 
