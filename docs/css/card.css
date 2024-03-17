@@ -15,7 +15,6 @@
   margin-left: 5%;
   margin-bottom: 5em;
   position: relative;
-  margin-top: 5em;
   z-index: 1;
   cursor: none;
 }
@@ -253,7 +252,7 @@
   justify-content: flex-end;
   flex-direction: column;
   align-items: flex-end;
-  margin: 0% 5%;
+  margin: 3% 5%;
 }
 
 .input-icons {
@@ -275,14 +274,14 @@
 
 .input_icon {
   width: auto;
-  margin: 1%;
-  font-size: 1.3em;
+  margin: clamp(1%, 100%, 5%);
+  font-size: clamp(0.5em, 100%, 1.3em);
 }
 
 #search_project {
   background: none;
   border: none;
-  font-size: 1em;
+  font-size: clamp(0.5em, 80%, 1em);
   height: 100%;
   width: 100%;
   text-align: left;
