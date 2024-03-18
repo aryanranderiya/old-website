@@ -195,9 +195,13 @@
 .link > span {
   color: white;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
+  .input_icon {
+    margin: 5% !important;
+  }
+
   .cards {
-    margin-left: 4% !important;
+    margin-left: 7% !important;
   }
 
   .card {
@@ -206,7 +210,7 @@
   }
 
   .button_secondary {
-    min-width: 340px !important;
+    min-width: 360px !important;
   }
 
   .card-title {
@@ -219,6 +223,11 @@
 
   .card-desc {
     font-size: 0.9em;
+  }
+
+  .card-image {
+    min-height: 130px;
+    max-height: 130px;
   }
 }
 
@@ -274,14 +283,14 @@
 
 .input_icon {
   width: auto;
-  margin: clamp(1%, 100%, 5%);
+  margin: 1%;
   font-size: clamp(0.5em, 100%, 1.3em);
 }
 
 #search_project {
   background: none;
   border: none;
-  font-size: clamp(0.5em, 80%, 1em);
+  font-size: clamp(0.5em, 100%, 1em);
   height: 100%;
   width: 100%;
   text-align: left;
