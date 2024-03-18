@@ -187,10 +187,7 @@ a {
 .item.active:hover,
 .item.item.active:hover .menu_item {
   color: #00bbff;
-  /* font-family: TimesDisplay;
-   */
   font-family: "Times New Roman", Times, serif;
-
   transition: color 0.3s ease, transform 0.2s ease;
   -webkit-transition: color 0.3s ease, transform 0.2s ease;
 }
