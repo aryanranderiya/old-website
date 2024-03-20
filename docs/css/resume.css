@@ -47,8 +47,8 @@ body {
 }
 
 .resume_pdf {
-  width: 90%;
-  aspect-ratio: 7.5/10.8;
+  width: 65%;
+  aspect-ratio: 9/13;
   margin: 5%;
 }
 .pdf_container {
