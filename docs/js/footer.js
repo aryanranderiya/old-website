@@ -1,7 +1,289 @@
-function cursorTransformShadowBlend(e="none",o="0px 0px 30px white",t="normal"){cursor.style.transform=e,cursor.style.boxShadow=o,cursor.style.mixBlendMode=t}function addClass(e,o){e.classList.add(o)}function removeClass(e,o){e.classList.remove(o)}document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("footerContainer"),o=document.querySelector(".navbar");e?fetch("footer.html").then((e=>e.text())).then((t=>{e.innerHTML=t,e.style.cssText="";const r=document.querySelector(".footer1"),s=document.querySelector(".footer2"),n=document.querySelector("#letstalk"),a=document.getElementById("cursoricon4"),d=document.getElementById("cursoricon5"),l=document.querySelectorAll(".page_link"),c=document.querySelectorAll(".social"),i=document.querySelector(".google_icon"),u=document.querySelector(".footer_bottom_name"),m=document.querySelector(".div_email");c.forEach((e=>{e.addEventListener("mouseover",(function(){i.style.transform="rotate(360deg)"})),e.addEventListener("mouseout",(function(){i.style.transform="rotate(0)"}))})),r.addEventListener("mouseover",(()=>{cursorTransformShadowBlend("scale(8)","none"),cursor.style.outlineStyle="solid",cursor.style.outlineColor="white",cursor.style.outlineWidth="0.1px",addClass(cursor,"partially_transparent"),addClass(a,"active")})),r.addEventListener("mouseout",(()=>{cursor.style.outline="none",cursorTransformShadowBlend("none"),removeClass(cursor,"partially_transparent"),removeClass(a,"active")})),l.forEach((e=>{const o=e.querySelector(".icon");o.style.transition="all 0.1s ease",o.style.webkitTransition="all 0.1s ease",e.addEventListener("mouseover",(function(){o.style.fontSize="2em",i.style.transform="rotate(360deg)",setTimeout((()=>{o.style.fontSize="1.5em"}),150)})),e.addEventListener("mouseout",(function(){o.style.fontSize="1.5em",i.style.transform="rotate(0)"}))})),m.addEventListener("mouseover",(()=>{cursorTransformShadowBlend(void 0,"none"),addClass(cursor,"transparent"),addClass(d,"active")})),m.addEventListener("mouseout",(()=>{cursorTransformShadowBlend(),removeClass(cursor,"transparent"),removeClass(d,"active")})),s.addEventListener("mouseover",(()=>{cursorTransformShadowBlend(void 0,"none"),addClass(cursor,"transparent"),addClass(d,"active")})),s.addEventListener("mouseout",(()=>{cursorTransformShadowBlend(),removeClass(cursor,"transparent"),removeClass(d,"active")})),u.addEventListener("mouseover",(()=>{cursorTransformShadowBlend("scale(10)","none","difference"),addClass(a,"active")})),u.addEventListener("mouseout",(()=>{cursorTransformShadowBlend(),removeClass(a,"active")}));const f=document.querySelector(".marquee");f.addEventListener("mouseover",(()=>cursorTransformShadowBlend("scale(7)","none","difference"))),f.addEventListener("mouseout",(()=>cursorTransformShadowBlend()));
-//! Hover Animation on Aryan Randeriya Footer Text
-const v=document.querySelectorAll(".footer_bottom_name .bottom_name_container .word");v.forEach((e=>{const o=e.querySelectorAll("span");e.addEventListener("mouseover",(e=>{const t=e.target,r=Array.from(o).indexOf(t);o.forEach(((e,o)=>{let t=1;o===r?t=1.5:o!==r-1&&o!==r+1||(t=1.2),e.style.transform=`scaleY(${t})`}))})),e.addEventListener("mouseout",(()=>{o.forEach((e=>{e.style.transform="scaleY(1)"}))}))}));
-//! Fade out navbar when footer is visible
-let h=!1;function y(){l.forEach(((e,o)=>setTimeout((()=>addClass(e,"show")),100*o))),c.forEach(((e,o)=>setTimeout((()=>addClass(e,"show")),100*o))),v.forEach((e=>addClass(e,"show"))),addClass(n,"show"),addClass(m,"show"),document.querySelector(".footer_section").style.opacity="1"}function w(){l.forEach((e=>removeClass(e,"show"))),c.forEach((e=>removeClass(e,"show"))),v.forEach((e=>removeClass(e,"show"))),removeClass(n,"show"),removeClass(m,"show"),document.querySelector(".footer_section").style.opacity="0"}const E=window.location.href;if("aryanranderiya.com"===E||E.includes("index")||E.endsWith("/docs/")||E.endsWith("/docs/index")||E.endsWith("/docs/index.html")){new IntersectionObserver((function(e,t){e.forEach((e=>{e.isIntersecting?(y(),h&&addClass(o,"hide")):(w(),h&&removeClass(o,"hide"))})),"footerContainer"===e[0].target.id&&e[0].boundingClientRect.top>0&&(h=!0)}),{root:null,rootMargin:"0px",threshold:.4}).observe(e)}else{new IntersectionObserver((function(e,o){e.forEach((e=>{e.isIntersecting?y():w()}))}),{root:null,rootMargin:"0px",threshold:.4}).observe(e)}let C=window.pageYOffset,S=!0,p=gsap.to(".marquee__part",{xPercent:-100,repeat:-1,duration:3,ease:"linear"});gsap.set(".marquee__inner",{xPercent:-50}),window.addEventListener("wheel",(function(e){S=e.deltaY>0,gsap.to(p,{timeScale:S?1:-1}),C=window.pageYOffset}))}
-//! END OF "THEN"
-)):console.error("Element with ID 'footerContainer' not found.")}));
+document.addEventListener("DOMContentLoaded", function () {
+  const footerContainer = document.getElementById("footerContainer");
+  const navbar = document.querySelector(".navbar");
+
+  if (footerContainer) {
+    fetch("footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        footerContainer.innerHTML = data;
+        footerContainer.style.cssText = "";
+        const footer1 = document.querySelector(".footer1");
+        const footer2 = document.querySelector(".footer2");
+
+        const letstalk = document.querySelector("#letstalk");
+        const cursoricon4 = document.getElementById("cursoricon4");
+        const cursoricon5 = document.getElementById("cursoricon5");
+        const pageLinks = document.querySelectorAll(".page_link");
+        const allSocial = document.querySelectorAll(".social");
+        const googleIcon = document.querySelector(".google_icon");
+        const bottomName = document.querySelector(".footer_bottom_name");
+        const div_email = document.querySelector(".div_email");
+        const discord_click = document.querySelector(".discord_click");
+
+        allSocial.forEach((social) => {
+          social.addEventListener("mouseover", function () {
+            googleIcon.style.transform = "rotate(360deg)";
+          });
+
+          social.addEventListener("mouseout", function () {
+            googleIcon.style.transform = "rotate(0)";
+          });
+        });
+
+        footer1.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend("scale(8)", "none");
+          cursor.style.outlineStyle = "solid";
+          cursor.style.outlineColor = "white";
+          cursor.style.outlineWidth = "0.1px";
+          addClass(cursor, "partially_transparent");
+          addClass(cursoricon4, "active");
+        });
+
+        footer1.addEventListener("mouseout", () => {
+          cursor.style.outline = "none";
+          cursorTransformShadowBlend("none");
+          removeClass(cursor, "partially_transparent");
+          removeClass(cursoricon4, "active");
+        });
+
+        pageLinks.forEach((pageLink) => {
+          const pageLinkIcon = pageLink.querySelector(".icon");
+          pageLinkIcon.style.transition = "all 0.1s ease";
+          pageLinkIcon.style.webkitTransition = "all 0.1s ease";
+
+          pageLink.addEventListener("mouseover", function () {
+            pageLinkIcon.style.fontSize = "2em";
+            googleIcon.style.transform = "rotate(360deg)";
+
+            setTimeout(() => {
+              pageLinkIcon.style.fontSize = "1.5em";
+            }, 150);
+          });
+
+          pageLink.addEventListener("mouseout", function () {
+            pageLinkIcon.style.fontSize = "1.5em";
+            googleIcon.style.transform = "rotate(0)";
+          });
+        });
+
+        discord_click.addEventListener("click", () => {
+          navigator.clipboard.writeText("aryanranderiya");
+          alert(
+            'Copied username "aryanranderiya". \nFeel free to send me a request on Discord!'
+          );
+        });
+
+        div_email.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend(undefined, "none");
+          addClass(cursor, "transparent");
+          addClass(cursoricon5, "active");
+        });
+
+        div_email.addEventListener("mouseout", () => {
+          cursorTransformShadowBlend();
+          removeClass(cursor, "transparent");
+          removeClass(cursoricon5, "active");
+        });
+
+        footer2.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend(undefined, "none");
+          addClass(cursor, "transparent");
+          addClass(cursoricon5, "active");
+        });
+
+        footer2.addEventListener("mouseout", () => {
+          cursorTransformShadowBlend();
+          removeClass(cursor, "transparent");
+          removeClass(cursoricon5, "active");
+        });
+
+        bottomName.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend("scale(10)", "none", "difference");
+          addClass(cursoricon4, "active");
+        });
+
+        bottomName.addEventListener("mouseout", () => {
+          cursorTransformShadowBlend();
+          removeClass(cursoricon4, "active");
+        });
+
+        //  ! Marquee
+
+        const marquee = document.querySelector(".marquee");
+
+        marquee.addEventListener("mouseover", () =>
+          cursorTransformShadowBlend("scale(7)", "none", "difference")
+        );
+
+        marquee.addEventListener("mouseout", () =>
+          cursorTransformShadowBlend()
+        );
+
+        //! Hover Animation on Aryan Randeriya Footer Text
+
+        const defaultScale = 1;
+        const maxScale = 1.5;
+        const neighborScale = 1.2;
+
+        const wordContainers = document.querySelectorAll(
+          ".footer_bottom_name .bottom_name_container .word"
+        );
+
+        wordContainers.forEach((wordContainer) => {
+          const spans = wordContainer.querySelectorAll("span");
+
+          wordContainer.addEventListener("mouseover", (e) => {
+            const target = e.target;
+            const index = Array.from(spans).indexOf(target);
+
+            spans.forEach((span, i) => {
+              let scale = defaultScale;
+
+              if (i === index) {
+                scale = maxScale;
+              } else if (i === index - 1 || i === index + 1) {
+                scale = neighborScale;
+              }
+
+              span.style.transform = `scaleY(${scale})`;
+            });
+          });
+
+          wordContainer.addEventListener("mouseout", () => {
+            spans.forEach((span) => {
+              span.style.transform = `scaleY(${defaultScale})`;
+            });
+          });
+        });
+
+        //! Fade out navbar when footer is visible
+        let footerIntersected = false;
+
+        function handleIntersection(entries, observer) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateFooterContent();
+              if (footerIntersected) addClass(navbar, "hide");
+            } else {
+              animateOutFooterContent();
+
+              if (footerIntersected) removeClass(navbar, "hide");
+            }
+          });
+
+          if (
+            entries[0].target.id === "footerContainer" &&
+            entries[0].boundingClientRect.top > 0
+          ) {
+            footerIntersected = true;
+          }
+        }
+
+        function animateFooterContent() {
+          pageLinks.forEach((link, index) =>
+            setTimeout(() => addClass(link, "show"), 100 * index)
+          );
+
+          allSocial.forEach((social, index) =>
+            setTimeout(() => addClass(social, "show"), 100 * index)
+          );
+          wordContainers.forEach((container) => addClass(container, "show"));
+          addClass(letstalk, "show");
+          addClass(div_email, "show");
+          document.querySelector(".footer_section").style.opacity = "1";
+        }
+
+        function animateOutFooterContent() {
+          pageLinks.forEach((link) => removeClass(link, "show"));
+          allSocial.forEach((social) => removeClass(social, "show"));
+          wordContainers.forEach((container) => removeClass(container, "show"));
+          removeClass(letstalk, "show");
+          removeClass(div_email, "show");
+          document.querySelector(".footer_section").style.opacity = "0";
+        }
+
+        function handleIntersectionTwo(entries, observer) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) animateFooterContent();
+            else animateOutFooterContent();
+          });
+        }
+
+        const currentURL = window.location.href;
+
+        const isIndexPage =
+          currentURL === "aryanranderiya.com" ||
+          currentURL.includes("index") ||
+          currentURL.endsWith("/docs/") ||
+          currentURL.endsWith("/docs/index") ||
+          currentURL.endsWith("/docs/index.html");
+
+        if (isIndexPage) {
+          const observer = new IntersectionObserver(handleIntersection, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.4,
+          });
+
+          observer.observe(footerContainer);
+        } else {
+          const observer = new IntersectionObserver(handleIntersectionTwo, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.4,
+          });
+
+          observer.observe(footerContainer);
+        }
+
+        // ! change marquee direction on scroll
+
+        let currentScroll = window.pageYOffset;
+        let isScrollingDown = true;
+
+        let tween = gsap.to(".marquee__part", {
+          xPercent: -100,
+          repeat: -1,
+          duration: 3,
+          ease: "linear",
+        });
+
+        gsap.set(".marquee__inner", { xPercent: -50 });
+
+        window.addEventListener("wheel", function (event) {
+          if (event.deltaY > 0) isScrollingDown = true;
+          else isScrollingDown = false;
+
+          gsap.to(tween, {
+            timeScale: isScrollingDown ? 1 : -1,
+          });
+
+          currentScroll = window.pageYOffset;
+        });
+
+        //! END OF "THEN"
+      });
+
+    // ! END
+  } else {
+    console.error("Element with ID 'footerContainer' not found.");
+  }
+});
+
+function cursorTransformShadowBlend(
+  param_transform = "none",
+  param_boxShadow = "0px 0px 30px white",
+  param_mixBlendMode = "normal"
+) {
+  cursor.style.transform = param_transform;
+  cursor.style.boxShadow = param_boxShadow;
+  cursor.style.mixBlendMode = param_mixBlendMode;
+}
+
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
+}

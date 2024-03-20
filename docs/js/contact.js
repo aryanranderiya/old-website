@@ -12,6 +12,14 @@ const inputs = document.querySelectorAll(".form_input");
 const button_primary = document.querySelector(".button_primary");
 const form = document.getElementById("form");
 const cursor_glow = document.querySelector(".cursor_glow_div");
+const discord_click = document.querySelector(".discord_click");
+
+discord_click.addEventListener("click", () => {
+  navigator.clipboard.writeText("aryanranderiya");
+  alert(
+    'Copied username "aryanranderiya". \nFeel free to send me a request on Discord!'
+  );
+});
 
 window.addEventListener("pageshow", function (event) {
   var page = event.target;

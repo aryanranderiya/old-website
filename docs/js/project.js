@@ -93,6 +93,8 @@ function setupDocumentation(p_documentationURL, pInfoText) {
         return response.text();
       })
       .then((textContent) => {
+        console.log(textContent);
+
         pInfoText.innerHTML = marked.parse(textContent);
       })
       .then(() => {

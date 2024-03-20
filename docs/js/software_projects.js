@@ -1,4 +1,7 @@
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
 fetchGithubData();
+githubReadme();
 
 const cursortext2 = document.getElementById("cursortext2");
 const title_Heading = document.querySelector(".title-heading");
@@ -414,6 +417,50 @@ function searchColor(langColorsArray, language) {
   for (const color in langColorsArray) {
     if (language === color) return langColorsArray[color].color;
   }
+}
+
+async function githubReadme() {
+  // const readmeResponse = await fetch("");
+
+  // if (readmeResponse.ok) {
+  //   const readmeJson = await readmeJson.json();
+
+  //   const readmeURL = readmeURL["download_url"];
+
+  //   console.log("URL", readmeURL);
+
+  //   const readmeText = await fetch(readmeURL);
+
+  //   console.log("TEXT", readmeText);
+
+  //   // pInfoText.innerHTML = marked.parse(textContent);
+  // } else {
+  //   console.error(readmeResponse.status);
+  // }
+
+  const github_readme = document.querySelector(".github_readme");
+
+  fetch("https://api.github.com/repos/aryanranderiya/aryanranderiya/readme")
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`);
+
+      return response.json();
+    })
+    .then((readmeJson) => {
+      return readmeJson["download_url"];
+    })
+    .then((URL) => {
+      fetch(URL)
+        .then((urlContentResponse) => {
+          return urlContentResponse.text();
+        })
+        .then((content) => (github_readme.innerHTML = marked.parse(content)))
+        .catch((error) => console.error(error));
+    })
+    .catch((error) => {
+      console.error("Fetch Documentation error:", error);
+    });
 }
 
 async function fetchGithubData() {

@@ -76,6 +76,7 @@ footer {
 }
 
 .footer2 {
+  margin-top: 2%;
   display: flex;
   justify-content: space-between;
 }
@@ -164,7 +165,6 @@ footer {
 .social_text,
 .page_text {
   font-size: 1.2em;
-  font-weight: bold;
 }
 
 .div_email {

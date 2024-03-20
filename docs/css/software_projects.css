@@ -405,3 +405,29 @@ section {
 .github_btn:-webkit-details-marker {
   display: none;
 }
+
+.github_readme {
+  display: flex;
+  padding: 5%;
+  gap: 1%;
+  margin: 5%;
+  color: white;
+  position: relative;
+  flex-direction: column;
+  background-color: rgba(10, 10, 10, 0.8);
+  border: 3px solid rgb(48, 48, 48);
+  border-radius: 1%;
+}
+
+.github_readme a {
+  color: #00bbff;
+}
+
+.github_readme img {
+  max-width: 320px;
+}
+
+.github_readme tr {
+  display: flex;
+  flex-wrap: wrap;
+}
