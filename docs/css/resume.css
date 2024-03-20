@@ -46,14 +46,10 @@ body {
   white-space: nowrap;
 }
 
-.resume_image {
-  width: 75%;
-  margin-top: 5%;
-  height: 100%;
-  z-index: 2;
-  aspect-ratio: initial;
-  pointer-events: all;
-  filter: grayscale(100%);
+.resume_pdf {
+  width: 90%;
+  aspect-ratio: 7.5/10.8;
+  margin: 5%;
 }
 .pdf_container {
   margin: 5% 0;

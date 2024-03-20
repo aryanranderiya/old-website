@@ -6,16 +6,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector(".download_button");
   const downloadresume_text = document.querySelector(".downloadresume_text");
   const svgIcon = document.querySelector(".svgIcon");
-  const resume_image = document.querySelector(".resume_image");
+  const resume_pdf = document.querySelector(".resume_pdf");
 
   var footerIntersectedFlag = false;
 
-  resume_image.addEventListener("mouseover", () => {
+  resume_pdf.addEventListener("mouseover", () => {
     cursor.style.background = "#00bbff";
     cursor.style.boxShadow = "0px 0px 30px #00bbff";
   });
 
-  resume_image.addEventListener("mouseout", () => {
+  resume_pdf.addEventListener("mouseout", () => {
     cursor.style.background = "";
     cursor.style.boxShadow = "0px 0px 30px white";
   });
