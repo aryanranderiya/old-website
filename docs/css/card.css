@@ -32,7 +32,7 @@
   transition: filter 0.2s ease, opacity 0.5s ease;
   -webkit-transition: filter 0.2s ease, opacity 0.5s ease;
   filter: grayscale(0%) brightness(100%);
-  border: 1px solid rgb(48, 48, 48);
+  border: 2px solid rgb(48, 48, 48);
 }
 
 .card.grayscale {
@@ -138,10 +138,9 @@
   overflow: hidden;
   border-radius: 1em;
   object-fit: cover;
-  background-color: #00bbff;
   background-image: url(../media//bg_aryan_swirl.webp);
   background-size: contain;
-  border: 2px solid rgb(48, 48, 48);
+  border: 3px solid rgb(48, 48, 48);
 }
 
 .card-image-div {
@@ -240,7 +239,7 @@
   z-index: 1001;
   width: 100%;
   justify-content: center;
-  bottom: -1px;
+  bottom: -2px;
   position: absolute;
 }
 
