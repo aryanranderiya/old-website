@@ -171,6 +171,7 @@ function addListeners(scrollBtn) {
 function handleAnimationSubcontent1() {
   const subcontent1 = document.querySelector(".subcontent1");
   const content1Titles = document.querySelectorAll(".content1_title");
+  const professional_image = document.querySelector(".professional_image");
 
   function subcontentIntersection(entries) {
     entries.forEach((entry) => {
@@ -178,7 +179,13 @@ function handleAnimationSubcontent1() {
         content1Titles.forEach((title, index) =>
           setTimeout(() => addClass(title, "show"), index * 150)
         );
-      } else content1Titles.forEach((title) => removeClass(title, "show"));
+        setTimeout(() => {
+          addClass(professional_image, "visible");
+        }, 300);
+      } else {
+        content1Titles.forEach((title) => removeClass(title, "show"));
+        removeClass(professional_image, "visible");
+      }
     });
   }
 

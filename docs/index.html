@@ -133,16 +133,27 @@
 
         <div class="subcontent1_text">
           <p class="content1_title" id="hey">Hey,</p>
-          <p class="content1_title" id="imaryan">I'm Aryan</p>
-          <p class="content1_title" id="description">— a <span id="span_designer">Designer</span>, <span
-              id="span_dev">Software
-              Developer</span>, & <span id="span_entre">Aspiring Entrepreneur</span> with a
-            Vision.
+          <p class="content1_title" id="imaryan">I'm Aryan!</p>
+          <p class="content1_title" id="description">
+            — a
+            <span id="span_dev">Software Developer</span>,
+            <span id="span_designer">Graphic Designer</span> &
+            <span id="span_entre"> Aspiring Entrepreneur</span>
+            with a Vision.
           </p>
         </div>
 
         <div class="professional_image_div">
-          <img src="./media/professional_photo.png" class="professional_image" alt="">
+          <!-- <img src="./media/professional_photo.webp" class="professional_image" alt="Aryan Randera"
+            title="Aryan Randeriya Professional Headshot" loading="eager"> -->
+
+          <picture>
+            <source srcset="./media/professional_photo.webp" type="image/webp">
+            <source srcset="./media/professional_photo.png" type="image/png">
+            <img src="./media/professional_photo.webp" class="professional_image" alt="Aryan Randera"
+              title="Aryan Randeriya Professional Headshot" loading="eager">
+          </picture>
+
         </div>
       </div>
 
