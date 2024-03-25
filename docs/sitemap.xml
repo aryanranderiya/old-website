@@ -9,11 +9,15 @@
 
 <url>
   <loc>https://aryanranderiya.com/</loc>
-  <lastmod>2024-02-22T14:56:14+00:00</lastmod>
+  <lastmod>2024-03-25T22:16:34+00:00</lastmod>
   <priority>1.00</priority>
    <image:image>
     <image:loc>https://aryanranderiya.com/media/Website-Homepage.png</image:loc>
     <image:title>Aryan Randeriya Portfolio Homepage</image:title>
+  </image:image>
+     <image:image>
+    <image:loc>https://aryanranderiya.com/media/professional_photo.png</image:loc>
+    <image:title>Aryan Randeriya Professional Photo</image:title>
   </image:image>
 </url>
 <url>
