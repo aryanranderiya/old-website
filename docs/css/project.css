@@ -128,7 +128,7 @@ section {
 .mockup_media_laptop {
   /* max-height: 525px; */
   /* min-height: 525px; */
-  min-width: 940px;
+  /* min-width: 940px; */
   max-width: 940px;
   width: 100%;
   z-index: 1;
