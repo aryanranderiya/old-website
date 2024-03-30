@@ -63,10 +63,25 @@
 .card-tech-stack {
   font-size: 0.9em;
   color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em;
 }
 
-.tech_stack_icon {
-  margin-right: 0.3%;
+.tech_stack_item {
+  border: solid 1px rgb(56, 56, 56);
+  background-color: var(--card-color);
+  display: flex;
+  border-radius: 100px;
+  padding: 0.7% 2%;
+  align-items: center;
+  gap: 5%;
+  transition: color 0.3s ease;
+}
+
+.tech_stack_item:hover {
+  background-color: rgb(56, 56, 56);
+  transition: color 0.3s ease;
 }
 
 .card-desc {
@@ -247,7 +262,7 @@
   max-width: 403px;
   min-width: 403px;
   margin: 0;
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(10, 10, 10, 1);
   border: 2px solid rgb(48, 48, 48);
   box-shadow: 0px -25px 30px 0px black;
 }
@@ -366,4 +381,23 @@
 
 .filter_checkbox {
   display: flex;
+}
+
+.project_type_select {
+  background-color: var(--card-color);
+  border: 2px solid rgb(48, 48, 48);
+  color: white;
+  border-radius: 100px;
+  padding: 0% 3%;
+  font-size: clamp(0.5em, 100%, 1em);
+  text-align: center;
+}
+
+option {
+  text-align: center;
+  background-color: var(--card-color);
+  color: white;
+  font-size: clamp(0.5em, 100%, 1em);
+  border: none;
+  outline: none;
 }

@@ -128,14 +128,14 @@ function setProjectTypeIcon(p_type) {
 
 function setTechStack(p_techStack) {
   var projectTechStack_values = p_techStack.trim().split(",");
-
   const replacements = {
     HTML: "HTML5-plain colored",
     CSS: "CSS3-plain colored",
     Express: "express-original",
     Flask: "flask-original",
+    Tailwind: "tailwindcss-original colored",
+    Vercel: "vercel-original",
   };
-
   tech_stack.innerHTML = `${projectTechStack_values
     .map((element) => {
       const replacedElement =
@@ -143,6 +143,31 @@ function setTechStack(p_techStack) {
       return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
     })
     .join(" ")}`;
+
+  const techStackItems = document.querySelectorAll(".tech_stack_item");
+
+  techStackItems.forEach((item) => {
+    const iconColor = window.getComputedStyle(item.firstElementChild).color;
+
+    item.addEventListener("mouseover", function () {
+      if (iconColor === "rgb(255, 255, 255)") {
+        this.style.backgroundColor = "rgb(255, 255, 255)";
+      } else {
+        this.style.backgroundColor = iconColor;
+      }
+
+      for (const child of this.children) {
+        child.style.color = "black";
+      }
+    });
+
+    item.addEventListener("mouseout", function () {
+      this.style.backgroundColor = "";
+      for (const child of item.children) {
+        child.style.color = "";
+      }
+    });
+  });
 }
 
 function setOthers(p_title, p_type, p_desc) {

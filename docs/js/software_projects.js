@@ -57,9 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function searchCards() {
   const search_project = document.querySelector("#search_project");
   const cards = document.querySelectorAll(".card");
-  // const filter_btn = document.querySelector(".filter");
-  const filter_btn_svg = document.querySelector(".filter svg");
-  const dropdown = document.querySelector(".dropdown");
 
   search_project.addEventListener("input", (e) => {
     var searchText = e.target.value.trim().toLowerCase();
@@ -93,41 +90,34 @@ function searchCards() {
       });
     });
   });
-
-  // filter_btn.addEventListener("click", () => {
-  //   filter_btn.classList.toggle("clicked");
-  //   filter_btn_svg.classList.toggle("clicked");
-  //   dropdown.classList.toggle("open");
-  // });
 }
 
-// function filterCards() {
-//   const checkboxes = document.querySelectorAll(".filter_checkbox");
-//   const cards = document.querySelectorAll(".card");
+function filterCards(select) {
+  const cards = document.querySelectorAll(".card");
 
-//   checkboxes.forEach((checkbox) => {
-//     checkbox.addEventListener("change", function () {
-//       const checkedValues = Array.from(checkboxes)
-//         .filter((cb) => cb.checked)
-//         .map((cb) => cb.value.toLowerCase());
+  select.addEventListener("change", () => {
+    cards.forEach((card) => {
+      if (select.value === "") {
+        console.log("empty");
+        card.style.display = "flex";
+        return;
+      }
 
-//       cards.forEach((card) => {
-//         const tech_stack = card.querySelectorAll(".card-tech-stack");
-//         let displayCard = false;
+      const tech_stack = card.querySelectorAll(".card-tech-stack");
+      let displayCard = false;
 
-//         tech_stack.forEach((element) => {
-//           var techstack = element.textContent.trim().toLowerCase();
+      tech_stack.forEach((element) => {
+        var techstack = element.textContent.trim().toLowerCase();
 
-//           if (checkedValues.some((value) => techstack.includes(value))) {
-//             displayCard = true;
-//           }
-//         });
+        if (techstack.includes(select.value.toLowerCase())) {
+          displayCard = true;
+        }
+      });
 
-//         card.style.display = displayCard ? "flex" : "none";
-//       });
-//     });
-//   });
-// }
+      card.style.display = displayCard ? "flex" : "none";
+    });
+  });
+}
 
 function modifyScrollBar() {
   const scrollbarContainerParent = document.querySelector(
@@ -213,7 +203,6 @@ function addMouseHovers() {
   logos.addEventListener(
     "mouseover",
     () => {
-      // logos.style.filter = "brightness(100%) grayscale(0%)";
       cursor.style.transform = "scale(8)";
       cursor.style.boxShadow = "none";
       cursor.style.outlineWidth = "0px";
@@ -226,7 +215,6 @@ function addMouseHovers() {
   logos.addEventListener(
     "mouseout",
     () => {
-      // logos.style.filter = "brightness(30%)  grayscale(100%)";
       cursor.style.transform = "none";
       cursor.style.mixBlendMode = "normal";
       cursor.style.boxShadow = "0px 0px 30px white";
@@ -238,7 +226,13 @@ function addMouseHovers() {
 }
 
 function processDataAndHidePreloader(snapshot) {
+  const dataArray = [];
   snapshot.forEach((childSnapshot) => {
+    dataArray.push(childSnapshot);
+  });
+  dataArray.reverse();
+
+  dataArray.forEach((childSnapshot) => {
     const projectDetails = childSnapshot.val();
     const projectId = childSnapshot.key;
     const projectTitle = projectDetails.project_title;
@@ -258,6 +252,8 @@ function processDataAndHidePreloader(snapshot) {
       CSS: "CSS3-plain colored",
       Express: "express-original",
       Flask: "flask-original",
+      Tailwind: "tailwindcss-original colored",
+      Vercel: "vercel-original",
     };
 
     const card = document.createElement("div");
@@ -275,13 +271,14 @@ function processDataAndHidePreloader(snapshot) {
                       <span class="card-type"><i>${projectType}</i></span>
 
                       <div class="card-tech-stack">
-                      ${projectTechStack_values
-                        .map((element) => {
-                          const replacedElement =
-                            replacements[element] || element + "-plain colored";
-                          return `<i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text>`;
-                        })
-                        .join(" ")}
+                          ${projectTechStack_values
+                            .map((element) => {
+                              const replacedElement =
+                                replacements[element] ||
+                                element + "-plain colored";
+                              return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
+                            })
+                            .join(" ")}
                       </div>
                   </div>
                   <span class="card-desc">${projectDesc}<span>
@@ -321,25 +318,23 @@ function processDataAndHidePreloader(snapshot) {
 
   removePreloader();
 
-  // const dropdown = document.querySelector(".dropdown");
-  // const tech_stack = document.querySelectorAll(".card-tech-stack text");
-  // tech_stack.forEach((element) => {
-  //   var value = element.textContent.trim();
-  //   if (!document.getElementById(value)) {
-  //     var label = document.createElement("label");
-  //     addClass(label, "dropdown_label");
-  //     label.innerHTML = `<input type="checkbox" value="${value}" id="${value}" class="filter_checkbox">${value}</label>`;
-  //     dropdown.appendChild(label);
-  //   }
-  // });
+  const select = document.querySelector(".project_type_select");
+  const tech_stack = document.querySelectorAll(".card-tech-stack text");
+  tech_stack.forEach((element) => {
+    var value = element.textContent.trim();
+    if (!document.getElementById(value)) {
+      var option = document.createElement("option");
+      option.innerHTML = `<option value="${value}" id="${value}">${value}</label>`;
+      select.appendChild(option);
+    }
+  });
 
   searchCards();
-  // filterCards();
+  filterCards(select);
 }
 
 function hoverOnCards() {
   const allCard = document.querySelectorAll(".card");
-  const logos = document.querySelector(".logos");
 
   allCard.forEach((card) => {
     card.addEventListener("mouseover", () => {
@@ -371,6 +366,31 @@ function hoverOnCards() {
     });
     btn.addEventListener("mouseout", () => {
       cursor.style.mixBlendMode = "normal";
+    });
+  });
+
+  const techStackItems = document.querySelectorAll(".tech_stack_item");
+
+  techStackItems.forEach((item) => {
+    const iconColor = window.getComputedStyle(item.firstElementChild).color;
+
+    item.addEventListener("mouseover", function () {
+      if (iconColor === "rgb(255, 255, 255)") {
+        this.style.backgroundColor = "rgb(255, 255, 255)";
+      } else {
+        this.style.backgroundColor = iconColor;
+      }
+
+      for (const child of this.children) {
+        child.style.color = "black";
+      }
+    });
+
+    item.addEventListener("mouseout", function () {
+      this.style.backgroundColor = "";
+      for (const child of item.children) {
+        child.style.color = "";
+      }
     });
   });
 }
@@ -420,24 +440,6 @@ function searchColor(langColorsArray, language) {
 }
 
 async function githubReadme() {
-  // const readmeResponse = await fetch("");
-
-  // if (readmeResponse.ok) {
-  //   const readmeJson = await readmeJson.json();
-
-  //   const readmeURL = readmeURL["download_url"];
-
-  //   console.log("URL", readmeURL);
-
-  //   const readmeText = await fetch(readmeURL);
-
-  //   console.log("TEXT", readmeText);
-
-  //   // pInfoText.innerHTML = marked.parse(textContent);
-  // } else {
-  //   console.error(readmeResponse.status);
-  // }
-
   const github_readme = document.querySelector(".github_readme");
 
   fetch("https://api.github.com/repos/aryanranderiya/aryanranderiya/readme")

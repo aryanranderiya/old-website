@@ -176,24 +176,27 @@ section {
 }
 
 .tech_stack {
-  margin-top: 1%;
+  color: white;
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 0.2em;
+  justify-content: center;
 }
 
 .tech_stack_item {
-  font-size: clamp(0.5em, 3vw, 1em);
-  color: white;
+  border: solid 1px rgb(56, 56, 56);
+  background-color: rgba(10, 10, 10, 0.5);
+  display: flex;
   border-radius: 100px;
-  border-style: solid;
-  border-color: white;
-  border-width: 2px;
-  width: fit-content;
-  min-width: 90px;
   padding: 5px 15px;
-  text-align: center;
+  align-items: center;
+  gap: 5%;
+  transition: color 0.3s ease;
   font-family: Helvs;
+  font-size: clamp(0.5em, 3vw, 1em);
+  min-width: 70px;
+  justify-content: center;
+  border-width: 2px;
 }
 
 .project_info_text {
@@ -435,6 +438,10 @@ section {
 }
 
 @media screen and (max-width: 600px) {
+  .back_to_software_projects {
+    visibility: hidden;
+  }
+
   .project_title {
     margin-top: 10%;
     font-size: 3em;
@@ -444,6 +451,9 @@ section {
     text-align: center;
     font-size: 1em;
     width: 80%;
+  }
+  .back_to_software_projects {
+    font-size: 1em;
   }
 
   .mockup_media_laptop {
@@ -473,7 +483,7 @@ section {
   }
 
   .tech_stack_item {
-    padding: 5px 0.2%;
+    padding: 5px;
   }
 }
 
@@ -542,4 +552,29 @@ section {
 
 .close_text:hover {
   color: #00bbff;
+}
+
+.back_to_software_projects {
+  box-sizing: content-box;
+  color: white;
+  width: 100%;
+  display: flex;
+  gap: 2%;
+  font-family: Helvs;
+  margin-left: 5%;
+  margin-top: -2%;
+  font-size: 1.5em;
+  align-items: center;
+  font-weight: bold;
+  transition: color 0.5s ease;
+}
+
+.back_to_software_projects:hover {
+  color: #00bbff;
+  transition: color 0.5s ease;
+}
+
+.back_to_software_projects a {
+  text-decoration: none;
+  color: inherit;
 }
