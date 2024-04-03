@@ -77,10 +77,10 @@ const cursortext2 = document.querySelector("#cursortext2");
 // ! INIT END
 
 function setPageUrl(tab_title) {
-  let title_url = tab_title.replace(/ /g, "");
-  const nextState = { additionalInformation: "Updated the URL with JS" };
-  window.history.pushState(nextState, tab_title, title_url);
-  window.history.replaceState(nextState, tab_title, title_url);
+  // let title_url = tab_title.replace(/ /g, "");
+  // const nextState = { additionalInformation: "Updated the URL with JS" };
+  // window.history.pushState(nextState, tab_title, title_url);
+  // window.history.replaceState(nextState, tab_title, title_url);
 }
 
 function setupDocumentation(p_documentationURL, pInfoText) {
@@ -172,7 +172,7 @@ function setTechStack(p_techStack) {
 
 function setOthers(p_title, p_type, p_desc) {
   textProjectTitle.innerHTML = p_title;
-  ptypeText.innerHTML = p_type;
+  ptypeText.innerHTML = `<i> ${p_type} </i>`;
   projectDescription.innerHTML = p_desc;
   document.title = p_title;
 }
@@ -217,7 +217,7 @@ async function processData(snapshot) {
   var p_documentationURL = snapshotData.documentation_URL;
 
   setOthers(p_title, p_type, p_desc);
-  setProjectTypeIcon(p_type, ptypeIcon);
+  // setProjectTypeIcon(p_type, ptypeIcon);
   setPageUrl(p_title);
   setupDocumentation(p_documentationURL, pInfoText);
   setupMockups(p_demoType, p_demoURL);

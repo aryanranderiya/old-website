@@ -287,7 +287,7 @@ function processDataAndHidePreloader(snapshot) {
       </div>
       <div class="buttons">
         <a href="Project.html?id=${projectId}" >
-        <button class="button_secondary" aria-label="View Project Info">
+        <button class="button_secondary view_project" aria-label="View Project Info">
             View Project
             <div class="icon">
                 <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
@@ -339,13 +339,14 @@ function hoverOnCards() {
   allCard.forEach((card) => {
     card.addEventListener("mouseover", () => {
       removeClass(card, "grayscale");
-
+      card.style.transform = "translateY(-15px)";
       allCard.forEach((otherCard) => {
         if (otherCard !== card) addClass(otherCard, "grayscale");
       });
     });
 
     card.addEventListener("mouseout", () => {
+      card.style.transform = "";
       allCard.forEach((otherCard) => removeClass(otherCard, "grayscale"));
     });
   });

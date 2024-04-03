@@ -371,9 +371,12 @@ footer {
 
 .social_icon,
 .page_icon {
-  color: white !important;
+  display: flex;
+  width: 20px;
+  color: white;
   font-size: 1.2em;
   z-index: 1;
+  justify-content: center;
 }
 
 .page_icon_open {
@@ -391,4 +394,18 @@ footer {
 
 .mail_icon {
   font-size: clamp(1.3em, 6vw, 3em);
+}
+
+.instagram_icon {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

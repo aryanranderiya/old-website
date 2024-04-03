@@ -19,6 +19,11 @@
   cursor: none;
 }
 
+.card_overlay {
+  background-color: #00bbff;
+  mix-blend-mode: multiply;
+}
+
 .card {
   background-color: var(--card-color);
   border-radius: 1em;
@@ -29,19 +34,19 @@
   min-height: 460px;
   flex-direction: column;
   position: relative;
-  transition: filter 0.2s ease, opacity 0.5s ease;
-  -webkit-transition: filter 0.2s ease, opacity 0.5s ease;
+  transition: filter 0.2s ease, opacity 0.5s ease, transform 0.5s ease;
+  -webkit-transition: filter 0.2s ease, opacity 0.5s ease, transform 0.3s ease;
   filter: grayscale(0%) brightness(100%);
-  border: 2px solid rgb(48, 48, 48);
+  border: 1px solid rgb(48, 48, 48);
 }
 
 .card.grayscale {
-  filter: grayscale(100%) brightness(20%);
+  filter: grayscale(100%) brightness(15%);
 }
 
 .card-title {
   color: white;
-  font-size: 1.8em;
+  font-size: 1.5em;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
@@ -53,15 +58,16 @@
 }
 
 .card-type {
-  font-size: 1em;
-  margin: 5px 0px;
+  font-size: 0.9em;
+  margin-top: 4px;
+  margin-bottom: 8px;
   width: 100%;
   display: flex;
   color: rgb(126, 126, 126);
 }
 
 .card-tech-stack {
-  font-size: 0.9em;
+  font-size: 0.85em;
   color: white;
   display: flex;
   flex-wrap: wrap;
@@ -155,7 +161,6 @@
   object-fit: cover;
   background-image: url(../media//bg_aryan_swirl.webp);
   background-size: contain;
-  border: 3px solid rgb(48, 48, 48);
 }
 
 .card-image-div {
@@ -263,7 +268,7 @@
   min-width: 403px;
   margin: 0;
   background: rgba(10, 10, 10, 1);
-  border: 2px solid rgb(48, 48, 48);
+  border: 1px solid rgb(48, 48, 48);
   box-shadow: 0px -25px 30px 0px black;
 }
 
@@ -288,11 +293,11 @@
   display: flex;
   align-items: center;
   color: white;
+  transition: all 0.3s ease;
 }
 
 .input-icons:hover {
   border: 2px solid lightgray;
-  cursor: pointer;
 }
 
 .input_icon {
@@ -309,12 +314,14 @@
   width: 100%;
   text-align: left;
   color: white;
+  transition: all 0.3s;
 }
+
 
 #search_project:focus {
   outline: none;
 }
-
+/* 
 .filter {
   width: 50px;
   height: 50px;
@@ -341,7 +348,7 @@
 .filter:hover .filter_svg,
 .filter_svg.clicked {
   fill: white;
-}
+} */
 
 .search_div {
   width: 100%;
@@ -350,7 +357,7 @@
   gap: 0.5%;
 }
 
-.dropdown_container {
+/* .dropdown_container {
   display: flex;
   overflow: hidden;
   justify-content: flex-end;
@@ -377,7 +384,7 @@
 .dropdown_label {
   display: flex;
   padding: 1%;
-}
+} */
 
 .filter_checkbox {
   display: flex;
@@ -393,6 +400,10 @@
   text-align: center;
 }
 
+
+.project_type_select:hover{
+  border-color: lightgray;
+}
 option {
   text-align: center;
   background-color: var(--card-color);

@@ -27,7 +27,7 @@ section {
   gap: 16px;
   flex-wrap: wrap;
   z-index: 1;
-  margin-top: 10%;
+  margin-top: 15%;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -39,16 +39,12 @@ section {
   font-family: Helvs;
   font-weight: bold;
   letter-spacing: 0.1ch;
-  text-shadow: 0px 0px 70px black;
   text-align: center;
 }
 
 .project_desc {
-  margin-top: 1%;
-  text-align: justify;
-  width: 60%;
   text-wrap: wrap;
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
   font-family: Helvs;
 }
@@ -151,27 +147,16 @@ section {
   display: contents;
 }
 
-.project_type {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-}
-
 .p_type {
   display: flex;
   flex-direction: row;
-  color: white;
+  color: grey;
   font-family: Helvs;
   gap: 7px;
 }
 
-.p_type_icon {
-  align-self: center;
-}
 .p_type_text {
-  font-size: 1.3em;
+  font-size: 1em;
   align-self: center;
 }
 
@@ -180,7 +165,6 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 0.2em;
-  justify-content: center;
 }
 
 .tech_stack_item {
@@ -193,7 +177,7 @@ section {
   gap: 5%;
   transition: color 0.3s ease;
   font-family: Helvs;
-  font-size: clamp(0.5em, 3vw, 1em);
+  font-size: clamp(0.5em, 3vw, 0.9em);
   min-width: 70px;
   justify-content: center;
   border-width: 2px;
@@ -577,4 +561,69 @@ section {
 .back_to_software_projects a {
   text-decoration: none;
   color: inherit;
+}
+
+.bento_card {
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(30px);
+  border-radius: 15px;
+  color: white;
+  outline: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.bento_content {
+  padding: 6%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  color: white;
+  font-family: Helvs;
+  font-size: 0.9em;
+}
+.bento_content > * {
+  color: white;
+}
+
+.bento_cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1em;
+  width: 60%;
+}
+
+.bento_heading {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  gap: 2%;
+  font-size: 1em;
+  font-family: Helvs;
+}
+
+.bento_link {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.link_icon {
+  font-size: 1.1em !important;
+}
+
+.created_on{
+  color: grey;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+.currently_working{
+  background-color: #f8c806 ;
 }
