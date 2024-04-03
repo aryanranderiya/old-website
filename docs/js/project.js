@@ -228,7 +228,7 @@ async function processData(snapshot) {
   var links = snapshotData.project_links;
   var p_demoURL = snapshotData.demo_file_URL;
   var p_demoType = snapshotData.demo_type;
-  var p_documentationURL = snapshotData.documentation_URL;
+  var p_documentationURL = snapshotData.project_documentation_URL;
   var project_creation = snapshotData.project_creation;
   var personal_comments = snapshotData.project_personal_comments;
   var github_link = snapshotData.github_link || null;
@@ -241,8 +241,8 @@ async function processData(snapshot) {
   setTechStack(p_techStack);
   setLinks(links);
   setGithub(github_link);
-  let count = createImages(project_images);
-  normalHeaders(count);
+  let flag = createImages(project_images);
+  normalHeaders(flag);
 }
 
 function setGithub(github_link) {
@@ -678,26 +678,31 @@ function updateProgressBarandBtn() {
 }
 
 function createImages(project_images) {
-  const sliderWrapper = document.querySelector(".slider-wrapper");
-  let count = 0;
-  project_images.forEach((image_url) => {
-    count++;
-    const div = document.createElement("div");
-    div.classList.add("slider-item");
-    div.innerHTML = `
+  if (project_images) {
+    const sliderWrapper = document.querySelector(".slider-wrapper");
+    project_images.forEach((image_url) => {
+      const div = document.createElement("div");
+      addClass(div, "slider-item");
+      div.innerHTML = `
       <figure>
           <img loading="eager" src="${image_url}" class="project_image" alt="Project Images">
       </figure>
       `;
-    sliderWrapper.appendChild(div);
-  });
-  return count;
+      sliderWrapper.appendChild(div);
+    });
+
+    return true;
+  } else {
+    document.querySelector(".image_gallery").remove();
+    return false;
+  }
 }
 
-function normalHeaders(count) {
+function normalHeaders(flag) {
+  if (!flag) return;
+
   const slider = document.querySelector(".slider");
   const cursoricondrag = document.getElementById("cursoricondrag");
-  document.querySelector(".slider-item").style.width = `${400 * count}px`;
 
   // Change cursor to drag when hover on headers
   slider.addEventListener("mouseover", () => {

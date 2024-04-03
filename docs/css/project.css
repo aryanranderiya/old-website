@@ -702,21 +702,23 @@ section {
 }
 
 .slider-item {
+  width: 1500px;
   display: inline-block;
   overflow: hidden;
 }
 
 .slider-item figure {
   position: relative;
-  padding-bottom: 32%;
+  padding-bottom: 37%;
   overflow: hidden;
 }
 
 .slider-item figure img {
-  height: 400px;
+  height: 500px;
   /* aspect-ratio: 16/9; */
   position: absolute;
-  /* object-fit: contain; */
+  object-fit: cover;
+  border: white solid 2px;
 }
 
 .slider-progress {

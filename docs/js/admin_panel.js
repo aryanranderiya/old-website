@@ -64,8 +64,6 @@ async function insertFetchData() {
   const fileSelectorBanner = document.getElementById("file-selector-image");
   const fileSelectorDemo = document.getElementById("file-selector-demo");
 
-  const documentation_text =
-    document.getElementById("documentation_text").value;
   const links = document.querySelectorAll(".link");
   var links_obj = [];
 
@@ -110,6 +108,11 @@ async function insertFetchData() {
     "_" +
     Date.now();
 
+  const documentation_text =
+    document.getElementById("documentation_text").value;
+  const blob = new Blob([documentation_text], { type: "text/plain" });
+  const readmeFile = new File([blob], `${project_id}_documentation.md`);
+
   var projectsRef = ref(database, "Projects/" + project_id);
 
   uploadMedia(fileBanner, title, "Banner")
@@ -118,62 +121,67 @@ async function insertFetchData() {
       uploadMedia(fileDemo, title, "Demo")
         .then((demoDownloadURL) => {
           // then do this
-          uploadMultipleImages(title)
-            .then((multipleURLs) => {
+          uploadMedia(readmeFile, title, "Documentation")
+            .then((documentation_URL) => {
               // then do this
-              const projectData = {
-                project_title: title,
-                project_type: stack,
-                project_tech_stack: tech_stack,
-                project_description: description,
-                project_creation: project_creation,
-                project_personal_comments: comments,
-                banner_image_URL: bannerDownloadURL,
-                demo_file_URL: demoDownloadURL,
-                github_link: githubLink,
-                demo_type: demo_type,
-                project_documentation_text: documentation_text,
-                project_links: links_obj,
-                project_images: multipleURLs,
-              };
+              uploadMultipleImages(title)
+                .then((multipleURLs) => {
+                  // then do this
+                  const projectData = {
+                    project_title: title,
+                    project_type: stack,
+                    project_tech_stack: tech_stack,
+                    project_description: description,
+                    project_creation: project_creation,
+                    project_personal_comments: comments,
+                    banner_image_URL: bannerDownloadURL,
+                    demo_file_URL: demoDownloadURL,
+                    github_link: githubLink,
+                    demo_type: demo_type,
+                    project_documentation_URL: documentation_URL,
+                    project_links: links_obj,
+                    project_images: multipleURLs,
+                  };
 
-              console.log(
-                "Project Title:",
-                title,
-                "Project Type:",
-                stack,
-                "Project Tech Stack:",
-                tech_stack,
-                "Project Description:",
-                description,
-                "Project Creation:",
-                project_creation,
-                "Project Personal Comments:",
-                comments,
-                "Banner Image URL:",
-                bannerDownloadURL,
-                "Demo File URL:",
-                demoDownloadURL,
-                "GitHub Link:",
-                githubLink,
-                "Demo Type:",
-                demo_type,
-                "Project Documentation Text:",
-                documentation_text,
-                "Project Links:",
-                links_obj,
-                "Project Images:",
-                multipleURLs
-              );
+                  console.log(
+                    "Project Title:",
+                    title,
+                    "Project Type:",
+                    stack,
+                    "Project Tech Stack:",
+                    tech_stack,
+                    "Project Description:",
+                    description,
+                    "Project Creation:",
+                    project_creation,
+                    "Project Personal Comments:",
+                    comments,
+                    "Banner Image URL:",
+                    bannerDownloadURL,
+                    "Demo File URL:",
+                    demoDownloadURL,
+                    "GitHub Link:",
+                    githubLink,
+                    "Demo Type:",
+                    demo_type,
+                    "Project Documentation Text:",
+                    documentation_text,
+                    "Project Links:",
+                    links_obj,
+                    "Project Images:",
+                    multipleURLs
+                  );
 
-              console.log("Uploading Data: " + projectData);
+                  console.log("Uploading Data: " + projectData);
 
-              set(projectsRef, projectData)
-                .then(() => console.log("Data Successfully inserted!"))
+                  set(projectsRef, projectData)
+                    .then(() => console.log("Data Successfully inserted!"))
+                    .catch((e) => console.log(e));
+
+                  // End of Upload
+                  document.getElementById("submit-project-form").reset();
+                })
                 .catch((e) => console.log(e));
-
-              // End of Upload
-              document.getElementById("submit-project-form").reset();
             })
             .catch((e) => console.log(e));
         })
