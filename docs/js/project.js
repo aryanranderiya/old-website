@@ -80,6 +80,7 @@ const comment_card = document.querySelector("#comment_card");
 const bento_links = document.querySelector("#bento_links");
 const links_card = document.querySelector("#links_card");
 const github_bento_card = document.querySelector("#github_bento_card");
+const documentation = document.querySelector(".documentation");
 
 // ! INIT END
 
@@ -100,8 +101,6 @@ function setupDocumentation(p_documentationURL, pInfoText) {
         return response.text();
       })
       .then((textContent) => {
-        console.log(textContent);
-
         pInfoText.innerHTML = marked.parse(textContent);
       })
       .then(() => {
@@ -113,7 +112,7 @@ function setupDocumentation(p_documentationURL, pInfoText) {
         console.error("Fetch Documentation error:", error);
       });
   } else {
-    pInfoText.innerHTML = "";
+    documentation.remove();
   }
 }
 
@@ -126,7 +125,6 @@ function setLinks(links) {
       anchor.href = link[1];
       anchor.innerHTML = `
       <span style="width=5em">${link[0]}</span>
-      <span>${link[1].replace(/^https?:\/\//, "").replace("/", "")}</span>
       <i class="fa-solid fa-up-right-from-square link_icon"></i>
     `;
       bento_links.appendChild(anchor);
@@ -234,6 +232,8 @@ async function processData(snapshot) {
   var github_link = snapshotData.github_link || null;
   const project_images = snapshotData.project_images;
 
+  console.log("Images ", project_images.reverse());
+
   setOthers(p_title, p_type, p_desc, project_creation, personal_comments);
   setPageUrl(p_title);
   setupDocumentation(p_documentationURL, pInfoText);
@@ -262,6 +262,7 @@ function setGithub(github_link) {
             document.querySelector(".repo_name").innerHTML = repo.full_name;
             document.querySelector(".repo_stars").innerHTML =
               repo.stargazers_count;
+            document.querySelector(".repo_lang").innerHTML = repo.language;
             document.querySelector(".repo_created").innerHTML = createdAt;
             document.querySelector(".repo_updated").innerHTML = updatedAt;
           }

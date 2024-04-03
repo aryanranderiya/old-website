@@ -422,6 +422,10 @@ section {
 }
 
 @media screen and (max-width: 600px) {
+  .documentation,
+  .image_gallery {
+    width: 90% !important;
+  }
   .back_to_software_projects {
     visibility: hidden;
   }
@@ -619,11 +623,6 @@ section {
   flex-direction: row;
   justify-content: center;
   gap: 1.5em;
-  width: 60%;
-}
-
-.bento_cards2 {
-  width: 90%;
 }
 
 .bento_heading {

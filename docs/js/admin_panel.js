@@ -60,6 +60,7 @@ async function insertFetchData() {
   var title = document.getElementById("project_title").value;
   const comments = document.getElementById("personal_comments").value || null;
   const description = document.getElementById("project_description").value;
+  const short_description = document.getElementById("project_short_desc").value;
   const project_creation = document.getElementById("project_creation").value;
   const fileSelectorBanner = document.getElementById("file-selector-image");
   const fileSelectorDemo = document.getElementById("file-selector-demo");
@@ -92,8 +93,10 @@ async function insertFetchData() {
 
   if (document.querySelector('input[name="project_type_radio"]:checked')) {
     var other_types = document.querySelector(".other_project_tech").value;
-    other_types = other_types.split(",");
-    for (var stack of other_types) tech_stack.push(stack.trim());
+    if (other_types) {
+      other_types = other_types.split(",");
+      for (var stack of other_types) tech_stack.push(stack.trim());
+    }
   }
 
   for (var checkbox of techStackCheck) tech_stack.push(checkbox.value);
@@ -110,8 +113,13 @@ async function insertFetchData() {
 
   const documentation_text =
     document.getElementById("documentation_text").value;
-  const blob = new Blob([documentation_text], { type: "text/plain" });
-  const readmeFile = new File([blob], `${project_id}_documentation.md`);
+
+  let readmeFile = null;
+
+  if (documentation_text.length > 0) {
+    const blob = new Blob([documentation_text], { type: "text/plain" });
+    readmeFile = new File([blob], `${project_id}_documentation.md`);
+  }
 
   var projectsRef = ref(database, "Projects/" + project_id);
 
@@ -129,9 +137,10 @@ async function insertFetchData() {
                   // then do this
                   const projectData = {
                     project_title: title,
-                    project_type: stack,
+                    project_type: type,
                     project_tech_stack: tech_stack,
                     project_description: description,
+                    project_short_description: short_description,
                     project_creation: project_creation,
                     project_personal_comments: comments,
                     banner_image_URL: bannerDownloadURL,
@@ -222,7 +231,7 @@ async function uploadMultipleImages(title) {
   if (multiplefiles) {
     for (let i = 0; i < multiplefiles.length; i++) {
       let file = multiplefiles.item(i);
-      console.log("Projet Media File:", file.name);
+      console.log("Project Media File:", file.name);
       let url = await performUpload(file, title);
       if (url) urls.push(url);
     }
