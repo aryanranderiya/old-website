@@ -71,7 +71,7 @@ async function insertFetchData() {
   links.forEach((link) => {
     const text = link.querySelector(".link_text").value;
     const url = link.querySelector(".link_url").value;
-    links_obj.push([text, url]);
+    if (text && url) links_obj.push([text, url]);
   });
 
   const fileBanner = fileSelectorBanner.files[0];

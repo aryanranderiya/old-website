@@ -77,8 +77,8 @@ const created_on = document.querySelector(".created_on");
 const creation_date = document.querySelector(".creation_date");
 const personal_comments = document.querySelector(".personal_comments");
 const comment_card = document.querySelector("#comment_card");
-const bento_links = document.querySelector(".bento_links");
-const links_card = document.querySelector(".links_card");
+const bento_links = document.querySelector("#bento_links");
+const links_card = document.querySelector("#links_card");
 // ! INIT END
 
 function setPageUrl(tab_title) {
@@ -118,12 +118,13 @@ function setupDocumentation(p_documentationURL, pInfoText) {
 function setLinks(links) {
   if (links)
     links.forEach((link) => {
-      const anchor = document.createElement("<a>");
+      console.log(link);
+      const anchor = document.createElement("a");
       anchor.className = "bento_link";
       anchor.href = link[1];
       anchor.innerHTML = `
       <span>${link[0]}</span>
-      <span>${link[1]}</span>
+      <span>${link[1].replace(/^https?:\/\//, "").replace("/", "")}</span>
       <i class="fa-solid fa-up-right-from-square link_icon"></i>
     `;
       bento_links.appendChild(anchor);
@@ -236,6 +237,28 @@ async function processData(snapshot) {
   setupMockups(p_demoType, p_demoURL);
   setTechStack(p_techStack);
   setLinks(links);
+  setGithub();
+}
+
+function setGithub() {
+  fetch("https://api.github.com/users/aryanranderiya/repos")
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`);
+
+      return response.json();
+    })
+    .then((response_json) => {
+      response_json.forEach((repo) => {
+        console.log("Stars: ", repo.stargazers_count);
+        // console.log( repo);
+        console.log("html_url: ", repo.html_url);
+        console.log("name: ", repo.name);
+      });
+    })
+    .catch((error) => {
+      console.error("Fetch Documentation error:", error);
+    });
 }
 
 //!  Intersection Observer for scrolling into view
