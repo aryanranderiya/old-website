@@ -340,6 +340,7 @@ function hoverOnCards() {
     card.addEventListener("mouseover", () => {
       removeClass(card, "grayscale");
       card.style.transform = "translateY(-15px)";
+      card.style.boxShadow = "#00bbff 0px 0px 100px -5px";
       allCard.forEach((otherCard) => {
         if (otherCard !== card) addClass(otherCard, "grayscale");
       });
@@ -347,6 +348,7 @@ function hoverOnCards() {
 
     card.addEventListener("mouseout", () => {
       card.style.transform = "";
+      card.style.boxShadow = "";
       allCard.forEach((otherCard) => removeClass(otherCard, "grayscale"));
     });
   });

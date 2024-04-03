@@ -44,7 +44,7 @@ section {
 
 .project_desc {
   text-wrap: wrap;
-  font-size: 1em;
+  font-size: 1.1em;
   color: white;
   font-family: Helvs;
 }
@@ -150,12 +150,12 @@ section {
 .p_type {
   display: flex;
   flex-direction: row;
-  color: grey;
   font-family: Helvs;
   gap: 7px;
 }
 
 .p_type_text {
+  color: grey;
   font-size: 1em;
   align-self: center;
 }
@@ -572,6 +572,22 @@ section {
   outline: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  -webkit-transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.subcontent3 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  margin-top: 5%;
+}
+
+.documentation {
+  width: 65%;
 }
 
 .bento_content {
@@ -583,6 +599,11 @@ section {
   font-family: Helvs;
   font-size: 0.9em;
 }
+
+.bento_content hr {
+  width: 90%;
+  border-color: rgb(58, 58, 58);
+}
 .bento_content > * {
   color: white;
 }
@@ -592,12 +613,16 @@ section {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  gap: 1em;
+  gap: 1.5em;
   width: 60%;
 }
 
+.bento_cards2 {
+  width: 90%;
+}
+
 .bento_heading {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 15px;
   height: 2.5em;
   display: flex;
@@ -606,6 +631,7 @@ section {
   gap: 2%;
   font-size: 1em;
   font-family: Helvs;
+  outline: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .bento_link {
@@ -618,12 +644,33 @@ section {
   font-size: 1.1em !important;
 }
 
-.created_on{
+.created_on {
   color: grey;
   display: flex;
   gap: 0.5em;
   align-items: center;
 }
-.currently_working{
-  background-color: #f8c806 ;
+.currently_working {
+  background-color: #f8c806;
+}
+
+.bento_card:hover {
+  transform: translateY(-1em);
+  background-color: rgba(25, 25, 25, 0.9)
+}
+
+.project_demo_text{
+  font-family: Helvs;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3%;
+  color: grey;
+  transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+}
+
+.project_demo_text:hover{
+  color: white;
 }
