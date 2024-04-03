@@ -232,8 +232,6 @@ async function processData(snapshot) {
   var github_link = snapshotData.github_link || null;
   const project_images = snapshotData.project_images;
 
-  console.log("Images ", project_images.reverse());
-
   setOthers(p_title, p_type, p_desc, project_creation, personal_comments);
   setPageUrl(p_title);
   setupDocumentation(p_documentationURL, pInfoText);
