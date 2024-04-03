@@ -177,7 +177,7 @@ section {
   gap: 5%;
   transition: color 0.3s ease;
   font-family: Helvs;
-  font-size: clamp(0.5em, 3vw, 0.9em);
+  font-size: clamp(0.5em, 3vw, 1em);
   min-width: 70px;
   justify-content: center;
   border-width: 2px;
@@ -586,7 +586,8 @@ section {
   margin-top: 5%;
 }
 
-.documentation {
+.documentation,
+.image_gallery {
   width: 65%;
 }
 
@@ -656,10 +657,10 @@ section {
 
 .bento_card:hover {
   transform: translateY(-1em);
-  background-color: rgba(25, 25, 25, 0.9)
+  background-color: rgba(25, 25, 25, 0.9);
 }
 
-.project_demo_text{
+.project_demo_text {
   font-family: Helvs;
   color: white;
   display: flex;
@@ -671,6 +672,6 @@ section {
   -webkit-transition: color 0.3s ease;
 }
 
-.project_demo_text:hover{
+.project_demo_text:hover {
   color: white;
 }
