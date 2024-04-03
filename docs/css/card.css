@@ -19,11 +19,6 @@
   cursor: none;
 }
 
-.card_overlay {
-  background-color: #00bbff;
-  mix-blend-mode: multiply;
-}
-
 .card {
   background-color: var(--card-color);
   border-radius: 1em;
@@ -54,9 +49,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-  /* width: 100%; */
   text-align: left;
-  /* margin-top: 100px; */
 }
 
 .card-type {

@@ -241,8 +241,8 @@ async function processData(snapshot) {
   setTechStack(p_techStack);
   setLinks(links);
   setGithub(github_link);
-  createImages(project_images);
-  normalHeaders();
+  let count = createImages(project_images);
+  normalHeaders(count);
 }
 
 function setGithub(github_link) {
@@ -679,8 +679,9 @@ function updateProgressBarandBtn() {
 
 function createImages(project_images) {
   const sliderWrapper = document.querySelector(".slider-wrapper");
-
+  let count = 0;
   project_images.forEach((image_url) => {
+    count++;
     const div = document.createElement("div");
     div.classList.add("slider-item");
     div.innerHTML = `
@@ -690,11 +691,13 @@ function createImages(project_images) {
       `;
     sliderWrapper.appendChild(div);
   });
+  return count;
 }
 
-function normalHeaders() {
+function normalHeaders(count) {
   const slider = document.querySelector(".slider");
   const cursoricondrag = document.getElementById("cursoricondrag");
+  document.querySelector(".slider-item").style.width = `${400 * count}px`;
 
   // Change cursor to drag when hover on headers
   slider.addEventListener("mouseover", () => {
