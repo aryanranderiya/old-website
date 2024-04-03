@@ -99,3 +99,49 @@ body {
     opacity: 0;
   }
 }
+
+.link {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link_url {
+  width: 100%;
+}
+
+a {
+  color: #00bbff;
+}
+
+h3 {
+  color: white;
+  font-weight: normal;
+}
+
+input[type="text"] {
+  width: 80%;
+  margin: 0.5% 2%;
+}
+
+input,
+textarea,
+button {
+  border-radius: 1em;
+  border: none;
+  padding: 1% 2%;
+}
+
+button:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+hr {
+  width: 100%;
+  border-color: rgb(105, 105, 105);
+  margin: 2% 0;
+  /* outline: 1px solid rgb(255, 255, 255); */
+  /* border: none; */
+}

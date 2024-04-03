@@ -73,7 +73,12 @@ const popupContainer = document.querySelector(".popup_image_container");
 const popupImage = document.querySelector(".popup_image");
 const close_text = document.querySelector(".close_text");
 const cursortext2 = document.querySelector("#cursortext2");
-
+const created_on = document.querySelector(".created_on");
+const creation_date = document.querySelector(".creation_date");
+const personal_comments = document.querySelector(".personal_comments");
+const comment_card = document.querySelector("#comment_card");
+const bento_links = document.querySelector(".bento_links");
+const links_card = document.querySelector(".links_card");
 // ! INIT END
 
 function setPageUrl(tab_title) {
@@ -106,28 +111,29 @@ function setupDocumentation(p_documentationURL, pInfoText) {
         console.error("Fetch Documentation error:", error);
       });
   } else {
-    pInfoText.innerHTML = "No Documentation.";
+    pInfoText.innerHTML = "";
   }
 }
 
-function setHrefandBtn(link, btn, anchor) {
-  if (!link) {
-    btn?.remove();
-    anchor?.remove();
-  } else anchor.href = link;
-}
-
-function setProjectTypeIcon(p_type) {
-  if (p_type.includes("Mobile"))
-    ptypeIcon.innerHTML =
-      '<span class="material-symbols-outlined p_type_icon"> phone_iphone</span>';
-  else if (p_type.includes("Desktop") || p_type.includes("Web"))
-    ptypeIcon.innerHTML =
-      '<span class="material-symbols-outlined p_type_icon"> laptop_mac</span>';
+function setLinks(links) {
+  if (links)
+    links.forEach((link) => {
+      const anchor = document.createElement("<a>");
+      anchor.className = "bento_link";
+      anchor.href = link[1];
+      anchor.innerHTML = `
+      <span>${link[0]}</span>
+      <span>${link[1]}</span>
+      <i class="fa-solid fa-up-right-from-square link_icon"></i>
+    `;
+      bento_links.appendChild(anchor);
+    });
+  else {
+    links_card.remove();
+  }
 }
 
 function setTechStack(p_techStack) {
-  var projectTechStack_values = p_techStack.trim().split(",");
   const replacements = {
     HTML: "HTML5-plain colored",
     CSS: "CSS3-plain colored",
@@ -136,7 +142,7 @@ function setTechStack(p_techStack) {
     Tailwind: "tailwindcss-original colored",
     Vercel: "vercel-original",
   };
-  tech_stack.innerHTML = `${projectTechStack_values
+  tech_stack.innerHTML = `${Object.values(p_techStack)
     .map((element) => {
       const replacedElement =
         replacements[element] || element + "-plain colored";
@@ -170,11 +176,17 @@ function setTechStack(p_techStack) {
   });
 }
 
-function setOthers(p_title, p_type, p_desc) {
+function setOthers(p_title, p_type, p_desc, project_creation, comments) {
   textProjectTitle.innerHTML = p_title;
   ptypeText.innerHTML = `<i> ${p_type} </i>`;
   projectDescription.innerHTML = p_desc;
   document.title = p_title;
+
+  if (project_creation) creation_date.innerHTML = project_creation;
+  else created_on.remove();
+
+  if (comments) personal_comments.innerHTML = comments;
+  else comment_card.remove();
 }
 
 function popupIntersection(entries, observer) {
@@ -210,20 +222,20 @@ async function processData(snapshot) {
   var p_desc = snapshotData.project_description;
   var p_type = snapshotData.project_type;
   var p_techStack = snapshotData.project_tech_stack;
-  var p_githubLink = snapshotData.github_link;
-  var p_tryProjectLink = snapshotData.tryProjectLink;
+  var links = snapshotData.links;
   var p_demoURL = snapshotData.demo_file_URL;
   var p_demoType = snapshotData.demo_type;
   var p_documentationURL = snapshotData.documentation_URL;
+  var project_creation = snapshotData.project_creation;
+  var personal_comments = snapshotData.personal_comments;
 
-  setOthers(p_title, p_type, p_desc);
+  setOthers(p_title, p_type, p_desc, project_creation, personal_comments);
   // setProjectTypeIcon(p_type, ptypeIcon);
   setPageUrl(p_title);
   setupDocumentation(p_documentationURL, pInfoText);
   setupMockups(p_demoType, p_demoURL);
   setTechStack(p_techStack);
-  setHrefandBtn(p_githubLink, primaryButton, githubAnchor);
-  setHrefandBtn(p_tryProjectLink, secondaryButton, tryAnchor);
+  setLinks(links);
 }
 
 //!  Intersection Observer for scrolling into view
@@ -496,6 +508,7 @@ function setupMockups(demo_type, demoDownloadURL) {
     laptopVideo.style.display = "none";
     laptopImage.style.display = "none";
     controlsContainer.style.visibility = "hidden";
+    document.querySelector(".project_demo_text").remove();
     removeCover();
     //END OF IF ELSE
   }

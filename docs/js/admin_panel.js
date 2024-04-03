@@ -37,31 +37,51 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       insertFetchData();
     });
+  setupAddLinks();
 });
 
-function init() {}
+function setupAddLinks() {
+  const add_another_link = document.querySelector(".add_another_link");
+  const links = document.querySelector(".links");
+  var count = 1;
+  add_another_link.addEventListener("click", () => {
+    count++;
+    const link = document.createElement("div");
+    link.classList.add("link");
+    link.innerHTML = `
+    <input class="link_text" id="link_${count}" type="text" placeholder="Enter Link Name">
+    <input class="link_url" id="link_${count}" type="url" placeholder="Enter Link URL">`;
+    links.appendChild(link);
+  });
+}
 
 async function insertFetchData() {
   const databaseRecordCount = (await countDatabaseRecords()) + 1;
   var title = document.getElementById("project_title").value;
+  const comments = document.getElementById("personal_comments").value || null;
   const description = document.getElementById("project_description").value;
+  const project_creation = document.getElementById("project_creation").value;
   const fileSelectorBanner = document.getElementById("file-selector-image");
   const fileSelectorDemo = document.getElementById("file-selector-demo");
-  const fileSelectorDoc = document.getElementById("file-selector-doc");
-  const tryProjectLink =
-    document.getElementById("tryProjectLink").value || null;
+  const documentation_text =
+    document.getElementById("documentation_text").value;
+  const links = document.querySelectorAll(".link");
+  var links_obj = [];
+
+  links.forEach((link) => {
+    const text = link.querySelector(".link_text").value;
+    const url = link.querySelector(".link_url").value;
+    links_obj.push([text, url]);
+  });
 
   const fileBanner = fileSelectorBanner.files[0];
   const fileDemo = fileSelectorDemo.files[0];
-  const fileDocumentation = fileSelectorDoc.files[0];
 
-  const opensource = document.querySelector('input[name="opensource"]:checked');
-  let githubLink,
-    tech_stack = [];
+  let tech_stack = [];
 
-  const type = document.querySelector(
-    'input[name="project_type"]:checked'
-  ).value;
+  var type = document.querySelector('input[name="project_type"]:checked').value;
+  if (type === "other172t63786123")
+    type = document.querySelector(".other_project_type").value;
 
   const techStackCheck = document.querySelectorAll(
     'input[name="tech_stack"]:checked'
@@ -71,12 +91,15 @@ async function insertFetchData() {
     'input[name="demo_type"]:checked'
   ).value;
 
-  for (var checkbox of techStackCheck) {
-    tech_stack.push(checkbox.value);
+  if (document.querySelector('input[name="project_type_radio"]:checked')) {
+    var other_types = document.querySelector(".other_project_tech").value;
+    other_types = other_types.split(",");
+    for (var stack of other_types) tech_stack.push(stack.trim());
   }
 
-  if (opensource) githubLink = document.getElementById("githubLink").value;
-  else githubLink = null;
+  for (var checkbox of techStackCheck) tech_stack.push(checkbox.value);
+
+  var githubLink = document.getElementById("githubLink").value || null;
 
   const project_id =
     databaseRecordCount +
@@ -91,48 +114,42 @@ async function insertFetchData() {
   uploadMedia(fileBanner, title, "Banner")
     .then((bannerDownloadURL) => {
       // then do this
-      uploadMedia(fileDocumentation, title, "Doc")
-        .then((documentURL) => {
+      uploadMedia(fileDemo, title, "Demo")
+        .then((demoDownloadURL) => {
           // then do this
-          uploadMedia(fileDemo, title, "Demo")
-            .then((demoDownloadURL) => {
-              // then do this
-              const projectData = {
-                project_title: title,
-                project_type: type,
-                project_tech_stack: tech_stack.join(","),
-                project_description: description,
-                banner_image_URL: bannerDownloadURL,
-                demo_file_URL: demoDownloadURL,
-                documentation_URL: documentURL,
-                github_link: githubLink,
-                demo_type: demo_type,
-                tryProjectLink: tryProjectLink,
-              };
+          const projectData = {
+            project_title: title,
+            project_type: stack,
+            project_tech_stack: tech_stack,
+            project_description: description,
+            project_creation: project_creation,
+            personal_comments: comments,
+            banner_image_URL: bannerDownloadURL,
+            demo_file_URL: demoDownloadURL,
+            github_link: githubLink,
+            demo_type: demo_type,
+            documentation_text: documentation_text,
+            links: links_obj,
+          };
 
-              console.log(`
+          console.log(`
                 Uploading Data to DB:
                 - Title: ${title}
-                - Type: ${type}
-                - Tech Stack: ${tech_stack.join(",")}
+                - Type: ${stack}
+                - Tech Stack: ${tech_stack}
                 - Description: ${description}
                 - Banner Image URL: ${bannerDownloadURL}
                 - Demo File URL: ${demoDownloadURL}
-                - Documentation File URL" ${documentURL}
                 - GitHub Link: ${githubLink}
                 - Demo Type: ${demo_type}
               `);
 
-              console.log("Uploading Data: " + projectData);
+          console.log("Uploading Data: " + projectData);
 
-              set(projectsRef, projectData)
-                .then(() => {
-                  console.log("Data Successfully inserted!");
-                  console.log(projectData);
-                })
-                .catch((e) => {
-                  console.log(e);
-                });
+          set(projectsRef, projectData)
+            .then(() => {
+              console.log("Data Successfully inserted!");
+              console.log(projectData);
             })
             .catch((e) => {
               console.log(e);

@@ -9,7 +9,6 @@
 
     <link rel='stylesheet' type='text/css' href='css/admin_panel.css'>
 
-    <script type="module" src='js/firebase_init.js' type="module"></script>
     <script type="module" src='js/admin_panel.js'></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="./media/favicons/apple-touch-icon.png">
@@ -28,28 +27,49 @@
         <div class="flex">
         </div>
 
-        <span>Project Title</span>
-        <input class="input" type="text" id="project_title" placeholder="Enter Project Title" required="">
+        <h3>Project Title *</h3>
+        <input class="input" type="text" id="project_title" placeholder="Enter Project Title" required=""
+            value="Title Lorem Ipsum">
+
+        <hr>
+
+        <h3>Project Description*</h3>
+        <textarea placeholder="Enter Description" name="project_description" id="project_description" rows="4" cols="50"
+            required="">Description Lorem Ipsum</textarea>
+
+        <hr>
+
+        <h3>Project Creation Date *</h3>
+        <input class="input" type="text" id="project_creation" placeholder="Enter Project Creation Date (Month Year)"
+            required="" value="April 2024">
+
+        <hr>
+
+        <h3>Personal Comments</h3>
+        <textarea placeholder="Enter Personal Comments" id="personal_comments" rows="4"
+            cols="50">Comments Lorem Ipsum</textarea>
+
+        <hr>
 
         <label>
-            <span><br>Application Type: Web/Mobile/Desktop Application<br><br></span>
-            <input type="radio" id="project_type1" name="project_type" value="Mobile Application" checked>
+            <h3>Application Type: *</h3>
+            <input type="radio" id="project_type1" name="project_type" value="Mobile Application" required>
             <label for="project_type1">Mobile Application</label><br>
-            <input type="radio" id="project_type2" name="project_type" value="Web Application">
+            <input type="radio" id="project_type2" name="project_type" value="Web Application" required>
             <label for="project_type2">Web Application</label><br>
-            <input type="radio" id="project_type3" name="project_type" value="Desktop Application">
+            <input type="radio" id="project_type3" name="project_type" value="Desktop Application" required>
             <label for="project_type3">Desktop Application</label><br>
-            <input type="radio" id="project_type4" name="project_type" value="Python Script">
+            <input type="radio" id="project_type4" name="project_type" value="Python Script" required>
             <label for="project_type4">Python Script</label><br>
 
-            <label>
-                <input type="radio" name="project_type" value="other">&nbsp;Other
-                <input type="text" name="other" placeholder="Write In" />
-            </label>
+            <input type="radio" name="project_type" value="other172t63786123" required checked>&nbsp;Other
+            <input type="text" placeholder="Write In" class="other_project_type" value="xyz app type" />
         </label>
 
-        <label>
-            <span><br>Tech Stack<br><br></span>
+        <hr>
+
+        <div>
+            <h3>Tech Stack</h3>
             <input type="checkbox" id="tech_stack1" name="tech_stack" value="Python">
             <label for="tech_stack1">Python</label><br>
 
@@ -86,50 +106,66 @@
             <input type="checkbox" id="tech_stack12" name="tech_stack" value="Flask">
             <label for="tech_stack12">Flask</label><br>
 
-        </label>
+            <input type="radio" name="project_type_radio" value="other" checked>
 
-        <br>
+            &nbsp;Other (Refer to <a href="https://devicon.dev/" target="_blank">devicon.dev</a> for valid Icons)
 
-        <label for="opensource">Open Source Project
-            <input type="checkbox" id="opensource" name="opensource" value="opensource">
-        </label>
+            <input type="text" class="other_project_tech" placeholder="Write In (Comma Separated)"
+                value="akka,algolia" />
+        </div>
+
+        <hr>
 
         <label>
-            <span><br>Demo Type?<br><br></span>
-            <input type="radio" id="demo_type1" name="demo_type" value="demo_pc" checked>
+            <h3>Demo Type: (For the Main Video/Image)*</h3>
+            <input type="radio" id="demo_type1" name="demo_type" value="demo_pc" required>
             <label for="demo_type1">PC (Laptop/Computer)</label><br>
-            <input type="radio" id="demo_type2" name="demo_type" value="demo_mobile">
+            <input type="radio" id="demo_type2" name="demo_type" value="demo_mobile" required>
             <label for="demo_type2">Mobile</label><br>
-            <input type="radio" id="demo_type3" name="demo_type" value="demo_pc_image">
+            <input type="radio" id="demo_type3" name="demo_type" value="demo_pc_image" required>
             <label for="demo_type3">PC Image</label><br>
-            <input type="radio" id="demo_type3" name="demo_type" value="none">
+            <input type="radio" id="demo_type3" name="demo_type" value="none" required checked>
             <label for="demo_type3">None</label><br>
         </label>
-        <br>
 
-        <span>Project Description</span>
-        <input class="input" id="project_description" type="text" placeholder="Enter Description" required="">
-        <br>
+        <hr>
 
-        <span>Github Link</span>
-        <input class="input" id="githubLink" type="url" placeholder="Enter Github Link">
-        <br>
-
-        <label>Project Demo:</label>
+        <h3>Project Main Demo:</h3>
         <input type="file" id="file-selector-demo" accept=".jpg, .jpeg, .png, .mp4">
-        <br>
 
-        <label>Project Banner Image:</label>
-        <input type="file" id="file-selector-image" accept=".jpg, .jpeg, .png" required>
-        <br>
+        <hr>
 
-        <label>Project Documentation: (MarkDown)</label>
-        <input type="file" id="file-selector-doc" accept=".md">
-        <br>
+        <h3>Github Link</h3>
+        <input class="input" id="githubLink" type="url" placeholder="Enter Github Link">
 
-        <label>Try Project Link</label>
-        <input class="input" id="tryProjectLink" type="url" placeholder="Enter Project Link">
-        <br>
+        <hr>
+
+        <h3>Project Banner Image: (SoftwareProjects.html) *</h3>
+        <input type="file" id="file-selector-image" accept=".jpg, .jpeg, .png">
+
+        <hr>
+
+        <h3>Project Image Gallery: (Can Choose Multiple Files)</h3>
+        <input type="file" id="file-selector-image" accept=".jpg, .jpeg, .png" name="project_images" multiple>
+
+        <hr>
+
+        <h3>Project Documentation: (MarkDown / Normal Text)</h3>
+        <textarea name="documentation_text" id="documentation_text" cols="30" rows="10"
+            placeholder="Enter Documentation"></textarea>
+
+        <hr>
+
+        <h3>Links</h3>
+        <div class="links">
+            <div class="link">
+                <input class="link_text" type="text" placeholder="Enter Link Name">
+                <input class="link_url" type="url" placeholder="Enter Link URL">
+            </div>
+        </div>
+        <button class="add_another_link" type="button">Add another Link</button>
+
+        <hr>
 
         <button class="submit">Create New Project</button>
     </form>

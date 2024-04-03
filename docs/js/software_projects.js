@@ -246,7 +246,10 @@ function processDataAndHidePreloader(snapshot) {
     if (banner_image_URL == undefined)
       banner_image_URL = "/docs/media/bg_aryan_swirl.webp";
 
-    var projectTechStack_values = projectTechStack.trim().split(",");
+    // var projectTechStack_values = projectTechStack.trim().split(",");
+
+    console.log(typeof projectTechStack);
+
     const replacements = {
       HTML: "HTML5-plain colored",
       CSS: "CSS3-plain colored",
@@ -271,7 +274,7 @@ function processDataAndHidePreloader(snapshot) {
                       <span class="card-type"><i>${projectType}</i></span>
 
                       <div class="card-tech-stack">
-                          ${projectTechStack_values
+                          ${Object.values(projectTechStack)
                             .map((element) => {
                               const replacedElement =
                                 replacements[element] ||
