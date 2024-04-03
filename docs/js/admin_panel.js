@@ -63,6 +63,7 @@ async function insertFetchData() {
   const project_creation = document.getElementById("project_creation").value;
   const fileSelectorBanner = document.getElementById("file-selector-image");
   const fileSelectorDemo = document.getElementById("file-selector-demo");
+
   const documentation_text =
     document.getElementById("documentation_text").value;
   const links = document.querySelectorAll(".link");
@@ -117,53 +118,68 @@ async function insertFetchData() {
       uploadMedia(fileDemo, title, "Demo")
         .then((demoDownloadURL) => {
           // then do this
-          const projectData = {
-            project_title: title,
-            project_type: stack,
-            project_tech_stack: tech_stack,
-            project_description: description,
-            project_creation: project_creation,
-            personal_comments: comments,
-            banner_image_URL: bannerDownloadURL,
-            demo_file_URL: demoDownloadURL,
-            github_link: githubLink,
-            demo_type: demo_type,
-            documentation_text: documentation_text,
-            links: links_obj,
-          };
+          uploadMultipleImages(title)
+            .then((multipleURLs) => {
+              // then do this
+              const projectData = {
+                project_title: title,
+                project_type: stack,
+                project_tech_stack: tech_stack,
+                project_description: description,
+                project_creation: project_creation,
+                project_personal_comments: comments,
+                banner_image_URL: bannerDownloadURL,
+                demo_file_URL: demoDownloadURL,
+                github_link: githubLink,
+                demo_type: demo_type,
+                project_documentation_text: documentation_text,
+                project_links: links_obj,
+                project_images: multipleURLs,
+              };
 
-          console.log(`
-                Uploading Data to DB:
-                - Title: ${title}
-                - Type: ${stack}
-                - Tech Stack: ${tech_stack}
-                - Description: ${description}
-                - Banner Image URL: ${bannerDownloadURL}
-                - Demo File URL: ${demoDownloadURL}
-                - GitHub Link: ${githubLink}
-                - Demo Type: ${demo_type}
-              `);
+              console.log(
+                "Project Title:",
+                title,
+                "Project Type:",
+                stack,
+                "Project Tech Stack:",
+                tech_stack,
+                "Project Description:",
+                description,
+                "Project Creation:",
+                project_creation,
+                "Project Personal Comments:",
+                comments,
+                "Banner Image URL:",
+                bannerDownloadURL,
+                "Demo File URL:",
+                demoDownloadURL,
+                "GitHub Link:",
+                githubLink,
+                "Demo Type:",
+                demo_type,
+                "Project Documentation Text:",
+                documentation_text,
+                "Project Links:",
+                links_obj,
+                "Project Images:",
+                multipleURLs
+              );
 
-          console.log("Uploading Data: " + projectData);
+              console.log("Uploading Data: " + projectData);
 
-          set(projectsRef, projectData)
-            .then(() => {
-              console.log("Data Successfully inserted!");
-              console.log(projectData);
+              set(projectsRef, projectData)
+                .then(() => console.log("Data Successfully inserted!"))
+                .catch((e) => console.log(e));
+
+              // End of Upload
+              document.getElementById("submit-project-form").reset();
             })
-            .catch((e) => {
-              console.log(e);
-            });
+            .catch((e) => console.log(e));
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => console.log(e));
     })
-    .catch((e) => {
-      console.log(e);
-    });
-
-  document.getElementById("submit-project-form").reset();
+    .catch((e) => console.log(e));
 }
 
 async function uploadMedia(file, title, mediaType) {
@@ -186,6 +202,44 @@ async function uploadMedia(file, title, mediaType) {
     }
   } else {
     return null;
+  }
+}
+
+async function uploadMultipleImages(title) {
+  const project_images = document.getElementById("project_images");
+  const multiplefiles = await project_images.files;
+
+  let urls = [];
+
+  if (multiplefiles) {
+    for (let i = 0; i < multiplefiles.length; i++) {
+      let file = multiplefiles.item(i);
+      console.log("Projet Media File:", file.name);
+      let url = await performUpload(file, title);
+      if (url) urls.push(url);
+    }
+    return urls;
+  } else {
+    console.log("No Project Media. Returning null");
+    return null;
+  }
+}
+
+async function performUpload(file, title) {
+  console.log(`Uploading ${file} to DB`);
+
+  const ref = storageRef(
+    storage,
+    `ProjectMedia/${title.replace(" ", "_")}/${file.name}`
+  );
+  try {
+    await uploadBytes(ref, file);
+    const url = await getDownloadURL(ref);
+    console.log(`Successfully Uploaded File to DB`);
+    return url;
+  } catch (error) {
+    console.error(`Error uploading ${mediaType} media:`, error);
+    throw error;
   }
 }
 

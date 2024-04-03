@@ -79,6 +79,8 @@ const personal_comments = document.querySelector(".personal_comments");
 const comment_card = document.querySelector("#comment_card");
 const bento_links = document.querySelector("#bento_links");
 const links_card = document.querySelector("#links_card");
+const github_bento_card = document.querySelector("#github_bento_card");
+
 // ! INIT END
 
 function setPageUrl(tab_title) {
@@ -123,7 +125,7 @@ function setLinks(links) {
       anchor.className = "bento_link";
       anchor.href = link[1];
       anchor.innerHTML = `
-      <span>${link[0]}</span>
+      <span style="width=5em">${link[0]}</span>
       <span>${link[1].replace(/^https?:\/\//, "").replace("/", "")}</span>
       <i class="fa-solid fa-up-right-from-square link_icon"></i>
     `;
@@ -223,42 +225,52 @@ async function processData(snapshot) {
   var p_desc = snapshotData.project_description;
   var p_type = snapshotData.project_type;
   var p_techStack = snapshotData.project_tech_stack;
-  var links = snapshotData.links;
+  var links = snapshotData.project_links;
   var p_demoURL = snapshotData.demo_file_URL;
   var p_demoType = snapshotData.demo_type;
   var p_documentationURL = snapshotData.documentation_URL;
   var project_creation = snapshotData.project_creation;
-  var personal_comments = snapshotData.personal_comments;
+  var personal_comments = snapshotData.project_personal_comments;
+  var github_link = snapshotData.github_link || null;
+  const project_images = snapshotData.project_images;
 
   setOthers(p_title, p_type, p_desc, project_creation, personal_comments);
-  // setProjectTypeIcon(p_type, ptypeIcon);
   setPageUrl(p_title);
   setupDocumentation(p_documentationURL, pInfoText);
   setupMockups(p_demoType, p_demoURL);
   setTechStack(p_techStack);
   setLinks(links);
-  setGithub();
+  setGithub(github_link);
+  createImages(project_images);
+  normalHeaders();
 }
 
-function setGithub() {
-  fetch("https://api.github.com/users/aryanranderiya/repos")
-    .then((response) => {
-      if (!response.ok)
-        throw new Error(`HTTP error! Status: ${response.status}`);
+function setGithub(github_link) {
+  if (github_link)
+    fetch("https://api.github.com/users/aryanranderiya/repos")
+      .then((response) => {
+        if (!response.ok)
+          throw new Error(`HTTP error! Status: ${response.status}`);
 
-      return response.json();
-    })
-    .then((response_json) => {
-      response_json.forEach((repo) => {
-        console.log("Stars: ", repo.stargazers_count);
-        // console.log( repo);
-        console.log("html_url: ", repo.html_url);
-        console.log("name: ", repo.name);
+        return response.json();
+      })
+      .then((response_json) => {
+        response_json.forEach((repo) => {
+          if (repo.html_url === github_link) {
+            const createdAt = new Date(repo.created_at).toDateString();
+            const updatedAt = new Date(repo.updated_at).toDateString();
+            document.querySelector(".repo_name").innerHTML = repo.full_name;
+            document.querySelector(".repo_stars").innerHTML =
+              repo.stargazers_count;
+            document.querySelector(".repo_created").innerHTML = createdAt;
+            document.querySelector(".repo_updated").innerHTML = updatedAt;
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Fetch Documentation error:", error);
       });
-    })
-    .catch((error) => {
-      console.error("Fetch Documentation error:", error);
-    });
+  else github_bento_card.remove();
 }
 
 //!  Intersection Observer for scrolling into view
@@ -663,4 +675,161 @@ function updateProgressBarandBtn() {
     .style.setProperty("--height", scrollPercent);
 
   cursortext2.textContent = Math.round(percentage) + "%";
+}
+
+function createImages(project_images) {
+  const sliderWrapper = document.querySelector(".slider-wrapper");
+
+  project_images.forEach((image_url) => {
+    const div = document.createElement("div");
+    div.classList.add("slider-item");
+    div.innerHTML = `
+      <figure>
+          <img loading="eager" src="${image_url}" class="project_image" alt="Project Images">
+      </figure>
+      `;
+    sliderWrapper.appendChild(div);
+  });
+}
+
+function normalHeaders() {
+  const slider = document.querySelector(".slider");
+  const cursoricondrag = document.getElementById("cursoricondrag");
+
+  // Change cursor to drag when hover on headers
+  slider.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("none", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricondrag, "active");
+  });
+
+  slider.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend(undefined, undefined);
+    removeClass(cursor, "transparent");
+    removeClass(cursoricondrag, "active");
+  });
+
+  // Header Scrolling Carousel
+  const lerp = (f0, f1, t) => (1 - t) * f0 + t * f1;
+  const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
+
+  class DragScroll {
+    constructor(obj) {
+      this.el = document.querySelector(obj.el);
+      this.wrap = this.el.querySelector(obj.wrap);
+      this.items = this.el.querySelectorAll(obj.item);
+      this.bar = this.el.querySelector(obj.bar);
+      this.init();
+    }
+
+    init() {
+      this.progress = 0;
+      this.speed = 0;
+      this.oldX = 0;
+      this.x = 0;
+      this.playrate = 0;
+
+      this.bindings();
+      this.events();
+      this.calculate();
+      this.raf();
+    }
+
+    bindings() {
+      [
+        "events",
+        "calculate",
+        "raf",
+        "handleWheel",
+        "move",
+        "raf",
+        "handleTouchStart",
+        "handleTouchMove",
+        "handleTouchEnd",
+      ].forEach((method) => {
+        this[method] = this[method].bind(this);
+      });
+    }
+
+    calculate() {
+      this.progress = 0;
+      this.wrapWidth = this.items[0].clientWidth * this.items.length;
+      this.wrap.style.width = `${this.wrapWidth}px`;
+      this.maxScroll = this.wrapWidth - this.el.clientWidth;
+    }
+
+    handleWheel() {
+      this.progress = window.scrollY;
+      this.move();
+    }
+
+    handleTouchStart(e) {
+      e.preventDefault();
+      this.dragging = true;
+      this.startX = e.clientX || e.touches[0].clientX;
+      this.el.classList.add("dragging");
+    }
+
+    handleTouchMove(e) {
+      if (!this.dragging) return false;
+      const x = e.clientX || e.touches[0].clientX;
+      this.progress += (this.startX - x) * 2.5;
+      this.startX = x;
+      this.move();
+    }
+
+    handleTouchEnd() {
+      this.dragging = false;
+      this.el.classList.remove("dragging");
+    }
+
+    move() {
+      this.progress = clamp(this.progress, 0, this.maxScroll);
+    }
+
+    events() {
+      window.addEventListener("resize", this.calculate);
+      window.addEventListener("wheel", this.handleWheel);
+      this.el.addEventListener("touchstart", this.handleTouchStart);
+      window.addEventListener("touchmove", this.handleTouchMove);
+      window.addEventListener("touchend", this.handleTouchEnd);
+      window.addEventListener("mousedown", this.handleTouchStart);
+      window.addEventListener("mousemove", this.handleTouchMove);
+      window.addEventListener("mouseup", this.handleTouchEnd);
+      document.body.addEventListener("mouseleave", this.handleTouchEnd);
+    }
+
+    raf() {
+      this.x = lerp(this.x, this.progress, 0.1);
+      this.playrate = this.x / this.maxScroll;
+
+      this.wrap.style.transform = `translateX(${-this.x}px)`;
+      this.bar.style.transform = `scaleX(${0.18 + this.playrate * 0.82})`;
+
+      this.speed = Math.min(100, this.oldX - this.x);
+      this.oldX = this.x;
+
+      this.scale = lerp(this.scale, this.speed, 0.1);
+      this.items.forEach((item) => {
+        item.style.transform = `scale(${1 - Math.abs(this.speed) * 0.005})`;
+        item.querySelector("img").style.transform = `scaleX(${
+          1 + Math.abs(this.speed) * 0.004
+        })`;
+      });
+    }
+  }
+
+  const scroll = new DragScroll({
+    el: ".slider",
+    wrap: ".slider-wrapper",
+    item: ".slider-item",
+    bar: ".slider-progress-bar",
+  });
+
+  const animateScroll = () => {
+    requestAnimationFrame(animateScroll);
+    scroll.raf();
+  };
+
+  animateScroll();
 }
