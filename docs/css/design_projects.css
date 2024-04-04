@@ -161,7 +161,7 @@ section {
 
 .folder {
   z-index: 1;
-
+  height: 270px;
   transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
     opacity 1s ease, filter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),

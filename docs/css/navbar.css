@@ -33,7 +33,7 @@ body {
 }
 
 @font-face {
-  font-display: swap;
+  font-display: auto;
   font-family: Spacer;
   src: url("../fonts/SPACERR-Regular.woff2") format("woff2");
 }
