@@ -60,6 +60,7 @@ section {
 
 .logos-slide {
   display: inline-block;
+  transform: rotate3d(1, 1, 1, 0.01deg);
 }
 
 .logos-slide img {
@@ -431,4 +432,3 @@ section {
   display: flex;
   flex-wrap: wrap;
 }
-

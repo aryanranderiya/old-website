@@ -706,9 +706,6 @@ h6 {
     margin-bottom: 10px !important;
   }
 
-  /* #description {
-    text-align: end;
-  } */
   .marquee__part {
     font-size: 2em;
   }
@@ -721,7 +718,7 @@ h6 {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 500px;
+  height: 400px;
 }
 .custom-shape-divider-top-1707225707 {
   position: absolute;

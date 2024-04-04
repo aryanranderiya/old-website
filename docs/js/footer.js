@@ -247,6 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
           repeat: -1,
           duration: 3,
           ease: "linear",
+          rotation: 0.01,
         });
 
         gsap.set(".marquee__inner", { xPercent: -50 });

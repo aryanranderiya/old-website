@@ -410,8 +410,15 @@ section {
   opacity: 0;
   border: none;
   box-shadow: 0px 0px 60px 15px #00bbff;
+  transition: opacity 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  -webkit-transition: opacity 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
+.scrolltotop:hover {
+  background-color: #00bbff;
+}
 #scrolltop_icon {
   font-size: 3em;
   z-index: 12;
@@ -422,6 +429,9 @@ section {
 }
 
 @media screen and (max-width: 600px) {
+  .project_demo_text {
+    margin-bottom: 0;
+  }
   .documentation,
   .image_gallery {
     width: 90% !important;
@@ -673,6 +683,7 @@ section {
   color: grey;
   transition: color 0.3s ease;
   -webkit-transition: color 0.3s ease;
+  margin-bottom: 6%;
 }
 
 .project_demo_text:hover {

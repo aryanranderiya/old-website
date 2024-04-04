@@ -44,22 +44,17 @@ const iconMain = document.querySelector(".icon_main");
 const mockup_pc = document.querySelector(".mockup_pc");
 const tech_stack = document.querySelector(".tech_stack");
 const ptypeText = document.querySelector(".p_type_text");
-const ptypeIcon = document.querySelector(".p_type_icon");
 const progressBar = document.querySelector("#progress-bar");
 const btnScrollTop = document.querySelector(".scrolltotop");
-const tryAnchor = document.querySelector(".btn_try_anchor");
 const mockup_phone = document.querySelector(".mockup_phone");
 const pInfoText = document.querySelector(".project_info_text");
 const containerPC = document.querySelector(".container-laptop");
-const primaryButton = document.querySelector(".button_primary");
 const controlPlay = document.querySelector("#control_playback");
 const controlPause = document.getElementById("icons_main_pause");
-const githubAnchor = document.querySelector(".btn_github_anchor");
 const textProjectTitle = document.querySelector(".project_title");
 const playback_icons_main = document.querySelector(".icons.main");
 const containerPhone = document.querySelector(".container-mobile");
 const projectDescription = document.querySelector(".project_desc");
-const secondaryButton = document.querySelector(".button_secondary");
 const iconsMainReplay = document.getElementById("icons_main_replay");
 const mockupContainer = document.querySelectorAll(".mockup_container");
 const otherControls = document.querySelector(".video_controls_others");
@@ -85,10 +80,10 @@ const documentation = document.querySelector(".documentation");
 // ! INIT END
 
 function setPageUrl(tab_title) {
-  // let title_url = tab_title.replace(/ /g, "");
-  // const nextState = { additionalInformation: "Updated the URL with JS" };
-  // window.history.pushState(nextState, tab_title, title_url);
-  // window.history.replaceState(nextState, tab_title, title_url);
+  let title_url = tab_title.replace(/ /g, "");
+  const nextState = { additionalInformation: "Updated the URL with JS" };
+  window.history.pushState(nextState, tab_title, title_url);
+  window.history.replaceState(nextState, tab_title, title_url);
 }
 
 function setupDocumentation(p_documentationURL, pInfoText) {
@@ -479,11 +474,10 @@ function playPauseVideo(video) {
 
 function removeCover() {
   const blackCover = document.querySelector(".black_cover");
-  const preloader = document.querySelector(".preloader");
+
+  addClass(blackCover, "hide");
 
   setTimeout(function () {
-    addClass(blackCover, "hide");
-    addClass(preloader, "hide");
     document.body.style.overflow = "auto";
   }, 500);
 }

@@ -4,11 +4,11 @@ window.onbeforeunload = () => {
 
 window.onload = function () {
   const blackCover = document.querySelector(".black_cover");
-  const preloader = document.querySelector(".preloader");
 
   setTimeout(function () {
     blackCover.classList.add("hide");
-    preloader.classList.add("hide");
-    document.body.style.overflow = "auto";
+    setTimeout(() => {
+      document.body.style.overflow = "auto";
+    }, 200);
   }, 500);
 };

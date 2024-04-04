@@ -275,6 +275,7 @@ function processDataAndHidePreloader(snapshot) {
 
                       <div class="card-tech-stack">
                           ${Object.values(projectTechStack)
+                            .sort()
                             .map((element) => {
                               const replacedElement =
                                 replacements[element] ||
@@ -414,6 +415,7 @@ function marqueeScrollAnimation() {
       repeat: -1,
       duration: 10,
       ease: "linear",
+      rotation: 1,
     })
     .totalProgress(0.5);
 
@@ -665,12 +667,10 @@ function removeClass(element, className) {
 
 function removePreloader() {
   const blackCover = document.querySelector(".black_cover");
-  const preloader = document.querySelector(".preloader");
 
   setTimeout(function () {
     blackCover.classList.add("hide");
-    preloader.classList.add("hide");
-    document.body.style.overflow = "auto";
+    setTimeout(() => (document.body.style.overflow = "auto"), 200);
   }, 500);
 
   // Handle Intersection Translate Y
