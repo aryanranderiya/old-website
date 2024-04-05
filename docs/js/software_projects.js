@@ -33,10 +33,12 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const database = getDatabase();
 const projectsRef = ref(database, "Projects/");
+const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 
 // ! FIREBASE INIT END --------------------------------------------------------------------------------------
 
 onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
+onValue(SoftwareIconsRef, processProjectIcons, { onlyOnce: true });
 
 document.addEventListener("DOMContentLoaded", function () {
   const cursor_glow = document.querySelector(".cursor_glow_div");
@@ -229,13 +231,13 @@ function addMouseHovers() {
 }
 
 function processDataAndHidePreloader(snapshot) {
-  const dataArray = [];
-  snapshot.forEach((childSnapshot) => {
-    dataArray.push(childSnapshot);
-  });
-  dataArray.reverse();
+  // const dataArray = [];
+  // snapshot.forEach((childSnapshot) => {
+  //   dataArray.push(childSnapshot);
+  // });
+  // snapshot.reverse();
 
-  dataArray.forEach((childSnapshot) => {
+  snapshot.forEach((childSnapshot) => {
     const projectDetails = childSnapshot.val();
     const projectId = childSnapshot.key;
     const projectTitle = projectDetails.project_title;
@@ -438,25 +440,37 @@ function marqueeScrollAnimation() {
 
   let currentScroll = 0;
   let isScrollingDown = true;
+  const slides = document.querySelectorAll(".logos-slide");
 
-  let tween = gsap
-    .to(".logos-slide", {
-      xPercent: -100,
-      repeat: -1,
-      duration: 10,
-      ease: "linear",
-      rotation: 1,
-    })
-    .totalProgress(0.5);
+  slides.forEach((slide) => {
+    let tween = gsap
+      .to(slide, {
+        xPercent: -100,
+        repeat: -1,
+        duration: 5,
+        ease: "linear",
+      })
+      .totalProgress(0);
 
-  gsap.set(".logos-slide", { xPercent: -50 });
+    gsap.set(slide, { xPercent: -50 });
+
+    slide.addEventListener("mouseover", function () {
+      tween.pause();
+    });
+
+    slide.addEventListener("mouseout", function () {
+      tween.resume();
+    });
+  });
 
   window.addEventListener("scroll", function () {
     if (window.pageYOffset > currentScroll) isScrollingDown = false;
     else isScrollingDown = true;
 
-    gsap.to(tween, {
-      timeScale: isScrollingDown ? 1 : -1,
+    slides.forEach((slide) => {
+      gsap.to(slide, {
+        timeScale: isScrollingDown ? 1 : -1,
+      });
     });
 
     currentScroll = window.pageYOffset;
@@ -725,4 +739,19 @@ function removePreloader() {
   );
 
   observerTranslate.observe(document.querySelector(".title"));
+}
+
+function processProjectIcons(snapshot) {
+  const logosSlide = document.querySelector(".logos-slide");
+
+  snapshot.forEach((childSnapshot) => {
+    const url = childSnapshot.val();
+    const img = document.createElement("img");
+    img.src = url;
+    logosSlide.appendChild(img);
+  });
+
+  const logosSlide2 = logosSlide.cloneNode(true);
+  const logos = document.querySelector(".logos");
+  logos.appendChild(logosSlide2);
 }

@@ -7,6 +7,7 @@ import {
   ref,
   set,
   get,
+  update,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
 import {
@@ -37,6 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       insertFetchData();
     });
+
+  document
+    .getElementById("submit-softwarelogos-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      insertSoftwareLogoURL();
+    });
   setupAddLinks();
 });
 
@@ -55,8 +63,24 @@ function setupAddLinks() {
   });
 }
 
+async function insertSoftwareLogoURL() {
+  var SoftwareIconsRef = ref(database, "SoftwareIcons");
+
+  const logo_url = document.getElementById("software_logo").value || null;
+  const databaseRecordCount = (await countDatabaseRecords("SoftwareIcons")) + 0;
+
+  var data = {};
+  data[databaseRecordCount] = logo_url;
+
+  update(SoftwareIconsRef, data)
+    .then(() => console.log("Data Successfully inserted!"))
+    .catch((e) => console.log(e));
+
+  document.getElementById("submit-softwarelogos-form").reset();
+}
+
 async function insertFetchData() {
-  const databaseRecordCount = (await countDatabaseRecords()) + 1;
+  const databaseRecordCount = (await countDatabaseRecords("Projects")) + 1;
   var title = document.getElementById("project_title").value;
   const comments = document.getElementById("personal_comments").value || null;
   const description = document.getElementById("project_description").value;
@@ -260,9 +284,9 @@ async function performUpload(file, title) {
   }
 }
 
-async function countDatabaseRecords() {
+async function countDatabaseRecords(reference) {
   const database = getDatabase();
-  const projectsRef = ref(database, "Projects");
+  const projectsRef = ref(database, reference);
 
   try {
     const snapshot = await get(projectsRef);

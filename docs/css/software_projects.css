@@ -65,7 +65,7 @@ section {
 
 .logos-slide img {
   height: 100px;
-  margin: 0 40px;
+  margin: 30px;
 }
 
 /* !Responsive */
@@ -108,7 +108,7 @@ section {
 
   .logos-slide img {
     height: 50px;
-    margin: 20px 20px;
+    margin: 20px;
   }
 
   .animation_paragraph {
