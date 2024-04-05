@@ -672,6 +672,7 @@ function updateProgressBarandBtn() {
 
 function createImages(project_images) {
   if (project_images) {
+    project_images.reverse();
     const sliderWrapper = document.querySelector(".slider-wrapper");
     project_images.forEach((image_url) => {
       const div = document.createElement("div");

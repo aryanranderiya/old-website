@@ -10,15 +10,16 @@ body {
   left: 0;
   opacity: 1;
   transition: opacity 0.3s ease-out,
-    transform 3s cubic-bezier(0.1, 0.82, 0.165, 1.2);
+    transform 2.7s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: opacity 0.3s ease-out,
-    transform 3s cubic-bezier(0.1, 0.82, 0.165, 1.2);
+    transform 2.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+
   z-index: 999999999;
 }
 
 .black_cover.hide {
-  transform: translateY(-170%);
-  -webkit-transform: translateY(-170%);
+  transform: translateY(-180%);
+  -webkit-transform: translateY(-180%);
 }
 
 .preloader {

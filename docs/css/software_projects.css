@@ -50,7 +50,9 @@ section {
 .logos {
   align-self: center;
   justify-self: center;
-  margin: 5% 6%;
+  margin: 0 6%;
+  margin-top: 2%;
+  margin-bottom: 6%;
   white-space: nowrap;
   position: relative;
   transition: filter 0.2s ease;

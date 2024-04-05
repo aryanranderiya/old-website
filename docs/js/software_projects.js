@@ -446,7 +446,7 @@ function marqueeScrollAnimation() {
       .to(slide, {
         xPercent: -100,
         repeat: -1,
-        duration: 5,
+        duration: 10,
         ease: "linear",
       })
       .totalProgress(0);
@@ -459,9 +459,10 @@ function marqueeScrollAnimation() {
     else isScrollingDown = true;
 
     slides.forEach((slide) => {
-      gsap.to(slide, {
-        timeScale: isScrollingDown ? 1 : -1,
-      });
+      const tween = gsap.getTweensOf(slide)[0];
+      if (tween) {
+        tween.timeScale(isScrollingDown ? 1 : -1);
+      }
     });
 
     currentScroll = window.pageYOffset;
