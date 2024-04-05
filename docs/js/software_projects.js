@@ -37,8 +37,8 @@ const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 
 // ! FIREBASE INIT END --------------------------------------------------------------------------------------
 
-onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 onValue(SoftwareIconsRef, processProjectIcons, { onlyOnce: true });
+onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 
 document.addEventListener("DOMContentLoaded", function () {
   const cursor_glow = document.querySelector(".cursor_glow_div");
@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
   modifyScrollBar();
 
   addMouseHovers();
-  marqueeScrollAnimation();
   document.addEventListener("scroll", updateProgressBarandBtn);
 
   generateLoadingText();
@@ -443,7 +442,7 @@ function marqueeScrollAnimation() {
   const slides = document.querySelectorAll(".logos-slide");
 
   slides.forEach((slide) => {
-    let tween = gsap
+    gsap
       .to(slide, {
         xPercent: -100,
         repeat: -1,
@@ -453,14 +452,6 @@ function marqueeScrollAnimation() {
       .totalProgress(0);
 
     gsap.set(slide, { xPercent: -50 });
-
-    slide.addEventListener("mouseover", function () {
-      tween.pause();
-    });
-
-    slide.addEventListener("mouseout", function () {
-      tween.resume();
-    });
   });
 
   window.addEventListener("scroll", function () {
@@ -747,6 +738,7 @@ function processProjectIcons(snapshot) {
   snapshot.forEach((childSnapshot) => {
     const url = childSnapshot.val();
     const img = document.createElement("img");
+    img.loading = "eager";
     img.src = url;
     logosSlide.appendChild(img);
   });
@@ -754,4 +746,6 @@ function processProjectIcons(snapshot) {
   const logosSlide2 = logosSlide.cloneNode(true);
   const logos = document.querySelector(".logos");
   logos.appendChild(logosSlide2);
+
+  marqueeScrollAnimation();
 }
