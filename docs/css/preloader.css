@@ -18,8 +18,8 @@ body {
 }
 
 .black_cover.hide {
-  transform: translateY(-180%);
-  -webkit-transform: translateY(-180%);
+  transform: translateY(-197%);
+  -webkit-transform: translateY(-197%);
 }
 
 .preloader {

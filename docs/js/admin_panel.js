@@ -145,12 +145,16 @@ async function insertFetchData() {
     readmeFile = new File([blob], `${project_id}_documentation.md`);
   }
 
-  var projectsRef = ref(database, "Projects/" + project_id);
+  // var projectsRef = ref(database, "Projects/" + project_id);
+  var projectsRef = ref(
+    database,
+    "Projects/6_project_Personal_Portfolio_1712175736205"
+  );
 
   uploadMedia(fileBanner, title, "Banner")
     .then((bannerDownloadURL) => {
       // then do this
-      uploadMedia(fileDemo, title, "Demo")
+      uploadMedia(fileDemo, "Personal Portfolio", "Demo")
         .then((demoDownloadURL) => {
           // then do this
           uploadMedia(readmeFile, title, "Documentation")
