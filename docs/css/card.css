@@ -37,6 +37,12 @@
   border: 1px solid rgb(48, 48, 48);
 }
 
+.card:hover,
+.github_card:hover {
+  transform: translateY(-15px);
+  box-shadow: #00bbff 0px 0px 100px -5px;
+}
+
 .card.grayscale {
   filter: grayscale(100%) brightness(15%);
 }

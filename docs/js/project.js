@@ -80,11 +80,12 @@ const documentation = document.querySelector(".documentation");
 // ! INIT END
 
 function setPageUrl(tab_title) {
-  let title_url = tab_title.replace(/ /g, "");
+  const encodedTitle = encodeURIComponent(tab_title);
+  const url = encodedTitle.replace(/%20/g, ""); // Remove encoded spaces
   const nextState = { additionalInformation: "Updated the URL with JS" };
-  window.history.pushState(nextState, tab_title, title_url);
-  window.history.replaceState(nextState, tab_title, title_url);
+  window.history.pushState(nextState, tab_title, url);
 }
+
 async function setupDocumentation(p_documentationURL, pInfoText) {
   try {
     if (p_documentationURL) {
@@ -203,8 +204,10 @@ function setupAnimation(pInfoText) {
 // ! Start Processing & Setting Data
 async function processData(snapshot) {
   const snapshotData = snapshot.val();
+  setPageUrl(snapshotData.project_title);
 
   var p_title = snapshotData.project_title;
+
   var p_desc = snapshotData.project_description;
   var p_type = snapshotData.project_type;
   var p_techStack = snapshotData.project_tech_stack;
@@ -218,7 +221,6 @@ async function processData(snapshot) {
   const project_images = snapshotData.project_images;
 
   setOthers(p_title, p_type, p_desc, project_creation, personal_comments);
-  setPageUrl(p_title);
   setupDocumentation(p_documentationURL, pInfoText);
   setupMockups(p_demoType, p_demoURL);
   setTechStack(p_techStack);

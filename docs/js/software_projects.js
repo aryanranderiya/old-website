@@ -191,6 +191,21 @@ function addMouseHovers() {
     cursor.style.boxShadow = "0px 0px 50px white";
   });
 
+  const github_heading_div = document.querySelectorAll(".github_heading_div");
+  github_heading_div.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      cursor.style.transform = "scale(11.5)";
+      cursor.style.mixBlendMode = "difference";
+      cursor.style.boxShadow = "none";
+    });
+
+    element.addEventListener("mouseout", () => {
+      cursor.style.transform = "none";
+      cursor.style.mixBlendMode = "normal";
+      cursor.style.boxShadow = "0px 0px 50px white";
+    });
+  });
+
   // Cards Cursor Title
 
   document.addEventListener("mouseover", function (event) {
@@ -383,6 +398,18 @@ function setupHearts() {
   const checkboxes = document.querySelectorAll(".heart_checkboxes");
 
   checkboxes.forEach((checkbox) => {
+    checkbox.parentElement.parentElement.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.5)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    checkbox.parentElement.parentElement.addEventListener("mouseout", () => {
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
+    });
+
     const likes_count_text = checkbox.parentElement.nextElementSibling;
     const svgContainer = checkbox.nextElementSibling;
     const projectId = checkbox.id.replace("heart_checkbox", "");
@@ -462,16 +489,12 @@ function hoverOnCards() {
   allCard.forEach((card) => {
     card.addEventListener("mouseover", () => {
       removeClass(card, "grayscale");
-      card.style.transform = "translateY(-15px)";
-      card.style.boxShadow = "#00bbff 0px 0px 100px -5px";
       allCard.forEach((otherCard) => {
         if (otherCard !== card) addClass(otherCard, "grayscale");
       });
     });
 
     card.addEventListener("mouseout", () => {
-      card.style.transform = "";
-      card.style.boxShadow = "";
       allCard.forEach((otherCard) => removeClass(otherCard, "grayscale"));
     });
   });
@@ -488,10 +511,15 @@ function hoverOnCards() {
   const button_secondaryAll = document.querySelectorAll(".button_secondary");
   button_secondaryAll.forEach((btn) => {
     btn.addEventListener("mouseover", () => {
-      cursor.style.mixBlendMode = "difference";
+      cursorTransformShadowBlend("scale(1.5)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
     });
+
     btn.addEventListener("mouseout", () => {
-      cursor.style.mixBlendMode = "normal";
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
     });
   });
 
@@ -707,6 +735,18 @@ async function fetchGithubData() {
         github_topic.textContent = topic;
         github_topics.appendChild(topic_anchor);
         topic_anchor.appendChild(github_topic);
+
+        github_topic.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend("scale(1.5)", "none");
+          addClass(cursor, "transparent");
+          addClass(cursoricon5, "active");
+        });
+
+        github_topic.addEventListener("mouseout", () => {
+          removeClass(cursor, "transparent");
+          removeClass(cursoricon5, "active");
+          cursorTransformShadowBlend();
+        });
       });
     } else {
       github_topics.remove();
