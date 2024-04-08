@@ -45,6 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       insertSoftwareLogoURL();
     });
+
+  document
+    .getElementById("submit-resume-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      insertResume();
+    });
+
   setupAddLinks();
 });
 
@@ -77,6 +85,26 @@ async function insertSoftwareLogoURL() {
     .catch((e) => console.log(e));
 
   document.getElementById("submit-softwarelogos-form").reset();
+}
+
+async function insertResume() {
+  const SoftwareIconsRef = ref(database, "Resume");
+
+  const fileselect = document.getElementById("file-select-resume");
+  const file = fileselect.files[0];
+
+  const Storageref = storageRef(storage, `Resume/${file.name}`);
+
+  try {
+    await uploadBytes(Storageref, file);
+    const url = await getDownloadURL(Storageref);
+    await set(SoftwareIconsRef, url);
+    console.log("Data Successfully inserted!");
+  } catch (error) {
+    console.log(error);
+  }
+
+  document.getElementById("submit-resume-form").reset();
 }
 
 async function insertFetchData() {
@@ -150,81 +178,50 @@ async function insertFetchData() {
     database,
     "Projects/6_project_Personal_Portfolio_1712175736205"
   );
+  try {
+    const bannerDownloadURL = await uploadMedia(fileBanner, title, "Banner");
 
-  uploadMedia(fileBanner, title, "Banner")
-    .then((bannerDownloadURL) => {
-      // then do this
-      uploadMedia(fileDemo, "Personal Portfolio", "Demo")
-        .then((demoDownloadURL) => {
-          // then do this
-          uploadMedia(readmeFile, title, "Documentation")
-            .then((documentation_URL) => {
-              // then do this
-              uploadMultipleImages(title)
-                .then((multipleURLs) => {
-                  // then do this
-                  const projectData = {
-                    project_title: title,
-                    project_type: type,
-                    project_tech_stack: tech_stack,
-                    project_description: description,
-                    project_short_description: short_description,
-                    project_creation: project_creation,
-                    project_personal_comments: comments,
-                    banner_image_URL: bannerDownloadURL,
-                    demo_file_URL: demoDownloadURL,
-                    github_link: githubLink,
-                    demo_type: demo_type,
-                    project_documentation_URL: documentation_URL,
-                    project_links: links_obj,
-                    project_images: multipleURLs,
-                  };
+    const demoDownloadURL = await uploadMedia(
+      fileDemo,
+      "Personal Portfolio",
+      "Demo"
+    );
 
-                  console.log(
-                    "Project Title:",
-                    title,
-                    "Project Type:",
-                    stack,
-                    "Project Tech Stack:",
-                    tech_stack,
-                    "Project Description:",
-                    description,
-                    "Project Creation:",
-                    project_creation,
-                    "Project Personal Comments:",
-                    comments,
-                    "Banner Image URL:",
-                    bannerDownloadURL,
-                    "Demo File URL:",
-                    demoDownloadURL,
-                    "GitHub Link:",
-                    githubLink,
-                    "Demo Type:",
-                    demo_type,
-                    "Project Documentation Text:",
-                    documentation_text,
-                    "Project Links:",
-                    links_obj,
-                    "Project Images:",
-                    multipleURLs
-                  );
+    const documentation_URL = await uploadMedia(
+      readmeFile,
+      title,
+      "Documentation"
+    );
 
-                  console.log("Uploading Data: " + projectData);
+    const multipleURLs = await uploadMultipleImages(title);
 
-                  set(projectsRef, projectData)
-                    .then(() => console.log("Data Successfully inserted!"))
-                    .catch((e) => console.log(e));
+    const projectData = {
+      project_title: title,
+      project_type: type,
+      project_tech_stack: tech_stack,
+      project_description: description,
+      project_short_description: short_description,
+      project_creation: project_creation,
+      project_personal_comments: comments,
+      banner_image_URL: bannerDownloadURL,
+      demo_file_URL: demoDownloadURL,
+      github_link: githubLink,
+      demo_type: demo_type,
+      project_documentation_URL: documentation_URL,
+      project_links: links_obj,
+      project_images: multipleURLs,
+    };
 
-                  // End of Upload
-                  document.getElementById("submit-project-form").reset();
-                })
-                .catch((e) => console.log(e));
-            })
-            .catch((e) => console.log(e));
-        })
-        .catch((e) => console.log(e));
-    })
-    .catch((e) => console.log(e));
+    console.log("Project Data:", projectData);
+
+    await set(projectsRef, projectData);
+
+    console.log("Data Successfully inserted!");
+
+    document.getElementById("submit-project-form").reset();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function uploadMedia(file, title, mediaType) {

@@ -482,31 +482,26 @@ function searchColor(langColorsArray, language) {
     if (language === color) return langColorsArray[color].color;
   }
 }
-
 async function githubReadme() {
-  const github_readme = document.querySelector(".github_readme");
+  try {
+    const github_readme = document.querySelector(".github_readme");
 
-  fetch("https://api.github.com/repos/aryanranderiya/aryanranderiya/readme")
-    .then((response) => {
-      if (!response.ok)
-        throw new Error(`HTTP error! Status: ${response.status}`);
+    const response = await fetch(
+      "https://api.github.com/repos/aryanranderiya/aryanranderiya/readme"
+    );
 
-      return response.json();
-    })
-    .then((readmeJson) => {
-      return readmeJson["download_url"];
-    })
-    .then((URL) => {
-      fetch(URL)
-        .then((urlContentResponse) => {
-          return urlContentResponse.text();
-        })
-        .then((content) => (github_readme.innerHTML = marked.parse(content)))
-        .catch((error) => console.error(error));
-    })
-    .catch((error) => {
-      console.error("Fetch Documentation error:", error);
-    });
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+    const readmeJson = await response.json();
+    const URL = readmeJson["download_url"];
+
+    const urlContentResponse = await fetch(URL);
+    const content = await urlContentResponse.text();
+
+    github_readme.innerHTML = marked.parse(content);
+  } catch (error) {
+    console.error("Fetch Documentation error:", error);
+  }
 }
 
 async function fetchGithubData() {

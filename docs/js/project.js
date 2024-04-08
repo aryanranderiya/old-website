@@ -86,28 +86,19 @@ function setPageUrl(tab_title) {
   window.history.replaceState(nextState, tab_title, title_url);
 }
 
-function setupDocumentation(p_documentationURL, pInfoText) {
-  if (p_documentationURL) {
-    fetch(p_documentationURL)
-      .then((response) => {
-        if (!response.ok)
-          throw new Error(`HTTP error! Status: ${response.status}`);
+async function setupDocumentation(p_documentationURL, pInfoText) {
+  try {
+    if (p_documentationURL) {
+      const response = await fetch(p_documentationURL);
+      if (!response.ok) throw new Error(`Rrror! Status: ${response.status}`);
 
-        return response.text();
-      })
-      .then((textContent) => {
-        pInfoText.innerHTML = marked.parse(textContent);
-      })
-      .then(() => {
-        if (pInfoText) {
-          setupAnimation(pInfoText);
-        }
-      })
-      .catch((error) => {
-        console.error("Fetch Documentation error:", error);
-      });
-  } else {
-    documentation.remove();
+      const textContent = await response.text();
+      pInfoText.innerHTML = marked.parse(textContent);
+
+      if (pInfoText) setupAnimation(pInfoText);
+    } else documentation.remove();
+  } catch (error) {
+    console.error("Fetch Documentation error:", error);
   }
 }
 
@@ -237,34 +228,34 @@ async function processData(snapshot) {
   let flag = createImages(project_images);
   normalHeaders(flag);
 }
-
-function setGithub(github_link) {
-  if (github_link)
-    fetch("https://api.github.com/users/aryanranderiya/repos")
-      .then((response) => {
-        if (!response.ok)
-          throw new Error(`HTTP error! Status: ${response.status}`);
-
-        return response.json();
-      })
-      .then((response_json) => {
-        response_json.forEach((repo) => {
-          if (repo.html_url === github_link) {
-            const createdAt = new Date(repo.created_at).toDateString();
-            const updatedAt = new Date(repo.updated_at).toDateString();
-            document.querySelector(".repo_name").innerHTML = repo.full_name;
-            document.querySelector(".repo_stars").innerHTML =
-              repo.stargazers_count;
-            document.querySelector(".repo_lang").innerHTML = repo.language;
-            document.querySelector(".repo_created").innerHTML = createdAt;
-            document.querySelector(".repo_updated").innerHTML = updatedAt;
-          }
-        });
-      })
-      .catch((error) => {
-        console.error("Fetch Documentation error:", error);
+async function setGithub(github_link) {
+  try {
+    if (github_link) {
+      const response = await fetch(
+        "https://api.github.com/users/aryanranderiya/repos"
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const response_json = await response.json();
+      response_json.forEach((repo) => {
+        if (repo.html_url === github_link) {
+          const createdAt = new Date(repo.created_at).toDateString();
+          const updatedAt = new Date(repo.updated_at).toDateString();
+          document.querySelector(".repo_name").innerHTML = repo.full_name;
+          document.querySelector(".repo_stars").innerHTML =
+            repo.stargazers_count;
+          document.querySelector(".repo_lang").innerHTML = repo.language;
+          document.querySelector(".repo_created").innerHTML = createdAt;
+          document.querySelector(".repo_updated").innerHTML = updatedAt;
+        }
       });
-  else github_bento_card.remove();
+    } else {
+      github_bento_card.remove();
+    }
+  } catch (error) {
+    console.error("Fetch Documentation error:", error);
+  }
 }
 
 //!  Intersection Observer for scrolling into view

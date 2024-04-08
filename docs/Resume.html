@@ -16,6 +16,8 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="/media/ss_Resume.webp">
 
+    <script type="module" src="js/resume.js"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
@@ -96,7 +98,8 @@
         </div>
 
         <div class="subcontent1">
-            <embed src="./media/Resume.pdf#view=FitV&navpanes=0" type="application/pdf" class="resume_pdf">
+            <div class="resumeload_container"></div>
+            <embed src="" type="application/pdf" class="resume_pdf">
         </div>
 
         <div class="cursor_glow_container">
@@ -111,7 +114,7 @@
     </section>
 
     <div class="btn_download">
-        <a href="media/Resume.pdf" download="Aryan Randeriya's Resume.pdf">
+        <a href="media/Resume.pdf" download="Aryan Randeriya's Resume.pdf" id="download_resume_anchor">
             <button class="download_button" aria-label="Download Resume">
                 <text class="downloadresume_text">Download Resume</text>
                 <span class="material-symbols-outlined svgIcon">
@@ -125,7 +128,6 @@
     <footer id="footerContainer"></footer>
 
     <!--! Scripts -->
-    <script src="js/resume.js"></script>
     <script defer src="js/navbar.js"></script>
     <script defer src="js/footer.js"></script>
     <script src="js/cursor.js"></script>

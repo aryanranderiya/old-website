@@ -1,3 +1,50 @@
+// ! FIREBASE INIT --------------------------------------------------------------------------------------
+console.log("script called");
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  onValue,
+} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
+  authDomain: "aryanranderiya-portfolio.firebaseapp.com",
+  projectId: "aryanranderiya-portfolio",
+  storageBucket: "aryanranderiya-portfolio.appspot.com",
+  messagingSenderId: "540599201791",
+  appId: "1:540599201791:web:757239eec07a33dc9ec1ca",
+  measurementId: "G-S3XP36W3P9",
+};
+
+initializeApp(firebaseConfig);
+const database = getDatabase();
+const projectRef = ref(database, "Resume/");
+
+// ! FIREBASE INIT --------------------------------------------------------------------------------------
+
+onValue(projectRef, processResume);
+
+function processResume(snapshot) {
+  const snapshotData = snapshot.val();
+  const resume_element = document.querySelector(".resume_pdf");
+  const resume_anchor = document.getElementById("download_resume_anchor");
+
+  if (snapshotData) {
+    const url = snapshotData + "#view=FitV&navpanes=0";
+    resume_element.src = url;
+    resume_anchor.href = snapshotData;
+  } else {
+    resume_element.src = "./media/Resume.pdf#view=FitV&navpanes=0";
+    resume_anchor.href = "./media/Resume.pdf";
+  }
+
+  resume_element.addEventListener("load", function () {
+    document.querySelector(".resumeload_container").remove();
+  });
+}
+
 const btn_download = document.querySelector(".btn_download");
 
 document.addEventListener("DOMContentLoaded", function () {
