@@ -337,6 +337,7 @@
 .project_type_select:hover {
   border-color: lightgray;
 }
+
 option {
   text-align: center;
   background-color: var(--card-color);

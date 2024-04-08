@@ -57,6 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   generateLoadingText();
 
+  const selectElement = document.querySelector(".project_type_select");
+
+  selectElement.addEventListener("change", function () {
+    if (this.selectedIndex === 0) selectElement.style.backgroundColor = "";
+    else selectElement.style.backgroundColor = "#00bbff";
+  });
+
   // ! END OF DOMCONTENTLOADED
 });
 
