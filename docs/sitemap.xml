@@ -8,20 +8,28 @@
 
 <url>
   <loc>https://aryanranderiya.com/</loc>
-  <lastmod>2024-03-26T23:28:00+05:30</lastmod>  <priority>1.00</priority>
+  <lastmod>2024-04-09T02:00:00+05:30</lastmod>
+  <priority>1.00</priority>
+
   <image:image>
     <image:loc>https://aryanranderiya.com/media/Website-Homepage.png</image:loc>
     <image:title>Aryan Randeriya Portfolio Homepage</image:title>
   </image:image>
+
   <image:image>
     <image:loc>https://aryanranderiya.com/media/professional_photo.png</image:loc>
     <image:title>Aryan Randeriya Professional Photo</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/favicons/android-chrome-512x512.png</image:loc>
+    <image:title>Aryan Randeriya Website Logo</image:title>
   </image:image>
 </url>
 
 <url>
   <loc>https://aryanranderiya.com/SoftwareProjects</loc>
-  <lastmod>2024-03-26T23:28:00+05:30</lastmod>
+  <lastmod>2024-04-09T02:00:00+05:30</lastmod>
   <priority>0.90</priority>
   <image:image>
     <image:loc>https://aryanranderiya.com/media/ss_SoftwareProjects.webp</image:loc>
@@ -31,34 +39,324 @@
 
 <url>
   <loc>https://aryanranderiya.com/Contact</loc>
-  <lastmod>2024-03-26T23:28:00+05:30</lastmod>
+  <lastmod>2024-04-09T02:00:00+05:30</lastmod>
   <priority>0.70</priority>
   <image:image>
     <image:loc>https://aryanranderiya.com/media/ss_Contact.webp</image:loc>
-    <image:title>Aryan Randeriya Portfolio Software Projects</image:title>
+    <image:title>Aryan Randeriya Portfolio Contact Me</image:title>
   </image:image>
 </url>
 
 <url>
   <loc>https://aryanranderiya.com/Resume</loc>
-  <lastmod>2024-03-26T23:28:00+05:30</lastmod>
+  <lastmod>2024-04-09T02:00:00+05:30</lastmod>
   <priority>0.60</priority>
+    <image:image>
+    <image:loc>https://aryanranderiya.com/media/ss_Resume.webp</image:loc>
+    <image:title>Aryan Randeriya Portfolio Resume</image:title>
+  </image:image>
 </url>
 
 <url>
   <loc>https://aryanranderiya.com/DesignProjects</loc>
-  <lastmod>2024-03-26T23:28:00+05:30</lastmod>
+  <lastmod>2024-04-09T02:00:00+05:30</lastmod>
   <priority>0.80</priority>
   <image:image>
     <image:loc>https://aryanranderiya.com/media/ss_DesignProjects.webp</image:loc>
     <image:title>Aryan Randeriya Portfolio Design Projects</image:title>
   </image:image>
-
-  <image:image>
+ <image:image>
     <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Porsche.webp</image:loc>
-    <image:title> Apparel Design: Porsche</image:title>
+    <image:title>Apparel Design: Porsche</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Interstellar.webp</image:loc>
+    <image:title>Apparel Design: Interstellar</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Kanye.webp</image:loc>
+    <image:title>Apparel Design: Kanye West</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Future1.webp</image:loc>
+    <image:title>Apparel Design: Future 1</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20BlueRose.webp</image:loc>
+    <image:title>Apparel Design: Blue Rose</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Japan.webp</image:loc>
+    <image:title>Apparel Design: Japan</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20MiH.webp</image:loc>
+    <image:title>Apparel Design: Make It Happen</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Future2.webp</image:loc>
+    <image:title>Apparel Design: Future 2</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20InterstellarOld.webp</image:loc>
+    <image:title>Apparel Design: Interstellar 2</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Dragon.webp</image:loc>
+    <image:title>Apparel Design: Dragon</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Nuclear.webp</image:loc>
+    <image:title>Apparel Design: Nuclear</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/apparel/Tshirt%20Spiderverse.webp</image:loc>
+    <image:title>Apparel Design: Spiderverse</image:title>
   </image:image>
 
-  </url>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner0.webp</image:loc>
+    <image:title>Header Image: w0lfzzybanner0</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner1.webp</image:loc>
+    <image:title>Header Image: w0lfzzybanner1</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers_f4llout_main_orange.webp</image:loc>
+    <image:title>Header Image: f4llout_main_orange</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers_f4llout_main_blue.webp</image:loc>
+    <image:title>Header Image: f4llout_main_blue</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__teamflight.webp</image:loc>
+    <image:title>Header Image: teamflight</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__f4lloutesports.webp</image:loc>
+    <image:title>Header Image: f4lloutesports</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner2.webp</image:loc>
+    <image:title>Header Image: w0lfzzybanner2</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__tootles.webp</image:loc>
+    <image:title>Header Image: tootles</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__txro.webp</image:loc>
+    <image:title>Header Image: txro</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers_f4llout_main_other.webp</image:loc>
+    <image:title>Header Image: f4llout_main_other</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers_cody.webp</image:loc>
+    <image:title>Header Image: cody</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__zezzy1.webp</image:loc>
+    <image:title>Header Image: zezzy1</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner3.webp</image:loc>
+    <image:title>Header Image: w0lfzzybanner3</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner4.webp</image:loc>
+    <image:title>Header Image: w0lfzzybanner4</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__anya.webp</image:loc>
+    <image:title>Header Image: anya</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner5.webp</image:loc>
+    <image:title>Header Image: w0lfzzybanner5</image:title>
+  </image:image>`
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__azrec.webp</image:loc>
+    <image:title>Header Image: azrec</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/headers/headers__lumiin.webp</image:loc>
+    <image:title>Header Image: lumiin</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_1.webp</image:loc>
+    <image:title>Anime Header 1</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_2.webp</image:loc>
+    <image:title>Anime Header 2</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_3.webp</image:loc>
+    <image:title>Anime Header 3</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_4.webp</image:loc>
+    <image:title>Anime Header 4</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_5.webp</image:loc>
+    <image:title>Anime Header 5</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_6.webp</image:loc>
+    <image:title>Anime Header 6</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_7.webp</image:loc>
+    <image:title>Anime Header 7</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_8.webp</image:loc>
+    <image:title>Anime Header 8</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_9.webp</image:loc>
+    <image:title>Anime Header 9</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_10.webp</image:loc>
+    <image:title>Anime Header 10</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_11.webp</image:loc>
+    <image:title>Anime Header 11</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_12.webp</image:loc>
+    <image:title>Anime Header 12</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_13.webp</image:loc>
+    <image:title>Anime Header 13</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_14.webp</image:loc>
+    <image:title>Anime Header 14</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_15.webp</image:loc>
+    <image:title>Anime Header 15</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_16.webp</image:loc>
+    <image:title>Anime Header 16</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_17.webp</image:loc>
+    <image:title>Anime Header 17</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_18.webp</image:loc>
+    <image:title>Anime Header 18</image:title>
+  </image:image>
+
+    
+  <!-- Ad Mockups -->
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/ad_mockups/Ad_mockup_1.webp</image:loc>
+    <image:title>ADMockup 1</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/ad_mockups/Ad_mockup_2.webp</image:loc>
+    <image:title>ADMockup 2</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/ad_mockups/Ad_mockup_3.webp</image:loc>
+    <image:title>ADMockup 3</image:title>
+  </image:image>
+
+
+ <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_7.webp</image:loc>
+    <image:title>Thumbnail 7</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_9.webp</image:loc>
+    <image:title>Thumbnail 9</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_1.webp</image:loc>
+    <image:title>Thumbnail 1</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_2.webp</image:loc>
+    <image:title>Thumbnail 2</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_4.webp</image:loc>
+    <image:title>Thumbnail 4</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_5.webp</image:loc>
+    <image:title>Thumbnail 5</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_6.webp</image:loc>
+    <image:title>Thumbnail 6</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_10.webp</image:loc>
+    <image:title>Thumbnail 10</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_3.webp</image:loc>
+    <image:title>Thumbnail 3</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_11.webp</image:loc>
+    <image:title>Thumbnail 11</image:title>
+  </image:image>
+
+
+  <!-- Fallout Design Images -->
+    <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/1.webp</image:loc>
+      <image:title>Fallout Design Image 1</image:title>
+  </image:image>
+    <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/2.webp</image:loc>
+      <image:title>Fallout Design Image 2</image:title>
+  </image:image>
+  <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/3.webp</image:loc>
+      <image:title>Fallout Design Image 3</image:title>
+  </image:image>
+  <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/4.webp</image:loc>
+      <image:title>Fallout Design Image 4</image:title>
+  </image:image>
+  <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/5.webp</image:loc>
+      <image:title>Fallout Design Image 5</image:title>
+  </image:image>
+  <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/6.webp</image:loc>
+      <image:title>Fallout Design Image 6</image:title>
+  </image:image>
+  <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/7.webp</image:loc>
+      <image:title>Fallout Design Image 7</image:title>
+  </image:image>
+  <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/8.webp</image:loc>
+      <image:title>Fallout Design Image 8</image:title>
+  </image:image>
+  <image:image>
+      <image:loc>https://aryanranderiya.com/media/fallout/9.webp</image:loc>
+      <image:title>Fallout Design Image 9</image:title>
+  </image:image>
+
+
+</url>
 
 </urlset>
