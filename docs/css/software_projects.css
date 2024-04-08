@@ -37,7 +37,18 @@ section {
   -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.title-heading.show {
+.softwareprojects_subtitle {
+  color: rgb(175, 175, 175);
+  font-weight: normal;
+  z-index: 1;
+  position: relative;
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.title-heading.show,
+.softwareprojects_subtitle.show {
   transform: translateY(0%);
 }
 

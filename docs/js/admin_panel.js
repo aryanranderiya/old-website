@@ -173,7 +173,6 @@ async function insertFetchData() {
     readmeFile = new File([blob], `${project_id}_documentation.md`);
   }
 
-  // var projectsRef = ref(database, "Projects/" + project_id);
   var projectsRef = ref(
     database,
     "Projects/6_project_Personal_Portfolio_1712175736205"
@@ -210,6 +209,7 @@ async function insertFetchData() {
       project_documentation_URL: documentation_URL,
       project_links: links_obj,
       project_images: multipleURLs,
+      Likes: 0,
     };
 
     console.log("Project Data:", projectData);

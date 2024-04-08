@@ -223,10 +223,6 @@
     filter: grayscale(0%) brightness(100%);
   }
 
-  .button_secondary {
-    min-width: 360px !important;
-  }
-
   .card-title {
     font-size: 1.6em;
   }
@@ -249,22 +245,23 @@
 
 .buttons {
   font-family: Helvetica;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   z-index: 1001;
   width: 100%;
   justify-content: center;
   bottom: -2px;
   position: absolute;
+  gap: 5px;
+  overflow: hidden;
 }
 
 .button_secondary {
-  max-width: 403px;
-  min-width: 403px;
   margin: 0;
   background: rgba(10, 10, 10, 1);
   border: 1px solid rgb(48, 48, 48);
   box-shadow: 0px -25px 30px 0px black;
+  flex-grow: 1;
 }
 
 .search_and_filter_div {
@@ -315,34 +312,6 @@
 #search_project:focus {
   outline: none;
 }
-/* 
-.filter {
-  width: 50px;
-  height: 50px;
-  border-radius: 100em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(0, 0, 0, 0.192);
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.021);
-  transition: all 0.3s;
-}
-
-.filter_svg {
-  height: 16px;
-  fill: rgb(77, 77, 77);
-  transition: all 0.3s;
-  user-select: none;
-}
-.filter:hover,
-.filter.clicked {
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.11);
-  background-color: #00bbff;
-}
-.filter:hover .filter_svg,
-.filter_svg.clicked {
-  fill: white;
-} */
 
 .search_div {
   width: 100%;
@@ -350,35 +319,6 @@
   justify-content: flex-end;
   gap: 0.5%;
 }
-
-/* .dropdown_container {
-  display: flex;
-  overflow: hidden;
-  justify-content: flex-end;
-}
-
-.dropdown {
-  width: 20%;
-  background-color: lightgray;
-  border: 3px solid white;
-  display: flex;
-  border-radius: 1em;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0.7%;
-  transition: transform 0.3s ease;
-  transform: translateY(100%);
-  position: relative;
-}
-
-.dropdown.open {
-  transform: translateY(0%);
-}
-
-.dropdown_label {
-  display: flex;
-  padding: 1%;
-} */
 
 .filter_checkbox {
   display: flex;
@@ -404,4 +344,115 @@ option {
   font-size: clamp(0.5em, 100%, 1em);
   border: none;
   outline: none;
+}
+
+.heart_button {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+  z-index: 2;
+  gap: 15%;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+  background: rgba(10, 10, 10, 1);
+  border: 1px solid rgb(48, 48, 48);
+  box-shadow: 0px -25px 30px 0px black;
+  color: white;
+  height: 2.8em;
+  padding: 1em;
+  border-radius: 15px;
+}
+
+.heart_button:hover .heart-container,
+.heart_button:hover {
+  background-color: rgb(255, 60, 76);
+  --heart-color: white;
+}
+.heart-container {
+  --heart-color: rgb(255, 60, 76);
+  position: relative;
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.heart-container .heart_checkboxes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
+}
+
+.heart-container .svg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart-container .svg-outline,
+.heart-container .svg-filled {
+  fill: var(--heart-color);
+  position: absolute;
+}
+
+.heart-container .svg-filled {
+  animation: keyframes-svg-filled 1s;
+  display: none;
+}
+
+.heart-container .svg-celebrate {
+  position: absolute;
+  animation: keyframes-svg-celebrate 0.5s;
+  animation-fill-mode: forwards;
+  display: none;
+  stroke: var(--heart-color);
+  fill: var(--heart-color);
+  stroke-width: 2px;
+}
+
+.heart-container .heart_checkboxes:checked ~ .svg-container .svg-filled {
+  display: block;
+}
+
+.heart-container .heart_checkboxes:checked ~ .svg-container .svg-celebrate {
+  display: block;
+}
+
+@keyframes keyframes-svg-filled {
+  0% {
+    transform: scale(0);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1);
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes keyframes-svg-celebrate {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.5);
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+    display: none;
+  }
 }

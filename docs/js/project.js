@@ -85,7 +85,6 @@ function setPageUrl(tab_title) {
   window.history.pushState(nextState, tab_title, title_url);
   window.history.replaceState(nextState, tab_title, title_url);
 }
-
 async function setupDocumentation(p_documentationURL, pInfoText) {
   try {
     if (p_documentationURL) {

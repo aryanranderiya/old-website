@@ -5,7 +5,7 @@ githubReadme();
 
 const cursortext2 = document.getElementById("cursortext2");
 const title_Heading = document.querySelector(".title-heading");
-
+const subtitle = document.querySelector(".softwareprojects_subtitle");
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
@@ -18,6 +18,8 @@ import {
   getDatabase,
   ref,
   onValue,
+  get,
+  update,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -67,9 +69,7 @@ function searchCards() {
 
     cards.forEach((card) => {
       const title = card.querySelector(".card-title").textContent.toLowerCase();
-
       const type = card.querySelector(".card-type").textContent.toLowerCase();
-
       const tech_stack = card.querySelectorAll(".card-tech-stack");
 
       const description = card
@@ -102,7 +102,6 @@ function filterCards(select) {
   select.addEventListener("change", () => {
     cards.forEach((card) => {
       if (select.value === "") {
-        console.log("empty");
         card.style.display = "flex";
         return;
       }
@@ -229,14 +228,25 @@ function addMouseHovers() {
   );
 }
 
-function processDataAndHidePreloader(snapshot) {
-  // const dataArray = [];
-  // snapshot.forEach((childSnapshot) => {
-  //   dataArray.push(childSnapshot);
-  // });
-  // snapshot.reverse();
+function reverseObject(obj) {
+  const reversedObj = {};
+  const entries = Object.entries(obj);
 
+  for (let i = entries.length - 1; i >= 0; i--) {
+    const [key, value] = entries[i];
+    reversedObj[key] = value;
+  }
+
+  return reversedObj;
+}
+
+function processDataAndHidePreloader(snapshot) {
+  const snapshotArray = [];
   snapshot.forEach((childSnapshot) => {
+    snapshotArray.push(childSnapshot);
+  });
+
+  snapshotArray.reverse().forEach((childSnapshot) => {
     const projectDetails = childSnapshot.val();
     const projectId = childSnapshot.key;
     const projectTitle = projectDetails.project_title;
@@ -249,8 +259,6 @@ function processDataAndHidePreloader(snapshot) {
 
     if (banner_image_URL == undefined)
       banner_image_URL = "/docs/media/bg_aryan_swirl.webp";
-
-    // var projectTechStack_values = projectTechStack.trim().split(",");
 
     const replacements = {
       HTML: "HTML5-plain colored",
@@ -292,14 +300,38 @@ function processDataAndHidePreloader(snapshot) {
           </div>
       </div>
       <div class="buttons">
-        <a href="Project.html?id=${projectId}" >
-        <button class="button_secondary view_project" aria-label="View Project Info">
-            View Project
+      <button class="button_secondary view_project" aria-label="View Project Info" onClick='window.location.href="Project.html?id=${projectId}"'>
+          View Project
             <div class="icon">
                 <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
             </div>
-          </button>
-        </a>
+        </button>
+
+        <button class="heart_button">
+        <div class="heart-container" title="Like">
+            <input type="checkbox" id="heart_checkbox${projectId}" class="heart_checkboxes">
+            <div class="svg-container">
+                <svg viewBox="0 0 24 24" class="svg-outline" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z">
+                    </path>
+                </svg>
+                <svg viewBox="0 0 24 24" class="svg-filled" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
+                    </path>
+                </svg>
+                <svg class="svg-celebrate" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="10,10 20,20"></polygon>
+                    <polygon points="10,50 20,50"></polygon>
+                    <polygon points="20,80 30,70"></polygon>
+                    <polygon points="90,10 80,20"></polygon>
+                    <polygon points="90,50 80,50"></polygon>
+                    <polygon points="80,80 70,70"></polygon>
+                </svg>
+            </div>
+        </div>
+
+        <span class="like_count${projectId}">1</span>
+        </button>
       </div>
     `;
 
@@ -337,6 +369,55 @@ function processDataAndHidePreloader(snapshot) {
 
   searchCards();
   filterCards(select);
+  setupHearts();
+}
+
+function setupHearts() {
+  const checkboxes = document.querySelectorAll(".heart_checkboxes");
+
+  checkboxes.forEach((checkbox) => {
+    const likes_count_text = checkbox.parentElement.nextElementSibling;
+    const svgContainer = checkbox.nextElementSibling;
+    const projectId = checkbox.id.replace("heart_checkbox", "");
+    const projectRef = ref(database, `Projects/${projectId}`);
+
+    let currentLikes = 0;
+
+    onValue(projectRef, (snapshot) => {
+      if (snapshot.exists()) {
+        currentLikes = snapshot.val().Likes || 0;
+        likes_count_text.textContent = currentLikes;
+      }
+    });
+
+    svgContainer.addEventListener("click", () => {
+      checkbox.checked = !checkbox.checked;
+      const changeEvent = new Event("change", {
+        bubbles: true,
+        cancelable: true,
+      });
+      checkbox.dispatchEvent(changeEvent);
+    });
+
+    checkbox.addEventListener("change", () => {
+      const isChecked = checkbox.checked;
+      const newLikes = isChecked ? currentLikes + 1 : currentLikes - 1;
+
+      update(projectRef, { Likes: newLikes })
+        .then(() => {
+          likes_count_text.textContent = newLikes;
+
+          console.log(
+            `Successfully ${isChecked ? "Liked" : "Unliked"} ${projectId}!`
+          );
+        })
+        .catch((error) => console.error("Error updating data:", error));
+      localStorage.setItem(checkbox.id, isChecked);
+    });
+
+    const isChecked = localStorage.getItem(checkbox.id) === "true";
+    checkbox.checked = isChecked;
+  });
 }
 
 function generateLoadingText() {
@@ -714,8 +795,12 @@ function removePreloader() {
         if (!alreadyanimatedflag) timeout = 700;
         else timeout = 0;
         setTimeout(() => addClass(title_Heading, "show"), timeout);
+        setTimeout(() => addClass(subtitle, "show"), timeout + 60);
         alreadyanimatedflag = true;
-      } else removeClass(title_Heading, "show");
+      } else {
+        removeClass(title_Heading, "show");
+        removeClass(subtitle, "show");
+      }
     });
   }
   const observerTranslate = new IntersectionObserver(
