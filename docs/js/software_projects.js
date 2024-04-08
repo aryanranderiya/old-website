@@ -380,15 +380,19 @@ function processDataAndHidePreloader(snapshot) {
 
   const select = document.querySelector(".project_type_select");
   const tech_stack = document.querySelectorAll(".card-tech-stack text");
-  tech_stack.forEach((element) => {
-    var value = element.textContent.trim();
-    if (!document.getElementById(value)) {
-      var option = document.createElement("option");
-      option.innerHTML = `<option value="${value}" id="${value}">${value}</label>`;
-      select.appendChild(option);
-    }
-  });
 
+  const uniqueValues = Array.from(tech_stack)
+    .map((element) => element.textContent.trim())
+    .filter((value, index, array) => array.indexOf(value) === index)
+    .sort();
+
+  uniqueValues.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    select.appendChild(option);
+  });
+  
   searchCards();
   filterCards(select);
   setupHearts();
