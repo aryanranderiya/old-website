@@ -515,6 +515,34 @@ header {
   border-radius: 15px;
   color: white;
   outline: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+.bento_card:hover {
+  outline: 1px solid white;
+  background-color: rgba(41, 41, 41, 0.4);
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%; /* Ensure text moves off-screen before resetting */
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .bento_card_content {
@@ -549,8 +577,8 @@ header {
 
 #pulsating {
   background-color: #00ff95;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-radius: 100px;
   animation: pulse 1s ease infinite;
 }
@@ -567,8 +595,8 @@ header {
 }
 .pulsating_container {
   background-color: #00ff95;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-radius: 100px;
   margin-left: 5%;
 }
@@ -673,12 +701,12 @@ header {
 }
 @keyframes pulse {
   from {
-    transform: scale(0.9);
+    transform: scale(1);
     opacity: 1;
   }
 
   to {
-    transform: scale(2);
+    transform: scale(2.5);
     opacity: 0;
   }
 }

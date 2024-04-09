@@ -1,6 +1,5 @@
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
-fetchGithubData();
 githubReadme();
 
 const cursortext2 = document.getElementById("cursortext2");
@@ -34,13 +33,16 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 const database = getDatabase();
+
+fetchGithubData();
+
 const projectsRef = ref(database, "Projects/");
 const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 
 // ! FIREBASE INIT END --------------------------------------------------------------------------------------
 
 onValue(SoftwareIconsRef, processProjectIcons, { onlyOnce: true });
-onValue(projectsRef, processDataAndHidePreloader);
+onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 
 document.addEventListener("DOMContentLoaded", function () {
   const cursor_glow = document.querySelector(".cursor_glow_div");
@@ -429,6 +431,7 @@ function setupHearts() {
     });
 
     svgContainer.addEventListener("click", () => {
+      console.log("Test");
       checkbox.checked = !checkbox.checked;
       const changeEvent = new Event("change", {
         bubbles: true,
@@ -627,14 +630,46 @@ async function githubReadme() {
 async function fetchGithubData() {
   const github_cards = document.querySelector(".github_cards");
 
+  let token = "";
+  const qDtadW_2ZSeiRJtuRTvv = ref(database, "qDtadW_2ZSeiRJtuRTvv/");
+  await new Promise((resolve) => {
+    onValue(qDtadW_2ZSeiRJtuRTvv, (snapshot) => {
+      token = snapshot.val();
+      resolve();
+    });
+  });
+
   const response = await fetch(
-    "https://api.github.com/users/aryanranderiya/repos?sort=pushed"
+    "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed ",
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
-  const repoArray = await response.json();
+
+  const repoObj = await response.json();
+  const repoArray = repoObj.items;
+
+  repoArray.sort((a, b) => {
+    const dateA = new Date(a.pushed_at);
+    const dateB = new Date(b.pushed_at);
+    console.log(dateA);
+    console.log(dateB);
+    return dateB - dateA;
+  });
+
+  document.querySelector(
+    ".github_heading"
+  ).innerHTML = `${repoArray.length} Github Repositories`;
 
   let languagesColorsArray = await fetchColors();
 
   repoArray.forEach((repo) => {
+    if (repo.name === "aryanranderiya.github.io") return;
+    if (repo.name === "github-readme-stats") return;
+    if (repo.name === "Portfolio") return;
+
     let colourHex = searchColor(languagesColorsArray, repo.language);
 
     const github_card = document.createElement("div");
@@ -678,7 +713,9 @@ async function fetchGithubData() {
               <span class="github_title">${repo.name}</span>
             </a>
           </div>
-          <div class="archive_logo">Visible</div>
+          <div class="archive_logo">${
+            repo.visibility.charAt(0).toUpperCase() + repo.visibility.slice(1)
+          }</div>
       </div>
       <div class="github_desc_div">
           <span class="github_description">
@@ -719,13 +756,17 @@ async function fetchGithubData() {
     }
 
     //! Set Visibility
-    let visibility = "Public";
     const archiveLogo = github_card.querySelector(".archive_logo");
-    if (repo.archived === true) {
-      visibility = "Public Archive";
+    if (repo.archived === true && repo.visibility.toLowerCase() === "public") {
+      console.log(repo.name);
+      archiveLogo.textContent = "Public Archive";
       addClass(archiveLogo, "archived");
+    } else if (
+      repo.archived !== true &&
+      repo.visibility.toLowerCase() === "public"
+    ) {
+      addClass(archiveLogo, "public");
     }
-    archiveLogo.textContent = visibility;
 
     //! Set Github Topics
     const github_topics = github_card.querySelector(".github_topics");

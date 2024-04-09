@@ -274,6 +274,11 @@ section {
   border-color: #c08d20;
 }
 
+.archive_logo.public {
+  color: #00ff73;
+  border-color: #00ff73;
+}
+
 .github_title_icon {
   color: lightgray;
 }
