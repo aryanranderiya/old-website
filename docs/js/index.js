@@ -35,7 +35,14 @@ document.addEventListener("DOMContentLoaded", function () {
   loadNavbar().then(() => {
     handleNavbarIntersection();
   });
+
+  setInterval(setupTimeBento, 1000);
 });
+
+const time = document.getElementById("time");
+function setupTimeBento() {
+  time.innerHTML = new Date().toLocaleTimeString() + " IST";
+}
 
 function handleNavbarIntersection() {
   const navbar = document.querySelector(".navbar");
