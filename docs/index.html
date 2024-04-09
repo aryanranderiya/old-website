@@ -183,8 +183,17 @@
 
         <div class="bento_card" id="bento_about">
           <div class="bento_card_content">
-            <h1> Aryan Randeriya </h1>
-            <span class="chip" id="available_chip">Available To Work</span>
+            <div class="bento_content_header">
+              <h1> Aryan Randeriya </h1>
+              <div class="chip" id="available_chip" style="margin-left: auto;">
+
+                <div class="pulsating_container">
+                  <div id="pulsating"></div>
+                </div>
+
+                Available To Work
+              </div>
+            </div>
 
             <div class="bento_chips">
 
@@ -215,8 +224,13 @@
         </div>
 
         <div class="bento_card" id="bento_spotify">
-          <div class="bento_card_content">
-            <h1> Spotify </h1>
+          <div class="bento_card_content spotify">
+            <div>
+              <i class="fa-brands fa-spotify" style="color: #1ED760"></i>
+              <span id="song_name"> Song Name </span>
+            </div>
+            <span id="currently_playing"> Currently Playing</span>
+
           </div>
         </div>
 
@@ -226,15 +240,20 @@
           </div>
         </div>
 
+
         <div class="bento_card" id="bento_blog">
-          <div class="bento_card_content">
-            <h1> Blog WIP </h1>
+          <div class="bento_card_content projects">
+            <span> <b>Blog</b>&nbsp; — Currently WIP </span>
           </div>
         </div>
 
         <div class="bento_card" id="bento_timezone">
-          <div class="bento_card_content">
-            <h1> Time Zone </h1>
+          <div class="bento_card_content timezone">
+            <span id="timezone_title">
+              <i class="fa-solid fa-clock"></i>
+              Time Zone
+            </span>
+            <span id="time">22:35:10 PM IST</span>
           </div>
         </div>
 
@@ -248,14 +267,14 @@
 
 
         <div class="bento_card" id="bento_project">
-          <div class="bento_card_content">
-            <h1> Software Projects </h1>
+          <div class="bento_card_content projects">
+            <span> Software Projects <span class="material-symbols-outlined">arrow_right_alt </span></span>
           </div>
         </div>
 
         <div class="bento_card" id="bento_project2">
-          <div class="bento_card_content">
-            <h1> Design Projects </h1>
+          <div class="bento_card_content projects">
+            <span> Design Projects <span class="material-symbols-outlined">arrow_right_alt </span></span>
           </div>
         </div>
 
