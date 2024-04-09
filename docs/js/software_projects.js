@@ -40,7 +40,7 @@ const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 // ! FIREBASE INIT END --------------------------------------------------------------------------------------
 
 onValue(SoftwareIconsRef, processProjectIcons, { onlyOnce: true });
-onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
+onValue(projectsRef, processDataAndHidePreloader);
 
 document.addEventListener("DOMContentLoaded", function () {
   const cursor_glow = document.querySelector(".cursor_glow_div");
@@ -392,7 +392,7 @@ function processDataAndHidePreloader(snapshot) {
     option.textContent = value;
     select.appendChild(option);
   });
-  
+
   searchCards();
   filterCards(select);
   setupHearts();
