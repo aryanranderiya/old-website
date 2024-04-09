@@ -588,18 +588,32 @@ header {
 
 #bento_spotify {
   grid-column-start: 3;
-  grid-row-start: 5;
+  grid-row-start: 1;
 }
 
 #bento_blog {
   grid-column-start: 3;
-  grid-row-start: 6;
+  grid-row-start: 2;
+}
+
+#bento_resume {
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
+#bento_tools {
+  grid-column-start: 3;
+  grid-row-start: 5;
+  grid-row-end: 7;
 }
 
 #bento_now {
   grid-column-start: 2;
   grid-row-start: 5;
   grid-row-end: 7;
+}
+
+.bento_social_icon {
+  height: 35px;
 }
 
 h1,
