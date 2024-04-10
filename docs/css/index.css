@@ -589,10 +589,6 @@ header {
   align-items: center;
 }
 
-.bento_card_title span {
-  font-size: 1.5em;
-  font-weight: bold;
-}
 .pulsating_container {
   background-color: #00ff95;
   width: 10px;
