@@ -635,7 +635,7 @@ header {
 }
 
 .now_item {
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .bento_card_content.timezone span {
@@ -646,6 +646,8 @@ header {
 }
 
 #timezone_title {
+  bottom: 70%;
+  position: absolute;
   background-color: #141414;
   border-radius: 100px;
   padding: 1% 3%;
