@@ -57,7 +57,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setupGSAPChips();
   setupGithubBento();
+  setupBentoAnimation();
 });
+
+function setupBentoAnimation() {
+  const bento_cards = document.querySelectorAll(".bento_card");
+
+  function handleIntersection2(entries) {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) entry.target.style.opacity = "1";
+      else entry.target.style.opacity = "0";
+    });
+  }
+
+  const observer = new IntersectionObserver(handleIntersection2, {
+    threshold: 0.7,
+  });
+
+  bento_cards.forEach((bento_card, index) => {
+    let opacity_transition =
+      index === 0 ? "opacity 0.1s ease" : `opacity ${index * 0.2}s ease`;
+
+    bento_card.style.transition = `${opacity_transition}, transform 0.5s ease`;
+    bento_card.style.webkitTransition = `${opacity_transition}, transform 0.5s ease`;
+
+    observer.observe(bento_card);
+  });
+}
 
 async function setupGithubBento() {
   let token = "";

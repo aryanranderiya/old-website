@@ -478,8 +478,8 @@ header {
   border-radius: 15px;
   color: white;
   outline: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
 }
 
 .bento_card:hover {
