@@ -75,7 +75,7 @@ section {
 }
 
 .section2 {
-  height: 100%;
+  height: auto;
   background-color: black;
 }
 
@@ -454,27 +454,26 @@ header {
 }
 
 .grid_container {
+  min-height: 100vh;
   display: flex;
-  height: 100%;
   align-items: center;
   justify-content: center;
 }
 
 .bento_grid {
-  width: 70%;
+  margin-top: 90px;
   display: grid;
-  padding: 5%;
   grid-gap: 1em;
   justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(4, 350px);
-  grid-template-rows: repeat(6, 100px);
+  grid-template-columns: repeat(4, 330px);
+  grid-template-rows: repeat(6, 80px);
 }
 
 .bento_card {
   width: 100%;
   height: 100%;
-  background-color: rgba(17, 17, 17, 0.4);
+  background-color: rgba(17, 17, 17, 0.6);
   border-radius: 15px;
   color: white;
   outline: 1px solid rgba(255, 255, 255, 0.2);
@@ -520,7 +519,7 @@ header {
   color: lightgray;
   box-sizing: border-box;
   overflow: hidden;
-  gap: 5%;
+  gap: 0.5em;
 }
 
 .bento_card_content i {
@@ -609,8 +608,7 @@ header {
 }
 
 #timezone_title {
-  bottom: 70%;
-  position: absolute;
+  margin-top: -2%;
   background-color: #141414;
   border-radius: 100px;
   padding: 1% 3%;
@@ -621,7 +619,7 @@ header {
 }
 
 #time {
-  font-size: 4em;
+  font-size: clamp(1.5em, 10vw, 4em);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -679,7 +677,7 @@ header {
 .chip {
   background-color: #141414;
   width: fit-content;
-  padding: 3px 15px;
+  padding: 3px 10px;
   border-radius: 100px;
   border: solid 2px rgb(31, 31, 31);
   gap: 5px;
@@ -848,7 +846,13 @@ h6 {
   font-weight: bold;
   font-size: 2.3em;
 }
-.card_title {
+
+#github_title {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.card_title,
+#github_title {
   display: flex;
   gap: 5%;
   margin-bottom: 0.3em;
@@ -872,6 +876,68 @@ h6 {
 
 /* !Responsive */
 @media screen and (max-width: 600px) {
+  .bento_grid {
+    grid-template-columns: repeat(1, 350px);
+    grid-template-rows: repeat(12, auto);
+  }
+
+  #bento_about,
+  #bento_github,
+  #bento_blog,
+  #bento_resume,
+  #bento_timezone,
+  #bento_made_with,
+  #bento_services,
+  #bento_tools,
+  #bento_now,
+  #bento_project,
+  #bento_project2 {
+    grid-column: 1;
+  }
+
+  #bento_about {
+    grid-row: 1;
+  }
+
+  #bento_github {
+    grid-row: 2;
+  }
+
+  #bento_blog {
+    grid-row: 9;
+  }
+
+  #bento_resume {
+    grid-row: 10;
+  }
+
+  #bento_timezone {
+    grid-row: 5;
+  }
+
+  #bento_made_with {
+    grid-row: 11;
+  }
+
+  #bento_services {
+    grid-row: 6;
+  }
+
+  #bento_tools {
+    grid-row: 7;
+  }
+
+  #bento_now {
+    grid-row: 8;
+  }
+
+  #bento_project {
+    grid-row: 3;
+  }
+
+  #bento_project2 {
+    grid-row: 4;
+  }
   .subcontent1 {
     flex-direction: column-reverse;
   }

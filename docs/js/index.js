@@ -57,14 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setupGSAPChips();
   setupGithubBento();
-  setupBentoAnimation();
+  //setupBentoAnimation();
 });
 
 function setupBentoAnimation() {
   const bento_cards = document.querySelectorAll(".bento_card");
 
   function handleIntersection2(entries) {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) entry.target.style.opacity = "1";
       else entry.target.style.opacity = "0";
     });
@@ -78,8 +78,8 @@ function setupBentoAnimation() {
     let opacity_transition =
       index === 0 ? "opacity 0.1s ease" : `opacity ${index * 0.2}s ease`;
 
-    bento_card.style.transition = `${opacity_transition}, transform 0.5s ease`;
-    bento_card.style.webkitTransition = `${opacity_transition}, transform 0.5s ease`;
+    bento_card.style.transition = `${opacity_transition}, all 0.5s ease`;
+    bento_card.style.webkitTransition = `${opacity_transition}, all 0.5s ease`;
 
     observer.observe(bento_card);
   });
