@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.to(".marquee_part", {
     x: -1000,
     yoyo: true,
-    duration: 10,
+    duration: 13,
     ease: "linear",
     repeat: -1,
     startAt: { x: 0 },
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   gsap.to(".marquee_part2", {
     x: 0,
-    duration: 10,
+    duration: 13,
     ease: "linear",
     repeat: -1,
     startAt: { x: -1000 },

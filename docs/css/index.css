@@ -501,7 +501,7 @@ header {
   width: 70%;
   display: grid;
   padding: 5%;
-  grid-gap: 0.8em;
+  grid-gap: 1em;
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(4, 350px);
@@ -514,13 +514,13 @@ header {
   background-color: rgba(17, 17, 17, 0.4);
   border-radius: 15px;
   color: white;
-  outline: 1px solid rgba(255, 255, 255, 0.2);
+  outline: 2px solid rgba(255, 255, 255, 0.2);
   transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
 
 .bento_card:hover {
-  outline: 1px solid white;
+  outline: 2px solid #00bbff;
   background-color: rgba(41, 41, 41, 0.4);
 }
 
@@ -689,9 +689,6 @@ header {
   justify-content: center;
   gap: 5%;
   padding: 2% 7%;
-  /* width: fit-content;
-  display: flex;
-  justify-content: space-between; */
 }
 
 #available_chip span {
@@ -715,10 +712,15 @@ header {
   padding: 1% 3%;
   border-radius: 100px;
   border: solid 2px rgb(31, 31, 31);
-  gap: 1%;
+  gap: 5px;
   display: flex;
   width: fit-content;
   text-wrap: nowrap;
+  align-items: center;
+}
+
+.flag_chip img {
+  aspect-ratio: 1/1;
 }
 
 .chip i,
@@ -738,12 +740,12 @@ header {
 }
 
 .bento_chips2 {
-  /* width: max-content; */
   overflow: hidden;
   overflow: hidden;
   display: flex;
   gap: 10px;
   flex-direction: row;
+  margin-bottom: 0.3em;
 }
 #flag_chip {
   padding: 0.5% 1%;
@@ -867,9 +869,13 @@ h6 {
   text-shadow: 0px 0px 50px white;
 }
 
-.card_title {
+.card_title,
+#now_title {
   font-weight: bold;
   font-size: 2.3em;
+}
+.card_title {
+  margin-bottom: 0.5em;
 }
 
 .bento_icon_tool {

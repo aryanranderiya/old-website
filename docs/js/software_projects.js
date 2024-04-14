@@ -668,7 +668,6 @@ async function fetchGithubData() {
   repoArray.forEach((repo) => {
     if (repo.name === "aryanranderiya.github.io") return;
     if (repo.name === "github-readme-stats") return;
-    if (repo.name === "Portfolio") return;
 
     let colourHex = searchColor(languagesColorsArray, repo.language);
 
