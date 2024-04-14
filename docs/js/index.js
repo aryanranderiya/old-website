@@ -38,9 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(setupTimeBento, 1000);
 
-  let currentScroll = 0;
-  let isScrollingDown = true;
-
   gsap.to(".marquee_part", {
     x: -1000,
     yoyo: true,
@@ -59,7 +56,27 @@ document.addEventListener("DOMContentLoaded", function () {
     yoyo: true,
   });
 
-  gsap.set(".marquee_inner");
+  const service_node = document.querySelector(".services");
+
+  for (let index = 0; index < 3; index++) {
+    const service = service_node.cloneNode(true);
+    service_node.insertAdjacentElement("afterend", service);
+  }
+
+  const services = document.querySelectorAll(".services");
+
+  services.forEach((service, index) => {
+    const chips = service.childNodes;
+
+    gsap.to(service, {
+      x: index % 2 === 0 ? 720 : -720,
+      duration: 10,
+      ease: "linear",
+      repeat: -1,
+      yoyo: true,
+      stagger: 0.5,
+    });
+  });
 });
 
 const time = document.getElementById("time");

@@ -554,6 +554,8 @@ header {
   padding: 7%;
   color: lightgray;
   box-sizing: border-box;
+  overflow: hidden;
+  gap: 5%;
 }
 
 .bento_card_content i {
@@ -709,7 +711,7 @@ header {
 .chip {
   background-color: #141414;
   width: fit-content;
-  padding: 1% 3%;
+  padding: 3px 15px;
   border-radius: 100px;
   border: solid 2px rgb(31, 31, 31);
   gap: 5px;
@@ -728,8 +730,10 @@ header {
   margin-right: 5 px;
 }
 
-.chip img {
-  width: 30px;
+.chip img,
+.marquee_part2 img {
+  aspect-ratio: 1/1;
+  width: 25px;
 }
 
 .bento_chips {
@@ -740,8 +744,6 @@ header {
 }
 
 .bento_chips2 {
-  overflow: hidden;
-  overflow: hidden;
   display: flex;
   gap: 10px;
   flex-direction: row;
@@ -772,6 +774,7 @@ header {
 }
 
 #currently_playing {
+  margin: 1%;
   font-size: 1.3em;
   color: #636363;
 }
@@ -788,8 +791,9 @@ header {
 
 .services {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   gap: 0.4em;
+  justify-content: center;
 }
 
 #bento_github {
@@ -1058,6 +1062,7 @@ h6 {
   content: "";
   width: 0%;
   height: 3px;
+
   border-radius: 7px;
   background: rgb(255, 255, 255);
   transition: 0.5s;
