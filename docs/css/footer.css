@@ -202,6 +202,12 @@ footer {
   color: #00bbff !important;
 }
 
+.social:hover .instagram_icon {
+  background: #00bbff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 @keyframes scaleIcon {
   0% {
     font-size: 1em;

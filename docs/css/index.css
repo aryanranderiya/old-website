@@ -119,10 +119,6 @@ header {
   z-index: 5000;
 }
 
-.socials_icon {
-  font-size: 4em;
-}
-
 .nav-item-with-icon a {
   display: flex;
   align-items: center;
@@ -326,20 +322,13 @@ header {
   width: 60%;
 }
 
-.content1,
-.content2 {
+.content1 {
   height: 100%;
   width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.content2 {
-  background: black;
-  height: 100%;
-  width: 100%;
 }
 
 .cursor_glow_two {
@@ -350,20 +339,6 @@ header {
 .content1 {
   background: black;
   margin-top: 0.1%;
-}
-
-.subcontent3 {
-  height: 70%;
-  width: 100%;
-  margin: 4em;
-  border-radius: 5em;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  -webkit-transition: opacity 0.5s ease-in-out;
 }
 
 .zoom-out {
@@ -378,11 +353,6 @@ header {
   -webkit-transition: transform 0.4s ease;
 }
 
-#ontop-gradient {
-  border-radius: 5em;
-}
-
-#ontop-gradient,
 #ontop-gradient-main {
   position: absolute;
   left: 0;
@@ -397,14 +367,7 @@ header {
   -webkit-transition: box-shadow 0.5s ease;
 }
 
-#gradient-canvas {
-  border-radius: 5em;
-  rotate: 180deg;
-  position: absolute;
-}
-
-#gradient-canvas-main,
-#gradient-canvas {
+#gradient-canvas-main {
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -514,14 +477,16 @@ header {
   background-color: rgba(17, 17, 17, 0.4);
   border-radius: 15px;
   color: white;
-  outline: 2px solid rgba(255, 255, 255, 0.2);
+  outline: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
 
 .bento_card:hover {
-  outline: 2px solid #00bbff;
+  outline: 1px solid #00bbff;
   background-color: rgba(41, 41, 41, 0.4);
+  transform: translateY(-0.4em);
+  box-shadow: #00bbff 0px 0px 100px -5px;
 }
 
 .marquee {
@@ -725,6 +690,21 @@ header {
   color: lightgray;
 }
 
+.chip_container {
+  background-color: #141414;
+  width: fit-content;
+  padding: 3px 15px;
+  border-radius: 15px;
+  border: solid 2px rgb(31, 31, 31);
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  flex-wrap: wrap;
+  text-wrap: nowrap;
+  color: lightgray;
+}
+
 .flag_chip img {
   aspect-ratio: 1/1;
 }
@@ -760,28 +740,13 @@ header {
   align-items: center;
 }
 
-.bento_card_content.spotify {
+.bento_card_content.made_with {
   box-sizing: border-box;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 20px;
-}
-
-.bento_card_content.spotify div {
-  width: 100%;
-  display: flex;
-  gap: 2%;
-  font-size: 1.7em;
-  font-weight: bold;
-  align-items: center;
-}
-
-#currently_playing {
-  margin: 1%;
-  font-size: 1.3em;
-  color: #636363;
+  gap: 5px;
 }
 
 #flag_chip img {
@@ -831,7 +796,7 @@ header {
   grid-row-start: 6;
 }
 
-#bento_spotify {
+#bento_made_with {
   grid-column-start: 3;
   grid-row-start: 1;
 }
@@ -953,25 +918,6 @@ h6 {
   .cursor_glow_two {
     width: 500px !important;
     height: 1000px !important;
-  }
-
-  #gradient-canvas {
-    border-radius: 2em;
-  }
-
-  #ontop-gradient {
-    border-radius: 2em;
-  }
-
-  .subcontent3 {
-    height: 70%;
-    width: 90%;
-    margin: 4em;
-    margin-top: 5em;
-  }
-
-  .socials_icon {
-    font-size: 2em;
   }
 
   .subcontent1 p {
@@ -1100,4 +1046,10 @@ h6 {
 .animated_cursormovement_canvas {
   z-index: 20;
   filter: blur(100px);
+}
+
+#i_provide_subtext {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.85em;
+  text-align: center;
 }

@@ -26,11 +26,7 @@ const database = getDatabase();
 
 import { Gradient } from "./gradient.js";
 
-const gradient = new Gradient();
-const gradient2 = new Gradient();
-
-gradient.initGradient("#gradient-canvas-main");
-gradient2.initGradient("#gradient-canvas");
+new Gradient().initGradient("#gradient-canvas-main");
 
 window.dataLayer = window.dataLayer || [];
 function gtag() {
@@ -45,7 +41,6 @@ const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 
 document.addEventListener("DOMContentLoaded", function () {
-  const subContent3 = document.querySelector(".subcontent3");
   const rotatingWords = document.querySelector(".words_rotating_span");
 
   cursor.style.boxShadow = "none";
@@ -53,10 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
   addListeners(scrollBtn);
   handleAnimationSubcontent1();
   rotatingWords.addEventListener("animationend", removeBlackCover);
-
-  new IntersectionObserver(handleIntersection1, {
-    threshold: 0.5,
-  }).observe(subContent3);
 
   loadNavbar().then(() => {
     handleNavbarIntersection();
@@ -147,7 +138,7 @@ function setupGSAPChips() {
 
   services.forEach((service, index) => {
     gsap.to(service, {
-      x: index % 2 === 0 ? 720 : -720,
+      x: index % 2 === 0 ? 850 : -850,
       duration: 10,
       ease: "linear",
       repeat: -1,
@@ -170,7 +161,9 @@ function handleNavbarIntersection() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         navbar.style.opacity = "0";
-        navbar.style.visibility = "hidden";
+        setTimeout(() => {
+          navbar.style.visibility = "hidden";
+        });
       } else {
         navbar.style.visibility = "visible";
         navbar.style.opacity = "1";
