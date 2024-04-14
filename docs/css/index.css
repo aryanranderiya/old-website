@@ -696,6 +696,9 @@ header {
 #available_chip span {
   width: 100%;
 }
+#github_profile_anchor {
+  color: white;
+}
 @keyframes pulse {
   from {
     transform: scale(1);
@@ -719,6 +722,7 @@ header {
   width: fit-content;
   text-wrap: nowrap;
   align-items: center;
+  color: lightgray;
 }
 
 .flag_chip img {
@@ -733,22 +737,23 @@ header {
 .chip img,
 .marquee_part2 img {
   aspect-ratio: 1/1;
-  width: 25px;
+  width: 22px;
 }
 
 .bento_chips {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 
 .bento_chips2 {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   flex-direction: row;
   margin-bottom: 0.3em;
 }
+
 #flag_chip {
   padding: 0.5% 1%;
   display: flex;
@@ -879,7 +884,11 @@ h6 {
   font-size: 2.3em;
 }
 .card_title {
-  margin-bottom: 0.5em;
+  display: flex;
+  gap: 5%;
+  margin-bottom: 0.3em;
+  align-items: center;
+  justify-content: center;
 }
 
 .bento_icon_tool {

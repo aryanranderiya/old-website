@@ -1,3 +1,29 @@
+// ! FIREBASE INIT --------------------------------------------------------------------------------------
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  onValue,
+  get,
+  update,
+} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
+  authDomain: "aryanranderiya-portfolio.firebaseapp.com",
+  projectId: "aryanranderiya-portfolio",
+  storageBucket: "aryanranderiya-portfolio.appspot.com",
+  messagingSenderId: "540599201791",
+  appId: "1:540599201791:web:757239eec07a33dc9ec1ca",
+  measurementId: "G-S3XP36W3P9",
+};
+
+initializeApp(firebaseConfig);
+const database = getDatabase();
+// ! FIREBASE INIT --------------------------------------------------------------------------------------
+
 import { Gradient } from "./gradient.js";
 
 const gradient = new Gradient();
@@ -38,6 +64,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(setupTimeBento, 1000);
 
+  setupGSAPChips();
+  setupGithubBento();
+});
+
+async function setupGithubBento() {
+  let token = "";
+  const qDtadW_2ZSeiRJtuRTvv = ref(database, "qDtadW_2ZSeiRJtuRTvv/");
+  await new Promise((resolve) => {
+    onValue(qDtadW_2ZSeiRJtuRTvv, (snapshot) => {
+      token = snapshot.val();
+      resolve();
+    });
+  });
+
+  const response = await fetch(
+    "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  const repoObj = await response.json();
+  const repoArray = repoObj.items;
+
+  document.getElementById(
+    "github_repo_chip"
+  ).innerHTML = `<i class="fa-solid fa-book-bookmark"></i>${repoArray.length} Repos`;
+
+  const response2 = await fetch("https://api.github.com/users/aryanranderiya");
+  const userInfo = await response2.json();
+
+  document.getElementById("github_profile_chip").innerHTML = `
+  <img src=${userInfo.avatar_url} width='10px'> 
+  ${userInfo.login}
+  `;
+
+  document.getElementById("github_profile_anchor").href = userInfo.html_url;
+
+  document.getElementById(
+    "github_public_repo_chip"
+  ).innerHTML = `<i class="fa-solid fa-people-group"></i>${userInfo.public_repos} Public Repos`;
+
+  document.getElementById(
+    "github_follower_chip"
+  ).innerHTML = `<i class="fa-solid fa-user-plus"></i>${userInfo.followers} Followers`;
+
+  document.getElementById(
+    "github_following_chip"
+  ).innerHTML = `<i class="fa-solid fa-user-group"></i>${userInfo.following} Following`;
+}
+
+function setupGSAPChips() {
   gsap.to(".marquee_part", {
     x: -1000,
     yoyo: true,
@@ -66,8 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const services = document.querySelectorAll(".services");
 
   services.forEach((service, index) => {
-    const chips = service.childNodes;
-
     gsap.to(service, {
       x: index % 2 === 0 ? 720 : -720,
       duration: 10,
@@ -77,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
       stagger: 0.5,
     });
   });
-});
+}
 
 const time = document.getElementById("time");
 function setupTimeBento() {

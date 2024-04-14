@@ -640,7 +640,7 @@ async function fetchGithubData() {
   });
 
   const response = await fetch(
-    "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed ",
+    "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
     {
       headers: {
         Authorization: `Bearer ${token}`,
