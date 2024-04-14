@@ -504,7 +504,7 @@ header {
   grid-gap: 0.8em;
   justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 350px);
   grid-template-rows: repeat(6, 100px);
 }
 
@@ -716,10 +716,18 @@ header {
   border-radius: 100px;
   border: solid 2px rgb(31, 31, 31);
   gap: 1%;
+  display: flex;
+  width: fit-content;
+  text-wrap: nowrap;
 }
 
-.chip i {
+.chip i,
+.chip img {
   margin-right: 5 px;
+}
+
+.chip img {
+  width: 30px;
 }
 
 .bento_chips {
@@ -729,6 +737,14 @@ header {
   gap: 10px;
 }
 
+.bento_chips2 {
+  /* width: max-content; */
+  overflow: hidden;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+}
 #flag_chip {
   padding: 0.5% 1%;
   display: flex;

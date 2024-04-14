@@ -36,13 +36,36 @@ document.addEventListener("DOMContentLoaded", function () {
     handleNavbarIntersection();
   });
 
-  // setInterval(setupTimeBento, 1000);
+  setInterval(setupTimeBento, 1000);
+
+  let currentScroll = 0;
+  let isScrollingDown = true;
+
+  gsap.to(".marquee_part", {
+    x: -1000,
+    yoyo: true,
+    duration: 10,
+    ease: "linear",
+    repeat: -1,
+    startAt: { x: 0 },
+  });
+
+  gsap.to(".marquee_part2", {
+    x: 0,
+    duration: 10,
+    ease: "linear",
+    repeat: -1,
+    startAt: { x: -1000 },
+    yoyo: true,
+  });
+
+  gsap.set(".marquee_inner");
 });
 
-// const time = document.getElementById("time");
-// function setupTimeBento() {
-//   time.innerHTML = new Date().toLocaleTimeString() + " IST";
-// }
+const time = document.getElementById("time");
+function setupTimeBento() {
+  time.innerHTML = new Date().toLocaleTimeString() + " IST";
+}
 
 function handleNavbarIntersection() {
   const navbar = document.querySelector(".navbar");
