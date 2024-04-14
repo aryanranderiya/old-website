@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setupGSAPChips();
   setupGithubBento();
-  //setupBentoAnimation();
+  setupBentoAnimation();
 });
 
 function setupBentoAnimation() {
