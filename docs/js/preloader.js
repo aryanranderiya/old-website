@@ -43,27 +43,27 @@ function generateLoadingText() {
   }
 }
 
-function textAnimateOnHover() {
-  //! Text Animation on Hover
-  let element = document.querySelector(".loading_text");
+// function textAnimateOnHover() {
+//   //! Text Animation on Hover
+//   let element = document.querySelector(".loading_text");
 
-  let innerText = element.innerText;
-  element.innerHTML = "";
+//   let innerText = element.innerText;
+//   element.innerHTML = "";
 
-  let textContainer = document.createElement("div");
-  addClass(textContainer, "block");
+//   let textContainer = document.createElement("div");
+//   addClass(textContainer, "block");
 
-  for (let letter of innerText) {
-    let span = document.createElement("span");
-    span.innerText = letter.trim() === "" ? "\xa0" : letter;
-    addClass(span, "letter");
-    textContainer.appendChild(span);
-  }
+//   for (let letter of innerText) {
+//     let span = document.createElement("span");
+//     span.innerText = letter.trim() === "" ? "\xa0" : letter;
+//     addClass(span, "letter");
+//     textContainer.appendChild(span);
+//   }
 
-  element.appendChild(textContainer);
-  element.appendChild(textContainer.cloneNode(true));
-  removeClass(element, "play");
-}
+//   element.appendChild(textContainer);
+//   element.appendChild(textContainer.cloneNode(true));
+//   removeClass(element, "play");
+// }
 
 function addClass(element, className) {
   element.classList.add(className);

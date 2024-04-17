@@ -1,0 +1,452 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: black !important;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+.title {
+  margin-left: 5%;
+  overflow: hidden;
+  width: fit-content;
+  margin-top: clamp(-2.5%, 1vw, 10%);
+}
+
+.title-heading {
+  width: fit-content;
+  color: white;
+  font-size: clamp(4.5em, 18vw, 13em);
+  font-weight: normal !important;
+  font-family: Spacer;
+  margin-bottom: 3%;
+  line-height: 0.9em;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.softwareprojects_subtitle {
+  color: rgb(175, 175, 175);
+  font-weight: normal;
+  z-index: 1;
+  position: relative;
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.title-heading.show,
+.softwareprojects_subtitle.show {
+  transform: translateY(0%);
+}
+
+.logos-slide > * {
+  height: 100px;
+}
+
+/*!Logos animation */
+
+.logos {
+  align-self: center;
+  justify-self: center;
+  margin: 0 6%;
+  margin-top: 2%;
+  margin-bottom: 6%;
+  white-space: nowrap;
+  position: relative;
+  transition: filter 0.2s ease;
+  -webkit-transition: filter 0.2s ease;
+  overflow: hidden;
+}
+
+.logos-slide {
+  display: inline-block;
+  transform: rotate3d(1, 1, 1, 0.01deg);
+}
+
+.logos-slide img {
+  height: 100px;
+  margin: 30px;
+}
+
+/* !Responsive */
+@media screen and (max-width: 600px) {
+  .title-heading {
+    transform: translateX(0%) !important;
+  }
+  .cards {
+    margin-top: 0 !important;
+  }
+
+  .github_title_div {
+    flex-direction: column !important;
+  }
+
+  .github_description {
+    font-size: 0.9em !important;
+  }
+
+  .github_topic {
+    font-size: 0.75em !important;
+  }
+
+  .github_heading {
+    font-size: 2.5em !important;
+  }
+
+  #g_logo {
+    height: 100px !important;
+  }
+
+  .g_text a {
+    font-size: 0.8em !important;
+    margin-top: 2% !important;
+  }
+
+  .github_card {
+    margin-top: 3% !important;
+  }
+
+  .logos-slide img {
+    height: 50px;
+    margin: 20px;
+  }
+
+  .animation_paragraph {
+    white-space: normal;
+  }
+
+  .logos {
+    filter: grayscale(0%) brightness(100%);
+  }
+
+  .archive_logo {
+    align-self: baseline;
+    margin-left: 0 !important;
+    margin-top: 2%;
+    font-size: 0.8em !important;
+  }
+
+  .github_bottom_div {
+    align-items: normal !important;
+  }
+
+  .github_language,
+  .github_last_updated,
+  .github_star_count {
+    font-size: 0.8em !important;
+  }
+}
+
+/*! Github Cards */
+
+.github_heading_div {
+  transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s ease;
+  position: relative;
+  z-index: 1;
+  margin-left: 5%;
+  margin-top: 10%;
+  margin-bottom: 3%;
+}
+
+.github_heading {
+  font-size: 7em;
+  font-family: Helvs;
+  color: white;
+  font-weight: bold;
+}
+
+.github_logos {
+  display: flex;
+  align-items: center;
+}
+
+#g_logo {
+  height: 170px;
+  margin-right: 3%;
+}
+
+.g_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.g_text a {
+  color: lightgray;
+  margin-top: 1%;
+  font-size: 1.1em;
+  padding-left: 1%;
+  margin-top: -1%;
+}
+
+.g_text a:hover {
+  color: white;
+}
+
+.github_cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  z-index: 1;
+  position: relative;
+  margin: 5%;
+}
+
+.github_card {
+  margin-top: 2%;
+  width: 400px;
+  height: auto;
+  background-color: rgba(10, 10, 10, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  border: 2px solid rgb(48, 48, 48);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.github_title_div,
+.github_desc_div,
+.github_bottom_div,
+.github_topics {
+  display: flex;
+  align-items: center;
+}
+
+.github_title_div {
+  flex-direction: row;
+}
+
+.title_logo_container {
+  align-self: normal;
+}
+
+.github_desc_div {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.github_title {
+  margin: 0;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #00bbff;
+  font-family: Helvs;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.archive_logo {
+  max-width: 100px;
+  width: auto;
+  color: grey;
+  margin-left: auto;
+  border-radius: 20px;
+  height: 100%;
+  border-color: grey;
+  border-style: solid;
+  border-width: 2px;
+  padding: 1px 12px;
+  font-size: 0.9em;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.archive_logo.archived {
+  color: #c08d20;
+  border-color: #c08d20;
+}
+
+.archive_logo.public {
+  color: #00ff73;
+  border-color: #00ff73;
+}
+
+.github_title_icon {
+  color: lightgray;
+}
+
+.github_description {
+  color: lightgray;
+  font-weight: normal;
+  font-size: 0.92em;
+  height: auto;
+  max-height: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  font-family: Helvs;
+}
+
+.color_circle {
+  width: 17px;
+  height: 17px;
+  background-color: red;
+  border-radius: 50px;
+}
+
+.github_bottom_div {
+  height: 100%;
+  align-items: end;
+  gap: 15px;
+}
+
+.github_topics {
+  margin-bottom: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.github_bottom_div_part {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.github_topic {
+  width: auto;
+  font-size: 0.85em;
+  padding: 4px 10px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgb(48, 48, 48);
+  color: #2dadf7;
+  font-family: Helvs;
+  margin-top: 1%;
+  font-weight: bold;
+}
+
+.github_topic:hover {
+  border: 2px solid rgb(48, 48, 48);
+  border-color: #00bbff;
+  background-color: #00bbff;
+  color: white;
+}
+
+.github_language,
+.github_last_updated,
+.github_star_count {
+  color: lightgray;
+  font-size: 0.9em;
+}
+
+.github_star_icon {
+  color: lightgray;
+  font-size: 1.2em;
+  margin-left: 7px;
+}
+.github_btn_div {
+  margin-top: 3%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  cursor: none;
+}
+
+.github_btn {
+  width: 100%;
+  margin-left: auto;
+  appearance: none;
+  background-color: rgb(230, 230, 230);
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292e;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 5px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  -webkit-transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.github_btn:hover {
+  background-color: #f3f4f6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
+}
+/* 
+.github_btn:disabled {
+  background-color: #adadad;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959da5;
+  cursor: default;
+}
+
+.github_btn:active {
+  background-color: #edeff2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+  -webkit-transition: none 0s;
+} */
+
+.github_btn:focus {
+  outline: 1px transparent;
+}
+
+.github_btn:before {
+  display: none;
+}
+
+.github_btn:-webkit-details-marker {
+  display: none;
+}
+
+.github_readme {
+  display: flex;
+  padding: 5%;
+  gap: 1%;
+  margin: 5%;
+  color: white;
+  position: relative;
+  flex-direction: column;
+  background-color: rgba(10, 10, 10, 0.8);
+  border: 3px solid rgb(48, 48, 48);
+  border-radius: 1%;
+}
+
+.github_readme a {
+  color: #00bbff;
+}
+
+.github_readme img {
+  max-width: 320px;
+}
+
+.github_readme tr {
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -700,9 +700,13 @@ async function fetchGithubData() {
     } else {
       time_left = daysDifference + " Days";
     }
+
     // ! Set Description
     let description = repo.description;
     if (repo.description === null) description = "No Description";
+
+    const btn_disabled =
+      repo.visibility.toLowerCase() === "private" ? "disabled" : "";
 
     github_card.innerHTML = `
       <div class="github_title_div">
@@ -737,7 +741,8 @@ async function fetchGithubData() {
       </div>
       <div class="github_btn_div">
         <a href='${repo.html_url}' target="_blank">
-          <button class="github_btn">View ${repo.name} on Github</button>
+          <button class="github_btn" ${btn_disabled}>
+          View ${repo.name} on Github</button>
         </a>
       </div>
     `;
@@ -818,6 +823,11 @@ async function fetchGithubData() {
     const github_btn_divs = document.querySelectorAll(".github_btn_div");
 
     github_btn_divs.forEach((github_btn_div) => {
+      const btn = github_btn_div.querySelector(".github_btn");
+      if (btn.disabled === true) {
+        github_btn_div.remove();
+        return;
+      }
       github_btn_div.addEventListener("mouseover", () => {
         cursorTransformShadowBlend("scale(1.5)", "none");
         addClass(cursor, "transparent");
