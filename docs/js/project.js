@@ -243,6 +243,7 @@ async function setGithub(github_link) {
         if (repo.html_url === github_link) {
           const createdAt = new Date(repo.created_at).toDateString();
           const updatedAt = new Date(repo.updated_at).toDateString();
+          document.querySelector(".github_link").href = repo.html_url;
           document.querySelector(".repo_name").innerHTML = repo.full_name;
           document.querySelector(".repo_stars").innerHTML =
             repo.stargazers_count;
