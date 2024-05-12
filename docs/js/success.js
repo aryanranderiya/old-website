@@ -3,10 +3,10 @@ const button_blue = document.querySelector(".button_blue");
 const cursoricon5 = document.querySelector("#cursoricon5");
 const websitename = document.querySelector(".websitename");
 
-document.addEventListener("mousemove", (e) => {
-  cursor_glow.style.left = e.clientX + "px";
-  cursor_glow.style.top = e.clientY + "px";
-});
+// document.addEventListener("mousemove", (e) => {
+//   cursor_glow.style.left = e.clientX + "px";
+//   cursor_glow.style.top = e.clientY + "px";
+// });
 
 button_blue.addEventListener("mouseover", () => {
   cursoricon5.style.opacity = "1";

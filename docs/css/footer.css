@@ -32,18 +32,27 @@ footer > *,
   font-family: Helvs;
 }
 
-body {
+/* body {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   overflow-x: hidden;
+} */
+
+.nonfooter {
+  background-color: black;
+  z-index: 1;
+  position: relative;
+  padding-bottom: 100px;
+  box-shadow: 0px 2px 1px white;
 }
 
-section {
-  scroll-snap-align: start;
+#footerContainer {
+  position: sticky;
+  bottom: 0;
+  z-index: 0;
 }
 
 footer {
-  padding-top: 20px;
   z-index: 1;
   position: relative;
 }
@@ -60,7 +69,6 @@ footer {
 }
 
 .footer_section {
-  opacity: 0;
   transition: opacity 0.5s ease;
   -webkit-transition: opacity 0.5s ease;
   padding: 0;
@@ -73,6 +81,7 @@ footer {
 
 .footer1 {
   display: flex;
+  justify-content: space-between;
 }
 
 .footer2 {
@@ -83,7 +92,7 @@ footer {
 
 #letstalk {
   font-family: Helvs;
-  font-size: clamp(3em, 10vw, 7em);
+  font-size: clamp(2em, 10vw, 7em);
 
   color: white;
   font-weight: bolder;
@@ -101,13 +110,13 @@ footer {
   flex-wrap: wrap;
 }
 
-.divRight > * {
-  font-family: Helvs;
-}
-
 .page_links {
   flex-wrap: wrap;
   align-content: start;
+}
+
+.div_email {
+  align-items: flex-end !important;
 }
 
 .social,
@@ -129,18 +138,27 @@ footer {
 
 .social_link_container,
 .page_link_container,
-.letstalkcontainer,
+.footer_header,
 .div_email_container {
   overflow: hidden;
 }
 
-.letstalkcontainer {
+.footer_header {
+  width: 100%;
   margin-bottom: 1%;
   display: flex;
+  flex-direction: column;
 }
 
-.divLeft {
-  align-self: flex-start;
+.letstalkcontainer {
+  display: flex;
+  gap: 30px;
+}
+
+.footer_containers {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .marginLeft {
@@ -149,7 +167,7 @@ footer {
 
 .google_icon {
   color: white;
-  font-size: clamp(4em, 15vw, 9em) !important;
+  font-size: clamp(4em, 15vw, 5.5em);
   font-weight: bolder !important;
   transition: font-size 0.2s ease, transform 0.4s ease;
   -webkit-transition: font-size 0.2s ease, transform 0.4s ease;
@@ -184,10 +202,6 @@ footer {
   margin-right: 5%;
 }
 
-.page_link {
-  justify-content: end;
-}
-
 .page_link:hover .icon,
 .page_link:hover .social_text,
 .page_link:hover .page_text,
@@ -208,19 +222,6 @@ footer {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-@keyframes scaleIcon {
-  0% {
-    font-size: 1em;
-  }
-
-  50% {
-    font-size: 1em;
-  }
-
-  100% {
-    font-size: 1em;
-  }
-}
 
 .page_text {
   text-align: end;
@@ -228,19 +229,11 @@ footer {
 
 .footer_bottom_name {
   color: white;
-  font-size: clamp(0.5em, 14vw, 15em);
+  font-size: clamp(0.5em, 14vw, 17em);
   font-weight: bolder;
   font-family: Helvs;
   z-index: 1;
   position: relative;
-}
-
-.footer_hr {
-  background-color: white;
-  width: 100%;
-}
-
-.bottom_name_container {
   display: flex;
   width: 100%;
   white-space: nowrap;
@@ -249,13 +242,16 @@ footer {
   justify-content: center;
 }
 
+.footer_hr {
+  border-color: rgb(63, 63, 63);
+  width: 90%;
+}
+
 .word {
   width: max-content;
   height: fit-content;
   display: flex;
   overflow: hidden;
-  /* margin-bottom: -2 0px; */
-  transform: translateY(50%);
   transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -285,10 +281,10 @@ footer {
   overflow: hidden;
   height: fit-content;
   user-select: none;
-  gap: 2rem;
-  margin: 2% 0;
   white-space: nowrap;
   z-index: 1;
+  background-color: #00bbff;
+  padding: 1% 0;
 }
 
 .marquee__inner {
@@ -312,6 +308,11 @@ footer {
 /* ! Responsiveness */
 
 @media only screen and (max-width: 600px) {
+  .footer1 {
+    flex-direction: column;
+    gap: 30px;
+  }
+
   .div_nav_menu_image {
     display: none;
   }
@@ -323,7 +324,7 @@ footer {
     margin-bottom: 0px;
   }
 
-  .bottom_name_container {
+  .footer_bottom_name {
     gap: 0.15em;
   }
 
@@ -355,7 +356,7 @@ footer {
 .social_icon,
 .page_icon {
   display: flex;
-  width: 20px;
+  width: 25px;
   color: white;
   font-size: 1.2em;
   z-index: 1;
@@ -371,12 +372,12 @@ footer {
   z-index: 1;
   position: relative;
   color: white;
-  font-size: clamp(1.3em, 4vw, 3em);
+  font-size: clamp(1.3em, 4vw, 2em);
   text-decoration: underline !important;
 }
 
 .mail_icon {
-  font-size: clamp(1.3em, 6vw, 3em);
+  font-size: clamp(1.3em, 6vw, 2em);
 }
 
 .instagram_icon {
@@ -395,4 +396,9 @@ footer {
 
 .fa-heart {
   color: #00bbff;
+}
+
+.footer_group_heading {
+  color: grey;
+  margin-bottom: 10px;
 }

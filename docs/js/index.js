@@ -6,8 +6,6 @@ import {
   getDatabase,
   ref,
   onValue,
-  get,
-  update,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -395,13 +393,4 @@ function removeBlackCover() {
   }, 500);
 
   setTimeout(() => welcoming.remove(), 1600);
-}
-
-function handleIntersection1(entries) {
-  requestAnimationFrame(() => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.style.opacity = "1";
-      else entry.target.style.opacity = "0";
-    });
-  });
 }

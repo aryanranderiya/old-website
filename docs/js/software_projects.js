@@ -1,7 +1,3 @@
-import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
-
-githubReadme();
-
 const cursortext2 = document.getElementById("cursortext2");
 const title_Heading = document.querySelector(".title-heading");
 const subtitle = document.querySelector(".softwareprojects_subtitle");
@@ -17,7 +13,6 @@ import {
   getDatabase,
   ref,
   onValue,
-  get,
   update,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
@@ -47,10 +42,10 @@ onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 document.addEventListener("DOMContentLoaded", function () {
   const cursor_glow = document.querySelector(".cursor_glow_div");
 
-  document.addEventListener("mousemove", (e) => {
-    cursor_glow.style.left = e.clientX + "px";
-    cursor_glow.style.top = e.clientY + "px";
-  });
+  // document.addEventListener("mousemove", (e) => {
+  //   cursor_glow.style.left = e.clientX + "px";
+  //   cursor_glow.style.top = e.clientY + "px";
+  // });
 
   modifyScrollBar();
 
@@ -603,27 +598,6 @@ async function fetchColors() {
 function searchColor(langColorsArray, language) {
   for (const color in langColorsArray) {
     if (language === color) return langColorsArray[color].color;
-  }
-}
-async function githubReadme() {
-  try {
-    const github_readme = document.querySelector(".github_readme");
-
-    const response = await fetch(
-      "https://api.github.com/repos/aryanranderiya/aryanranderiya/readme"
-    );
-
-    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-
-    const readmeJson = await response.json();
-    const URL = readmeJson["download_url"];
-
-    const urlContentResponse = await fetch(URL);
-    const content = await urlContentResponse.text();
-
-    github_readme.innerHTML = marked.parse(content);
-  } catch (error) {
-    console.error("Fetch Documentation error:", error);
   }
 }
 

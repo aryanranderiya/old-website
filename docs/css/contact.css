@@ -6,11 +6,6 @@ body {
   background-color: #000000 !important;
 }
 
-html {
-  overflow: hidden !important;
-  overflow-y: scroll !important;
-}
-
 .navbar {
   opacity: 1 !important;
 }
@@ -270,34 +265,17 @@ hr {
   }
 }
 
-.div_email {
-  margin-bottom: 10%;
-}
 .description_div,
-.div_email,
 .social {
   overflow: hidden;
 }
 
-.div_email > *,
-.social > *,
 .description {
   transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: translateY(100%);
 }
 
-.div_email > *.show,
-.social > *.show,
 .description.show {
   transform: translateY(0%);
-}
-
-.word {
-  transform: translateX(0%) !important;
-}
-
-
-input:hover{
-  cursor: ty;
 }

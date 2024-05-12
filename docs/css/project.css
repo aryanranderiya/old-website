@@ -11,15 +11,6 @@ body {
   scroll-behavior: smooth;
 }
 
-section {
-  scroll-snap-type: y mandatory;
-  scroll-snap-align: center;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
 .subcontent1_titledesc {
   width: 100%;
   display: flex;

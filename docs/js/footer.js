@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         footerContainer.innerHTML = data;
         footerContainer.style.cssText = "";
-        const footer1 = document.querySelector(".footer1");
-        const footer2 = document.querySelector(".footer2");
+        const letstalkcontainer = document.querySelector(".letstalkcontainer");
 
         const letstalk = document.querySelector("#letstalk");
         const cursoricon4 = document.getElementById("cursoricon4");
@@ -23,15 +22,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
         allSocial.forEach((social) => {
           social.addEventListener("mouseover", function () {
-            googleIcon.style.transform = "rotate(360deg)";
+            googleIcon.style.transform = "translateY(-10%)";
           });
 
           social.addEventListener("mouseout", function () {
-            googleIcon.style.transform = "rotate(0)";
+            googleIcon.style.transform = "";
+          });
+
+          social.addEventListener("mouseover", () => {
+            cursorTransformShadowBlend();
+            addClass(cursor, "transparent");
+            addClass(cursoricon5, "active");
+          });
+
+          social.addEventListener("mouseout", () => {
+            cursorTransformShadowBlend();
+            removeClass(cursor, "transparent");
+            removeClass(cursoricon5, "active");
           });
         });
 
-        footer1.addEventListener("mouseover", () => {
+        pageLinks.forEach((page) => {
+          page.addEventListener("mouseover", function () {
+            googleIcon.style.transform = "translateY(-10%)";
+          });
+
+          page.addEventListener("mouseout", function () {
+            googleIcon.style.transform = "";
+          });
+
+          page.addEventListener("mouseover", () => {
+            cursorTransformShadowBlend();
+            addClass(cursor, "transparent");
+            addClass(cursoricon5, "active");
+          });
+
+          page.addEventListener("mouseout", () => {
+            cursorTransformShadowBlend();
+            removeClass(cursor, "transparent");
+            removeClass(cursoricon5, "active");
+          });
+        });
+
+        letstalkcontainer.addEventListener("mouseover", () => {
           cursorTransformShadowBlend("scale(8)", "none");
           cursor.style.outlineStyle = "solid";
           cursor.style.outlineColor = "white";
@@ -40,31 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
           addClass(cursoricon4, "active");
         });
 
-        footer1.addEventListener("mouseout", () => {
+        letstalkcontainer.addEventListener("mouseout", () => {
           cursor.style.outline = "none";
           cursorTransformShadowBlend("none");
           removeClass(cursor, "partially_transparent");
           removeClass(cursoricon4, "active");
-        });
-
-        pageLinks.forEach((pageLink) => {
-          const pageLinkIcon = pageLink.querySelector(".icon");
-          pageLinkIcon.style.transition = "all 0.1s ease";
-          pageLinkIcon.style.webkitTransition = "all 0.1s ease";
-
-          pageLink.addEventListener("mouseover", function () {
-            pageLinkIcon.style.fontSize = "2em";
-            googleIcon.style.transform = "rotate(360deg)";
-
-            setTimeout(() => {
-              pageLinkIcon.style.fontSize = "1.5em";
-            }, 150);
-          });
-
-          pageLink.addEventListener("mouseout", function () {
-            pageLinkIcon.style.fontSize = "1.5em";
-            googleIcon.style.transform = "rotate(0)";
-          });
         });
 
         discord_click.addEventListener("click", () => {
@@ -75,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         div_email.addEventListener("mouseover", () => {
-          cursorTransformShadowBlend(undefined, "none");
+          cursorTransformShadowBlend();
           addClass(cursor, "transparent");
           addClass(cursoricon5, "active");
         });
@@ -86,26 +99,12 @@ document.addEventListener("DOMContentLoaded", function () {
           removeClass(cursoricon5, "active");
         });
 
-        footer2.addEventListener("mouseover", () => {
-          cursorTransformShadowBlend(undefined, "none");
-          addClass(cursor, "transparent");
-          addClass(cursoricon5, "active");
-        });
-
-        footer2.addEventListener("mouseout", () => {
-          cursorTransformShadowBlend();
-          removeClass(cursor, "transparent");
-          removeClass(cursoricon5, "active");
-        });
-
         bottomName.addEventListener("mouseover", () => {
           cursorTransformShadowBlend("scale(10)", "none", "difference");
-          addClass(cursoricon4, "active");
         });
 
         bottomName.addEventListener("mouseout", () => {
           cursorTransformShadowBlend();
-          removeClass(cursoricon4, "active");
         });
 
         //  ! Marquee
@@ -123,11 +122,11 @@ document.addEventListener("DOMContentLoaded", function () {
         //! Hover Animation on Aryan Randeriya Footer Text
 
         const defaultScale = 1;
-        const maxScale = 1.5;
+        const maxScale = 1.3;
         const neighborScale = 1.2;
 
         const wordContainers = document.querySelectorAll(
-          ".footer_bottom_name .bottom_name_container .word"
+          ".footer_bottom_name .word"
         );
 
         wordContainers.forEach((wordContainer) => {
@@ -158,17 +157,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         //! Fade out navbar when footer is visible
-        let footerIntersected = false;
+        // let footerIntersected = false;
 
         function handleIntersection(entries, observer) {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               animateFooterContent();
-              if (footerIntersected) addClass(navbar, "hide");
+              addClass(navbar, "hide");
             } else {
               animateOutFooterContent();
-
-              if (footerIntersected) removeClass(navbar, "hide");
+              removeClass(navbar, "hide");
             }
           });
 
@@ -191,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
           wordContainers.forEach((container) => addClass(container, "show"));
           addClass(letstalk, "show");
           addClass(div_email, "show");
-          document.querySelector(".footer_section").style.opacity = "1";
+          // document.querySelector(".footer_section").style.opacity = "1";
         }
 
         function animateOutFooterContent() {
@@ -200,49 +198,32 @@ document.addEventListener("DOMContentLoaded", function () {
           wordContainers.forEach((container) => removeClass(container, "show"));
           removeClass(letstalk, "show");
           removeClass(div_email, "show");
-          document.querySelector(".footer_section").style.opacity = "0";
+          // document.querySelector(".footer_section").style.opacity = "0";
         }
 
         function handleIntersectionTwo(entries, observer) {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) animateFooterContent();
+            if (!entry.isIntersecting) animateFooterContent();
             else animateOutFooterContent();
           });
         }
 
-        const currentURL = window.location.href;
+        const nonfooter = document.querySelector(".nonfooter");
 
-        const isIndexPage =
-          currentURL === "aryanranderiya.com" ||
-          currentURL.includes("index") ||
-          currentURL.endsWith("/docs/") ||
-          currentURL.endsWith("/docs/index") ||
-          currentURL.endsWith("/docs/index.html");
+        const observer = new IntersectionObserver(handleIntersectionTwo, {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.3,
+        });
 
-        if (isIndexPage) {
-          const observer = new IntersectionObserver(handleIntersection, {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.4,
-          });
-
-          observer.observe(footerContainer);
-        } else {
-          const observer = new IntersectionObserver(handleIntersectionTwo, {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.4,
-          });
-
-          observer.observe(footerContainer);
-        }
+        observer.observe(nonfooter);
 
         // ! change marquee direction on scroll
 
-        let currentScroll = window.pageYOffset;
-        let isScrollingDown = true;
+        // let currentScroll = window.pageYOffset;
+        // let isScrollingDown = true;
 
-        let tween = gsap.to(".marquee__part", {
+        gsap.to(".marquee__part", {
           xPercent: -100,
           repeat: -1,
           duration: 3,
@@ -252,16 +233,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         gsap.set(".marquee__inner", { xPercent: -50 });
 
-        window.addEventListener("wheel", function (event) {
-          if (event.deltaY > 0) isScrollingDown = true;
-          else isScrollingDown = false;
+        // window.addEventListener("wheel", function (event) {
+        //   if (event.deltaY > 0) isScrollingDown = true;
+        //   else isScrollingDown = false;
 
-          gsap.to(tween, {
-            timeScale: isScrollingDown ? 1 : -1,
-          });
+        //   gsap.to(tween, {
+        //     timeScale: isScrollingDown ? 1 : -1,
+        //   });
 
-          currentScroll = window.pageYOffset;
-        });
+        //   currentScroll = window.pageYOffset;
+        // });
 
         //! END OF "THEN"
       });

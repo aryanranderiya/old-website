@@ -93,209 +93,84 @@
     <!--! Navigation Bar -->
     <header id="navbarContainer" style="height: 50px;"></header>
 
-    <div class="cursor_glow_div">
-        <span class="cursor_glow"></span>
+    <div class="nonfooter">
+
+        <section class="content1">
+            <div class="title_div">
+                <h1 class="title">
+                    <span id="letswork">LET'S WORK </span>
+                    <span id="together"> TOGETHER</span>
+                </h1>
+            </div>
+            <div class="div_hr">
+                <hr>
+            </div>
+        </section>
+
+        <section class="content2">
+            <div class="divRight contacts">
+
+                <div class="description_div">
+                    <h6 class="description"><b>Hey There! Are you looking to work with me on your next project? </b>
+                        <br><br>Feel
+                        free to send me an E-Mail, message me on LinkedIn or fill in the form on this webpage! I'll try
+                        to
+                        get
+                        back to you as
+                        soon as possible!
+                    </h6>
+                </div>
+
+            </div>
+            
+            <div class="formright">
+                <form action="https://api.web3forms.com/submit" method="POST" id="form">
+
+                    <input type="hidden" name="access_key" value="10359aab-8f36-40fa-84c2-82fea18b7599">
+                    <input type="hidden" name="from_name" value="aryanranderiya.com">
+                    <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
+                    <input type="hidden" name="redirect" value="https://aryanranderiya.com/Success">
+
+                    <input type="hidden" name="subject" value="New Contact Form Submission Received!">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div class="form_row">
+                        <input type="text" name="name" id="form_name" class="form_input" placeholder="NAME" required>
+                        <input type="email" name="email" id="form_email" class="form_input" placeholder="E-MAIL"
+                            required>
+                    </div>
+                    <div class="form_row">
+                        <textarea name="message" id="form_textarea" cols="200" rows="5" class="form_input"
+                            placeholder="MESSAGE" required></textarea>
+                    </div>
+
+                    <div class="form_row" id="btn_captcha_row">
+                        <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+                        <button type="submit" class="button_primary" aria-label="Send Message">
+                            SEND MESSAGE
+                            <div class="icon primary_icon primaryiconother">
+                                <i class="fa-solid fa-comments btn_icon_1"></i>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+                <div class="disclaimer">
+                    <span id="disclaimer_span">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        These messages will go straight to my Inbox!</span>
+                </div>
+                <div class="disclaimer">
+                    <span id="disclaimer_span"><i class="fa-solid fa-circle-info"></i>All fields are required.</span>
+                </div>
+        </section>
     </div>
 
-    <section class="content1">
-        <div class="title_div">
-            <h1 class="title">
-                <span id="letswork">LET'S WORK </span>
-                <span id="together"> TOGETHER</span>
-            </h1>
-        </div>
-        <div class="div_hr">
-            <hr>
-        </div>
-    </section>
-
-    <section class="content2">
-        <div class="divRight contacts">
-
-            <div class="description_div">
-                <h6 class="description"><b>Hey There! Are you looking to work with me on your next project? </b>
-                    <br><br>Feel
-                    free to send me an E-Mail, message me on LinkedIn or fill in the form on this webpage! I'll try to
-                    get
-                    back to you as
-                    soon as possible!
-                </h6>
-            </div>
-
-            <div class="div_email">
-                <span class="material-symbols-rounded mail_icon icon">
-                    outgoing_mail
-                </span>
-                <a href="mailto: aryan.k.randeriya@gmail.com">
-                    <h5 class="social_text mail_text">aryan.k.randeriya@gmail.com</h5>
-                </a>
-            </div>
-
-            <div class="social">
-                <span class="material-symbols-rounded icon">subdirectory_arrow_right</span>
-                <i class="fa-brands fa-discord social_icon" style="color: #5562ea;"></i>
-                <div class="discord_click">
-                    <span class="social_text">Discord</span>
-                </div>
-            </div>
-
-            <div class="social">
-                <span class="material-symbols-rounded icon">subdirectory_arrow_right</span>
-                <i class="fa-brands fa-linkedin social_icon" style="color: #0077b5 ;"></i>
-                <a href="https://www.linkedin.com/in/aryanranderiya" target="_blank">
-                    <span class="social_text">LinkedIn</span>
-                </a>
-            </div>
-
-            <div class="social">
-                <span class="material-symbols-rounded icon">subdirectory_arrow_right</span>
-                <a href="https://github.com/aryanranderiya" target="_blank">
-                    <i class="fa-brands fa-github social_icon"></i>
-                    <span class="social_text">GitHub</span>
-                </a>
-            </div>
-
-            <div class="social">
-                <span class="material-symbols-rounded icon">subdirectory_arrow_right</span>
-                <a href="https://www.twitter.com/aryanranderiya" target="_blank">
-                    <i class="fa-brands fa-twitter social_icon" style="color: #1DA1F2;"></i>
-                    <span class="social_text">Twitter</span>
-                </a>
-            </div>
-
-            <div class="social">
-                <span class="material-symbols-rounded icon">subdirectory_arrow_right</span>
-                <a href="https://www.behance.net/aryanranderiya" target="_blank">
-                    <i class="fa-brands fa-behance social_icon" style="color: #053eff;"></i>
-                    <span class="social_text">Behance</span>
-                </a>
-            </div>
-
-            <div class="social">
-                <span class="material-symbols-rounded icon">subdirectory_arrow_right</span>
-                <a href="https://www.instagram.com/aryanranderiya" target="_blank">
-                    <i class="fa-brands fa-instagram instagram_icon social_icon"></i>
-                    <span class="social_text">Instagram</span>
-                </a>
-            </div>
-
-        </div>
-        <div class="formright">
-            <form action="https://api.web3forms.com/submit" method="POST" id="form">
-
-                <input type="hidden" name="access_key" value="10359aab-8f36-40fa-84c2-82fea18b7599">
-                <input type="hidden" name="from_name" value="aryanranderiya.com">
-                <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
-                <input type="hidden" name="redirect" value="https://aryanranderiya.com/Success">
-
-                <input type="hidden" name="subject" value="New Contact Form Submission Received!">
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                <div class="form_row">
-                    <input type="text" name="name" id="form_name" class="form_input" placeholder="NAME" required>
-                    <input type="email" name="email" id="form_email" class="form_input" placeholder="E-MAIL" required>
-                </div>
-                <div class="form_row">
-                    <textarea name="message" id="form_textarea" cols="200" rows="5" class="form_input"
-                        placeholder="MESSAGE" required></textarea>
-                </div>
-
-                <div class="form_row" id="btn_captcha_row">
-                    <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
-                    <button type="submit" class="button_primary" aria-label="Send Message">
-                        SEND MESSAGE
-                        <div class="icon primary_icon primaryiconother">
-                            <i class="fa-solid fa-comments btn_icon_1"></i>
-                        </div>
-                    </button>
-                </div>
-            </form>
-            <div class="disclaimer">
-                <span id="disclaimer_span">
-                    <i class="fa-solid fa-envelope-open-text"></i>
-                    These messages will go straight to my Inbox!</span>
-            </div>
-            <div class="disclaimer">
-                <span id="disclaimer_span"><i class="fa-solid fa-circle-info"></i>All fields are required.</span>
-            </div>
-    </section>
-
-    <section class="marquee">
-
-        <div class="marquee__inner">
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-            <div class="marquee__part outline_text">✦ Aryan&nbsp;</div>
-        </div>
-    </section>
-
-    <div class="footer_bottom_name">
-        <div class="bottom_name_container">
-            <div class="word">
-                <span>a</span>
-                <span>r</span>
-                <span>y</span>
-                <span>a</span>
-                <span>n</span>
-            </div>
-            <div class="word">
-                <span>r</span>
-                <span>a</span>
-                <span>n</span>
-                <span>d</span>
-                <span>e</span>
-                <span>r</span>
-                <span>i</span>
-                <span>y</span>
-                <span>a</span>
-            </div>
-
-        </div>
-    </div>
+    <footer id="footerContainer"></footer>
 
 </body>
 
 <script defer src="js/navbar.js"></script>
+<script defer src="js/footer.js"></script>
 <script src="js/cursor.js"></script>
 <script src="js/contact.js"></script>
 <script src="js/preloader.js"></script>

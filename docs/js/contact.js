@@ -2,8 +2,6 @@ const title = document.querySelector(".title");
 const title_div = document.querySelector(".title_div");
 const emailElements = document.querySelectorAll(".div_email > *");
 const div_email = document.querySelector(".div_email");
-const socialElements = document.querySelectorAll(".social > *");
-const social = document.querySelectorAll(".social");
 const description = document.querySelector(".description");
 const cursoricon4 = document.querySelector("#cursoricon4");
 const cursoricon5 = document.querySelector("#cursoricon5");
@@ -11,15 +9,6 @@ const cursoricontyping = document.querySelector("#cursoricontyping");
 const inputs = document.querySelectorAll(".form_input");
 const button_primary = document.querySelector(".button_primary");
 const form = document.getElementById("form");
-const cursor_glow = document.querySelector(".cursor_glow_div");
-const discord_click = document.querySelector(".discord_click");
-
-discord_click.addEventListener("click", () => {
-  navigator.clipboard.writeText("aryanranderiya");
-  alert(
-    'Copied username "aryanranderiya". \nFeel free to send me a request on Discord!'
-  );
-});
 
 window.addEventListener("pageshow", function (event) {
   var page = event.target;
@@ -33,33 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   largeNameHover();
 });
 
-document.addEventListener("mousemove", (e) => {
-  cursor_glow.style.left = e.clientX + "px";
-  cursor_glow.style.top = e.clientY + "px";
-});
-
 function addHoverListeners() {
-  const marquee = document.querySelector(".marquee");
-  const footer_bottom_name = document.querySelector(".footer_bottom_name");
-
-  marquee.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(7)", "none", "difference");
-  });
-
-  marquee.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-  });
-
-  footer_bottom_name.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(10)", "none", "difference");
-    addClass(cursoricon4, "active");
-  });
-
-  footer_bottom_name.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-    removeClass(cursoricon4, "active");
-  });
-
   title_div.addEventListener("mouseover", () => {
     cursorTransformShadowBlend("scale(8)", "none");
     cursor.style.outlineStyle = "solid";
@@ -88,32 +51,6 @@ function addHoverListeners() {
     removeClass(cursoricon5, "active");
   });
 
-  div_email.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none");
-    addClass(cursor, "transparent");
-    addClass(cursoricon5, "active");
-  });
-
-  div_email.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-    removeClass(cursor, "transparent");
-    removeClass(cursoricon5, "active");
-  });
-
-  social.forEach((element) => {
-    element.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend(undefined, "none");
-      addClass(cursor, "transparent");
-      addClass(cursoricon5, "active");
-    });
-
-    element.addEventListener("mouseout", () => {
-      cursorTransformShadowBlend();
-      removeClass(cursor, "transparent");
-      removeClass(cursoricon5, "active");
-    });
-  });
-
   inputs.forEach((input) => {
     input.addEventListener("mouseover", () => {
       cursorTransformShadowBlend(undefined, "none");
@@ -128,33 +65,6 @@ function addHoverListeners() {
     });
   });
 }
-
-// ! change marquee direction on scroll
-let currentScroll = window.pageYOffset;
-let isScrollingDown = true;
-
-let tween = gsap.to(".marquee__part", {
-  xPercent: -100,
-  repeat: -1,
-  duration: 3,
-  ease: "linear",
-});
-
-gsap.set(".marquee__inner", { xPercent: -50 });
-
-window.addEventListener("wheel", function (event) {
-  if (event.deltaY > 0) {
-    isScrollingDown = true;
-  } else {
-    isScrollingDown = false;
-  }
-
-  gsap.to(tween, {
-    timeScale: isScrollingDown ? 1 : -1,
-  });
-
-  currentScroll = window.pageYOffset;
-});
 
 function largeNameHover() {
   //! Hover Animation on Aryan Randeriya Fotoer Text
@@ -202,9 +112,6 @@ function handleIntersection(entries, observer) {
         addClass(title, "show");
         addClass(description, "show");
         emailElements.forEach((element) => addClass(element, "show"));
-        socialElements.forEach((element, index) =>
-          setTimeout(() => addClass(element, "show"), index * 50)
-        );
       }, 850);
     }
   });

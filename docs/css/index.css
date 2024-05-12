@@ -10,33 +10,6 @@
   font-weight: normal;
 }
 
-/* @font-face {
-  font-display: swap;
-  font-family: "DirtyLine";
-  src: url("../fonts/Dirtyline 36daysoftype 2022.woff2") format("woff2");
-  font-style: normal;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
-} */
-
-/* @font-face {
-  font-display: optional;
-  font-family: TimesDisplay;
-  src: url("../fonts/times.woff2") format("woff2");
-} */
-
-/* @font-face {
-  font-display: optional;
-  font-family: TimesBD;
-  src: url("../fonts/timesbd.woff2") format("woff2");
-} */
-/* 
-@font-face {
-  font-display: optional;
-  font-family: TimesI;
-  src: url("../fonts/timesi.woff2") format("woff2");
-} */
-
 html,
 body {
   margin: 0;
@@ -54,7 +27,6 @@ body {
   background-color: black;
   scroll-behavior: smooth;
   overflow: hidden;
-  scroll-snap-type: y mandatory;
 }
 
 * {
@@ -150,8 +122,9 @@ header {
 }
 
 .cover {
+  position: relative;
   z-index: 1002;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   text-align: center;
   display: flex;
