@@ -11,8 +11,8 @@
   pointer-events: none;
   box-shadow: 0px 0px 30px white;
   transform: translate(-50%, -50%);
-  transition: transform 0.2s ease-out, background-color 0.3s ease;
-  -webkit-transition: transform 0.2s ease-out, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  -webkit-transition: transform 0.3s ease, background-color 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,12 +118,6 @@
   -webkit-backdrop-filter: blur(1px);
 }
 
-@font-face {
-  font-display: swap;
-  font-family: PROXON;
-  src: url("../fonts/PROXON.woff2") format("truetype");
-}
-
 #cursortext {
   margin-bottom: -10%;
   color: white;
@@ -131,9 +125,8 @@
   z-index: 2001;
   position: fixed;
   text-align: center;
-  font-family: PROXON;
+  font-family: Helvs;
   font-weight: normal;
-  text-transform: uppercase;
   text-shadow: 0px 0px 50px black;
 }
 
@@ -144,9 +137,8 @@
   z-index: 2001;
   position: fixed;
   text-align: center;
-  font-family: PROXON;
+  font-family: Helvs;
   font-weight: bold;
-  text-transform: uppercase;
   text-shadow: 0px 0px 50px black;
 }
 

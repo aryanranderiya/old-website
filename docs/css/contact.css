@@ -6,12 +6,23 @@ body {
   background-color: #000000 !important;
 }
 
+* {
+  font-family: Helvs;
+}
+
 .navbar {
   opacity: 1 !important;
 }
 
-* {
-  user-select: none;
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #00bbff;
+}
+
+::selection {
+  color: white;
+  background: #00bbff;
 }
 
 .title_div {
@@ -130,14 +141,6 @@ form {
 .fa-circle-info {
   margin-right: 1%;
 }
-.social_text {
-  font-weight: normal !important;
-}
-
-.mail_text {
-  font-size: 1.3em !important;
-  font-weight: bold !important;
-}
 
 .button_primary {
   height: 3em !important;
@@ -209,10 +212,6 @@ hr {
   margin-bottom: 5%;
 }
 
-.mail_icon {
-  margin-bottom: 0 !important;
-}
-
 @media screen and (max-width: 600px) {
   .title {
     font-size: 2.8em;
@@ -253,15 +252,6 @@ hr {
   }
   #form {
     margin: 10% 0;
-  }
-
-  .marquee__part {
-    font-size: 1.5em !important;
-  }
-  .marquee__inner .marquee__part.outline_text {
-    color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
   }
 }
 

@@ -7,8 +7,15 @@ body {
   overflow-x: hidden;
 }
 
-* {
-  user-select: none;
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #00bbff;
+}
+
+::selection {
+  color: white;
+  background: #00bbff;
 }
 
 @font-face {

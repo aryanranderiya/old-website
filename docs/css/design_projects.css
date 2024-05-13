@@ -179,10 +179,6 @@ img {
   pointer-events: none;
 }
 
-* {
-  user-select: none;
-}
-
 /*! Headers */
 .slider {
   width: 100%;

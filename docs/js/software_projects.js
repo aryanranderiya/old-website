@@ -40,13 +40,6 @@ onValue(SoftwareIconsRef, processProjectIcons, { onlyOnce: true });
 onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const cursor_glow = document.querySelector(".cursor_glow_div");
-
-  // document.addEventListener("mousemove", (e) => {
-  //   cursor_glow.style.left = e.clientX + "px";
-  //   cursor_glow.style.top = e.clientY + "px";
-  // });
-
   modifyScrollBar();
 
   addMouseHovers();
@@ -265,6 +258,8 @@ function processDataAndHidePreloader(snapshot) {
     snapshotArray.push(childSnapshot);
   });
 
+  const cards = document.querySelector(".cards");
+
   snapshotArray.reverse().forEach((childSnapshot) => {
     const projectDetails = childSnapshot.val();
     const projectId = childSnapshot.key;
@@ -354,23 +349,13 @@ function processDataAndHidePreloader(snapshot) {
       </div>
     `;
 
-    document.querySelector(".cards").appendChild(card);
-
-    //! Intersection Observer
-    function handleIntersection1(entries, observer) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) card.style.opacity = "1";
-        else card.style.opacity = "0";
-      });
-    }
-    const observer1 = new IntersectionObserver(handleIntersection1, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    });
-    observer1.observe(card);
+    cards.appendChild(card);
 
     hoverOnCards();
+  });
+
+  document.querySelectorAll(".card").forEach((card, index) => {
+    observer1.observe(card);
   });
 
   removePreloader();
@@ -394,6 +379,26 @@ function processDataAndHidePreloader(snapshot) {
   filterCards(select);
   setupHearts();
 }
+
+function handleIntersection1(entries) {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(-10%)";
+      }, index * 150);
+    } else {
+      entry.target.style.opacity = "0";
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}
+
+const observer1 = new IntersectionObserver(handleIntersection1, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0,
+});
 
 function setupHearts() {
   const checkboxes = document.querySelectorAll(".heart_checkboxes");
@@ -553,34 +558,28 @@ function hoverOnCards() {
 
 function marqueeScrollAnimation() {
   // ! change marquee direction on scroll
-  gsap.registerPlugin(ScrollTrigger);
 
   let currentScroll = 0;
   let isScrollingDown = true;
-  const slides = document.querySelectorAll(".logos-slide");
 
-  slides.forEach((slide) => {
-    gsap
-      .to(slide, {
-        xPercent: -100,
-        repeat: -1,
-        duration: 10,
-        ease: "linear",
-      })
-      .totalProgress(0);
+  gsap.set(".logos", { xPercent: 0 });
 
-    gsap.set(slide, { xPercent: -50 });
-  });
+  const timeline = gsap
+    .to(".logos-slide", {
+      xPercent: -100,
+      repeat: -1,
+      duration: 8,
+      ease: "linear",
+      rotation: 0.01,
+    })
+    .totalProgress(0.5);
 
   window.addEventListener("scroll", function () {
     if (window.pageYOffset > currentScroll) isScrollingDown = false;
     else isScrollingDown = true;
 
-    slides.forEach((slide) => {
-      const tween = gsap.getTweensOf(slide)[0];
-      if (tween) {
-        tween.timeScale(isScrollingDown ? 1 : -1);
-      }
+    gsap.to(timeline, {
+      timeScale: isScrollingDown ? 1 : -1, // -1 will reverse the animation
     });
 
     currentScroll = window.pageYOffset;
@@ -628,8 +627,6 @@ async function fetchGithubData() {
   repoArray.sort((a, b) => {
     const dateA = new Date(a.pushed_at);
     const dateB = new Date(b.pushed_at);
-    console.log(dateA);
-    console.log(dateB);
     return dateB - dateA;
   });
 
@@ -736,7 +733,6 @@ async function fetchGithubData() {
     //! Set Visibility
     const archiveLogo = github_card.querySelector(".archive_logo");
     if (repo.archived === true && repo.visibility.toLowerCase() === "public") {
-      console.log(repo.name);
       archiveLogo.textContent = "Public Archive";
       addClass(archiveLogo, "archived");
     } else if (
@@ -775,24 +771,14 @@ async function fetchGithubData() {
       github_topics.remove();
     }
 
-    //! Intersection Observer
-    function handleIntersection1(entries, observer) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-        } else {
-          entry.target.style.opacity = "0";
-        }
-      });
-    }
-    const observer1 = new IntersectionObserver(handleIntersection1, {
+    const observer2 = new IntersectionObserver(handleIntersection1, {
       root: null,
       rootMargin: "0px",
       threshold: 0.4,
     });
 
-    observer1.observe(document.querySelector(".github_heading_div"));
     observer1.observe(github_card);
+    observer2.observe(document.querySelector(".github_heading_div"));
 
     const github_btn_divs = document.querySelectorAll(".github_btn_div");
 

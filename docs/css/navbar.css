@@ -239,20 +239,16 @@ a {
 
 .navbar-brand {
   text-decoration: none;
-  line-height: 23px;
   color: #00bbff;
-  height: 30px;
+  height: 29px;
   overflow: hidden;
   color: white !important;
-  font-size: 30px;
-  display: inline-block;
-  margin-right: 1rem;
-  font-size: 2em;
+  font-size: 1.5em;
   white-space: nowrap;
 }
 
 .letter {
-  font-family: Spacer !important;
+  font-family: Helvs !important;
 }
 
 .navbar-brand:hover .letter,
@@ -518,10 +514,6 @@ a {
 
   .menu_items {
     margin-top: -5%;
-  }
-
-  .navbar-brand {
-    font-size: 20px;
   }
 
   .contact_button {

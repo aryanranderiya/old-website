@@ -29,10 +29,6 @@ body {
   overflow: hidden;
 }
 
-* {
-  user-select: none;
-}
-
 button {
   cursor: none !important;
 }
@@ -279,7 +275,6 @@ header {
 }
 
 .professional_image_div {
-  user-select: none;
   overflow: hidden;
   transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
