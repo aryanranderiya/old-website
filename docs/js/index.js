@@ -53,10 +53,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(setupTimeBento, 1000);
 
+  setupAnimationLargeText();
   setupGSAPChips();
   setupGithubBento();
   setupBentoAnimation();
 });
+
+function setupAnimationLargeText() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  let tl1 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".large_text:nth-child(2)",
+      start: "top-=100 center",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+
+  gsap.set(".large_text:nth-child(2)", { x: "-100%" });
+  tl1.to(".large_text:nth-child(2)", { x: "0%" });
+
+  let tl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".large_text:nth-child(2)",
+      start: "top-=100 center",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+  gsap.set(".large_text:nth-child(3)", { x: "100%" });
+  tl2.to(".large_text:nth-child(3)", { x: "0%" });
+
+  let tl3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".large_text:nth-child(3)",
+      start: "top-=100 center",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+  gsap.set(".large_text:nth-child(4)", { x: "-100%" });
+  tl3.to(".large_text:nth-child(4)", { x: "0%" });
+
+  //   function handleIntersection(entries) {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.style.opacity = "0";
+  //         setTimeout(() => {
+  //           entry.target.style.visibility = "hidden";
+  //         });
+  //       } else {
+  //         entry.target.style.visibility = "visible";
+  //         entry.target.style.opacity = "1";
+  //       }
+  //     });
+  //   }
+
+  //   const observer = new IntersectionObserver(handleIntersection, {
+  //     threshold: 0.5,
+  //   });
+
+  //   observer.observe(coverElement);
+}
 
 function setupBentoAnimation() {
   const bento_cards = document.querySelectorAll(".bento_card");
@@ -378,8 +437,6 @@ function makeInvisible(element) {
 }
 
 function removeBlackCover() {
-  const section_content1 = document.querySelector(".section_content1");
-
   setTimeout(() => {
     document.body.style.overflow = "auto";
     addClass(welcoming, "hide");
@@ -389,7 +446,6 @@ function removeBlackCover() {
 
     cursor.style.mixBlendMode = "normal";
     scrollBtn.style.opacity = "1";
-    section_content1.style.opacity = "1";
   }, 500);
 
   setTimeout(() => welcoming.remove(), 1600);

@@ -33,7 +33,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -132,7 +132,7 @@
 
     <!-- ! Content Div 1 -->
 
-    <section class="section_content1">
+    <section>
 
       <div class="content1">
         <div class="subcontent1">
@@ -145,7 +145,7 @@
               <span id="span_dev">Software Developer</span>,
               <span id="span_designer">Graphic Designer</span> &
               <span id="span_entre"> Aspiring Entrepreneur</span>
-              with a Vision.
+              with a Vision for the Future.
             </p>
           </div>
 
@@ -166,8 +166,16 @@
       </div>
     </section>
 
+    <section>
+      <div class="largetext_container">
+        <span class="large_text">I</span>
+        <span class="large_text">CREATE.</span>
+        <span class="large_text">DEVELOP.</span>
+        <span class="large_text">DESIGN.</span>
+      </div>
+    </section>
 
-    <section class="section2">
+    <section>
       <div class="grid_container">
         <div class="bento_grid">
 
@@ -224,20 +232,6 @@
             </div>
           </div>
 
-
-          <div class="bento_card" id="bento_made_with">
-            <div class="bento_card_content made_with">
-              <span class="chip">
-                <i class="fa-solid fa-face-laugh-beam"></i>
-                <span id="song_name"> aryanranderiya.com 2024</span>
-              </span>
-
-              <span class="chip"> Built with <i class="fa-solid fa-heart" style="color: red;"></i> using
-                HTML, CSS & JS
-              </span>
-
-            </div>
-          </div>
 
           <div class="bento_card" id="bento_resume">
             <a href="https://aryanranderiya.com/Resume">
@@ -298,7 +292,7 @@
                 <h5> what's that?</h5>
               </a>
 
-              <span class="now_item">• Developing a Research Portal for my University</span>
+              <span class="now_item">• Software Development Freelancing</span>
             </div>
           </div>
 
@@ -492,6 +486,18 @@
   <script src="js/animated_gradient_cursormovement.js"></script>
   <script defer src="https://kit.fontawesome.com/2fafe620ef.js" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"></script>
+
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  </script>
 
   <script type="application/ld+json">
     {

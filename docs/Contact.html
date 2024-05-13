@@ -36,16 +36,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script async src="https://kit.fontawesome.com/2fafe620ef.js" crossorigin="anonymous"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-
-        gtag("config", "G-S3XP36W3P9");
-    </script>
-
 </head>
 
 <body>
@@ -66,7 +56,6 @@
             </svg>
         </div>
     </div>
-
 
     <!--! Custom Cursor -->
     <div class="cursor">
@@ -122,7 +111,7 @@
                 </div>
 
             </div>
-            
+
             <div class="formright">
                 <form action="https://api.web3forms.com/submit" method="POST" id="form">
 
@@ -167,67 +156,40 @@
 
     <footer id="footerContainer"></footer>
 
+    <script defer src="js/navbar.js"></script>
+    <script defer src="js/footer.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/preloader.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-S3XP36W3P9");
+    </script>
+
+
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="aryanranderiya" data-description="Support me on Buy me a coffee!"
+        data-message="Thank You for Visiting! Feel free to send me a donation if you like my website to support me!"
+        data-color="#00bbff" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis()
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+    </script>
 </body>
-
-<script defer src="js/navbar.js"></script>
-<script defer src="js/footer.js"></script>
-<script src="js/cursor.js"></script>
-<script src="js/contact.js"></script>
-<script src="js/preloader.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"></script>
-<script src="https://web3forms.com/client/script.js" async defer></script>
-
-<script>
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-S3XP36W3P9");
-
-
-    //! Hover Animation on Aryan Randeriya Fotoer Text
-
-    const defaultScale = 1;
-    const maxScale = 1.5;
-    const neighborScale = 1.2;
-
-    const wordContainers = document.querySelectorAll(
-        ".footer_bottom_name .bottom_name_container .word"
-    );
-
-    wordContainers.forEach((wordContainer) => {
-        const spans = wordContainer.querySelectorAll("span");
-
-        wordContainer.addEventListener("mouseover", (e) => {
-            const target = e.target;
-            const index = Array.from(spans).indexOf(target);
-
-            spans.forEach((span, i) => {
-                let scale = defaultScale;
-
-                if (i === index) {
-                    scale = maxScale;
-                } else if (i === index - 1 || i === index + 1) {
-                    scale = neighborScale;
-                }
-
-                span.style.transform = `scaleY(${scale})`;
-            });
-        });
-
-        wordContainer.addEventListener("mouseout", () => {
-            spans.forEach((span) => {
-                span.style.transform = `scaleY(${defaultScale})`;
-            });
-        });
-    });
-</script>
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-    data-id="aryanranderiya" data-description="Support me on Buy me a coffee!"
-    data-message="Thank You for Visiting! Feel free to send me a donation if you like my website to support me!"
-    data-color="#00bbff" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 </html>

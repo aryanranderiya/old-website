@@ -53,8 +53,7 @@ function addMouseListeners(navbar_menu) {
   const cursoricon2 = document.getElementById("cursoricon2");
   const cursoricon5 = document.getElementById("cursoricon5");
   const navbar_menu_btn = document.querySelector(".navbar_menu_btn");
-  const contact_button = document.querySelector(".contact_button");
-  const title = document.querySelector(".title-container");
+  const title = document.querySelector(".navbar-brand");
 
   navbar_menu.addEventListener("mouseover", () => {
     cursorTransformShadowBlend("scale(6)", "none");
@@ -86,18 +85,6 @@ function addMouseListeners(navbar_menu) {
   });
 
   navbar_menu_btn.addEventListener("mouseout", () => {
-    removeClass(cursor, "transparent");
-    removeClass(cursoricon5, "active");
-    cursorTransformShadowBlend();
-  });
-
-  contact_button.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(1.5)", "none");
-    addClass(cursor, "transparent");
-    addClass(cursoricon5, "active");
-  });
-
-  contact_button.addEventListener("mouseout", () => {
     removeClass(cursor, "transparent");
     removeClass(cursoricon5, "active");
     cursorTransformShadowBlend();

@@ -78,7 +78,7 @@
 
     <!--! Custom Cursor -->
     <div class="cursor">
-        <h1 id="cursortext">Skills</h1>
+        <h1 id="cursortext">My Skills</h1>
         <h1 id="cursortext2">0%</h1>
         <span class="material-symbols-rounded " id="cursoricon1">
             arrow_forward
@@ -99,12 +99,10 @@
             <div class="title">
                 <h1 class="title-heading" id="software_projects_title"><br>Software<br>Projects</h1>
                 <h4 class="softwareprojects_subtitle">Here are most of the Software Projects I've ever worked on, along
-                    with
-                    explanations, live demos, images, links and documentation.<br><br>
+                    with explanations, live demos, images, links and documentation.<br><br>
 
-                    If a project isn't on this page, it's bound to be on my GitHub Portfolio. Scroll further down to see
-                    my
-                    public GitHub Repositories!
+                    If a project isn't on this page, it's bound to be on my GitHub.
+                    Scroll further down to see my GitHub Repositories!
 
                     <br><br>
                     Feel free to hit the <span style="color: red;">❤</span> button if you like any of my projects!
@@ -177,6 +175,18 @@
     <script src="js/software_projects.js" type="module"></script>
     <script defer src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis()
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+    </script>
+
 </body>
 
 </html>

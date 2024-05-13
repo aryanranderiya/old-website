@@ -385,11 +385,11 @@ function handleIntersection1(entries) {
     if (entry.isIntersecting) {
       setTimeout(() => {
         entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(-10%)";
+        entry.target.style.transform = "translateY(0)";
       }, index * 150);
     } else {
       entry.target.style.opacity = "0";
-      entry.target.style.transform = "translateY(0)";
+      entry.target.style.transform = "translateY(10%)";
     }
   });
 }

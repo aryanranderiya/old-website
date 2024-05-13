@@ -10,23 +10,22 @@ body {
   margin-left: 5%;
   overflow: hidden;
   width: fit-content;
-  margin-top: clamp(-2.5%, 1vw, 10%);
 }
 
 .title-heading {
+  line-height: 75%;
   width: fit-content;
   color: white;
   font-size: clamp(4.5em, 18vw, 13em);
   font-weight: normal !important;
   font-family: Spacer;
-  margin-bottom: 3%;
-  line-height: 0.9em;
   position: relative;
   z-index: 1;
   overflow: hidden;
   transform: translateY(100%);
   transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin-top: -50px;
 }
 
 .softwareprojects_subtitle {
@@ -76,6 +75,7 @@ body {
 /* !Responsive */
 @media screen and (max-width: 600px) {
   .title-heading {
+    margin-top: 0px;
     transform: translateX(0%) !important;
   }
   .cards {
