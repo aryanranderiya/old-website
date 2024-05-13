@@ -71,7 +71,7 @@ function setupAnimationLargeText() {
     },
   });
 
-  gsap.set(".large_text:nth-child(2)", { x: "-100%" });
+  gsap.set(".large_text:nth-child(2)", { x: "-120%" });
   tl1.to(".large_text:nth-child(2)", { x: "0%" });
 
   let tl2 = gsap.timeline({
@@ -82,7 +82,7 @@ function setupAnimationLargeText() {
       scrub: true,
     },
   });
-  gsap.set(".large_text:nth-child(3)", { x: "100%" });
+  gsap.set(".large_text:nth-child(3)", { x: "120%" });
   tl2.to(".large_text:nth-child(3)", { x: "0%" });
 
   let tl3 = gsap.timeline({
@@ -93,30 +93,34 @@ function setupAnimationLargeText() {
       scrub: true,
     },
   });
-  gsap.set(".large_text:nth-child(4)", { x: "-100%" });
+  gsap.set(".large_text:nth-child(4)", { x: "-120%" });
   tl3.to(".large_text:nth-child(4)", { x: "0%" });
 
-  //   function handleIntersection(entries) {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         entry.target.style.opacity = "0";
-  //         setTimeout(() => {
-  //           entry.target.style.visibility = "hidden";
-  //         });
-  //       } else {
-  //         entry.target.style.visibility = "visible";
-  //         entry.target.style.opacity = "1";
-  //       }
-  //     });
-  //   }
+  let currentScroll = 0;
+  let isScrollingDown = true;
 
-  //   const observer = new IntersectionObserver(handleIntersection, {
-  //     threshold: 0.5,
-  //   });
+  let tween = gsap
+    .to(".featured_marquee__part", {
+      xPercent: -100,
+      repeat: -1,
+      duration: 6,
+      ease: "linear",
+    })
+    .totalProgress(0.5);
 
-  //   observer.observe(coverElement);
+  gsap.set(".featured_marquee__inner", { xPercent: -50 });
+
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > currentScroll) isScrollingDown = true;
+    else isScrollingDown = false;
+
+    gsap.to(tween, {
+      timeScale: isScrollingDown ? 1 : -1,
+    });
+
+    currentScroll = window.pageYOffset;
+  });
 }
-
 function setupBentoAnimation() {
   const bento_cards = document.querySelectorAll(".bento_card");
 

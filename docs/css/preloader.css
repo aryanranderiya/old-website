@@ -162,7 +162,7 @@ body {
   left: 0;
   width: 100%;
   line-height: 0;
-  transform: rotate(180deg) translateY(-99%);
+  transform: rotate(180deg) translateY(-85%);
 }
 
 @media screen and (max-width: 600px) {

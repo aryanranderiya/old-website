@@ -558,28 +558,24 @@ function hoverOnCards() {
 
 function marqueeScrollAnimation() {
   // ! change marquee direction on scroll
-
   let currentScroll = 0;
   let isScrollingDown = true;
 
-  gsap.set(".logos", { xPercent: 0 });
-
-  const timeline = gsap
+  let tween = gsap
     .to(".logos-slide", {
       xPercent: -100,
       repeat: -1,
-      duration: 8,
+      duration: 6,
       ease: "linear",
-      rotation: 0.01,
     })
     .totalProgress(0.5);
 
   window.addEventListener("scroll", function () {
-    if (window.pageYOffset > currentScroll) isScrollingDown = false;
-    else isScrollingDown = true;
+    if (window.pageYOffset > currentScroll) isScrollingDown = true;
+    else isScrollingDown = false;
 
-    gsap.to(timeline, {
-      timeScale: isScrollingDown ? 1 : -1, // -1 will reverse the animation
+    gsap.to(tween, {
+      timeScale: isScrollingDown ? 1 : -1,
     });
 
     currentScroll = window.pageYOffset;

@@ -31,7 +31,7 @@ a {
 }
 
 section {
-  height: 100vh;
+  min-height: fit-content;
   width: 100%;
   background-color: black;
 }
@@ -42,7 +42,7 @@ hr {
 }
 
 header {
-  background-color: #000000 !important;
+  background-color: WHITE000 !important;
 }
 
 .welcoming {
@@ -332,7 +332,7 @@ header {
 
   --gradient-color-1: #ffffff;
   --gradient-color-2: #34b4fe;
-  --gradient-color-3: #000000;
+  --gradient-color-3: WHITE000;
   --gradient-color-4: #00bbff;
   background-color: black;
 }
@@ -934,10 +934,6 @@ h6 {
     font-size: 1.5em;
     margin-bottom: 10px !important;
   }
-
-  .marquee__part {
-    font-size: 2em;
-  }
 }
 
 .custom-shape-divider-top-1707225707 .shape-fill {
@@ -1068,25 +1064,65 @@ h6 {
 .large_textleft,
 .large_textright {
   color: white;
-  font-size: 15em;
   font-family: Helvs;
-  transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
+  transition: color 0.5s ease;
+  -webkit-transition: color 0.5s ease;
+  font-size: clamp(0.5em, 14vw, 15em);
+  font-weight: bold;
 }
 
-/* 
-.large_text2:nth-child(2),
-.large_text2:nth-child(4) {
-  transform: translateX(-200%);
+.large_text:hover,
+.large_textleft:hover,
+.large_textright:hover {
+  color: #00bbff;
 }
-
-.large_text2:nth-child(3) {
-  transform: translateX(200%);
-} */
 
 .largetext_container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: fit-content;
+}
+
+.featured_marquee {
+  width: 100%;
+  overflow: hidden;
+  height: fit-content;
+  white-space: nowrap;
+  z-index: 1;
+  padding: 1% 0;
+  display: flex;
+}
+
+.featured_marquee:hover .inner_featured_marquee {
+  color: white;
+  text-shadow: none;
+}
+
+.featured_marquee__part {
+  flex-shrink: 0;
+  padding: 0 4px;
+  font-smooth: always;
+}
+
+.featured_marquee {
+  position: relative;
+  overflow: hidden;
+  font-weight: bolder;
+  transition: color 0.3s ease;
+  font-size: 5em;
+  font-family: Helvs;
+  color: black;
+  text-shadow: -1px -1px 0 WHITE, 0 -1px 0 WHITE, 1px -1px 0 WHITE,
+    1px 0 0 WHITE, 1px 1px 0 WHITE, 0 1px 0 WHITE, -1px 1px 0 WHITE,
+    -1px 0 0 WHITE;
+}
+
+.featured_marquee__inner {
+  -webkit-font-smoothing: antialiased;
+  width: fit-content;
+  display: flex;
+  flex: auto;
+  flex-direction: row;
 }

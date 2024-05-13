@@ -88,8 +88,7 @@ footer {
 
 #letstalk {
   font-family: Helvs;
-  font-size: clamp(2em, 10vw, 7em);
-
+  font-size: clamp(2em, 10vw, 5.5em);
   color: white;
   font-weight: bolder;
   align-self: end;
@@ -257,16 +256,6 @@ footer {
 
 /* !marquee */
 
-.marquee__inner .marquee__part.outline_text {
-  color: transparent;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: white;
-}
-
-.marquee__group span.no_outline_text {
-  color: white;
-}
-
 ::-moz-selection {
   /* Code for Firefox */
   color: white;
@@ -286,22 +275,18 @@ footer {
   z-index: 1;
   background-color: #00bbff;
   padding: 1% 0;
+  display: flex;
 }
 
-.marquee__inner {
-  display: flex;
-  width: fit-content;
-  flex: auto;
-  flex-direction: row;
-}
 .marquee__part {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
   padding: 0 4px;
   font-size: 3em;
   font-family: Akira;
-  color: white;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
 }
 
 /* ! marquee end */

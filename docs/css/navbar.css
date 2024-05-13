@@ -232,7 +232,7 @@ a {
 .navbar-brand {
   text-decoration: none;
   color: #00bbff;
-  height: 29px;
+  height: 23px;
   overflow: hidden;
   color: white !important;
   font-size: 1.5em;
@@ -347,6 +347,7 @@ a {
   }
 
   .navbar-brand {
+    height: 20px;
     font-size: 20px;
   }
 
