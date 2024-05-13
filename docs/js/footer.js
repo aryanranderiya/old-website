@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
         gsap.to(".marquee__part", {
           xPercent: -100,
           repeat: -1,
-          duration: 1,
+          duration: 3,
           ease: "linear",
           rotation: 0.01,
         });

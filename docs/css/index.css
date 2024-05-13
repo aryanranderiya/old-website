@@ -982,7 +982,7 @@ h6 {
   height: 100%;
   padding-left: 10px;
   color: white;
-  animation: spin_words 2.5s ease-out forwards;
+  animation: spin_words 1.5s cubic-bezier(0.39, 1.09, 0.89, 1) forwards;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -991,11 +991,13 @@ h6 {
 }
 
 #hello {
-  font-family: DirtyLine;
+  font-weight: bolder;
+  font-family: Helvs;
 }
 
 #world {
-  font-family: DirtyLine;
+  font-weight: bolder;
+  font-family: Helvs;
 }
 
 #main_hello_world {
@@ -1015,21 +1017,17 @@ h6 {
   margin-top: 2%;
   width: 20%;
   background: rgba(236, 236, 238, 0.253);
-  height: 3px;
-  border-radius: 7px;
+  height: 5px;
+  border-radius: 100px;
 }
 
 .progress-helloworld {
   content: "";
   width: 0%;
-  height: 3px;
-
-  border-radius: 7px;
+  height: 5px;
+  border-radius: 100px;
   background: rgb(255, 255, 255);
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  transition: width 3s ease-in-out;
-  animation: progress_bar_loading 2.5s ease-in-out forwards;
+  animation: progress_bar_loading 2s ease-in-out forwards;
 }
 
 @keyframes progress_bar_loading {
@@ -1083,6 +1081,7 @@ h6 {
   align-items: center;
   width: 100%;
   height: fit-content;
+  overflow: hidden;
 }
 
 .featured_marquee {
@@ -1107,11 +1106,12 @@ h6 {
 }
 
 .featured_marquee {
+  margin-top: 5%;
   position: relative;
   overflow: hidden;
   font-weight: bolder;
   transition: color 0.3s ease;
-  font-size: 5em;
+  font-size: clamp(2em, 10vw, 5.5em);
   font-family: Helvs;
   color: black;
   text-shadow: -1px -1px 0 WHITE, 0 -1px 0 WHITE, 1px -1px 0 WHITE,

@@ -71,7 +71,7 @@ function setupAnimationLargeText() {
     },
   });
 
-  gsap.set(".large_text:nth-child(2)", { x: "-120%" });
+  gsap.set(".large_text:nth-child(2)", { x: "-150%" });
   tl1.to(".large_text:nth-child(2)", { x: "0%" });
 
   let tl2 = gsap.timeline({
@@ -82,7 +82,7 @@ function setupAnimationLargeText() {
       scrub: true,
     },
   });
-  gsap.set(".large_text:nth-child(3)", { x: "120%" });
+  gsap.set(".large_text:nth-child(3)", { x: "150%" });
   tl2.to(".large_text:nth-child(3)", { x: "0%" });
 
   let tl3 = gsap.timeline({
@@ -93,7 +93,7 @@ function setupAnimationLargeText() {
       scrub: true,
     },
   });
-  gsap.set(".large_text:nth-child(4)", { x: "-120%" });
+  gsap.set(".large_text:nth-child(4)", { x: "-150%" });
   tl3.to(".large_text:nth-child(4)", { x: "0%" });
 
   let currentScroll = 0;
@@ -450,7 +450,7 @@ function removeBlackCover() {
 
     cursor.style.mixBlendMode = "normal";
     scrollBtn.style.opacity = "1";
-  }, 500);
+  }, 300);
 
   setTimeout(() => welcoming.remove(), 1600);
 }
