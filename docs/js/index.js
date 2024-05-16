@@ -37,6 +37,7 @@ gtag("config", "G-S3XP36W3P9");
 const cursoriconwave = document.getElementById("cursoriconwave");
 const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
+const subcontent1 = document.querySelector(".subcontent1");
 
 document.addEventListener("DOMContentLoaded", function () {
   const rotatingWords = document.querySelector(".words_rotating_span");
@@ -65,16 +66,21 @@ function setupFeaturedProjects() {
 
   let sections = gsap.utils.toArray(".featured_project_card");
 
+  ScrollTrigger.normalizeScroll(true); // enable
+
   gsap.to(sections, {
     xPercent: -100 * (sections.length - 1),
     ease: "none",
 
     scrollTrigger: {
       trigger: ".featured_section",
+      type: "touch,pointer,wheel",
+      isTouch: 2,
       pin: true,
-      start: "center center",
+      markers: true,
       scrub: 1,
       snap: 1 / (sections.length - 1),
+      start: "top+=300 center",
       end: () =>
         "+=" + document.querySelector(".featured_projects").offsetWidth,
     },
@@ -83,6 +89,7 @@ function setupFeaturedProjects() {
 
 function setupAnimationLargeText() {
   gsap.registerPlugin(ScrollTrigger);
+  // ScrollTrigger.normalizeScroll(true);
 
   let tl1 = gsap.timeline({
     scrollTrigger: {
@@ -296,8 +303,6 @@ function addListeners(scrollBtn) {
   const span_designer = document.getElementById("span_designer");
   const span_dev = document.getElementById("span_dev");
   const span_entrepreneur = document.getElementById("span_entre");
-  const content1 = document.querySelector(".content1");
-  const contentElement = document.querySelector(".content1");
   const cursoricon2 = document.getElementById("cursoricon2");
 
   // ! Scroll on button click
@@ -306,8 +311,8 @@ function addListeners(scrollBtn) {
     cursorTransformShadowBlend();
     removeClass(cursoricon2, "active");
 
-    contentElement.scrollIntoView({
-      top: contentElement.offsetTop,
+    subcontent1.scrollIntoView({
+      top: subcontent1.offsetTop,
       behavior: "smooth",
     });
   });
@@ -387,7 +392,7 @@ function addListeners(scrollBtn) {
     normalCursorEmojiSpan(cursoriconidea);
   });
 
-  content1.addEventListener("mouseover", () => {
+  subcontent1.addEventListener("mouseover", () => {
     cursorTransformShadowBlend();
     addClass(cursor, "transparent");
     cursoriconwave.style.opacity = "1";
@@ -395,7 +400,7 @@ function addListeners(scrollBtn) {
     removeClass(cursoricon2, "active");
   });
 
-  content1.addEventListener("mouseout", () => {
+  subcontent1.addEventListener("mouseout", () => {
     cursorTransformShadowBlend();
     cursoriconwave.style.opacity = "0";
     removeClass(cursor, "transparent");
@@ -404,7 +409,6 @@ function addListeners(scrollBtn) {
 }
 
 function handleAnimationSubcontent1() {
-  const subcontent1 = document.querySelector(".subcontent1");
   const content1Titles = document.querySelectorAll(".content1_title");
   const professional_image = document.querySelector(".professional_image");
 

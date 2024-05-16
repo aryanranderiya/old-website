@@ -132,37 +132,30 @@
 
     <!-- ! Content Div 1 -->
 
-    <section>
+    <section class="content_section">
 
-      <div class="content1">
-        <div class="subcontent1">
+      <div class="subcontent1">
 
-          <div class="subcontent1_text">
-            <p class="content1_title" id="hey">Hey,</p>
-            <p class="content1_title" id="imaryan">I'm Aryan!
+        <div class="subcontent1_text">
+          <p class="content1_title" id="hey">Hey,</p>
+          <p class="content1_title" id="imaryan">I'm Aryan!
 
-              <picture>
-                <!-- <source srcset="./media/professional_photo.webp" type="image/webp"> -->
-                <!-- <source srcset="./media/professional_photo.png" type="image/png"> -->
-                <img src="./media/professional_photo_small.png" class="professional_image" alt="Aryan Randera"
-                  title="Aryan Randeriya Professional Headshot" loading="eager">
-              </picture>
-            </p>
+            <picture>
+              <!-- <source srcset="./media/professional_photo.webp" type="image/webp"> -->
+              <!-- <source srcset="./media/professional_photo.png" type="image/png"> -->
+              <img src="./media/professional_photo_small.png" class="professional_image" alt="Aryan Randera"
+                title="Aryan Randeriya Professional Headshot" loading="eager">
+            </picture>
+          </p>
 
-            <p class="content1_title" id="description">
-              — a&nbsp;
-              <span id="span_dev">Software Developer</span>,&nbsp;
-              <span id="span_designer">Graphic Designer&nbsp;</span>&&nbsp;
-              <span id="span_entre"> Aspiring Entrepreneur&nbsp;</span>
-              with a Vision for the Future.
-            </p>
-          </div>
+          <p class="content1_title" id="description">
+            — a&nbsp;
+            <span id="span_dev">Software Developer</span>,&nbsp;
+            <span id="span_designer">Graphic Designer&nbsp;</span>&&nbsp;
+            <span id="span_entre"> Aspiring Entrepreneur&nbsp;</span>
+            with a Vision for the Future.
+          </p>
         </div>
-
-        <div class="subcontent2">
-          <canvas class="animated_cursormovement_canvas"></canvas>
-        </div>
-
       </div>
     </section>
 
@@ -534,19 +527,19 @@
   <script src="js/cursor.js"></script>
   <script src="js/navbar.js"></script>
   <script src="js/footer.js"></script>
-  <script src="js/animated_gradient_cursormovement.js"></script>
+  <!-- <script src="js/animated_gradient_cursormovement.js"></script> -->
   <script defer src="https://kit.fontawesome.com/2fafe620ef.js" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"></script>
 
   <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
   <script>
     const lenis = new Lenis()
-
+   
     function raf(time) {
       lenis.raf(time)
       requestAnimationFrame(raf)
     }
-
+   
     requestAnimationFrame(raf)
   </script>
 
