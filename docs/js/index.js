@@ -57,7 +57,29 @@ document.addEventListener("DOMContentLoaded", function () {
   setupGSAPChips();
   setupGithubBento();
   setupBentoAnimation();
+  setupFeaturedProjects();
 });
+
+function setupFeaturedProjects() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  let sections = gsap.utils.toArray(".featured_project_card");
+
+  gsap.to(sections, {
+    xPercent: -100 * (sections.length - 1),
+    ease: "none",
+
+    scrollTrigger: {
+      trigger: ".featured_section",
+      pin: true,
+      start: "center center",
+      scrub: 1,
+      snap: 1 / (sections.length - 1),
+      end: () =>
+        "+=" + document.querySelector(".featured_projects").offsetWidth,
+    },
+  });
+}
 
 function setupAnimationLargeText() {
   gsap.registerPlugin(ScrollTrigger);
