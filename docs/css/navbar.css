@@ -27,7 +27,7 @@ body {
   outline: 1px solid rgb(179, 179, 179);
   border-radius: 999px;
   backdrop-filter: blur(50px);
-  padding: 0px 25px;
+  padding: 0px 20px 0 15px;
 }
 
 .navbar.hide {
@@ -232,10 +232,10 @@ a {
 .navbar-brand {
   text-decoration: none;
   color: #00bbff;
-  height: 23px;
+  height: 19px;
   overflow: hidden;
   color: white !important;
-  font-size: 1.5em;
+  font-size: 1.25em;
   white-space: nowrap;
   font-family: Helvs;
 }
@@ -449,4 +449,10 @@ html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+.navbar_image {
+  width: 35px;
+  border-radius: 1000px;
+  margin-right: 7px;
 }

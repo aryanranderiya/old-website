@@ -77,7 +77,6 @@ function setupFeaturedProjects() {
       type: "touch,pointer,wheel",
       isTouch: 2,
       pin: true,
-      markers: true,
       scrub: 1,
       snap: 1 / (sections.length - 1),
       start: "top+=300 center",
@@ -93,36 +92,42 @@ function setupAnimationLargeText() {
 
   let tl1 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".large_text:nth-child(2)",
-      start: "top-=100 center",
+      trigger: ".largetext_container",
+      start: "top-=200 center",
       end: "bottom center",
       scrub: true,
+      markers: true,
     },
   });
 
-  gsap.set(".large_text:nth-child(2)", { x: "-150%" });
-  tl1.to(".large_text:nth-child(2)", { x: "0%" });
+  gsap.set(".large_text:nth-child(2)", {
+    x: "-100%",
+  });
+  tl1.to(".large_text:nth-child(2)", {
+    x: "0%",
+  });
 
   let tl2 = gsap.timeline({
     scrollTrigger: {
       trigger: ".large_text:nth-child(2)",
-      start: "top-=100 center",
+      start: "center-=100 center",
       end: "bottom center",
       scrub: true,
     },
   });
-  gsap.set(".large_text:nth-child(3)", { x: "150%" });
+  gsap.set(".large_text:nth-child(3)", { x: "100%" });
   tl2.to(".large_text:nth-child(3)", { x: "0%" });
 
   let tl3 = gsap.timeline({
     scrollTrigger: {
       trigger: ".large_text:nth-child(3)",
-      start: "top-=100 center",
+      start: "center-=100 center",
       end: "bottom center",
       scrub: true,
+      markers: true,
     },
   });
-  gsap.set(".large_text:nth-child(4)", { x: "-150%" });
+  gsap.set(".large_text:nth-child(4)", { x: "-100%" });
   tl3.to(".large_text:nth-child(4)", { x: "0%" });
 
   let currentScroll = 0;
