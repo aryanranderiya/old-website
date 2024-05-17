@@ -155,7 +155,7 @@ body {
 }
 
 .github_heading {
-  font-size: 7em;
+  font-size: 5em;
   font-family: Helvs;
   color: white;
   font-weight: bold;
@@ -190,16 +190,17 @@ body {
 
 .github_cards {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 2%;
   z-index: 1;
-  position: relative;
+  /* position: relative; */
   margin: 5%;
+  /* overflow: hidden; */
 }
 
 .github_card {
-  margin-top: 2%;
-  width: 400px;
+  /* margin-top: 2%; */
+  min-width: 400px;
   height: auto;
   background-color: rgba(10, 10, 10, 0.8);
   border-radius: 15px;
@@ -207,8 +208,8 @@ body {
   border: 2px solid rgb(48, 48, 48);
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
+  /* -webkit-transition: all 0.3s ease; */
 }
 
 .github_title_div,

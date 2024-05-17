@@ -27,7 +27,7 @@ body {
   outline: 1px solid rgb(179, 179, 179);
   border-radius: 999px;
   backdrop-filter: blur(50px);
-  padding: 0px 20px 0 15px;
+  padding: 0px 20px 0 10px;
 }
 
 .navbar.hide {
@@ -442,8 +442,7 @@ html.lenis body {
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
-.lenis.lenis-stopped {
+navcb .lenis.lenis-stopped {
   overflow: hidden;
 }
 

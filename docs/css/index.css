@@ -229,14 +229,13 @@ header {
 }
 
 .subcontent1 {
-  z-index: 1;
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
   gap: 2em;
-  padding: 20% 4%;
+  padding: 10% 4%;
 }
 
 .professional_image {
@@ -248,9 +247,6 @@ header {
 
   -webkit-transition: opacity 0.5s ease,
     transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.3s ease;
-}
-
-.professional_image.visible {
 }
 
 .subcontent1_text {
@@ -1171,9 +1167,6 @@ h6 {
   font-size: 1.3em;
 }
 
-.featured_section {
-  /* height: 100vh; */
-}
 
 .view_all_projects_anchor {
   display: flex;

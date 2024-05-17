@@ -155,17 +155,6 @@ function updateProgressBarandBtn() {
 
 // Functions
 function addMouseHovers() {
-  document.querySelector(".cards").onmousemove = (e) => {
-    for (const card of document.getElementsByClassName("card")) {
-      const rect = card.getBoundingClientRect(),
-        x = e.clientX - rect.left,
-        y = e.clientY - rect.top;
-
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    }
-  };
-
   const logos = document.querySelector(".logos");
 
   // Software Projects Title
@@ -565,7 +554,7 @@ function marqueeScrollAnimation() {
     .to(".logos-slide", {
       xPercent: -100,
       repeat: -1,
-      duration: 6,
+      duration: 10,
       ease: "linear",
     })
     .totalProgress(0.5);
@@ -773,7 +762,7 @@ async function fetchGithubData() {
       threshold: 0.4,
     });
 
-    observer1.observe(github_card);
+    // observer1.observe(github_card);
     observer2.observe(document.querySelector(".github_heading_div"));
 
     const github_btn_divs = document.querySelectorAll(".github_btn_div");
@@ -813,6 +802,29 @@ async function fetchGithubData() {
       });
     });
   });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // let sections = gsap.utils.toArray(".github_card");
+
+  // ScrollTrigger.normalizeScroll(true);
+
+  // gsap.to(sections, {
+  //   xPercent: -100 * (sections.length - 1),
+  //   ease: "none",
+
+  //   scrollTrigger: {
+  //     trigger: ".github_container",
+  //     type: "touch,pointer,wheel",
+  //     isTouch: 2,
+  //     pin: true,
+  //     scrub: 1,
+  //     markers: true,
+  //     start: "top calc(100px + 100%)", // Set the start position using CSS calc() function
+  //     anticipatePin: 1,
+  //     end: () => "+=" + document.querySelector(".github_cards").offsetWidth,
+  //   },
+  // });
 }
 
 //! Functions

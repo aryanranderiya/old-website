@@ -66,7 +66,7 @@ function setupFeaturedProjects() {
 
   let sections = gsap.utils.toArray(".featured_project_card");
 
-  ScrollTrigger.normalizeScroll(true); // enable
+  ScrollTrigger.normalizeScroll(true);
 
   gsap.to(sections, {
     xPercent: -100 * (sections.length - 1),
@@ -309,15 +309,17 @@ function addListeners(scrollBtn) {
   const span_dev = document.getElementById("span_dev");
   const span_entrepreneur = document.getElementById("span_entre");
   const cursoricon2 = document.getElementById("cursoricon2");
-
+  const subcontent1_text = document.querySelector(".subcontent1_text");
   // ! Scroll on button click
 
   scrollBtn.addEventListener("click", function (e) {
     cursorTransformShadowBlend();
     removeClass(cursoricon2, "active");
 
+    console.log(subcontent1_text.offsetTop + 200);
+
     subcontent1.scrollIntoView({
-      top: subcontent1.offsetTop,
+      top: subcontent1.offsetTop + 200,
       behavior: "smooth",
     });
   });
