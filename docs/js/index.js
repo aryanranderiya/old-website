@@ -68,19 +68,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function setupFeaturedProjects(snapshot) {
   const featured_container = document.querySelector(".featured_projects");
+  const hover_card = document.querySelector(".featured_project_hover_card");
+  const hover_card_btn = hover_card.querySelector(
+    ".featured_project_hover_card_btn"
+  );
+  const hover_card_desc = hover_card.querySelector(
+    ".featured_project_hover_card_description"
+  );
+  const cursoricon5 = document.getElementById("cursoricon5");
 
   snapshot.forEach((childSnapshot) => {
     const projectId = childSnapshot.val();
     const key = childSnapshot.key;
-    const projectsRef = ref(database, "Projects/" + projectId); // Replace 'your-node' with your database node path
+    const projectsRef = ref(database, "Projects/" + projectId);
 
     get(projectsRef)
       .then((snapshot) => {
         if (!snapshot.exists()) throw new Error("Snapshot doesnt exist");
 
         const data = snapshot.val();
-        const div = document.createElement("div");
-        div.innerHTML = `
+        console.log(data);
+
+        const featured_project = document.createElement("a");
+        featured_project.innerHTML = `
         <div class="featured_project_card">
           <span class="featured_project_name">${data.project_title}</span>
           <div class="featured_project_info">
@@ -91,19 +101,55 @@ function setupFeaturedProjects(snapshot) {
         <hr class="featured_project_separator">`;
 
         if (key.toLowerCase() === "latest") {
-          const card = div.querySelector(".featured_project_card");
+          const card = featured_project.querySelector(".featured_project_card");
           const latest_div = document.createElement("div");
           latest_div.classList.add("latest_work");
           latest_div.innerText = "Most Recent";
           card.insertBefore(latest_div, card.firstChild);
-          featured_container.insertBefore(div, featured_container.firstChild);
+          featured_container.insertBefore(
+            featured_project,
+            featured_container.firstChild
+          );
         } else {
-          featured_container.appendChild(div);
+          featured_container.appendChild(featured_project);
         }
+
+        featured_project.addEventListener("mouseover", () => {
+          hover_card_btn.href = `Project.html?id=${snapshot.key}`;
+          featured_project.href = `Project.html?id=${snapshot.key}`;
+          hover_card_desc.innerText = data.project_short_description;
+          hover_card.style.opacity = 1;
+          cursoricon5.style.opacity = "1";
+          addClass(cursor, "transparent");
+          addClass(cursoricon5, "active");
+        });
+
+        featured_project.addEventListener("mouseout", () => {
+          hover_card.style.opacity = 0;
+          cursoricon5.style.transform = "scale(1.3)";
+          cursoricon5.style.opacity = "0";
+          removeClass(cursor, "transparent");
+          removeClass(cursoricon5, "active");
+        });
       })
       .catch((error) => {
         console.error("Error getting data: ", error);
       });
+  });
+
+  const view_all = document.querySelector(".view_all_projects_anchor");
+
+  view_all.addEventListener("mouseover", () => {
+    cursoricon5.style.opacity = "1";
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  view_all.addEventListener("mouseout", () => {
+    cursoricon5.style.transform = "scale(1.3)";
+    cursoricon5.style.opacity = "0";
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
   });
 }
 

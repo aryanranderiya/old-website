@@ -1109,6 +1109,7 @@ h6 {
   padding: 2.3em;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
 }
 
 .featured_project_card:hover {
@@ -1183,6 +1184,7 @@ h6 {
   padding: 3px 5px;
   margin-top: -30px;
   background-color: #00bbff;
+  color: black;
   position: absolute;
   transform: rotate(-17deg);
   transition: all 0.3s ease;
@@ -1192,18 +1194,26 @@ h6 {
 .featured_project_hover_card {
   background-color: #00bbff;
   position: absolute;
-  height: 400px;
+  height: 200px;
   width: 300px;
   border-radius: 20px;
   z-index: 2;
-  transform: translate(60vw);
+  transform: translate(60vw, 40%);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   opacity: 0;
+  padding: 1em;
+  outline: 3px solid black;
 }
 
 .featured_project_hover_card_description {
+  color: white;
+  font-size: 1.4em;
+  overflow: hidden;
+}
+
+.featured_project_hover_card_btn {
   color: black;
   display: flex;
   font-size: 1.2em;
@@ -1211,19 +1221,12 @@ h6 {
   gap: 1%;
   align-items: center;
   padding: 0.5em;
-  margin: 0.5em;
   text-wrap: wrap;
   overflow: hidden;
   outline: 1px solid white;
   border-radius: 1000px;
   background-color: white;
-}
-
-.featured_project_hover_card_image {
-  min-height: 342px;
-  max-height: 342px;
-  object-fit: cover;
-  border-radius: 20px;
+  min-height: 20px;
 }
 
 .featured_icon {
