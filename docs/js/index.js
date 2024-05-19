@@ -6,6 +6,7 @@ import {
   getDatabase,
   ref,
   onValue,
+  get,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -60,32 +61,76 @@ document.addEventListener("DOMContentLoaded", function () {
   setupBentoAnimation();
   // Horizontal Scroll
   // setupFeaturedProjects();
+
+  const featuredRef = ref(database, "Featured/");
+  onValue(featuredRef, setupFeaturedProjects, { onlyOnce: true });
 });
 
-function setupFeaturedProjects() {
-  gsap.registerPlugin(ScrollTrigger);
+function setupFeaturedProjects(snapshot) {
+  const featured_container = document.querySelector(".featured_projects");
 
-  let sections = gsap.utils.toArray(".featured_project_card");
+  snapshot.forEach((childSnapshot) => {
+    const projectId = childSnapshot.val();
+    const key = childSnapshot.key;
+    const projectsRef = ref(database, "Projects/" + projectId); // Replace 'your-node' with your database node path
 
-  ScrollTrigger.normalizeScroll(true);
+    get(projectsRef)
+      .then((snapshot) => {
+        if (!snapshot.exists()) throw new Error("Snapshot doesnt exist");
 
-  gsap.to(sections, {
-    xPercent: -100 * (sections.length - 1),
-    ease: "none",
+        const data = snapshot.val();
+        const div = document.createElement("div");
+        div.innerHTML = `
+        <div class="featured_project_card">
+          <span class="featured_project_name">${data.project_title}</span>
+          <div class="featured_project_info">
+            <span class="featured_project_type">${data.project_type}</span>
+            <span class="featured_project_type2">${data.project_creation}</span>
+          </div>
+        </div>
+        <hr class="featured_project_separator">`;
 
-    scrollTrigger: {
-      trigger: ".featured_section",
-      type: "touch,pointer,wheel",
-      isTouch: 2,
-      pin: true,
-      scrub: 1,
-      snap: 1 / (sections.length - 1),
-      start: "top+=300 center",
-      end: () =>
-        "+=" + document.querySelector(".featured_projects").offsetWidth,
-    },
+        if (key.toLowerCase() === "latest") {
+          const card = div.querySelector(".featured_project_card");
+          const latest_div = document.createElement("div");
+          latest_div.classList.add("latest_work");
+          latest_div.innerText = "Most Recent";
+          card.insertBefore(latest_div, card.firstChild);
+          featured_container.insertBefore(div, featured_container.firstChild);
+        } else {
+          featured_container.appendChild(div);
+        }
+      })
+      .catch((error) => {
+        console.error("Error getting data: ", error);
+      });
   });
 }
+
+// function setupFeaturedProjects() {
+//   gsap.registerPlugin(ScrollTrigger);
+
+//   let sections = gsap.utils.toArray(".featured_project_card");
+
+//   ScrollTrigger.normalizeScroll(true);
+
+//   gsap.to(sections, {
+//     xPercent: -100 * (sections.length - 1),
+//     ease: "none",
+
+//     scrollTrigger: {
+//       trigger: ".featured_section",
+//       type: "touch,pointer,wheel",
+//       isTouch: 2,
+//       pin: true,
+//       scrub: 1,
+//       snap: 1 / (sections.length - 1),
+//       start: "top+=300 center",
+//       end: () =>
+//         "+=" + document.querySelector(".featured_projects").offsetWidth,
+//     },
+//   });
+// }
 
 function setupAnimationLargeText() {
   gsap.registerPlugin(ScrollTrigger);

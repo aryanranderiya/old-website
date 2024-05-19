@@ -1166,10 +1166,11 @@ h6 {
 }
 
 .view_all_projects_anchor {
-  margin: 2em;
+  margin: 5em;
   display: flex;
   width: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 .featured_project_card:hover .latest_work {
@@ -1199,6 +1200,7 @@ h6 {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  opacity: 0;
 }
 
 .featured_project_hover_card_description {
