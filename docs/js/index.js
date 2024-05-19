@@ -58,7 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
   setupGSAPChips();
   setupGithubBento();
   setupBentoAnimation();
-  setupFeaturedProjects();
+  // Horizontal Scroll
+  // setupFeaturedProjects();
 });
 
 function setupFeaturedProjects() {
@@ -90,13 +91,28 @@ function setupAnimationLargeText() {
   gsap.registerPlugin(ScrollTrigger);
   // ScrollTrigger.normalizeScroll(true);
 
-  let tl1 = gsap.timeline({
+  let tl0 = gsap.timeline({
     scrollTrigger: {
       trigger: ".largetext_container",
+      start: "top-=400 bottom",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+
+  gsap.set(".large_text:nth-child(1)", {
+    x: "60%",
+  });
+  tl0.to(".large_text:nth-child(1)", {
+    x: "0%",
+  });
+
+  let tl1 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".large_text:nth-child(1)",
       start: "top-=200 center",
       end: "bottom center",
       scrub: true,
-      markers: true,
     },
   });
 
@@ -124,7 +140,6 @@ function setupAnimationLargeText() {
       start: "center-=100 center",
       end: "bottom center",
       scrub: true,
-      markers: true,
     },
   });
   gsap.set(".large_text:nth-child(4)", { x: "-100%" });

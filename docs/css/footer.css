@@ -131,6 +131,12 @@ footer {
   transform: translateY(0%);
 }
 
+.link_containers {
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+}
+
 .social_link_container,
 .page_link_container,
 .footer_header,
