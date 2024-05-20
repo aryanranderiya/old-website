@@ -413,32 +413,8 @@ header {
 }
 
 .bento_card:hover {
-  /* outline: 1px solid #00bbff; */
-  background-color: rgba(48, 48, 48, 0.4);
   transform: translateY(-0.4em);
-  /* box-shadow: #00bbff 0px 0px 100px -5px; */
-}
-
-.marquee {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-bottom: 1%;
-}
-
-.marquee span {
-  display: inline-block;
-  padding-left: 100%; /* Ensure text moves off-screen before resetting */
-  animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  outline: 1px solid rgba(255, 255, 255, 1);
 }
 
 .bento_card_content {
@@ -556,12 +532,11 @@ header {
 }
 
 #time {
-  font-size: clamp(1.5em, 10vw, 3.3em);
+  font-size: clamp(1.5em, 10vw, 3em);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50%;
-  /* box-sizing: border-box; */
 }
 
 .bento_card_content.blog span {
@@ -1126,10 +1101,7 @@ h6 {
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-}
-
-.featured_project_card:hover {
-  background-color: #00bbff;
+  transform-origin: center;
 }
 
 .featured_projects {
@@ -1207,7 +1179,7 @@ h6 {
 }
 
 .featured_project_hover_card {
-  background-color: #00bbff;
+  background-color: white;
   position: absolute;
   height: 100px;
   width: 100px;
@@ -1226,7 +1198,7 @@ h6 {
 .hover_text_featured_project {
   color: black;
   font-family: Helvs;
-  font-size: 1em;
+  font-size: 1.1em;
   position: absolute;
   left: 20%;
   top: 47%;
@@ -1275,7 +1247,7 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 2em;
-  background-color: rgb(0, 170, 255, 0.2);
+  background-color: rgba(66, 192, 255, 0.2);
   margin: 3%;
   border-radius: 25px;
 }

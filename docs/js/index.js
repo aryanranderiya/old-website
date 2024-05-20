@@ -114,6 +114,9 @@ function setupFeaturedProjects(snapshot) {
   const hover_card_desc = hover_card.querySelector(
     ".featured_project_hover_card_description"
   );
+  let currentProject = null;
+
+  const hover_text = document.querySelector(".hover_text_featured_project");
   const cursoricon5 = document.getElementById("cursoricon5");
 
   snapshot.forEach((childSnapshot) => {
@@ -153,14 +156,15 @@ function setupFeaturedProjects(snapshot) {
           featured_container.appendChild(featured_project);
         }
 
-        featured_project.addEventListener("mouseenter", enter);
-        featured_project.addEventListener("mouseleave", leave);
+        featured_project.addEventListener("mouseover", enter);
+        featured_project.addEventListener("mouseout", leave);
 
         function enter() {
           hover_card.style.width = "300px";
           hover_card.style.height = "200px";
           hover_card.style.borderRadius = "20px";
-
+          hover_card.style.backgroundColor = "#00bbff";
+          hover_text.style.opacity = "0";
           setTimeout(() => {
             hover_card_btn.href = `project.html?id=${snapshot.key}`;
             featured_project.href = `project.html?id=${snapshot.key}`;
@@ -175,6 +179,8 @@ function setupFeaturedProjects(snapshot) {
         }
 
         function leave() {
+          hover_card.style.backgroundColor = "white";
+          hover_text.style.opacity = "1";
           hover_card_desc.style.opacity = "0";
           hover_card_btn.style.opacity = "0";
           hover_card.style.width = "100px";
@@ -208,40 +214,15 @@ function setupFeaturedProjects(snapshot) {
   });
 }
 
-// function setupFeaturedProjects() {
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   let sections = gsap.utils.toArray(".featured_project_card");
-
-//   ScrollTrigger.normalizeScroll(true);
-
-//   gsap.to(sections, {
-//     xPercent: -100 * (sections.length - 1),
-//     ease: "none",
-
-//     scrollTrigger: {
-//       trigger: ".featured_section",
-//       type: "touch,pointer,wheel",
-//       isTouch: 2,
-//       pin: true,
-//       scrub: 1,
-//       snap: 1 / (sections.length - 1),
-//       start: "top+=300 center",
-//       end: () =>
-//         "+=" + document.querySelector(".featured_projects").offsetWidth,
-//     },
-//   });
-// }
-
 function setupServices() {
   gsap.registerPlugin(ScrollTrigger);
 
   let tl0 = gsap.timeline({
     scrollTrigger: {
+      markers: true,
       trigger: ".services_section",
-      start: "top+=150 center",
+      start: "top+=300 bottom",
       scrub: true,
-      yoyo: true,
     },
   });
 
@@ -253,7 +234,7 @@ function setupServices() {
     stagger: {
       amount: 1,
       from: "start",
-      each: 1,
+      each: 0.5,
       onComplete: changeColor,
       onStart: setColor,
     },
@@ -267,22 +248,10 @@ function setupServices() {
     gsap.to(this.targets(), { color: "#00bbff", duration: 0 });
     this.targets()[0].previousElementSibling.style.color = "#00bbff";
   }
-
-  // gsap.to(".title_heading", {
-  //   scrollTrigger: {
-  //     trigger: ".services_section",
-  //     start: "top top", // Trigger when top of the container reaches the top of the viewport
-  //     end: "bottom top", // Unpin when bottom of the container reaches the top of the viewport
-  //     pin: true, // Pin the sticky text
-  //     pinSpacing: false, // Disable spacing to prevent jumps
-  //   },
-  //   opacity: 1, // Fade in the sticky text
-  // });
 }
 
 function setupAnimationLargeText() {
   gsap.registerPlugin(ScrollTrigger);
-  // ScrollTrigger.normalizeScroll(true);
 
   let tl0 = gsap.timeline({
     scrollTrigger: {
