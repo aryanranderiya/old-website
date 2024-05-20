@@ -7,6 +7,7 @@ window.onbeforeunload = () => {
 
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = urlParams.get("id");
+if (projectId === null) window.location.href = "SoftwareProjects.html";
 
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
 
@@ -105,7 +106,6 @@ async function setupDocumentation(p_documentationURL, pInfoText) {
 function setLinks(links) {
   if (links)
     links.forEach((link) => {
-      console.log(link);
       const anchor = document.createElement("a");
       anchor.className = "bento_link";
       anchor.href = link[1];

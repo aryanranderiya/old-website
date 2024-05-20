@@ -87,7 +87,6 @@ function setupFeaturedProjects(snapshot) {
         if (!snapshot.exists()) throw new Error("Snapshot doesnt exist");
 
         const data = snapshot.val();
-        console.log(data);
 
         const featured_project = document.createElement("a");
         featured_project.innerHTML = `
@@ -104,7 +103,7 @@ function setupFeaturedProjects(snapshot) {
           const card = featured_project.querySelector(".featured_project_card");
           const latest_div = document.createElement("div");
           latest_div.classList.add("latest_work");
-          latest_div.innerText = "Most Recent";
+          latest_div.innerText = "Latest";
           card.insertBefore(latest_div, card.firstChild);
           featured_container.insertBefore(
             featured_project,
@@ -115,8 +114,8 @@ function setupFeaturedProjects(snapshot) {
         }
 
         featured_project.addEventListener("mouseover", () => {
-          hover_card_btn.href = `Project.html?id=${snapshot.key}`;
-          featured_project.href = `Project.html?id=${snapshot.key}`;
+          hover_card_btn.href = `project.html?id=${snapshot.key}`;
+          featured_project.href = `project.html?id=${snapshot.key}`;
           hover_card_desc.innerText = data.project_short_description;
           hover_card.style.opacity = 1;
           cursoricon5.style.opacity = "1";
@@ -276,12 +275,6 @@ function setupBentoAnimation() {
   });
 
   bento_cards.forEach((bento_card, index) => {
-    let opacity_transition =
-      index === 0 ? "opacity 0.1s ease" : `opacity ${index * 0.2}s ease`;
-
-    bento_card.style.transition = `${opacity_transition}, all 0.5s ease`;
-    bento_card.style.webkitTransition = `${opacity_transition}, all 0.5s ease`;
-
     observer.observe(bento_card);
   });
 }
@@ -354,30 +347,30 @@ function setupGSAPChips() {
     yoyo: true,
   });
 
-  const service_node = document.querySelector(".services");
+  // const service_node = document.querySelector(".services");
 
-  for (let index = 0; index < 3; index++) {
-    const service = service_node.cloneNode(true);
-    service_node.insertAdjacentElement("afterend", service);
-  }
+  // for (let index = 0; index < 3; index++) {
+  //   const service = service_node.cloneNode(true);
+  //   service_node.insertAdjacentElement("afterend", service);
+  // }
 
-  const services = document.querySelectorAll(".services");
+  // const services = document.querySelectorAll(".services");
 
-  services.forEach((service, index) => {
-    gsap.to(service, {
-      x: index % 2 === 0 ? 850 : -850,
-      duration: 10,
-      ease: "linear",
-      repeat: -1,
-      yoyo: true,
-      stagger: 0.5,
-    });
-  });
+  // services.forEach((service, index) => {
+  //   gsap.to(service, {
+  //     x: index % 2 === 0 ? 850 : -850,
+  //     duration: 10,
+  //     ease: "linear",
+  //     repeat: -1,
+  //     yoyo: true,
+  //     stagger: 0.5,
+  //   });
+  // });
 }
 
 const time = document.getElementById("time");
 function setupTimeBento() {
-  time.innerHTML = new Date().toLocaleTimeString() + " IST";
+  time.innerHTML = new Date().toLocaleTimeString();
 }
 
 function handleNavbarIntersection() {
@@ -421,8 +414,6 @@ function addListeners(scrollBtn) {
   scrollBtn.addEventListener("click", function (e) {
     cursorTransformShadowBlend();
     removeClass(cursoricon2, "active");
-
-    console.log(subcontent1_text.offsetTop + 200);
 
     subcontent1.scrollIntoView({
       top: subcontent1.offsetTop + 200,

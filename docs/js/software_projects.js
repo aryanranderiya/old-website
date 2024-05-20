@@ -303,7 +303,7 @@ function processDataAndHidePreloader(snapshot) {
           </div>
       </div>
       <div class="buttons">
-      <button class="button_secondary view_project" aria-label="View Project Info" onClick='window.location.href="Project.html?id=${projectId}"'>
+      <button class="button_secondary view_project" aria-label="View Project Info" onClick='window.location.href="project.html?id=${projectId}"'>
           View Project
             <div class="icon">
                 <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
@@ -420,7 +420,6 @@ function setupHearts() {
     });
 
     svgContainer.addEventListener("click", () => {
-      console.log("Test");
       checkbox.checked = !checkbox.checked;
       const changeEvent = new Event("change", {
         bubbles: true,
@@ -436,10 +435,6 @@ function setupHearts() {
       update(projectRef, { Likes: newLikes })
         .then(() => {
           likes_count_text.textContent = newLikes;
-
-          console.log(
-            `Successfully ${isChecked ? "Liked" : "Unliked"} ${projectId}!`
-          );
         })
         .catch((error) => console.error("Error updating data:", error));
       localStorage.setItem(checkbox.id, isChecked);

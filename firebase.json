@@ -64,6 +64,11 @@
         "type": 301
       },
       {
+        "source": "/project",
+        "destination": "/Project",
+        "type": 301
+      },
+      {
         "source": "/success",
         "destination": "/Success",
         "type": 301

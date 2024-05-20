@@ -238,8 +238,9 @@ header {
 }
 
 .professional_image {
-  width: 50px;
-  border-radius: 1000px;
+  width: 80px;
+  border-radius: 10px;
+  outline: solid 3px rgb(26, 26, 26);
   /* margin: 20px; */
   transition: opacity 0.5s ease,
     transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.3s ease;
@@ -396,8 +397,8 @@ header {
   grid-gap: 1em;
   justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(4, 330px);
-  grid-template-rows: repeat(6, 80px);
+  grid-template-columns: repeat(3, 330px);
+  grid-template-rows: repeat(6, 90px);
 }
 
 .bento_card {
@@ -407,15 +408,15 @@ header {
   border-radius: 15px;
   color: white;
   outline: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s ease;
-  -webkit-transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
 }
 
 .bento_card:hover {
-  outline: 1px solid #00bbff;
-  background-color: rgba(41, 41, 41, 0.4);
+  /* outline: 1px solid #00bbff; */
+  background-color: rgba(48, 48, 48, 0.4);
   transform: translateY(-0.4em);
-  box-shadow: #00bbff 0px 0px 100px -5px;
+  /* box-shadow: #00bbff 0px 0px 100px -5px; */
 }
 
 .marquee {
@@ -451,6 +452,7 @@ header {
   box-sizing: border-box;
   overflow: hidden;
   gap: 0.5em;
+  justify-content: center;
 }
 
 .bento_card_content i {
@@ -468,7 +470,7 @@ header {
 .bento_content_header #bentocontentheadingtitle {
   width: fit-content;
   text-wrap: nowrap;
-  font-size: 1.7em;
+  font-size: 2em;
   font-weight: bold;
 }
 
@@ -484,6 +486,12 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
+}
+
+.bento_title_chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
 }
 
 .pulsating_container {
@@ -534,12 +542,10 @@ header {
 .bento_card_content.timezone span {
   display: flex;
   flex-direction: row;
-  gap: 2%;
   align-items: center;
 }
 
 #timezone_title {
-  margin-top: -2%;
   background-color: #141414;
   border-radius: 100px;
   padding: 1% 3%;
@@ -550,12 +556,12 @@ header {
 }
 
 #time {
-  font-size: clamp(1.5em, 10vw, 4em);
+  font-size: clamp(1.5em, 10vw, 3.3em);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  box-sizing: border-box;
+  height: 50%;
+  /* box-sizing: border-box; */
 }
 
 .bento_card_content.blog span {
@@ -579,16 +585,16 @@ header {
 
 #available_chip {
   display: flex;
-  width: 100%;
   text-wrap: nowrap;
   align-items: center;
   justify-content: center;
   gap: 5%;
-  padding: 2% 7%;
+  padding: 0.3em 1.2em;
 }
 
 #available_chip span {
   width: 100%;
+  color: lightgray;
 }
 #github_profile_anchor {
   color: white;
@@ -656,6 +662,12 @@ header {
   gap: 5px;
 }
 
+#info_bento_chip {
+  background-color: rgba(133, 133, 133, 0.04);
+  border-radius: 15px;
+  padding: 1em;
+}
+
 .bento_chips2 {
   display: flex;
   gap: 5px;
@@ -696,7 +708,7 @@ header {
 }
 
 #bento_github {
-  grid-column-start: 4;
+  grid-column-start: 3;
   grid-row-start: 1;
   grid-row-end: 3;
 }
@@ -710,24 +722,24 @@ header {
 
 #bento_timezone {
   grid-column-start: 3;
-  grid-column-end: 5;
+  grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 5;
 }
 
 #bento_project {
-  grid-column-start: 4;
+  grid-column-start: 3;
   grid-row-start: 5;
 }
 
 #bento_project2 {
-  grid-column-start: 4;
+  grid-column-start: 3;
   grid-row-start: 6;
 }
 
 #bento_blog {
-  grid-column-start: 3;
-  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-row-start: 4;
 }
 
 #bento_resume {
@@ -735,7 +747,7 @@ header {
   grid-row-start: 4;
 }
 #bento_tools {
-  grid-column-start: 3;
+  grid-column-start: 1;
   grid-row-start: 5;
   grid-row-end: 7;
 }
@@ -806,6 +818,10 @@ h6 {
     margin-top: 150px;
     grid-template-columns: repeat(1, 350px);
     grid-template-rows: repeat(12, auto);
+  }
+
+  .featured_project_hover_card {
+    display: none !important;
   }
 
   #bento_about,
@@ -1132,12 +1148,12 @@ h6 {
 
 .featured_project_type {
   color: white;
-  font-size: clamp(1em, 6vw, 1.3em);
+  font-size: 1.2em;
   text-transform: uppercase;
 }
 .featured_project_type2 {
   color: grey;
-  font-size: clamp(1em, 6vw, 1.2em);
+  font-size: 1em;
 }
 
 .featured_project_info {
@@ -1167,9 +1183,8 @@ h6 {
 }
 
 .view_all_projects_anchor {
-  margin: 5em;
+  margin: 5em 0;
   display: flex;
-  width: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -1205,6 +1220,7 @@ h6 {
   opacity: 0;
   padding: 1em;
   outline: 3px solid black;
+  pointer-events: none;
 }
 
 .featured_project_hover_card_description {

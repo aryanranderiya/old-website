@@ -173,10 +173,7 @@ async function insertFetchData() {
     readmeFile = new File([blob], `${project_id}_documentation.md`);
   }
 
-  var projectsRef = ref(
-    database,
-    "Projects/6_project_Personal_Portfolio_1712175736205"
-  );
+  var projectsRef = ref(database, "Projects/" + project_id);
   try {
     const bannerDownloadURL = await uploadMedia(fileBanner, title, "Banner");
 
@@ -280,7 +277,7 @@ async function performUpload(file, title) {
     console.log(`Successfully Uploaded File to DB`);
     return url;
   } catch (error) {
-    console.error(`Error uploading ${mediaType} media:`, error);
+    console.error(`Error uploading ${title} media:`, error);
     throw error;
   }
 }
