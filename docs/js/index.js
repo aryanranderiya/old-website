@@ -66,9 +66,12 @@ document.addEventListener("DOMContentLoaded", function () {
   onValue(featuredRef, setupFeaturedProjects, { onlyOnce: true });
 
   modifyScrollBar();
+  setupServices();
 });
 
 function modifyScrollBar() {
+  window.addEventListener("scroll", updateProgressBarandBtn);
+
   const scrollbarContainerParent = document.querySelector(
     ".scrollbar_progress_container_parent"
   );
@@ -125,6 +128,7 @@ function setupFeaturedProjects(snapshot) {
         const data = snapshot.val();
 
         const featured_project = document.createElement("a");
+        featured_project.id = Math.random();
         featured_project.innerHTML = `
         <div class="featured_project_card">
           <span class="featured_project_name">${data.project_title}</span>
@@ -149,23 +153,39 @@ function setupFeaturedProjects(snapshot) {
           featured_container.appendChild(featured_project);
         }
 
-        featured_project.addEventListener("mouseover", () => {
-          hover_card_btn.href = `project.html?id=${snapshot.key}`;
-          featured_project.href = `project.html?id=${snapshot.key}`;
-          hover_card_desc.innerText = data.project_short_description;
-          hover_card.style.opacity = 1;
-          cursoricon5.style.opacity = "1";
-          addClass(cursor, "transparent");
-          addClass(cursoricon5, "active");
-        });
+        featured_project.addEventListener("mouseenter", enter);
+        featured_project.addEventListener("mouseleave", leave);
 
-        featured_project.addEventListener("mouseout", () => {
-          hover_card.style.opacity = 0;
+        function enter() {
+          hover_card.style.width = "300px";
+          hover_card.style.height = "200px";
+          hover_card.style.borderRadius = "20px";
+
+          setTimeout(() => {
+            hover_card_btn.href = `project.html?id=${snapshot.key}`;
+            featured_project.href = `project.html?id=${snapshot.key}`;
+            featured_project.style.backgroundColor = "#00bbff";
+            hover_card_desc.innerText = data.project_short_description;
+            hover_card_desc.style.opacity = "1";
+            hover_card_btn.style.opacity = "1";
+            cursoricon5.style.opacity = "1";
+            addClass(cursor, "transparent");
+            addClass(cursoricon5, "active");
+          }, 100);
+        }
+
+        function leave() {
+          hover_card_desc.style.opacity = "0";
+          hover_card_btn.style.opacity = "0";
+          hover_card.style.width = "100px";
+          hover_card.style.height = "100px";
+          hover_card.style.borderRadius = "1000px";
+          featured_project.style.backgroundColor = "";
           cursoricon5.style.transform = "scale(1.3)";
           cursoricon5.style.opacity = "0";
           removeClass(cursor, "transparent");
           removeClass(cursoricon5, "active");
-        });
+        }
       })
       .catch((error) => {
         console.error("Error getting data: ", error);
@@ -212,6 +232,53 @@ function setupFeaturedProjects(snapshot) {
 //     },
 //   });
 // }
+
+function setupServices() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  let tl0 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".services_section",
+      start: "top+=150 center",
+      scrub: true,
+      yoyo: true,
+    },
+  });
+
+  gsap.set(".service_name", { x: "60vw" });
+
+  tl0.to(".service_name", {
+    color: "black",
+    x: "0%",
+    stagger: {
+      amount: 1,
+      from: "start",
+      each: 1,
+      onComplete: changeColor,
+      onStart: setColor,
+    },
+  });
+
+  function setColor() {
+    this.targets()[0].previousElementSibling.style.color = "black";
+  }
+
+  function changeColor() {
+    gsap.to(this.targets(), { color: "#00bbff", duration: 0 });
+    this.targets()[0].previousElementSibling.style.color = "#00bbff";
+  }
+
+  // gsap.to(".title_heading", {
+  //   scrollTrigger: {
+  //     trigger: ".services_section",
+  //     start: "top top", // Trigger when top of the container reaches the top of the viewport
+  //     end: "bottom top", // Unpin when bottom of the container reaches the top of the viewport
+  //     pin: true, // Pin the sticky text
+  //     pinSpacing: false, // Disable spacing to prevent jumps
+  //   },
+  //   opacity: 1, // Fade in the sticky text
+  // });
+}
 
 function setupAnimationLargeText() {
   gsap.registerPlugin(ScrollTrigger);

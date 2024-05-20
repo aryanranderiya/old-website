@@ -1209,27 +1209,37 @@ h6 {
 .featured_project_hover_card {
   background-color: #00bbff;
   position: absolute;
-  height: 200px;
-  width: 300px;
-  border-radius: 20px;
+  height: 100px;
+  width: 100px;
   z-index: 2;
   transform: translate(60vw, 40%);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  opacity: 0;
   padding: 1em;
   outline: 3px solid black;
   pointer-events: none;
+  border-radius: 1000px;
+  transition: all 0.2s ease;
 }
 
+.hover_text_featured_project {
+  color: black;
+  font-family: Helvs;
+  font-size: 1em;
+  position: absolute;
+  left: 20%;
+  top: 47%;
+}
 .featured_project_hover_card_description {
+  opacity: 0;
   color: white;
   font-size: 1.4em;
   overflow: hidden;
 }
 
 .featured_project_hover_card_btn {
+  opacity: 0;
   color: black;
   display: flex;
   font-size: 1.2em;
@@ -1251,4 +1261,34 @@ h6 {
   font-weight: bolder !important;
   transition: font-size 0.2s ease, transform 0.4s ease;
   -webkit-transition: font-size 0.2s ease, transform 0.4s ease;
+}
+
+.title_heading {
+  font-weight: bold;
+  font-size: clamp(2em, 10vw, 5em);
+}
+
+.services_section {
+  padding: 2%;
+  font-family: Helvs;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background-color: rgb(0, 170, 255, 0.2);
+  margin: 3%;
+  border-radius: 25px;
+}
+
+.service {
+  display: flex;
+  gap: 1em;
+}
+
+.service_number,
+.service_name {
+  font-size: clamp(2em, 6vw, 4em);
+  font-weight: bold;
+  /* color: rgb(55, 55, 55); */
+  color: black;
 }
