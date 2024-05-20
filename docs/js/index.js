@@ -221,7 +221,7 @@ function setupServices() {
     scrollTrigger: {
       markers: true,
       trigger: ".services_section",
-      start: "top+=300 bottom",
+      start: "top+=400 bottom",
       scrub: true,
     },
   });
@@ -232,7 +232,7 @@ function setupServices() {
     color: "black",
     x: "0%",
     stagger: {
-      amount: 1,
+      amount: 1.5,
       from: "start",
       each: 0.5,
       onComplete: changeColor,

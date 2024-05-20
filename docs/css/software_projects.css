@@ -193,13 +193,12 @@ body {
   flex-wrap: nowrap;
   gap: 2%;
   z-index: 1;
-  /* position: relative; */
   margin: 5%;
-  /* overflow: hidden; */
+  padding-bottom: 3em;
+  overflow: hidden;
 }
 
 .github_card {
-  /* margin-top: 2%; */
   min-width: 400px;
   height: auto;
   background-color: rgba(10, 10, 10, 0.8);
@@ -208,8 +207,6 @@ body {
   border: 2px solid rgb(48, 48, 48);
   display: flex;
   flex-direction: column;
-  /* transition: all 0.3s ease; */
-  /* -webkit-transition: all 0.3s ease; */
 }
 
 .github_title_div,

@@ -156,6 +156,7 @@ function updateProgressBarandBtn() {
 // Functions
 function addMouseHovers() {
   const logos = document.querySelector(".logos");
+  const github_heading_div = document.querySelector(".github_heading_div");
 
   // Software Projects Title
   title_Heading.addEventListener("mouseover", () => {
@@ -170,21 +171,17 @@ function addMouseHovers() {
     cursor.style.boxShadow = "0px 0px 50px white";
   });
 
-  const github_heading_div = document.querySelectorAll(".github_heading_div");
-  github_heading_div.forEach((element) => {
-    element.addEventListener("mouseover", () => {
-      cursor.style.transform = "scale(11.5)";
-      cursor.style.mixBlendMode = "difference";
-      cursor.style.boxShadow = "none";
-    });
-
-    element.addEventListener("mouseout", () => {
-      cursor.style.transform = "none";
-      cursor.style.mixBlendMode = "normal";
-      cursor.style.boxShadow = "0px 0px 50px white";
-    });
+  github_heading_div.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(11.5)";
+    cursor.style.mixBlendMode = "difference";
+    cursor.style.boxShadow = "none";
   });
 
+  github_heading_div.addEventListener("mouseout", () => {
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 50px white";
+  });
   // Cards Cursor Title
 
   document.addEventListener("mouseover", function (event) {
@@ -229,17 +226,17 @@ function addMouseHovers() {
   );
 }
 
-function reverseObject(obj) {
-  const reversedObj = {};
-  const entries = Object.entries(obj);
+// function reverseObject(obj) {
+//   const reversedObj = {};
+//   const entries = Object.entries(obj);
 
-  for (let i = entries.length - 1; i >= 0; i--) {
-    const [key, value] = entries[i];
-    reversedObj[key] = value;
-  }
+//   for (let i = entries.length - 1; i >= 0; i--) {
+//     const [key, value] = entries[i];
+//     reversedObj[key] = value;
+//   }
 
-  return reversedObj;
-}
+//   return reversedObj;
+// }
 
 function processDataAndHidePreloader(snapshot) {
   const snapshotArray = [];
@@ -372,7 +369,6 @@ function handleIntersection1(entries) {
       setTimeout(() => {
         entry.target.style.opacity = "1";
         entry.target.style.transform = "translateY(0)";
-        console.log("fired", index);
       }, index * 100);
     } else {
       entry.target.style.opacity = "0";
@@ -798,26 +794,25 @@ async function fetchGithubData() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // let sections = gsap.utils.toArray(".github_card");
+  let sections = gsap.utils.toArray(".github_card");
 
-  // ScrollTrigger.normalizeScroll(true);
+  ScrollTrigger.normalizeScroll(true);
 
-  // gsap.to(sections, {
-  //   xPercent: -100 * (sections.length - 1),
-  //   ease: "none",
+  gsap.to(sections, {
+    xPercent: -100 * (sections.length - 1),
+    ease: "none",
 
-  //   scrollTrigger: {
-  //     trigger: ".github_container",
-  //     type: "touch,pointer,wheel",
-  //     isTouch: 2,
-  //     pin: true,
-  //     scrub: 1,
-  //     markers: true,
-  //     start: "top calc(100px + 100%)", // Set the start position using CSS calc() function
-  //     anticipatePin: 1,
-  //     end: () => "+=" + document.querySelector(".github_cards").offsetWidth,
-  //   },
-  // });
+    scrollTrigger: {
+      trigger: ".github_container",
+      type: "touch,pointer,wheel",
+      isTouch: 2,
+      pin: true,
+      scrub: 1,
+      start: "top top",
+      anticipatePin: 1,
+      end: () => "+=" + github_cards.offsetWidth,
+    },
+  });
 }
 
 //! Functions
