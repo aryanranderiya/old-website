@@ -339,12 +339,9 @@ function processDataAndHidePreloader(snapshot) {
     `;
 
     cards.appendChild(card);
+    observer1.observe(card);
 
     hoverOnCards();
-  });
-
-  document.querySelectorAll(".card").forEach((card, index) => {
-    observer1.observe(card);
   });
 
   removePreloader();
@@ -375,7 +372,8 @@ function handleIntersection1(entries) {
       setTimeout(() => {
         entry.target.style.opacity = "1";
         entry.target.style.transform = "translateY(0)";
-      }, index * 150);
+        console.log("fired", index);
+      }, index * 100);
     } else {
       entry.target.style.opacity = "0";
       entry.target.style.transform = "translateY(10%)";

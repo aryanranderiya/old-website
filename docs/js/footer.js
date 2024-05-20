@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
         pageLinks.forEach((page) => {
           page.addEventListener("mouseover", () => {
             googleIcon.style.transform = "translateY(-10%)";
-            // cursorTransformShadowBlend(null, "none");
+            cursorTransformShadowBlend(null, "none");
             addClass(cursor, "transparent");
             addClass(cursoricon5, "active");
           });
 
           page.addEventListener("mouseout", () => {
             googleIcon.style.transform = "";
-            // cursorTransformShadowBlend();
+            cursorTransformShadowBlend();
             removeClass(cursor, "transparent");
             removeClass(cursoricon5, "active");
           });

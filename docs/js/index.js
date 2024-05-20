@@ -64,7 +64,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const featuredRef = ref(database, "Featured/");
   onValue(featuredRef, setupFeaturedProjects, { onlyOnce: true });
+
+  modifyScrollBar();
 });
+
+function modifyScrollBar() {
+  const scrollbarContainerParent = document.querySelector(
+    ".scrollbar_progress_container_parent"
+  );
+  scrollbarContainerParent.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(5)";
+    cursor.style.boxShadow = "none";
+    cursor.style.outlineWidth = "0px";
+    addClass(cursortext2, "active");
+    addClass(cursor, "transparent");
+    updateProgressBarandBtn();
+  });
+
+  scrollbarContainerParent.addEventListener("mouseout", () => {
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 30px white";
+    removeClass(cursortext2, "active");
+    removeClass(cursor, "transparent");
+  });
+}
+
+function updateProgressBarandBtn() {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  const scrollPercent = percentage + "%";
+
+  document
+    .querySelector(".scrollbar_progress")
+    .style.setProperty("--height", scrollPercent);
+
+  cursortext2.textContent = Math.round(percentage) + "%";
+}
 
 function setupFeaturedProjects(snapshot) {
   const featured_container = document.querySelector(".featured_projects");
