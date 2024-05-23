@@ -28,6 +28,7 @@ body {
   border-radius: 999px;
   backdrop-filter: blur(50px);
   padding: 0px 20px 0 10px;
+  overflow: hidden;
 }
 
 .navbar.hide {
@@ -231,112 +232,24 @@ a {
 
 .navbar-brand {
   text-decoration: none;
-  color: #00bbff;
-  height: 19px;
   overflow: hidden;
-  color: white !important;
+  color: white;
   font-size: 1.25em;
   white-space: nowrap;
   font-family: Helvs;
+  transition: all 0.3s ease;
+  line-height: 2.5em;
+  transform: translateY(25%);
 }
 
-.letter {
-  font-family: Helvs !important;
+.navbar-brand:hover {
+  transform: translateY(-25%);
+  color: #00bbff;
 }
 
 .navbar-brand:hover .letter,
 .navbar-brand.play .letter {
   transform: translateY(-100%);
-}
-
-.navbar-brand .block:last-child {
-  color: #00bbff;
-}
-
-.navbar-brand .letter {
-  display: inline-block;
-  transition: transform 0.35s ease;
-  -webkit-transition: transform 0.35s ease;
-}
-
-.letter:nth-child(1) {
-  transition-delay: 0s;
-  -webkit-transition-delay: 0s;
-}
-
-.letter:nth-child(2) {
-  transition-delay: 0.03s;
-  -webkit-transition-delay: 0.03s;
-}
-
-.letter:nth-child(3) {
-  transition-delay: 0.06s;
-  -webkit-transition-delay: 0.06s;
-}
-
-.letter:nth-child(4) {
-  transition-delay: 0.09s;
-  -webkit-transition-delay: 0.09s;
-}
-
-.letter:nth-child(5) {
-  transition-delay: 0.12s;
-  -webkit-transition-delay: 0.12s;
-}
-
-.letter:nth-child(6) {
-  transition-delay: 0.15s;
-  -webkit-transition-delay: 0.15s;
-}
-
-.letter:nth-child(7) {
-  transition-delay: 0.18s;
-  -webkit-transition-delay: 0.18s;
-}
-
-.letter:nth-child(8) {
-  transition-delay: 0.21s;
-  -webkit-transition-delay: 0.21s;
-}
-
-.letter:nth-child(9) {
-  transition-delay: 0.24s;
-  -webkit-transition-delay: 0.24s;
-}
-
-.letter:nth-child(10) {
-  transition-delay: 0.27s;
-  -webkit-transition-delay: 0.27s;
-}
-
-.letter:nth-child(11) {
-  transition-delay: 0.3s;
-  -webkit-transition-delay: 0.3s;
-}
-
-.letter:nth-child(12) {
-  transition-delay: 0.33s;
-  -webkit-transition-delay: 0.33s;
-}
-
-.letter:nth-child(13) {
-  transition-delay: 0.36s;
-  -webkit-transition-delay: 0.36s;
-}
-
-.letter:nth-child(14) {
-  transition-delay: 0.39s;
-  -webkit-transition-delay: 0.39s;
-}
-
-.letter:nth-child(15) {
-  transition-delay: 0.42s;
-  -webkit-transition-delay: 0.42s;
-}
-
-.letter:nth-child(16) {
-  transition-delay: 0.45s;
-  -webkit-transition-delay: 0.45s;
 }
 
 /*!  Contact me button */
@@ -347,7 +260,6 @@ a {
   }
 
   .navbar-brand {
-    height: 20px;
     font-size: 20px;
   }
 

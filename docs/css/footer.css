@@ -300,6 +300,10 @@ footer {
 /* ! Responsiveness */
 
 @media only screen and (max-width: 600px) {
+  .footer_main {
+    margin: 3% 10%;
+  }
+
   .footer1 {
     flex-direction: column;
     gap: 30px;

@@ -23,7 +23,6 @@ async function loadNavbar() {
       addHoverImage(items);
       addMouseListeners(navbar_menu);
       setActiveLink(items);
-      textAnimateOnHover();
     });
 }
 
@@ -190,28 +189,6 @@ function setActiveLink(items) {
       addClass(item, "active");
     else removeClass(item, "active");
   });
-}
-
-function textAnimateOnHover() {
-  //! Text Animation on Hover
-  let element = document.querySelector(".navbar-brand");
-
-  let innerText = element.innerText;
-  element.innerHTML = "";
-
-  let textContainer = document.createElement("div");
-  addClass(textContainer, "block");
-
-  for (let letter of innerText) {
-    let span = document.createElement("span");
-    span.innerText = letter.trim() === "" ? "\xa0" : letter;
-    addClass(span, "letter");
-    textContainer.appendChild(span);
-  }
-
-  element.appendChild(textContainer);
-  element.appendChild(textContainer.cloneNode(true));
-  element.addEventListener("mouseover", () => removeClass(element, "play"));
 }
 
 // ! Text Letters Shuffle

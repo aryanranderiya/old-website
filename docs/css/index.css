@@ -394,7 +394,7 @@ header {
 .bento_grid {
   margin-top: 70px;
   display: grid;
-  grid-gap: 1em;
+  grid-gap: 1.5em;
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(3, 330px);
@@ -667,12 +667,6 @@ header {
 
 #flag_chip img {
   height: 25px;
-}
-
-#bento_services {
-  grid-column-start: 1;
-  grid-row-start: 4;
-  grid-row-end: 7;
 }
 
 .services {
@@ -1036,6 +1030,9 @@ h6 {
   font-weight: bold;
   width: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .large_text:hover {
@@ -1077,13 +1074,18 @@ h6 {
   position: relative;
   overflow: hidden;
   font-weight: bolder;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
   font-size: clamp(2em, 10vw, 5.5em);
   font-family: Helvs;
   color: black;
   text-shadow: -1px -1px 0 WHITE, 0 -1px 0 WHITE, 1px -1px 0 WHITE,
     1px 0 0 WHITE, 1px 1px 0 WHITE, 0 1px 0 WHITE, -1px 1px 0 WHITE,
     -1px 0 0 WHITE;
+}
+
+.featured_marquee:hover {
+  color: white;
+  text-shadow: none;
 }
 
 .featured_marquee__inner {
@@ -1122,6 +1124,7 @@ h6 {
   color: white;
   font-size: 1.2em;
   text-transform: uppercase;
+  text-align: end;
 }
 .featured_project_type2 {
   color: grey;
@@ -1239,7 +1242,14 @@ h6 {
 .title_heading {
   font-weight: bold;
   font-size: clamp(2em, 10vw, 5em);
+  transition: color 0.3s ease;
   margin: 0.5em;
+  display: flex;
+  gap: 0.3em;
+}
+
+.title_heading:hover {
+  color: rgb(255, 69, 69);
 }
 
 .services {
@@ -1253,6 +1263,7 @@ h6 {
   margin: 3%;
   border-radius: 25px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .service {
@@ -1260,9 +1271,15 @@ h6 {
   gap: 1em;
 }
 
+.service:hover .service_name,
+.service:hover .service_number {
+  color: white !important;
+}
+
 .service_number,
 .service_name {
-  font-size: clamp(1em, 6vw, 4em);
+  font-size: clamp(2em, 6vw, 5em);
   font-weight: bold;
+  transition: color 0.3s ease;
   color: black;
 }

@@ -437,9 +437,7 @@ body {
   }
 
   .project_desc {
-    text-align: center;
     font-size: 1em;
-    width: 80%;
   }
   .back_to_software_projects {
     font-size: 1em;
@@ -456,7 +454,7 @@ body {
   }
 
   .mockup_container.pc {
-    padding-bottom: 270px;
+    padding-bottom: 330px;
   }
   .project_info_text {
     font-size: 0.8em;

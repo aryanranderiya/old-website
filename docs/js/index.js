@@ -39,6 +39,7 @@ const cursoriconwave = document.getElementById("cursoriconwave");
 const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
+const cursoricon5 = document.getElementById("cursoricon5");
 
 document.addEventListener("DOMContentLoaded", function () {
   const rotatingWords = document.querySelector(".words_rotating_span");
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     handleNavbarIntersection();
   });
 
-  setInterval(setupTimeBento, 1000);
+  setupTimeBento();
 
   setupAnimationLargeText();
   setupGSAPChips();
@@ -65,45 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const featuredRef = ref(database, "Featured/");
   onValue(featuredRef, setupFeaturedProjects, { onlyOnce: true });
 
-  modifyScrollBar();
   setupServices();
 });
-
-function modifyScrollBar() {
-  window.addEventListener("scroll", updateProgressBarandBtn);
-
-  const scrollbarContainerParent = document.querySelector(
-    ".scrollbar_progress_container_parent"
-  );
-  scrollbarContainerParent.addEventListener("mouseover", () => {
-    cursor.style.transform = "scale(5)";
-    cursor.style.boxShadow = "none";
-    cursor.style.outlineWidth = "0px";
-    addClass(cursortext2, "active");
-    addClass(cursor, "transparent");
-    updateProgressBarandBtn();
-  });
-
-  scrollbarContainerParent.addEventListener("mouseout", () => {
-    cursor.style.transform = "none";
-    cursor.style.mixBlendMode = "normal";
-    cursor.style.boxShadow = "0px 0px 30px white";
-    removeClass(cursortext2, "active");
-    removeClass(cursor, "transparent");
-  });
-}
-
-function updateProgressBarandBtn() {
-  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
-  const scrollPercent = percentage + "%";
-
-  document
-    .querySelector(".scrollbar_progress")
-    .style.setProperty("--height", scrollPercent);
-
-  cursortext2.textContent = Math.round(percentage) + "%";
-}
 
 function setupFeaturedProjects(snapshot) {
   const featured_container = document.querySelector(".featured_projects");
@@ -114,10 +78,8 @@ function setupFeaturedProjects(snapshot) {
   const hover_card_desc = hover_card.querySelector(
     ".featured_project_hover_card_description"
   );
-  let currentProject = null;
 
   const hover_text = document.querySelector(".hover_text_featured_project");
-  const cursoricon5 = document.getElementById("cursoricon5");
 
   snapshot.forEach((childSnapshot) => {
     const projectId = childSnapshot.val();
@@ -131,7 +93,6 @@ function setupFeaturedProjects(snapshot) {
         const data = snapshot.val();
 
         const featured_project = document.createElement("a");
-        featured_project.id = Math.random();
         featured_project.innerHTML = `
         <div class="featured_project_card">
           <span class="featured_project_name">${data.project_title}</span>
@@ -165,17 +126,15 @@ function setupFeaturedProjects(snapshot) {
           hover_card.style.borderRadius = "20px";
           hover_card.style.backgroundColor = "#00bbff";
           hover_text.style.opacity = "0";
-          setTimeout(() => {
-            hover_card_btn.href = `project.html?id=${snapshot.key}`;
-            featured_project.href = `project.html?id=${snapshot.key}`;
-            featured_project.style.backgroundColor = "#00bbff";
-            hover_card_desc.innerText = data.project_short_description;
-            hover_card_desc.style.opacity = "1";
-            hover_card_btn.style.opacity = "1";
-            cursoricon5.style.opacity = "1";
-            addClass(cursor, "transparent");
-            addClass(cursoricon5, "active");
-          }, 100);
+          hover_card_btn.href = `project.html?id=${snapshot.key}`;
+          featured_project.href = `project.html?id=${snapshot.key}`;
+          featured_project.style.backgroundColor = "#00bbff";
+          hover_card_desc.innerText = data.project_short_description;
+          hover_card_desc.style.opacity = "1";
+          hover_card_btn.style.opacity = "1";
+          cursoricon5.style.opacity = "1";
+          addClass(cursor, "transparent");
+          addClass(cursoricon5, "active");
         }
 
         function leave() {
@@ -217,28 +176,55 @@ function setupFeaturedProjects(snapshot) {
 function setupServices() {
   gsap.registerPlugin(ScrollTrigger);
 
-  let tl0 = gsap.timeline({
-    scrollTrigger: {
-      markers: true,
-      trigger: ".services_section",
-      start: "top+=400 bottom",
-      scrub: true,
-    },
+  let mm = gsap.matchMedia();
+
+  mm.add("(max-width: 700px)", () => {
+    let tl0 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".services_section",
+        start: "top+=100 bottom",
+        scrub: true,
+      },
+    });
+
+    tl0.to(".service_name", {
+      color: "black",
+      x: "0%",
+
+      stagger: {
+        amount: 1.5,
+        from: "start",
+        each: 0.5,
+        onComplete: changeColor,
+        onStart: setColor,
+      },
+    });
   });
 
-  gsap.set(".service_name", { x: "60vw" });
+  mm.add("(min-width: 701px)", () => {
+    let tl0 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".services_section",
+        start: "top+=300 bottom",
+        scrub: true,
+      },
+    });
 
-  tl0.to(".service_name", {
-    color: "black",
-    x: "0%",
-    stagger: {
-      amount: 1.5,
-      from: "start",
-      each: 0.5,
-      onComplete: changeColor,
-      onStart: setColor,
-    },
+    tl0.to(".service_name", {
+      color: "black",
+      x: "0%",
+
+      stagger: {
+        amount: 1.5,
+        from: "start",
+        each: 0.5,
+        onComplete: changeColor,
+        onStart: setColor,
+      },
+    });
   });
+
+  gsap.set(".service_name", { x: "100vw" });
 
   function setColor() {
     this.targets()[0].previousElementSibling.style.color = "black";
@@ -349,6 +335,26 @@ function setupBentoAnimation() {
   bento_cards.forEach((bento_card, index) => {
     observer.observe(bento_card);
   });
+
+  const bento_project = document.getElementById("bento_project");
+  const bento_project2 = document.getElementById("bento_project2");
+  const bento_resume = document.getElementById("bento_resume");
+
+  let bentos = [bento_project, bento_project2, bento_resume];
+
+  bentos.forEach((bento) => {
+    bento.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.5)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    bento.addEventListener("mouseout", () => {
+      cursorTransformShadowBlend();
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+    });
+  });
 }
 
 async function setupGithubBento() {
@@ -416,33 +422,15 @@ function setupGSAPChips() {
     ease: "linear",
     repeat: -1,
     startAt: { x: -1000 },
-    yoyo: true,
   });
-
-  // const service_node = document.querySelector(".services");
-
-  // for (let index = 0; index < 3; index++) {
-  //   const service = service_node.cloneNode(true);
-  //   service_node.insertAdjacentElement("afterend", service);
-  // }
-
-  // const services = document.querySelectorAll(".services");
-
-  // services.forEach((service, index) => {
-  //   gsap.to(service, {
-  //     x: index % 2 === 0 ? 850 : -850,
-  //     duration: 10,
-  //     ease: "linear",
-  //     repeat: -1,
-  //     yoyo: true,
-  //     stagger: 0.5,
-  //   });
-  // });
 }
 
 const time = document.getElementById("time");
 function setupTimeBento() {
-  time.innerHTML = new Date().toLocaleTimeString();
+  time.innerHTML = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 }
 
 function handleNavbarIntersection() {
