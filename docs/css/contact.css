@@ -27,7 +27,6 @@ body {
 
 .title_div {
   margin: 6% 11%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;

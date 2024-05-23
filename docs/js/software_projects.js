@@ -300,7 +300,7 @@ function processDataAndHidePreloader(snapshot) {
           </div>
       </div>
       <div class="buttons">
-      <button class="button_secondary view_project" aria-label="View Project Info" onClick='window.location.href="project.html?id=${projectId}"'>
+      <button class="button_secondary view_project" aria-label="View Project Info" onClick='window.location.href="Project.html?id=${projectId}"'>
           View Project
             <div class="icon">
                 <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>

@@ -126,8 +126,8 @@ function setupFeaturedProjects(snapshot) {
           hover_card.style.borderRadius = "20px";
           hover_card.style.backgroundColor = "#00bbff";
           hover_text.style.opacity = "0";
-          hover_card_btn.href = `project.html?id=${snapshot.key}`;
-          featured_project.href = `project.html?id=${snapshot.key}`;
+          hover_card_btn.href = `Project.html?id=${snapshot.key}`;
+          featured_project.href = `Project.html?id=${snapshot.key}`;
           featured_project.style.backgroundColor = "#00bbff";
           hover_card_desc.innerText = data.project_short_description;
           hover_card_desc.style.opacity = "1";
