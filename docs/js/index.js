@@ -409,18 +409,18 @@ async function setupGithubBento() {
 function setupGSAPChips() {
   gsap.to(".marquee_part", {
     x: -1000,
-    yoyo: true,
-    duration: 13,
-    ease: "linear",
     repeat: -1,
-    startAt: { x: 0 },
+    duration: 15,
+    ease: "linear",
+    // yoyo: true,
   });
 
   gsap.to(".marquee_part2", {
     x: 0,
-    duration: 13,
-    ease: "linear",
     repeat: -1,
+    duration: 15,
+    ease: "linear",
+    // yoyo: true,
     startAt: { x: -1000 },
   });
 }

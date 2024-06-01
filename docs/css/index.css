@@ -701,6 +701,11 @@ header {
   grid-row-start: 5;
 }
 
+#bento_project,
+#bento_project2 {
+  background-color: rgba(47, 47, 47, 0.463);
+}
+
 #bento_project2 {
   grid-column-start: 3;
   grid-row-start: 6;

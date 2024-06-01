@@ -23,23 +23,23 @@ document.addEventListener("DOMContentLoaded", function () {
         allSocial.forEach((social) => {
           social.addEventListener("mouseover", () => {
             googleIcon.style.transform = "translateY(-10%)";
-            cursorTransformShadowBlend(null, "none");
-            addClass(cursor, "transparent");
             addClass(cursoricon5, "active");
+            cursorTransformShadowBlend("scale(1.5)", "none");
+            addClass(cursor, "transparent");
           });
 
           social.addEventListener("mouseout", () => {
             googleIcon.style.transform = "";
+            removeClass(cursoricon5, "active");
             cursorTransformShadowBlend();
             removeClass(cursor, "transparent");
-            removeClass(cursoricon5, "active");
           });
         });
 
         pageLinks.forEach((page) => {
           page.addEventListener("mouseover", () => {
             googleIcon.style.transform = "translateY(-10%)";
-            cursorTransformShadowBlend(null, "none");
+            cursorTransformShadowBlend("scale(1.5)", "none");
             addClass(cursor, "transparent");
             addClass(cursoricon5, "active");
           });
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         letstalkcontainer.addEventListener("mouseout", () => {
           cursor.style.outline = "none";
-          cursorTransformShadowBlend("none");
+          cursorTransformShadowBlend();
           removeClass(cursor, "partially_transparent");
           removeClass(cursoricon4, "active");
         });
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         div_email.addEventListener("mouseover", () => {
-          cursorTransformShadowBlend();
+          cursorTransformShadowBlend("scale(1.5)");
           addClass(cursor, "transparent");
           addClass(cursoricon5, "active");
         });
@@ -206,7 +206,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         observer.observe(nonfooter);
 
-        // ! change marquee direction on scroll
         gsap.to(".marquee__part", {
           xPercent: -100,
           repeat: -1,
