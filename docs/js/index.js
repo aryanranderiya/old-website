@@ -371,7 +371,7 @@ async function setupGithubBento() {
   const userInfo = await response2.json();
 
   document.getElementById("github_profile_chip").innerHTML = `
-  <img src=${userInfo.avatar_url} width='10px'> 
+  <img src=${userInfo.avatar_url} width='10px' alt="Github Profile photo"> 
   ${userInfo.login}
   `;
 
@@ -390,9 +390,9 @@ async function setupGithubBento() {
   ).innerHTML = `<i class="fa-solid fa-user-group"></i>${userInfo.following} Following`;
 }
 
-function setupGSAPChips() { 
+function setupGSAPChips() {
   gsap.to(".marquee_part", {
-    x: -850,
+    x: -830,
     repeat: -1,
     duration: 10,
     ease: "linear",
@@ -405,7 +405,7 @@ function setupGSAPChips() {
     duration: 10,
     ease: "linear",
     yoyo: true,
-    startAt: { x: -800 },
+    startAt: { x: -830 },
   });
 }
 
@@ -569,7 +569,9 @@ function addListeners(scrollBtn) {
 function handleAnimationSubcontent1() {
   const content1Titles = document.querySelectorAll(".content1_title");
 
-  const view_all = document.querySelectorAll(".view_all_projects_anchor");
+  const view_all = document.querySelectorAll(
+    ".content1_buttons .view_all_projects_anchor"
+  );
 
   view_all.forEach((element) => {
     element.addEventListener("mouseover", () => {

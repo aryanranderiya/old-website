@@ -33,7 +33,7 @@ body {
   font-weight: normal;
   z-index: 1;
   position: relative;
-  transform: translateY(110%);
+  transform: translateY(115%);
   transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -411,8 +411,7 @@ body {
   border: 3px solid rgb(48, 48, 48);
   border-radius: 1%;
 }
-anv
-.github_readme a {
+anv .github_readme a {
   color: #00bbff;
 }
 
