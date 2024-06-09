@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         pageLinks.forEach((page) => {
           page.addEventListener("mouseover", () => {
             googleIcon.style.transform = "translateY(-10%)";
-            cursorTransformShadowBlend("scale(1.5)", "none");
+            cursorTransformShadowBlend("scale(1.3)", "none");
             addClass(cursor, "transparent");
             addClass(cursoricon5, "active");
           });

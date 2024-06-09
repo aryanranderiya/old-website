@@ -2,6 +2,52 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: Plumpelo;
+  src: url("../fonts/Plumpelo.otf") format("opentype");
+}
+
+@font-face {
+  font-family: PlumpeloPixelated;
+  src: url("../fonts/Plumpelo-Pixelated-2.otf") format("opentype");
+}
+
+@font-face {
+  font-family: PlumpeloGraffiti;
+  src: url("../fonts/PlumpeloV2Graffiti.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: PlumpeloV2Plumpy;
+  src: url("../fonts/PlumpeloV2Plumpy.woff") format("woff");
+}
+
+@font-face {
+  font-family: PlumpeloV2PlumpyOutlined;
+  src: url("../fonts/PlumpeloV2PlumpyOutlined.woff") format("woff");
+}
+
+.Plumpelo {
+  font-family: Plumpelo;
+  transform: translateY(-10px);
+}
+
+.PlumpeloPixelated {
+  font-family: PlumpeloPixelated;
+}
+
+.PlumpeloGraffiti {
+  font-family: PlumpeloGraffiti;
+}
+
+.PlumpeloV2Plumpy {
+  font-family: PlumpeloV2Plumpy;
+}
+
+.PlumpeloV2PlumpyOutlined {
+  font-family: PlumpeloV2PlumpyOutlined;
+  transform: translateY(-15px);
+}
 /* html {
   scrollbar-gutter: stable;
 } */

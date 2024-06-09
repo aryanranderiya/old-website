@@ -40,7 +40,7 @@ function addHoverListeners() {
   });
 
   button_primary.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(1.5)", "none");
+    cursorTransformShadowBlend("scale(1.3)", "none");
     addClass(cursor, "transparent");
     addClass(cursoricon5, "active");
   });

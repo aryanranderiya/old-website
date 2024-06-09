@@ -173,10 +173,15 @@ header {
     transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.3s ease;
 
   align-items: center;
-  opacity: 1;
   transform: translateY(100%);
   opacity: 0;
   margin-bottom: 0;
+}
+
+.content1_buttons {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }
 
 .content1_title_container {
@@ -237,6 +242,12 @@ header {
   padding: 11% 5%;
 }
 
+.subcontent1_text {
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
 .professional_image {
   width: 80px;
   border-radius: 10px;
@@ -247,10 +258,6 @@ header {
 
   -webkit-transition: opacity 0.5s ease,
     transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.3s ease;
-}
-
-.subcontent1_text {
-  width: 95%;
 }
 
 .content1 {
@@ -1089,7 +1096,7 @@ h6 {
   overflow: hidden;
   font-weight: bolder;
   transition: color 0.3s ease, text-shadow 0.3s ease;
-  font-size: clamp(2em, 10vw, 5.5em);
+  font-size: clamp(2em, 10vw, 4em);
   font-family: Helvs;
   color: black;
   text-shadow: -1px -1px 0 WHITE, 0 -1px 0 WHITE, 1px -1px 0 WHITE,
@@ -1164,7 +1171,8 @@ h6 {
   padding: 10px 20px;
   font-size: 1.3em;
   border: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
 }
 
 .view_all_projects:hover {
@@ -1177,6 +1185,15 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.view_all_projects_anchor.show {
+  transform: translateY(0%);
+  opacity: 1;
 }
 
 .featured_project_card:hover .latest_work {
@@ -1202,7 +1219,7 @@ h6 {
   height: 100px;
   width: 100px;
   z-index: 2;
-  transform: translate(60vw, 40%);
+  transform: translate(55vw, 25vh);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -1218,9 +1235,10 @@ h6 {
   font-family: Helvs;
   font-size: 1.1em;
   position: absolute;
-  left: 20%;
+  left: 17%;
   top: 47%;
 }
+
 .featured_project_hover_card_description {
   opacity: 0;
   color: white;
@@ -1245,12 +1263,17 @@ h6 {
   min-height: 20px;
 }
 
+.view_all_projects:hover .featured_icon {
+  transform: translateY(0);
+}
+
 .featured_icon {
   color: black;
   font-size: 1em;
   font-weight: bolder !important;
   transition: font-size 0.2s ease, transform 0.4s ease;
-  -webkit-transition: font-size 0.2s ease, transform 0.4s ease;
+  -webkit-transition: font-size 0.2s ease, transform 0.2s ease;
+  transform: translateY(15%);
 }
 
 .title_heading {
@@ -1260,6 +1283,7 @@ h6 {
   margin: 0.5em;
   display: flex;
   gap: 0.3em;
+  position: sticky;
 }
 
 .title_heading:hover {
@@ -1296,4 +1320,28 @@ h6 {
   font-weight: bold;
   transition: color 0.3s ease;
   color: black;
+}
+
+.title_letters {
+  justify-content: center;
+  display: flex;
+  font-size: 8em;
+  letter-spacing: -6px;
+  color: white;
+}
+
+.designprojects_title {
+  font-family: Helvs;
+  font-weight: bolder;
+  letter-spacing: 0px;
+}
+
+.title_letters_container {
+  margin-top: 5%;
+  width: 100%;
+  display: flex;
+  gap: 3em;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 10%;
 }

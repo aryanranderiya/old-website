@@ -388,7 +388,7 @@ function setupHearts() {
 
   checkboxes.forEach((checkbox) => {
     checkbox.parentElement.parentElement.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.5)", "none");
+      cursorTransformShadowBlend("scale(1.3)", "none");
       addClass(cursor, "transparent");
       addClass(cursoricon5, "active");
     });
@@ -496,7 +496,7 @@ function hoverOnCards() {
   const button_secondaryAll = document.querySelectorAll(".button_secondary");
   button_secondaryAll.forEach((btn) => {
     btn.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.5)", "none");
+      cursorTransformShadowBlend("scale(1.3)", "none");
       addClass(cursor, "transparent");
       addClass(cursoricon5, "active");
     });
@@ -763,7 +763,7 @@ async function fetchGithubData() {
         return;
       }
       github_btn_div.addEventListener("mouseover", () => {
-        cursorTransformShadowBlend("scale(1.5)", "none");
+        cursorTransformShadowBlend("scale(1.3)", "none");
         addClass(cursor, "transparent");
         addClass(cursoricon5, "active");
       });
@@ -779,7 +779,7 @@ async function fetchGithubData() {
 
     github_titles.forEach((github_title) => {
       github_title.addEventListener("mouseover", () => {
-        cursorTransformShadowBlend("scale(1.5)", "none");
+        cursorTransformShadowBlend("scale(1.3)", "none");
         addClass(cursor, "transparent");
         addClass(cursoricon5, "active");
       });

@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addEventListeners(button) {
     button.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.5)", "none");
+      cursorTransformShadowBlend("scale(1.3)", "none");
       addClass(cursor, "transparent");
       addClass(cursoricon5, "active");
     });

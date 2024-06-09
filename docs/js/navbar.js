@@ -66,7 +66,7 @@ function addMouseListeners(navbar_menu) {
   });
 
   title.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(1.5)", "none");
+    cursorTransformShadowBlend("scale(1.3)", "none");
     addClass(cursor, "transparent");
     addClass(cursoricon5, "active");
   });
@@ -78,7 +78,7 @@ function addMouseListeners(navbar_menu) {
   });
 
   navbar_menu_btn.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(1.5)", "none");
+    cursorTransformShadowBlend("scale(1.3)", "none");
     addClass(cursor, "transparent");
     addClass(cursoricon5, "active");
   });

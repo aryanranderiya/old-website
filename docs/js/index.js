@@ -132,7 +132,7 @@ function setupFeaturedProjects(snapshot) {
           hover_card_desc.innerText = data.project_short_description;
           hover_card_desc.style.opacity = "1";
           hover_card_btn.style.opacity = "1";
-          cursoricon5.style.opacity = "1";
+          cursorTransformShadowBlend("scale(1.3)", "none");
           addClass(cursor, "transparent");
           addClass(cursoricon5, "active");
         }
@@ -146,8 +146,7 @@ function setupFeaturedProjects(snapshot) {
           hover_card.style.height = "100px";
           hover_card.style.borderRadius = "1000px";
           featured_project.style.backgroundColor = "";
-          cursoricon5.style.transform = "scale(1.3)";
-          cursoricon5.style.opacity = "0";
+          cursorTransformShadowBlend();
           removeClass(cursor, "transparent");
           removeClass(cursoricon5, "active");
         }
@@ -155,21 +154,6 @@ function setupFeaturedProjects(snapshot) {
       .catch((error) => {
         console.error("Error getting data: ", error);
       });
-  });
-
-  const view_all = document.querySelector(".view_all_projects_anchor");
-
-  view_all.addEventListener("mouseover", () => {
-    cursoricon5.style.opacity = "1";
-    addClass(cursor, "transparent");
-    addClass(cursoricon5, "active");
-  });
-
-  view_all.addEventListener("mouseout", () => {
-    cursoricon5.style.transform = "scale(1.3)";
-    cursoricon5.style.opacity = "0";
-    removeClass(cursor, "transparent");
-    removeClass(cursoricon5, "active");
   });
 }
 
@@ -344,7 +328,7 @@ function setupBentoAnimation() {
 
   bentos.forEach((bento) => {
     bento.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.5)", "none");
+      cursorTransformShadowBlend("scale(1.3)", "none");
       addClass(cursor, "transparent");
       addClass(cursoricon5, "active");
     });
@@ -406,22 +390,22 @@ async function setupGithubBento() {
   ).innerHTML = `<i class="fa-solid fa-user-group"></i>${userInfo.following} Following`;
 }
 
-function setupGSAPChips() {
+function setupGSAPChips() { 
   gsap.to(".marquee_part", {
-    x: -1000,
+    x: -850,
     repeat: -1,
-    duration: 15,
+    duration: 10,
     ease: "linear",
-    // yoyo: true,
+    yoyo: true,
   });
 
   gsap.to(".marquee_part2", {
     x: 0,
     repeat: -1,
-    duration: 15,
+    duration: 10,
     ease: "linear",
-    // yoyo: true,
-    startAt: { x: -1000 },
+    yoyo: true,
+    startAt: { x: -800 },
   });
 }
 
@@ -466,6 +450,7 @@ function addListeners(scrollBtn) {
   const cursoriconpallette = document.getElementById("cursoriconpallette");
   const span_designer = document.getElementById("span_designer");
   const span_dev = document.getElementById("span_dev");
+  const span_age = document.getElementById("span_age");
   const span_entrepreneur = document.getElementById("span_entre");
   const cursoricon2 = document.getElementById("cursoricon2");
   const subcontent1_text = document.querySelector(".subcontent1_text");
@@ -522,6 +507,15 @@ function addListeners(scrollBtn) {
   });
 
   // ! Pallette, Laptop & Idea Cursor
+  function calculateAge(birthday) {
+    var dob = new Date(birthday);
+    var month_diff = Date.now() - dob.getTime();
+    var age_dt = new Date(month_diff);
+    var year = age_dt.getUTCFullYear();
+    return Math.abs(year - 1970);
+  }
+
+  span_age.innerHTML = calculateAge("07/27/2005");
 
   span_designer.addEventListener("mouseover", () => {
     cursorTransformShadowBlend(undefined, "none");
@@ -574,20 +568,38 @@ function addListeners(scrollBtn) {
 
 function handleAnimationSubcontent1() {
   const content1Titles = document.querySelectorAll(".content1_title");
-  const professional_image = document.querySelector(".professional_image");
+
+  const view_all = document.querySelectorAll(".view_all_projects_anchor");
+
+  view_all.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+      cursoricon5.style.transform = "scale(1.5)";
+      makeInvisible(cursoriconwave);
+    });
+
+    element.addEventListener("mouseout", () => {
+      normalCursorEmojiSpan(cursoricon5);
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+    });
+  });
 
   function subcontentIntersection(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         content1Titles.forEach((title, index) =>
-          setTimeout(() => addClass(title, "show"), index * 150)
+          setTimeout(() => addClass(title, "show"), index * 200)
         );
         setTimeout(() => {
-          addClass(professional_image, "visible");
-        }, 300);
+          view_all.forEach((element, index) =>
+            setTimeout(() => addClass(element, "show"), index * 80)
+          );
+        }, 450);
       } else {
+        view_all.forEach((element) => removeClass(element, "show"));
         content1Titles.forEach((title) => removeClass(title, "show"));
-        removeClass(professional_image, "visible");
       }
     });
   }

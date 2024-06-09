@@ -283,7 +283,7 @@ function foldersHover(folders) {
       folder.style.filter = "brightness(100%)";
       addClass(cursoricon5, "active");
       addClass(cursor, "transparent");
-      cursorTransformShadowBlend("scale(2)", "none", "normal");
+      cursorTransformShadowBlend("scale(1.3)", "none", "normal");
     });
 
     folder.addEventListener("mouseout", () => {
