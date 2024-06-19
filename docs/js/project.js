@@ -114,6 +114,17 @@ function setLinks(links) {
       <i class="fa-solid fa-up-right-from-square link_icon"></i>
     `;
       bento_links.appendChild(anchor);
+      anchor.addEventListener("mouseover", () => {
+        cursorTransformShadowBlend("scale(1.3)", "none");
+        addClass(cursor, "transparent");
+        addClass(cursoricon5, "active");
+      });
+
+      anchor.addEventListener("mouseout", () => {
+        removeClass(cursor, "transparent");
+        removeClass(cursoricon5, "active");
+        cursorTransformShadowBlend();
+      });
     });
   else {
     links_card.remove();
@@ -550,12 +561,28 @@ function controlVideo(element) {
   const control_rewind = document.getElementById("control_rewind");
   const control_forward = document.getElementById("control_forward");
   const control_backward = document.getElementById("control_backward");
+
+  [control_rewind, control_forward, control_backward].forEach((control) => {
+    control.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.3)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+  });
+
+  [control_rewind, control_forward, control_backward].forEach((control) => {
+    control.addEventListener("mouseout", () => {
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
+    });
+  });
+
   control_rewind.addEventListener("click", () => (element.currentTime = 0));
   control_forward.addEventListener("click", () => (element.currentTime += 5));
   control_backward.addEventListener("click", () => (element.currentTime -= 5));
   playback_icons_main.addEventListener("click", () => playPauseVideo(element));
   iconsMainReplay.addEventListener("click", () => {
-    // element.currentTime = 0;
     playPauseVideo((element.currentTime = 0));
   });
 }

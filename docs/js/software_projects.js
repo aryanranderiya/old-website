@@ -239,107 +239,105 @@ function addMouseHovers() {
 // }
 
 function processDataAndHidePreloader(snapshot) {
-  const snapshotArray = [];
-  snapshot.forEach((childSnapshot) => {
-    snapshotArray.push(childSnapshot);
-  });
+  const projects = snapshot.val();
+
+  // Sort projects based on likes
+  // const sortedProjects = Object.values(projects).sort(
+  //   (a, b) => b.Likes - a.Likes
+  // );
 
   const cards = document.querySelector(".cards");
 
-  snapshotArray.reverse().forEach((childSnapshot) => {
-    const projectDetails = childSnapshot.val();
-    const projectId = childSnapshot.key;
-    const projectTitle = projectDetails.project_title;
-    const projectDesc =
-      projectDetails.project_short_description ||
-      projectDetails.project_description;
-    const projectType = projectDetails.project_type;
-    var projectTechStack = projectDetails.project_tech_stack;
-    var banner_image_URL = projectDetails.banner_image_URL;
+  Object.entries(projects)
+    .sort(([, projectA], [, projectB]) => projectB.Likes - projectA.Likes)
+    .map(([projectId, project]) => {
+      const projectTitle = project.project_title;
+      const projectDesc =
+        project.project_short_description || project.project_description;
+      const projectType = project.project_type;
+      const projectTechStack = project.project_tech_stack || [];
+      const banner_image_URL =
+        project.banner_image_URL || "/docs/media/bg_aryan_swirl.webp";
 
-    if (banner_image_URL == undefined)
-      banner_image_URL = "/docs/media/bg_aryan_swirl.webp";
+      const replacements = {
+        HTML: "HTML5-plain colored",
+        CSS: "CSS3-plain colored",
+        Express: "express-original",
+        Flask: "flask-original",
+        Tailwind: "tailwindcss-original colored",
+        Vercel: "vercel-original",
+      };
 
-    const replacements = {
-      HTML: "HTML5-plain colored",
-      CSS: "CSS3-plain colored",
-      Express: "express-original",
-      Flask: "flask-original",
-      Tailwind: "tailwindcss-original colored",
-      Vercel: "vercel-original",
-    };
+      const card = document.createElement("div");
+      card.addEventListener("click", () => {
+        window.location.href = `Project.html?id=${projectId}`;
+      });
+      addClass(card, "card");
 
-    const card = document.createElement("div");
-    addClass(card, "card");
-    card.innerHTML = `
+      card.innerHTML = `
       <div class="card-content">
-          <div class="card-image-div" >
-            <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.jpg" data-src="${banner_image_URL}" alt="Project Card Image">
-            </img>
-          </div>
-          <div class="card-info-wrapper">
-              <div class="card-info">
-                  <div class="card-info-title">
-                      <span class="card-title">${projectTitle}</span>
-                      <span class="card-type"><i>${projectType}</i></span>
-
-                      <div class="card-tech-stack">
-                          ${Object.values(projectTechStack)
-                            .sort()
-                            .map((element) => {
-                              const replacedElement =
-                                replacements[element] ||
-                                element + "-plain colored";
-                              return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
-                            })
-                            .join(" ")}
-                      </div>
-                  </div>
-                  <span class="card-desc">${projectDesc}<span>
+        <div class="card-image-div">
+          <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.jpg" data-src="${banner_image_URL}" alt="Project Card Image">
+          </img>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <div class="card-info-title">
+              <span class="card-title">${projectTitle}</span>
+              <span class="card-type"><i>${projectType}</i></span>
+              <div class="card-tech-stack">
+                ${projectTechStack
+                  .map((element) => {
+                    const replacedElement =
+                      replacements[element] || element + "-plain colored";
+                    return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
+                  })
+                  .join(" ")}
               </div>
+            </div>
+            <span class="card-desc">${projectDesc}</span>
           </div>
+        </div>
       </div>
       <div class="buttons">
-      <button class="button_secondary view_project" aria-label="View Project Info" onClick='window.location.href="Project.html?id=${projectId}"'>
+        <button class="button_secondary view_project" aria-label="View Project Info" onClick='window.location.href="Project.html?id=${projectId}"'>
           View Project
-            <div class="icon">
-                <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
-            </div>
+          <div class="icon">
+            <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
+          </div>
         </button>
-
         <button class="heart_button">
-        <div class="heart-container" title="Like">
-            <input type="checkbox" id="heart_checkbox${projectId}" class="heart_checkboxes">
+          <div class="heart-container" title="Like">
+            <input type="checkbox" id="${projectId}" class="heart_checkboxes">
             <div class="svg-container">
-                <svg viewBox="0 0 24 24" class="svg-outline" xmlns="http://www.w3.org/2000/svg">
+                 <svg viewBox="0 0 24 24" class="svg-outline" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z">
                     </path>
                 </svg>
-                <svg viewBox="0 0 24 24" class="svg-filled" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
-                    </path>
-                </svg>
-                <svg class="svg-celebrate" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="10,10 20,20"></polygon>
-                    <polygon points="10,50 20,50"></polygon>
-                    <polygon points="20,80 30,70"></polygon>
-                    <polygon points="90,10 80,20"></polygon>
-                    <polygon points="90,50 80,50"></polygon>
-                    <polygon points="80,80 70,70"></polygon>
-                </svg>
+              <svg viewBox="0 0 24 24" class="svg-filled" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
+                </path>
+              </svg>
+              <svg class="svg-celebrate" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="10,10 20,20"></polygon>
+                <polygon points="10,50 20,50"></polygon>
+                <polygon points="20,80 30,70"></polygon>
+                <polygon points="90,10 80,20"></polygon>
+                <polygon points="90,50 80,50"></polygon>
+                <polygon points="80,80 70,70"></polygon>
+              </svg>
             </div>
-        </div>
-
-        <span class="like_count${projectId}">1</span>
+          </div>
+          <span class="like_count">${project.Likes || 0}</span>
         </button>
       </div>
     `;
 
-    cards.appendChild(card);
-    observer1.observe(card);
+      cards.appendChild(card);
+      observer1.observe(card);
 
-    hoverOnCards();
-  });
+      hoverOnCards();
+    });
 
   removePreloader();
 
@@ -387,6 +385,10 @@ function setupHearts() {
   const checkboxes = document.querySelectorAll(".heart_checkboxes");
 
   checkboxes.forEach((checkbox) => {
+    const projectId = checkbox.id;
+
+    checkbox.checked = localStorage.getItem(projectId) === "true";
+
     checkbox.parentElement.parentElement.addEventListener("mouseover", () => {
       cursorTransformShadowBlend("scale(1.3)", "none");
       addClass(cursor, "transparent");
@@ -401,7 +403,6 @@ function setupHearts() {
 
     const likes_count_text = checkbox.parentElement.nextElementSibling;
     const svgContainer = checkbox.nextElementSibling;
-    const projectId = checkbox.id.replace("heart_checkbox", "");
     const projectRef = ref(database, `Projects/${projectId}`);
 
     let currentLikes = 0;
@@ -433,9 +434,6 @@ function setupHearts() {
         .catch((error) => console.error("Error updating data:", error));
       localStorage.setItem(checkbox.id, isChecked);
     });
-
-    const isChecked = localStorage.getItem(checkbox.id) === "true";
-    checkbox.checked = isChecked;
   });
 }
 
