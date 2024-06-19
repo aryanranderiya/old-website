@@ -47,12 +47,11 @@ function processResume(snapshot) {
 const btn_download = document.querySelector(".btn_download");
 
 document.addEventListener("DOMContentLoaded", function () {
-  const footer = document.querySelector("#footerContainer");
-  const progressBar = document.querySelector("#progress-bar");
   const button = document.querySelector(".download_button");
   const downloadresume_text = document.querySelector(".downloadresume_text");
   const svgIcon = document.querySelector(".svgIcon");
   const resume_pdf = document.querySelector(".resume_pdf");
+  const cursoricon5 = document.getElementById("cursoricon5");
 
   var footerIntersectedFlag = false;
 
@@ -67,17 +66,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   button.addEventListener("mouseover", () => {
-    if (!footerIntersectedFlag) {
-      addClass(downloadresume_text, "hovered");
-      addClass(svgIcon, "hovered");
-    }
+    addClass(downloadresume_text, "hovered");
+    addClass(svgIcon, "hovered");
+    cursorTransformShadowBlend("scale(1.3)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
   });
 
   button.addEventListener("mouseout", () => {
-    if (!footerIntersectedFlag) {
-      removeClass(downloadresume_text, "hovered");
-      removeClass(svgIcon, "hovered");
-    }
+    removeClass(downloadresume_text, "hovered");
+    removeClass(svgIcon, "hovered");
+    cursorTransformShadowBlend();
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
   });
 
   //!   Set width of progress bar
@@ -86,14 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleIntersection(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        progressBar.style.opacity = "0";
         addClass(button, "hovered");
         addClass(svgIcon, "hovered");
         addClass(downloadresume_text, "hovered");
         footerIntersectedFlag = true;
       } else {
         footerIntersectedFlag = false;
-        progressBar.style.opacity = "1";
         removeClass(button, "hovered");
         removeClass(svgIcon, "hovered");
         removeClass(downloadresume_text, "hovered");
@@ -101,28 +100,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  //! First Intersection Observer
-  function handleIntersection2(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) btn_download.style.opacity = "0";
-      else btn_download.style.opacity = "1";
-    });
-  }
-
   const observer1 = new IntersectionObserver(handleIntersection, {
     root: null,
     rootMargin: "0px",
-    threshold: 0.1,
+    threshold: 0.4,
   });
 
-  const observer2 = new IntersectionObserver(handleIntersection2, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  });
-
-  observer2.observe(footer);
-  observer1.observe(footer);
+  observer1.observe(resume_pdf);
 });
 
 //!   Set width of progress bar

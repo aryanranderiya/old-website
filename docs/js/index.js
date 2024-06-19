@@ -323,8 +323,23 @@ function setupBentoAnimation() {
   const bento_project = document.getElementById("bento_project");
   const bento_project2 = document.getElementById("bento_project2");
   const bento_resume = document.getElementById("bento_resume");
+  const now_anchor = document.querySelectorAll(".now a");
 
   let bentos = [bento_project, bento_project2, bento_resume];
+
+now_anchor.forEach((anchor) => {
+  anchor.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(1.3)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  anchor.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
+  });
+});
 
   bentos.forEach((bento) => {
     bento.addEventListener("mouseover", () => {
