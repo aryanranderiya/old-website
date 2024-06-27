@@ -269,9 +269,6 @@ function processDataAndHidePreloader(snapshot) {
       };
 
       const card = document.createElement("div");
-      card.addEventListener("click", () => {
-        window.location.href = `Project.html?id=${projectId}`;
-      });
       addClass(card, "card");
 
       card.innerHTML = `
@@ -332,6 +329,11 @@ function processDataAndHidePreloader(snapshot) {
         </button>
       </div>
     `;
+
+      const content = card.querySelector(".card-content");
+      content.addEventListener("click", () => {
+        window.location.href = `Project.html?id=${projectId}`;
+      });
 
       cards.appendChild(card);
       observer1.observe(card);
@@ -492,17 +494,21 @@ function hoverOnCards() {
   });
 
   const button_secondaryAll = document.querySelectorAll(".button_secondary");
-  button_secondaryAll.forEach((btn) => {
-    btn.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.3)", "none");
-      addClass(cursor, "transparent");
-      addClass(cursoricon5, "active");
-    });
+  const card_content = document.querySelectorAll(".card-content");
 
-    btn.addEventListener("mouseout", () => {
-      removeClass(cursor, "transparent");
-      removeClass(cursoricon5, "active");
-      cursorTransformShadowBlend();
+  [button_secondaryAll, card_content].forEach((item) => {
+    item.forEach((subitem) => {
+      subitem.addEventListener("mouseover", () => {
+        cursorTransformShadowBlend("scale(1.3)", "none");
+        addClass(cursor, "transparent");
+        addClass(cursoricon5, "active");
+      });
+
+      subitem.addEventListener("mouseout", () => {
+        removeClass(cursor, "transparent");
+        removeClass(cursoricon5, "active");
+        cursorTransformShadowBlend();
+      });
     });
   });
 
