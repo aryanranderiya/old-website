@@ -808,12 +808,12 @@ async function fetchGithubData() {
 
     scrollTrigger: {
       trigger: ".github_container",
-      type: "touch,pointer,wheel",
-      isTouch: 2,
+      // type: "touch,pointer,wheel",
+      // isTouch: 2,
       pin: true,
       scrub: 1,
       start: "top top",
-      anticipatePin: 1,
+      // anticipatePin: 1,
       end: () => "+=" + github_cards.offsetWidth,
     },
   });

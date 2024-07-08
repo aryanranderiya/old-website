@@ -113,12 +113,11 @@ body {
 }
 
 .mockup_media_laptop {
-  /* max-height: 525px; */
-  /* min-height: 525px; */
-  /* min-width: 940px; */
-  max-width: 940px;
+  max-width: 90vw;
   width: 100%;
+  position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .mockup_media_mobile {
@@ -132,6 +131,12 @@ body {
 
 .mockup_media_laptop.image {
   display: none;
+  z-index: 0;
+  position: relative;
+  height: 550px;
+  max-width: 57vw;
+  width: 100%;
+  object-fit: cover;
 }
 
 .mockup_media_mobile.visible {
@@ -448,6 +453,12 @@ body {
     min-height: 180px;
   }
 
+  .mockup_media_laptop.image {
+    max-height: 180px;
+    min-height: 180px;
+    width: auto;
+  }
+
   .mockup_laptop {
     height: 250px;
     top: 13%;
@@ -708,12 +719,14 @@ body {
 
 .slider-item figure {
   position: relative;
-  padding-bottom: 37%;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .slider-item figure img {
-  height: 500px;
+  width: 80vw;
+  max-height: 800px;
+  height: fit-content;
   /* aspect-ratio: 16/9; */
   position: absolute;
   object-fit: cover;
@@ -787,7 +800,6 @@ body {
 .projectmedia_controls_container.hidden {
   animation: scaleAnimation 0.7s both normal;
 }
-
 
 .projectmedia_controls_others {
   display: flex;
