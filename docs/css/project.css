@@ -133,10 +133,14 @@ body {
   display: none;
   z-index: 0;
   position: relative;
-  height: 550px;
-  max-width: 57vw;
+  height: 500px;
   width: 100%;
   object-fit: cover;
+}
+
+.mockup_media_laptop.video {
+  height: 550px;
+  max-width: 58vw;
 }
 
 .mockup_media_mobile.visible {
