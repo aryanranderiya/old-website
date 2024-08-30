@@ -266,6 +266,7 @@ function processDataAndHidePreloader(snapshot) {
         Flask: "flask-original",
         Tailwind: "tailwindcss-original colored",
         Vercel: "vercel-original",
+        nextjs: "nextjs-plain",
       };
 
       const card = document.createElement("div");
@@ -287,7 +288,9 @@ function processDataAndHidePreloader(snapshot) {
                   .map((element) => {
                     const replacedElement =
                       replacements[element] || element + "-plain colored";
-                    return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
+                    return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${
+                      element.charAt(0).toUpperCase() + element.slice(1)
+                    }&nbsp;</text></div>`;
                   })
                   .join(" ")}
               </div>
@@ -348,6 +351,12 @@ function processDataAndHidePreloader(snapshot) {
 
   const uniqueValues = Array.from(tech_stack)
     .map((element) => element.textContent.trim())
+    .filter(
+      (item, index, self) =>
+        self.findIndex(
+          (other) => other.toLowerCase() === item.toLowerCase()
+        ) === index
+    )
     .filter((value, index, array) => array.indexOf(value) === index)
     .sort();
 
