@@ -65,6 +65,8 @@ body {
 .logos-slide {
   display: inline-block;
   transform: rotate3d(1, 1, 1, 0.01deg);
+  z-index: 1;
+  position: relative;
 }
 
 .logos-slide img {
@@ -147,15 +149,17 @@ body {
 .github_heading_div {
   transition: opacity 0.5s ease;
   -webkit-transition: opacity 0.5s ease;
-  position: relative;
-  z-index: 1;
   margin-left: 5%;
   margin-top: 10%;
   margin-bottom: 3%;
+  position: relative;
+  z-index: 1;
 }
 
 .github_heading {
   font-size: 5em;
+  position: relative;
+  z-index: 1;
   font-family: Helvs;
   color: white;
   font-weight: bold;

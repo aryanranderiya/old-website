@@ -20,6 +20,7 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const database = getDatabase();
 const projectRef = ref(database, "Resume/");
+const mainRef = ref(database);
 
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
 
@@ -27,17 +28,22 @@ onValue(projectRef, processResume);
 
 function processResume(snapshot) {
   const snapshotData = snapshot.val();
+  const url = snapshotData.url;
+  const text = snapshotData.text;
   const resume_element = document.querySelector(".resume_pdf");
   const resume_anchor = document.getElementById("download_resume_anchor");
+  const resume_subtitle = document.querySelector(".subtitle");
 
-  if (snapshotData) {
-    const url = snapshotData + "#view=FitV&navpanes=0";
-    resume_element.src = url;
-    resume_anchor.href = snapshotData;
+  if (url) {
+    const mainUrl = url + "#view=FitV&navpanes=0";
+    resume_element.src = mainUrl;
+    resume_anchor.href = mainUrl;
   } else {
     resume_element.src = "./media/Resume.pdf#view=FitV&navpanes=0";
     resume_anchor.href = "./media/Resume.pdf";
   }
+
+  resume_subtitle.innerHTML = text;
 
   resume_element.addEventListener("load", function () {
     document.querySelector(".resumeload_container").remove();

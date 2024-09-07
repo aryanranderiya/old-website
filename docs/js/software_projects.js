@@ -241,11 +241,6 @@ function addMouseHovers() {
 function processDataAndHidePreloader(snapshot) {
   const projects = snapshot.val();
 
-  // Sort projects based on likes
-  // const sortedProjects = Object.values(projects).sort(
-  //   (a, b) => b.Likes - a.Likes
-  // );
-
   const cards = document.querySelector(".cards");
 
   Object.entries(projects)

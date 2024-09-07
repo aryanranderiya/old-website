@@ -29,6 +29,7 @@ p {
 
 footer > *,
 .menu_items > * {
+  z-index: 1;
   font-family: Helvs;
 }
 

@@ -64,10 +64,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // setupFeaturedProjects();
 
   const featuredRef = ref(database, "Featured/");
+  const nowRef = ref(database, "Now/");
   onValue(featuredRef, setupFeaturedProjects, { onlyOnce: true });
+  onValue(nowRef, setupNowItems, { onlyOnce: true });
 
   setupServices();
 });
+
+function setupNowItems(snapshot) {
+  const snapshotData = snapshot.val();
+  const itemsContainer = document.querySelector(".now_items");
+  console.log(itemsContainer);
+  snapshotData.forEach((nowItem) => {
+    const li = document.createElement("li");
+    li.textContent = nowItem;
+    itemsContainer.appendChild(li);
+  });
+}
 
 function setupFeaturedProjects(snapshot) {
   const featured_container = document.querySelector(".featured_projects");
@@ -122,7 +135,7 @@ function setupFeaturedProjects(snapshot) {
 
         function enter() {
           hover_card.style.width = "300px";
-          hover_card.style.height = "200px";
+          hover_card.style.height = "150px";
           hover_card.style.borderRadius = "20px";
           hover_card.style.backgroundColor = "#00bbff";
           hover_text.style.opacity = "0";
@@ -327,19 +340,19 @@ function setupBentoAnimation() {
 
   let bentos = [bento_project, bento_project2, bento_resume];
 
-now_anchor.forEach((anchor) => {
-  anchor.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("scale(1.3)", "none");
-    addClass(cursor, "transparent");
-    addClass(cursoricon5, "active");
-  });
+  now_anchor.forEach((anchor) => {
+    anchor.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.3)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
 
-  anchor.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-    removeClass(cursor, "transparent");
-    removeClass(cursoricon5, "active");
+    anchor.addEventListener("mouseout", () => {
+      cursorTransformShadowBlend();
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+    });
   });
-});
 
   bentos.forEach((bento) => {
     bento.addEventListener("mouseover", () => {
