@@ -36,8 +36,8 @@ const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 
 // ! FIREBASE INIT END --------------------------------------------------------------------------------------
 
-onValue(SoftwareIconsRef, processProjectIcons, { onlyOnce: true });
-onValue(projectsRef, processDataAndHidePreloader, { onlyOnce: true });
+onValue(SoftwareIconsRef, processProjectIcons);
+onValue(projectsRef, processDataAndHidePreloader);
 
 document.addEventListener("DOMContentLoaded", function () {
   modifyScrollBar();

@@ -6,8 +6,10 @@ document.addEventListener("mousemove", (e) => {
     cursor.style.left = e.clientX + "px";
     cursor.style.top = e.clientY + "px";
     setTimeout(() => {
-      cursor_bg.style.left = e.clientX + "px";
-      cursor_bg.style.top = e.clientY + "px";
+      if (!!cursor_bg) {
+        cursor_bg.style.left = e.clientX + "px";
+        cursor_bg.style.top = e.clientY + "px";
+      }
     }, 100);
   });
 });

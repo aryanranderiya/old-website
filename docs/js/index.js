@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const featuredRef = ref(database, "Featured/");
   const nowRef = ref(database, "Now/");
-  onValue(featuredRef, setupFeaturedProjects, { onlyOnce: true });
-  onValue(nowRef, setupNowItems, { onlyOnce: true });
+  onValue(featuredRef, setupFeaturedProjects);
+  onValue(nowRef, setupNowItems);
 
   setupServices();
 });

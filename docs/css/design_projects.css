@@ -186,6 +186,8 @@ img {
 }
 
 .slider-wrapper {
+  z-index: 1;
+  position: relative;
   width: 100%;
   white-space: nowrap;
 }
@@ -199,6 +201,8 @@ img {
   display: inline-block;
   width: 1400px;
   overflow: hidden;
+  z-index: 1;
+  position: relative;
 }
 
 .slider-item figure {
@@ -362,6 +366,7 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: opacity 0.5s ease;
   -webkit-transition: opacity 0.5s ease;
+  z-index: 1;
 }
 
 .item-img {
@@ -630,6 +635,7 @@ img {
 .anime-slider-wrapper {
   position: relative;
   max-width: 70%;
+  z-index: 1;
 }
 
 .anime-slider {
