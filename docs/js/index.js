@@ -675,9 +675,11 @@ function makeInvisible(element) {
 }
 
 function removeBlackCover() {
+  console.log("test1");
   setTimeout(() => {
     document.body.style.overflow = "auto";
     addClass(welcoming, "hide");
+    console.log("test2");
 
     document.querySelector(".my_portfolio").classList.add("show");
     document.querySelector(".aryan_randeriya").classList.add("show");
