@@ -147,24 +147,24 @@ document.addEventListener("DOMContentLoaded", function () {
         //! Fade out navbar when footer is visible
         // let footerIntersected = false;
 
-        function handleIntersection(entries, observer) {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateFooterContent();
-              addClass(navbar, "hide");
-            } else {
-              animateOutFooterContent();
-              removeClass(navbar, "hide");
-            }
-          });
+        // function handleIntersection(entries, observer) {
+        //   entries.forEach((entry) => {
+        //     if (entry.isIntersecting) {
+        //       animateFooterContent();
+        //       addClass(navbar, "hide");
+        //     } else {
+        //       animateOutFooterContent();
+        //       removeClass(navbar, "hide");
+        //     }
+        //   });
 
-          if (
-            entries[0].target.id === "footerContainer" &&
-            entries[0].boundingClientRect.top > 0
-          ) {
-            footerIntersected = true;
-          }
-        }
+        //   if (
+        //     entries[0].target.id === "footerContainer" &&
+        //     entries[0].boundingClientRect.top > 0
+        //   ) {
+        //     footerIntersected = true;
+        //   }
+        // }
 
         function animateFooterContent() {
           pageLinks.forEach((link, index) =>
@@ -177,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
           wordContainers.forEach((container) => addClass(container, "show"));
           addClass(letstalk, "show");
           addClass(div_email, "show");
-          // document.querySelector(".footer_section").style.opacity = "1";
         }
 
         function animateOutFooterContent() {
@@ -186,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
           wordContainers.forEach((container) => removeClass(container, "show"));
           removeClass(letstalk, "show");
           removeClass(div_email, "show");
-          // document.querySelector(".footer_section").style.opacity = "0";
         }
 
         function handleIntersectionTwo(entries, observer) {

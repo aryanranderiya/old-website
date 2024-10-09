@@ -41,14 +41,15 @@ const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
 const cursoricon5 = document.getElementById("cursoricon5");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const rotatingWords = document.querySelector(".words_rotating_span");
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelector(".words_rotating_span")
+    .addEventListener("animationend", removeBlackCover);
 
   cursor.style.boxShadow = "none";
 
   addListeners(scrollBtn);
   handleAnimationSubcontent1();
-  rotatingWords.addEventListener("animationend", removeBlackCover);
 
   loadNavbar().then(() => {
     handleNavbarIntersection();
@@ -97,11 +98,12 @@ function setupFeaturedProjects(snapshot) {
   snapshot.forEach((childSnapshot) => {
     const projectId = childSnapshot.val();
     const key = childSnapshot.key;
-    const projectsRef = ref(database, "Projects/" + projectId);
+    const projectsRef = ref(database, `Projects/${projectId}`);
 
     get(projectsRef)
       .then((snapshot) => {
-        if (!snapshot.exists()) throw new Error("Snapshot doesnt exist");
+        if (!snapshot.exists())
+          throw new Error("Snapshot doesnt exist: " + JSON.stringify(snapshot));
 
         const data = snapshot.val();
 
