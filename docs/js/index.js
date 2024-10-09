@@ -42,9 +42,13 @@ const subcontent1 = document.querySelector(".subcontent1");
 const cursoricon5 = document.getElementById("cursoricon5");
 
 document.addEventListener("DOMContentLoaded", () => {
-  document
-    .querySelector(".words_rotating_span")
-    .addEventListener("animationend", removeBlackCover);
+  // document
+  //   .querySelector(".words_rotating_span")
+  //   .addEventListener("animationend", removeBlackCover);
+
+  setTimeout(() => {
+    removeBlackCover();
+  }, 1800);
 
   cursor.style.boxShadow = "none";
 
@@ -676,17 +680,15 @@ function makeInvisible(element) {
 
 function removeBlackCover() {
   console.log("test1");
-  setTimeout(() => {
-    document.body.style.overflow = "auto";
-    addClass(welcoming, "hide");
-    console.log("test2");
+  document.body.style.overflow = "auto";
+  addClass(welcoming, "hide");
+  console.log("test2");
 
-    document.querySelector(".my_portfolio").classList.add("show");
-    document.querySelector(".aryan_randeriya").classList.add("show");
+  document.querySelector(".my_portfolio").classList.add("show");
+  document.querySelector(".aryan_randeriya").classList.add("show");
 
-    cursor.style.mixBlendMode = "normal";
-    scrollBtn.style.opacity = "1";
-  }, 300);
+  cursor.style.mixBlendMode = "normal";
+  scrollBtn.style.opacity = "1";
 
   setTimeout(() => welcoming.remove(), 1600);
 }
