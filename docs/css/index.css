@@ -1251,6 +1251,7 @@ h6 {
 }
 
 .latest_work {
+  z-index: 2;
   font-size: 1.1em;
   padding: 3px 5px;
   margin-top: -30px;
@@ -1518,4 +1519,48 @@ h6 {
   height: auto;
   object-fit: contain;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 1000px !important;
+  /* border: 2px solid #00bbff; */
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background-color: black;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: grid;
+  place-content: center;
+}
+.nav-icon:hover {
+  border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.scrollbar_progress_container_buttons {
+  display: flex;
+  position: absolute;
+  height: 90%;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 0;
+  left: -12px;
+}
+
+.nav-icon.active {
+  border: 2px solid #00bbff;
+  background-color: black;
+  color: #00bbff;
+  box-shadow: 0 0 15px #00bbff;
+}
+.nav-icon .material-symbols-outlined {
+  font-size: 22px;
+}
+
+/* .scrollbar_progress_container {
+  height: 60vh !important;
+} */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 200, "opsz" 35;
 }

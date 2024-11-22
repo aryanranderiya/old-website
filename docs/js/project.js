@@ -657,7 +657,7 @@ function addImagesPopupEvents(popup_image, popup_image_container, children) {
   }
 }
 
-function modifyScrollBar() {
+export function modifyScrollBar() {
   const scrollbarContainerParent = document.querySelector(
     ".scrollbar_progress_container_parent"
   );

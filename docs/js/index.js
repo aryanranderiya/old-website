@@ -1,5 +1,4 @@
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 
 import {
@@ -40,8 +39,17 @@ const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
 const cursoricon5 = document.getElementById("cursoricon5");
+const sections = document.querySelectorAll("section");
+const scrollbarContainer = document.querySelector(
+  ".scrollbar_progress_container_buttons"
+);
+const progressBar = document.querySelector(".scrollbar_progress");
+
+window.onload = function () {};
 
 document.addEventListener("DOMContentLoaded", () => {
+  // window.scrollTo(0, 0);
+
   // document
   //   .querySelector(".words_rotating_span")
   //   .addEventListener("animationend", removeBlackCover);
@@ -75,12 +83,211 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupServices();
   clientProjectsSetup();
+  // modifyScrollBar();
+  // positionNavButtons();
+  // document.addEventListener("scroll", updateProgressBarandBtn);
+
+  positionNavButtons();
+  highlightActiveSection();
+  updateProgressBar();
+  document.addEventListener("scroll", () => {
+    highlightActiveSection();
+    updateProgressBar();
+  });
+
+  window.addEventListener("resize", positionNavButtons);
 });
+
+function updateProgressBar() {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+  progressBar.style.setProperty("--height", `${percentage}%`);
+}
+
+function positionNavButtons() {
+  const sections = document.querySelectorAll("section");
+  const scrollbarContainer = document.querySelector(
+    ".scrollbar_progress_container_buttons"
+  );
+  const totalButtons = sections.length;
+  const containerHeight = scrollbarContainer.offsetHeight;
+
+  sections.forEach((section, index) => {
+    if (!section.id) return;
+
+    let button = scrollbarContainer.querySelector(
+      `[data-target="#${section.id}"]`
+    );
+    if (!button) {
+      button = document.createElement("button");
+      button.classList.add("nav-icon");
+      button.setAttribute("data-target", `#${section.id}`);
+
+      button.addEventListener("mouseover", () => {
+        cursorTransformShadowBlend("scale(1.3)", "none");
+        addClass(cursor, "transparent");
+        addClass(cursoricon5, "active");
+      });
+
+      button.addEventListener("mouseout", () => {
+        cursorTransformShadowBlend();
+        removeClass(cursor, "transparent");
+        removeClass(cursoricon5, "active");
+      });
+
+      const iconSpan = document.createElement("span");
+      iconSpan.classList.add("material-symbols-outlined");
+      button.appendChild(iconSpan);
+
+      switch (section.id) {
+        case "section0":
+          iconSpan.textContent = "public";
+          break;
+        case "section1":
+          iconSpan.textContent = "face";
+          break;
+        case "section2":
+          iconSpan.textContent = "draw";
+          break;
+        case "section3":
+          iconSpan.textContent = "work";
+          break;
+        case "section4":
+          iconSpan.textContent = "star";
+          break;
+        case "section5":
+          iconSpan.textContent = "design_services";
+          break;
+        case "section6":
+          iconSpan.textContent = "account_box";
+          break;
+        case "section7":
+          iconSpan.textContent = "wysiwyg";
+          break;
+        default:
+          iconSpan.textContent = "info";
+          break;
+      }
+
+      scrollbarContainer.appendChild(button);
+
+      button.addEventListener("click", () => {
+        section.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+
+    // Space buttons equally
+    const buttonPosition = (index / (totalButtons - 1)) * containerHeight;
+    button.style.position = "absolute";
+    button.style.top = `${buttonPosition}px`;
+  });
+}
+
+function highlightActiveSection() {
+  const { scrollTop, clientHeight } = document.documentElement;
+
+  sections.forEach((section, index) => {
+    if (!section.id) return;
+
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
+
+    const button = scrollbarContainer.querySelector(
+      `[data-target="#${section.id}"]`
+    );
+
+    if (
+      scrollTop + clientHeight / 2 >= sectionTop &&
+      scrollTop + clientHeight / 2 < sectionBottom
+    ) {
+      button.classList.add("active");
+    } else {
+      button.classList.remove("active");
+    }
+  });
+}
+// function modifyScrollBar() {
+//   // const scrollbarContainerParent = document.querySelector(
+//   //   ".scrollbar_progress_container_parent"
+//   // );
+//   // scrollbarContainerParent.addEventListener("mouseover", () => {
+//   //   cursor.style.transform = "scale(5)";
+//   //   cursor.style.boxShadow = "none";
+//   //   cursor.style.outlineWidth = "0px";
+//   //   addClass(cursortext2, "active");
+//   //   addClass(cursor, "transparent");
+//   //   updateProgressBarandBtn();
+//   // });
+
+//   // scrollbarContainerParent.addEventListener("mouseout", () => {
+//   //   cursor.style.transform = "none";
+//   //   cursor.style.mixBlendMode = "normal";
+//   //   cursor.style.boxShadow = "0px 0px 30px white";
+//   //   removeClass(cursortext2, "active");
+//   //   removeClass(cursor, "transparent");
+//   // });
+
+//   const navIcons = document.querySelectorAll(".nav-icon");
+
+//   navIcons.forEach((icon) => {
+//     icon.addEventListener("click", () => {
+//       const target = document.querySelector(icon.getAttribute("data-target"));
+//       target.scrollIntoView({ behavior: "smooth" });
+//     });
+
+//     icon.addEventListener("mouseover", () => {
+//       cursorTransformShadowBlend("scale(1.3)", "none");
+//       addClass(cursor, "transparent");
+//       addClass(cursoricon5, "active");
+//     });
+
+//     icon.addEventListener("mouseout", () => {
+//       cursorTransformShadowBlend();
+//       removeClass(cursor, "transparent");
+//       removeClass(cursoricon5, "active");
+//     });
+//   });
+// }
+
+// function updateProgressBarandBtn() {
+//   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+//   const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+//   const scrollPercent = percentage + "%";
+
+//   document
+//     .querySelector(".scrollbar_progress")
+//     .style.setProperty("--height", scrollPercent);
+
+//   cursortext2.textContent = Math.round(percentage) + "%";
+// }
+
+// function positionNavButtons() {
+//   const sections = document.querySelectorAll("section");
+//   const buttonsContainer = document.querySelector(
+//     ".scrollbar_progress_container_buttons"
+//   );
+//   const totalHeight =
+//     document.documentElement.scrollHeight - window.innerHeight;
+
+//   sections.forEach((section, index) => {
+//     const sectionTop = section.offsetTop;
+//     const button = buttonsContainer.querySelector(
+//       `[data-target="#${section.id}"]`
+//     );
+
+//     // Calculate the percentage position of the section relative to the page height
+//     const buttonPosition = (sectionTop / totalHeight) * 100;
+
+//     // Position the button using a custom CSS property
+//     button.style.position = "absolute";
+//     button.style.top = `${buttonPosition}%`;
+//   });
+// }
 
 function setupNowItems(snapshot) {
   const snapshotData = snapshot.val();
   const itemsContainer = document.querySelector(".now_items");
-  console.log(itemsContainer);
   snapshotData.forEach((nowItem) => {
     const li = document.createElement("li");
     li.textContent = nowItem;
@@ -680,16 +887,14 @@ function makeInvisible(element) {
 }
 
 function removeBlackCover() {
-  console.log("test1");
   document.body.style.overflow = "auto";
   addClass(welcoming, "hide");
-  console.log("test2");
-
   document.querySelector(".my_portfolio").classList.add("show");
   document.querySelector(".aryan_randeriya").classList.add("show");
 
   cursor.style.mixBlendMode = "normal";
   scrollBtn.style.opacity = "1";
+  scrollBtn.style.zIndex = "1";
 
   setTimeout(() => welcoming.remove(), 1600);
 }
@@ -707,13 +912,12 @@ const clientProjects = [
   },
   {
     title: "LyfeLane",
-    description:
-      "Developed frontend & backend for the official MWI brand website.",
+    description: "Solely built a Greeting Card creation platform.",
     subDescription: "August 2024 - Present",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fmwicollage.webp?alt=media&token=a82d1103-c61a-4624-8ce9-3b9826fc7e75",
-    link: "https://mwi.gg",
-    anchorText: "mwi.gg",
+      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Flyfelanecollage.webp?alt=media&token=56684174-0ef3-4eae-8a66-6a5057e553f3",
+    link: "https://lyfelane.com",
+    anchorText: "lyfelane.com",
   },
   {
     title: "Encode - The Computer Science Club",
@@ -854,5 +1058,3 @@ function clientProjectsSetup() {
   // Initial project load
   updateProject();
 }
-
-clientProjectsSetup();
