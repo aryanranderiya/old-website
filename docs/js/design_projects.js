@@ -187,15 +187,17 @@ function generateMerchItems(heading_titles) {
       category: "Apparel",
       brand: "Aryan Randeriya",
       items: [
-        { imgSrc: "media/apparel/Tshirt Porsche.webp", title: "Porsche" },
+        { imgSrc: "media/apparel/BlueRose Mockup 1.webp", title: "Blue Rose" },
+        { imgSrc: "media/apparel/Butterfly Mockup 1.webp", title: "Butterfly" },
+        { imgSrc: "media/apparel/Hope Mockup 1.webp", title: "Hope" },
+        { imgSrc: "media/apparel/Porsche Mockup 1.webp", title: "Porsche" },
         {
-          imgSrc: "media/apparel/Tshirt Interstellar.webp",
+          imgSrc: "media/apparel/Interstellar Mockup 1.webp",
           title: "Interstellar",
         },
-        { imgSrc: "media/apparel/Tshirt Kanye.webp", title: "Kanye West" },
-        { imgSrc: "media/apparel/Tshirt Future1.webp", title: "Future 1" },
-        { imgSrc: "media/apparel/Tshirt BlueRose.webp", title: "Blue Rose" },
-        { imgSrc: "media/apparel/Tshirt Japan.webp", title: "Japan" },
+        { imgSrc: "media/apparel/Ye Mockup 1.webp", title: "Kanye West" },
+        { imgSrc: "media/apparel/Future Mockup 1.webp", title: "Future 1" },
+        { imgSrc: "media/apparel/Japan Mockup 0.webp", title: "Japan" },
         { imgSrc: "media/apparel/Tshirt MiH.webp", title: "Make It Happen" },
         { imgSrc: "media/apparel/Tshirt Future2.webp", title: "Future 2" },
         {
@@ -263,9 +265,6 @@ function generateMerchItems(heading_titles) {
     merchItemsContainer.appendChild(merchItem);
     normalObserver.observe(merchItem);
   }
-
-  merchItemsData[0].items.forEach((item, index) => {});
-
   heading_titles.forEach((title) => titleobserver2.observe(title));
 }
 
