@@ -550,9 +550,10 @@ function setupBentoAnimation() {
   const bento_project = document.getElementById("bento_project");
   const bento_project2 = document.getElementById("bento_project2");
   const bento_resume = document.getElementById("bento_resume");
+  const bento_blog = document.getElementById("bento_blog");
   const now_anchor = document.querySelectorAll(".now a");
 
-  let bentos = [bento_project, bento_project2, bento_resume];
+  let bentos = [bento_project, bento_project2, bento_resume, bento_blog];
 
   now_anchor.forEach((anchor) => {
     anchor.addEventListener("mouseover", () => {

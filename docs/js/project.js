@@ -254,13 +254,26 @@ async function setGithub(github_link) {
         if (repo.html_url === github_link) {
           const createdAt = new Date(repo.created_at).toDateString();
           const updatedAt = new Date(repo.updated_at).toDateString();
-          document.querySelector(".github_link").href = repo.html_url;
+          const githubLink = document.querySelector(".github_link");
+          githubLink.href = repo.html_url;
           document.querySelector(".repo_name").innerHTML = repo.full_name;
           document.querySelector(".repo_stars").innerHTML =
             repo.stargazers_count;
           document.querySelector(".repo_lang").innerHTML = repo.language;
           document.querySelector(".repo_created").innerHTML = createdAt;
           document.querySelector(".repo_updated").innerHTML = updatedAt;
+
+          githubLink.addEventListener("mouseover", () => {
+            cursorTransformShadowBlend("scale(1.3)", "none");
+            addClass(cursor, "transparent");
+            addClass(cursoricon5, "active");
+          });
+
+          githubLink.addEventListener("mouseout", () => {
+            removeClass(cursor, "transparent");
+            removeClass(cursoricon5, "active");
+            cursorTransformShadowBlend();
+          });
         }
       });
     } else {
@@ -379,6 +392,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   btnScrollTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  btnScrollTop.addEventListener("mouseover", () => {
+    cursorTransformShadowBlend("scale(1.3)", "none");
+    addClass(cursor, "transparent");
+    addClass(cursoricon5, "active");
+  });
+
+  btnScrollTop.addEventListener("mouseout", () => {
+    cursorTransformShadowBlend();
+    removeClass(cursor, "transparent");
+    removeClass(cursoricon5, "active");
   });
 
   function addEventListeners(button) {
@@ -692,24 +717,109 @@ function updateProgressBarandBtn() {
 
 function createImages(project_images) {
   if (project_images) {
-    project_images.reverse();
-    const sliderWrapper = document.querySelector(".slider-wrapper");
+    project_images.reverse(); // Optional, reverse the order of the images
+
+    console.log(project_images);
+
+    const project_images_div = document.querySelector(".project_images");
+
+    // Clear existing images before adding new ones
+    project_images_div.innerHTML = "";
+
     project_images.forEach((image_url) => {
-      const div = document.createElement("div");
-      addClass(div, "slider-item");
-      div.innerHTML = `
-      <figure>
-          <img loading="eager" src="${image_url}" class="project_image" alt="Project Images">
-      </figure>
-      `;
-      sliderWrapper.appendChild(div);
+      const img = document.createElement("img");
+      img.src = image_url;
+      img.className = "project_image";
+      project_images_div.appendChild(img);
     });
+
+    // If on desktop, initialize the slider
+    if (window.innerWidth >= 768) {
+      initializeSlider();
+    }
 
     return true;
   } else {
     document.querySelector(".image_gallery").remove();
     return false;
   }
+}
+
+function initializeSlider() {
+  const project_images_div = document.querySelector(".project_images");
+  const images = project_images_div.querySelectorAll(".project_image");
+  const nextButton = document.querySelector(".slider-button .next");
+  const prevButton = document.querySelector(".slider-button .prev");
+  const dotsContainer = document.querySelector(".dots");
+
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  function createDots() {
+    dotsContainer.innerHTML = ""; // Clear any existing dots
+    images.forEach((_, index) => {
+      const dot = document.createElement("div");
+      dot.className = "dot";
+      dot.dataset.index = index;
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Set active class to the current dot
+  function setActiveDot() {
+    const dots = dotsContainer.querySelectorAll(".dot");
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentIndex);
+    });
+  }
+
+  // Function to show the current image
+  function showImage(index) {
+    images.forEach((img, i) => {
+      img.style.display = i === index ? "block" : "none";
+    });
+    setActiveDot(); // Update the active dot
+  }
+
+  // Create dots and initialize the first image
+  createDots();
+  showImage(currentIndex);
+
+  // Event listeners for prev and next buttons
+  prevButton.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    showImage(currentIndex);
+  });
+
+  nextButton.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    showImage(currentIndex);
+  });
+
+  // Event listeners for dots to jump to specific image
+  dotsContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("dot")) {
+      currentIndex = parseInt(e.target.dataset.index, 10);
+      showImage(currentIndex);
+    }
+  });
+
+  // Cursor effects for buttons and dots
+  [nextButton, prevButton, ...dotsContainer.querySelectorAll(".dot")].forEach(
+    (element) => {
+      element.addEventListener("mouseover", () => {
+        cursorTransformShadowBlend("scale(1.3)", "none");
+        addClass(cursor, "transparent");
+        addClass(cursoricon5, "active");
+      });
+
+      element.addEventListener("mouseout", () => {
+        cursorTransformShadowBlend();
+        removeClass(cursor, "transparent");
+        removeClass(cursoricon5, "active");
+      });
+    }
+  );
 }
 
 function normalHeaders(flag) {
