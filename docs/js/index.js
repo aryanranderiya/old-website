@@ -173,7 +173,7 @@ function positionNavButtons() {
       scrollbarContainer.appendChild(button);
 
       button.addEventListener("click", () => {
-        section.scrollIntoView({ behavior: "smooth" });
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     }
 
@@ -913,16 +913,16 @@ const clientProjects = [
   {
     title: "LyfeLane",
     description: "Solely built a Greeting Card creation platform.",
-    subDescription: "August 2024 - Present",
+    subDescription: "September 2024",
     image:
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Flyfelanecollage.webp?alt=media&token=56684174-0ef3-4eae-8a66-6a5057e553f3",
     link: "https://lyfelane.com",
     anchorText: "lyfelane.com",
   },
   {
-    title: "Encode - The Computer Science Club",
+    title: "Encode",
     description:
-      "Led the development of the official website of Encode, PDEU and worked on the homepage of the website",
+      "Led the development of the official website of Encod  - The Computer Science Club of PDEU and worked on the homepage of the website",
     subDescription: "August 2024",
     image:
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fencodecollage.webp?alt=media&token=372af36d-dfe0-4e46-b294-58a1b8a7696c",
