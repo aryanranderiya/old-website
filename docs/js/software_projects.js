@@ -254,6 +254,11 @@ function processDataAndHidePreloader(snapshot) {
       const banner_image_URL =
         project.banner_image_URL || "/docs/media/bg_aryan_swirl.webp";
 
+      const img = new Image();
+      img.src = project.banner_image_URL;
+      img.style.display = "none";
+      document.body.appendChild(img);
+
       const replacements = {
         HTML: "HTML5-plain colored",
         CSS: "CSS3-plain colored",

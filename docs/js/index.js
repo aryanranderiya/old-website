@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   onValue(nowRef, setupNowItems);
 
   setupServices();
+  clientProjectsSetup();
 });
 
 function setupNowItems(snapshot) {
@@ -692,3 +693,166 @@ function removeBlackCover() {
 
   setTimeout(() => welcoming.remove(), 1600);
 }
+
+const clientProjects = [
+  {
+    title: "Rezrek",
+    description:
+      "Built a content-driven e-commerce marketplace MVP with features like discover & explore pages, wishlists, carts, reviews, user/vendor dashboards and more.",
+    subDescription: "May 2024 - Present",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Frezrekss.webp?alt=media&token=67b6e308-da51-407b-8dee-bb1b8115a53d",
+    anchorText: "rezrek.com",
+    link: "https://rezrek.com",
+  },
+  {
+    title: "LyfeLane",
+    description:
+      "Developed frontend & backend for the official MWI brand website.",
+    subDescription: "August 2024 - Present",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fmwicollage.webp?alt=media&token=a82d1103-c61a-4624-8ce9-3b9826fc7e75",
+    link: "https://mwi.gg",
+    anchorText: "mwi.gg",
+  },
+  {
+    title: "Encode - The Computer Science Club",
+    description:
+      "Led the development of the official website of Encode, PDEU and worked on the homepage of the website",
+    subDescription: "August 2024",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fencodecollage.webp?alt=media&token=372af36d-dfe0-4e46-b294-58a1b8a7696c",
+    link: "https://encodepdeu.vercel.app",
+  },
+
+  {
+    title: "Move With Intention",
+    description:
+      "Developed frontend & backend for the official MWI brand website.",
+    subDescription: "August 2024 - Present",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fmwicollage.webp?alt=media&token=a82d1103-c61a-4624-8ce9-3b9826fc7e75",
+    link: "https://mwi.gg",
+    anchorText: "mwi.gg",
+  },
+];
+
+function prefetchImages() {
+  clientProjects.forEach((project) => {
+    const img = new Image();
+    img.src = project.image; // Set the source to start loading the image
+    img.style.display = "none"; // Hide the image so it doesn't affect layout
+    document.body.appendChild(img); // Append it to the DOM to trigger caching
+  });
+}
+
+function clientProjectsSetup() {
+  prefetchImages();
+
+  let currentProjectIndex = 0; // Track the current project
+
+  // Select elements
+  const clientsection = document.querySelector(".clientsection");
+  const titleElement = document.querySelector(".clientsection .description h1");
+  const anchorTag = document.querySelector(".clientsection .description a");
+  const subDescription = document.querySelector(
+    ".clientsection .description h3"
+  );
+  const descriptionElement = document.querySelector(
+    ".clientsection .description div"
+  );
+  const imageElement = document.querySelector(".clientsection .image-grid img");
+
+  function updateProject() {
+    const currentProject = clientProjects[currentProjectIndex];
+    titleElement.textContent = currentProject.title;
+    subDescription.textContent = currentProject.subDescription;
+    descriptionElement.textContent = currentProject.description;
+    anchorTag.innerHTML =
+      (currentProject.anchorText || `View Project`) +
+      ` <span class="material-symbols-outlined">
+            arrow_outward
+          </span>`;
+    anchorTag.href = currentProject.link || "https://aryanranderiya.com";
+    imageElement.src = currentProject.image;
+  }
+
+  function goToNextProject() {
+    currentProjectIndex = (currentProjectIndex + 1) % clientProjects.length; // Loop back to the first project
+    updateProject();
+  }
+
+  function goToPreviousProject() {
+    currentProjectIndex =
+      (currentProjectIndex - 1 + clientProjects.length) % clientProjects.length; // Loop back to the last project
+    updateProject();
+  }
+
+  document
+    .querySelector(".buttons_div button:first-child")
+    .addEventListener("click", goToPreviousProject);
+  document
+    .querySelector(".buttons_div button:last-child")
+    .addEventListener("click", goToNextProject);
+
+  const buttonsDiv = document.querySelector(".buttons_div");
+  const buttonsdivbuttons = document.querySelectorAll(".buttons_div button");
+
+  [...buttonsdivbuttons, anchorTag].forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.3)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    element.addEventListener("mouseout", () => {
+      cursorTransformShadowBlend();
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+    });
+  });
+
+  // Set up the IntersectionObserver
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // If the buttons_div is in the viewport, set opacity to 1 (visible)
+          buttonsDiv.style.opacity = 1;
+        } else {
+          // If it's out of the viewport, set opacity to 0 (hidden)
+          buttonsDiv.style.opacity = 0;
+        }
+      });
+    },
+    {
+      threshold: 0.6,
+    }
+  );
+
+  // Observe the clientsection
+  observer.observe(clientsection);
+
+  // Set up the IntersectionObserver
+  const observer2 = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+        } else {
+          entry.target.style.opacity = 0;
+        }
+      });
+    },
+    {
+      threshold: 0.4,
+    }
+  );
+
+  observer2.observe(clientsection);
+
+  // Initial project load
+  updateProject();
+}
+
+clientProjectsSetup();
