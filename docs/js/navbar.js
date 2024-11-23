@@ -1,3 +1,14 @@
+[
+  "media/ss_Index.webp",
+  "media/ss_SoftwareProjects.webp",
+  "media/ss_DesignProjects.webp",
+  "media/ss_Resume.webp",
+  "media/ss_Contact.webp",
+].forEach((imageUrl) => {
+  const img = new Image();
+  img.src = imageUrl;
+});
+
 async function loadNavbar() {
   const navbarContainer = document.getElementById("navbarContainer");
 

@@ -904,7 +904,7 @@ const clientProjects = [
   {
     title: "Rezrek",
     description:
-      "Built a content-driven e-commerce marketplace MVP with features like discover & explore pages, wishlists, carts, reviews, user/vendor dashboards and more.",
+      "Built a content-driven (similiar to Instagram & Pinterest) e-commerce marketplace MVP from scratch",
     subDescription: "May 2024 - Present",
     image:
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Frezrekss.webp?alt=media&token=67b6e308-da51-407b-8dee-bb1b8115a53d",
@@ -913,7 +913,8 @@ const clientProjects = [
   },
   {
     title: "LyfeLane",
-    description: "Solely built a Greeting Card creation platform.",
+    description:
+      "Solely built a Greeting Card creation platform with features similiar to Canva.",
     subDescription: "September 2024",
     image:
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Flyfelanecollage.webp?alt=media&token=56684174-0ef3-4eae-8a66-6a5057e553f3",
@@ -923,7 +924,7 @@ const clientProjects = [
   {
     title: "Encode",
     description:
-      "Led the development of the official website of Encod  - The Computer Science Club of PDEU and worked on the homepage of the website",
+      "Led the development of the official website of Encode - The Computer Science Club of PDEU and worked on the homepage of the website",
     subDescription: "August 2024",
     image:
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fencodecollage.webp?alt=media&token=372af36d-dfe0-4e46-b294-58a1b8a7696c",
@@ -958,14 +959,11 @@ function clientProjectsSetup() {
 
   // Select elements
   const clientsection = document.querySelector(".clientsection");
-  const titleElement = document.querySelector(".clientsection .description h1");
+  const titleElement = document.querySelector(".clienttitle");
+
   const anchorTag = document.querySelector(".clientsection .description a");
-  const subDescription = document.querySelector(
-    ".clientsection .description h3"
-  );
-  const descriptionElement = document.querySelector(
-    ".clientsection .description div"
-  );
+  const descriptionElement = document.querySelector(".clientdescription");
+  const subDescription = document.querySelector(".clientsubdescription");
   const imageElement = document.querySelector(".clientsection .image-grid img");
 
   function updateProject() {
