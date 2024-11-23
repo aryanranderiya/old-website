@@ -19,4 +19,4 @@ Allow: /media/ss_Index.webp
 Allow: /media/ss_Resume.webp
 Allow: /media/ss_SoftwareProjects.webp
 Allow: /media/professional_photo.webp
-Sitemap: /sitemap.xml
+Sitemap: https://aryanranderiya.com/sitemap.xml
