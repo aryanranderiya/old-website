@@ -244,12 +244,22 @@ function processDataAndHidePreloader(snapshot) {
   const cards = document.querySelector(".cards");
 
   Object.entries(projects)
-    .sort(([, projectA], [, projectB]) => projectB.Likes - projectA.Likes)
+    .sort(([, projectA], [, projectB]) => {
+      // Prioritize favourite projects
+      if (projectA.favourite && !projectB.favourite) return -1;
+      if (!projectA.favourite && projectB.favourite) return 1;
+
+      // If both are favourites or neither, sort by Likes
+      return projectB.Likes - projectA.Likes;
+    })
     .map(([projectId, project]) => {
       const projectTitle = project.project_title;
       const projectDesc =
         project.project_short_description || project.project_description;
       const projectType = project.project_type;
+      const isFeatured = project.featured || false;
+      const isClientWork = project.client_work || false;
+      const hackathon = project.hackathon || false;
       const projectTechStack = project.project_tech_stack || [];
       const banner_image_URL =
         project.banner_image_URL || "/docs/media/bg_aryan_swirl.webp";
@@ -274,16 +284,36 @@ function processDataAndHidePreloader(snapshot) {
 
       card.innerHTML = `
       <div class="card-content">
-        <div class="card-image-div">
-          <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.jpg" data-src="${banner_image_URL}" alt="Project Card Image">
-          </img>
-        </div>
-        <div class="card-info-wrapper">
+      </div>
+      <div class="card-image-div">
+      <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.jpg" data-src="${banner_image_URL}" alt="Project Card Image">
+      </img>
+      </div>
+      <div class="card-info-wrapper">
+      <div class="tagsparent">
+       
+      </div>
           <div class="card-info">
             <div class="card-info-title">
               <span class="card-title">${projectTitle}</span>
               <span class="card-type"><i>${projectType}</i></span>
               <div class="card-tech-stack">
+              ${
+                isFeatured
+                  ? `<div class='featuredtag'><span class="material-symbols-rounded">star</span>Featured</div>`
+                  : ``
+              }
+              ${
+                isClientWork
+                  ? `<div class='clienttag'><span class="material-symbols-rounded">payments</span>Freelance</div>`
+                  : ``
+              }${
+        isClientWork
+          ? `<div class='hackathon'><span class="material-symbols-rounded">trophy</span>Hackathon</div>`
+          : ``
+      }
+              
+
                 ${projectTechStack
                   .map((element) => {
                     const replacedElement =
@@ -293,6 +323,7 @@ function processDataAndHidePreloader(snapshot) {
                     }&nbsp;</text></div>`;
                   })
                   .join(" ")}
+                  
               </div>
             </div>
             <span class="card-desc">${projectDesc}</span>

@@ -52,10 +52,10 @@
 .card-title {
   color: white;
   font-size: 1.5em;
-  font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: bold;
   white-space: normal;
   text-align: left;
 }
@@ -138,6 +138,7 @@
 }
 
 .card-info-wrapper {
+  position: relative;
   align-items: center;
   flex-grow: 1;
   justify-content: flex-start;
@@ -333,7 +334,6 @@ option {
   z-index: 2;
   gap: 15%;
   font-size: 1em;
-  font-weight: bold;
   margin: 0;
   background: rgba(10, 10, 10, 1);
   border: 1px solid rgb(48, 48, 48);
@@ -432,4 +432,38 @@ option {
     opacity: 0;
     display: none;
   }
+}
+
+.tagsparent {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  gap: 5px;
+}
+
+.featuredtag,
+.clienttag,
+.hackathon {
+  background-color: rgb(255, 230, 10);
+  border-radius: 100px;
+  padding: 0px 10px;
+  color: black;
+  padding: 0.7% 2%;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.featuredtag span,
+.clienttag span,
+.hackathon span {
+  font-size: 17px;
+}
+.hackathon {
+  background-color: rgb(46, 60, 255);
+  color: white;
+}
+.clienttag {
+  background-color: rgb(0, 255, 64);
 }
