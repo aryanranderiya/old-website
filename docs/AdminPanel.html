@@ -1,193 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Admin Panel</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel='stylesheet' type='text/css' href='css/admin_panel.css'>
+    <link rel="stylesheet" type="text/css" href="css/admin_panel.css" />
 
-    <script type="module" src='js/admin_panel.js'></script>
+    <script type="module" src="js/admin_panel.js"></script>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./media/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./media/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./media/favicons/favicon-16x16.png">
-    <link rel="manifest" href="./media/favicons/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#00bbff">
-    <meta name="theme-color" content="#ffffff">
-</head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./media/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./media/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./media/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./media/favicons/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#00bbff" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-<body>
-
+  <body>
     <form class="form" id="submit-project-form">
-        <p class="title">Create a New Project! </p>
+      <p class="title">Create a New Project!</p>
 
-        <div class="flex">
+      <div class="flex"></div>
+
+      <h3>Project Title *</h3>
+      <input
+        class="input"
+        type="text"
+        id="project_title"
+        placeholder="Enter Project Title"
+      />
+
+      <hr />
+
+      <h3>Project Description*</h3>
+      <textarea
+        placeholder="Enter Description"
+        name="project_description"
+        id="project_description"
+        rows="4"
+        cols="50"
+      ></textarea>
+
+      <hr />
+
+      <h3>Project Short Description*</h3>
+      <textarea
+        placeholder="Enter Description"
+        name="project_short_desc"
+        id="project_short_desc"
+        rows="4"
+        cols="50"
+      ></textarea>
+
+      <hr />
+
+      <h3>Project Creation Date *</h3>
+      <input
+        class="input"
+        type="text"
+        id="project_creation"
+        placeholder="Enter Project Creation Date (Month Year)"
+      />
+
+      <hr />
+
+      <h3>Personal Comments</h3>
+      <textarea
+        placeholder="Enter Personal Comments"
+        id="personal_comments"
+        rows="4"
+        cols="50"
+      ></textarea>
+
+      <hr />
+
+      <label>
+        <h3>Application Type: *</h3>
+        <input
+          type="radio"
+          id="project_type1"
+          name="project_type"
+          value="Mobile Application"
+        />
+        <label for="project_type1">Mobile Application</label><br />
+        <input
+          type="radio"
+          id="project_type2"
+          name="project_type"
+          value="Web Application"
+        />
+        <label for="project_type2">Web Application</label><br />
+        <input
+          type="radio"
+          id="project_type3"
+          name="project_type"
+          value="Desktop Application"
+        />
+        <label for="project_type3">Desktop Application</label><br />
+        <input
+          type="radio"
+          id="project_type4"
+          name="project_type"
+          value="Python Script"
+        />
+        <label for="project_type4">Python Script</label><br />
+
+        <input
+          type="radio"
+          name="project_type"
+          value="other172t63786123"
+          checked
+        />&nbsp;Other
+        <input type="text" placeholder="Write In" class="other_project_type" />
+      </label>
+
+      <hr />
+
+      <div>
+        <h3>Tech Stack</h3>
+        <input
+          type="checkbox"
+          id="tech_stack1"
+          name="tech_stack"
+          value="Python"
+        />
+        <label for="tech_stack1">Python</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack2"
+          name="tech_stack"
+          value="Android"
+        />
+        <label for="tech_stack2">Android</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack3"
+          name="tech_stack"
+          value="Java"
+        />
+        <label for="tech_stack3">Java</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack4"
+          name="tech_stack"
+          value="HTML"
+        />
+        <label for="tech_stack4">HTML5</label><br />
+
+        <input type="checkbox" id="tech_stack5" name="tech_stack" value="CSS" />
+        <label for="tech_stack5">CSS3</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack6"
+          name="tech_stack"
+          value="JavaScript"
+        />
+        <label for="tech_stack6">JavaScript</label><br />
+
+        <input type="checkbox" id="tech_stack7" name="tech_stack" value="SQL" />
+        <label for="tech_stack7">SQL</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack8"
+          name="tech_stack"
+          value="MongoDB"
+        />
+        <label for="tech_stack8">MongoDB</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack9"
+          name="tech_stack"
+          value="Express"
+        />
+        <label for="tech_stack9">Express</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack10"
+          name="tech_stack"
+          value="React"
+        />
+        <label for="tech_stack10">React</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack11"
+          name="tech_stack"
+          value="Nodejs"
+        />
+        <label for="tech_stack11">Node.js</label><br />
+
+        <input
+          type="checkbox"
+          id="tech_stack12"
+          name="tech_stack"
+          value="Flask"
+        />
+        <label for="tech_stack12">Flask</label><br />
+
+        <input type="radio" name="project_type_radio" value="other" checked />
+
+        &nbsp;Other (Refer to
+        <a href="https://devicon.dev/" target="_blank">devicon.dev</a> for valid
+        Icons)
+
+        <input
+          type="text"
+          class="other_project_tech"
+          placeholder="Write In (Comma Separated)"
+        />
+      </div>
+
+      <hr />
+
+      <label>
+        <h3>Demo Type: (For the Main Video/Image)*</h3>
+        <input type="radio" id="demo_type1" name="demo_type" value="demo_pc" />
+        <label for="demo_type1">PC (Laptop/Computer)</label><br />
+        <input
+          type="radio"
+          id="demo_type2"
+          name="demo_type"
+          value="demo_mobile"
+        />
+        <label for="demo_type2">Mobile</label><br />
+        <input
+          type="radio"
+          id="demo_type3"
+          name="demo_type"
+          value="demo_pc_image"
+        />
+        <label for="demo_type3">PC Image</label><br />
+        <input
+          type="radio"
+          id="demo_type3"
+          name="demo_type"
+          value="none"
+          checked
+        />
+        <label for="demo_type3">None</label><br />
+      </label>
+
+      <hr />
+
+      <h3>Project Main Demo:</h3>
+      <input
+        type="file"
+        id="file-selector-demo"
+        accept=".jpg, .jpeg, .png, .mp4"
+      />
+
+      <hr />
+
+      <h3>Github Link</h3>
+      <input
+        class="input"
+        id="githubLink"
+        type="url"
+        placeholder="Enter Github Link"
+      />
+
+      <hr />
+
+      <h3>Project Banner Image: (SoftwareProjects.html) *</h3>
+      <input type="file" id="file-selector-image" accept=".jpg, .jpeg, .png" />
+
+      <hr />
+
+      <h3>Project Image Gallery: (Can Choose Multiple Files)</h3>
+      <input
+        type="file"
+        accept=".jpg, .jpeg, .png"
+        id="project_images"
+        multiple
+      />
+
+      <hr />
+
+      <h3>Project Documentation: (MarkDown / Normal Text)</h3>
+      <textarea
+        name="documentation_text"
+        id="documentation_text"
+        cols="30"
+        rows="10"
+        placeholder="Enter Documentation"
+      ></textarea>
+
+      <hr />
+
+      <h3>Links</h3>
+      <div class="links">
+        <div class="link">
+          <input class="link_text" type="text" placeholder="Enter Link Name" />
+          <input class="link_url" type="url" placeholder="Enter Link URL" />
         </div>
+      </div>
+      <button class="add_another_link" type="button">Add another Link</button>
 
-        <h3>Project Title *</h3>
-        <input class="input" type="text" id="project_title" placeholder="Enter Project Title">
+      <hr />
 
-        <hr>
-
-        <h3>Project Description*</h3>
-        <textarea placeholder="Enter Description" name="project_description" id="project_description" rows="4"
-            cols="50"></textarea>
-
-        <hr>
-
-        <h3>Project Short Description*</h3>
-        <textarea placeholder="Enter Description" name="project_short_desc" id="project_short_desc" rows="4"
-            cols="50"></textarea>
-
-        <hr>
-
-        <h3>Project Creation Date *</h3>
-        <input class="input" type="text" id="project_creation" placeholder="Enter Project Creation Date (Month Year)">
-
-        <hr>
-
-        <h3>Personal Comments</h3>
-        <textarea placeholder="Enter Personal Comments" id="personal_comments" rows="4" cols="50"></textarea>
-
-        <hr>
-
-        <label>
-            <h3>Application Type: *</h3>
-            <input type="radio" id="project_type1" name="project_type" value="Mobile Application">
-            <label for="project_type1">Mobile Application</label><br>
-            <input type="radio" id="project_type2" name="project_type" value="Web Application">
-            <label for="project_type2">Web Application</label><br>
-            <input type="radio" id="project_type3" name="project_type" value="Desktop Application">
-            <label for="project_type3">Desktop Application</label><br>
-            <input type="radio" id="project_type4" name="project_type" value="Python Script">
-            <label for="project_type4">Python Script</label><br>
-
-            <input type="radio" name="project_type" value="other172t63786123" checked>&nbsp;Other
-            <input type="text" placeholder="Write In" class="other_project_type" />
-        </label>
-
-        <hr>
-
-        <div>
-            <h3>Tech Stack</h3>
-            <input type="checkbox" id="tech_stack1" name="tech_stack" value="Python">
-            <label for="tech_stack1">Python</label><br>
-
-            <input type="checkbox" id="tech_stack2" name="tech_stack" value="Android">
-            <label for="tech_stack2">Android</label><br>
-
-            <input type="checkbox" id="tech_stack3" name="tech_stack" value="Java">
-            <label for="tech_stack3">Java</label><br>
-
-            <input type="checkbox" id="tech_stack4" name="tech_stack" value="HTML">
-            <label for="tech_stack4">HTML5</label><br>
-
-            <input type="checkbox" id="tech_stack5" name="tech_stack" value="CSS">
-            <label for="tech_stack5">CSS3</label><br>
-
-            <input type="checkbox" id="tech_stack6" name="tech_stack" value="JavaScript">
-            <label for="tech_stack6">JavaScript</label><br>
-
-            <input type="checkbox" id="tech_stack7" name="tech_stack" value="SQL">
-            <label for="tech_stack7">SQL</label><br>
-
-            <input type="checkbox" id="tech_stack8" name="tech_stack" value="MongoDB">
-            <label for="tech_stack8">MongoDB</label><br>
-
-            <input type="checkbox" id="tech_stack9" name="tech_stack" value="Express">
-            <label for="tech_stack9">Express</label><br>
-
-            <input type="checkbox" id="tech_stack10" name="tech_stack" value="React">
-            <label for="tech_stack10">React</label><br>
-
-            <input type="checkbox" id="tech_stack11" name="tech_stack" value="Nodejs">
-            <label for="tech_stack11">Node.js</label><br>
-
-            <input type="checkbox" id="tech_stack12" name="tech_stack" value="Flask">
-            <label for="tech_stack12">Flask</label><br>
-
-            <input type="radio" name="project_type_radio" value="other" checked>
-
-            &nbsp;Other (Refer to <a href="https://devicon.dev/" target="_blank">devicon.dev</a> for valid Icons)
-
-            <input type="text" class="other_project_tech" placeholder="Write In (Comma Separated)" />
-        </div>
-
-        <hr>
-
-        <label>
-            <h3>Demo Type: (For the Main Video/Image)*</h3>
-            <input type="radio" id="demo_type1" name="demo_type" value="demo_pc">
-            <label for="demo_type1">PC (Laptop/Computer)</label><br>
-            <input type="radio" id="demo_type2" name="demo_type" value="demo_mobile">
-            <label for="demo_type2">Mobile</label><br>
-            <input type="radio" id="demo_type3" name="demo_type" value="demo_pc_image">
-            <label for="demo_type3">PC Image</label><br>
-            <input type="radio" id="demo_type3" name="demo_type" value="none" checked>
-            <label for="demo_type3">None</label><br>
-        </label>
-
-        <hr>
-
-        <h3>Project Main Demo:</h3>
-        <input type="file" id="file-selector-demo" accept=".jpg, .jpeg, .png, .mp4">
-
-        <hr>
-
-        <h3>Github Link</h3>
-        <input class="input" id="githubLink" type="url" placeholder="Enter Github Link">
-
-        <hr>
-
-        <h3>Project Banner Image: (SoftwareProjects.html) *</h3>
-        <input type="file" id="file-selector-image" accept=".jpg, .jpeg, .png">
-
-        <hr>
-
-        <h3>Project Image Gallery: (Can Choose Multiple Files)</h3>
-        <input type="file" accept=".jpg, .jpeg, .png" id="project_images" multiple>
-
-        <hr>
-
-        <h3>Project Documentation: (MarkDown / Normal Text)</h3>
-        <textarea name="documentation_text" id="documentation_text" cols="30" rows="10"
-            placeholder="Enter Documentation"></textarea>
-
-        <hr>
-
-        <h3>Links</h3>
-        <div class="links">
-            <div class="link">
-                <input class="link_text" type="text" placeholder="Enter Link Name">
-                <input class="link_url" type="url" placeholder="Enter Link URL">
-            </div>
-        </div>
-        <button class="add_another_link" type="button">Add another Link</button>
-
-        <hr>
-
-        <button class="submit">Create New Project</button>
+      <button class="submit">Create New Project</button>
     </form>
 
     <div>
-        <form class="form" id="submit-resume-form">
-            <h1>Select Resume</h1>
-            <input type="file" id="file-select-resume" accept=".pdf" required>
-            <button class="submit">Upload Resume</button>
-        </form>
+      <form class="form" id="submit-resume-form">
+        <h1>Select Resume</h1>
+        <input type="file" id="file-select-resume" accept=".pdf" required />
+        <button class="submit">Upload Resume</button>
+      </form>
 
-        <form class="form" id="submit-softwarelogos-form">
-            <h1>Add Software Logos</h1>
-            <input type="url" name="software_logo" id="software_logo"
-                placeholder="Insert URL from 'https://devicon.dev/'">
-            <button class="submit">Add</button>
-        </form>
-
+      <form class="form" id="submit-softwarelogos-form">
+        <h1>Add Software Logos</h1>
+        <input
+          type="url"
+          name="software_logo"
+          id="software_logo"
+          placeholder="Insert URL from 'https://devicon.dev/'"
+        />
+        <button class="submit">Add</button>
+      </form>
     </div>
-
-</body>
-
+  </body>
 </html>

@@ -245,12 +245,20 @@ function processDataAndHidePreloader(snapshot) {
 
   Object.entries(projects)
     .sort(([, projectA], [, projectB]) => {
-      // Prioritize favourite projects
-      if (projectA.favourite && !projectB.favourite) return -1;
-      if (!projectA.favourite && projectB.favourite) return 1;
+      if (projectA.featured && !projectB.featured) return -1;
+      if (!projectA.featured && projectB.featured) return 1;
 
-      // If both are favourites or neither, sort by Likes
-      return projectB.Likes - projectA.Likes;
+      if (projectB.Likes !== projectA.Likes)
+        return projectB.Likes - projectA.Likes;
+
+      if (projectA.client_work && !projectB.client_work) return -1;
+      if (!projectA.client_work && projectB.client_work) return 1;
+
+      if (projectA.bad && !projectB.bad) return 1;
+      if (!projectA.bad && projectB.bad) return -1;
+
+      // If neither project is bad, retain the order
+      return 0;
     })
     .map(([projectId, project]) => {
       const projectTitle = project.project_title;
@@ -277,6 +285,7 @@ function processDataAndHidePreloader(snapshot) {
         Tailwind: "tailwindcss-original colored",
         Vercel: "vercel-original",
         nextjs: "nextjs-plain",
+        denojs: "denojs-wordmark",
       };
 
       const card = document.createElement("div");
@@ -296,22 +305,27 @@ function processDataAndHidePreloader(snapshot) {
           <div class="card-info">
             <div class="card-info-title">
               <span class="card-title">${projectTitle}</span>
-              <span class="card-type"><i>${projectType}</i></span>
+              <span class="card-type"><i>${
+                projectType === "Web Application" ? "Website" : projectType
+              }</i></span>
               <div class="card-tech-stack">
+              <div class="special-tags">
               ${
                 isFeatured
-                  ? `<div class='featuredtag'><span class="material-symbols-rounded">star</span>Featured</div>`
+                  ? `<div class='featuredtag'><span class="material-symbols-rounded">star</span>Featured Project</div>`
                   : ``
               }
               ${
                 isClientWork
                   ? `<div class='clienttag'><span class="material-symbols-rounded">payments</span>Freelance</div>`
                   : ``
-              }${
-        isClientWork
-          ? `<div class='hackathon'><span class="material-symbols-rounded">trophy</span>Hackathon</div>`
-          : ``
-      }
+              }
+              ${
+                hackathon
+                  ? `<div class='hackathon'><span class="material-symbols-rounded">trophy</span>Hackathon Project</div>`
+                  : ``
+              }
+              </div>
               
 
                 ${projectTechStack
@@ -518,7 +532,6 @@ function hoverOnCards() {
         if (otherCard !== card) addClass(otherCard, "grayscale");
       });
     });
-
     card.addEventListener("mouseout", () => {
       allCard.forEach((otherCard) => removeClass(otherCard, "grayscale"));
     });
@@ -526,7 +539,7 @@ function hoverOnCards() {
 
   const cardImages = document.querySelectorAll(".card-image");
   cardImages.forEach(function (img) {
-    img.onload = function () {
+    img.onload = () => {
       img.src = img.getAttribute("data-src");
     };
 

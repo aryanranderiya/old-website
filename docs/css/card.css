@@ -35,7 +35,7 @@
   -webkit-transition: filter 0.2s ease, opacity 0.5s ease, transform 0.5s ease,
     box-shadow 0.3s ease;
 
-  filter: grayscale(0%) brightness(100%);
+  filter: brightness(100%);
   border: 1px solid rgb(48, 48, 48);
   transform: translateY(10%);
 }
@@ -46,7 +46,7 @@
 }
 
 .card.grayscale {
-  filter: grayscale(100%) brightness(30%);
+  filter: brightness(60%);
 }
 
 .card-title {
@@ -75,6 +75,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.2em;
+}
+
+.special-tags {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em;
+  margin-bottom: 5px;
 }
 
 .tech_stack_item {
@@ -190,10 +198,6 @@
 @media screen and (max-width: 600px) {
   .input_icon {
     margin: 5% !important;
-  }
-
-  .cards {
-    margin-left: 7% !important;
   }
 
   .card {
