@@ -187,6 +187,15 @@ function generateMerchItems(heading_titles) {
       category: "Apparel",
       brand: "Aryan Randeriya",
       items: [
+        { imgSrc: "media/apparel/time mockup.webp", title: "Time" },
+        {
+          imgSrc: "media/apparel/Children Of The Cosmos.webp",
+          title: "Children Of The Cosmos",
+        },
+        {
+          imgSrc: "media/apparel/Ethereal Mockup.webp",
+          title: "Ethereal Angels",
+        },
         { imgSrc: "media/apparel/BlueRose Mockup 1.webp", title: "Blue Rose" },
         { imgSrc: "media/apparel/Butterfly Mockup 1.webp", title: "Butterfly" },
         { imgSrc: "media/apparel/Hope Mockup 1.webp", title: "Hope" },
@@ -205,11 +214,11 @@ function generateMerchItems(heading_titles) {
           title: "Interstellar 2",
         },
         { imgSrc: "media/apparel/Tshirt Dragon.webp", title: "Dragon" },
-        { imgSrc: "media/apparel/Tshirt Nuclear.webp", title: "Nuclear" },
-        {
-          imgSrc: "media/apparel/Tshirt Spiderverse.webp",
-          title: "Spiderverse",
-        },
+        // { imgSrc: "media/apparel/Tshirt Nuclear.webp", title: "Nuclear" },
+        // {
+        // imgSrc: "media/apparel/Tshirt Spiderverse.webp",
+        // title: "Spiderverse",
+        // },
       ],
     },
   ];
@@ -223,7 +232,7 @@ function generateMerchItems(heading_titles) {
     index++;
 
     if (index < 10) {
-      index = "0" + index;
+      index = `0${index}`;
     }
 
     const merchItem = document.createElement("div");
@@ -234,36 +243,36 @@ function generateMerchItems(heading_titles) {
 
     itemImg.innerHTML = `<img src="${item.imgSrc}" alt="" loading="eager" class="apparel_image" />`;
 
-    const itemCopy = document.createElement("div");
-    addClass(itemCopy, "item-copy");
+    // const itemCopy = document.createElement("div");
+    // addClass(itemCopy, "item-copy");
 
-    const itemCopy1 = document.createElement("div");
-    addClass(itemCopy1, "item-copy-1");
+    // const itemCopy1 = document.createElement("div");
+    // addClass(itemCopy1, "item-copy-1");
 
-    const shape1 = document.createElement("div");
-    addClass(shape1, "shape");
-    shape1.innerHTML = `<div id="number"><span>${index}</span></div><div class="text-right"><span>Apparel</span></div>`;
+    // const shape1 = document.createElement("div");
+    // addClass(shape1, "shape");
+    // shape1.innerHTML = `<div id="number"><span>${index}</span></div><div class="text-right"><span>Apparel</span></div>`;
 
-    itemCopy1.appendChild(shape1);
+    // itemCopy1.appendChild(shape1);
 
-    const itemCopy2 = document.createElement("div");
-    addClass(itemCopy2, "item-copy-2");
+    // const itemCopy2 = document.createElement("div");
+    // addClass(itemCopy2, "item-copy-2");
 
-    const shape2 = document.createElement("div");
-    addClass(shape2, "shape");
+    // const shape2 = document.createElement("div");
+    // addClass(shape2, "shape");
 
-    shape2.innerHTML = `<div class="text-left"><span>Aryan Randeriya</span></div><div class="text-right"><span>${item.title}</span></div>`;
+    // shape2.innerHTML = `<div class="text-left"><span>Aryan Randeriya</span></div><div class="text-right"><span>${item.title}</span></div>`;
 
-    itemCopy2.appendChild(shape2);
+    // itemCopy2.appendChild(shape2);
 
-    itemCopy.appendChild(itemCopy1);
-    itemCopy.appendChild(itemCopy2);
+    // itemCopy.appendChild(itemCopy1);
+    // itemCopy.appendChild(itemCopy2);
 
     merchItem.appendChild(itemImg);
-    merchItem.appendChild(itemCopy);
+    // merchItem.appendChild(itemCopy);
 
     merchItemsContainer.appendChild(merchItem);
-    normalObserver.observe(merchItem);
+    // normalObserver.observe(merchItem);
   }
   heading_titles.forEach((title) => titleobserver2.observe(title));
 }
