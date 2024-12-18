@@ -395,15 +395,16 @@ function setupServices() {
     let tl0 = gsap.timeline({
       scrollTrigger: {
         trigger: ".services_section",
-        start: "top+=100 bottom",
+        start: "top+=100 bottom", // Start point of the animation
+        end: "bottom top", // You can define an end point if needed
         scrub: true,
+        markers: true, // Enable markers to visualize the ScrollTrigger
       },
     });
 
     tl0.to(".service_name", {
       color: "black",
       x: "0%",
-
       stagger: {
         amount: 1.5,
         from: "start",
@@ -418,15 +419,16 @@ function setupServices() {
     let tl0 = gsap.timeline({
       scrollTrigger: {
         trigger: ".services_section",
-        start: "top+=300 bottom",
+        start: "top+=300 bottom", // Start point of the animation
+        end: "bottom-=300 top", // You can define an end point if needed
         scrub: true,
+        markers: true, // Enable markers to visualize the ScrollTrigger
       },
     });
 
     tl0.to(".service_name", {
       color: "black",
       x: "0%",
-
       stagger: {
         amount: 1.5,
         from: "start",
@@ -906,7 +908,7 @@ const clientProjects = [
   {
     title: "Rezrek",
     description:
-      "Built a content-driven (similiar to Instagram & Pinterest) e-commerce marketplace MVP from scratch",
+      "Built a content-driven (similar to Instagram & Pinterest) e-commerce marketplace MVP from scratch",
     subDescription: "May 2024 - Present",
     images: [
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Frezrekss.webp?alt=media&token=67b6e308-da51-407b-8dee-bb1b8115a53d",
@@ -918,7 +920,7 @@ const clientProjects = [
   {
     title: "LyfeLane",
     description:
-      "Solely built a Greeting Card creation platform with features similiar to Canva.",
+      "Solely built a Greeting Card creation platform with features similar to Canva.",
     subDescription: "September 2024",
     images: [
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Flyfelanecollage.webp?alt=media&token=56684174-0ef3-4eae-8a66-6a5057e553f3",
@@ -938,8 +940,8 @@ const clientProjects = [
       "https://private-user-images.githubusercontent.com/64796509/360076613-3e60af31-6b4f-47f1-b881-97b7e2c4c5be.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ1NTg4MjQsIm5iZiI6MTczNDU1ODUyNCwicGF0aCI6Ii82NDc5NjUwOS8zNjAwNzY2MTMtM2U2MGFmMzEtNmI0Zi00N2YxLWI4ODEtOTdiN2UyYzRjNWJlLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjE4VDIxNDg0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIzNmQ1ZjEyNTM1YzI4MTA5NjJjY2QyMjMyNTQ3YjE5ZjIyNzYwY2RiZDRiY2ZjMWEwNmZkZmY3MWE4YTgzZDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ty4LAUn7t9747kMQ628E3M1_nFc1N_49ljLibN-Blq0",
     ],
     link: "https://encodepdeu.vercel.app",
+    anchorText: "encodepdeu.vercel.app",
   },
-
   {
     title: "Move With Intention",
     description:
@@ -962,134 +964,183 @@ function prefetchImages() {
     document.body.appendChild(img); // Append it to the DOM to trigger caching
   });
 }
+
+// function clientProjectsSetup() {
+//   prefetchImages();
+
+//   let currentProjectIndex = 0;
+//   let currentImageIndex = 0;
+
+//   // Select elements
+//   const clientsection = document.querySelector(".clientsection");
+//   const titleElement = document.querySelector(".clientsection .title");
+
+//   const anchorTag = document.querySelector(".clientsection .description a");
+//   const descriptionElement = document.querySelector(
+//     ".clientsection .description"
+//   );
+//   const imageElement = document.querySelector(".clientsection img");
+
+//   const buttonsDiv = document.querySelector(".buttons_div"); // Define buttons container
+//   const projectTitlesContainer = document.querySelector(".projectitles"); // The container for the project titles
+
+//   // Dynamically map project titles
+//   clientProjects.forEach((project, index) => {
+//     // const projectTitleDiv = document.createElement("div");
+//     // projectTitleDiv.classList.add("project-title");
+//     // projectTitleDiv.textContent = project.title;
+//     // projectTitlesContainer.appendChild(projectTitleDiv);
+//     //   projectTitleDiv.addEventListener("click", () => {
+//     //     currentProjectIndex = index;
+//     //     currentImageIndex = 0; // Reset to the first image
+//     //     updateProject();
+//     //     // Remove highlight from all titles
+//     //     const allProjectTitles = document.querySelectorAll(".project-title");
+//     //     allProjectTitles.forEach((title) =>
+//     //       title.classList.remove("highlighted")
+//     //     );
+//     //     // Highlight the selected title
+//     //     projectTitleDiv.classList.add("highlighted");
+//     //   });
+//   });
+
+//   // Update project content
+//   function updateProject() {
+//     const currentProject = clientProjects[currentProjectIndex];
+//     titleElement.textContent = currentProject.title;
+//     descriptionElement.textContent = currentProject.description;
+//     anchorTag.innerHTML = `${
+//       currentProject.anchorText || "View Project"
+//     } <span class="material-symbols-outlined">arrow_outward</span>`;
+//     anchorTag.href = currentProject.link || "#";
+//     imageElement.src = currentProject.images[currentImageIndex];
+
+//     // Hide buttons if there's only one image
+//     buttonsDiv.style.display =
+//       currentProject.images.length <= 1 ? "none" : "flex";
+//   }
+
+//   // // Change to the next image
+//   // function goToNextImage() {
+//   //   const currentProject = clientProjects[currentProjectIndex];
+//   //   currentImageIndex = (currentImageIndex + 1) % currentProject.images.length;
+//   //   updateProject();
+//   // }
+
+//   // // Change to the previous image
+//   // function goToPreviousImage() {
+//   //   const currentProject = clientProjects[currentProjectIndex];
+//   //   currentImageIndex =
+//   //     (currentImageIndex - 1 + currentProject.images.length) %
+//   //     currentProject.images.length;
+//   //   updateProject();
+//   // }
+
+//   // // Event listeners for next/previous buttons
+//   // const nextButton = document.querySelector(".clientsection .next-button");
+//   // const prevButton = document.querySelector(".clientsection .prev-button");
+
+//   // nextButton.addEventListener("click", goToNextImage);
+//   // prevButton.addEventListener("click", goToPreviousImage);
+
+//   // // Set initial content
+//   // updateProject();
+// }
+
 function clientProjectsSetup() {
-  prefetchImages();
+  const container = document.querySelector(".clientsection");
 
-  let currentProjectIndex = 0; // Track the current project
-  let currentImageIndex = 0; // Track the current image within the project
-
-  // Select elements
-  const clientsection = document.querySelector(".clientsection");
-  const titleElement = document.querySelector(".clienttitle");
-
-  const anchorTag = document.querySelector(".clientsection .description a");
-  const descriptionElement = document.querySelector(".clientdescription");
-  // const subDescription = document.querySelector(".clientsubdescription");
-  const imageElement = document.querySelector(".clientsection .image-grid img");
-
-  const buttonsDiv = document.querySelector(".buttons_div"); // Define the buttonsDiv here
-  const projectTitlesContainer = document.querySelector(".projectitles"); // The container for the project titles
-
-  // Dynamically map project titles
   clientProjects.forEach((project, index) => {
-    const projectTitleDiv = document.createElement("div");
-    projectTitleDiv.classList.add("project-title");
-    projectTitleDiv.textContent = project.title;
-    projectTitlesContainer.appendChild(projectTitleDiv);
+    // Create the outer div for the project card
+    const card = document.createElement("div");
+    card.classList.add(
+      "sticky",
+      `top-[${index * 70 + 200}px]`,
+      `bg-[${index % 2 == 0 ? "#00bbff" : "#000000"}]`,
+      // "bg-red-500",
+      "rounded-t-3xl",
+      "h-[50vw]",
+      "w-screen",
+      "flex",
+      "flex-col",
+      "box-border",
+      "px-8",
+      "py-5",
+      "gap-4",
+      "overflow-hidden"
+    );
 
-    // Add event listener to highlight the selected project
-    projectTitleDiv.addEventListener("click", () => {
-      currentProjectIndex = index;
-      currentImageIndex = 0; // Reset to the first image of the project
-      updateProject();
+    // Header with title and link
+    const headerDiv = document.createElement("div");
+    headerDiv.classList.add("flex", "justify-between", "w-full", "text-white");
 
-      // Remove highlight from all titles
-      const allProjectTitles = document.querySelectorAll(".project-title");
-      allProjectTitles.forEach((title) =>
-        title.classList.remove("highlighted")
-      );
+    const titleDiv = document.createElement("div");
+    titleDiv.classList.add("w-full", "text-2xl", "font-bold", "uppercase");
+    titleDiv.textContent = project.title;
 
-      // Highlight the selected title
-      projectTitleDiv.classList.add("highlighted");
-    });
+    const linkDiv = document.createElement("div");
+    linkDiv.classList.add(
+      "w-fit",
+      "text-white",
+      "text-2xl",
+      "text-right",
+      "font-bold",
+      "uppercase",
+      "rounded-full",
+      "outline",
+      "outline-1",
+      "py-1",
+      "px-5",
+      "text-nowrap"
+    );
+    linkDiv.textContent = "View Project";
+    linkDiv.onclick = () => window.open(project.link, "_blank"); // Opening the link on click
+
+    headerDiv.appendChild(titleDiv);
+    headerDiv.appendChild(linkDiv);
+
+    // Adding the header to the main inner div
+    card.appendChild(headerDiv);
+
+    const contentDiv = document.createElement("div");
+    contentDiv.classList.add("w-full", "flex", "flex-col", "relative");
+
+    const imageContainer1 = document.createElement("div");
+    imageContainer1.classList.add("w-full", "flex", "flex-col", "relative");
+
+    const imageContainer2 = document.createElement("div");
+    imageContainer2.classList.add("w-full", "flex", "flex-col", "relative");
+
+    const containerDivTest = document.createElement("div");
+    containerDivTest.classList.add(
+      "absolute",
+      "w-full",
+      "justify-center",
+      "h-full",
+      "bottom-0",
+      "items-center",
+      "flex"
+    );
+    containerDivTest.innerHTML = `<div>${project.anchorText}</div>`;
+    const subDescriptionDiv = document.createElement("div");
+    subDescriptionDiv.textContent = project.subDescription;
+
+    const imageheader = document.createElement("img");
+    imageheader.src = "./media/browser.avif";
+    imageheader.alt = "Image Header";
+
+    const image = document.createElement("img");
+    image.src = project.images[0];
+    image.alt = "Project Image 1";
+    imageContainer1.appendChild(containerDivTest);
+    imageContainer1.appendChild(imageheader);
+    imageContainer2.appendChild(image);
+
+    contentDiv.appendChild(imageContainer1);
+    contentDiv.appendChild(imageContainer2);
+    card.appendChild(contentDiv);
+    container.appendChild(card);
   });
-
-  // Update the project display
-  function updateProject() {
-    const currentProject = clientProjects[currentProjectIndex];
-    titleElement.textContent = currentProject.title;
-    // subDescription.textContent = currentProject.subDescription;
-    descriptionElement.textContent = currentProject.description;
-    anchorTag.innerHTML =
-      (currentProject.anchorText || `View Project`) +
-      ` <span class="material-symbols-outlined"> arrow_outward </span>`;
-    anchorTag.href = currentProject.link || "https://aryanranderiya.com";
-    imageElement.src = currentProject.images[currentImageIndex];
-
-    // Hide the buttons if there's only one image
-    if (currentProject.images.length <= 1) {
-      buttonsDiv.style.display = "none";
-    } else {
-      buttonsDiv.style.display = "flex"; // Show buttons if more than one image
-    }
-  }
-
-  // Change to the next image in the current project
-  function goToNextImage() {
-    const currentProject = clientProjects[currentProjectIndex];
-    currentImageIndex = (currentImageIndex + 1) % currentProject.images.length;
-    updateProject();
-  }
-
-  // Change to the previous image in the current project
-  function goToPreviousImage() {
-    const currentProject = clientProjects[currentProjectIndex];
-    currentImageIndex =
-      (currentImageIndex - 1 + currentProject.images.length) %
-      currentProject.images.length;
-    updateProject();
-  }
-
-  document
-    .querySelector(".buttons_div button:first-child")
-    .addEventListener("click", goToPreviousImage);
-  document
-    .querySelector(".buttons_div button:last-child")
-    .addEventListener("click", goToNextImage);
-
-  // Add hover effect to buttons and link
-  const buttonsdivbuttons = document.querySelectorAll(".buttons_div button");
-
-  [...buttonsdivbuttons, anchorTag].forEach((element) => {
-    element.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.3)", "none");
-      addClass(cursor, "transparent");
-      addClass(cursoricon5, "active");
-    });
-
-    element.addEventListener("mouseout", () => {
-      cursorTransformShadowBlend();
-      removeClass(cursor, "transparent");
-      removeClass(cursoricon5, "active");
-    });
-  });
-
-  // Set the first project as highlighted by default
-  const allProjectTitles = document.querySelectorAll(".project-title");
-  if (allProjectTitles.length > 0) {
-    allProjectTitles[0].classList.add("highlighted");
-  }
-
-  // Set up the IntersectionObserver
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          buttonsDiv.style.opacity = 1;
-        } else {
-          buttonsDiv.style.opacity = 0;
-        }
-      });
-    },
-    {
-      threshold: 0.6,
-    }
-  );
-
-  observer.observe(clientsection);
-
-  // Initial project load
-  updateProject();
 
   let tl0 = gsap.timeline({
     scrollTrigger: {
@@ -1112,33 +1163,15 @@ function setupTestimonials() {
   const testimonials = [
     {
       text: `"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates laudantium expedita maiores magni excepturi?"`,
-      client: "Client Name",
-      company: "CEO @ Company",
+      client: "Khevna Gandhi",
+      position: "Founder",
+      company: "Rezrek.com",
     },
     {
       text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
-      client: "John Doe",
-      company: "Founder @ TechCorp",
-    },
-    {
-      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
-      client: "John Doe",
-      company: "Founder @ TechCorp",
-    },
-    {
-      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
-      client: "John Doe",
-      company: "Founder @ TechCorp",
-    },
-    {
-      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
-      client: "John Doe",
-      company: "Founder @ TechCorp",
-    },
-    {
-      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
-      client: "John Doe",
-      company: "Founder @ TechCorp",
+      client: "Aditya Gandhi",
+      position: "Founder",
+      company: "Rezrek.com",
     },
   ];
 
@@ -1157,14 +1190,13 @@ function setupTestimonials() {
       "mb-5",
       "flex",
       "flex-col",
-      "text-xl",
-      "italic"
+      "text-xl"
     );
     card.innerHTML = `
-      <div>${testimonial.text}</div>
-      <div class="inline-block">
-        <span>${testimonial.client}</span> —
-        <span class="text-[#ffffff80]">${testimonial.company}</span>
+      <div class="italic">${testimonial.text}</div>
+      <div class="inline-block mt-6 text-sm">
+        <span class="">${testimonial.client}</span> —
+        <span class="opacity-70">${testimonial.position} @ ${testimonial.company}</span>
       </div>
     `;
     testimonialContainer.appendChild(card);
@@ -1177,7 +1209,6 @@ function setupTestimonials() {
       end: "bottom-=520 top", // End when the bottom of the element reaches the top of the viewport
       pin: true, // Pin the element during scroll
       scrub: true, // Sync animation with scrolling
-      markers: true, // Optional, adds markers to visualize scroll trigger
     },
   });
 
