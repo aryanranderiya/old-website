@@ -44,6 +44,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/media/Website-Homepage.png" />
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false, // Disable Preflight
+        },
+      };
+    </script>
     <!-- <link rel="preload" href="./fonts/Dirtyline 36daysoftype 2022.woff2" crossorigin="anonymous" as="font"
     type="font/woff2">
   <link rel="preload" href="./fonts/IllusionSerif-Regular.woff2" crossorigin="anonymous" as="font" type="font/woff2"> -->
@@ -82,7 +90,7 @@
   </head>
 
   <body>
-    <section class="sect_welcoming">
+    <!-- <section class="sect_welcoming">
       <div class="welcoming">
         <div class="words" id="text_change">
           <span class="words_rotating_span">Bonjour le Monde!</span>
@@ -127,7 +135,7 @@
           </svg>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <div class="nonfooter">
       <div class="cursor_bg"></div>
@@ -162,6 +170,7 @@
             <img
               src="media/icons/ios_icon_point_top.webp"
               id="cursoricon5"
+              class="object-cover w-fit"
               alt="Cursor Icon"
             />
             <img
@@ -274,32 +283,73 @@
       </section>
 
       <section class="clientsection" id="section3">
-        <span class="title">Client Work</span>
+        <span class="title text-nowrap">FEATURED CLIENT WORK</span>
 
-        <div class="image-grid">
-          <div class="description">
-            <div class="clienttitle"></div>
-            <div class="clientsubdescription"></div>
-            <div class="clientdescription"></div>
-            <a href="" target="_blank"
-              >VIEW PROJECT
-              <span class="material-symbols-outlined"> arrow_outward </span>
-            </a>
+        <div class="flex w-full justify-center gap-[70px] items-start">
+          <div
+            class="h-full flex justify-start flex-col text-white text-[1.3em] gap-3 projectitles"
+          >
+            <!-- Titles will be dynamically inserted here -->
           </div>
 
-          <img src="" alt="Image 1" />
+          <div class="flex justify-center flex-col h-fit gap-10">
+            <div class="image-grid">
+              <img src="" alt="Project Image" />
+            </div>
+
+            <div class="description z-[1] flex flex-col gap-2">
+              <div class="clienttitle"></div>
+              <!-- <div class="clientsubdescription"></div> -->
+              <div class="clientdescription"></div>
+              <a href="" target="_blank"
+                >VIEW PROJECT
+                <span class="material-symbols-outlined"> arrow_outward </span>
+              </a>
+            </div>
+
+            <div class="h-[50px]">
+              <div class="buttons_div flex w-full justify-end gap-3">
+                <button
+                  class="size-[50px] rounded-full flex justify-center items-center border-none"
+                >
+                  <span class="material-symbols-outlined chevrons">
+                    chevron_left
+                  </span>
+                </button>
+                <button
+                  class="size-[50px] rounded-full flex justify-center items-center border-none"
+                >
+                  <span class="material-symbols-outlined chevrons">
+                    chevron_right
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="buttons_div">
-          <button>
-            <span class="material-symbols-outlined chevrons">
-              chevron_left
-            </span>
-          </button>
-          <button>
-            <span class="material-symbols-outlined chevrons">
-              chevron_right
-            </span>
-          </button>
+      </section>
+
+      <section class="h-fit flex justify-evenly text-white relative z-[1]">
+        <div
+          class="flex flex-col w-full gap-[15px] p-[8em] relative"
+          id="sticky-element"
+        >
+          <div class="text-8xl font-bold leading-[85px]">
+            What my <br />
+            clients say
+          </div>
+          <div>
+            Curious about what it's like to really work with me?
+            <br />
+            Well here's the scoop, straight from the source - my amazing
+            clients!
+          </div>
+        </div>
+
+        <div class="w-[full] p-[8em]">
+          <div class="testimonial-container">
+            <!-- Testimonial Cards will be appended here -->
+          </div>
         </div>
       </section>
 
@@ -346,8 +396,11 @@
           </div>
         </div>
 
-        <a href="SoftwareProjects.html" class="view_all_projects_anchor2 show">
-          <button class="view_all_projects">
+        <a
+          href="SoftwareProjects.html"
+          class="view_all_projects_anchor2 show z-[1] relative"
+        >
+          <button class="view_all_projects z-[1] relative">
             View All Software Projects
             <span class="material-symbols-outlined featured_icon">
               arrow_outward
@@ -359,7 +412,7 @@
       <section class="services_section" id="section5">
         <div class="services">
           <span class="title_heading"
-            >My Services <i class="fa-solid fa-hand-holding-heart"></i>
+            >MY SERVICES <i class="fa-solid fa-hand-holding-heart"></i>
           </span>
 
           <div class="service">

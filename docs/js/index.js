@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
   setupTimeBento();
 
   setupAnimationLargeText();
+  setupTestimonials();
   setupGSAPChips();
-  setupGithubBento();
-  setupBentoAnimation();
+
   // Horizontal Scroll
   // setupFeaturedProjects();
 
@@ -83,6 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupServices();
   clientProjectsSetup();
+
+  setupGithubBento();
+  setupBentoAnimation();
   // modifyScrollBar();
   // positionNavButtons();
   // document.addEventListener("scroll", updateProgressBarandBtn);
@@ -106,7 +109,6 @@ function updateProgressBar() {
 }
 
 function positionNavButtons() {
-  const sections = document.querySelectorAll("section");
   const scrollbarContainer = document.querySelector(
     ".scrollbar_progress_container_buttons"
   );
@@ -906,8 +908,10 @@ const clientProjects = [
     description:
       "Built a content-driven (similiar to Instagram & Pinterest) e-commerce marketplace MVP from scratch",
     subDescription: "May 2024 - Present",
-    image:
+    images: [
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Frezrekss.webp?alt=media&token=67b6e308-da51-407b-8dee-bb1b8115a53d",
+      // Add more images for this project if needed
+    ],
     anchorText: "rezrek.com",
     link: "https://rezrek.com",
   },
@@ -916,18 +920,23 @@ const clientProjects = [
     description:
       "Solely built a Greeting Card creation platform with features similiar to Canva.",
     subDescription: "September 2024",
-    image:
+    images: [
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Flyfelanecollage.webp?alt=media&token=56684174-0ef3-4eae-8a66-6a5057e553f3",
+      // Add more images for this project if needed
+    ],
     link: "https://lyfelane.com",
     anchorText: "lyfelane.com",
   },
   {
     title: "Encode",
     description:
-      "Led the development of the official website of Encode - The Computer Science Club of PDEU and worked on the homepage of the website",
+      "Led the development of the official website of Encode - The CS Club of PDEU and worked on the homepage of the website",
     subDescription: "August 2024",
-    image:
+    images: [
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fencodecollage.webp?alt=media&token=372af36d-dfe0-4e46-b294-58a1b8a7696c",
+      "https://private-user-images.githubusercontent.com/64796509/360076622-a79e8fa9-2b42-4496-99fa-9c86b8cc58e3.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ1NTg4MjQsIm5iZiI6MTczNDU1ODUyNCwicGF0aCI6Ii82NDc5NjUwOS8zNjAwNzY2MjItYTc5ZThmYTktMmI0Mi00NDk2LTk5ZmEtOWM4NmI4Y2M1OGUzLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjE4VDIxNDg0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU0YTM2N2M2MTA0NWIwM2M4ZDU5OTg2MjliZTk4N2ViYTYzMTkxNzkxODgyY2RmNjEyMDA4ZTE3OTFhZDg4Y2QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.stbFkWpSHDHm8iIWNIVALPvFP6JtdrBcc-zfmEyhk_8",
+      "https://private-user-images.githubusercontent.com/64796509/360076613-3e60af31-6b4f-47f1-b881-97b7e2c4c5be.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ1NTg4MjQsIm5iZiI6MTczNDU1ODUyNCwicGF0aCI6Ii82NDc5NjUwOS8zNjAwNzY2MTMtM2U2MGFmMzEtNmI0Zi00N2YxLWI4ODEtOTdiN2UyYzRjNWJlLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjE4VDIxNDg0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIzNmQ1ZjEyNTM1YzI4MTA5NjJjY2QyMjMyNTQ3YjE5ZjIyNzYwY2RiZDRiY2ZjMWEwNmZkZmY3MWE4YTgzZDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ty4LAUn7t9747kMQ628E3M1_nFc1N_49ljLibN-Blq0",
+    ],
     link: "https://encodepdeu.vercel.app",
   },
 
@@ -936,8 +945,10 @@ const clientProjects = [
     description:
       "Developed frontend & backend for the official MWI brand website.",
     subDescription: "August 2024 - Present",
-    image:
+    images: [
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fmwicollage.webp?alt=media&token=a82d1103-c61a-4624-8ce9-3b9826fc7e75",
+      // Add more images for this project if needed
+    ],
     link: "https://mwi.gg",
     anchorText: "mwi.gg",
   },
@@ -951,11 +962,11 @@ function prefetchImages() {
     document.body.appendChild(img); // Append it to the DOM to trigger caching
   });
 }
-
 function clientProjectsSetup() {
   prefetchImages();
 
   let currentProjectIndex = 0; // Track the current project
+  let currentImageIndex = 0; // Track the current image within the project
 
   // Select elements
   const clientsection = document.querySelector(".clientsection");
@@ -963,42 +974,80 @@ function clientProjectsSetup() {
 
   const anchorTag = document.querySelector(".clientsection .description a");
   const descriptionElement = document.querySelector(".clientdescription");
-  const subDescription = document.querySelector(".clientsubdescription");
+  // const subDescription = document.querySelector(".clientsubdescription");
   const imageElement = document.querySelector(".clientsection .image-grid img");
 
+  const buttonsDiv = document.querySelector(".buttons_div"); // Define the buttonsDiv here
+  const projectTitlesContainer = document.querySelector(".projectitles"); // The container for the project titles
+
+  // Dynamically map project titles
+  clientProjects.forEach((project, index) => {
+    const projectTitleDiv = document.createElement("div");
+    projectTitleDiv.classList.add("project-title");
+    projectTitleDiv.textContent = project.title;
+    projectTitlesContainer.appendChild(projectTitleDiv);
+
+    // Add event listener to highlight the selected project
+    projectTitleDiv.addEventListener("click", () => {
+      currentProjectIndex = index;
+      currentImageIndex = 0; // Reset to the first image of the project
+      updateProject();
+
+      // Remove highlight from all titles
+      const allProjectTitles = document.querySelectorAll(".project-title");
+      allProjectTitles.forEach((title) =>
+        title.classList.remove("highlighted")
+      );
+
+      // Highlight the selected title
+      projectTitleDiv.classList.add("highlighted");
+    });
+  });
+
+  // Update the project display
   function updateProject() {
     const currentProject = clientProjects[currentProjectIndex];
     titleElement.textContent = currentProject.title;
-    subDescription.textContent = currentProject.subDescription;
+    // subDescription.textContent = currentProject.subDescription;
     descriptionElement.textContent = currentProject.description;
     anchorTag.innerHTML =
       (currentProject.anchorText || `View Project`) +
-      ` <span class="material-symbols-outlined">
-            arrow_outward
-          </span>`;
+      ` <span class="material-symbols-outlined"> arrow_outward </span>`;
     anchorTag.href = currentProject.link || "https://aryanranderiya.com";
-    imageElement.src = currentProject.image;
+    imageElement.src = currentProject.images[currentImageIndex];
+
+    // Hide the buttons if there's only one image
+    if (currentProject.images.length <= 1) {
+      buttonsDiv.style.display = "none";
+    } else {
+      buttonsDiv.style.display = "flex"; // Show buttons if more than one image
+    }
   }
 
-  function goToNextProject() {
-    currentProjectIndex = (currentProjectIndex + 1) % clientProjects.length; // Loop back to the first project
+  // Change to the next image in the current project
+  function goToNextImage() {
+    const currentProject = clientProjects[currentProjectIndex];
+    currentImageIndex = (currentImageIndex + 1) % currentProject.images.length;
     updateProject();
   }
 
-  function goToPreviousProject() {
-    currentProjectIndex =
-      (currentProjectIndex - 1 + clientProjects.length) % clientProjects.length; // Loop back to the last project
+  // Change to the previous image in the current project
+  function goToPreviousImage() {
+    const currentProject = clientProjects[currentProjectIndex];
+    currentImageIndex =
+      (currentImageIndex - 1 + currentProject.images.length) %
+      currentProject.images.length;
     updateProject();
   }
 
   document
     .querySelector(".buttons_div button:first-child")
-    .addEventListener("click", goToPreviousProject);
+    .addEventListener("click", goToPreviousImage);
   document
     .querySelector(".buttons_div button:last-child")
-    .addEventListener("click", goToNextProject);
+    .addEventListener("click", goToNextImage);
 
-  const buttonsDiv = document.querySelector(".buttons_div");
+  // Add hover effect to buttons and link
   const buttonsdivbuttons = document.querySelectorAll(".buttons_div button");
 
   [...buttonsdivbuttons, anchorTag].forEach((element) => {
@@ -1015,15 +1064,19 @@ function clientProjectsSetup() {
     });
   });
 
+  // Set the first project as highlighted by default
+  const allProjectTitles = document.querySelectorAll(".project-title");
+  if (allProjectTitles.length > 0) {
+    allProjectTitles[0].classList.add("highlighted");
+  }
+
   // Set up the IntersectionObserver
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // If the buttons_div is in the viewport, set opacity to 1 (visible)
           buttonsDiv.style.opacity = 1;
         } else {
-          // If it's out of the viewport, set opacity to 0 (hidden)
           buttonsDiv.style.opacity = 0;
         }
       });
@@ -1033,27 +1086,124 @@ function clientProjectsSetup() {
     }
   );
 
-  // Observe the clientsection
   observer.observe(clientsection);
-
-  // Set up the IntersectionObserver
-  const observer2 = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-        } else {
-          entry.target.style.opacity = 0;
-        }
-      });
-    },
-    {
-      threshold: 0.4,
-    }
-  );
-
-  observer2.observe(clientsection);
 
   // Initial project load
   updateProject();
+
+  let tl0 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".clientsection",
+      start: "top-=400 bottom",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+
+  gsap.set(".clientsection .title", {
+    x: "60%",
+  });
+  tl0.to(".clientsection .title", {
+    x: "-5%",
+  });
+}
+
+function setupTestimonials() {
+  const testimonials = [
+    {
+      text: `"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates laudantium expedita maiores magni excepturi?"`,
+      client: "Client Name",
+      company: "CEO @ Company",
+    },
+    {
+      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
+      client: "John Doe",
+      company: "Founder @ TechCorp",
+    },
+    {
+      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
+      client: "John Doe",
+      company: "Founder @ TechCorp",
+    },
+    {
+      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
+      client: "John Doe",
+      company: "Founder @ TechCorp",
+    },
+    {
+      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
+      client: "John Doe",
+      company: "Founder @ TechCorp",
+    },
+    {
+      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
+      client: "John Doe",
+      company: "Founder @ TechCorp",
+    },
+  ];
+
+  const testimonialContainer = document.querySelector(".testimonial-container");
+
+  // Create and append testimonial cards
+  testimonials.forEach((testimonial) => {
+    const card = document.createElement("div");
+    card.classList.add(
+      "testimonial-card",
+      "transition-colors",
+      "rounded-xl",
+      "p-[2em]",
+      "max-w-[35vw]",
+      "min-w-[35vw]",
+      "mb-5",
+      "flex",
+      "flex-col",
+      "text-xl",
+      "italic"
+    );
+    card.innerHTML = `
+      <div>${testimonial.text}</div>
+      <div class="inline-block">
+        <span>${testimonial.client}</span> —
+        <span class="text-[#ffffff80]">${testimonial.company}</span>
+      </div>
+    `;
+    testimonialContainer.appendChild(card);
+  });
+
+  gsap.to("#sticky-element", {
+    scrollTrigger: {
+      trigger: "#sticky-element", // Pin the element when it reaches the top of the viewport
+      start: "top top", // Start when the top of the element reaches the top of the viewport
+      end: "bottom-=520 top", // End when the bottom of the element reaches the top of the viewport
+      pin: true, // Pin the element during scroll
+      scrub: true, // Sync animation with scrolling
+      markers: true, // Optional, adds markers to visualize scroll trigger
+    },
+  });
+
+  gsap.utils.toArray(".testimonial-card").forEach((card, index) => {
+    gsap.from(card, {
+      opacity: 0, // Fade in effect
+      x: 300, // Start the animation from 500px to the right
+      y: 0, // No vertical movement, or adjust as needed
+      duration: 0.3, // Duration of the animation
+      delay: index * 1, // Staggered animation
+      scrollTrigger: {
+        trigger: card,
+        start: "top 50%", // When the top of the card is 90% from the top of the viewport
+        end: "bottom 50%", // When the bottom of the card is 10% from the top of the viewport
+        scrub: true, // Synchronize animation with scroll
+      },
+      onEnter: () => {
+        card.style.backgroundColor = "black"; // Change background color to blue when card is in view
+      },
+      onLeaveBack: () => {
+        card.style.backgroundColor = "black"; // Reset background color when the card scrolls out of view
+      },
+      onComplete: () => {
+        // This is triggered after the animation is completed
+        card.style.backgroundColor = "#00bbff"; // Change the background color
+      },
+    });
+  });
 }

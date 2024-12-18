@@ -817,17 +817,6 @@ h6 {
     display: none;
   }
 
-  .buttons_div {
-    position: relative !important;
-    opacity: 1;
-    margin-top: 50px;
-  }
-
-  .buttons_div button {
-    width: 50px !important;
-    height: 50px !important;
-  }
-
   .image-grid {
     flex-direction: column-reverse;
     width: 90vw !important;
@@ -1174,9 +1163,9 @@ h6 {
   font-size: clamp(2em, 10vw, 4em);
   font-family: Helvs;
   color: black;
-  text-shadow: -1px -1px 0 WHITE, 0 -1px 0 WHITE, 1px -1px 0 WHITE,
-    1px 0 0 WHITE, 1px 1px 0 WHITE, 0 1px 0 WHITE, -1px 1px 0 WHITE,
-    -1px 0 0 WHITE;
+  text-shadow: -2px -2px 0 WHITE, 0 -2px 0 WHITE, 2px -2px 0 WHITE,
+    2px 0 0 WHITE, 2px 2px 0 WHITE, 0 2px 0 WHITE, -2px 2px 0 WHITE,
+    -2px 0 0 WHITE;
 }
 
 .featured_marquee:hover {
@@ -1450,11 +1439,11 @@ h6 {
 }
 
 .clientsection {
-  height: 120vh;
+  height: 90vh;
   margin: 100px 0;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   position: relative;
   flex-direction: column;
   align-items: center;
@@ -1470,35 +1459,15 @@ h6 {
 } */
 
 .clientsection .title {
-  font-size: 2.5em;
+  font-size: 6.5em;
   color: white;
   font-weight: bold;
   text-align: center;
-}
-
-.buttons_div {
-  bottom: 10px;
-  display: flex;
-  gap: 20px;
-  position: fixed;
-  width: 100%;
-  justify-content: center;
-  z-index: 2 !important;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.buttons_div button {
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  border: none;
-  outline: 3px solid rgba(92, 92, 92, 0.4);
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 50px;
+  margin-bottom: 20px;
 }
 
 .clientsection .description {
-  display: flex;
+  /* display: flex;
   color: white;
   flex-direction: column;
   width: calc(70vw - 20px);
@@ -1509,14 +1478,14 @@ h6 {
   padding-bottom: 20px;
   bottom: 0;
   height: 100%;
-  justify-content: end;
-  background: linear-gradient(
+  justify-content: end; */
+  /* background: linear-gradient(
     to top,
     black,
     transparent,
     transparent,
     transparent
-  );
+  ); */
 }
 
 .clientsubdescription {
@@ -1531,7 +1500,7 @@ h6 {
 
 .clienttitle {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 2em;
 }
 
 .clientsection .description a {
@@ -1559,18 +1528,18 @@ h6 {
 .image-grid {
   position: relative;
   display: flex;
-  margin-top: 40px;
-  width: 70vw;
+  width: 60vw;
+  min-width: 60vw;
   align-items: center;
-  -webkit-box-shadow: 0px 0px 300px -50px rgba(0, 187, 255, 0.7);
+  /* -webkit-box-shadow: 0px 0px 300px -50px rgba(0, 187, 255, 0.7);
   -moz-box-shadow: 0px 0px 300px -50px rgba(0, 187, 255, 0.7);
-  box-shadow: 0px 0px 300px -50px rgba(0, 187, 255, 0.7);
+  box-shadow: 0px 0px 300px -50px rgba(0, 187, 255, 0.7); */
 }
 
 .image-grid img {
   height: 100%;
-  width: 70vw;
-  min-width: 70vw;
+  width: 60vw;
+  min-width: 60vw;
   height: auto;
   object-fit: contain;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
@@ -1618,4 +1587,14 @@ h6 {
 } */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 200, "opsz" 35;
+}
+
+.project-title {
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.project-title.highlighted {
+  color: #00bbff;
+  font-weight: bold;
 }
