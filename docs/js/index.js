@@ -398,7 +398,6 @@ function setupServices() {
         start: "top+=100 bottom", // Start point of the animation
         end: "bottom top", // You can define an end point if needed
         scrub: true,
-        markers: true, // Enable markers to visualize the ScrollTrigger
       },
     });
 
@@ -422,7 +421,6 @@ function setupServices() {
         start: "top+=300 bottom", // Start point of the animation
         end: "bottom-=300 top", // You can define an end point if needed
         scrub: true,
-        markers: true, // Enable markers to visualize the ScrollTrigger
       },
     });
 
@@ -1055,24 +1053,32 @@ function clientProjectsSetup() {
     const card = document.createElement("div");
     card.classList.add(
       "sticky",
-      `top-[${index * 70 + 200}px]`,
-      `bg-[${index % 2 == 0 ? "#00bbff" : "#000000"}]`,
-      // "bg-red-500",
-      "rounded-t-3xl",
-      "h-[50vw]",
-      "w-screen",
+      `top-[${index * 75 + 200}px]`,
+      // `bg-[${index % 2 == 0 ? "#00000090" : "#00bbff"}]`,
+      // "bg-black",
+      "bg-[#00bbff]",
+      // "bg-opacity-70",
+      // "backdrop-blur-3xl",
+      "outline",
+      // "outline-[#00bbff]",
+      "outline-[black]",
+      "rounded-3xl",
+      "h-fit",
+      "w-[95vw]",
       "flex",
       "flex-col",
       "box-border",
       "px-8",
       "py-5",
       "gap-4",
-      "overflow-hidden"
+      "shadow-xl",
+      "overflow-hidden",
+      "mt-[-50px]"
     );
 
     // Header with title and link
     const headerDiv = document.createElement("div");
-    headerDiv.classList.add("flex", "justify-between", "w-full", "text-white");
+    headerDiv.classList.add("flex", "justify-between", "w-full", "text-black");
 
     const titleDiv = document.createElement("div");
     titleDiv.classList.add("w-full", "text-2xl", "font-bold", "uppercase");
@@ -1081,25 +1087,26 @@ function clientProjectsSetup() {
     const linkDiv = document.createElement("div");
     linkDiv.classList.add(
       "w-fit",
-      "text-white",
+      // "text-white",
+      "bg-white",
+      "text-black",
       "text-2xl",
       "text-right",
       "font-bold",
       "uppercase",
       "rounded-full",
       "outline",
-      "outline-1",
+      "outline-2",
       "py-1",
       "px-5",
       "text-nowrap"
     );
     linkDiv.textContent = "View Project";
-    linkDiv.onclick = () => window.open(project.link, "_blank"); // Opening the link on click
+    linkDiv.onclick = () => window.open(project.link, "_blank");
 
     headerDiv.appendChild(titleDiv);
     headerDiv.appendChild(linkDiv);
 
-    // Adding the header to the main inner div
     card.appendChild(headerDiv);
 
     const contentDiv = document.createElement("div");
@@ -1172,6 +1179,30 @@ function setupTestimonials() {
       client: "Aditya Gandhi",
       position: "Founder",
       company: "Rezrek.com",
+    },
+    {
+      text: `"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates laudantium expedita maiores magni excepturi?"`,
+      client: "Client Name 1",
+      position: "Position 1",
+      company: "Company 1",
+    },
+    {
+      text: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium?"`,
+      client: "Client Name 2",
+      position: "Position 2",
+      company: "Company 2",
+    },
+    {
+      text: `"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur?"`,
+      client: "Client Name 3",
+      position: "Position 3",
+      company: "Company 3",
+    },
+    {
+      text: `"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum?"`,
+      client: "Client Name 4",
+      position: "Position 4",
+      company: "Company 4",
     },
   ];
 
