@@ -362,7 +362,6 @@ function setupFeaturedProjects(snapshot) {
             trigger: featured_project,
             start: "top+=10 center", // Trigger when the top of the element reaches the center of the viewport
             end: "bottom center", // Trigger when the bottom of the element reaches the center of the viewport
-            markers: true,
             onEnter: () => {
               if (activeComponent && activeComponent !== featured_project) {
                 leave(activeComponent); // Deactivate the previous component's hover
