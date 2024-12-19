@@ -947,47 +947,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Function to animate each letter individually
-      function animateTextColor() {
-        const text = document.getElementById("scrollText");
-        const letters = text.textContent.split("");
-
-        text.innerHTML = ""; // Clear existing content
-
-        // Wrap each letter in a span with a specific class for targeting
-        letters.forEach((letter, index) => {
-          const span = document.createElement("span");
-          span.textContent = letter;
-          span.classList.add("letter"); // Adding a specific class for each letter
-          text.appendChild(span);
-        });
-
-        // Use GSAP to animate each letter's color as the user scrolls
-        gsap.fromTo(
-          ".letter", // Use the specific class here
-          {
-            color: "#ffffff09", // Start with transparent color
-          },
-          {
-            scrollTrigger: {
-              trigger: "#scrollText", // Trigger based on the text element
-              start: "top bottom-=100", // Start when the element is in the center of the viewport
-              end: "bottom center", // End when the element is out of the viewport
-              scrub: true,
-              markers: true, // Enable ScrollTrigger markers for debugging
-            },
-            color: "white", // Change the text color to white
-            stagger: 0.01, // Add stagger effect for individual letters
-            ease: "none", // No easing
-          }
-        );
-      }
-
-      animateTextColor();
-    </script>
     <script src="js/cursor.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/footer.js"></script>

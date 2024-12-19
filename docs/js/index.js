@@ -76,13 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Horizontal Scroll
   // setupFeaturedProjects();
 
-  const featuredRef = ref(database, "Featured/");
+  const featuredRef = ref(database, "Homepage_Featured_Projects/");
   const nowRef = ref(database, "Now/");
+  
   onValue(featuredRef, setupFeaturedProjects);
   onValue(nowRef, setupNowItems);
 
   setupServices();
-  clientProjectsSetup();
 
   setupGithubBento();
   setupBentoAnimation();
@@ -91,6 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // document.addEventListener("scroll", updateProgressBarandBtn);
 
   positionNavButtons();
+
+  animateTextColor();
+
   // highlightActiveSection();
   // updateProgressBar();
   document.addEventListener("scroll", () => {
@@ -318,12 +321,16 @@ function setupFeaturedProjects(snapshot) {
     const key = childSnapshot.key;
     const projectsRef = ref(database, `Projects/${projectId}`);
 
+    
     get(projectsRef)
-      .then((snapshot) => {
-        if (!snapshot.exists())
-          throw new Error("Snapshot doesnt exist: " + JSON.stringify(snapshot));
-
-        const data = snapshot.val();
+    .then((snapshot) => {
+      if (!snapshot.exists())
+        throw new Error("Snapshot doesnt exist: " + JSON.stringify(snapshot));
+      
+      const data = snapshot.val();
+      console.log(data);
+      
+      // clientProjectsSetup();
 
         const featured_project = document.createElement("a");
         featured_project.innerHTML = `
@@ -1000,65 +1007,65 @@ function removeBlackCover() {
   setTimeout(() => welcoming.remove(), 1600);
 }
 
-const clientProjects = [
-  {
-    title: "Rezrek",
-    description:
-      "Built a content-driven (similar to Instagram & Pinterest) e-commerce marketplace MVP from scratch",
-    subDescription: "May 2024 - Present",
-    images: [
-      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Frezrekss.webp?alt=media&token=67b6e308-da51-407b-8dee-bb1b8115a53d",
-      // Add more images for this project if needed
-    ],
-    anchorText: "rezrek.com",
-    link: "https://rezrek.com",
-  },
-  {
-    title: "LyfeLane",
-    description:
-      "Solely built a Greeting Card creation platform with features similar to Canva.",
-    subDescription: "September 2024",
-    images: [
-      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Flyfelanecollage.webp?alt=media&token=56684174-0ef3-4eae-8a66-6a5057e553f3",
-      // Add more images for this project if needed
-    ],
-    link: "https://lyfelane.com",
-    anchorText: "lyfelane.com",
-  },
-  {
-    title: "Encode",
-    description:
-      "Led the development of the official website of Encode - The CS Club of PDEU and worked on the homepage of the website",
-    subDescription: "August 2024",
-    images: [
-      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fencodecollage.webp?alt=media&token=372af36d-dfe0-4e46-b294-58a1b8a7696c",
-      "https://private-user-images.githubusercontent.com/64796509/360076622-a79e8fa9-2b42-4496-99fa-9c86b8cc58e3.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ1NTg4MjQsIm5iZiI6MTczNDU1ODUyNCwicGF0aCI6Ii82NDc5NjUwOS8zNjAwNzY2MjItYTc5ZThmYTktMmI0Mi00NDk2LTk5ZmEtOWM4NmI4Y2M1OGUzLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjE4VDIxNDg0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU0YTM2N2M2MTA0NWIwM2M4ZDU5OTg2MjliZTk4N2ViYTYzMTkxNzkxODgyY2RmNjEyMDA4ZTE3OTFhZDg4Y2QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.stbFkWpSHDHm8iIWNIVALPvFP6JtdrBcc-zfmEyhk_8",
-      "https://private-user-images.githubusercontent.com/64796509/360076613-3e60af31-6b4f-47f1-b881-97b7e2c4c5be.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ1NTg4MjQsIm5iZiI6MTczNDU1ODUyNCwicGF0aCI6Ii82NDc5NjUwOS8zNjAwNzY2MTMtM2U2MGFmMzEtNmI0Zi00N2YxLWI4ODEtOTdiN2UyYzRjNWJlLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjE4VDIxNDg0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIzNmQ1ZjEyNTM1YzI4MTA5NjJjY2QyMjMyNTQ3YjE5ZjIyNzYwY2RiZDRiY2ZjMWEwNmZkZmY3MWE4YTgzZDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ty4LAUn7t9747kMQ628E3M1_nFc1N_49ljLibN-Blq0",
-    ],
-    link: "https://encodepdeu.vercel.app",
-    anchorText: "encodepdeu.vercel.app",
-  },
-  {
-    title: "Move With Intention",
-    description:
-      "Developed frontend & backend for the official MWI brand website.",
-    subDescription: "August 2024 - Present",
-    images: [
-      "https://i.ibb.co/Pw1WBDC/Capture.png",
-      "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fmwicollage.webp?alt=media&token=a82d1103-c61a-4624-8ce9-3b9826fc7e75",
-    ],
-    link: "https://mwi.gg",
-    anchorText: "mwi.gg",
-  },
-  {
-    title: "Blink Analytics",
-    description: "Developed website for Blink Analytics.",
-    subDescription: "August 2024 - Present",
-    images: ["https://i.ibb.co/QYWH5xK/Capture.png"],
-    link: "https://blinkanalytics.com",
-    anchorText: "blinkanalytics.com",
-  },
-];
+// const clientProjects = [
+//   {
+//     title: "Rezrek",
+//     description:
+//       "Built a content-driven (similar to Instagram & Pinterest) e-commerce marketplace MVP from scratch",
+//     subDescription: "May 2024 - Present",
+//     images: [
+//       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Frezrekss.webp?alt=media&token=67b6e308-da51-407b-8dee-bb1b8115a53d",
+//       // Add more images for this project if needed
+//     ],
+//     anchorText: "rezrek.com",
+//     link: "https://rezrek.com",
+//   },
+//   {
+//     title: "LyfeLane",
+//     description:
+//       "Solely built a Greeting Card creation platform with features similar to Canva.",
+//     subDescription: "September 2024",
+//     images: [
+//       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Flyfelanecollage.webp?alt=media&token=56684174-0ef3-4eae-8a66-6a5057e553f3",
+//       // Add more images for this project if needed
+//     ],
+//     link: "https://lyfelane.com",
+//     anchorText: "lyfelane.com",
+//   },
+//   {
+//     title: "Encode",
+//     description:
+//       "Led the development of the official website of Encode - The CS Club of PDEU and worked on the homepage of the website",
+//     subDescription: "August 2024",
+//     images: [
+//       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fencodecollage.webp?alt=media&token=372af36d-dfe0-4e46-b294-58a1b8a7696c",
+//       "https://private-user-images.githubusercontent.com/64796509/360076622-a79e8fa9-2b42-4496-99fa-9c86b8cc58e3.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ1NTg4MjQsIm5iZiI6MTczNDU1ODUyNCwicGF0aCI6Ii82NDc5NjUwOS8zNjAwNzY2MjItYTc5ZThmYTktMmI0Mi00NDk2LTk5ZmEtOWM4NmI4Y2M1OGUzLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjE4VDIxNDg0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU0YTM2N2M2MTA0NWIwM2M4ZDU5OTg2MjliZTk4N2ViYTYzMTkxNzkxODgyY2RmNjEyMDA4ZTE3OTFhZDg4Y2QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.stbFkWpSHDHm8iIWNIVALPvFP6JtdrBcc-zfmEyhk_8",
+//       "https://private-user-images.githubusercontent.com/64796509/360076613-3e60af31-6b4f-47f1-b881-97b7e2c4c5be.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ1NTg4MjQsIm5iZiI6MTczNDU1ODUyNCwicGF0aCI6Ii82NDc5NjUwOS8zNjAwNzY2MTMtM2U2MGFmMzEtNmI0Zi00N2YxLWI4ODEtOTdiN2UyYzRjNWJlLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjE4VDIxNDg0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIzNmQ1ZjEyNTM1YzI4MTA5NjJjY2QyMjMyNTQ3YjE5ZjIyNzYwY2RiZDRiY2ZjMWEwNmZkZmY3MWE4YTgzZDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ty4LAUn7t9747kMQ628E3M1_nFc1N_49ljLibN-Blq0",
+//     ],
+//     link: "https://encodepdeu.vercel.app",
+//     anchorText: "encodepdeu.vercel.app",
+//   },
+//   {
+//     title: "Move With Intention",
+//     description:
+//       "Developed frontend & backend for the official MWI brand website.",
+//     subDescription: "August 2024 - Present",
+//     images: [
+//       "https://i.ibb.co/Pw1WBDC/Capture.png",
+//       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fmwicollage.webp?alt=media&token=a82d1103-c61a-4624-8ce9-3b9826fc7e75",
+//     ],
+//     link: "https://mwi.gg",
+//     anchorText: "mwi.gg",
+//   },
+//   {
+//     title: "Blink Analytics",
+//     description: "Developed website for Blink Analytics.",
+//     subDescription: "August 2024 - Present",
+//     images: ["https://i.ibb.co/QYWH5xK/Capture.png"],
+//     link: "https://blinkanalytics.com",
+//     anchorText: "blinkanalytics.com",
+//   },
+// ];
 
 function prefetchImages() {
   clientProjects.forEach((project) => {
@@ -1151,126 +1158,123 @@ function prefetchImages() {
 //   // updateProject();
 // }
 
-function clientProjectsSetup() {
-  const container = document.querySelector(".clientsection");
+const featured_client_section = document.querySelector(".clientsection");
+function clientProjectsSetup(clientProject) {
+  // Create the outer div for the project card
+  const card = document.createElement("div");
+  card.classList.add(
+    "sticky",
+    `top-[${index * 55 + 200}px]`,
+    // `bg-[${index % 2 == 0 ? "#00000090" : "#00bbff"}]`,
+    // "bg-black",
+    "bg-[#00bbff]",
+    // "bg-opacity-70",
+    // "backdrop-blur-3xl",
+    "outline",
+    // "outline-[#00bbff]",
+    "outline-[black]",
+    "rounded-3xl",
+    "h-fit",
+    "w-[95vw]",
+    "flex",
+    "flex-col",
+    "box-border",
+    "px-8",
+    "py-3",
+    "gap-4",
+    "shadow-xl",
+    "overflow-hidden",
+    "mt-[-70px]"
+  );
 
-  clientProjects.forEach((project, index) => {
-    // Create the outer div for the project card
-    const card = document.createElement("div");
-    card.classList.add(
-      "sticky",
-      `top-[${index * 55 + 200}px]`,
-      // `bg-[${index % 2 == 0 ? "#00000090" : "#00bbff"}]`,
-      // "bg-black",
-      "bg-[#00bbff]",
-      // "bg-opacity-70",
-      // "backdrop-blur-3xl",
-      "outline",
-      // "outline-[#00bbff]",
-      "outline-[black]",
-      "rounded-3xl",
-      "h-fit",
-      "w-[95vw]",
-      "flex",
-      "flex-col",
-      "box-border",
-      "px-8",
-      "py-3",
-      "gap-4",
-      "shadow-xl",
-      "overflow-hidden",
-      "mt-[-70px]"
-    );
+  // Header with title and link
+  const headerDiv = document.createElement("div");
+  headerDiv.classList.add("flex", "justify-between", "w-full", "text-black");
 
-    // Header with title and link
-    const headerDiv = document.createElement("div");
-    headerDiv.classList.add("flex", "justify-between", "w-full", "text-black");
+  const titleDiv = document.createElement("div");
+  titleDiv.classList.add("w-full", "text-xl", "font-bold", "uppercase");
+  titleDiv.textContent = clientProject.title;
 
-    const titleDiv = document.createElement("div");
-    titleDiv.classList.add("w-full", "text-xl", "font-bold", "uppercase");
-    titleDiv.textContent = project.title;
+  const linkDiv = document.createElement("div");
+  linkDiv.classList.add(
+    "w-fit",
+    // "text-white",
+    "bg-white",
+    "text-black",
+    "text-xl",
+    "text-right",
+    "font-bold",
+    "uppercase",
+    "rounded-full",
+    "outline",
+    "outline-2",
+    "py-0",
+    "px-5",
+    "text-nowrap"
+  );
+  linkDiv.textContent = "View Project";
+  linkDiv.onclick = () => window.open(clientProject.link, "_blank");
 
-    const linkDiv = document.createElement("div");
-    linkDiv.classList.add(
-      "w-fit",
-      // "text-white",
-      "bg-white",
-      "text-black",
-      "text-xl",
-      "text-right",
-      "font-bold",
-      "uppercase",
-      "rounded-full",
-      "outline",
-      "outline-2",
-      "py-0",
-      "px-5",
-      "text-nowrap"
-    );
-    linkDiv.textContent = "View Project";
-    linkDiv.onclick = () => window.open(project.link, "_blank");
+  headerDiv.appendChild(titleDiv);
+  headerDiv.appendChild(linkDiv);
 
-    headerDiv.appendChild(titleDiv);
-    headerDiv.appendChild(linkDiv);
+  card.appendChild(headerDiv);
 
-    card.appendChild(headerDiv);
+  const contentDiv = document.createElement("div");
+  contentDiv.classList.add("w-full", "flex", "flex-col", "relative");
 
-    const contentDiv = document.createElement("div");
-    contentDiv.classList.add("w-full", "flex", "flex-col", "relative");
+  const imageContainer1 = document.createElement("div");
+  imageContainer1.classList.add("w-full", "flex", "flex-col", "relative");
 
-    const imageContainer1 = document.createElement("div");
-    imageContainer1.classList.add("w-full", "flex", "flex-col", "relative");
+  const imageContainer2 = document.createElement("div");
+  imageContainer2.classList.add("w-full", "flex", "flex-col", "relative");
 
-    const imageContainer2 = document.createElement("div");
-    imageContainer2.classList.add("w-full", "flex", "flex-col", "relative");
+  const containerDivTest = document.createElement("div");
+  containerDivTest.classList.add(
+    "absolute",
+    "w-full",
+    "justify-center",
+    "h-full",
+    "bottom-0",
+    "items-center",
+    "flex"
+  );
+  containerDivTest.innerHTML = `<div>${clientProject.anchorText}</div>`;
+  const subDescriptionDiv = document.createElement("div");
+  subDescriptionDiv.textContent = clientProject.subDescription;
 
-    const containerDivTest = document.createElement("div");
-    containerDivTest.classList.add(
-      "absolute",
-      "w-full",
-      "justify-center",
-      "h-full",
-      "bottom-0",
-      "items-center",
-      "flex"
-    );
-    containerDivTest.innerHTML = `<div>${project.anchorText}</div>`;
-    const subDescriptionDiv = document.createElement("div");
-    subDescriptionDiv.textContent = project.subDescription;
+  const imageheader = document.createElement("img");
+  imageheader.src = "./media/browser.avif";
+  imageheader.alt = "Image Header";
 
-    const imageheader = document.createElement("img");
-    imageheader.src = "./media/browser.avif";
-    imageheader.alt = "Image Header";
+  const image = document.createElement("img");
+  image.src = clientProject.images[0];
+  image.alt = "Project Image 1";
+  imageContainer1.appendChild(containerDivTest);
+  imageContainer1.appendChild(imageheader);
+  imageContainer2.appendChild(image);
 
-    const image = document.createElement("img");
-    image.src = project.images[0];
-    image.alt = "Project Image 1";
-    imageContainer1.appendChild(containerDivTest);
-    imageContainer1.appendChild(imageheader);
-    imageContainer2.appendChild(image);
-
-    contentDiv.appendChild(imageContainer1);
-    contentDiv.appendChild(imageContainer2);
-    card.appendChild(contentDiv);
-    container.appendChild(card);
-  });
-
-  let tl0 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".clientsection",
-      start: "top-=400 bottom",
-      end: "bottom center",
-      scrub: true,
-    },
-  });
-
-  gsap.set(".clientsection .title", {
-    x: "60%",
-  });
-  tl0.to(".clientsection .title", {
-    x: "-5%",
-  });
+  contentDiv.appendChild(imageContainer1);
+  contentDiv.appendChild(imageContainer2);
+  card.appendChild(contentDiv);
+  featured_client_section.appendChild(card);
 }
+
+let tl0 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".clientsection",
+    start: "top-=400 bottom",
+    end: "bottom center",
+    scrub: true,
+  },
+});
+
+gsap.set(".clientsection .title", {
+  x: "60%",
+});
+tl0.to(".clientsection .title", {
+  x: "-5%",
+});
 
 function setupTestimonials() {
   const testimonials = [
@@ -1374,4 +1378,39 @@ function setupTestimonials() {
       },
     });
   });
+}
+
+// Function to animate each letter individually
+function animateTextColor() {
+  const text = document.getElementById("scrollText");
+  const letters = text.textContent.split("");
+
+  text.innerHTML = ""; // Clear existing content
+
+  // Wrap each letter in a span with a specific class for targeting
+  letters.forEach((letter, index) => {
+    const span = document.createElement("span");
+    span.textContent = letter;
+    span.classList.add("letter"); // Adding a specific class for each letter
+    text.appendChild(span);
+  });
+
+  // Use GSAP to animate each letter's color as the user scrolls
+  gsap.fromTo(
+    ".letter", // Use the specific class here
+    {
+      color: "#ffffff09", // Start with transparent color
+    },
+    {
+      scrollTrigger: {
+        trigger: "#scrollText", // Trigger based on the text element
+        start: "top bottom-=100", // Start when the element is in the center of the viewport
+        end: "bottom center", // End when the element is out of the viewport
+        scrub: true,
+      },
+      color: "white", // Change the text color to white
+      stagger: 0.01, // Add stagger effect for individual letters
+      ease: "none", // No easing
+    }
+  );
 }
