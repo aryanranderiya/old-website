@@ -91,11 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // document.addEventListener("scroll", updateProgressBarandBtn);
 
   positionNavButtons();
-  highlightActiveSection();
-  updateProgressBar();
+  // highlightActiveSection();
+  // updateProgressBar();
   document.addEventListener("scroll", () => {
-    highlightActiveSection();
-    updateProgressBar();
+    // highlightActiveSection();
+    // updateProgressBar();
   });
 
   window.addEventListener("resize", positionNavButtons);
@@ -452,6 +452,7 @@ function setupServices() {
 function setupAnimationLargeText() {
   gsap.registerPlugin(ScrollTrigger);
 
+  // Timeline for the text animation
   let tl0 = gsap.timeline({
     scrollTrigger: {
       trigger: ".largetext_container",
@@ -506,6 +507,66 @@ function setupAnimationLargeText() {
   gsap.set(".large_text:nth-child(4)", { x: "-100%" });
   tl3.to(".large_text:nth-child(4)", { x: "0%" });
 
+  // Timeline for the emojis animation
+  let tlEmoji1 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".large_text:nth-child(1)",
+      start: "top-=200 center",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+  gsap.set(".emoji1 img", {
+    x: "-100%", // Initial position 1000px to the right
+  });
+
+  tlEmoji1.to(".emoji1 img", {
+    x: "0%", // Move to original position
+    duration: 3,
+  });
+
+  let tlEmoji2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".large_text:nth-child(2)",
+      start: "center-=100 center",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+  gsap.set(".emoji2 img", { x: "-200%" });
+  tlEmoji2.to(".emoji2 img", {
+    x: "0%",
+    duration: 6, // Make it slower
+  });
+
+  let tlEmoji3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".large_text:nth-child(3)",
+      start: "center-=100 center",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+  gsap.set(".emoji3 img", { x: "100%" });
+  tlEmoji3.to(".emoji3 img", {
+    x: "0%",
+    duration: 3, // Slower animation for emoji 3
+  });
+
+  let tlEmoji4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".large_text:nth-child(4)",
+      start: "center-=100 center",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+  gsap.set(".emoji4 img", { x: "-100%" });
+  tlEmoji4.to(".emoji4 img", {
+    x: "0%",
+    duration: 3, // Make it slower
+  });
+
   let currentScroll = 0;
   let isScrollingDown = true;
 
@@ -531,6 +592,7 @@ function setupAnimationLargeText() {
     currentScroll = window.pageYOffset;
   });
 }
+
 function setupBentoAnimation() {
   const bento_cards = document.querySelectorAll(".bento_card");
 
@@ -946,11 +1008,19 @@ const clientProjects = [
       "Developed frontend & backend for the official MWI brand website.",
     subDescription: "August 2024 - Present",
     images: [
+      "https://i.ibb.co/Pw1WBDC/Capture.png",
       "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ClientWork%2Fmwicollage.webp?alt=media&token=a82d1103-c61a-4624-8ce9-3b9826fc7e75",
-      // Add more images for this project if needed
     ],
     link: "https://mwi.gg",
     anchorText: "mwi.gg",
+  },
+  {
+    title: "Blink Analytics",
+    description: "Developed website for Blink Analytics.",
+    subDescription: "August 2024 - Present",
+    images: ["https://i.ibb.co/QYWH5xK/Capture.png"],
+    link: "https://blinkanalytics.com",
+    anchorText: "blinkanalytics.com",
   },
 ];
 
@@ -1053,7 +1123,7 @@ function clientProjectsSetup() {
     const card = document.createElement("div");
     card.classList.add(
       "sticky",
-      `top-[${index * 75 + 200}px]`,
+      `top-[${index * 55 + 200}px]`,
       // `bg-[${index % 2 == 0 ? "#00000090" : "#00bbff"}]`,
       // "bg-black",
       "bg-[#00bbff]",
@@ -1069,11 +1139,11 @@ function clientProjectsSetup() {
       "flex-col",
       "box-border",
       "px-8",
-      "py-5",
+      "py-3",
       "gap-4",
       "shadow-xl",
       "overflow-hidden",
-      "mt-[-50px]"
+      "mt-[-70px]"
     );
 
     // Header with title and link
@@ -1081,7 +1151,7 @@ function clientProjectsSetup() {
     headerDiv.classList.add("flex", "justify-between", "w-full", "text-black");
 
     const titleDiv = document.createElement("div");
-    titleDiv.classList.add("w-full", "text-2xl", "font-bold", "uppercase");
+    titleDiv.classList.add("w-full", "text-xl", "font-bold", "uppercase");
     titleDiv.textContent = project.title;
 
     const linkDiv = document.createElement("div");
@@ -1090,14 +1160,14 @@ function clientProjectsSetup() {
       // "text-white",
       "bg-white",
       "text-black",
-      "text-2xl",
+      "text-xl",
       "text-right",
       "font-bold",
       "uppercase",
       "rounded-full",
       "outline",
       "outline-2",
-      "py-1",
+      "py-0",
       "px-5",
       "text-nowrap"
     );

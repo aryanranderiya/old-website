@@ -1133,6 +1133,10 @@ h6 {
   gap: 1.5em;
 }
 
+.largetext_section {
+  height: 120vh;
+}
+
 .featured_marquee {
   width: 100%;
   overflow: hidden;
