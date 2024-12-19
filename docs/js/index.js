@@ -308,6 +308,10 @@ function setupFeaturedProjects(snapshot) {
   );
 
   const hover_text = document.querySelector(".hover_text_featured_project");
+  hover_card.style.width = "300px";
+  hover_card.style.height = "200px";
+  hover_card.style.borderRadius = "20px";
+  hover_card.style.backgroundColor = "#00bbff";
 
   snapshot.forEach((childSnapshot) => {
     const projectId = childSnapshot.val();
@@ -346,15 +350,51 @@ function setupFeaturedProjects(snapshot) {
           featured_container.appendChild(featured_project);
         }
 
-        featured_project.addEventListener("mouseover", enter);
-        featured_project.addEventListener("mouseout", leave);
+        leave();
+        // featured_project.addEventListener("mouseover", enter);
+        // featured_project.addEventListener("mouseout", leave);
+
+        // GSAP ScrollTrigger for hover effect when element is in view
+        let activeComponent = null; // Track the currently active component
+
+        gsap.to(featured_project, {
+          scrollTrigger: {
+            trigger: featured_project,
+            start: "top+=10 center", // Trigger when the top of the element reaches the center of the viewport
+            end: "bottom center", // Trigger when the bottom of the element reaches the center of the viewport
+            markers: true,
+            onEnter: () => {
+              if (activeComponent && activeComponent !== featured_project) {
+                leave(activeComponent); // Deactivate the previous component's hover
+              }
+              activeComponent = featured_project; // Set the new active component
+              enter(featured_project, data);
+            },
+            onLeave: () => {
+              if (activeComponent === featured_project) {
+                leave(featured_project);
+                activeComponent = null; // Reset the active component when leaving
+              }
+            },
+            onEnterBack: () => {
+              if (activeComponent && activeComponent !== featured_project) {
+                leave(activeComponent); // Deactivate the previous component's hover
+              }
+              activeComponent = featured_project;
+              enter(featured_project, data);
+            },
+            onLeaveBack: () => {
+              if (activeComponent === featured_project) {
+                leave(featured_project);
+                activeComponent = null; // Reset the active component when leaving
+              }
+            },
+          },
+        });
 
         function enter() {
-          hover_card.style.width = "300px";
-          hover_card.style.height = "150px";
-          hover_card.style.borderRadius = "20px";
-          hover_card.style.backgroundColor = "#00bbff";
-          hover_text.style.opacity = "0";
+          hover_card.style.opacity = "1";
+          hover_card.style.scale = "1";
           hover_card_btn.href = `Project.html?id=${snapshot.key}`;
           featured_project.href = `Project.html?id=${snapshot.key}`;
           featured_project.style.backgroundColor = "#00bbff";
@@ -367,13 +407,10 @@ function setupFeaturedProjects(snapshot) {
         }
 
         function leave() {
-          hover_card.style.backgroundColor = "white";
-          hover_text.style.opacity = "1";
+          hover_card.style.opacity = "0";
+          hover_card.style.scale = "0";
           hover_card_desc.style.opacity = "0";
           hover_card_btn.style.opacity = "0";
-          hover_card.style.width = "100px";
-          hover_card.style.height = "100px";
-          hover_card.style.borderRadius = "1000px";
           featured_project.style.backgroundColor = "";
           cursorTransformShadowBlend();
           removeClass(cursor, "transparent");

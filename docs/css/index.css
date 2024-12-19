@@ -390,7 +390,7 @@ header {
 }
 
 .grid_container {
-  min-height: 100vh;
+  min-height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1294,11 +1294,11 @@ h6 {
 
 .featured_project_hover_card {
   background-color: white;
-  position: absolute;
-  height: 100px;
-  width: 100px;
+  /* position: absolute; */
+  /* height: 100px; */
+  /* width: 100px; */
   z-index: 2;
-  transform: translate(55vw, 25vh);
+  /* transform: translate(55vw, 25vh); */
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -1313,10 +1313,10 @@ h6 {
   color: black;
   font-family: Helvs;
   font-size: 1.1em;
-  position: absolute;
+  /* position: absolute;
   transform-origin: center;
   left: 17%;
-  top: 47%;
+  top: 47%; */
 }
 
 .featured_project_hover_card_description {
