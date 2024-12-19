@@ -20,6 +20,9 @@ body {
 
 body {
   overflow-x: hidden;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: content-box;
 }
 
 button {
@@ -1443,7 +1446,8 @@ h6 {
 }
 
 .clientsection {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   margin: 100px 0;
   width: 100%;
   display: flex;
@@ -1453,6 +1457,7 @@ h6 {
   align-items: center;
   z-index: 1;
   gap: 40px;
+  /* overflow: hidden; */
   transition: opacity 300ms ease;
 }
 
@@ -1601,4 +1606,33 @@ h6 {
 .project-title.highlighted {
   color: #00bbff;
   font-weight: bold;
+}
+
+/* Spinner container */
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* The actual spinning circle */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-top: 4px solid #fff; /* White border on top for the spinning effect */
+  border-radius: 50%;
+  width: 40px; /* Size of the spinner */
+  height: 40px; /* Size of the spinner */
+  animation: spin 1s linear infinite; /* Apply the spinning animation */
+}
+
+/* Define the spinning animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
