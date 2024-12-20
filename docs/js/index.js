@@ -392,7 +392,7 @@ function setupServices(snapshot) {
 
   snapshot.forEach((childSnapshot) => {
     const service = childSnapshot.val();
-    const index = childSnapshot.key;
+    const index = parseInt(childSnapshot.key) + 1;
     const serviceElement = document.createElement("div");
     serviceElement.classList.add("service");
     serviceElement.innerHTML = `
@@ -988,18 +988,18 @@ function setupFeaturedClients(snapshot) {
         const preloadedImages = imagesArray.map(preloadImage);
 
         const card = document.createElement("div");
-        const topValue = `${index * 55 + 200}px`; // Default top value
-        const smTopValue = `${index * 55 + 70}px`; // Top value for small screens
+        const topValue = `${index * 55 + 80}px`;
+        const smTopValue = `${index * 55 + 200}px`;
 
-        // Compute the class names based on the dynamic values
-        const topClass = `top-[${topValue}]`;
-        const smTopClass = `sm:top-[${smTopValue}]`;
-        card.style.top = topValue;
+        // // Compute the class names based on the dynamic values
+        // const topClass = `top-[${topValue}]`;
+        // const smTopClass = `sm:top-[${smTopValue}]`; // Minimum width 600px, pc
+
+        if (window.innerWidth >= 600) card.style.top = smTopValue;
+        else card.style.top = topValue;
 
         card.classList.add(
           "sticky",
-          topClass, // Apply dynamic top class
-          smTopClass, // Apply dynamic small screen top class
           "bg-[#00bbff]",
           "outline",
           "outline-[black]",
@@ -1236,17 +1236,17 @@ function setupTestimonials(snapshot) {
     scrollTrigger: {
       trigger: "#sticky-element", // Pin the element when it reaches the top of the viewport
       start: "top top", // Start when the top of the element reaches the top of the viewport
-      end: "bottom-=520 top", // End when the bottom of the element reaches the top of the viewport
+      end: "bottom-=320 top", // End when the bottom of the element reaches the top of the viewport
       pin: true, // Pin the element during scroll
       scrub: true, // Sync animation with scrolling
     },
   });
+
   snapshot.forEach((childSnapshot) => {
     const testimonial = childSnapshot.val();
     const index = childSnapshot.key;
     const card = document.createElement("div");
     card.classList.add(
-      "testimonial-card",
       "transition-colors",
       "rounded-xl",
       "p-[2em]",
