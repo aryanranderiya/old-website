@@ -988,10 +988,18 @@ function setupFeaturedClients(snapshot) {
         const preloadedImages = imagesArray.map(preloadImage);
 
         const card = document.createElement("div");
+        const topValue = `${index * 55 + 200}px`; // Default top value
+        const smTopValue = `${index * 55 + 70}px`; // Top value for small screens
+
+        // Compute the class names based on the dynamic values
+        const topClass = `top-[${topValue}]`;
+        const smTopClass = `sm:top-[${smTopValue}]`;
+        card.style.top = topValue;
+
         card.classList.add(
           "sticky",
-          `sm:top-[${index * 55 + 200}px]`,
-          `top-[${index * 55 + 70}px]`,
+          topClass, // Apply dynamic top class
+          smTopClass, // Apply dynamic small screen top class
           "bg-[#00bbff]",
           "outline",
           "outline-[black]",

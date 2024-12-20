@@ -1,8 +1,12 @@
 {
   "scripts": {
-    "start": "lite-server"
+    "start": "lite-server",
+    "build": "npx tailwindcss -i docs/css/index.css -o docs/css/index_output2.css"
   },
   "devDependencies": {
-    "lite-server": "^2.6.1"
+    "autoprefixer": "^10.4.20",
+    "lite-server": "^2.6.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
   }
 }

@@ -1,3 +1,13 @@
+/*
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
 @font-face {
   font-family: DirtyLine;
   src: url("../fonts/Dirtyline 36daysoftype 2022.woff2") format("woff2");
