@@ -4,7 +4,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebas
 import {
   getDatabase,
   ref,
-  onValue,
   get,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
@@ -46,6 +45,8 @@ const scrollbarContainer = document.querySelector(
 const progressBar = document.querySelector(".scrollbar_progress");
 
 document.addEventListener("DOMContentLoaded", async () => {
+  console.time("processing");
+
   // window.scrollTo(0, 0);
 
   // document
@@ -73,7 +74,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const nowRef = ref(database, "Now/");
 
   try {
-    // Fetch data concurrently
     const [
       featuredProjectsSnapshot,
       featuredClientsSnapshot,
@@ -87,8 +87,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       get(testimonials),
       get(nowRef),
     ]);
-
-    // Process fetched data
     setupFeaturedProjects(featuredProjectsSnapshot);
     setupFeaturedClients(featuredClientsSnapshot);
     setupTestimonials(testimonialsSnapshot);
@@ -118,6 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // });
 
   window.addEventListener("resize", positionNavButtons);
+  console.timeEnd("processing");
 });
 
 function updateProgressBar() {
@@ -271,13 +270,13 @@ function modifyScrollBar() {
 function updateProgressBarandBtn() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
-  const scrollPercent = percentage + "%";
+  const scrollPercent = `${percentage}%`;
 
   document
     .querySelector(".scrollbar_progress")
     .style.setProperty("--height", scrollPercent);
 
-  cursortext2.textContent = Math.round(percentage) + "%";
+  cursortext2.textContent = `${Math.round(percentage)}%`;
 }
 
 function setupNowItems(snapshot) {
@@ -291,19 +290,17 @@ function setupNowItems(snapshot) {
 }
 
 function setupFeaturedProjects(snapshot) {
-  const featured_container = document.querySelector(".featured_projects");
-  const hover_card = document.querySelector(".featured_project_hover_card");
-  const hover_card_btn = hover_card.querySelector(
+  const featuredContainer = document.querySelector(".featured_projects");
+  const hoverCard = document.querySelector(".featured_project_hover_card");
+  const hoverCardBtn = hoverCard.querySelector(
     ".featured_project_hover_card_btn"
   );
-  const hover_card_desc = hover_card.querySelector(
+  const hoverCardDesc = hoverCard.querySelector(
     ".featured_project_hover_card_description"
   );
 
-  hover_card.style.width = "300px";
-  hover_card.style.height = "200px";
-  hover_card.style.borderRadius = "20px";
-  hover_card.style.backgroundColor = "#00bbff";
+  hoverCard.style.cssText =
+    "width: 300px; height: 200px; border-radius: 20px; background-color: #00bbff;";
 
   snapshot.forEach((childSnapshot) => {
     const projectId = childSnapshot.val();
@@ -312,179 +309,120 @@ function setupFeaturedProjects(snapshot) {
 
     get(projectsRef)
       .then((snapshot) => {
-        if (!snapshot.exists()) {
-          throw new Error("Snapshot doesnt exist: " + JSON.stringify(snapshot));
-          return;
-        }
+        if (!snapshot.exists())
+          throw new Error(
+            `Snapshot doesn't exist: ${JSON.stringify(snapshot)}`
+          );
 
         const data = snapshot.val();
-        const featured_project = document.createElement("a");
-        featured_project.innerHTML = `
-        <div class="featured_project_card">
-          <span class="featured_project_name">${data.project_title}</span>
-          <div class="featured_project_info">
-            <span class="featured_project_type">${data.project_type}</span>
-            <span class="featured_project_type2">${data.project_creation}</span>
+        const featuredProject = document.createElement("a");
+        featuredProject.innerHTML = `
+          <div class="featured_project_card">
+            <span class="featured_project_name">${data.project_title}</span>
+            <div class="featured_project_info">
+              <span class="featured_project_type">${data.project_type}</span>
+              <span class="featured_project_type2">${data.project_creation}</span>
+            </div>
           </div>
-        </div>
-        <hr class="featured_project_separator">`;
+          <hr class="featured_project_separator">`;
 
         if (key.toLowerCase() === "latest") {
-          const card = featured_project.querySelector(".featured_project_card");
-          const latest_div = document.createElement("div");
-          latest_div.classList.add("latest_work");
-          latest_div.innerText = "Latest";
-          card.insertBefore(latest_div, card.firstChild);
-          featured_container.insertBefore(
-            featured_project,
-            featured_container.firstChild
+          const card = featuredProject.querySelector(".featured_project_card");
+          const latestDiv = document.createElement("div");
+          latestDiv.classList.add("latest_work");
+          latestDiv.innerText = "Latest";
+          card.insertBefore(latestDiv, card.firstChild);
+          featuredContainer.insertBefore(
+            featuredProject,
+            featuredContainer.firstChild
           );
         } else {
-          featured_container.appendChild(featured_project);
+          featuredContainer.appendChild(featuredProject);
         }
 
-        leave();
-        // featured_project.addEventListener("mouseover", enter);
-        // featured_project.addEventListener("mouseout", leave);
+        let activeComponent = null;
 
-        let activeComponent = null; // Track the currently active component
-
-        gsap.to(featured_project, {
+        gsap.to(featuredProject, {
           scrollTrigger: {
-            trigger: featured_project,
-            start: "top+=10 center", // Trigger when the top of the element reaches the center of the viewport
-            end: "bottom center", // Trigger when the bottom of the element reaches the center of the viewport
-            onEnter: () => {
-              if (activeComponent && activeComponent !== featured_project) {
-                leave(activeComponent); // Deactivate the previous component's hover
-              }
-              activeComponent = featured_project; // Set the new active component
-              enter(featured_project, data);
-            },
-            onLeave: () => {
-              if (activeComponent === featured_project) {
-                leave(featured_project);
-                activeComponent = null; // Reset the active component when leaving
-              }
-            },
-            onEnterBack: () => {
-              if (activeComponent && activeComponent !== featured_project) {
-                leave(activeComponent); // Deactivate the previous component's hover
-              }
-              activeComponent = featured_project;
-              enter(featured_project, data);
-            },
-            onLeaveBack: () => {
-              if (activeComponent === featured_project) {
-                leave(featured_project);
-                activeComponent = null; // Reset the active component when leaving
-              }
-            },
+            trigger: featuredProject,
+            start: "top+=10 center",
+            end: "bottom center",
+            onEnter: () => handleHover(featuredProject, data, true),
+            onLeave: () => handleHover(featuredProject, data, false),
+            onEnterBack: () => handleHover(featuredProject, data, true),
+            onLeaveBack: () => handleHover(featuredProject, data, false),
           },
         });
 
-        function enter() {
-          hover_card.style.opacity = "1";
-          hover_card.style.scale = "1";
-          hover_card_btn.href = `Project.html?id=${snapshot.key}`;
-          featured_project.href = `Project.html?id=${snapshot.key}`;
-          featured_project.style.backgroundColor = "#00bbff";
-          hover_card_desc.innerText = data.project_short_description;
-          hover_card_desc.style.opacity = "1";
-          hover_card_btn.style.opacity = "1";
-          cursorTransformShadowBlend("scale(1.3)", "none");
-          addClass(cursor, "transparent");
-          addClass(cursoricon5, "active");
-        }
-
-        function leave() {
-          hover_card.style.opacity = "0";
-          hover_card.style.scale = "0";
-          hover_card_desc.style.opacity = "0";
-          hover_card_btn.style.opacity = "0";
-          featured_project.style.backgroundColor = "";
+        function handleHover(project, data, isEntering) {
+          if (isEntering) {
+            if (activeComponent && activeComponent !== project)
+              handleHover(activeComponent, data, false);
+            activeComponent = project;
+            hoverCard.style.opacity = "1";
+            hoverCard.style.scale = "1";
+            hoverCardBtn.href = `Project.html?id=${snapshot.key}`;
+            project.href = `Project.html?id=${snapshot.key}`;
+            project.style.backgroundColor = "#00bbff";
+            hoverCardDesc.innerText = data.project_short_description;
+            hoverCardDesc.style.opacity = "1";
+            hoverCardBtn.style.opacity = "1";
+            cursorTransformShadowBlend("scale(1.3)", "none");
+            addClass(cursor, "transparent");
+            addClass(cursoricon5, "active");
+            return;
+          }
+          hoverCard.style.opacity = "0";
+          hoverCard.style.scale = "0";
+          hoverCardDesc.style.opacity = "0";
+          hoverCardBtn.style.opacity = "0";
+          project.style.backgroundColor = "";
           cursorTransformShadowBlend();
           removeClass(cursor, "transparent");
           removeClass(cursoricon5, "active");
+          activeComponent = null;
         }
       })
-      .catch((error) => {
-        console.error("Error getting data: ", error);
-      });
+      .catch((error) => console.error("Error getting data: ", error));
   });
 }
 
 function setupServices(snapshot) {
   const servicesContainer = document.querySelector(".services");
 
-  function toTwoDigits(num) {
-    return num < 10 ? `0${num}` : `${num}`;
-  }
-
   snapshot.forEach((childSnapshot) => {
     const service = childSnapshot.val();
     const index = childSnapshot.key;
     const serviceElement = document.createElement("div");
-    const serviceNumber = document.createElement("span");
-    const serviceName = document.createElement("span");
-    serviceNumber.innerText = toTwoDigits(index);
-    serviceName.innerText = service;
     serviceElement.classList.add("service");
-    serviceNumber.classList.add("service_number");
-    serviceName.classList.add("service_name");
+    serviceElement.innerHTML = `
+      <span class="service_number">${index.toString().padStart(2, "0")}</span>
+      <span class="service_name">${service}</span>
+    `;
     servicesContainer.appendChild(serviceElement);
-    serviceElement.appendChild(serviceNumber);
-    serviceElement.appendChild(serviceName);
   });
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const mm = gsap.matchMedia();
-
-  mm.add("(max-width: 700px)", () => {
-    let tl0 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".services_section",
-        start: "top+=100 bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    tl0.to(".service_name", {
-      color: "black",
-      x: "0%",
-      stagger: {
-        amount: 1.5,
-        from: "start",
-        each: 0.5,
-        onComplete: changeColor,
-        onStart: setColor,
-      },
-    });
+  const tl0 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".services_section",
+      start: "top+=100 bottom",
+      end: "bottom top",
+      scrub: true,
+    },
   });
 
-  mm.add("(min-width: 701px)", () => {
-    let tl0 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".services_section",
-        start: "top+=300 bottom",
-        end: "bottom-=300 top",
-        scrub: true,
-      },
-    });
-
-    tl0.to(".service_name", {
-      color: "black",
-      x: "0%",
-      stagger: {
-        amount: 1.5,
-        from: "start",
-        each: 0.5,
-        onComplete: changeColor,
-        onStart: setColor,
-      },
-    });
+  tl0.to(".service_name", {
+    color: "black",
+    x: "0%",
+    stagger: {
+      amount: 1.5,
+      from: "start",
+      each: 0.5,
+      onComplete: changeColor,
+      onStart: setColor,
+    },
   });
 
   gsap.set(".service_name", { x: "100vw" });
@@ -545,7 +483,7 @@ function setupAnimationLargeText() {
   gsap.set(".large_text:nth-child(3)", { x: "100%" });
   tl2.to(".large_text:nth-child(3)", { x: "0%" });
 
-  let tl3 = gsap.timeline({
+  const tl3 = gsap.timeline({
     scrollTrigger: {
       trigger: ".large_text:nth-child(3)",
       start: "center-=100 center",
@@ -630,8 +568,8 @@ function setupAnimationLargeText() {
 
   gsap.set(".featured_marquee__inner", { xPercent: -50 });
 
-  window.addEventListener("scroll", function () {
-    isScrollingDown = window.pageYOffset > currentScroll ? true : false;
+  window.addEventListener("scroll", () => {
+    isScrollingDown = window.pageYOffset > currentScroll;
 
     gsap.to(tween, {
       timeScale: isScrollingDown ? 1 : -1,
@@ -646,8 +584,7 @@ function setupBentoAnimation() {
 
   function handleIntersection2(entries) {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.style.opacity = "1";
-      else entry.target.style.opacity = "0";
+      entry.target.style.opacity = entry.isIntersecting ? "1" : "0";
     });
   }
 
@@ -655,7 +592,7 @@ function setupBentoAnimation() {
     threshold: 0.7,
   });
 
-  bento_cards.forEach((bento_card, index) => {
+  bento_cards.forEach((bento_card) => {
     observer.observe(bento_card);
   });
 
@@ -665,7 +602,7 @@ function setupBentoAnimation() {
   const bento_blog = document.getElementById("bento_blog");
   const now_anchor = document.querySelectorAll(".now a");
 
-  let bentos = [bento_project, bento_project2, bento_resume, bento_blog];
+  const bentos = [bento_project, bento_project2, bento_resume, bento_blog];
 
   now_anchor.forEach((anchor) => {
     anchor.addEventListener("mouseover", () => {
@@ -697,47 +634,43 @@ function setupBentoAnimation() {
 }
 
 async function setupGithubBento() {
-  const qDtadW_2ZSeiRJtuRTvv = ref(database, "qDtadW_2ZSeiRJtuRTvv/");
-  const snapshot = await get(qDtadW_2ZSeiRJtuRTvv);
-  const token = snapshot.val();
+  try {
+    const qDtadW_2ZSeiRJtuRTvv = ref(database, "qDtadW_2ZSeiRJtuRTvv/");
+    const snapshot = await get(qDtadW_2ZSeiRJtuRTvv);
+    const token = snapshot.val();
 
-  const response = await fetch(
-    "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+    const [repoResponse, userResponse] = await Promise.all([
+      fetch(
+        "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      ),
+      fetch("https://api.github.com/users/aryanranderiya"),
+    ]);
 
-  const repoObj = await response.json();
-  const repoArray = repoObj.items;
+    const repoObj = await repoResponse.json();
+    const userInfo = await userResponse.json();
 
-  document.getElementById(
-    "github_repo_chip"
-  ).innerHTML = `<i class="fa-solid fa-book-bookmark"></i>${repoArray.length} Repos`;
-
-  const response2 = await fetch("https://api.github.com/users/aryanranderiya");
-  const userInfo = await response2.json();
-
-  document.getElementById("github_profile_chip").innerHTML = `
-  <img src=${userInfo.avatar_url} width='10px' alt="Github Profile photo"> 
-  ${userInfo.login}
-  `;
-
-  document.getElementById("github_profile_anchor").href = userInfo.html_url;
-
-  document.getElementById(
-    "github_public_repo_chip"
-  ).innerHTML = `<i class="fa-solid fa-people-group"></i>${userInfo.public_repos} Public Repos`;
-
-  document.getElementById(
-    "github_follower_chip"
-  ).innerHTML = `<i class="fa-solid fa-user-plus"></i>${userInfo.followers} Followers`;
-
-  document.getElementById(
-    "github_following_chip"
-  ).innerHTML = `<i class="fa-solid fa-user-group"></i>${userInfo.following} Following`;
+    document.getElementById(
+      "github_repo_chip"
+    ).innerHTML = `<i class="fa-solid fa-book-bookmark"></i>${repoObj.items.length} Repos`;
+    document.getElementById(
+      "github_profile_chip"
+    ).innerHTML = `<img src=${userInfo.avatar_url} width='10px' alt="Github Profile photo"> ${userInfo.login}`;
+    document.getElementById("github_profile_anchor").href = userInfo.html_url;
+    document.getElementById(
+      "github_public_repo_chip"
+    ).innerHTML = `<i class="fa-solid fa-people-group"></i>${userInfo.public_repos} Public Repos`;
+    document.getElementById(
+      "github_follower_chip"
+    ).innerHTML = `<i class="fa-solid fa-user-plus"></i>${userInfo.followers} Followers`;
+    document.getElementById(
+      "github_following_chip"
+    ).innerHTML = `<i class="fa-solid fa-user-group"></i>${userInfo.following} Following`;
+  } catch (error) {
+    console.error("Error setting up GitHub Bento:", error);
+  }
 }
 
 function setupGSAPChips() {
@@ -795,18 +728,18 @@ function addListeners(scrollBtn) {
   const buttons_blue = document.querySelectorAll(".button_blue");
   const title_heading_1 = document.querySelector(".title_heading_1");
   const cursoricon3 = document.getElementById("cursoricon3");
-  const cursoriconidea = document.getElementById("cursoriconidea");
-  const cursoriconlaptop = document.getElementById("cursoriconlaptop");
-  const cursoriconpallette = document.getElementById("cursoriconpallette");
-  const span_designer = document.getElementById("span_designer");
-  const span_dev = document.getElementById("span_dev");
-  const span_age = document.getElementById("span_age");
-  const span_entrepreneur = document.getElementById("span_entre");
+  // const cursoriconidea = document.getElementById("cursoriconidea");
+  // const cursoriconlaptop = document.getElementById("cursoriconlaptop");
+  // const cursoriconpallette = document.getElementById("cursoriconpallette");
+  // const span_designer = document.getElementById("span_designer");
+  // const span_dev = document.getElementById("span_dev");
+  // const span_age = document.getElementById("span_age");
+  // const span_entrepreneur = document.getElementById("span_entre");
   const cursoricon2 = document.getElementById("cursoricon2");
-  const subcontent1_text = document.querySelector(".subcontent1_text");
+  // const subcontent1_text = document.querySelector(".subcontent1_text");
   // ! Scroll on button click
 
-  scrollBtn.addEventListener("click", function (e) {
+  scrollBtn.addEventListener("click", (e) => {
     cursorTransformShadowBlend();
     removeClass(cursoricon2, "active");
 
@@ -858,10 +791,10 @@ function addListeners(scrollBtn) {
 
   // ! Pallette, Laptop & Idea Cursor
   function calculateAge(birthday) {
-    var dob = new Date(birthday);
-    var month_diff = Date.now() - dob.getTime();
-    var age_dt = new Date(month_diff);
-    var year = age_dt.getUTCFullYear();
+    const dob = new Date(birthday);
+    const month_diff = Date.now() - dob.getTime();
+    const age_dt = new Date(month_diff);
+    const year = age_dt.getUTCFullYear();
     return Math.abs(year - 1970);
   }
 
@@ -1011,10 +944,7 @@ async function preloadImage(url) {
   try {
     const response = await fetch(url);
     const blob = await response.blob();
-    // Create a Blob URL that can be used as an image source
-    const objectURL = URL.createObjectURL(blob);
-    console.log("Image preloaded and cached:", objectURL);
-    return objectURL;
+    return URL.createObjectURL(blob);
   } catch (error) {
     console.error("Failed to preload image:", error);
     return null;
@@ -1066,8 +996,10 @@ function setupFeaturedClients(snapshot) {
           "outline",
           "outline-[black]",
           "rounded-3xl",
-          "min-h-[70vh]",
-          "max-h-[70vh]",
+          "min-h-fit",
+          "sm:min-h-[70vh]",
+          "h-fit",
+          "max-h-[20vh]",
           "w-[95vw]",
           "flex",
           "flex-col",
@@ -1075,7 +1007,9 @@ function setupFeaturedClients(snapshot) {
           "sm:px-8",
           "px-5",
           "py-3",
-          "gap-4",
+          "sm:pb-3",
+          "pb-[30px]",
+          "gap-3",
           "shadow-xl",
           "overflow-hidden",
           "mt-[-70px]"
@@ -1173,8 +1107,9 @@ function setupFeaturedClients(snapshot) {
         });
         image.classList.add(
           "rounded-b-xl",
-          "min-h-[60vh]",
-          "h-[60vh]",
+          "h-fit",
+          "sm:min-h-[60vh]",
+          "sm:h-[60vh]",
           "object-cover"
         );
         imageContainer2.appendChild(image);
@@ -1186,8 +1121,11 @@ function setupFeaturedClients(snapshot) {
         if (imagesArray.length > 1) {
           const controlsContainer = document.createElement("div");
           controlsContainer.classList.add(
-            "absolute",
-            "bottom-[40px]",
+            "sm:absolute",
+            "relative",
+            "sm:bottom-[40px]",
+            "sm:bottom-0",
+            "left-0",
             "w-full",
             "flex",
             "justify-center",
@@ -1200,12 +1138,12 @@ function setupFeaturedClients(snapshot) {
           buttonContainer.classList.add(
             "bg-black",
             "rounded-full",
-            "py-2",
-            "px-2",
+            "py-1",
+            "px-1",
             "flex",
             "outline",
             "items-center",
-            "gap-7",
+            "gap-3",
             "outline-white"
           );
 
@@ -1215,7 +1153,7 @@ function setupFeaturedClients(snapshot) {
           controlBackward.classList.add(
             "fa-solid",
             "fa-circle-chevron-left",
-            "text-[45px]",
+            "text-[40px]",
             "text-white"
           );
 
@@ -1225,13 +1163,13 @@ function setupFeaturedClients(snapshot) {
           controlForward.classList.add(
             "fa-solid",
             "fa-circle-chevron-right",
-            "text-[45px]",
+            "text-[40px]",
             "text-white"
           );
 
           // Add event listeners to cycle images on button click
           controlBackward.addEventListener("click", () => {
-            if (!(imagesArray.length > 1)) return;
+            if (imagesArray.length <= 1) return;
 
             currentImageIndex =
               (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
@@ -1241,7 +1179,7 @@ function setupFeaturedClients(snapshot) {
           });
 
           controlForward.addEventListener("click", () => {
-            if (!(imagesArray.length > 1)) return;
+            if (imagesArray.length <= 1) return;
 
             currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
             preloadedImages[currentImageIndex].then((preloadedURL) => {
@@ -1260,7 +1198,7 @@ function setupFeaturedClients(snapshot) {
         }
         clientsection.appendChild(card);
 
-        let tl0 = gsap.timeline({
+        const tl0 = gsap.timeline({
           scrollTrigger: {
             trigger: ".clientsection",
             start: "top-=400 bottom",
@@ -1270,7 +1208,7 @@ function setupFeaturedClients(snapshot) {
         });
 
         gsap.set(".clientsection .title", {
-          x: "60%",
+          x: "100%",
         });
         tl0.to(".clientsection .title", {
           x: "-5%",
