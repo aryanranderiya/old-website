@@ -45,7 +45,7 @@ const scrollbarContainer = document.querySelector(
 );
 const progressBar = document.querySelector(".scrollbar_progress");
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   // window.scrollTo(0, 0);
 
   // document
@@ -59,31 +59,54 @@ document.addEventListener("DOMContentLoaded", () => {
   cursor.style.boxShadow = "none";
 
   addListeners(scrollBtn);
-  handleAnimationSubcontent1();
+  // handleAnimationSubcontent1();
 
   loadNavbar().then(() => {
     handleNavbarIntersection();
   });
 
-  setupTimeBento();
-  setupAnimationLargeText();
-  setupGSAPChips();
-
+  // Firebase references
   const featuredProjects = ref(database, "Homepage_Featured_Projects/");
   const featuredClients = ref(database, "Homepage_Featured_Clients/");
   const services = ref(database, "Services/");
   const testimonials = ref(database, "Testimonials/");
   const nowRef = ref(database, "Now/");
 
-  onValue(featuredProjects, setupFeaturedProjects);
-  onValue(featuredClients, setupFeaturedClients);
-  onValue(testimonials, setupTestimonials);
-  onValue(services, setupServices);
-  onValue(nowRef, setupNowItems);
+  try {
+    // Fetch data concurrently
+    const [
+      featuredProjectsSnapshot,
+      featuredClientsSnapshot,
+      servicesSnapshot,
+      testimonialsSnapshot,
+      nowSnapshot,
+    ] = await Promise.all([
+      get(featuredProjects),
+      get(featuredClients),
+      get(services),
+      get(testimonials),
+      get(nowRef),
+    ]);
+
+    // Process fetched data
+    setupFeaturedProjects(featuredProjectsSnapshot);
+    setupFeaturedClients(featuredClientsSnapshot);
+    setupTestimonials(testimonialsSnapshot);
+    setupServices(servicesSnapshot);
+    setupNowItems(nowSnapshot);
+  } catch (error) {
+    console.error("Error fetching Firebase data:", error);
+  }
+
+  // Other setups
+  setupTimeBento();
+  setupAnimationLargeText();
+  setupGSAPChips();
   setupGithubBento();
   setupBentoAnimation();
   positionNavButtons();
   animateTextColor();
+
   // modifyScrollBar();
   // positionNavButtons();
   // document.addEventListener("scroll", updateProgressBarandBtn);
@@ -105,9 +128,6 @@ function updateProgressBar() {
 }
 
 function positionNavButtons() {
-  const scrollbarContainer = document.querySelector(
-    ".scrollbar_progress_container_buttons"
-  );
   const totalButtons = sections.length;
   const containerHeight = scrollbarContainer.offsetHeight;
 
@@ -280,7 +300,6 @@ function setupFeaturedProjects(snapshot) {
     ".featured_project_hover_card_description"
   );
 
-  const hover_text = document.querySelector(".hover_text_featured_project");
   hover_card.style.width = "300px";
   hover_card.style.height = "200px";
   hover_card.style.borderRadius = "20px";
@@ -678,14 +697,9 @@ function setupBentoAnimation() {
 }
 
 async function setupGithubBento() {
-  let token = "";
   const qDtadW_2ZSeiRJtuRTvv = ref(database, "qDtadW_2ZSeiRJtuRTvv/");
-  await new Promise((resolve) => {
-    onValue(qDtadW_2ZSeiRJtuRTvv, (snapshot) => {
-      token = snapshot.val();
-      resolve();
-    });
-  });
+  const snapshot = await get(qDtadW_2ZSeiRJtuRTvv);
+  const token = snapshot.val();
 
   const response = await fetch(
     "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
@@ -851,55 +865,55 @@ function addListeners(scrollBtn) {
     return Math.abs(year - 1970);
   }
 
-  span_age.innerHTML = calculateAge("07/27/2005");
+  // span_age.innerHTML = calculateAge("07/27/2005");
 
-  span_designer.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none");
-    makeInvisible(cursoriconwave);
-    addClass(cursor, "transparent");
-    addClass(cursoriconpallette, "active");
-  });
+  // span_designer.addEventListener("mouseover", () => {
+  //   cursorTransformShadowBlend(undefined, "none");
+  //   makeInvisible(cursoriconwave);
+  //   addClass(cursor, "transparent");
+  //   addClass(cursoriconpallette, "active");
+  // });
 
-  span_dev.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none");
-    makeInvisible(cursoriconwave);
-    addClass(cursor, "transparent");
-    addClass(cursoriconlaptop, "active");
-  });
+  // span_dev.addEventListener("mouseover", () => {
+  //   cursorTransformShadowBlend(undefined, "none");
+  //   makeInvisible(cursoriconwave);
+  //   addClass(cursor, "transparent");
+  //   addClass(cursoriconlaptop, "active");
+  // });
 
-  span_entrepreneur.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend(undefined, "none");
-    makeInvisible(cursoriconwave);
-    addClass(cursor, "transparent");
-    addClass(cursoriconidea, "active");
-  });
+  // span_entrepreneur.addEventListener("mouseover", () => {
+  //   cursorTransformShadowBlend(undefined, "none");
+  //   makeInvisible(cursoriconwave);
+  //   addClass(cursor, "transparent");
+  //   addClass(cursoriconidea, "active");
+  // });
 
-  span_designer.addEventListener("mouseout", () => {
-    normalCursorEmojiSpan(cursoriconpallette);
-  });
+  // span_designer.addEventListener("mouseout", () => {
+  //   normalCursorEmojiSpan(cursoriconpallette);
+  // });
 
-  span_dev.addEventListener("mouseout", () => {
-    normalCursorEmojiSpan(cursoriconlaptop);
-  });
+  // span_dev.addEventListener("mouseout", () => {
+  //   normalCursorEmojiSpan(cursoriconlaptop);
+  // });
 
-  span_entrepreneur.addEventListener("mouseout", () => {
-    normalCursorEmojiSpan(cursoriconidea);
-  });
+  // span_entrepreneur.addEventListener("mouseout", () => {
+  //   normalCursorEmojiSpan(cursoriconidea);
+  // });
 
-  subcontent1.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend();
-    addClass(cursor, "transparent");
-    cursoriconwave.style.opacity = "1";
-    addClass(cursoriconwave, "active");
-    removeClass(cursoricon2, "active");
-  });
+  // subcontent1.addEventListener("mouseover", () => {
+  //   cursorTransformShadowBlend();
+  //   addClass(cursor, "transparent");
+  //   cursoriconwave.style.opacity = "1";
+  //   addClass(cursoriconwave, "active");
+  //   removeClass(cursoricon2, "active");
+  // });
 
-  subcontent1.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend();
-    cursoriconwave.style.opacity = "0";
-    removeClass(cursor, "transparent");
-    removeClass(cursoriconwave, "active");
-  });
+  // subcontent1.addEventListener("mouseout", () => {
+  //   cursorTransformShadowBlend();
+  //   cursoriconwave.style.opacity = "0";
+  //   removeClass(cursor, "transparent");
+  //   removeClass(cursoriconwave, "active");
+  // });
 }
 
 function handleAnimationSubcontent1() {
@@ -993,27 +1007,18 @@ function removeBlackCover() {
   setTimeout(() => welcoming.remove(), 1600);
 }
 
-// function prefetchImages() {
-//   clientProjects.forEach((project) => {
-//     const img = new Image();
-//     img.src = project.image; // Set the source to start loading the image
-//     img.style.display = "none"; // Hide the image so it doesn't affect layout
-//     document.body.appendChild(img); // Append it to the DOM to trigger caching
-//   });
-// }
-function preloadImage(url) {
-  return fetch(url)
-    .then((response) => response.blob()) // Convert the response into a Blob
-    .then((blob) => {
-      // Create a Blob URL that can be used as an image source
-      const objectURL = URL.createObjectURL(blob);
-      console.log("Image preloaded and cached:", objectURL);
-      return objectURL; // Return the blob URL
-    })
-    .catch((error) => {
-      console.error("Failed to preload image:", error);
-      return null;
-    });
+async function preloadImage(url) {
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    // Create a Blob URL that can be used as an image source
+    const objectURL = URL.createObjectURL(blob);
+    console.log("Image preloaded and cached:", objectURL);
+    return objectURL;
+  } catch (error) {
+    console.error("Failed to preload image:", error);
+    return null;
+  }
 }
 
 function setupFeaturedClients(snapshot) {
@@ -1030,17 +1035,33 @@ function setupFeaturedClients(snapshot) {
       .then((innerSnapshot) => {
         if (!innerSnapshot.exists()) {
           throw new Error(
-            "Snapshot doesn't exist: " + JSON.stringify(innerSnapshot)
+            `Snapshot doesn't exist: ${JSON.stringify(innerSnapshot)}`
           );
         }
 
         index++;
         const clientProject = innerSnapshot.val();
 
+        // Check for project images, fallback to banner image if not an array or if it's empty
+        const projectImage =
+          Array.isArray(clientProject?.project_images) &&
+          clientProject.project_images.length > 0
+            ? clientProject.project_images
+            : [clientProject?.banner_image_URL]; // Ensure it becomes an array if not
+
+        // If projectImage is not an array, we make sure it's a single image array
+        const imagesArray = Array.isArray(projectImage)
+          ? projectImage
+          : [projectImage];
+
+        // Preload images and store their object URLs
+        const preloadedImages = imagesArray.map(preloadImage);
+
         const card = document.createElement("div");
         card.classList.add(
           "sticky",
-          `top-[${index * 55 + 200}px]`,
+          `sm:top-[${index * 55 + 200}px]`,
+          `top-[${index * 55 + 70}px]`,
           "bg-[#00bbff]",
           "outline",
           "outline-[black]",
@@ -1051,7 +1072,8 @@ function setupFeaturedClients(snapshot) {
           "flex",
           "flex-col",
           "box-border",
-          "px-8",
+          "sm:px-8",
+          "px-5",
           "py-3",
           "gap-4",
           "shadow-xl",
@@ -1064,6 +1086,7 @@ function setupFeaturedClients(snapshot) {
         headerDiv.classList.add(
           "flex",
           "justify-between",
+          "items-center",
           "w-full",
           "text-black"
         );
@@ -1078,6 +1101,7 @@ function setupFeaturedClients(snapshot) {
           const linkDiv = document.createElement("div");
           linkDiv.classList.add(
             "w-fit",
+            "h-fit",
             "bg-white",
             "text-black",
             "text-xl",
@@ -1116,7 +1140,9 @@ function setupFeaturedClients(snapshot) {
           "h-full",
           "bottom-0",
           "items-center",
-          "flex"
+          "flex",
+          "sm:text-md",
+          "text-sm"
         );
         containerDivTest.innerHTML = `<div>${mainProjectLink.replace(
           "https://",
@@ -1128,23 +1154,14 @@ function setupFeaturedClients(snapshot) {
         const imageheader = document.createElement("img");
         imageheader.src = "./media/browser.avif";
         imageheader.alt = "Image Header";
+        imageheader.classList.add(
+          "rounded-t-xl",
+          "h-[31px]",
+          "sm:h-fit",
+          "object-cover"
+        );
         imageContainer1.appendChild(containerDivTest);
         imageContainer1.appendChild(imageheader);
-
-        // Check for project images, fallback to banner image if not an array or if it's empty
-        const projectImage =
-          Array.isArray(clientProject?.project_images) &&
-          clientProject.project_images.length > 0
-            ? clientProject.project_images
-            : [clientProject?.banner_image_URL]; // Ensure it becomes an array if not
-
-        // If projectImage is not an array, we make sure it's a single image array
-        const imagesArray = Array.isArray(projectImage)
-          ? projectImage
-          : [projectImage];
-
-        // Preload images and store their object URLs
-        const preloadedImages = imagesArray.map(preloadImage);
 
         let currentImageIndex = 0; // Track the current image index for this project
 
@@ -1264,6 +1281,7 @@ function setupFeaturedClients(snapshot) {
       );
   });
 }
+
 function setupTestimonials(snapshot) {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -1286,15 +1304,20 @@ function setupTestimonials(snapshot) {
       "transition-colors",
       "rounded-xl",
       "p-[2em]",
-      "max-w-[35vw]",
-      "min-w-[35vw]",
+      "sm:max-w-[35vw]",
+      "sm:min-w-[35vw]",
+      "min-w-[100%]",
+      "w-[100%]",
       "mb-5",
+      "sm:m-5",
+      "m-0",
+      "box-border",
       "flex",
       "flex-col",
       "text-xl"
     );
     card.innerHTML = `
-      <div class="italic">${testimonial.text}</div>
+      <div class="italic sm:text-md text-sm">${testimonial.text}</div>
       <div class="inline-block mt-6 text-sm">
         <span class="">${testimonial.client}</span> —
         <span class="opacity-70">${testimonial.position} @ ${testimonial.company}</span>
