@@ -43,6 +43,15 @@ const scrollbarContainer = document.querySelector(
   ".scrollbar_progress_container_buttons"
 );
 const progressBar = document.querySelector(".scrollbar_progress");
+gsap.registerPlugin(ScrollTrigger);
+
+let scrollRef = 0;
+
+window.addEventListener("scroll", function () {
+  // increase value up to 10, then refresh AOS
+
+  scrollRef <= 10 ? scrollRef++ : ScrollTrigger.refresh();
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.time("processing");
@@ -1235,7 +1244,7 @@ function setupTestimonials(snapshot) {
   gsap.to("#sticky-element", {
     scrollTrigger: {
       trigger: "#sticky-element", // Pin the element when it reaches the top of the viewport
-      start: "top top", // Start when the top of the element reaches the top of the viewport
+      start: "top-=100 top", // Start when the top of the element reaches the top of the viewport
       end: "bottom-=320 top", // End when the bottom of the element reaches the top of the viewport
       pin: true, // Pin the element during scroll
       scrub: true, // Sync animation with scrolling
