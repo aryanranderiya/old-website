@@ -185,7 +185,7 @@ function positionNavButtons() {
       });
 
       const iconSpan = document.createElement("span");
-      iconSpan.classList.add("material-symbols-outlined");
+      iconSpan.classList.add("material-symbols-rounded");
       button.appendChild(iconSpan);
 
       switch (section.id) {
@@ -1315,11 +1315,11 @@ function setupTestimonials(snapshot) {
   const testimonialContainer = document.querySelector(".testimonial-container");
   gsap.to("#sticky-element", {
     scrollTrigger: {
-      trigger: "#sticky-element", // Pin the element when it reaches the top of the viewport
-      start: "top-=100 top", // Start when the top of the element reaches the top of the viewport
-      end: "bottom-=370 top", // End when the bottom of the element reaches the top of the viewport
-      pin: true, // Pin the element during scroll
-      scrub: true, // Sync animation with scrolling
+      trigger: "#sticky-element",
+      start: "top-=100 top",
+      end: "bottom-=370 top",
+      pin: true,
+      scrub: true,
     },
   });
 

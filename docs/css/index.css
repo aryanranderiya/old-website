@@ -1544,7 +1544,7 @@ h6 {
   font-size: 0.8em;
 }
 
-.clientsection .description a .material-symbols-outlined {
+.clientsection .description a .material-symbols-rounded {
   font-size: 15px !important;
 }
 
@@ -1609,16 +1609,13 @@ h6 {
   color: #00bbff;
   box-shadow: 0 0 20px rgba(61, 203, 255, 0.8);
 }
-.nav-icon .material-symbols-outlined {
+.nav-icon .material-symbols-rounded {
   font-size: 22px;
 }
 
 /* .scrollbar_progress_container {
   height: 60vh !important;
 } */
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 200, "opsz" 35;
-}
 
 .project-title {
   transition: all 0.3s ease;

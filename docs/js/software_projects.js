@@ -12,6 +12,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebas
 import {
   getDatabase,
   ref,
+  get,
   onValue,
   update,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
@@ -31,13 +32,20 @@ const database = getDatabase();
 
 fetchGithubData();
 
-const projectsRef = ref(database, "Projects/");
-const SoftwareIconsRef = ref(database, "SoftwareIcons/");
-
 // ! FIREBASE INIT END --------------------------------------------------------------------------------------
 
-onValue(SoftwareIconsRef, processProjectIcons);
-onValue(projectsRef, processDataAndHidePreloader);
+const projectsRef = ref(database, "Projects/");
+const SoftwareIconsRef = ref(database, "SoftwareIcons/");
+try {
+  const [softwareIconsSnapshot, projectsSnapshot] = await Promise.all([
+    get(SoftwareIconsRef),
+    get(projectsRef),
+  ]);
+  processProjectIcons(softwareIconsSnapshot);
+  processDataAndHidePreloader(projectsSnapshot);
+} catch (error) {
+  console.error("Error fetching Firebase data:", error);
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   modifyScrollBar();
@@ -243,6 +251,12 @@ function processDataAndHidePreloader(snapshot) {
 
   const cards = document.querySelector(".cards");
 
+  const observer1 = new IntersectionObserver(handleIntersection1, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0,
+  });
+
   Object.entries(projects)
     .sort(([, projectA], [, projectB]) => {
       if (projectA.featured && !projectB.featured) return -1;
@@ -260,6 +274,7 @@ function processDataAndHidePreloader(snapshot) {
       // If neither project is bad, retain the order
       return 0;
     })
+
     .map(([projectId, project]) => {
       const projectTitle = project.project_title;
       const projectDesc =
@@ -431,12 +446,6 @@ function handleIntersection1(entries) {
   });
 }
 
-const observer1 = new IntersectionObserver(handleIntersection1, {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0,
-});
-
 function setupHearts() {
   const checkboxes = document.querySelectorAll(".heart_checkboxes");
 
@@ -538,10 +547,10 @@ function hoverOnCards() {
   });
 
   const cardImages = document.querySelectorAll(".card-image");
-  cardImages.forEach(function (img) {
-    img.onload = () => {
-      img.src = img.getAttribute("data-src");
-    };
+  cardImages.forEach((img) => {
+    // img.onload = () => {
+    //   img.src = img.getAttribute("data-src");
+    // };
 
     img.src = img.getAttribute("data-src");
   });
