@@ -46,11 +46,22 @@ const progressBar = document.querySelector(".scrollbar_progress");
 gsap.registerPlugin(ScrollTrigger);
 
 let scrollRef = 0;
+let ticking = false;
 
-window.addEventListener("scroll", function () {
-  // increase value up to 10, then refresh AOS
+const handleScroll = () => {
+  if (scrollRef <= 10) {
+    scrollRef++;
+  } else {
+    ScrollTrigger.refresh();
+  }
+  ticking = false; // Reset the ticking flag
+};
 
-  scrollRef <= 10 ? scrollRef++ : ScrollTrigger.refresh();
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    ticking = true;
+    requestAnimationFrame(handleScroll); // Schedule the scroll handler
+  }
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -126,6 +137,38 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   window.addEventListener("resize", positionNavButtons);
   console.timeEnd("processing");
+
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        setTimeout(() => {
+          entry.target.style.opacity = entry.isIntersecting ? "1" : "0";
+        }, 150);
+        console.log(entry.target);
+      }),
+    { threshold: 0.6 }
+  );
+
+  document.querySelectorAll(".cool_button").forEach((button) => {
+    observer.observe(button);
+    const inner = button.querySelector(".inner");
+    const innertext = button.querySelector(".innertext");
+    const arrow_container = button.querySelector(".arrow_container");
+
+    button.addEventListener("mouseover", () => {
+      inner.style.width = "100%";
+      arrow_container.style.backgroundColor = "#00bbff";
+      button.style.borderColor = "#c9c9c9";
+      innertext.style.color = "black";
+    });
+
+    button.addEventListener("mouseout", () => {
+      inner.style.width = "0";
+      arrow_container.style.backgroundColor = "white";
+      button.style.borderColor = "#69d7ff";
+      innertext.style.color = "white";
+    });
+  });
 });
 
 function updateProgressBar() {
@@ -1245,7 +1288,7 @@ function setupTestimonials(snapshot) {
     scrollTrigger: {
       trigger: "#sticky-element", // Pin the element when it reaches the top of the viewport
       start: "top-=100 top", // Start when the top of the element reaches the top of the viewport
-      end: "bottom-=320 top", // End when the bottom of the element reaches the top of the viewport
+      end: "bottom-=370 top", // End when the bottom of the element reaches the top of the viewport
       pin: true, // Pin the element during scroll
       scrub: true, // Sync animation with scrolling
     },
@@ -1325,7 +1368,7 @@ function animateTextColor() {
   gsap.fromTo(
     ".letter", // Use the specific class here
     {
-      color: "#ffffff09", // Start with transparent color
+      color: "#ffffff10", // Start with transparent color
     },
     {
       scrollTrigger: {

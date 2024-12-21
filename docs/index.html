@@ -279,7 +279,9 @@
         </div>
       </section> -->
 
-      <div class="sm:h-[100vh] h-[60vh] flex items-center justify-center">
+      <div
+        class="sm:h-[100vh] h-[60vh] flex items-center justify-center flex-col"
+      >
         <h1
           class="sm:text-[2em] text-[1.3em] font-normal text-transparent max-w-screen-lg p-[1.5em]"
           id="scrollText"
@@ -289,6 +291,50 @@
           building new things. Welcome to my portfolio! Here, I showcase various
           of my Software & Design related projects.
         </h1>
+
+        <div
+          class="flex w-full justify-start items-center gap-3 max-w-screen-lg flex-col sm:flex-row"
+        >
+          <a href="./SoftwareProjects.html">
+            <button
+              class="pl-5 py-[2px] pr-[1px] gap-3 bg-[#00bbff] rounded-full text-lg cool_button transition-all relative overflow-hidden z-[1] min-w-[230px] max-w-[230px] flex items-center justify-between border-[3px] border-solid border-[#69d7ff]"
+            >
+              <div
+                class="inner w-[0px] absolute left-0 bg-white h-full rounded-full bottom-0 transition-all z-[0]"
+              ></div>
+              <span class="z-[2] relative innertext text-white">
+                Software Projects
+              </span>
+              <div
+                class="bg-white rounded-full flex items-center justify-center size-[40px] arrow_container z-[2] transition-all border-[2px] border-solid border-[#69d7ff]"
+              >
+                <span class="material-symbols-rounded text-[40px]">
+                  arrow_outward
+                </span>
+              </div>
+            </button>
+          </a>
+
+          <a href="./DesignProjects.html">
+            <button
+              class="pl-5 py-[2px] pr-[1px] gap-3 bg-[#00bbff] rounded-full text-lg cool_button transition-all relative overflow-hidden z-[1] flex min-w-[230px] max-w-[230px] items-center justify-between border-[3px] border-solid border-[#69d7ff]"
+            >
+              <div
+                class="inner w-[0px] absolute left-0 bg-white h-full rounded-full bottom-0 transition-all z-[0]"
+              ></div>
+              <span class="z-[2] relative innertext text-white">
+                Design Projects
+              </span>
+              <div
+                class="bg-white rounded-full flex items-center justify-center size-[40px] arrow_container z-[2] transition-all border-[2px] border-solid border-[#69d7ff]"
+              >
+                <span class="material-symbols-rounded text-[40px]">
+                  arrow_outward
+                </span>
+              </div>
+            </button>
+          </a>
+        </div>
       </div>
 
       <section class="largetext_section" id="section2">
@@ -846,7 +892,7 @@
       </section>
 
       <section
-        class="box-border p-10 b text-white flex items-center justify-center flex-col gap-5 z-[1] relative h-[50vh] items-end w-screen"
+        class="box-border p-10 b text-white flex items-center justify-center flex-col gap-5 z-[1] relative h-[50vh] w-screen"
       >
         <div class="sm:text-7xl text-5xl font-bold text-center">
           Let's Bring Your Ideas to Life!
@@ -857,11 +903,25 @@
           a redesign, I'm here to help you succeed. Let's collaborate and create
           something amazing!
         </div>
-        <button
-          class="rounded-full bg-[#00bbff] border-none py-2 px-4 font-bold text-lg text-white mt-4"
-        >
-          Get in Touch
-        </button>
+        <a href="./Contact.html">
+          <button
+            class="pl-5 py-[2px] pr-[1px] gap-3 bg-[#00bbff] rounded-full text-lg cool_button transition-all relative overflow-hidden z-[1] flex items-center justify-between border-[3px] border-solid border-[#69d7ff]"
+          >
+            <div
+              class="inner w-[0px] absolute left-0 bg-white h-full rounded-full bottom-0 transition-all z-[0]"
+            ></div>
+            <span class="z-[2] relative innertext text-white">
+              Get in Touch
+            </span>
+            <div
+              class="bg-white rounded-full flex items-center justify-center size-[40px] arrow_container z-[2] transition-all border-[2px] border-solid border-[#69d7ff]"
+            >
+              <span class="material-symbols-rounded text-[40px]">
+                arrow_outward
+              </span>
+            </div>
+          </button>
+        </a>
       </section>
     </div>
 
