@@ -33,7 +33,6 @@
 
     <meta name="author" content="Aryan Randeriya" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <meta property="og:site_name" content="Aryan Randeriya | Portfolio" />
     <meta property="og:title" content="Aryan Randeriya's Portfolio" />
     <meta
@@ -44,23 +43,28 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/media/Website-Homepage.png" />
 
-    <!-- <script src="https://cdn.tailwindcss.com?jit"></script> -->
-    <!-- <script>
-      tailwind.config = {
-        corePlugins: {
-          preflight: false, // Disable Preflight
-        },
-      };
-    </script> -->
     <!-- <link rel="preload" href="./fonts/Dirtyline 36daysoftype 2022.woff2" crossorigin="anonymous" as="font"
     type="font/woff2">
   <link rel="preload" href="./fonts/IllusionSerif-Regular.woff2" crossorigin="anonymous" as="font" type="font/woff2"> -->
 
     <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/index_output2.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/index_output2.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="css/index_output.css" /> -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/index_output2.css" /> -->
+
+    <link rel="preload" href="media/ss_Index.webp" as="image" />
+    <link rel="preload" href="media/ss_SoftwareProjects.webp" as="image" />
+    <link rel="preload" href="media/ss_DesignProjects.webp" as="image" />
+    <link rel="preload" href="media/ss_Resume.webp" as="image" />
+    <link rel="preload" href="media/ss_Contact.webp" as="image" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/materialSymbolsOutlined.css"
+    />
+
+    <!-- Don't move gsap script, it doesn't load always at the bottom
+      -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
     <link
       rel="apple-touch-icon"
@@ -82,17 +86,6 @@
     <link rel="manifest" href="./media/favicons/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#00bbff" />
     <meta name="theme-color" content="#ffffff" />
-
-    <link rel="preload" href="media/ss_Index.webp" as="image" />
-    <link rel="preload" href="media/ss_SoftwareProjects.webp" as="image" />
-    <link rel="preload" href="media/ss_DesignProjects.webp" as="image" />
-    <link rel="preload" href="media/ss_Resume.webp" as="image" />
-    <link rel="preload" href="media/ss_Contact.webp" as="image" />
-
-    <!-- Don't move gsap script, it doesn't load always at the bottom
-      -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   </head>
 
   <body>
@@ -279,7 +272,8 @@
         </div>
       </section> -->
 
-      <div
+      <section
+        id="section_about"
         class="sm:h-[100vh] h-[80vh] flex items-center justify-center flex-col"
       >
         <h1
@@ -335,7 +329,7 @@
             </button>
           </a>
         </div>
-      </div>
+      </section>
 
       <section class="largetext_section" id="section2">
         <div class="largetext_container">
@@ -387,7 +381,7 @@
       <!-- <div class="max-w-screen overflow-hidden"> -->
       <section class="clientsection box-border" id="section3">
         <span
-          class="title sm:text-[8em] text-[2.7em] overflow-hidden text-nowrap sticky sm:top-[70px] top-[70px] box-border max-w-screen right-[-100%]"
+          class="title sm:text-[8em] text-[2.5em] overflow-hidden text-nowrap sticky sm:top-[70px] top-[70px] box-border max-w-screen right-[-100%]"
           >CLIENT SHOWCASE</span
         >
       </section>
@@ -423,51 +417,6 @@
           <span class="title_heading sm:text-7xl text-4xl"
             >MY SERVICES <i class="fa-solid fa-hand-holding-heart"></i>
           </span>
-
-          <!-- 
-          <div class="service">
-            <span class="service_number">01</span>
-            <span class="service_name">Full-Stack Web Development</span>
-          </div>
-          <div class="service">
-            <span class="service_number">02</span>
-            <span class="service_name">Web Design</span>
-          </div>
-
-          <div class="service">
-            <span class="service_number">03</span>
-            <span class="service_name">Mobile App Development</span>
-          </div>
-
-          <div class="service">
-            <span class="service_number">04</span>
-            <span class="service_name">Search Engine Optimisation</span>
-          </div>
-
-          <div class="service">
-            <span class="service_number">05</span>
-            <span class="service_name">Branding</span>
-          </div>
-
-          <div class="service">
-            <span class="service_number">06</span>
-            <span class="service_name">Clothing / Apparel Design</span>
-          </div>
-
-          <div class="service">
-            <span class="service_number">07</span>
-            <span class="service_name">Poster Design</span>
-          </div>
-
-          <div class="service">
-            <span class="service_number">08</span>
-            <span class="service_name">Advertisement Mockups</span>
-          </div>
-
-          <div class="service">
-            <span class="service_number">09</span>
-            <span class="service_name">YouTube Mockups</span>
-          </div> -->
         </div>
       </section>
 
@@ -520,18 +469,27 @@
             </div>
           </div>
         </div>
-
-        <a
-          href="SoftwareProjects.html"
-          class="view_all_projects_anchor2 show z-[1] relative"
-        >
-          <button class="view_all_projects z-[1] relative">
-            View All Software Projects
-            <span class="material-symbols-outlined featured_icon">
-              arrow_outward
-            </span>
-          </button>
-        </a>
+        <div class="w-full flex justify-center pt-4">
+          <a href="./SoftwareProjects.html">
+            <button
+              class="pl-5 py-[2px] pr-[1px] gap-3 bg-[#00bbff] rounded-full text-lg cool_button transition-all relative overflow-hidden z-[1] min-w-[300px] max-w-[300px] flex items-center justify-between border-[3px] border-solid border-[#69d7ff]"
+            >
+              <div
+                class="inner w-[0px] absolute left-0 bg-white h-full rounded-full bottom-0 transition-all z-[0]"
+              ></div>
+              <span class="z-[2] relative innertext text-white">
+                View All Software Projects
+              </span>
+              <div
+                class="bg-white rounded-full flex items-center justify-center size-[40px] arrow_container z-[2] transition-all border-[2px] border-solid border-[#69d7ff]"
+              >
+                <span class="material-symbols-rounded text-[40px]">
+                  arrow_outward
+                </span>
+              </div>
+            </button>
+          </a>
+        </div>
       </section>
 
       <!-- 
@@ -892,6 +850,7 @@
       </section>
 
       <section
+        id="section_contact"
         class="box-border p-10 b text-white flex items-center justify-center flex-col gap-5 z-[1] relative h-[50vh] w-screen"
       >
         <div class="sm:text-7xl text-5xl font-bold text-center">
@@ -934,12 +893,6 @@
     <script type="module" src="js/index.js"></script>
     <link defer rel="stylesheet" type="text/css" href="css/cursor.css" />
     <link defer rel="stylesheet" type="text/css" href="css/buttons.css" />
-    <link
-      defer
-      rel="stylesheet"
-      type="text/css"
-      href="css/materialSymbolsOutlined.css"
-    />
 
     <script src="js/cursor.js"></script>
     <script src="js/navbar.js"></script>

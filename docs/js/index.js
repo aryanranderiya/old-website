@@ -112,32 +112,21 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupGSAPChips();
   setupGithubBento();
   setupBentoAnimation();
-  positionNavButtons();
   animateTextColor();
 
-  // modifyScrollBar();
   // positionNavButtons();
+  // modifyScrollBar();
+  // highlightActiveSection();
+  // updateProgressBar();
+
   // document.addEventListener("scroll", updateProgressBarandBtn);
-  // highlightActiveSection();
-  // updateProgressBar();
   // document.addEventListener("scroll", () => {
-  // highlightActiveSection();
-  // updateProgressBar();
+  //   highlightActiveSection();
+  //   updateProgressBar();
   // });
 
-  window.addEventListener("resize", positionNavButtons);
+  // window.addEventListener("resize", positionNavButtons);
   console.timeEnd("processing");
-
-  const observer = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((entry) => {
-        setTimeout(() => {
-          entry.target.style.opacity = entry.isIntersecting ? "1" : "0";
-        }, 150);
-        console.log(entry.target);
-      }),
-    { threshold: 0.6 }
-  );
 
   document.querySelectorAll(".cool_button").forEach((button) => {
     // observer.observe(button);
@@ -200,6 +189,8 @@ function positionNavButtons() {
       button.appendChild(iconSpan);
 
       switch (section.id) {
+        case "section_about":
+
         case "section0":
           iconSpan.textContent = "public";
           break;
