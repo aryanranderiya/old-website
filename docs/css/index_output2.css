@@ -360,14 +360,6 @@
   min-width: 230px;
 }
 
-.min-w-\[500px\] {
-  min-width: 500px;
-}
-
-.min-w-\[400px\] {
-  min-width: 400px;
-}
-
 .min-w-\[300px\] {
   min-width: 300px;
 }
@@ -380,24 +372,16 @@
   max-width: 230px;
 }
 
+.max-w-\[300px\] {
+  max-width: 300px;
+}
+
 .max-w-\[600px\] {
   max-width: 600px;
 }
 
 .max-w-screen-lg {
   max-width: 1024px;
-}
-
-.max-w-\[500px\] {
-  max-width: 500px;
-}
-
-.max-w-\[400px\] {
-  max-width: 400px;
-}
-
-.max-w-\[300px\] {
-  max-width: 300px;
 }
 
 .rotate-\[-5deg\] {
@@ -520,6 +504,55 @@
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.from-black {
+  --tw-gradient-from: #000 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[\#00bbff\] {
+  --tw-gradient-from: #00bbff var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 187 255 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[\#123c4b\] {
+  --tw-gradient-from: #123c4b var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(18 60 75 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[\#23718d\] {
+  --tw-gradient-from: #23718d var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(35 113 141 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[\#3bbff0\] {
+  --tw-gradient-from: #3bbff0 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(59 191 240 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[\#226f8b\] {
+  --tw-gradient-from: #226f8b var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(34 111 139 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-black {
+  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #000 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.to-black {
+  --tw-gradient-to: #000 var(--tw-gradient-to-position);
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -609,8 +642,8 @@
   font-size: 1.3em;
 }
 
-.text-\[2\.5em\] {
-  font-size: 2.5em;
+.text-\[10vw\] {
+  font-size: 10vw;
 }
 
 .text-\[40px\] {
@@ -2527,10 +2560,6 @@ h6 {
 
   .sm\:text-\[2em\] {
     font-size: 2em;
-  }
-
-  .sm\:text-\[8em\] {
-    font-size: 8em;
   }
 
   .sm\:text-lg {

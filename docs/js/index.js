@@ -636,31 +636,27 @@ function setupBentoAnimation() {
   const bento_resume = document.getElementById("bento_resume");
   const bento_blog = document.getElementById("bento_blog");
   const now_anchor = document.querySelectorAll(".now a");
+  const cool_buttons = document.querySelectorAll(".cool_button");
+  const scroll_btn = document.querySelector(".scroll_btn");
 
-  const bentos = [bento_project, bento_project2, bento_resume, bento_blog];
+  const items_for_hover = [
+    bento_project,
+    bento_project2,
+    bento_resume,
+    bento_blog,
+    scroll_btn,
+    ...now_anchor,
+    ...cool_buttons,
+  ];
 
-  now_anchor.forEach((anchor) => {
-    anchor.addEventListener("mouseover", () => {
+  items_for_hover.forEach((item) => {
+    item.addEventListener("mouseover", () => {
       cursorTransformShadowBlend("scale(1.3)", "none");
       addClass(cursor, "transparent");
       addClass(cursoricon5, "active");
     });
 
-    anchor.addEventListener("mouseout", () => {
-      cursorTransformShadowBlend();
-      removeClass(cursor, "transparent");
-      removeClass(cursoricon5, "active");
-    });
-  });
-
-  bentos.forEach((bento) => {
-    bento.addEventListener("mouseover", () => {
-      cursorTransformShadowBlend("scale(1.3)", "none");
-      addClass(cursor, "transparent");
-      addClass(cursoricon5, "active");
-    });
-
-    bento.addEventListener("mouseout", () => {
+    item.addEventListener("mouseout", () => {
       cursorTransformShadowBlend();
       removeClass(cursor, "transparent");
       removeClass(cursoricon5, "active");
@@ -1023,15 +1019,14 @@ function setupFeaturedClients(snapshot) {
         const preloadedImages = imagesArray.map(preloadImage);
 
         const card = document.createElement("div");
-        const topValue = `${index * 55 + 80}px`;
-        const smTopValue = `${index * 55 + 170}px`;
+        const topValue = `${index * 50 + 80}px`;
+        const smTopValue = `${index * 55 + 200}px`;
 
         // // Compute the class names based on the dynamic values
         // const topClass = `top-[${topValue}]`;
         // const smTopClass = `sm:top-[${smTopValue}]`; // Minimum width 600px, pc
 
-        if (window.innerWidth >= 600) card.style.top = smTopValue;
-        else card.style.top = topValue;
+        card.style.top = window.innerWidth >= 600 ? smTopValue : topValue;
 
         card.classList.add(
           "sticky",
@@ -1075,8 +1070,9 @@ function setupFeaturedClients(snapshot) {
 
         const mainProjectLink = clientProject.project_links[0][1];
         if (mainProjectLink) {
-          const linkDiv = document.createElement("div");
-          linkDiv.classList.add(
+          const anchor = document.createElement("a");
+          anchor.classList.add(
+            "client_anchor",
             "w-fit",
             "h-fit",
             "bg-white",
@@ -1092,10 +1088,23 @@ function setupFeaturedClients(snapshot) {
             "px-5",
             "text-nowrap"
           );
-          linkDiv.textContent = "View Project";
-          linkDiv.onclick = () => window.open(mainProjectLink, "_blank");
+          anchor.textContent = "View Project";
+          anchor.href = mainProjectLink;
+          anchor.target = "_blank";
 
-          headerDiv.appendChild(linkDiv);
+          headerDiv.appendChild(anchor);
+
+          anchor.addEventListener("mouseover", () => {
+            cursorTransformShadowBlend("scale(1.3)", "none");
+            addClass(cursor, "transparent");
+            addClass(cursoricon5, "active");
+          });
+
+          anchor.addEventListener("mouseout", () => {
+            cursorTransformShadowBlend();
+            removeClass(cursor, "transparent");
+            removeClass(cursoricon5, "active");
+          });
         }
 
         card.appendChild(headerDiv);
@@ -1227,6 +1236,20 @@ function setupFeaturedClients(snapshot) {
             currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
             preloadedImages[currentImageIndex].then((preloadedURL) => {
               image.src = preloadedURL; // Update the image with the preloaded URL
+            });
+          });
+
+          [controlBackward, controlForward].forEach((control) => {
+            control.addEventListener("mouseover", () => {
+              cursorTransformShadowBlend("scale(1.3)", "none");
+              addClass(cursor, "transparent");
+              addClass(cursoricon5, "active");
+            });
+
+            control.addEventListener("mouseout", () => {
+              cursorTransformShadowBlend();
+              removeClass(cursor, "transparent");
+              removeClass(cursoricon5, "active");
             });
           });
 
