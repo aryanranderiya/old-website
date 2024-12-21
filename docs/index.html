@@ -280,7 +280,7 @@
       </section> -->
 
       <div
-        class="sm:h-[100vh] h-[60vh] flex items-center justify-center flex-col"
+        class="sm:h-[100vh] h-[80vh] flex items-center justify-center flex-col"
       >
         <h1
           class="sm:text-[2em] text-[1.3em] font-normal text-transparent max-w-screen-lg p-[1.5em]"
@@ -387,7 +387,7 @@
       <!-- <div class="max-w-screen overflow-hidden"> -->
       <section class="clientsection box-border" id="section3">
         <span
-          class="title sm:text-[8em] text-[3em] text-nowrap sticky sm:top-[60px] top-[70px] box-border"
+          class="title sm:text-[8em] text-[2.7em] overflow-hidden text-nowrap sticky sm:top-[70px] top-[70px] box-border max-w-screen right-[-100%]"
           >CLIENT SHOWCASE</span
         >
       </section>
@@ -957,14 +957,26 @@
 
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
     <script>
-      const lenis = new Lenis();
+      const lenis = new Lenis({ syncTouch: true });
 
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+      // function raf(time) {
+      //   lenis.raf(time);
+      //   requestAnimationFrame(raf);
+      // }
 
-      requestAnimationFrame(raf);
+      // requestAnimationFrame(raf);
+
+      // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+      lenis.on("scroll", ScrollTrigger.update);
+
+      // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+      // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+      });
+
+      // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+      gsap.ticker.lagSmoothing(0);
     </script>
 
     <script type="application/ld+json">

@@ -45,27 +45,17 @@ const scrollbarContainer = document.querySelector(
 const progressBar = document.querySelector(".scrollbar_progress");
 gsap.registerPlugin(ScrollTrigger);
 
-let scrollRef = 0;
-let ticking = false;
-
-const handleScroll = () => {
-  if (scrollRef <= 10) {
-    scrollRef++;
-  } else {
-    ScrollTrigger.refresh();
-  }
-  ticking = false; // Reset the ticking flag
-};
-
-window.addEventListener("scroll", () => {
-  if (!ticking) {
-    ticking = true;
-    requestAnimationFrame(handleScroll); // Schedule the scroll handler
-  }
-});
+// let scrollRef = 0;
+// window.addEventListener("scroll", function () {
+//   if (scrollRef <= 10) scrollRef++;
+//   else // ScrollTrigger.refresh();
+// });
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.time("processing");
+
+  gsap.registerPlugin(ScrollTrigger);
+  // ScrollTrigger.refresh();
 
   // window.scrollTo(0, 0);
 
@@ -150,7 +140,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
 
   document.querySelectorAll(".cool_button").forEach((button) => {
-    observer.observe(button);
+    // observer.observe(button);
     const inner = button.querySelector(".inner");
     const innertext = button.querySelector(".innertext");
     const arrow_container = button.querySelector(".arrow_container");
@@ -629,6 +619,8 @@ function setupAnimationLargeText() {
 
     currentScroll = window.pageYOffset;
   });
+
+  // ScrollTrigger.refresh();
 }
 
 function setupBentoAnimation() {
@@ -1041,7 +1033,7 @@ function setupFeaturedClients(snapshot) {
 
         const card = document.createElement("div");
         const topValue = `${index * 55 + 80}px`;
-        const smTopValue = `${index * 55 + 200}px`;
+        const smTopValue = `${index * 55 + 170}px`;
 
         // // Compute the class names based on the dynamic values
         // const topClass = `top-[${topValue}]`;
@@ -1258,21 +1250,44 @@ function setupFeaturedClients(snapshot) {
         }
         clientsection.appendChild(card);
 
-        const tl0 = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".clientsection",
-            start: "top-=400 bottom",
-            end: "bottom center",
-            scrub: true,
-          },
-        });
+        // const clientsection_title = document.querySelector(
+        //   ".clientsection .title"
+        // );
 
-        gsap.set(".clientsection .title", {
-          x: "100%",
-        });
-        tl0.to(".clientsection .title", {
-          x: "-5%",
-        });
+        // const observer = new IntersectionObserver(
+        //   (entries, observer) => {
+        //     entries.forEach((entry) => {
+        //       if (entry.isIntersecting) {
+        //         clientsection_title.style.transform = "translateX(100vw)";
+        //         // gsap.set(clientsection_title, { x: "100vw" });
+        //         // gsap.to(clientsection_title, { x: "-5vw", duration: 1 });
+        //         // observer.unobserve(entry.target);
+        //       } else {
+        //         clientsection_title.style.transform = "translateX(-100vw)";
+        //       }
+        //     });
+        //   },
+        //   { rootMargin: "-400px 0px", threshold: 0.5 }
+        // );
+
+        // observer.observe(clientsection);
+        // const tl0 = gsap.timeline({
+        //   scrollTrigger: {
+        //     trigger: ".clientsection",
+        //     start: "top-=400 bottom",
+        //     end: "bottom center",
+        //     scrub: true,
+        //     markers: true,
+        //   },
+        // });
+
+        // gsap.set(".clientsection .title", {
+        //   x: "20%",
+        // });
+        // tl0.to(".clientsection .title", {
+        //   x: "-20%",
+        // });
+        ScrollTrigger.refresh();
       })
       .catch((e) =>
         console.log("Could not get projects ref data for featured clients", e)
@@ -1347,10 +1362,14 @@ function setupTestimonials(snapshot) {
       },
     });
   });
+
+  // ScrollTrigger.refresh();
 }
 
 // Function to animate each letter individually
 function animateTextColor() {
+  // ScrollTrigger.refresh();
+
   const text = document.getElementById("scrollText");
   const letters = text.textContent.split("");
 
@@ -1373,9 +1392,10 @@ function animateTextColor() {
     {
       scrollTrigger: {
         trigger: "#scrollText", // Trigger based on the text element
-        start: "top bottom-=100", // Start when the element is in the center of the viewport
+        start: "top bottom", // Start when the element is in the center of the viewport
         end: "bottom center", // End when the element is out of the viewport
         scrub: true,
+        // markers: true,
       },
       color: "white", // Change the text color to white
       stagger: 0.01, // Add stagger effect for individual letters
