@@ -1019,12 +1019,8 @@ function setupFeaturedClients(snapshot) {
         const preloadedImages = imagesArray.map(preloadImage);
 
         const card = document.createElement("div");
-        const topValue = `${index * 50 + 80}px`;
-        const smTopValue = `${index * 55 + 200}px`;
-
-        // // Compute the class names based on the dynamic values
-        // const topClass = `top-[${topValue}]`;
-        // const smTopClass = `sm:top-[${smTopValue}]`; // Minimum width 600px, pc
+        const topValue = `${index * 45 + 10}px`; // value 1 is the distance between the cards, value 2 is offset of scren
+        const smTopValue = `${index * 45 + 120}px`;
 
         card.style.top = window.innerWidth >= 600 ? smTopValue : topValue;
 
@@ -1033,21 +1029,22 @@ function setupFeaturedClients(snapshot) {
           "bg-[#00bbff]",
           "outline",
           "outline-[black]",
+          "outline-[2px]",
           "rounded-3xl",
           "min-h-fit",
-          "sm:min-h-[70vh]",
+          "sm:min-h-[0vh]",
           "h-fit",
-          "max-h-[20vh]",
+          // "max-h-[30vh]",
           "w-[95vw]",
           "flex",
           "flex-col",
           "box-border",
-          "sm:px-8",
+          // "sm:px-5",
           "px-5",
-          "py-3",
+          "py-2",
           "sm:pb-3",
           "pb-[30px]",
-          "gap-3",
+          "gap-2",
           "shadow-xl",
           "overflow-hidden",
           "mt-[-70px]"
@@ -1057,16 +1054,22 @@ function setupFeaturedClients(snapshot) {
         const headerDiv = document.createElement("div");
         headerDiv.classList.add(
           "flex",
-          "justify-between",
+          // "justify-between",
+          "justify-evenly",
           "items-center",
           "w-full",
           "text-black"
         );
 
         const titleDiv = document.createElement("div");
-        titleDiv.classList.add("w-full", "text-xl", "font-bold", "uppercase");
+        titleDiv.classList.add(
+          "w-full",
+          "text-xl",
+          "font-bold",
+          "uppercase",
+          "text-center"
+        );
         titleDiv.textContent = clientProject.project_title;
-        headerDiv.appendChild(titleDiv);
 
         const mainProjectLink = clientProject.project_links[0][1];
         if (mainProjectLink) {
@@ -1077,7 +1080,7 @@ function setupFeaturedClients(snapshot) {
             "h-fit",
             "bg-white",
             "text-black",
-            "text-xl",
+            "text-lg",
             "text-right",
             "font-bold",
             "uppercase",
@@ -1088,11 +1091,12 @@ function setupFeaturedClients(snapshot) {
             "px-5",
             "text-nowrap"
           );
-          anchor.textContent = "View Project";
+          anchor.textContent = "View";
           anchor.href = mainProjectLink;
           anchor.target = "_blank";
 
           headerDiv.appendChild(anchor);
+          headerDiv.appendChild(titleDiv);
 
           anchor.addEventListener("mouseover", () => {
             cursorTransformShadowBlend("scale(1.3)", "none");
@@ -1127,7 +1131,7 @@ function setupFeaturedClients(snapshot) {
           "bottom-0",
           "items-center",
           "flex",
-          "sm:text-md",
+          "sm:text-lg",
           "text-sm"
         );
         containerDivTest.innerHTML = `<div>${mainProjectLink.replace(
@@ -1138,7 +1142,7 @@ function setupFeaturedClients(snapshot) {
         subDescriptionDiv.textContent = clientProject.subDescription;
 
         const imageheader = document.createElement("img");
-        imageheader.src = "./media/browser.avif";
+        imageheader.src = "./media/browser.webp";
         imageheader.alt = "Image Header";
         imageheader.classList.add(
           "rounded-t-xl",
@@ -1160,9 +1164,10 @@ function setupFeaturedClients(snapshot) {
         image.classList.add(
           "rounded-b-xl",
           "h-fit",
-          "sm:min-h-[60vh]",
-          "sm:h-[60vh]",
-          "object-cover"
+          // "sm:min-h-[70vh]",
+          // "sm:h-[70vh]",
+          // "object-cover"
+          "object-contain"
         );
         imageContainer2.appendChild(image);
 
@@ -1170,98 +1175,102 @@ function setupFeaturedClients(snapshot) {
         contentDiv.appendChild(imageContainer2);
         card.appendChild(contentDiv);
 
+        const controlsContainer = document.createElement("div");
         if (imagesArray.length > 1) {
-          const controlsContainer = document.createElement("div");
-          controlsContainer.classList.add(
-            "sm:absolute",
-            "relative",
-            "sm:bottom-[40px]",
-            "sm:bottom-0",
-            "left-0",
-            "w-full",
-            "flex",
-            "justify-center",
-            "z-[5]",
-            "controls_container"
-          );
-
-          // Create the button container
-          const buttonContainer = document.createElement("div");
-          buttonContainer.classList.add(
-            "bg-black",
-            "rounded-full",
-            "py-1",
-            "px-1",
-            "flex",
-            "outline",
-            "items-center",
-            "gap-3",
-            "outline-white"
-          );
-
-          // Create the backward button
-          const controlBackward = document.createElement("i");
-          controlBackward.id = "control_backward";
-          controlBackward.classList.add(
-            "fa-solid",
-            "fa-circle-chevron-left",
-            "text-[40px]",
-            "text-white"
-          );
-
-          // Create the forward button
-          const controlForward = document.createElement("i");
-          controlForward.id = "control_forward";
-          controlForward.classList.add(
-            "fa-solid",
-            "fa-circle-chevron-right",
-            "text-[40px]",
-            "text-white"
-          );
-
-          // Add event listeners to cycle images on button click
-          controlBackward.addEventListener("click", () => {
-            if (imagesArray.length <= 1) return;
-
-            currentImageIndex =
-              (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
-            preloadedImages[currentImageIndex].then((preloadedURL) => {
-              image.src = preloadedURL; // Update the image with the preloaded URL
-            });
-          });
-
-          controlForward.addEventListener("click", () => {
-            if (imagesArray.length <= 1) return;
-
-            currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
-            preloadedImages[currentImageIndex].then((preloadedURL) => {
-              image.src = preloadedURL; // Update the image with the preloaded URL
-            });
-          });
-
-          [controlBackward, controlForward].forEach((control) => {
-            control.addEventListener("mouseover", () => {
-              cursorTransformShadowBlend("scale(1.3)", "none");
-              addClass(cursor, "transparent");
-              addClass(cursoricon5, "active");
-            });
-
-            control.addEventListener("mouseout", () => {
-              cursorTransformShadowBlend();
-              removeClass(cursor, "transparent");
-              removeClass(cursoricon5, "active");
-            });
-          });
-
-          // Append the backward and forward buttons to the button container
-          buttonContainer.appendChild(controlBackward);
-          buttonContainer.appendChild(controlForward);
-
-          // Append the button container to the controls container
-          controlsContainer.appendChild(buttonContainer);
-
-          card.appendChild(controlsContainer);
         }
+
+        controlsContainer.classList.add(
+          // "sm:absolute",
+          // "relative",
+          // "sm:bottom-[40px]",
+          // "sm:bottom-0",
+          // "left-0",
+          // "w-full",
+          imagesArray.length > 1 ? "visible" : "invisible",
+          "flex",
+          "justify-center",
+          "z-[5]",
+          "controls_container"
+        );
+
+        // Create the button container
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add(
+          "bg-black",
+          "rounded-full",
+          // "py-1",
+          // "px-1",
+          "flex",
+          "outline",
+          "items-center",
+          "gap-3",
+          "outline-black"
+        );
+
+        // Create the backward button
+        const controlBackward = document.createElement("i");
+        controlBackward.id = "control_backward";
+        controlBackward.classList.add(
+          "fa-solid",
+          "fa-circle-chevron-left",
+          "text-[30px]",
+          "text-white"
+        );
+
+        // Create the forward button
+        const controlForward = document.createElement("i");
+        controlForward.id = "control_forward";
+        controlForward.classList.add(
+          "fa-solid",
+          "fa-circle-chevron-right",
+          "text-[30px]",
+          "text-white"
+        );
+
+        // Add event listeners to cycle images on button click
+        controlBackward.addEventListener("click", () => {
+          if (imagesArray.length <= 1) return;
+
+          currentImageIndex =
+            (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
+          preloadedImages[currentImageIndex].then((preloadedURL) => {
+            image.src = preloadedURL; // Update the image with the preloaded URL
+          });
+        });
+
+        controlForward.addEventListener("click", () => {
+          if (imagesArray.length <= 1) return;
+
+          currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
+          preloadedImages[currentImageIndex].then((preloadedURL) => {
+            image.src = preloadedURL; // Update the image with the preloaded URL
+          });
+        });
+
+        [controlBackward, controlForward].forEach((control) => {
+          control.addEventListener("mouseover", () => {
+            cursorTransformShadowBlend("scale(1.3)", "none");
+            addClass(cursor, "transparent");
+            addClass(cursoricon5, "active");
+          });
+
+          control.addEventListener("mouseout", () => {
+            cursorTransformShadowBlend();
+            removeClass(cursor, "transparent");
+            removeClass(cursoricon5, "active");
+          });
+        });
+
+        // Append the backward and forward buttons to the button container
+        buttonContainer.appendChild(controlBackward);
+        buttonContainer.appendChild(controlForward);
+
+        // Append the button container to the controls container
+        controlsContainer.appendChild(buttonContainer);
+
+        // card.appendChild(controlsContainer);
+        headerDiv.appendChild(controlsContainer);
+
         clientsection.appendChild(card);
 
         // const clientsection_title = document.querySelector(
@@ -1345,7 +1354,8 @@ function setupTestimonials(snapshot) {
     );
     card.innerHTML = `
       <div class="italic sm:text-md text-sm">${testimonial.text}</div>
-      <div class="inline-block mt-6 text-sm">
+      <div class="mt-6 text-sm flex items-center gap-3">
+        <img src="${testimonial.client_image}" class="size-[25px] object-cover rounded-full"/>
         <span class="">${testimonial.client}</span> —
         <span class="opacity-70">${testimonial.position} @ ${testimonial.company}</span>
       </div>
