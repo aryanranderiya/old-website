@@ -756,12 +756,40 @@
   outline-width: 2px;
 }
 
+.outline-\[4px\] {
+  outline-width: 4px;
+}
+
 .outline-\[black\] {
   outline-color: black;
 }
 
 .outline-black {
   outline-color: #000;
+}
+
+.outline-\[\#000000\] {
+  outline-color: #000000;
+}
+
+.outline-\[\#00000070\] {
+  outline-color: #00000070;
+}
+
+.outline-\[\#00000030\] {
+  outline-color: #00000030;
+}
+
+.outline-\[\#ffffff30\] {
+  outline-color: #ffffff30;
+}
+
+.outline-\[\#ffffff40\] {
+  outline-color: #ffffff40;
+}
+
+.outline-\[\#ffffff20\] {
+  outline-color: #ffffff20;
 }
 
 .ring {
@@ -2523,6 +2551,18 @@ h6 {
 
   .sm\:bottom-\[40px\] {
     bottom: 40px;
+  }
+
+  .sm\:\!top-\[10px\] {
+    top: 10px !important;
+  }
+
+  .sm\:\!top-\[0\] {
+    top: 0 !important;
+  }
+
+  .sm\:\!top-\[0px\] {
+    top: 0px !important;
   }
 
   .sm\:m-5 {

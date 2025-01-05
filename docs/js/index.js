@@ -43,7 +43,6 @@ const scrollbarContainer = document.querySelector(
   ".scrollbar_progress_container_buttons"
 );
 const progressBar = document.querySelector(".scrollbar_progress");
-gsap.registerPlugin(ScrollTrigger);
 
 // let scrollRef = 0;
 // window.addEventListener("scroll", function () {
@@ -53,9 +52,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.time("processing");
-
-  gsap.registerPlugin(ScrollTrigger);
-  // ScrollTrigger.refresh();
 
   // window.scrollTo(0, 0);
 
@@ -102,6 +98,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupTestimonials(testimonialsSnapshot);
     setupServices(servicesSnapshot);
     setupNowItems(nowSnapshot);
+    gsap.registerPlugin(ScrollTrigger);
+    // console.log(gsap, ScrollTrigger, "3");
+    // ScrollTrigger.refresh();
+    // console.log(gsap, ScrollTrigger, "4");
   } catch (error) {
     console.error("Error fetching Firebase data:", error);
   }
@@ -126,6 +126,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   // });
 
   // window.addEventListener("resize", positionNavButtons);
+
+  // const observer = new MutationObserver(() => {
+  //   ScrollTrigger.refresh();
+  // });
+
+  // observer.observe(document.body, { childList: true, subtree: true });
+
   console.timeEnd("processing");
 
   document.querySelectorAll(".cool_button").forEach((button) => {
@@ -148,6 +155,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       innertext.style.color = "white";
     });
   });
+
+  ScrollTrigger.refresh();
 });
 
 function updateProgressBar() {
@@ -320,6 +329,8 @@ function setupNowItems(snapshot) {
     li.textContent = nowItem;
     itemsContainer.appendChild(li);
   });
+
+  ScrollTrigger.refresh();
 }
 
 function setupFeaturedProjects(snapshot) {
@@ -418,6 +429,8 @@ function setupFeaturedProjects(snapshot) {
       })
       .catch((error) => console.error("Error getting data: ", error));
   });
+
+  ScrollTrigger.refresh();
 }
 
 function setupServices(snapshot) {
@@ -434,8 +447,6 @@ function setupServices(snapshot) {
     `;
     servicesContainer.appendChild(serviceElement);
   });
-
-  gsap.registerPlugin(ScrollTrigger);
 
   const tl0 = gsap.timeline({
     scrollTrigger: {
@@ -468,11 +479,11 @@ function setupServices(snapshot) {
     gsap.to(this.targets(), { color: "#00bbff", duration: 0 });
     this.targets()[0].previousElementSibling.style.color = "#00bbff";
   }
+
+  ScrollTrigger.refresh();
 }
 
 function setupAnimationLargeText() {
-  gsap.registerPlugin(ScrollTrigger);
-
   const tl0 = gsap.timeline({
     scrollTrigger: {
       trigger: ".largetext_container",
@@ -611,7 +622,7 @@ function setupAnimationLargeText() {
     currentScroll = window.pageYOffset;
   });
 
-  // ScrollTrigger.refresh();
+  ScrollTrigger.refresh();
 }
 
 function setupBentoAnimation() {
@@ -721,6 +732,8 @@ function setupGSAPChips() {
     yoyo: true,
     startAt: { x: -830 },
   });
+
+  ScrollTrigger.refresh();
 }
 
 const time = document.getElementById("time");
@@ -983,8 +996,6 @@ async function preloadImage(url) {
 }
 
 function setupFeaturedClients(snapshot) {
-  gsap.registerPlugin(ScrollTrigger);
-
   const clientsection = document.querySelector(".clientsection");
   let index = 0;
 
@@ -1020,7 +1031,7 @@ function setupFeaturedClients(snapshot) {
 
         const card = document.createElement("div");
         const topValue = `${index * 45 + 10}px`; // value 1 is the distance between the cards, value 2 is offset of scren
-        const smTopValue = `${index * 45 + 120}px`;
+        const smTopValue = `${170}px`; // sm is for PC view
 
         card.style.top = window.innerWidth >= 600 ? smTopValue : topValue;
 
@@ -1159,7 +1170,9 @@ function setupFeaturedClients(snapshot) {
         const image = document.createElement("img");
         image.alt = "Project Image 1";
         preloadedImages[0].then((preloadedURL) => {
+          console.log("Image preloaded");
           image.src = preloadedURL; // Set the preloaded image URL as the source
+          ScrollTrigger.refresh();
         });
         image.classList.add(
           "rounded-b-xl",
@@ -1169,6 +1182,12 @@ function setupFeaturedClients(snapshot) {
           // "object-cover"
           "object-contain"
         );
+
+        image.addEventListener("load", () => {
+          console.log("Image loaded fully:", image.src);
+          ScrollTrigger.refresh();
+        });
+
         imageContainer2.appendChild(image);
 
         contentDiv.appendChild(imageContainer1);
@@ -1273,53 +1292,48 @@ function setupFeaturedClients(snapshot) {
 
         clientsection.appendChild(card);
 
-        // const clientsection_title = document.querySelector(
-        //   ".clientsection .title"
-        // );
-
-        // const observer = new IntersectionObserver(
-        //   (entries, observer) => {
-        //     entries.forEach((entry) => {
-        //       if (entry.isIntersecting) {
-        //         clientsection_title.style.transform = "translateX(100vw)";
-        //         // gsap.set(clientsection_title, { x: "100vw" });
-        //         // gsap.to(clientsection_title, { x: "-5vw", duration: 1 });
-        //         // observer.unobserve(entry.target);
-        //       } else {
-        //         clientsection_title.style.transform = "translateX(-100vw)";
-        //       }
-        //     });
-        //   },
-        //   { rootMargin: "-400px 0px", threshold: 0.5 }
-        // );
-
-        // observer.observe(clientsection);
-        // const tl0 = gsap.timeline({
-        //   scrollTrigger: {
-        //     trigger: ".clientsection",
-        //     start: "top-=400 bottom",
-        //     end: "bottom center",
-        //     scrub: true,
-        //     markers: true,
-        //   },
-        // });
-
-        // gsap.set(".clientsection .title", {
-        //   x: "20%",
-        // });
-        // tl0.to(".clientsection .title", {
-        //   x: "-20%",
-        // });
         ScrollTrigger.refresh();
       })
       .catch((e) =>
         console.log("Could not get projects ref data for featured clients", e)
       );
   });
+  ScrollTrigger.refresh();
+
+  const clientsection_title = document.querySelector(".clientsection .title");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        clientsection_title.style.transform = entry.isIntersecting
+          ? "translateX(100vw)"
+          : "translateX(-100vw)";
+      });
+    },
+    { rootMargin: "-400px 0px", threshold: 0.5 }
+  );
+
+  observer.observe(clientsection);
+  const tl0 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".clientsection",
+      start: "top-=400 bottom",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+
+  gsap.set(".clientsection .title", {
+    x: "20%",
+  });
+  tl0.to(".clientsection .title", {
+    x: "-20%",
+  });
+  ScrollTrigger.refresh();
 }
 
 function setupTestimonials(snapshot) {
-  gsap.registerPlugin(ScrollTrigger);
+  // gsap.registerPlugin(ScrollTrigger);
 
   const testimonialContainer = document.querySelector(".testimonial-container");
   gsap.to("#sticky-element", {
@@ -1348,6 +1362,9 @@ function setupTestimonials(snapshot) {
       "sm:m-5",
       "m-0",
       "box-border",
+      "outline",
+      "outline-[#ffffff20]",
+      "outline-[4px]",
       "flex",
       "flex-col",
       "text-xl"
@@ -1387,13 +1404,11 @@ function setupTestimonials(snapshot) {
     });
   });
 
-  // ScrollTrigger.refresh();
+  ScrollTrigger.refresh();
 }
 
 // Function to animate each letter individually
 function animateTextColor() {
-  // ScrollTrigger.refresh();
-
   const text = document.getElementById("scrollText");
   const letters = text.textContent.split("");
 
@@ -1426,4 +1441,6 @@ function animateTextColor() {
       ease: "none", // No easing
     }
   );
+
+  ScrollTrigger.refresh();
 }
