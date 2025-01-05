@@ -33,8 +33,6 @@ gtag("js", new Date());
 
 gtag("config", "G-S3XP36W3P9");
 
-// Fetch and read db.json
-
 const cursoriconwave = document.getElementById("cursoriconwave");
 const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
@@ -75,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   addListeners(scrollBtn);
 
-  const response = await fetch("../../db/db.json");
+  const response = await fetch("../db/db.json");
   const db = await response.json();
 
   setupGithubBento(db);
