@@ -1,24 +1,24 @@
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 
-import {
-  getDatabase,
-  ref,
-  get,
-} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+// import {
+//   getDatabase,
+//   ref,
+//   get,
+// } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
-  authDomain: "aryanranderiya-portfolio.firebaseapp.com",
-  projectId: "aryanranderiya-portfolio",
-  storageBucket: "aryanranderiya-portfolio.appspot.com",
-  messagingSenderId: "540599201791",
-  appId: "1:540599201791:web:757239eec07a33dc9ec1ca",
-  measurementId: "G-S3XP36W3P9",
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
+//   authDomain: "aryanranderiya-portfolio.firebaseapp.com",
+//   projectId: "aryanranderiya-portfolio",
+//   storageBucket: "aryanranderiya-portfolio.appspot.com",
+//   messagingSenderId: "540599201791",
+//   appId: "1:540599201791:web:757239eec07a33dc9ec1ca",
+//   measurementId: "G-S3XP36W3P9",
+// };
 
-initializeApp(firebaseConfig);
-const database = getDatabase();
+// initializeApp(firebaseConfig);
+// const database = getDatabase();
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
 
 import { Gradient } from "./gradient.js";
@@ -33,12 +33,26 @@ gtag("js", new Date());
 
 gtag("config", "G-S3XP36W3P9");
 
+// Fetch and read db.json
+
 const cursoriconwave = document.getElementById("cursoriconwave");
 const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
 const cursoricon5 = document.getElementById("cursoricon5");
-const sections = document.querySelectorAll("section");
+// Fetch db.json
+
+// const section_replacements = document.querySelectorAll(".section_replacement");
+// const sections_main = document.querySelectorAll("section");
+// const sections = [];
+// const maxLength = Math.max(sections_main.length, section_replacements.length);
+
+// for (let i = 0; i < maxLength; i++) {
+//   if (sections_main[i]) sections.push(sections_main[i]);
+//   if (section_replacements[i]) sections.push(section_replacements[i]);
+// }
+// console.log(sections);
+
 const scrollbarContainer = document.querySelector(
   ".scrollbar_progress_container_buttons"
 );
@@ -51,68 +65,32 @@ const progressBar = document.querySelector(".scrollbar_progress");
 // });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  console.time("processing");
-
   // window.scrollTo(0, 0);
-
-  // document
-  //   .querySelector(".words_rotating_span")
-  //   .addEventListener("animationend", removeBlackCover);
 
   setTimeout(() => {
     removeBlackCover();
-  }, 1800);
+  }, 1400);
 
   cursor.style.boxShadow = "none";
 
   addListeners(scrollBtn);
-  // handleAnimationSubcontent1();
 
-  loadNavbar().then(() => {
-    handleNavbarIntersection();
-  });
+  const response = await fetch("../../db/db.json");
+  const db = await response.json();
 
-  // Firebase references
-  const featuredProjects = ref(database, "Homepage_Featured_Projects/");
-  const featuredClients = ref(database, "Homepage_Featured_Clients/");
-  const services = ref(database, "Services/");
-  const testimonials = ref(database, "Testimonials/");
-  const nowRef = ref(database, "Now/");
-
-  try {
-    const [
-      featuredProjectsSnapshot,
-      featuredClientsSnapshot,
-      servicesSnapshot,
-      testimonialsSnapshot,
-      nowSnapshot,
-    ] = await Promise.all([
-      get(featuredProjects),
-      get(featuredClients),
-      get(services),
-      get(testimonials),
-      get(nowRef),
-    ]);
-    setupFeaturedProjects(featuredProjectsSnapshot);
-    setupFeaturedClients(featuredClientsSnapshot);
-    setupTestimonials(testimonialsSnapshot);
-    setupServices(servicesSnapshot);
-    setupNowItems(nowSnapshot);
-    gsap.registerPlugin(ScrollTrigger);
-    // console.log(gsap, ScrollTrigger, "3");
-    // ScrollTrigger.refresh();
-    // console.log(gsap, ScrollTrigger, "4");
-  } catch (error) {
-    console.error("Error fetching Firebase data:", error);
-  }
-
-  // Other setups
+  setupGithubBento(db);
+  setupFeaturedProjects(db);
+  setupFeaturedClients(db);
+  setupServices(db);
+  setupTestimonials(db);
+  setupNowItems(db);
   setupTimeBento();
   setupAnimationLargeText();
   setupGSAPChips();
-  setupGithubBento();
   setupBentoAnimation();
   animateTextColor();
+
+  gsap.registerPlugin(ScrollTrigger);
 
   // positionNavButtons();
   // modifyScrollBar();
@@ -126,14 +104,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // });
 
   // window.addEventListener("resize", positionNavButtons);
-
-  // const observer = new MutationObserver(() => {
-  //   ScrollTrigger.refresh();
-  // });
-
-  // observer.observe(document.body, { childList: true, subtree: true });
-
-  console.timeEnd("processing");
 
   document.querySelectorAll(".cool_button").forEach((button) => {
     // observer.observe(button);
@@ -199,11 +169,11 @@ function positionNavButtons() {
 
       switch (section.id) {
         case "section_about":
-
         case "section0":
           iconSpan.textContent = "public";
           break;
         case "section1":
+        case "section_about":
           iconSpan.textContent = "face";
           break;
         case "section2":
@@ -220,6 +190,9 @@ function positionNavButtons() {
           break;
         case "section6":
           iconSpan.textContent = "account_box";
+          break;
+        case "sectiontestimonial":
+          iconSpan.textContent = "wysiwyg";
           break;
         case "section7":
           iconSpan.textContent = "wysiwyg";
@@ -267,25 +240,37 @@ function highlightActiveSection() {
   });
 }
 function modifyScrollBar() {
-  // const scrollbarContainerParent = document.querySelector(
-  //   ".scrollbar_progress_container_parent"
-  // );
-  // scrollbarContainerParent.addEventListener("mouseover", () => {
-  //   cursor.style.transform = "scale(5)";
-  //   cursor.style.boxShadow = "none";
-  //   cursor.style.outlineWidth = "0px";
-  //   addClass(cursortext2, "active");
-  //   addClass(cursor, "transparent");
-  //   updateProgressBarandBtn();
-  // });
+  function updateProgressBarandBtn() {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+    const scrollPercent = `${percentage}%`;
 
-  // scrollbarContainerParent.addEventListener("mouseout", () => {
-  //   cursor.style.transform = "none";
-  //   cursor.style.mixBlendMode = "normal";
-  //   cursor.style.boxShadow = "0px 0px 30px white";
-  //   removeClass(cursortext2, "active");
-  //   removeClass(cursor, "transparent");
-  // });
+    document
+      .querySelector(".scrollbar_progress")
+      .style.setProperty("--height", scrollPercent);
+
+    cursortext2.textContent = `${Math.round(percentage)}%`;
+  }
+
+  const scrollbarContainerParent = document.querySelector(
+    ".scrollbar_progress_container_parent"
+  );
+  scrollbarContainerParent.addEventListener("mouseover", () => {
+    cursor.style.transform = "scale(5)";
+    cursor.style.boxShadow = "none";
+    cursor.style.outlineWidth = "0px";
+    addClass(cursortext2, "active");
+    addClass(cursor, "transparent");
+    updateProgressBarandBtn();
+  });
+
+  scrollbarContainerParent.addEventListener("mouseout", () => {
+    cursor.style.transform = "none";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.boxShadow = "0px 0px 30px white";
+    removeClass(cursortext2, "active");
+    removeClass(cursor, "transparent");
+  });
 
   const navIcons = document.querySelectorAll(".nav-icon");
 
@@ -309,31 +294,15 @@ function modifyScrollBar() {
   });
 }
 
-function updateProgressBarandBtn() {
-  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
-  const scrollPercent = `${percentage}%`;
-
-  document
-    .querySelector(".scrollbar_progress")
-    .style.setProperty("--height", scrollPercent);
-
-  cursortext2.textContent = `${Math.round(percentage)}%`;
-}
-
-function setupNowItems(snapshot) {
-  const snapshotData = snapshot.val();
+function setupNowItems(db) {
   const itemsContainer = document.querySelector(".now_items");
-  snapshotData.forEach((nowItem) => {
-    const li = document.createElement("li");
-    li.textContent = nowItem;
-    itemsContainer.appendChild(li);
-  });
-
-  ScrollTrigger.refresh();
+  const nowItems = db.Now;
+  itemsContainer.innerHTML = nowItems
+    .map((nowItem) => `<li>${nowItem}</li>`)
+    .join("");
 }
 
-function setupFeaturedProjects(snapshot) {
+async function setupFeaturedProjects(db) {
   const featuredContainer = document.querySelector(".featured_projects");
   const hoverCard = document.querySelector(".featured_project_hover_card");
   const hoverCardBtn = hoverCard.querySelector(
@@ -346,108 +315,102 @@ function setupFeaturedProjects(snapshot) {
   hoverCard.style.cssText =
     "width: 300px; height: 200px; border-radius: 20px; background-color: #00bbff;";
 
-  snapshot.forEach((childSnapshot) => {
-    const projectId = childSnapshot.val();
-    const key = childSnapshot.key;
-    const projectsRef = ref(database, `Projects/${projectId}`);
+  const featuredProjects = db.Homepage_Featured_Projects;
+  const projects = db.Projects;
 
-    get(projectsRef)
-      .then((snapshot) => {
-        if (!snapshot.exists())
-          throw new Error(
-            `Snapshot doesn't exist: ${JSON.stringify(snapshot)}`
-          );
+  const fragment = document.createDocumentFragment();
 
-        const data = snapshot.val();
-        const featuredProject = document.createElement("a");
-        featuredProject.innerHTML = `
-          <div class="featured_project_card">
-            <span class="featured_project_name">${data.project_title}</span>
-            <div class="featured_project_info">
-              <span class="featured_project_type">${data.project_type}</span>
-              <span class="featured_project_type2">${data.project_creation}</span>
-            </div>
-          </div>
-          <hr class="featured_project_separator">`;
+  // Loop through featured projects and create elements
+  Object.entries(featuredProjects).forEach(([key, projectId]) => {
+    const data = projects[projectId];
 
-        if (key.toLowerCase() === "latest") {
-          const card = featuredProject.querySelector(".featured_project_card");
-          const latestDiv = document.createElement("div");
-          latestDiv.classList.add("latest_work");
-          latestDiv.innerText = "Latest";
-          card.insertBefore(latestDiv, card.firstChild);
-          featuredContainer.insertBefore(
-            featuredProject,
-            featuredContainer.firstChild
-          );
-        } else {
-          featuredContainer.appendChild(featuredProject);
-        }
+    if (!data) return;
 
-        let activeComponent = null;
+    const featuredProject = document.createElement("a");
+    featuredProject.innerHTML = `
+      <div class="featured_project_card">
+        <span class="featured_project_name">${data.project_title}</span>
+        <div class="featured_project_info">
+          <span class="featured_project_type">${data.project_type}</span>
+          <span class="featured_project_type2">${data.project_creation}</span>
+        </div>
+      </div>
+      <hr class="featured_project_separator">`;
 
-        gsap.to(featuredProject, {
-          scrollTrigger: {
-            trigger: featuredProject,
-            start: "top+=10 center",
-            end: "bottom center",
-            onEnter: () => handleHover(featuredProject, data, true),
-            onLeave: () => handleHover(featuredProject, data, false),
-            onEnterBack: () => handleHover(featuredProject, data, true),
-            onLeaveBack: () => handleHover(featuredProject, data, false),
-          },
-        });
+    if (key.toLowerCase() === "latest") {
+      const card = featuredProject.querySelector(".featured_project_card");
+      const latestDiv = document.createElement("div");
+      latestDiv.classList.add("latest_work");
+      latestDiv.innerText = "Latest";
+      card.insertBefore(latestDiv, card.firstChild);
+      fragment.insertBefore(featuredProject, fragment.firstChild);
+    } else {
+      fragment.appendChild(featuredProject);
+    }
 
-        function handleHover(project, data, isEntering) {
-          if (isEntering) {
-            if (activeComponent && activeComponent !== project)
-              handleHover(activeComponent, data, false);
-            activeComponent = project;
-            hoverCard.style.opacity = "1";
-            hoverCard.style.scale = "1";
-            hoverCardBtn.href = `Project.html?id=${snapshot.key}`;
-            project.href = `Project.html?id=${snapshot.key}`;
-            project.style.backgroundColor = "#00bbff";
-            hoverCardDesc.innerText = data.project_short_description;
-            hoverCardDesc.style.opacity = "1";
-            hoverCardBtn.style.opacity = "1";
-            cursorTransformShadowBlend("scale(1.3)", "none");
-            addClass(cursor, "transparent");
-            addClass(cursoricon5, "active");
-            return;
-          }
-          hoverCard.style.opacity = "0";
-          hoverCard.style.scale = "0";
-          hoverCardDesc.style.opacity = "0";
-          hoverCardBtn.style.opacity = "0";
-          project.style.backgroundColor = "";
-          cursorTransformShadowBlend();
-          removeClass(cursor, "transparent");
-          removeClass(cursoricon5, "active");
-          activeComponent = null;
-        }
-      })
-      .catch((error) => console.error("Error getting data: ", error));
+    // ScrollTrigger Animation
+    gsap.to(featuredProject, {
+      scrollTrigger: {
+        trigger: featuredProject,
+        start: "top+=10 center",
+        end: "bottom center",
+        onEnter: () => handleHover(featuredProject, data, true),
+        onLeave: () => handleHover(featuredProject, data, false),
+        onEnterBack: () => handleHover(featuredProject, data, true),
+        onLeaveBack: () => handleHover(featuredProject, data, false),
+      },
+    });
+
+    let activeComponent = null;
+
+    function handleHover(project, data, isEntering) {
+      if (isEntering) {
+        if (activeComponent && activeComponent !== project)
+          handleHover(activeComponent, data, false);
+        activeComponent = project;
+        hoverCard.style.opacity = "1";
+        hoverCard.style.scale = "1";
+        hoverCardBtn.href = `Project.html?id=${projectId}`;
+        project.href = `Project.html?id=${projectId}`;
+        project.style.backgroundColor = "#00bbff";
+        hoverCardDesc.innerText = data.project_short_description;
+        hoverCardDesc.style.opacity = "1";
+        hoverCardBtn.style.opacity = "1";
+      } else {
+        hoverCard.style.opacity = "0";
+        hoverCard.style.scale = "0";
+        hoverCardDesc.style.opacity = "0";
+        hoverCardBtn.style.opacity = "0";
+        project.style.backgroundColor = "";
+        activeComponent = null;
+      }
+    }
   });
 
+  // Append to DOM
+  featuredContainer.appendChild(fragment);
   ScrollTrigger.refresh();
 }
 
-function setupServices(snapshot) {
+async function setupServices(db) {
   const servicesContainer = document.querySelector(".services");
 
-  snapshot.forEach((childSnapshot) => {
-    const service = childSnapshot.val();
-    const index = parseInt(childSnapshot.key) + 1;
+  const services = db.Services;
+
+  // Loop through services and create elements
+  services.forEach((service, index) => {
     const serviceElement = document.createElement("div");
     serviceElement.classList.add("service");
     serviceElement.innerHTML = `
-      <span class="service_number">${index.toString().padStart(2, "0")}</span>
+      <span class="service_number">${(index + 1)
+        .toString()
+        .padStart(2, "0")}</span>
       <span class="service_name">${service}</span>
     `;
     servicesContainer.appendChild(serviceElement);
   });
 
+  // GSAP animations
   const tl0 = gsap.timeline({
     scrollTrigger: {
       trigger: ".services_section",
@@ -642,22 +605,14 @@ function setupBentoAnimation() {
     observer.observe(bento_card);
   });
 
-  const bento_project = document.getElementById("bento_project");
-  const bento_project2 = document.getElementById("bento_project2");
-  const bento_resume = document.getElementById("bento_resume");
-  const bento_blog = document.getElementById("bento_blog");
-  const now_anchor = document.querySelectorAll(".now a");
-  const cool_buttons = document.querySelectorAll(".cool_button");
-  const scroll_btn = document.querySelector(".scroll_btn");
-
   const items_for_hover = [
-    bento_project,
-    bento_project2,
-    bento_resume,
-    bento_blog,
-    scroll_btn,
-    ...now_anchor,
-    ...cool_buttons,
+    document.getElementById("bento_project"),
+    document.getElementById("bento_project2"),
+    document.getElementById("bento_resume"),
+    document.getElementById("bento_blog"),
+    document.querySelector(".scroll_btn"),
+    ...document.querySelectorAll(".now a"),
+    ...document.querySelectorAll(".cool_button"),
   ];
 
   items_for_hover.forEach((item) => {
@@ -674,13 +629,11 @@ function setupBentoAnimation() {
     });
   });
 }
-
-async function setupGithubBento() {
+async function setupGithubBento(db) {
   try {
-    const qDtadW_2ZSeiRJtuRTvv = ref(database, "qDtadW_2ZSeiRJtuRTvv/");
-    const snapshot = await get(qDtadW_2ZSeiRJtuRTvv);
-    const token = snapshot.val();
+    const token = db.qDtadW_2ZSeiRJtuRTvv;
 
+    // Fetch GitHub repo and user info concurrently
     const [repoResponse, userResponse] = await Promise.all([
       fetch(
         "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
@@ -691,25 +644,30 @@ async function setupGithubBento() {
       fetch("https://api.github.com/users/aryanranderiya"),
     ]);
 
-    const repoObj = await repoResponse.json();
+    const { items: repos } = await repoResponse.json();
     const userInfo = await userResponse.json();
 
-    document.getElementById(
-      "github_repo_chip"
-    ).innerHTML = `<i class="fa-solid fa-book-bookmark"></i>${repoObj.items.length} Repos`;
-    document.getElementById(
-      "github_profile_chip"
-    ).innerHTML = `<img src=${userInfo.avatar_url} width='10px' alt="Github Profile photo"> ${userInfo.login}`;
-    document.getElementById("github_profile_anchor").href = userInfo.html_url;
-    document.getElementById(
+    // DOM elements for GitHub chips
+    const githubRepoChip = document.getElementById("github_repo_chip");
+    const githubProfileChip = document.getElementById("github_profile_chip");
+    const githubProfileAnchor = document.getElementById(
+      "github_profile_anchor"
+    );
+    const githubPublicRepoChip = document.getElementById(
       "github_public_repo_chip"
-    ).innerHTML = `<i class="fa-solid fa-people-group"></i>${userInfo.public_repos} Public Repos`;
-    document.getElementById(
-      "github_follower_chip"
-    ).innerHTML = `<i class="fa-solid fa-user-plus"></i>${userInfo.followers} Followers`;
-    document.getElementById(
+    );
+    const githubFollowerChip = document.getElementById("github_follower_chip");
+    const githubFollowingChip = document.getElementById(
       "github_following_chip"
-    ).innerHTML = `<i class="fa-solid fa-user-group"></i>${userInfo.following} Following`;
+    );
+
+    // Populate GitHub chips with data
+    githubRepoChip.innerHTML = `<i class="fa-solid fa-book-bookmark"></i> ${repos.length} Repos`;
+    githubProfileChip.innerHTML = `<img src=${userInfo.avatar_url} width='10px' alt="Github Profile photo"> ${userInfo.login}`;
+    githubProfileAnchor.href = userInfo.html_url;
+    githubPublicRepoChip.innerHTML = `<i class="fa-solid fa-people-group"></i> ${userInfo.public_repos} Public Repos`;
+    githubFollowerChip.innerHTML = `<i class="fa-solid fa-user-plus"></i> ${userInfo.followers} Followers`;
+    githubFollowingChip.innerHTML = `<i class="fa-solid fa-user-group"></i> ${userInfo.following} Following`;
   } catch (error) {
     console.error("Error setting up GitHub Bento:", error);
   }
@@ -995,310 +953,191 @@ async function preloadImage(url) {
   }
 }
 
-function setupFeaturedClients(snapshot) {
+async function setupFeaturedClients(db) {
   const clientsection = document.querySelector(".clientsection");
   let index = 0;
 
-  snapshot.forEach((childSnapshot) => {
-    const projectId = childSnapshot.val();
-    const projectsRef = ref(database, `Projects/${projectId}`);
+  const featuredClients = db.Homepage_Featured_Clients;
+  const projects = db.Projects;
 
-    get(projectsRef)
-      .then((innerSnapshot) => {
-        if (!innerSnapshot.exists()) {
-          throw new Error(
-            `Snapshot doesn't exist: ${JSON.stringify(innerSnapshot)}`
-          );
-        }
+  const projectPromises = featuredClients
+    .map((projectId) => {
+      return projects[projectId]
+        ? { projectId, clientProject: projects[projectId] }
+        : null;
+    })
+    .filter(Boolean);
 
-        index++;
-        const clientProject = innerSnapshot.val();
+  const fragment = document.createDocumentFragment();
 
-        // Check for project images, fallback to banner image if not an array or if it's empty
-        const projectImage =
-          Array.isArray(clientProject?.project_images) &&
-          clientProject.project_images.length > 0
-            ? clientProject.project_images
-            : [clientProject?.banner_image_URL]; // Ensure it becomes an array if not
+  // Process each client project
+  projectPromises.forEach(({ clientProject, projectId }) => {
+    index++;
 
-        // If projectImage is not an array, we make sure it's a single image array
-        const imagesArray = Array.isArray(projectImage)
-          ? projectImage
-          : [projectImage];
+    const projectImage =
+      Array.isArray(clientProject?.project_images) &&
+      clientProject.project_images.length > 0
+        ? clientProject.project_images
+        : [clientProject?.banner_image_URL];
 
-        // Preload images and store their object URLs
-        const preloadedImages = imagesArray.map(preloadImage);
+    const imagesArray = Array.isArray(projectImage)
+      ? projectImage
+      : [projectImage];
 
-        const card = document.createElement("div");
-        const topValue = `${index * 45 + 10}px`; // value 1 is the distance between the cards, value 2 is offset of scren
-        const smTopValue = `${170}px`; // sm is for PC view
+    const preloadedImages = imagesArray.map(preloadImage);
 
-        card.style.top = window.innerWidth >= 600 ? smTopValue : topValue;
+    const card = document.createElement("div");
+    const topValue = `${index * 45 + 10}px`;
+    const smTopValue = `${170}px`;
 
-        card.classList.add(
-          "sticky",
-          "bg-[#00bbff]",
-          "outline",
-          "outline-[black]",
-          "outline-[2px]",
-          "rounded-3xl",
-          "min-h-fit",
-          "sm:min-h-[0vh]",
-          "h-fit",
-          // "max-h-[30vh]",
-          "w-[95vw]",
-          "flex",
-          "flex-col",
-          "box-border",
-          // "sm:px-5",
-          "px-5",
-          "py-2",
-          "sm:pb-3",
-          "pb-[30px]",
-          "gap-2",
-          "shadow-xl",
-          "overflow-hidden",
-          "mt-[-70px]"
-        );
+    card.style.top = window.innerWidth >= 600 ? smTopValue : topValue;
+    card.classList.add(
+      "sticky",
+      "bg-[#00bbff]",
+      "outline",
+      "outline-[black]",
+      "outline-[2px]",
+      "rounded-3xl",
+      "min-h-fit",
+      "sm:min-h-[0vh]",
+      "h-fit",
+      "w-[95vw]",
+      "flex",
+      "flex-col",
+      "box-border",
+      "px-5",
+      "py-2",
+      "sm:pb-3",
+      "pb-[30px]",
+      "gap-2",
+      "shadow-xl",
+      "overflow-hidden",
+      "mt-[-70px]"
+    );
 
-        // Header with title and link
-        const headerDiv = document.createElement("div");
-        headerDiv.classList.add(
-          "flex",
-          // "justify-between",
-          "justify-evenly",
-          "items-center",
-          "w-full",
-          "text-black"
-        );
+    // Header with title and link
+    const headerDiv = document.createElement("div");
+    headerDiv.classList.add(
+      "flex",
+      "justify-evenly",
+      "items-center",
+      "w-full",
+      "text-black"
+    );
 
-        const titleDiv = document.createElement("div");
-        titleDiv.classList.add(
-          "w-full",
-          "text-xl",
-          "font-bold",
-          "uppercase",
-          "text-center"
-        );
-        titleDiv.textContent = clientProject.project_title;
+    const titleDiv = document.createElement("div");
+    titleDiv.classList.add(
+      "w-full",
+      "text-xl",
+      "font-bold",
+      "uppercase",
+      "text-center"
+    );
+    titleDiv.textContent = clientProject.project_title;
 
-        const mainProjectLink = clientProject.project_links[0][1];
-        if (mainProjectLink) {
-          const anchor = document.createElement("a");
-          anchor.classList.add(
-            "client_anchor",
-            "w-fit",
-            "h-fit",
-            "bg-white",
-            "text-black",
-            "text-lg",
-            "text-right",
-            "font-bold",
-            "uppercase",
-            "rounded-full",
-            "outline",
-            "outline-2",
-            "py-0",
-            "px-5",
-            "text-nowrap"
-          );
-          anchor.textContent = "View";
-          anchor.href = mainProjectLink;
-          anchor.target = "_blank";
-
-          headerDiv.appendChild(anchor);
-          headerDiv.appendChild(titleDiv);
-
-          anchor.addEventListener("mouseover", () => {
-            cursorTransformShadowBlend("scale(1.3)", "none");
-            addClass(cursor, "transparent");
-            addClass(cursoricon5, "active");
-          });
-
-          anchor.addEventListener("mouseout", () => {
-            cursorTransformShadowBlend();
-            removeClass(cursor, "transparent");
-            removeClass(cursoricon5, "active");
-          });
-        }
-
-        card.appendChild(headerDiv);
-
-        const contentDiv = document.createElement("div");
-        contentDiv.classList.add("w-full", "flex", "flex-col", "relative");
-
-        const imageContainer1 = document.createElement("div");
-        imageContainer1.classList.add("w-full", "flex", "flex-col", "relative");
-
-        const imageContainer2 = document.createElement("div");
-        imageContainer2.classList.add("w-full", "flex", "flex-col", "relative");
-
-        const containerDivTest = document.createElement("div");
-        containerDivTest.classList.add(
-          "absolute",
-          "w-full",
-          "justify-center",
-          "h-full",
-          "bottom-0",
-          "items-center",
-          "flex",
-          "sm:text-lg",
-          "text-sm"
-        );
-        containerDivTest.innerHTML = `<div>${mainProjectLink.replace(
-          "https://",
-          ""
-        )}</div>`;
-        const subDescriptionDiv = document.createElement("div");
-        subDescriptionDiv.textContent = clientProject.subDescription;
-
-        const imageheader = document.createElement("img");
-        imageheader.src = "./media/browser.webp";
-        imageheader.alt = "Image Header";
-        imageheader.classList.add(
-          "rounded-t-xl",
-          "h-[31px]",
-          "sm:h-fit",
-          "object-cover"
-        );
-        imageContainer1.appendChild(containerDivTest);
-        imageContainer1.appendChild(imageheader);
-
-        let currentImageIndex = 0; // Track the current image index for this project
-
-        // Create an image element for the project and set the src to the preloaded image URL
-        const image = document.createElement("img");
-        image.alt = "Project Image 1";
-        preloadedImages[0].then((preloadedURL) => {
-          console.log("Image preloaded");
-          image.src = preloadedURL; // Set the preloaded image URL as the source
-          ScrollTrigger.refresh();
-        });
-        image.classList.add(
-          "rounded-b-xl",
-          "h-fit",
-          // "sm:min-h-[70vh]",
-          // "sm:h-[70vh]",
-          // "object-cover"
-          "object-contain"
-        );
-
-        image.addEventListener("load", () => {
-          console.log("Image loaded fully:", image.src);
-          ScrollTrigger.refresh();
-        });
-
-        imageContainer2.appendChild(image);
-
-        contentDiv.appendChild(imageContainer1);
-        contentDiv.appendChild(imageContainer2);
-        card.appendChild(contentDiv);
-
-        const controlsContainer = document.createElement("div");
-        if (imagesArray.length > 1) {
-        }
-
-        controlsContainer.classList.add(
-          // "sm:absolute",
-          // "relative",
-          // "sm:bottom-[40px]",
-          // "sm:bottom-0",
-          // "left-0",
-          // "w-full",
-          imagesArray.length > 1 ? "visible" : "invisible",
-          "flex",
-          "justify-center",
-          "z-[5]",
-          "controls_container"
-        );
-
-        // Create the button container
-        const buttonContainer = document.createElement("div");
-        buttonContainer.classList.add(
-          "bg-black",
-          "rounded-full",
-          // "py-1",
-          // "px-1",
-          "flex",
-          "outline",
-          "items-center",
-          "gap-3",
-          "outline-black"
-        );
-
-        // Create the backward button
-        const controlBackward = document.createElement("i");
-        controlBackward.id = "control_backward";
-        controlBackward.classList.add(
-          "fa-solid",
-          "fa-circle-chevron-left",
-          "text-[30px]",
-          "text-white"
-        );
-
-        // Create the forward button
-        const controlForward = document.createElement("i");
-        controlForward.id = "control_forward";
-        controlForward.classList.add(
-          "fa-solid",
-          "fa-circle-chevron-right",
-          "text-[30px]",
-          "text-white"
-        );
-
-        // Add event listeners to cycle images on button click
-        controlBackward.addEventListener("click", () => {
-          if (imagesArray.length <= 1) return;
-
-          currentImageIndex =
-            (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
-          preloadedImages[currentImageIndex].then((preloadedURL) => {
-            image.src = preloadedURL; // Update the image with the preloaded URL
-          });
-        });
-
-        controlForward.addEventListener("click", () => {
-          if (imagesArray.length <= 1) return;
-
-          currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
-          preloadedImages[currentImageIndex].then((preloadedURL) => {
-            image.src = preloadedURL; // Update the image with the preloaded URL
-          });
-        });
-
-        [controlBackward, controlForward].forEach((control) => {
-          control.addEventListener("mouseover", () => {
-            cursorTransformShadowBlend("scale(1.3)", "none");
-            addClass(cursor, "transparent");
-            addClass(cursoricon5, "active");
-          });
-
-          control.addEventListener("mouseout", () => {
-            cursorTransformShadowBlend();
-            removeClass(cursor, "transparent");
-            removeClass(cursoricon5, "active");
-          });
-        });
-
-        // Append the backward and forward buttons to the button container
-        buttonContainer.appendChild(controlBackward);
-        buttonContainer.appendChild(controlForward);
-
-        // Append the button container to the controls container
-        controlsContainer.appendChild(buttonContainer);
-
-        // card.appendChild(controlsContainer);
-        headerDiv.appendChild(controlsContainer);
-
-        clientsection.appendChild(card);
-
-        ScrollTrigger.refresh();
-      })
-      .catch((e) =>
-        console.log("Could not get projects ref data for featured clients", e)
+    const mainProjectLink = clientProject.project_links[0][1];
+    if (mainProjectLink) {
+      const anchor = document.createElement("a");
+      anchor.classList.add(
+        "client_anchor",
+        "w-fit",
+        "h-fit",
+        "bg-white",
+        "text-black",
+        "text-lg",
+        "text-right",
+        "font-bold",
+        "uppercase",
+        "rounded-full",
+        "outline",
+        "outline-2",
+        "py-0",
+        "px-5",
+        "text-nowrap"
       );
+      anchor.textContent = "View";
+      anchor.href = mainProjectLink;
+      anchor.target = "_blank";
+
+      headerDiv.appendChild(anchor);
+      headerDiv.appendChild(titleDiv);
+
+      anchor.addEventListener("mouseover", () => {
+        cursorTransformShadowBlend("scale(1.3)", "none");
+        addClass(cursor, "transparent");
+        addClass(cursoricon5, "active");
+      });
+
+      anchor.addEventListener("mouseout", () => {
+        cursorTransformShadowBlend();
+        removeClass(cursor, "transparent");
+        removeClass(cursoricon5, "active");
+      });
+    }
+
+    card.appendChild(headerDiv);
+
+    const contentDiv = document.createElement("div");
+    contentDiv.classList.add("w-full", "flex", "flex-col", "relative");
+
+    const imageContainer1 = document.createElement("div");
+    imageContainer1.classList.add("w-full", "flex", "flex-col", "relative");
+
+    const containerDivTest = document.createElement("div");
+    containerDivTest.classList.add(
+      "absolute",
+      "w-full",
+      "justify-center",
+      "h-full",
+      "bottom-0",
+      "items-center",
+      "flex",
+      "sm:text-lg",
+      "text-sm"
+    );
+    containerDivTest.innerHTML = `<div>${mainProjectLink.replace(
+      "https://",
+      ""
+    )}</div>`;
+
+    const imageheader = document.createElement("img");
+    imageheader.src = "./media/browser.webp";
+    imageheader.alt = "Image Header";
+    imageheader.classList.add(
+      "rounded-t-xl",
+      "h-[31px]",
+      "sm:h-fit",
+      "object-cover"
+    );
+    imageContainer1.appendChild(containerDivTest);
+    imageContainer1.appendChild(imageheader);
+
+    let currentImageIndex = 0;
+
+    const image = document.createElement("img");
+    image.alt = "Project Image 1";
+    preloadedImages[0].then((preloadedURL) => {
+      image.src = preloadedURL;
+    });
+    image.classList.add("rounded-b-xl", "h-fit", "object-contain");
+
+    image.addEventListener("load", () => {
+      ScrollTrigger.refresh();
+    });
+
+    const imageContainer2 = document.createElement("div");
+    imageContainer2.classList.add("w-full", "flex", "flex-col", "relative");
+    imageContainer2.appendChild(image);
+
+    contentDiv.appendChild(imageContainer1);
+    contentDiv.appendChild(imageContainer2);
+    card.appendChild(contentDiv);
+
+    fragment.appendChild(card);
+    ScrollTrigger.refresh();
   });
-  ScrollTrigger.refresh();
+
+  clientsection.appendChild(fragment);
 
   const clientsection_title = document.querySelector(".clientsection .title");
 
@@ -1314,6 +1153,7 @@ function setupFeaturedClients(snapshot) {
   );
 
   observer.observe(clientsection);
+
   const tl0 = gsap.timeline({
     scrollTrigger: {
       trigger: ".clientsection",
@@ -1332,23 +1172,15 @@ function setupFeaturedClients(snapshot) {
   ScrollTrigger.refresh();
 }
 
-function setupTestimonials(snapshot) {
-  // gsap.registerPlugin(ScrollTrigger);
-
+async function setupTestimonials(db) {
   const testimonialContainer = document.querySelector(".testimonial-container");
-  gsap.to("#sticky-element", {
-    scrollTrigger: {
-      trigger: "#sticky-element",
-      start: "top-=100 top",
-      end: "bottom-=370 top",
-      pin: true,
-      scrub: true,
-    },
-  });
 
-  snapshot.forEach((childSnapshot) => {
-    const testimonial = childSnapshot.val();
-    const index = childSnapshot.key;
+  const testimonials = db.Testimonials;
+
+  // Create a DocumentFragment to batch DOM updates
+  const fragment = document.createDocumentFragment();
+
+  testimonials.forEach((testimonial, index) => {
     const card = document.createElement("div");
     card.classList.add(
       "transition-colors",
@@ -1373,54 +1205,77 @@ function setupTestimonials(snapshot) {
       <div class="italic sm:text-md text-sm">${testimonial.text}</div>
       <div class="mt-6 text-sm flex items-center gap-3">
         <img src="${testimonial.client_image}" class="size-[25px] object-cover rounded-full"/>
-        <span class="">${testimonial.client}</span> —
+        <span>${testimonial.client}</span> — 
         <span class="opacity-70">${testimonial.position} @ ${testimonial.company}</span>
       </div>
     `;
-    testimonialContainer.appendChild(card);
 
+    // Append the card to the fragment instead of directly to the DOM
+    fragment.appendChild(card);
+
+    // GSAP animation setup for each testimonial card
     gsap.from(card, {
-      opacity: 0, // Fade in effect
-      x: 300, // Start the animation from 500px to the right
-      y: 0, // No vertical movement, or adjust as needed
-      duration: 0.3, // Duration of the animation
-      delay: index * 1, // Staggered animation
+      opacity: 0,
+      x: 300,
+      duration: 0.3,
+      delay: index * 0.2, // Slight stagger effect
       scrollTrigger: {
         trigger: card,
-        start: "top 50%", // When the top of the card is 90% from the top of the viewport
-        end: "bottom 50%", // When the bottom of the card is 10% from the top of the viewport
-        scrub: true, // Synchronize animation with scroll
+        start: "top 60%",
+        end: "bottom 40%",
+        scrub: true,
       },
       onEnter: () => {
-        card.style.backgroundColor = "black"; // Change background color to blue when card is in view
+        card.style.backgroundColor = "black";
       },
       onLeaveBack: () => {
-        card.style.backgroundColor = "black"; // Reset background color when the card scrolls out of view
+        card.style.backgroundColor = "black";
       },
       onComplete: () => {
-        // This is triggered after the animation is completed
-        card.style.backgroundColor = "#00bbff"; // Change the background color
+        card.style.backgroundColor = "#00bbff";
       },
     });
   });
 
+  // Append fragment to the DOM
+  testimonialContainer.appendChild(fragment);
+
+  // Pinning testimonial section
+  gsap.to("#sticky-element", {
+    scrollTrigger: {
+      trigger: "#sticky-element",
+      start: "top-=100 top",
+      end: "bottom-=370 top",
+      pin: true,
+      scrub: true,
+    },
+  });
+
+  // Refresh ScrollTrigger to ensure animations are set up correctly
   ScrollTrigger.refresh();
 }
 
 // Function to animate each letter individually
 function animateTextColor() {
   const text = document.getElementById("scrollText");
-  const letters = text.textContent.split("");
+  const letters = Array.from(text.textContent);
 
-  text.innerHTML = ""; // Clear existing content
+  // Clear existing content
+  text.innerHTML = "";
+
+  // Create a fragment to append all spans at once
+  const fragment = document.createDocumentFragment();
 
   // Wrap each letter in a span with a specific class for targeting
-  letters.forEach((letter, index) => {
+  letters.forEach((letter) => {
     const span = document.createElement("span");
     span.textContent = letter;
     span.classList.add("letter"); // Adding a specific class for each letter
-    text.appendChild(span);
+    fragment.appendChild(span);
   });
+
+  // Append the fragment all at once
+  text.appendChild(fragment);
 
   // Use GSAP to animate each letter's color as the user scrolls
   gsap.fromTo(
@@ -1434,13 +1289,14 @@ function animateTextColor() {
         start: "top bottom", // Start when the element is in the center of the viewport
         end: "bottom center", // End when the element is out of the viewport
         scrub: true,
-        // markers: true,
+        // markers: true, // Enable for debugging
       },
       color: "white", // Change the text color to white
-      stagger: 0.01, // Add stagger effect for individual letters
+      stagger: 0.05, // Add stagger effect for individual letters, increase if performance is good
       ease: "none", // No easing
+      immediateRender: false, // Don't render immediately to reduce workload
     }
   );
 
-  ScrollTrigger.refresh();
+  ScrollTrigger.refresh(); // Refresh ScrollTrigger to ensure correct setup
 }
