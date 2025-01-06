@@ -144,34 +144,42 @@
       "project_creation": "October 2024",
       "project_description": "Move With Intention",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/2.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/3.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/4.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/5.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/6.webp"
-      ],
-      "project_links": [
-        [
-          "mwi.gg",
-          "https://mwi.gg"
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/2.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/3.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/4.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/5.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/6.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/7.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/8.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/9.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/10.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/11.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/12.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/13.webp",
+          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/14.webp"
         ],
-        [
-          "Live URL",
-          "https://movewithintention.vercel.app"
-        ]
-      ],
-      "project_short_description": "Move With Intention",
-      "project_tech_stack": [
-        "TypeScript",
-        "TailwindCSS",
-        "MongoDB",
-        "Express",
-        "React",
-        "Nodejs"
-      ],
-      "project_title": "MWI",
-      "project_type": "Web Application"
+        "project_links": [
+          [
+            "mwi.gg",
+            "https://mwi.gg"
+          ],
+          [
+            "Live URL",
+            "https://movewithintention.vercel.app"
+          ]
+        ],
+        "project_short_description": "Move With Intention",
+        "project_tech_stack": [
+          "TypeScript",
+          "TailwindCSS",
+          "MongoDB",
+          "Express",
+          "React",
+          "Nodejs"
+        ],
+        "project_title": "MWI",
+        "project_type": "Web Application"
     },
     "16_project_LyfeLane_1733261979212": {
       "Likes": 0,

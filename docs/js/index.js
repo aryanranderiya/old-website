@@ -38,7 +38,6 @@ const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
 const cursoricon5 = document.getElementById("cursoricon5");
-// Fetch db.json
 
 // const section_replacements = document.querySelectorAll(".section_replacement");
 // const sections_main = document.querySelectorAll("section");
@@ -73,8 +72,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   addListeners(scrollBtn);
 
-  const response = await fetch("../db/db.json");
-  const db = await response.json();
+  let db = {};
+  try {
+    const response = await fetch("./db/db.json");
+    db = await response.json();
+  } catch (e) {
+    return;
+  }
 
   setupGithubBento(db);
   setupFeaturedProjects(db);
@@ -978,6 +982,8 @@ async function setupFeaturedClients(db) {
         ? clientProject.project_images
         : [clientProject?.banner_image_URL];
 
+    console.log(projectImage);
+
     const imagesArray = Array.isArray(projectImage)
       ? projectImage
       : [projectImage];
@@ -1131,6 +1137,99 @@ async function setupFeaturedClients(db) {
     contentDiv.appendChild(imageContainer2);
     card.appendChild(contentDiv);
 
+    const controlsContainer = document.createElement("div");
+
+    controlsContainer.classList.add(
+      // "sm:absolute",
+      // "relative",
+      // "sm:bottom-[40px]",
+      // "sm:bottom-0",
+      // "left-0",
+      // "w-full",
+      imagesArray.length > 1 ? "visible" : "invisible",
+      "flex",
+      "justify-center",
+      "z-[5]",
+      "controls_container"
+    );
+
+    // Create the button container
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add(
+      "bg-black",
+      "rounded-full",
+      // "py-1",
+      // "px-1",
+      "flex",
+      "outline",
+      "items-center",
+      "gap-3",
+      "outline-black"
+    );
+
+    // Create the backward button
+    const controlBackward = document.createElement("i");
+    controlBackward.id = "control_backward";
+    controlBackward.classList.add(
+      "fa-solid",
+      "fa-circle-chevron-left",
+      "text-[30px]",
+      "text-white"
+    );
+
+    // Create the forward button
+    const controlForward = document.createElement("i");
+    controlForward.id = "control_forward";
+    controlForward.classList.add(
+      "fa-solid",
+      "fa-circle-chevron-right",
+      "text-[30px]",
+      "text-white"
+    );
+
+    // Add event listeners to cycle images on button click
+    controlBackward.addEventListener("click", () => {
+      if (imagesArray.length <= 1) return;
+
+      currentImageIndex =
+        (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
+      preloadedImages[currentImageIndex].then((preloadedURL) => {
+        image.src = preloadedURL; // Update the image with the preloaded URL
+      });
+    });
+
+    controlForward.addEventListener("click", () => {
+      if (imagesArray.length <= 1) return;
+
+      currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
+      preloadedImages[currentImageIndex].then((preloadedURL) => {
+        image.src = preloadedURL; // Update the image with the preloaded URL
+      });
+    });
+
+    [controlBackward, controlForward].forEach((control) => {
+      control.addEventListener("mouseover", () => {
+        cursorTransformShadowBlend("scale(1.3)", "none");
+        addClass(cursor, "transparent");
+        addClass(cursoricon5, "active");
+      });
+
+      control.addEventListener("mouseout", () => {
+        cursorTransformShadowBlend();
+        removeClass(cursor, "transparent");
+        removeClass(cursoricon5, "active");
+      });
+    });
+
+    // Append the backward and forward buttons to the button container
+    buttonContainer.appendChild(controlBackward);
+    buttonContainer.appendChild(controlForward);
+
+    // Append the button container to the controls container
+    controlsContainer.appendChild(buttonContainer);
+
+    // card.appendChild(controlsContainer);
+    headerDiv.appendChild(controlsContainer);
     fragment.appendChild(card);
     ScrollTrigger.refresh();
   });

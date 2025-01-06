@@ -726,7 +726,7 @@ function createImages(project_images) {
     // Clear existing images before adding new ones
     project_images_div.innerHTML = "";
 
-    project_images.forEach((image_url) => {
+    project_images?.sort()?.forEach((image_url) => {
       const img = document.createElement("img");
       img.src = image_url;
       img.className = "project_image";
