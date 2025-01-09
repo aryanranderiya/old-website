@@ -80,6 +80,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  gsap.registerPlugin(ScrollTrigger);
+
   setupGithubBento(db);
   setupFeaturedProjects(db);
   setupFeaturedClients(db);
@@ -91,8 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupGSAPChips();
   setupBentoAnimation();
   animateTextColor();
-
-  gsap.registerPlugin(ScrollTrigger);
+  createSteps();
 
   // positionNavButtons();
   // modifyScrollBar();
@@ -982,8 +983,6 @@ async function setupFeaturedClients(db) {
         ? clientProject.project_images
         : [clientProject?.banner_image_URL];
 
-    console.log(projectImage);
-
     const imagesArray = Array.isArray(projectImage)
       ? projectImage
       : [projectImage];
@@ -1048,7 +1047,8 @@ async function setupFeaturedClients(db) {
         "h-fit",
         "bg-white",
         "text-black",
-        "text-lg",
+        "sm:text-lg",
+        "text-md",
         "text-right",
         "font-bold",
         "uppercase",
@@ -1087,34 +1087,34 @@ async function setupFeaturedClients(db) {
     const imageContainer1 = document.createElement("div");
     imageContainer1.classList.add("w-full", "flex", "flex-col", "relative");
 
-    const containerDivTest = document.createElement("div");
-    containerDivTest.classList.add(
-      "absolute",
-      "w-full",
-      "justify-center",
-      "h-full",
-      "bottom-0",
-      "items-center",
-      "flex",
-      "sm:text-lg",
-      "text-sm"
-    );
-    containerDivTest.innerHTML = `<div>${mainProjectLink.replace(
-      "https://",
-      ""
-    )}</div>`;
+    // const containerDivTest = document.createElement("div");
+    // containerDivTest.classList.add(
+    //   "absolute",
+    //   "w-full",
+    //   "justify-center",
+    //   "h-full",
+    //   "bottom-0",
+    //   "items-center",
+    //   "flex",
+    //   "sm:text-lg",
+    //   "text-sm"
+    // );
+    // containerDivTest.innerHTML = `<div>${mainProjectLink.replace(
+    //   "https://",
+    //   ""
+    // )}</div>`;
 
-    const imageheader = document.createElement("img");
-    imageheader.src = "./media/browser.webp";
-    imageheader.alt = "Image Header";
-    imageheader.classList.add(
-      "rounded-t-xl",
-      "h-[31px]",
-      "sm:h-fit",
-      "object-cover"
-    );
-    imageContainer1.appendChild(containerDivTest);
-    imageContainer1.appendChild(imageheader);
+    // const imageheader = document.createElement("img");
+    // imageheader.src = "./media/browser.webp";
+    // imageheader.alt = "Image Header";
+    // imageheader.classList.add(
+    //   "rounded-t-xl",
+    //   "h-[31px]",
+    //   "sm:h-fit",
+    //   "object-cover"
+    // );
+    // imageContainer1.appendChild(containerDivTest);
+    // imageContainer1.appendChild(imageheader);
 
     let currentImageIndex = 0;
 
@@ -1396,4 +1396,137 @@ function animateTextColor() {
   );
 
   ScrollTrigger.refresh(); // Refresh ScrollTrigger to ensure correct setup
+}
+
+function createSteps() {
+  const steps = [
+    {
+      title: "Communicate",
+      description:
+        "I start by discussing your project requirements, goals, and expectations to ensure we’re on the same page and aligned with your vision.",
+    },
+    {
+      title: "Develop",
+      description:
+        "I build a robust, scalable solution using modern web technologies, carefully tailored to your specific needs.",
+    },
+    {
+      title: "Refine",
+      description:
+        "I fine-tune the features and optimize the design to ensure everything functions seamlessly and delivers a great user experience.",
+    },
+    {
+      title: "Review",
+      description:
+        "I work with you to review the final product, gather your feedback, and make any necessary adjustments.",
+    },
+    {
+      title: "Deploy",
+      description:
+        "I handle the deployment process, ensuring your project is launched smoothly and runs perfectly on your chosen platform.",
+    },
+  ];
+
+  const container = document.getElementById("steps-container");
+  const stepElements = [];
+  let zIndex = steps.length + 1;
+  steps.forEach((step, index) => {
+    const stepElement = document.createElement("div");
+    stepElements.push(stepElement);
+    stepElement.classList.add(
+      "step-element",
+      "bg-[#00bbff]",
+      "sm:min-w-[20vw]",
+      "sm:w-[20vw]",
+      "w-screen",
+      "max-w-screen",
+      "sm:max-w-[20vw]",
+      "h-full",
+      "flex",
+      "justify-start",
+      "flex-col-reverse",
+      "sm:flex-col",
+      "border-y-none",
+      "transition-colors",
+      "backdrop-blur-xl"
+    );
+
+    stepElement.style.borderStyle = "solid";
+    stepElement.style.borderWidth = "0px 2px";
+    stepElement.style.borderColor = "white";
+
+    stepElement.style.zIndex = zIndex;
+
+    zIndex--;
+
+    stepElement.innerHTML = `
+      <div class="flex-grow flex flex-col text-white p-5 gap-2 overflow-hidden text-1 transition-opacity">
+        <div class="text-4xl sm:pt-16 font-bold">${step.title}</div>
+        <div class="text-xl">${step.description}</div>
+      </div>
+      <div class="text-[10vw] px-5 text-white font-bold text-2 transition-opacity">${String(
+        index + 1
+      ).padStart(2, "0")}</div>
+    `;
+
+    container.appendChild(stepElement);
+
+    gsap.fromTo(
+      stepElement,
+      { x: `${-(index * 21)}vw` },
+      {
+        x: "0vw",
+        duration: 1,
+        scrollTrigger: {
+          trigger: container,
+          start: "top top",
+          end: "center top",
+          scrub: true,
+        },
+      }
+    );
+
+    ScrollTrigger.refresh();
+  });
+
+  gsap.to(container, {
+    scrollTrigger: {
+      trigger: container,
+      start: "top top",
+      end: "bottom+=120% top",
+      pin: true,
+      scrub: true,
+      markers: true,
+      onUpdate: (self) => {
+        const progress = self.progress * 100;
+        if (progress === 100) return;
+
+        stepElements.forEach((element, index) => {
+          const text = element.querySelector(".text-1");
+          const text2 = element.querySelector(".text-2");
+
+          element.classList.remove("bg-[#00bbff]");
+          element.classList.remove("bg-black/40");
+          element.style.borderColor = "#ffffff30";
+
+          text.style.opacity = "30%";
+          text2.style.opacity = "30%";
+
+          if (progress >= index * 20 && progress < (index + 1) * 20) {
+            element.classList.add("bg-[#00bbff]");
+            element.style.borderColor = "white";
+            text.style.opacity = "100%";
+            text2.style.opacity = "100%";
+            return;
+          }
+          element.classList.add("bg-black/40");
+          element.style.borderColor = "#ffffff30";
+          text.style.opacity = "30%";
+          text2.style.opacity = "30%";
+        });
+      },
+    },
+  });
+
+  ScrollTrigger.refresh();
 }

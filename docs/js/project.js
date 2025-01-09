@@ -717,10 +717,6 @@ function updateProgressBarandBtn() {
 
 function createImages(project_images) {
   if (project_images) {
-    project_images.reverse(); // Optional, reverse the order of the images
-
-    console.log(project_images);
-
     const project_images_div = document.querySelector(".project_images");
 
     // Clear existing images before adding new ones
@@ -738,7 +734,7 @@ function createImages(project_images) {
       initializeSlider();
     }
 
-    return true;
+    return true; 
   } else {
     document.querySelector(".image_gallery").remove();
     return false;
