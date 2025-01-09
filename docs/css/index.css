@@ -157,7 +157,8 @@ header {
 .my_portfolio {
   font-size: clamp(1.3em, 5vw, 3em);
   transform: translateY(-100%);
-  font-family: IllusionSerif;
+  font-family: "Ogg";
+  /* font-family: IllusionSerif; */
 }
 
 .my_portfolio_container,
@@ -176,7 +177,7 @@ header {
 .aryan_randeriya {
   transform: translateY(100%);
   font-size: clamp(3.5em, 10vw, 8em);
-  font-family: "Times New Roman", Times, serif;
+  /* font-family: "Times New Roman", Times, serif; */
 }
 
 .content1_title {

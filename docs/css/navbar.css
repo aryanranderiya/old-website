@@ -58,6 +58,7 @@ body {
   top: 0%;
   z-index: 1001;
   background-color: transparent !important;
+  pointer-events: none;
 }
 
 .navbar {
@@ -119,6 +120,7 @@ body {
   -webkit-backdrop-filter: blur(30px);
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 1000;
+  pointer-events: all;
 }
 
 .navbar_menu.show {
@@ -129,6 +131,7 @@ body {
 
 /* ! Menu Hamburger */
 .navbar_menu_btn {
+  pointer-events: auto;
   margin-left: auto;
 }
 
@@ -209,6 +212,7 @@ a {
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   align-items: center;
+  line-height: 10px;
   transform: translateX(15%);
 }
 
@@ -226,7 +230,7 @@ a {
 }
 .item.item.active .menu_item {
   color: #00bbff;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Ogg", Times, serif;
   transform: skewX(-10deg);
   transition: color 0.3s ease, transform 0.2s ease;
   -webkit-transition: color 0.3s ease, transform 0.2s ease;
@@ -235,15 +239,15 @@ a {
 .item.active:hover,
 .item.item.active:hover .menu_item {
   color: #00bbff;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Ogg", Times, serif;
   transition: color 0.3s ease, transform 0.2s ease;
   -webkit-transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .item:hover,
 .item:hover .menu_item {
-  color: #424242;
-  font-family: "Times New Roman", Times, serif;
+  color: #00bbff;
+  font-family: "Ogg", Times, serif;
   transition: color 0.3s ease, transform 0.2s ease;
   -webkit-transition: color 0.3s ease, transform 0.2s ease;
 }
@@ -288,6 +292,7 @@ a {
   transition: all 0.3s ease;
   line-height: 2.5em;
   transform: translateY(25%);
+  pointer-events: all;
 }
 
 .navbar-brand:hover {

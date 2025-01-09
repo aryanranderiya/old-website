@@ -38,6 +38,7 @@ const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
 const cursoricon5 = document.getElementById("cursoricon5");
+const title_heading_1 = document.querySelector(".title_heading_1");
 
 // const section_replacements = document.querySelectorAll(".section_replacement");
 // const sections_main = document.querySelectorAll("section");
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   gsap.registerPlugin(ScrollTrigger);
-
+  animateTitleSection();
   setupGithubBento(db);
   setupFeaturedProjects(db);
   setupFeaturedClients(db);
@@ -732,7 +733,6 @@ function handleNavbarIntersection() {
 
 function addListeners(scrollBtn) {
   const buttons_blue = document.querySelectorAll(".button_blue");
-  const title_heading_1 = document.querySelector(".title_heading_1");
   const cursoricon3 = document.getElementById("cursoricon3");
   // const cursoriconidea = document.getElementById("cursoriconidea");
   // const cursoriconlaptop = document.getElementById("cursoriconlaptop");
@@ -758,13 +758,13 @@ function addListeners(scrollBtn) {
   // ! Titles & Cover
   title_heading_1.addEventListener("mouseover", () => {
     cursorTransformShadowBlend("scale(9)", "none");
-    addClass(cursor, "blur");
+    addClass(cursor, "partially_transparent");
     addClass(cursoricon2, "active");
   });
 
   title_heading_1.addEventListener("mouseout", () => {
     cursorTransformShadowBlend(undefined, "none");
-    removeClass(cursor, "blur");
+    removeClass(cursor, "partially_transparent");
     removeClass(cursoricon2, "active");
   });
 
@@ -1300,7 +1300,7 @@ async function setupTestimonials(db) {
       "text-xl"
     );
     card.innerHTML = `
-      <div class="italic sm:text-md text-sm">${testimonial.text}</div>
+      <div class="italic sm:text-md text-sm ogg">${testimonial.text}</div>
       <div class="mt-6 text-sm flex items-center gap-3">
         <img src="${testimonial.client_image}" class="size-[25px] object-cover rounded-full"/>
         <span>${testimonial.client}</span> — 
@@ -1354,50 +1354,80 @@ async function setupTestimonials(db) {
   ScrollTrigger.refresh();
 }
 
-// Function to animate each letter individually
+function getAge(dateString) {
+  var today = new Date();
+  var birthDate = new Date(dateString);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 function animateTextColor() {
   const text = document.getElementById("scrollText");
-  const letters = Array.from(text.textContent);
+  const content = text.textContent;
+  const targetPhrase = "Software Developer";
 
-  // Clear existing content
   text.innerHTML = "";
-
-  // Create a fragment to append all spans at once
   const fragment = document.createDocumentFragment();
 
-  // Wrap each letter in a span with a specific class for targeting
-  letters.forEach((letter) => {
-    const span = document.createElement("span");
-    span.textContent = letter;
-    span.classList.add("letter"); // Adding a specific class for each letter
-    fragment.appendChild(span);
-  });
+  let i = 0;
 
-  // Append the fragment all at once
+  function createSpan(content, classNames, textContent) {
+    const span = document.createElement("span");
+    span.textContent = textContent;
+    span.classList.add(...classNames);
+    fragment.appendChild(span);
+  }
+
+  while (i < content.length) {
+    if (content.substring(i, i + targetPhrase.length) === targetPhrase) {
+      createSpan(
+        content,
+        [
+          "bg-gradient-to-r",
+          "from-[#00bbff]",
+          "to-[#a3e6ff]",
+          "text-transparent",
+          "font-bold",
+          "bg-clip-text",
+          "letter",
+        ],
+        targetPhrase
+      );
+      i += targetPhrase.length;
+    } else if (content.substring(i, i + "year old".length) === "year old") {
+      const age = getAge("2005/07/27");
+      createSpan(content, ["letter", "text-white"], `${age} year old `);
+      i += "year old".length;
+    } else {
+      createSpan(content, ["letter", "text-white"], content[i]);
+      i++;
+    }
+  }
+
   text.appendChild(fragment);
 
-  // Use GSAP to animate each letter's color as the user scrolls
   gsap.fromTo(
-    ".letter", // Use the specific class here
-    {
-      color: "#ffffff10", // Start with transparent color
-    },
+    ".letter",
+    { opacity: 0.1 },
     {
       scrollTrigger: {
-        trigger: "#scrollText", // Trigger based on the text element
-        start: "top bottom", // Start when the element is in the center of the viewport
-        end: "bottom center", // End when the element is out of the viewport
+        trigger: "#scrollText",
+        start: "top-=150 center",
+        end: "bottom+=150 center",
         scrub: true,
-        // markers: true, // Enable for debugging
+        markers: true,
       },
-      color: "white", // Change the text color to white
-      stagger: 0.05, // Add stagger effect for individual letters, increase if performance is good
-      ease: "none", // No easing
-      immediateRender: false, // Don't render immediately to reduce workload
+      opacity: 1,
+      stagger: 0.07,
+      ease: "power1.out",
     }
   );
 
-  ScrollTrigger.refresh(); // Refresh ScrollTrigger to ensure correct setup
+  ScrollTrigger.refresh();
 }
 
 function createSteps() {
@@ -1540,7 +1570,6 @@ function createSteps() {
         end: isDesktop ? "bottom+=120% top" : "bottom center",
         pin: isDesktop,
         scrub: true,
-        markers: true,
         onUpdate: (self) => handleOnUpdate(self, stepElements, isDesktop),
       },
     });
@@ -1612,4 +1641,29 @@ function confettiContact() {
   );
 
   if (section) observer.observe(section);
+}
+
+function animateTitleSection() {
+  const section = document.querySelector(".titles");
+  gsap.fromTo(
+    title_heading_1,
+    {
+      y: "0vw",
+      scale: 1,
+      opacity: 1,
+    },
+    {
+      scrollTrigger: {
+        trigger: section,
+        delay: 2,
+        start: "center+=100 center",
+        end: "bottom+=100 top",
+        scrub: true,
+      },
+      y: "19vw",
+      scale: 0.5,
+      ease: "power2.out",
+      opacity: 0,
+    }
+  );
 }

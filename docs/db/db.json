@@ -11,11 +11,7 @@
     "3": "7_project_YouTube_Shorts Automator_1712176765756",
     "Latest": "13_project_Personal_Blog_1725057851497"
   },
-  "Now": [
-    "Working on GAIA",
-    "Freelancing",
-    "Learning AI"
-  ],
+  "Now": ["Working on GAIA", "Freelancing", "Learning AI"],
   "Projects": {
     "11_project_Encode_Official_1725056450639": {
       "Likes": 14,
@@ -35,12 +31,7 @@
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/7.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/8.webp"
       ],
-      "project_links": [
-        [
-          "Live URL",
-          "https://encodepdeu.vercel.app"
-        ]
-      ],
+      "project_links": [["Live URL", "https://encodepdeu.vercel.app"]],
       "project_personal_comments": "Worked on the homepage alongside Nemil Shah (responsible for the terminal usage), and led the web dev core committee team of encode 2024!",
       "project_short_description": "The Official Website of Encode - The Computer Science Club at PDEU",
       "project_tech_stack": [
@@ -68,12 +59,7 @@
       "project_images": [
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/rezrek%20main.webp"
       ],
-      "project_links": [
-        [
-          "Live URL",
-          "https://rezrek.com"
-        ]
-      ],
+      "project_links": [["Live URL", "https://rezrek.com"]],
       "project_personal_comments": "One of my very first experiences working on a large scale project like this. Was a pleasure working with them, wonderful people.",
       "project_short_description": "A content-based e commerce platform.",
       "project_tech_stack": [
@@ -120,18 +106,11 @@
       "project_creation": "November 2024",
       "project_description": "Participated in NASA Space Apps 2024. Created a tool to help farmers analyze soil moisture and water data, optimizing water usage and improving crop yields.",
       "project_links": [
-        [
-          "YouTube Demo ",
-          "https://www.youtube.com/watch?v=JIWPIHtkWag"
-        ]
+        ["YouTube Demo ", "https://www.youtube.com/watch?v=JIWPIHtkWag"]
       ],
       "project_personal_comments": "We were selected in the Top 15 teams out of 100+ !\nBut unfortunately couldn't proceed to the global round.",
       "project_short_description": "Participated in NASA Space Apps 2024. Created a tool to help farmers analyze soil moisture and water data, optimizing water usage and improving crop yields.",
-      "project_tech_stack": [
-        "TypeScript",
-        "TailwindCSS",
-        "React"
-      ],
+      "project_tech_stack": ["TypeScript", "TailwindCSS", "React"],
       "project_title": "SUSTAIN",
       "project_type": "Web Application"
     },
@@ -144,42 +123,36 @@
       "project_creation": "October 2024",
       "project_description": "Move With Intention",
       "project_images": [
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/2.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/3.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/4.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/5.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/6.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/7.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/8.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/9.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/10.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/11.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/12.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/13.webp",
-          "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/14.webp"
-        ],
-        "project_links": [
-          [
-            "mwi.gg",
-            "https://mwi.gg"
-          ],
-          [
-            "Live URL",
-            "https://movewithintention.vercel.app"
-          ]
-        ],
-        "project_short_description": "Move With Intention",
-        "project_tech_stack": [
-          "TypeScript",
-          "TailwindCSS",
-          "MongoDB",
-          "Express",
-          "React",
-          "Nodejs"
-        ],
-        "project_title": "MWI",
-        "project_type": "Web Application"
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/2.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/3.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/4.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/5.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/6.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/7.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/8.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/9.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/10.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/11.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/12.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/13.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/14.webp"
+      ],
+      "project_links": [
+        ["mwi.gg", "https://mwi.gg"],
+        ["Live URL", "https://movewithintention.vercel.app"]
+      ],
+      "project_short_description": "Move With Intention",
+      "project_tech_stack": [
+        "TypeScript",
+        "TailwindCSS",
+        "MongoDB",
+        "Express",
+        "React",
+        "Nodejs"
+      ],
+      "project_title": "MWI",
+      "project_type": "Web Application"
     },
     "16_project_LyfeLane_1733261979212": {
       "Likes": 0,
@@ -201,14 +174,8 @@
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/10.webp"
       ],
       "project_links": [
-        [
-          "lyfelane.com",
-          "https://lyfelane.com"
-        ],
-        [
-          "Live URL",
-          "https://life-lane.vercel.app"
-        ]
+        ["lyfelane.com", "https://lyfelane.com"],
+        ["Live URL", "https://life-lane.vercel.app"]
       ],
       "project_short_description": "Greeting card creation application",
       "project_tech_stack": [
@@ -244,11 +211,7 @@
       ],
       "project_personal_comments": "Participated at New India Vibrant Hackathon 2023",
       "project_short_description": "Android App to streamline attendance tracking with report generation at New India Vibrant Hackathon 2023. Introduced an efficient paperless system, enhancing accuracy with Excel export.",
-      "project_tech_stack": [
-        "Firebase",
-        "Android",
-        "Java"
-      ],
+      "project_tech_stack": ["Firebase", "Android", "Java"],
       "project_title": "Wi-Fi Attendance",
       "project_type": "Mobile App"
     },
@@ -263,14 +226,8 @@
       "project_description": "Python Desktop Application with a Graphical User Interface (GUI) that uses the Tkinter library leverages theSpotify API to to provide a set of useful tools to extend the functionality of the Spotify desktop application enabling the user to explore the world of Spotify in a whole new way! Implemented various features including playlist shuffling, viewing playlists, displaying user details and more.",
       "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2F2_project_Spotify_Tools_1712173676155_documentation.md",
       "project_links": [
-        [
-          "YouTube Demo",
-          "https://www.youtube.com/watch?v=AjHZCiDU-Wk"
-        ],
-        [
-          "CS50 Python Repo",
-          "https://github.com/aryanranderiya/cs50-python"
-        ],
+        ["YouTube Demo", "https://www.youtube.com/watch?v=AjHZCiDU-Wk"],
+        ["CS50 Python Repo", "https://github.com/aryanranderiya/cs50-python"],
         [
           "CS50 Certificate",
           "https://certificates.cs50.io/4ffef9c2-3560-40de-a8eb-e0a420fe6a14.pdf?size=letter"
@@ -278,9 +235,7 @@
       ],
       "project_personal_comments": "My First ever Python Project. I worked on this as a final project for my Harvard CS50 Course when I was first learning Python.",
       "project_short_description": "Python desktop app with Tkinter and Spotify API integration, that enhances Spotify desktop functionality with features like playlist shuffling. Built for my Harvard CS50 Python project.",
-      "project_tech_stack": [
-        "Python"
-      ],
+      "project_tech_stack": ["Python"],
       "project_title": "Spotify Tools",
       "project_type": "Desktop Application"
     },
@@ -300,10 +255,7 @@
       ],
       "project_personal_comments": "I used this tool to fetch 44,000 Emails from my University's Directory which couldn't be natively exported using Google Contacts.",
       "project_short_description": "Use the Google People's (Contacts) API to fetch email addresses from a large contacts directory and from personal contacts & write them to txt files.",
-      "project_tech_stack": [
-        "Google",
-        "Python"
-      ],
+      "project_tech_stack": ["Google", "Python"],
       "project_title": "Google Contacts Email Scraper",
       "project_type": "Python Script"
     },
@@ -366,11 +318,7 @@
       ],
       "project_personal_comments": "Worked on this Project with a team of 6 of my classmates in college as a final year project and ended up winning 1st place in the Project Fair! This was the first coding project I've ever worked on and it's what ignited my love for software development",
       "project_short_description": "Public Transportation Android App with QR-based ticketing & bus passes, e-wallets, detailed maps, and route information to the user",
-      "project_tech_stack": [
-        "Firebase",
-        "Android",
-        "Java"
-      ],
+      "project_tech_stack": ["Firebase", "Android", "Java"],
       "project_title": "TicketBus",
       "project_type": "Mobile App"
     },
@@ -383,19 +331,11 @@
       "project_description": "Developed a responsive, interactive and creative portfolio website using HTML, CSS, and vanilla JavaScript. Implemented features such as smooth scrolling animations, interactive navigation, custom cursors designed to capture the viewers' attention and dynamically loaded content using Firebase Realtime Database to showcase my projects and hosted using Github Pages and Firebase Hosting.",
       "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FREADME.md",
       "project_links": [
-        [
-          "Try Here ( aryanranderiya.com )",
-          "https://aryanranderiya.com"
-        ]
+        ["Try Here ( aryanranderiya.com )", "https://aryanranderiya.com"]
       ],
       "project_personal_comments": "(The website you're currently viewing!) I spent so much time and effort (literally worked for months until I got burnt out 😅) working on this project, and as of today I still work on it now and then as it really holds a special place in my heart. I hope you enjoy!",
       "project_short_description": "Created a responsive portfolio website with smooth scrolling animations, interactive navigation, custom cursors, and dynamic content loaded from Firebase Realtime Database. Hosted on GitHub Pages and Firebase Hosting.",
-      "project_tech_stack": [
-        "Firebase",
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ],
+      "project_tech_stack": ["Firebase", "HTML", "CSS", "JavaScript"],
       "project_title": "Personal Portfolio",
       "project_type": "Website"
     },
@@ -412,20 +352,11 @@
           "YouTube (@Film_Facts_Unleashed)",
           "https://youtube.com/@Film_Facts_Unleashed"
         ],
-        [
-          "YouTube (@aryanranderiya)",
-          "https://youtube.com/@aryanranderiya"
-        ]
+        ["YouTube (@aryanranderiya)", "https://youtube.com/@aryanranderiya"]
       ],
       "project_personal_comments": "Tested it out on a channel and got 4k+ views in under 3 days.",
       "project_short_description": "Automated creation and uploading of YT Shorts from user prompts by generating video script, voice-over, subtitles, background media and video metadata.",
-      "project_tech_stack": [
-        "Python",
-        "HTML",
-        "CSS",
-        "MongoDB",
-        "Flask"
-      ],
+      "project_tech_stack": ["Python", "HTML", "CSS", "MongoDB", "Flask"],
       "project_title": "YouTube Shorts Automator",
       "project_type": "Website"
     },
@@ -449,12 +380,7 @@
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F0.png"
       ],
       "project_short_description": "A full-stack website for University professors to efficiently manage and analyze research data.",
-      "project_tech_stack": [
-        "Supabase",
-        "Express",
-        "React",
-        "Nodejs"
-      ],
+      "project_tech_stack": ["Supabase", "Express", "React", "Nodejs"],
       "project_title": "University Research Portal",
       "project_type": "Website"
     },
@@ -469,12 +395,7 @@
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2Fhomepage_image.png",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FWhatsApp%20Image%202024-06-22%20at%2020.09.10.jpeg"
       ],
-      "project_links": [
-        [
-          "Landing Page",
-          "https://gaia.aryanranderiya.com"
-        ]
-      ],
+      "project_links": [["Landing Page", "https://gaia.aryanranderiya.com"]],
       "project_personal_comments": "Working on this project during buildspace nights and weekends season 5.",
       "project_short_description": "A General-purpose AI Assistant",
       "project_tech_stack": [
@@ -498,10 +419,8 @@
     "Full-Stack Web Development",
     "Web Design",
     "Mobile App Development",
-    "Search Engine Optimisation (SEO)",
     "Branding Design",
     "Clothing / Apparel Design",
-    "Poster Design",
     "Advertisement Mockups"
   ],
   "SoftwareIcons": [

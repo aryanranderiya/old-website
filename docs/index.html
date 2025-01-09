@@ -18,6 +18,70 @@
       * {
         font-family: Helvs;
       }
+
+      @font-face {
+        font-family: "Ogg";
+        font-weight: 400;
+        font-style: normal;
+        src: url("./fonts/Ogg-Regular-BF646c18fc3ed57.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Ogg";
+        font-weight: 400;
+        font-style: italic;
+        src: url("./fonts/Ogg-RegularItalic-BF646c18fc45f75.otf")
+          format("opentype");
+      }
+
+      @font-face {
+        font-family: "Ogg";
+        font-weight: 700;
+        font-style: normal;
+        src: url("./fonts/Ogg-Bold-BF646c18fc4aa63.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Ogg";
+        font-weight: 700;
+        font-style: italic;
+        src: url("./fonts/Ogg-BoldItalic-BF646c18fc5103f.otf")
+          format("opentype");
+      }
+
+      @font-face {
+        font-family: "Ogg";
+        font-weight: 300;
+        font-style: normal;
+        src: url("./fonts/Ogg-Light-BF646c18fc5b737.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Ogg";
+        font-weight: 300;
+        font-style: italic;
+        src: url("./fonts/Ogg-LightItalic-BF646c18fc3aa35.otf")
+          format("opentype");
+      }
+
+      @font-face {
+        font-family: "Ogg";
+        font-weight: 500;
+        font-style: normal;
+        src: url("./fonts/Ogg-Medium-BF646c18fc565d8.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Ogg";
+        font-weight: 500;
+        font-style: italic;
+        src: url("./fonts/Ogg-MediumItalic-BF646c18fc56520.otf")
+          format("opentype");
+      }
+
+      .ogg {
+        font-family: "Ogg", sans-serif !important;
+      }
     </style>
 
     <meta charset="utf-8" />
@@ -149,10 +213,10 @@
           <div class="cursor">
             <h1 id="cursortext">Languages</h1>
             <h1 id="cursortext2">0%</h1>
-            <span class="material-symbols-rounded" id="cursoricon1"
+            <span class="material-symbols-rounded z-[2]" id="cursoricon1"
               >arrow_forward</span
             >
-            <span class="material-symbols-rounded" id="cursoricon2"
+            <span class="material-symbols-rounded z-[2]" id="cursoricon2"
               >arrow_downward</span
             >
             <span class="material-symbols-rounded" id="cursoricon3"
@@ -190,13 +254,16 @@
           <div class="titles center-content w-screen">
             <div class="title_heading_1">
               <div class="aryan_randeriya_container">
-                <span class="aryan_randeriya">Aryan Randeriya</span>
+                <span class="aryan_randeriya uppercase font-bold flex-col">
+                  <div class="text-[35px] ogg font-normal">Welcome to</div>
+                  <div class="leading-none">My Portfolio</div>
+                </span>
               </div>
 
               <hr />
 
               <div class="my_portfolio_container">
-                <span class="my_portfolio">MY PORTFOLIO.</span>
+                <span class="my_portfolio italic">- Aryan Randeriya</span>
               </div>
 
               <!-- <div class="title_letters"> -->
@@ -247,17 +314,37 @@
 
       <section
         id="section_about"
-        class="sm:h-[100vh] h-[80vh] flex items-center justify-center flex-col"
+        class="sm:h-[100vh] h-[80vh] flex items-center justify-center flex-col relative overflow-hidden w-screen"
       >
         <h1
-          class="sm:text-[2.5em] text-[1.3em] font-normal text-transparent max-w-screen-xl p-[1.5em]"
+          class="sm:text-[2.3em] text-[1.3em] font-normal text-transparent max-w-screen-xl p-[1.5em] z-[2] pointer-events-none"
           id="scrollText"
         >
-          Hey There! My name is Aryan Randeriya and I'm a 19 y/o Graphic
+          Hey There! My name is Aryan Randeriya and I'm a year old Graphic
           Designer and Software Developer passionate about technology and
-          building new things. Welcome to my portfolio! Here, I showcase various
-          of my Software & Design related projects.
+          building new. Welcome to my portfolio! Here, I showcase various of my
+          Software & Design related projects.
         </h1>
+
+        <div
+          class="absolute w-full justify-end h-screen items-center sm:flex hidden"
+        >
+          <div class="relative right-[23vw] sm:bottom-[22vh] group">
+            <img
+              class="size-[140px] rounded-xl absolute rotate-[7deg] z-[0] bg-zinc-800 group-hover:-rotate-[10deg] group-hover:-translate-x-8 transition-all"
+              width="140px"
+              height="140px"
+              src="./media/favicons/android-chrome-512x512.png"
+            />
+
+            <img
+              class="size-[140px] rounded-xl absolute rotate-[7deg] z-[1] group-hover:rotate-[10deg] transition-all group-hover:translate-x-8"
+              width="140px"
+              height="140px"
+              src="./media/selfie.webp"
+            />
+          </div>
+        </div>
 
         <div
           class="flex w-full justify-start items-center gap-3 max-w-screen-xl flex-col sm:flex-row"
@@ -276,7 +363,7 @@
                 class="bg-white rounded-full flex items-center justify-center size-[40px] arrow_container z-[2] transition-all border-[2px] border-solid border-[#69d7ff]"
               >
                 <span class="material-symbols-rounded text-[40px]">
-                  arrow_outward
+                  terminal
                 </span>
               </div>
             </button>
@@ -296,7 +383,7 @@
                 class="bg-white rounded-full flex items-center justify-center size-[40px] arrow_container z-[2] transition-all border-[2px] border-solid border-[#69d7ff]"
               >
                 <span class="material-symbols-rounded text-[40px]">
-                  arrow_outward
+                  palette
                 </span>
               </div>
             </button>
@@ -352,7 +439,7 @@
       </section>
 
       <!-- <div class="max-w-screen overflow-hidden"> -->
-      <section class="clientsection sm:mb-[20vh] box-border" id="section3">
+      <section class="clientsection box-border" id="section3">
         <span
           class="title text-[9.5vw] overflow-hidden text-nowrap sticky sm:!top-[0px] top-[10px] box-border max-w-screen right-[-100%] leading-none"
           >CLIENT SHOWCASE</span
@@ -814,9 +901,7 @@
         </div>
         <div class="sm:text-xl text-md max-w-[600px] text-center text-white/70">
           I specialize in turning your vision into fully functional and
-          beautiful websites. Whether you're looking for a brand new project or
-          a redesign, I'm here to help you succeed. Let's collaborate and create
-          something amazing!
+          beautiful websites. Let's collaborate and create something amazing!
         </div>
         <a href="./Contact.html">
           <button
