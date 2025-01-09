@@ -1489,42 +1489,57 @@ function createSteps() {
     ScrollTrigger.refresh();
   });
 
-  gsap.to(container, {
-    scrollTrigger: {
-      trigger: container,
-      start: "top top",
-      end: "bottom+=120% top",
-      pin: true,
-      scrub: true,
-      markers: true,
-      onUpdate: (self) => {
-        const progress = self.progress * 100;
-        if (progress === 100) return;
+  const handleOnUpdate = (self, stepElements, isDesktop) => {
+    const progress = self.progress * 100;
+    if (progress === 100) return;
 
-        stepElements.forEach((element, index) => {
-          const text = element.querySelector(".text-1");
-          const text2 = element.querySelector(".text-2");
+    stepElements.forEach((element, index) => {
+      const text = element.querySelector(".text-1");
+      const text2 = element.querySelector(".text-2");
 
-          element.classList.remove("bg-[#00bbff]");
-          element.classList.remove("bg-black/40");
-          element.style.borderColor = "#ffffff30";
+      element.classList.remove("bg-[#00bbff]");
+      element.classList.remove("bg-black/40");
+      element.style.borderColor = "#ffffff30";
 
-          text.style.opacity = "30%";
-          text2.style.opacity = "30%";
+      text.style.opacity = "30%";
+      text2.style.opacity = "30%";
 
-          if (progress >= index * 20 && progress < (index + 1) * 20) {
-            element.classList.add("bg-[#00bbff]");
-            element.style.borderColor = "white";
-            text.style.opacity = "100%";
-            text2.style.opacity = "100%";
-            return;
-          }
-          element.classList.add("bg-black/40");
-          element.style.borderColor = "#ffffff30";
-          text.style.opacity = "30%";
-          text2.style.opacity = "30%";
-        });
+      if (progress >= index * 20 && progress < (index + 1) * 20) {
+        element.classList.add("bg-[#00bbff]");
+        element.style.borderColor = "white";
+        text.style.opacity = "100%";
+        text2.style.opacity = "100%";
+        return;
+      }
+      element.classList.add("bg-black/40");
+      element.style.borderColor = "#ffffff30";
+      text.style.opacity = "30%";
+      text2.style.opacity = "30%";
+    });
+  };
+
+  // Function to create a ScrollTrigger
+  const createScrollTrigger = (container, stepElements, isDesktop) => {
+    gsap.to(container, {
+      scrollTrigger: {
+        trigger: container,
+        start: `${isDesktop ? "top":"center"} top`,
+        end: "bottom+=120% top",
+        pin: isDesktop, // Pass the pin value dynamically
+        scrub: true,
+        markers: true,
+        onUpdate: (self) => handleOnUpdate(self, stepElements, isDesktop),
       },
+    });
+  };
+
+  // MatchMedia for responsive behavior
+  ScrollTrigger.matchMedia({
+    "(min-width: 769px)": () => {
+      createScrollTrigger(container, stepElements, true); // Enable pin for larger screens
+    },
+    "(max-width: 768px)": () => {
+      createScrollTrigger(container, stepElements, false); // Disable pin for smaller screens
     },
   });
 
