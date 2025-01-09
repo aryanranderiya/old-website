@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupBentoAnimation();
   animateTextColor();
   createSteps();
+  confettiContact();
 
   // positionNavButtons();
   // modifyScrollBar();
@@ -1344,6 +1345,7 @@ async function setupTestimonials(db) {
       start: "top-=100 top",
       end: "bottom-=370 top",
       pin: true,
+      anticipatePin: true,
       scrub: true,
     },
   });
@@ -1439,6 +1441,8 @@ function createSteps() {
       "sm:min-w-[20vw]",
       "sm:w-[20vw]",
       "w-screen",
+      "py-5",
+      "sm:py-0",
       "max-w-screen",
       "sm:max-w-[20vw]",
       "h-full",
@@ -1471,9 +1475,11 @@ function createSteps() {
 
     container.appendChild(stepElement);
 
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
     gsap.fromTo(
       stepElement,
-      { x: `${-(index * 21)}vw` },
+      { x: isMobile ? `0vw` : `${-(index * 21)}vw` },
       {
         x: "0vw",
         duration: 1,
@@ -1523,9 +1529,12 @@ function createSteps() {
     gsap.to(container, {
       scrollTrigger: {
         trigger: container,
-        start: `${isDesktop ? "top":"center"} top`,
-        end: "bottom+=120% top",
-        pin: isDesktop, // Pass the pin value dynamically
+        // start: `${isDesktop ? "top" : "bottom"} ${
+        //   isDesktop ? "top" : "center"
+        // }`,
+        start: isDesktop ? "top top" : "top center",
+        end: isDesktop ? "bottom+=120% top" : "bottom center",
+        pin: isDesktop,
         scrub: true,
         markers: true,
         onUpdate: (self) => handleOnUpdate(self, stepElements, isDesktop),
@@ -1544,4 +1553,56 @@ function createSteps() {
   });
 
   ScrollTrigger.refresh();
+}
+
+function confettiContact() {
+  const section = document.querySelector("#section_contact");
+  const button = section.querySelector("button");
+
+  // Create an Intersection Observer
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const end = Date.now() + 2 * 1000;
+
+          (function frame() {
+            confetti({
+              particleCount: 5,
+              spread: 100,
+              angle: 60,
+              origin: { y: 0.6, x: 0 },
+            });
+
+            confetti({
+              particleCount: 2,
+              spread: 100,
+              angle: 120,
+              origin: { y: 0.6, x: 1 },
+            });
+
+            if (Date.now() < end) requestAnimationFrame(frame);
+          })();
+
+          setTimeout(() => {
+            button.style.scale = "1.3";
+            button.style.rotate = "-5deg";
+
+            setTimeout(() => {
+              button.style.scale = "1";
+              button.style.rotate = "";
+            }, 300);
+          }, 100);
+
+          // observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.8,
+    }
+  );
+
+  if (section) observer.observe(section);
 }

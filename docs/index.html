@@ -250,7 +250,7 @@
         class="sm:h-[100vh] h-[80vh] flex items-center justify-center flex-col"
       >
         <h1
-          class="sm:text-[2em] text-[1.3em] font-normal text-transparent max-w-screen-lg p-[1.5em]"
+          class="sm:text-[2.5em] text-[1.3em] font-normal text-transparent max-w-screen-xl p-[1.5em]"
           id="scrollText"
         >
           Hey There! My name is Aryan Randeriya and I'm a 19 y/o Graphic
@@ -260,7 +260,7 @@
         </h1>
 
         <div
-          class="flex w-full justify-start items-center gap-3 max-w-screen-lg flex-col sm:flex-row"
+          class="flex w-full justify-start items-center gap-3 max-w-screen-xl flex-col sm:flex-row"
         >
           <a href="./SoftwareProjects.html">
             <button
@@ -352,7 +352,7 @@
       </section>
 
       <!-- <div class="max-w-screen overflow-hidden"> -->
-      <section class="clientsection box-border" id="section3">
+      <section class="clientsection sm:mb-[20vh] box-border" id="section3">
         <span
           class="title text-[9.5vw] overflow-hidden text-nowrap sticky sm:!top-[0px] top-[10px] box-border max-w-screen right-[-100%] leading-none"
           >CLIENT SHOWCASE</span
@@ -395,7 +395,7 @@
       </section>
 
       <section
-        class="featured_section justify-center flex flex-col h-screen"
+        class="featured_section justify-center flex flex-col min-h-[150vh]"
         id="section4"
       >
         <div class="featured_marquee">
@@ -468,13 +468,13 @@
 
       <section class="how_its_done">
         <div
-          class="flex min-h-screen h-screen sticky top-0 z-[1] sm:flex-row flex-col"
+          class="flex min-h-screen sm:h-screen h-fit sticky top-0 z-[1] sm:flex-row flex-col"
           id="steps-container"
         ></div>
       </section>
 
       <section id="section6">
-        <div class="grid_container">
+        <div class="grid_container h-screen">
           <div class="bento_grid">
             <div class="bento_card" id="bento_about">
               <div class="bento_card_content">
@@ -800,12 +800,19 @@
 
       <section
         id="section_contact"
-        class="box-border p-10 b text-white flex items-center justify-center flex-col gap-5 z-[1] relative h-[50vh] w-screen"
+        class="box-border p-10 b text-white flex items-center justify-center flex-col gap-5 z-[1] relative h-[60vh] w-screen"
       >
         <div class="sm:text-7xl text-5xl font-bold text-center">
-          Let's Bring Your Ideas to Life!
+          Let's Bring Your
+          <span
+            class="bg-gradient-to-r from-[#00bbff] to-[#ade9ff] bg-clip-text text-transparent"
+          >
+            Ideas
+          </span>
+
+          to Life!
         </div>
-        <div class="sm:text-lg text-md max-w-[600px] text-center">
+        <div class="sm:text-xl text-md max-w-[600px] text-center text-white/70">
           I specialize in turning your vision into fully functional and
           beautiful websites. Whether you're looking for a brand new project or
           a redesign, I'm here to help you succeed. Let's collaborate and create
@@ -885,6 +892,11 @@
       // Disable lag smoothing in GSAP to prevent any delay in scroll animations
       gsap.ticker.lagSmoothing(0);
     </script>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"
+    ></script>
 
     <script type="application/ld+json">
       {
