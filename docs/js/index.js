@@ -1512,6 +1512,10 @@ function createSteps() {
 
       if (progress >= index * 20 && progress < (index + 1) * 20) {
         element.classList.add("bg-[#00bbff]");
+
+        element.style.transition = "background-size 2s ease"; // Set transition for smooth animation
+        element.style.backgroundSize = "100% 100%";
+
         element.style.borderColor = "white";
         text.style.opacity = "100%";
         text2.style.opacity = "100%";
@@ -1584,6 +1588,8 @@ function confettiContact() {
             if (Date.now() < end) requestAnimationFrame(frame);
           })();
 
+          button.dispatchEvent(new MouseEvent("mouseover"));
+
           setTimeout(() => {
             button.style.scale = "1.3";
             button.style.rotate = "-5deg";
@@ -1591,7 +1597,8 @@ function confettiContact() {
             setTimeout(() => {
               button.style.scale = "1";
               button.style.rotate = "";
-            }, 300);
+              button.dispatchEvent(new MouseEvent("mouseout"));
+            }, 400);
           }, 100);
 
           // observer.unobserve(entry.target);
@@ -1600,7 +1607,7 @@ function confettiContact() {
     },
     {
       root: null,
-      threshold: 0.8,
+      threshold: 0.7,
     }
   );
 
