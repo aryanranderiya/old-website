@@ -452,12 +452,7 @@ async function setupServices(db) {
 }
 
 function setupAnimationLargeText() {
-  async function doConfetti(
-    angle,
-    xOrigin = 0,
-    yOrigin = 0.2,
-    emojis = ["⭐", "✨"]
-  ) {
+  async function doConfetti(angle, xOrigin = 0, yOrigin = 0.2, emojis = []) {
     confetti({
       particleCount: 20,
       angle,
@@ -477,18 +472,17 @@ function setupAnimationLargeText() {
           };
         }),
       },
-      particles: {
-        move: {
-          decay: 0.01,
-          // speed: 10, // Increase speed to make particles move faster
-        },
-        opacity: {
-          animation: {
-            enable: true,
-            speed: 10,
-          },
-        },
-      },
+      // particles: {
+      //   move: {
+      //     decay: 0.01,
+      //   },
+      //   opacity: {
+      //     animation: {
+      //       enable: true,
+      //       speed: 10,
+      //     },
+      //   },
+      // },
     });
   }
 
@@ -1077,7 +1071,7 @@ async function setupFeaturedClients(db) {
     preloadedImages[0].then((preloadedURL) => {
       image.src = preloadedURL;
     });
-    image.classList.add("rounded-b-xl", "h-fit", "object-contain");
+    image.classList.add("rounded-xl", "h-fit", "object-contain");
 
     image.addEventListener("load", () => {
       ScrollTrigger.refresh();
@@ -1253,11 +1247,13 @@ async function setupTestimonials(db) {
       "text-xl"
     );
     card.innerHTML = `
-      <div class="italic sm:text-md text-sm ogg">${testimonial.text}</div>
+      <div class="sm:text-md text-sm">&#34;${testimonial.text}&#34;</div>
       <div class="mt-6 text-sm flex items-center gap-3">
         <img src="${testimonial.client_image}" class="size-[25px] object-cover rounded-full"/>
-        <span>${testimonial.client}</span> — 
-        <span class="opacity-70">${testimonial.position} @ ${testimonial.company}</span>
+        <div class="inline-flex">
+          <span class="ogg italic">${testimonial.client}</span> — 
+          <span class="opacity-70 ogg italic">${testimonial.position} @ ${testimonial.company}</span>
+        </div>
       </div>
     `;
 
@@ -1423,7 +1419,7 @@ function createSteps() {
       "sm:min-w-[20vw]",
       "sm:w-[20vw]",
       "w-screen",
-      "py-5",
+      "py-7",
       "sm:py-0",
       "max-w-screen",
       "sm:max-w-[20vw]",
@@ -1446,11 +1442,11 @@ function createSteps() {
     zIndex--;
 
     stepElement.innerHTML = `
-      <div class="flex-grow flex flex-col text-white p-5 gap-2 overflow-hidden text-1 transition-opacity">
+      <div class="flex-grow flex flex-col text-white sm:p-5 px-5 gap-2 overflow-hidden text-1 transition-opacity">
         <div class="text-4xl sm:pt-16 font-bold">${step.title}</div>
         <div class="text-xl">${step.description}</div>
       </div>
-      <div class="text-[10vw] px-5 text-white font-bold text-2 transition-opacity">${String(
+      <div class="sm:text-[10vw] text-6xl px-5 text-white font-bold text-2 transition-opacity">${String(
         index + 1
       ).padStart(2, "0")}</div>
     `;
@@ -1469,7 +1465,7 @@ function createSteps() {
           trigger: container,
           start: "top top",
           end: "center top",
-          scrub: true,
+          scrub: 0.1,
         },
       }
     );
@@ -1487,16 +1483,13 @@ function createSteps() {
 
       element.classList.remove("bg-[#00bbff]");
       element.classList.remove("bg-black/40");
-      element.style.borderColor = "#ffffff30";
+      element.style.borderColor = "#ffffff10";
 
-      text.style.opacity = "30%";
-      text2.style.opacity = "30%";
+      text.style.opacity = "10%";
+      text2.style.opacity = "10%";
 
       if (progress >= index * 20 && progress < (index + 1) * 20) {
         element.classList.add("bg-[#00bbff]");
-
-        element.style.transition = "background-size 2s ease"; // Set transition for smooth animation
-        element.style.backgroundSize = "100% 100%";
 
         element.style.borderColor = "white";
         text.style.opacity = "100%";
@@ -1505,8 +1498,8 @@ function createSteps() {
       }
       element.classList.add("bg-black/40");
       element.style.borderColor = "#ffffff30";
-      text.style.opacity = "30%";
-      text2.style.opacity = "30%";
+      text.style.opacity = "10%";
+      text2.style.opacity = "10%";
     });
   };
 
@@ -1515,13 +1508,10 @@ function createSteps() {
     gsap.to(container, {
       scrollTrigger: {
         trigger: container,
-        // start: `${isDesktop ? "top" : "bottom"} ${
-        //   isDesktop ? "top" : "center"
-        // }`,
         start: isDesktop ? "top top" : "top center",
         end: isDesktop ? "bottom+=120% top" : "bottom center",
         pin: isDesktop,
-        scrub: true,
+        scrub: 0.5,
         onUpdate: (self) => handleOnUpdate(self, stepElements, isDesktop),
       },
     });

@@ -180,7 +180,7 @@ header {
 
 .aryan_randeriya {
   transform: translateY(100%);
-  font-size: clamp(3.5em, 10vw, 8em);
+  font-size: clamp(3.3em, 10vw, 8em);
   /* font-family: "Times New Roman", Times, serif; */
 }
 
@@ -1139,7 +1139,7 @@ h6 {
   font-family: Helvs;
   transition: color 0.5s ease;
   -webkit-transition: color 0.5s ease;
-  font-size: clamp(0.5em, 14vw, 15em);
+  font-size: clamp(0.5em, 19vw, 15em);
   font-weight: bold;
   width: 100%;
   text-align: center;
