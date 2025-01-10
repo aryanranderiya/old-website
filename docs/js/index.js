@@ -452,7 +452,47 @@ async function setupServices(db) {
 }
 
 function setupAnimationLargeText() {
-  const tl0 = gsap.timeline({
+  async function doConfetti(
+    angle,
+    xOrigin = 0,
+    yOrigin = 0.2,
+    emojis = ["⭐", "✨"]
+  ) {
+    confetti({
+      particleCount: 20,
+      angle,
+      origin: { x: xOrigin, y: yOrigin },
+      shapes: ["image"],
+      scalar: 3,
+      wobble: {
+        distance: 10,
+        enable: true,
+      },
+      shapeOptions: {
+        image: emojis.map((emoji) => {
+          return {
+            src: `https://emojicdn.elk.sh/${emoji}`,
+            width: 30,
+            height: 30,
+          };
+        }),
+      },
+      particles: {
+        move: {
+          decay: 0.01,
+          // speed: 10, // Increase speed to make particles move faster
+        },
+        opacity: {
+          animation: {
+            enable: true,
+            speed: 10,
+          },
+        },
+      },
+    });
+  }
+
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".largetext_container",
       start: "top-=400 bottom",
@@ -461,110 +501,27 @@ function setupAnimationLargeText() {
     },
   });
 
-  gsap.set(".large_text:nth-child(1)", {
-    x: "60%",
-  });
-  tl0.to(".large_text:nth-child(1)", {
+  gsap.set(".large_text", { x: "100%", color: "black" });
+
+  tl.to(".large_text:nth-child(1)", {
     x: "0%",
-  });
-
-  const tl1 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".large_text:nth-child(1)",
-      start: "top-=200 center",
-      end: "bottom center",
-      scrub: true,
-    },
-  });
-
-  gsap.set(".large_text:nth-child(2)", {
-    x: "-100%",
-  });
-  tl1.to(".large_text:nth-child(2)", {
-    x: "0%",
-  });
-
-  const tl2 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".large_text:nth-child(2)",
-      start: "center-=100 center",
-      end: "bottom center",
-      scrub: true,
-    },
-  });
-  gsap.set(".large_text:nth-child(3)", { x: "100%" });
-  tl2.to(".large_text:nth-child(3)", { x: "0%" });
-
-  const tl3 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".large_text:nth-child(3)",
-      start: "center-=100 center",
-      end: "bottom center",
-      scrub: true,
-    },
-  });
-  gsap.set(".large_text:nth-child(4)", { x: "-100%" });
-  tl3.to(".large_text:nth-child(4)", { x: "0%" });
-
-  // // Timeline for the emojis animation
-  // const tlEmoji1 = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: ".large_text:nth-child(1)",
-  //     start: "top-=200 center",
-  //     end: "bottom center",
-  //     scrub: true,
-  //   },
-  // });
-  // gsap.set(".emoji1 img", {
-  //   x: "-100%", // Initial position 1000px to the right
-  // });
-
-  // tlEmoji1.to(".emoji1 img", {
-  //   x: "0%", // Move to original position
-  //   duration: 3,
-  // });
-
-  // const tlEmoji2 = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: ".large_text:nth-child(2)",
-  //     start: "center-=100 center",
-  //     end: "bottom center",
-  //     scrub: true,
-  //   },
-  // });
-  // gsap.set(".emoji2 img", { x: "-200%" });
-  // tlEmoji2.to(".emoji2 img", {
-  //   x: "0%",
-  //   duration: 6, // Make it slower
-  // });
-
-  // const tlEmoji3 = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: ".large_text:nth-child(3)",
-  //     start: "center-=100 center",
-  //     end: "bottom center",
-  //     scrub: true,
-  //   },
-  // });
-  // gsap.set(".emoji3 img", { x: "100%" });
-  // tlEmoji3.to(".emoji3 img", {
-  //   x: "0%",
-  //   duration: 3, // Slower animation for emoji 3
-  // });
-
-  // const tlEmoji4 = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: ".large_text:nth-child(4)",
-  //     start: "center-=100 center",
-  //     end: "bottom center",
-  //     scrub: true,
-  //   },
-  // });
-  // gsap.set(".emoji4 img", { x: "-100%" });
-  // tlEmoji4.to(".emoji4 img", {
-  //   x: "0%",
-  //   duration: 3, // Make it slower
-  // });
+    color: "white",
+  })
+    .to(".large_text:nth-child(2)", {
+      x: "0%",
+      color: "white",
+      onComplete: () => doConfetti(60, 0, 0.5),
+    })
+    .to(".large_text:nth-child(3)", {
+      x: "0%",
+      color: "white",
+      onComplete: () => doConfetti(120, 1, 0.4, ["🎨", "🖌️"]),
+    })
+    .to(".large_text:nth-child(4)", {
+      x: "0%",
+      color: "white",
+      onComplete: () => doConfetti(60, 0, 0.3, ["🧑‍💻", "💻", "🖥️"], "⌨️"),
+    });
 
   let currentScroll = 0;
   let isScrollingDown = true;
@@ -582,11 +539,7 @@ function setupAnimationLargeText() {
 
   window.addEventListener("scroll", () => {
     isScrollingDown = window.pageYOffset > currentScroll;
-
-    gsap.to(tween, {
-      timeScale: isScrollingDown ? 1 : -1,
-    });
-
+    gsap.to(tween, { timeScale: isScrollingDown ? 1 : -1 });
     currentScroll = window.pageYOffset;
   });
 
@@ -1355,10 +1308,10 @@ async function setupTestimonials(db) {
 }
 
 function getAge(dateString) {
-  var today = new Date();
-  var birthDate = new Date(dateString);
-  var age = today.getFullYear() - birthDate.getFullYear();
-  var m = today.getMonth() - birthDate.getMonth();
+  const today = new Date();
+  const birthDate = new Date(dateString);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
     age--;
   }
@@ -1419,7 +1372,6 @@ function animateTextColor() {
         start: "top-=150 center",
         end: "bottom+=150 center",
         scrub: true,
-        markers: true,
       },
       opacity: 1,
       stagger: 0.07,
@@ -1594,44 +1546,42 @@ function confettiContact() {
 
   // Create an Intersection Observer
   const observer = new IntersectionObserver(
-    (entries, observer) => {
+    (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const end = Date.now() + 2 * 1000;
+        if (!entry.isIntersecting) return;
 
-          (function frame() {
-            confetti({
-              particleCount: 5,
-              spread: 100,
-              angle: 60,
-              origin: { y: 0.6, x: 0 },
-            });
+        const end = Date.now() + 2 * 1000;
 
-            confetti({
-              particleCount: 2,
-              spread: 100,
-              angle: 120,
-              origin: { y: 0.6, x: 1 },
-            });
+        (function frame() {
+          confetti({
+            particleCount: 5,
+            spread: 100,
+            angle: 60,
+            origin: { y: 0.6, x: 0 },
+          });
 
-            if (Date.now() < end) requestAnimationFrame(frame);
-          })();
+          confetti({
+            particleCount: 2,
+            spread: 100,
+            angle: 120,
+            origin: { y: 0.6, x: 1 },
+          });
 
-          button.dispatchEvent(new MouseEvent("mouseover"));
+          if (Date.now() < end) requestAnimationFrame(frame);
+        })();
+
+        button.dispatchEvent(new MouseEvent("mouseover"));
+
+        setTimeout(() => {
+          button.style.scale = "1.3";
+          button.style.rotate = "-5deg";
 
           setTimeout(() => {
-            button.style.scale = "1.3";
-            button.style.rotate = "-5deg";
-
-            setTimeout(() => {
-              button.style.scale = "1";
-              button.style.rotate = "";
-              button.dispatchEvent(new MouseEvent("mouseout"));
-            }, 400);
-          }, 100);
-
-          // observer.unobserve(entry.target);
-        }
+            button.style.scale = "1";
+            button.style.rotate = "";
+            button.dispatchEvent(new MouseEvent("mouseout"));
+          }, 400);
+        }, 100);
       });
     },
     {

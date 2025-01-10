@@ -20,6 +20,10 @@
   font-weight: normal;
 }
 
+.ogg {
+  font-family: "Ogg" !important;
+}
+
 html,
 body {
   margin: 0;
@@ -1145,7 +1149,7 @@ h6 {
 }
 
 .large_text:hover {
-  color: #00bbff;
+  color: #00bbff !important;
 }
 
 .largetext_container {

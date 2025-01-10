@@ -88,10 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         bottomName.addEventListener("mouseover", () => {
-          cursorTransformShadowBlend("scale(10)", "none", "difference");
+          cursorTransformShadowBlend("scale(10)", "none");
+          addClass(cursor, "partially_transparent");
         });
-
+        
         bottomName.addEventListener("mouseout", () => {
+        removeClass(cursor, "partially_transparent");
           cursorTransformShadowBlend();
         });
 
