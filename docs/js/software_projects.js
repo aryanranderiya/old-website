@@ -5,8 +5,6 @@ window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
 
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 
 import {
@@ -16,7 +14,6 @@ import {
   onValue,
   update,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
   authDomain: "aryanranderiya-portfolio.firebaseapp.com",
@@ -30,32 +27,19 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const database = getDatabase();
 
-fetchGithubData();
-
-const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 try {
-  processProjectIcons();
+  generateLoadingText();
   processDataAndHidePreloader();
+  fetchGithubData();
+  processProjectIcons();
 } catch (error) {
-  console.error("Error fetching Firebase data:", error);
+  console.error("Error:", error);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   modifyScrollBar();
-
   addMouseHovers();
   document.addEventListener("scroll", updateProgressBarandBtn);
-
-  generateLoadingText();
-
-  // const selectElement = document.querySelector(".project_type_select");
-
-  // selectElement.addEventListener("change", function () {
-  //   if (this.selectedIndex === 0) selectElement.style.backgroundColor = "";
-  //   else selectElement.style.backgroundColor = "#00bbff";
-  // });
-
-  // ! END OF DOMCONTENTLOADED
 });
 
 function searchCards() {
@@ -92,51 +76,7 @@ function searchCards() {
 }
 
 function filterCards() {
-  // const select = document.querySelector(".project_type_select");
-  // const tech_stack = document.querySelectorAll(".card-tech-stack text");
-
-  // const uniqueValues = Array.from(tech_stack)
-  //   .map((element) => element.textContent.trim())
-  //   .filter(
-  //     (item, index, self) =>
-  //       self.findIndex(
-  //         (other) => other.toLowerCase() === item.toLowerCase()
-  //       ) === index
-  //   )
-  //   .filter((value, index, array) => array.indexOf(value) === index)
-  //   .sort();
-
-  // uniqueValues.forEach((value) => {
-  //   const option = document.createElement("option");
-  //   option.value = value;
-  //   option.textContent = value;
-  //   select.appendChild(option);
-  // });
-
   const cards = document.querySelectorAll(".card");
-
-  // select.addEventListener("change", () => {
-  //   cards.forEach((card) => {
-  //     if (select.value === "") {
-  //       card.style.display = "flex";
-  //       return;
-  //     }
-
-  //     const tech_stack = card.querySelectorAll(".card-tech-stack");
-  //     let displayCard = false;
-
-  //     tech_stack.forEach((element) => {
-  //       var techstack = element.textContent.trim().toLowerCase();
-
-  //       if (techstack.includes(select.value.toLowerCase())) {
-  //         displayCard = true;
-  //       }
-  //     });
-
-  //     card.style.display = displayCard ? "flex" : "none";
-  //   });
-  // });
-
   const filters = document.querySelectorAll(".project_type_select.chip");
 
   filters.forEach((filter) => {
@@ -275,6 +215,21 @@ function updateProgressBarandBtn() {
 
 // Functions
 function addMouseHovers() {
+  const chips = document.querySelectorAll(".project_type_select");
+  chips.forEach((chip) => {
+    chip.parentElement.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.3)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    chip.parentElement.parentElement.addEventListener("mouseout", () => {
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
+    });
+  });
+
   const logos = document.querySelector(".logos");
   const github_heading_div = document.querySelector(".github_heading_div");
 
@@ -346,30 +301,17 @@ function addMouseHovers() {
   );
 }
 
-// function reverseObject(obj) {
-//   const reversedObj = {};
-//   const entries = Object.entries(obj);
-
-//   for (let i = entries.length - 1; i >= 0; i--) {
-//     const [key, value] = entries[i];
-//     reversedObj[key] = value;
-//   }
-
-//   return reversedObj;
-// }
-
 async function processDataAndHidePreloader() {
   let db = {};
   try {
     const response = await fetch("./db/db.json");
     db = await response.json();
+    removePreloader();
   } catch (e) {
     return;
   }
 
-  // const projects = snapshot.val();
   const projects = db.Projects;
-
   const cards = document.querySelector(".cards");
 
   const observer1 = new IntersectionObserver(handleIntersection1, {
@@ -524,8 +466,6 @@ async function processDataAndHidePreloader() {
 
       hoverOnCards();
     });
-
-  removePreloader();
 
   searchCards();
   filterCards();
@@ -1032,6 +972,8 @@ function removePreloader() {
 }
 
 async function processProjectIcons() {
+  const SoftwareIconsRef = ref(database, "SoftwareIcons/");
+
   const [snapshot] = await Promise.all([get(SoftwareIconsRef)]);
 
   const logosSlide = document.querySelector(".logos-slide");
