@@ -1,26 +1,3 @@
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-
-// import {
-//   getDatabase,
-//   ref,
-//   get,
-// } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
-//   authDomain: "aryanranderiya-portfolio.firebaseapp.com",
-//   projectId: "aryanranderiya-portfolio",
-//   storageBucket: "aryanranderiya-portfolio.appspot.com",
-//   messagingSenderId: "540599201791",
-//   appId: "1:540599201791:web:757239eec07a33dc9ec1ca",
-//   measurementId: "G-S3XP36W3P9",
-// };
-
-// initializeApp(firebaseConfig);
-// const database = getDatabase();
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
-
 import { Gradient } from "./gradient.js";
 
 new Gradient().initGradient("#gradient-canvas-main");
@@ -37,7 +14,6 @@ const cursoriconwave = document.getElementById("cursoriconwave");
 const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
-const cursoricon5 = document.getElementById("cursoricon5");
 const title_heading_1 = document.querySelector(".title_heading_1");
 
 // const section_replacements = document.querySelectorAll(".section_replacement");

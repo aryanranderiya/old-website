@@ -1,4 +1,4 @@
-const cursortext2 = document.getElementById("cursortext2");
+const cursor_txt_2 = document.getElementById("cursortext2");
 const title_Heading = document.querySelector(".title-heading");
 const subtitle = document.querySelector(".softwareprojects_subtitle");
 window.onbeforeunload = () => {
@@ -14,7 +14,7 @@ import {
   onValue,
   update,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-const firebaseConfig = {
+const firebase = {
   apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
   authDomain: "aryanranderiya-portfolio.firebaseapp.com",
   projectId: "aryanranderiya-portfolio",
@@ -24,8 +24,8 @@ const firebaseConfig = {
   measurementId: "G-S3XP36W3P9",
 };
 
-initializeApp(firebaseConfig);
-const database = getDatabase();
+initializeApp(firebase);
+const firebase_db = getDatabase();
 
 try {
   generateLoadingText();
@@ -187,7 +187,7 @@ function modifyScrollBar() {
     cursor.style.transform = "scale(5)";
     cursor.style.boxShadow = "none";
     cursor.style.outlineWidth = "0px";
-    addClass(cursortext2, "active");
+    addClass(cursor_txt_2, "active");
     addClass(cursor, "transparent");
     updateProgressBarandBtn();
   });
@@ -196,7 +196,7 @@ function modifyScrollBar() {
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 30px white";
-    removeClass(cursortext2, "active");
+    removeClass(cursor_txt_2, "active");
     removeClass(cursor, "transparent");
   });
 }
@@ -210,7 +210,7 @@ function updateProgressBarandBtn() {
     .querySelector(".scrollbar_progress")
     .style.setProperty("--height", scrollPercent);
 
-  cursortext2.textContent = `${Math.round(percentage)}%`;
+  cursor_txt_2.textContent = `${Math.round(percentage)}%`;
 }
 
 // Functions
@@ -508,7 +508,7 @@ function setupHearts() {
 
     const likes_count_text = checkbox.parentElement.nextElementSibling;
     const svgContainer = checkbox.nextElementSibling;
-    const projectRef = ref(database, `Projects/${projectId}`);
+    const projectRef = ref(firebase_db, `Projects/${projectId}`);
 
     let currentLikes = 0;
 
@@ -680,7 +680,7 @@ async function fetchGithubData() {
   const github_cards = document.querySelector(".github_cards");
 
   let token = "";
-  const qDtadW_2ZSeiRJtuRTvv = ref(database, "qDtadW_2ZSeiRJtuRTvv/");
+  const qDtadW_2ZSeiRJtuRTvv = ref(firebase_db, "qDtadW_2ZSeiRJtuRTvv/");
   await new Promise((resolve) => {
     onValue(qDtadW_2ZSeiRJtuRTvv, (snapshot) => {
       token = snapshot.val();
@@ -972,7 +972,7 @@ function removePreloader() {
 }
 
 async function processProjectIcons() {
-  const SoftwareIconsRef = ref(database, "SoftwareIcons/");
+  const SoftwareIconsRef = ref(firebase_db, "SoftwareIcons/");
 
   const [snapshot] = await Promise.all([get(SoftwareIconsRef)]);
 

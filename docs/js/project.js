@@ -9,33 +9,6 @@ const urlParams = new URLSearchParams(window.location.search);
 const projectId = urlParams.get("id");
 if (projectId === null) window.location.href = "SoftwareProjects.html";
 
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-
-import {
-  getDatabase,
-  ref,
-  onValue,
-} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
-  authDomain: "aryanranderiya-portfolio.firebaseapp.com",
-  projectId: "aryanranderiya-portfolio",
-  storageBucket: "aryanranderiya-portfolio.appspot.com",
-  messagingSenderId: "540599201791",
-  appId: "1:540599201791:web:757239eec07a33dc9ec1ca",
-  measurementId: "G-S3XP36W3P9",
-};
-
-// initializeApp(firebaseConfig);
-// const database = getDatabase();
-// const projectRef = ref(database, `Projects/${projectId}`);
-
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
-
-// onValue(projectRef, processData);
 processData();
 // ! INIT
 const dot = document.querySelector(".dot");
@@ -45,7 +18,7 @@ const iconMain = document.querySelector(".icon_main");
 const mockup_pc = document.querySelector(".mockup_pc");
 const tech_stack = document.querySelector(".tech_stack");
 const ptypeText = document.querySelector(".p_type_text");
-const progressBar = document.querySelector("#progress-bar");
+const progress_bar = document.querySelector("#progress-bar");
 const btnScrollTop = document.querySelector(".scrolltotop");
 const mockup_phone = document.querySelector(".mockup_phone");
 const pInfoText = document.querySelector(".project_info_text");
@@ -68,7 +41,7 @@ const controlsContainer = document.querySelector(".video_controls_container");
 const popupContainer = document.querySelector(".popup_image_container");
 const popupImage = document.querySelector(".popup_image");
 const close_text = document.querySelector(".close_text");
-const cursortext2 = document.querySelector("#cursortext2");
+const cursor_text2 = document.querySelector("#cursortext2");
 const created_on = document.querySelector(".created_on");
 const creation_date = document.querySelector(".creation_date");
 const personal_comments = document.querySelector(".personal_comments");
@@ -339,7 +312,7 @@ function handleIntersection1(entries, observer) {
       controlsContainer.style.opacity = isIntersecting ? "1" : "0";
     }, 500);
     iconMain.style.visibility = isIntersecting ? "visible" : "hidden";
-    progressBar.style.backgroundColor = isIntersecting ? "#00bbff" : "#4d4d4d";
+    progress_bar.style.backgroundColor = isIntersecting ? "#00bbff" : "#4d4d4d";
   });
 }
 
@@ -352,7 +325,7 @@ function handleIntersectionImage(entries, observer) {
       entry.target.style.filter = "grayscale(0%)";
       return;
     }
-    progressBar.style.backgroundColor = "#4d4d4d";
+    progress_bar.style.backgroundColor = "#4d4d4d";
     iconMain.style.visibility = "hidden";
     // mockupLaptopImage.style.opacity = "0.3";
     entry.target.style.opacity = "0.3";
@@ -369,7 +342,7 @@ function createIntersectionObserver(threshold) {
   });
 }
 
-const observer1 = createIntersectionObserver(0.7);
+const observer_1 = createIntersectionObserver(0.7);
 const observer2 = createIntersectionObserver(0.8);
 const observerImage = new IntersectionObserver(handleIntersectionImage, {
   root: null,
@@ -513,7 +486,7 @@ function playPauseVideo(video) {
   controlPause.style.opacity = isPaused ? "1" : "0";
   iconsMainReplay.style.opacity = "0";
   iconsMainReplay.style.visibility = "hidden";
-  progressBar.style.backgroundColor = isPaused ? "white" : "#4d4d4d";
+  progress_bar.style.backgroundColor = isPaused ? "white" : "#4d4d4d";
 }
 
 function removeCover() {
@@ -558,7 +531,7 @@ function setupMockups(demo_type, demoDownloadURL) {
     // END OF IF
   } else if (demo_type == "demo_mobile") {
     setMockup(
-      observer1,
+      observer_1,
       mobileVideo,
       demoDownloadURL,
       observerScroller_mobile,
@@ -632,7 +605,7 @@ function setVideoProgressBar(video) {
     const videoDuration = video.duration;
     const currentTime = video.currentTime;
     const progressPercent = (currentTime / videoDuration) * 100;
-    progressBar.style.setProperty("--progress", `${progressPercent}%`);
+    progress_bar.style.setProperty("--progress", `${progressPercent}%`);
   });
 }
 
@@ -702,7 +675,7 @@ export function modifyScrollBar() {
     cursor.style.transform = "scale(5)";
     cursor.style.boxShadow = "none";
     cursor.style.outlineWidth = "0px";
-    addClass(cursortext2, "active");
+    addClass(cursor_text2, "active");
     addClass(cursor, "transparent");
   });
 
@@ -710,7 +683,7 @@ export function modifyScrollBar() {
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 30px white";
-    removeClass(cursortext2, "active");
+    removeClass(cursor_text2, "active");
     removeClass(cursor, "transparent");
   });
 }
@@ -724,7 +697,7 @@ function updateProgressBarandBtn() {
     .querySelector(".scrollbar_progress")
     .style.setProperty("--height", scrollPercent);
 
-  cursortext2.textContent = `${Math.round(percentage)}%`;
+  cursor_text2.textContent = `${Math.round(percentage)}%`;
 }
 
 function createImages(project_images) {
