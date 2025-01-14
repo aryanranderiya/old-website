@@ -32,9 +32,6 @@ const database = getDatabase();
 
 fetchGithubData();
 
-// ! FIREBASE INIT END --------------------------------------------------------------------------------------
-
-const projectsRef = ref(database, "Projects/");
 const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 try {
   processProjectIcons();
@@ -66,7 +63,7 @@ function searchCards() {
   const cards = document.querySelectorAll(".card");
 
   search_project.addEventListener("input", (e) => {
-    var searchText = e.target.value.trim().toLowerCase();
+    const searchText = e.target.value.trim().toLowerCase();
 
     cards.forEach((card) => {
       const title = card.querySelector(".card-title").textContent.toLowerCase();
@@ -78,18 +75,15 @@ function searchCards() {
         .textContent.toLowerCase();
 
       tech_stack.forEach((element) => {
-        var techstack = element.textContent.toLowerCase();
+        const techstack = element.textContent.toLowerCase();
 
-        if (
+        card.style.display =
           !title.includes(searchText) &&
           !description.includes(searchText) &&
           !type.includes(searchText) &&
           !techstack.includes(searchText)
-        ) {
-          card.style.display = "none";
-        } else {
-          card.style.display = "flex";
-        }
+            ? "none"
+            : "flex";
 
         if (searchText === "") card.style.display = "flex";
       });
@@ -160,13 +154,30 @@ function filterCards() {
         .querySelector(".card-type")
         .textContent.toLowerCase()
         .includes("mobile app");
+      const isHackathon = card.querySelector(".hackathon");
+      const isOther =
+        !isClientWork &&
+        !isFeatured &&
+        !isWebsite &&
+        !isMobileApp &&
+        !isHackathon;
 
-      return (
-        (filterValue === "client work" && isClientWork) ||
-        (filterValue === "featured" && isFeatured) ||
-        (filterValue === "websites" && isWebsite) ||
-        (filterValue === "mobile apps" && isMobileApp)
-      );
+      switch (filterValue) {
+        case "client work":
+          return isClientWork;
+        case "featured":
+          return isFeatured;
+        case "websites":
+          return isWebsite;
+        case "mobile apps":
+          return isMobileApp;
+        case "hackathon":
+          return isHackathon;
+        case "others":
+          return isOther;
+        default:
+          return false;
+      }
     }).length;
 
     const countSpan = document.createElement("span");
@@ -174,18 +185,15 @@ function filterCards() {
     countSpan.textContent = `${count}`;
     filter.appendChild(countSpan);
 
+    // Toggle filter selection and update card visibility
     filter.addEventListener("click", () => {
-      // Toggle the selected class on the clicked filter
       filter.classList.toggle("selected");
 
-      // Get all selected filters
       const activeFilters = Array.from(filters)
         .filter((f) => f.classList.contains("selected"))
         .map((f) => f.dataset.filter.toLowerCase());
 
-      // Update card visibility based on active filters
       cards.forEach((card) => {
-        // Get card's associated filters
         const isClientWork = card.querySelector(".clienttag");
         const isFeatured = card.querySelector(".featuredtag");
         const isWebsite = card
@@ -196,14 +204,34 @@ function filterCards() {
           .querySelector(".card-type")
           .textContent.toLowerCase()
           .includes("mobile app");
+        const isHackathon = card.querySelector(".hackathon");
+        const isOther =
+          !isClientWork &&
+          !isFeatured &&
+          !isWebsite &&
+          !isMobileApp &&
+          !isHackathon;
 
-        // Determine if the card matches any of the active filters
         const shouldDisplay =
           activeFilters.length === 0 ||
-          (activeFilters.includes("client work") && isClientWork) ||
-          (activeFilters.includes("featured") && isFeatured) ||
-          (activeFilters.includes("websites") && isWebsite) ||
-          (activeFilters.includes("mobile apps") && isMobileApp);
+          activeFilters.some((filter) => {
+            switch (filter) {
+              case "client work":
+                return isClientWork;
+              case "featured":
+                return isFeatured;
+              case "websites":
+                return isWebsite;
+              case "mobile apps":
+                return isMobileApp;
+              case "hackathon":
+                return isHackathon;
+              case "others":
+                return isOther;
+              default:
+                return false;
+            }
+          });
 
         card.style.display = shouldDisplay ? "flex" : "none";
       });
@@ -234,17 +262,15 @@ function modifyScrollBar() {
 }
 
 function updateProgressBarandBtn() {
-  console.log("hey");
-
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
-  const scrollPercent = percentage + "%";
+  const scrollPercent = `${percentage}%`;
 
   document
     .querySelector(".scrollbar_progress")
     .style.setProperty("--height", scrollPercent);
 
-  cursortext2.textContent = Math.round(percentage) + "%";
+  cursortext2.textContent = `${Math.round(percentage)}%`;
 }
 
 // Functions
@@ -278,7 +304,7 @@ function addMouseHovers() {
   });
   // Cards Cursor Title
 
-  document.addEventListener("mouseover", function (event) {
+  document.addEventListener("mouseover", (event) => {
     if (event.target.classList.contains("card")) {
       cursor.style.transform = "scale(1)";
       cursor.style.boxShadow =
@@ -286,7 +312,7 @@ function addMouseHovers() {
     }
   });
 
-  document.addEventListener("mouseout", function (event) {
+  document.addEventListener("mouseout", (event) => {
     if (event.target.classList.contains("card")) {
       cursor.style.transform = "none";
       cursor.style.boxShadow = "0px 0px 30px white";
@@ -441,7 +467,7 @@ async function processDataAndHidePreloader() {
                 ${projectTechStack
                   .map((element) => {
                     const replacedElement =
-                      replacements[element] || element + "-plain colored";
+                      replacements[element] || `${element}-plain colored`;
                     return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${
                       element.charAt(0).toUpperCase() + element.slice(1)
                     }&nbsp;</text></div>`;
@@ -594,12 +620,12 @@ function generateLoadingText() {
       span.innerHTML = char;
     });
 
-    translation = translation - 5.5;
+    translation -= 5.5;
 
     loadingTextElement.appendChild(div);
 
     setTimeout(() => {
-      translation = translation - 5.56;
+      translation -= 5.56;
       div.style.transform = `translateY(${translation}%)`;
     }, index);
   }
@@ -654,11 +680,8 @@ function hoverOnCards() {
     const iconColor = window.getComputedStyle(item.firstElementChild).color;
 
     item.addEventListener("mouseover", function () {
-      if (iconColor === "rgb(255, 255, 255)") {
-        this.style.backgroundColor = "rgb(255, 255, 255)";
-      } else {
-        this.style.backgroundColor = iconColor;
-      }
+      this.style.backgroundColor =
+        iconColor === "rgb(255, 255, 255)" ? "rgb(255, 255, 255)" : iconColor;
 
       for (const child of this.children) {
         child.style.color = "black";
@@ -679,7 +702,7 @@ function marqueeScrollAnimation() {
   let currentScroll = 0;
   let isScrollingDown = true;
 
-  let tween = gsap
+  const tween = gsap
     .to(".logos-slide", {
       xPercent: -100,
       repeat: -1,
@@ -688,9 +711,8 @@ function marqueeScrollAnimation() {
     })
     .totalProgress(0.5);
 
-  window.addEventListener("scroll", function () {
-    if (window.pageYOffset > currentScroll) isScrollingDown = true;
-    else isScrollingDown = false;
+  window.addEventListener("scroll", () => {
+    isScrollingDown = window.pageYOffset > currentScroll;
 
     gsap.to(tween, {
       timeScale: isScrollingDown ? 1 : -1,
@@ -748,13 +770,13 @@ async function fetchGithubData() {
     ".github_heading"
   ).innerHTML = `${repoArray.length} Github Repositories`;
 
-  let languagesColorsArray = await fetchColors();
+  const languagesColorsArray = await fetchColors();
 
   repoArray.forEach((repo) => {
     if (repo.name === "aryanranderiya.github.io") return;
     if (repo.name === "github-readme-stats") return;
 
-    let colourHex = searchColor(languagesColorsArray, repo.language);
+    const colourHex = searchColor(languagesColorsArray, repo.language);
 
     const github_card = document.createElement("div");
     addClass(github_card, "github_card");
@@ -777,18 +799,18 @@ async function fetchGithubData() {
     let time_left;
     if (daysDifference <= 1) {
       if (hoursDifference <= 1 && hoursDifference > 0)
-        time_left = hoursDifference + " Hour";
-      else if (hoursDifference > 1) time_left = hoursDifference + " Hours";
+        time_left = `${hoursDifference} Hour`;
+      else if (hoursDifference > 1) time_left = `${hoursDifference} Hours`;
       else if (minutesDifference > 0)
-        time_left = minutesDifference + " Minutes";
+        time_left = `${minutesDifference} Minutes`;
       else time_left = "Less than a minute";
     } else {
-      time_left = daysDifference + " Days";
+      time_left = `${daysDifference} Days`;
     }
 
     // ! Set Description
-    let description = repo.description;
-    if (repo.description === null) description = "No Description";
+    const description =
+      repo.description === null ? "No Description" : repo.description;
 
     const btn_disabled =
       repo.visibility.toLowerCase() === "private" ? "disabled" : "";
@@ -837,7 +859,7 @@ async function fetchGithubData() {
       repo.language == null ||
       repo.language === undefined
     ) {
-      let id = repo.name;
+      const id = repo.name;
       const card_temp = document.querySelector(`#${id}`);
       card_temp.querySelector(".color_circle").remove();
       card_temp.querySelector(".github_language").remove();
@@ -858,7 +880,9 @@ async function fetchGithubData() {
 
     //! Set Github Topics
     const github_topics = github_card.querySelector(".github_topics");
-    if (repo.topics.length != 0) {
+    if (repo.topics.length == 0) {
+      github_topics.remove();
+    } else {
       repo.topics.forEach((topic) => {
         const github_topic = document.createElement("div");
         const topic_anchor = document.createElement("a");
@@ -881,8 +905,6 @@ async function fetchGithubData() {
           cursorTransformShadowBlend();
         });
       });
-    } else {
-      github_topics.remove();
     }
 
     const observer2 = new IntersectionObserver(handleIntersection1, {
@@ -934,7 +956,7 @@ async function fetchGithubData() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  let sections = gsap.utils.toArray(".github_card");
+  const sections = gsap.utils.toArray(".github_card");
 
   ScrollTrigger.normalizeScroll(true);
 
@@ -950,7 +972,7 @@ async function fetchGithubData() {
       scrub: 1,
       start: "top top",
       // anticipatePin: 1,
-      end: () => "+=" + github_cards.offsetWidth,
+      end: () => `+=${github_cards.offsetWidth}`,
     },
   });
 }
@@ -977,7 +999,7 @@ function removeClass(element, className) {
 function removePreloader() {
   const blackCover = document.querySelector(".black_cover");
 
-  setTimeout(function () {
+  setTimeout(() => {
     blackCover.classList.add("hide");
     setTimeout(() => (document.body.style.overflow = "auto"), 200);
   }, 500);
@@ -989,15 +1011,14 @@ function removePreloader() {
   function handleIntersectionTranslate(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        if (!alreadyanimatedflag) timeout = 700;
-        else timeout = 0;
+        timeout = alreadyanimatedflag ? 0 : 700;
         setTimeout(() => addClass(title_Heading, "show"), timeout);
         setTimeout(() => addClass(subtitle, "show"), timeout + 60);
         alreadyanimatedflag = true;
-      } else {
-        removeClass(title_Heading, "show");
-        removeClass(subtitle, "show");
+        return;
       }
+      removeClass(title_Heading, "show");
+      removeClass(subtitle, "show");
     });
   }
   const observerTranslate = new IntersectionObserver(
