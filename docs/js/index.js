@@ -496,6 +496,8 @@ function setupAnimationLargeText() {
   });
 
   gsap.set(".large_text", { x: "100%", color: "black" });
+  gsap.set(".large_text:nth-child(2)", { x: "-100%", color: "black" });
+  gsap.set(".large_text:nth-child(4)", { x: "-100%", color: "black" });
 
   tl.to(".large_text:nth-child(1)", {
     x: "0%",

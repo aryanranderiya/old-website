@@ -37,17 +37,13 @@ fetchGithubData();
 const projectsRef = ref(database, "Projects/");
 const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 try {
-  const [softwareIconsSnapshot, projectsSnapshot] = await Promise.all([
-    get(SoftwareIconsRef),
-    get(projectsRef),
-  ]);
-  processProjectIcons(softwareIconsSnapshot);
-  processDataAndHidePreloader(projectsSnapshot);
+  processProjectIcons();
+  processDataAndHidePreloader();
 } catch (error) {
   console.error("Error fetching Firebase data:", error);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   modifyScrollBar();
 
   addMouseHovers();
@@ -55,12 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   generateLoadingText();
 
-  const selectElement = document.querySelector(".project_type_select");
+  // const selectElement = document.querySelector(".project_type_select");
 
-  selectElement.addEventListener("change", function () {
-    if (this.selectedIndex === 0) selectElement.style.backgroundColor = "";
-    else selectElement.style.backgroundColor = "#00bbff";
-  });
+  // selectElement.addEventListener("change", function () {
+  //   if (this.selectedIndex === 0) selectElement.style.backgroundColor = "";
+  //   else selectElement.style.backgroundColor = "#00bbff";
+  // });
 
   // ! END OF DOMCONTENTLOADED
 });
@@ -101,28 +97,116 @@ function searchCards() {
   });
 }
 
-function filterCards(select) {
+function filterCards() {
+  // const select = document.querySelector(".project_type_select");
+  // const tech_stack = document.querySelectorAll(".card-tech-stack text");
+
+  // const uniqueValues = Array.from(tech_stack)
+  //   .map((element) => element.textContent.trim())
+  //   .filter(
+  //     (item, index, self) =>
+  //       self.findIndex(
+  //         (other) => other.toLowerCase() === item.toLowerCase()
+  //       ) === index
+  //   )
+  //   .filter((value, index, array) => array.indexOf(value) === index)
+  //   .sort();
+
+  // uniqueValues.forEach((value) => {
+  //   const option = document.createElement("option");
+  //   option.value = value;
+  //   option.textContent = value;
+  //   select.appendChild(option);
+  // });
+
   const cards = document.querySelectorAll(".card");
 
-  select.addEventListener("change", () => {
-    cards.forEach((card) => {
-      if (select.value === "") {
-        card.style.display = "flex";
-        return;
-      }
+  // select.addEventListener("change", () => {
+  //   cards.forEach((card) => {
+  //     if (select.value === "") {
+  //       card.style.display = "flex";
+  //       return;
+  //     }
 
-      const tech_stack = card.querySelectorAll(".card-tech-stack");
-      let displayCard = false;
+  //     const tech_stack = card.querySelectorAll(".card-tech-stack");
+  //     let displayCard = false;
 
-      tech_stack.forEach((element) => {
-        var techstack = element.textContent.trim().toLowerCase();
+  //     tech_stack.forEach((element) => {
+  //       var techstack = element.textContent.trim().toLowerCase();
 
-        if (techstack.includes(select.value.toLowerCase())) {
-          displayCard = true;
-        }
+  //       if (techstack.includes(select.value.toLowerCase())) {
+  //         displayCard = true;
+  //       }
+  //     });
+
+  //     card.style.display = displayCard ? "flex" : "none";
+  //   });
+  // });
+
+  const filters = document.querySelectorAll(".project_type_select.chip");
+
+  filters.forEach((filter) => {
+    const filterValue = filter.dataset.filter.toLowerCase();
+
+    // Count the number of matching cards
+    const count = Array.from(cards).filter((card) => {
+      const isClientWork = card.querySelector(".clienttag");
+      const isFeatured = card.querySelector(".featuredtag");
+      const isWebsite = card
+        .querySelector(".card-type")
+        .textContent.toLowerCase()
+        .includes("website");
+      const isMobileApp = card
+        .querySelector(".card-type")
+        .textContent.toLowerCase()
+        .includes("mobile app");
+
+      return (
+        (filterValue === "client work" && isClientWork) ||
+        (filterValue === "featured" && isFeatured) ||
+        (filterValue === "websites" && isWebsite) ||
+        (filterValue === "mobile apps" && isMobileApp)
+      );
+    }).length;
+
+    const countSpan = document.createElement("span");
+    countSpan.classList.add("filter-count");
+    countSpan.textContent = `${count}`;
+    filter.appendChild(countSpan);
+
+    filter.addEventListener("click", () => {
+      // Toggle the selected class on the clicked filter
+      filter.classList.toggle("selected");
+
+      // Get all selected filters
+      const activeFilters = Array.from(filters)
+        .filter((f) => f.classList.contains("selected"))
+        .map((f) => f.dataset.filter.toLowerCase());
+
+      // Update card visibility based on active filters
+      cards.forEach((card) => {
+        // Get card's associated filters
+        const isClientWork = card.querySelector(".clienttag");
+        const isFeatured = card.querySelector(".featuredtag");
+        const isWebsite = card
+          .querySelector(".card-type")
+          .textContent.toLowerCase()
+          .includes("website");
+        const isMobileApp = card
+          .querySelector(".card-type")
+          .textContent.toLowerCase()
+          .includes("mobile app");
+
+        // Determine if the card matches any of the active filters
+        const shouldDisplay =
+          activeFilters.length === 0 ||
+          (activeFilters.includes("client work") && isClientWork) ||
+          (activeFilters.includes("featured") && isFeatured) ||
+          (activeFilters.includes("websites") && isWebsite) ||
+          (activeFilters.includes("mobile apps") && isMobileApp);
+
+        card.style.display = shouldDisplay ? "flex" : "none";
       });
-
-      card.style.display = displayCard ? "flex" : "none";
     });
   });
 }
@@ -150,6 +234,8 @@ function modifyScrollBar() {
 }
 
 function updateProgressBarandBtn() {
+  console.log("hey");
+
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
   const scrollPercent = percentage + "%";
@@ -246,8 +332,17 @@ function addMouseHovers() {
 //   return reversedObj;
 // }
 
-function processDataAndHidePreloader(snapshot) {
-  const projects = snapshot.val();
+async function processDataAndHidePreloader() {
+  let db = {};
+  try {
+    const response = await fetch("./db/db.json");
+    db = await response.json();
+  } catch (e) {
+    return;
+  }
+
+  // const projects = snapshot.val();
+  const projects = db.Projects;
 
   const cards = document.querySelector(".cards");
 
@@ -406,29 +501,8 @@ function processDataAndHidePreloader(snapshot) {
 
   removePreloader();
 
-  const select = document.querySelector(".project_type_select");
-  const tech_stack = document.querySelectorAll(".card-tech-stack text");
-
-  const uniqueValues = Array.from(tech_stack)
-    .map((element) => element.textContent.trim())
-    .filter(
-      (item, index, self) =>
-        self.findIndex(
-          (other) => other.toLowerCase() === item.toLowerCase()
-        ) === index
-    )
-    .filter((value, index, array) => array.indexOf(value) === index)
-    .sort();
-
-  uniqueValues.forEach((value) => {
-    const option = document.createElement("option");
-    option.value = value;
-    option.textContent = value;
-    select.appendChild(option);
-  });
-
   searchCards();
-  filterCards(select);
+  filterCards();
   setupHearts();
 }
 
@@ -936,7 +1010,9 @@ function removePreloader() {
   observerTranslate.observe(document.querySelector(".title"));
 }
 
-function processProjectIcons(snapshot) {
+async function processProjectIcons() {
+  const [snapshot] = await Promise.all([get(SoftwareIconsRef)]);
+
   const logosSlide = document.querySelector(".logos-slide");
 
   snapshot.forEach((childSnapshot) => {
