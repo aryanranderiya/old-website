@@ -1,89 +1,86 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const fs = require("fs");
+
+// Dynamically create an entry point for each JavaScript file in `docs/js`
+const jsFiles = fs
+  .readdirSync(path.resolve(__dirname, "docs/js"))
+  .filter((file) => file.endsWith(".js"))
+  .reduce((entries, file) => {
+    const name = path.basename(file, ".js"); // Use the file name (without extension) as the entry name
+    entries[name] = path.resolve(__dirname, `docs/js/${file}`);
+    return entries;
+  }, {});
 
 module.exports = {
-  // Entry points: include all your HTML and JS files here
-  entry: {
-    app: "./docs/js/index.js", // Main entry JS file (make sure this is your starting JS file)
+  externals: {
+    "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js": "marked",
+    "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js": "firebase",
+    "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js":
+      "firebase.database",
+    "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js":
+      "firebase.storage",
   },
-
-  // Output settings
+  entry: jsFiles, // Separate entry points for each JS file
   output: {
-    filename: "js/[name].[contenthash].js", // Name pattern for bundled JS files
-    path: path.resolve(__dirname, "dist"), // Output folder for everything
-    clean: true, // Clean the output folder before each build
+    filename: "js/[name].js", // Each file will have its own output
+    path: path.resolve(__dirname, "build"),
+    clean: true,
   },
-
-  // Handling various file types
   module: {
     rules: [
-      // Handle JS files
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: "babel-loader", // Optional: use Babel to transpile JS
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
-
-      // Handle CSS files with CSS modules
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
-          "style-loader", // Inject styles into DOM
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
               modules: {
-                localIdentName: "[hash:base64]", // Generate hashed class names
+                localIdentName: "[hash:base64:8]", // Obfuscate class names
               },
             },
           },
         ],
       },
-
-      // Handle HTML files with HtmlWebpackPlugin
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-            options: { minimize: true }, // Minimize HTML files
-          },
-        ],
-      },
-
-      // Handle assets (images, fonts, etc.)
-      {
-        test: /\.(jpg|jpeg|png|gif|svg|woff|woff2|eot|ttf|otf)$/,
-        type: "asset/resource",
-      },
     ],
   },
-
-  // Plugins
   plugins: [
-    // HTML Webpack Plugin for each HTML file
-    new HtmlWebpackPlugin({
-      template: "./docs/index.html", // Template HTML file
-      filename: "index.html", // Output filename for the HTML
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "css/[name].[contenthash].css",
     }),
-
-    // Automatically add more HTML files
-    new HtmlWebpackPlugin({
-      template: "./docs/anotherpage.html", // Add more HTML files here
-      filename: "anotherpage.html", // Output filename for another HTML page
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "docs"), // Copy everything from the `docs` folder
+          to: path.resolve(__dirname, "build"), // Output to the `build` folder
+          globOptions: {
+            ignore: ["**/js/**"], // Exclude JavaScript files, as they are bundled
+          },
+        },
+      ],
     }),
-
-    // More HTML Webpack Plugins can be added for other pages
   ],
-
-  // Webpack optimization for production
   optimization: {
-    minimize: true, // Enable minification for production
+    minimize: true,
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
-
-  // Enable source maps for debugging (optional)
-  devtool: "source-map",
-
-  // Set mode (production is best for minification)
-  mode: "production",
+  resolve: {
+    extensions: [".js"],
+  },
 };

@@ -1,0 +1,1 @@
+(()=>{var t=document.querySelector(".cursor"),e=document.querySelector(".cursor_bg");document.addEventListener("mousemove",(function(c){requestAnimationFrame((function(){t.style.left="".concat(c.clientX,"px"),t.style.top="".concat(c.clientY,"px"),setTimeout((function(){e&&(e.style.left="".concat(c.clientX,"px"),e.style.top="".concat(c.clientY,"px"))}),100)}))}))})();

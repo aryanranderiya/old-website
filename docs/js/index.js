@@ -9,7 +9,7 @@ function gtag() {
 gtag("js", new Date());
 
 gtag("config", "G-S3XP36W3P9");
-
+const cursor = document.querySelector(".cursor");
 const cursoriconwave = document.getElementById("cursoriconwave");
 const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");

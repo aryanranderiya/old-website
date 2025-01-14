@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me</title>
+    <link rel="stylesheet" type="text/css" href="css/cursor.css" />
+    <link rel="stylesheet" type="text/css" href="css/success.css" />
+    <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+    <link rel="stylesheet" type="text/css" href="css/preloader.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./media/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./media/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./media/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./media/favicons/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#00bbff" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    .
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script
+      async
+      src="https://kit.fontawesome.com/2fafe620ef.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-S3XP36W3P9");
+    </script>
+  </head>
+
+  <body>
+    <div class="black_cover visible center-content">
+      <div class="preloader">
+        <div id="loading_text_container">
+          <text id="loading_text"></text>
+        </div>
+        <div class="loader_container"></div>
+      </div>
+      <div class="custom-shape-divider-top-1707225707">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <!--! Custom Cursor -->
+    <div class="cursor">
+      <h1 id="cursortext">Languages</h1>
+      <span class="material-symbols-rounded" id="cursoricon1">
+        arrow_forward
+      </span>
+      <span class="material-symbols-rounded" id="cursoricon2">
+        arrow_downward
+      </span>
+      <span class="material-symbols-rounded" id="cursoricon3">
+        open_in_new
+      </span>
+      <img src="media/icons/ios_icon_point_top.webp" id="cursoricon5" />
+    </div>
+
+    <!--! Navigation Bar -->
+    <header id="navbarContainer" style="height: 50px"></header>
+
+    <div class="cursor_glow_div">
+      <span class="cursor_glow"></span>
+    </div>
+
+    <section>
+      <div class="content_div">
+        <i class="fa-regular fa-circle-check tick_icon"></i>
+        <span class="submitted_title">Form submitted successfully!</span>
+        <span class="submitted_desc">
+          Thank You! The contact form has been succesfully submitted! <br />
+          I will get back to you (on your specified E-Mail address) as soon as
+          possible!
+        </span>
+        <button
+          class="button_blue"
+          id="btn1"
+          onclick="history.back()"
+          aria-label="Go Back"
+        >
+          Go Back&nbsp;
+          <div class="icon">
+            <span style="color: #00bbff" class="material-symbols-rounded"
+              >arrow_back</span
+            >
+          </div>
+        </button>
+      </div>
+    </section>
+    <a href="https://aryanranderiya.com" class="websitename"
+      >aryanranderiya.com</a
+    >
+  </body>
+  <script defer src="js/navbar.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/success.js"></script>
+  <script src="js/preloader.js"></script>
+</html>

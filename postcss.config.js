@@ -2,6 +2,8 @@ module.exports = {
   plugins: [
     require("tailwindcss"),
     require("autoprefixer"),
-    require("postcss-obfuscator")({}),
+    require("postcss-modules")({
+      generateScopedName: "[hash:base64:8]", // Custom obfuscation pattern
+    }),
   ],
 };

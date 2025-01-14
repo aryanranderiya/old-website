@@ -1,3 +1,6 @@
+const cursor = document.querySelector(".cursor");
+const cursor_bg = document.querySelector(".cursor_bg");
+
 async function loadNavbar() {
   const navbarContainer = document.getElementById("navbarContainer");
 
