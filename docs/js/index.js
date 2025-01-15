@@ -429,37 +429,37 @@ async function setupServices(db) {
 
 function setupAnimationLargeText() {
   async function doConfetti(angle, xOrigin = 0, yOrigin = 0.2, emojis = []) {
-    confetti({
-      particleCount: 20,
-      angle,
-      origin: { x: xOrigin, y: yOrigin },
-      shapes: ["image"],
-      scalar: 3,
-      wobble: {
-        distance: 10,
-        enable: true,
-      },
-      shapeOptions: {
-        image: emojis.map((emoji) => {
-          return {
-            src: `https://emojicdn.elk.sh/${emoji}`,
-            width: 30,
-            height: 30,
-          };
-        }),
-      },
-      // particles: {
-      //   move: {
-      //     decay: 0.01,
-      //   },
-      //   opacity: {
-      //     animation: {
-      //       enable: true,
-      //       speed: 10,
-      //     },
-      //   },
-      // },
-    });
+    // confetti({
+    //   particleCount: 20,
+    //   angle,
+    //   origin: { x: xOrigin, y: yOrigin },
+    //   shapes: ["image"],
+    //   scalar: 3,
+    //   wobble: {
+    //     distance: 10,
+    //     enable: true,
+    //   },
+    //   shapeOptions: {
+    //     image: emojis.map((emoji) => {
+    //       return {
+    //         src: `https://emojicdn.elk.sh/${emoji}`,
+    //         width: 30,
+    //         height: 30,
+    //       };
+    //     }),
+    //   },
+    // particles: {
+    //   move: {
+    //     decay: 0.01,
+    //   },
+    //   opacity: {
+    //     animation: {
+    //       enable: true,
+    //       speed: 10,
+    //     },
+    //   },
+    // },
+    // });
   }
 
   const tl = gsap.timeline({

@@ -4,6 +4,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const fs = require("fs");
 
 // Dynamically create an entry point for each JavaScript file in `docs/js`
@@ -39,7 +40,16 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  targets: {
+                    browsers: "defaults",
+                  },
+                },
+              ],
+            ],
           },
         },
       },
@@ -78,7 +88,11 @@ module.exports = {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+    minimizer: [
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
+      new HtmlMinimizerPlugin(), // Add the HTML minimizer plugin here
+    ],
   },
   resolve: {
     extensions: [".js"],
