@@ -15,6 +15,7 @@ const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
 const title_heading_1 = document.querySelector(".title_heading_1");
+const cursoricon2 = document.getElementById("cursoricon2");
 
 // const section_replacements = document.querySelectorAll(".section_replacement");
 // const sections_main = document.querySelectorAll("section");
@@ -666,7 +667,6 @@ function addListeners(scrollBtn) {
   // const span_dev = document.getElementById("span_dev");
   // const span_age = document.getElementById("span_age");
   // const span_entrepreneur = document.getElementById("span_entre");
-  const cursoricon2 = document.getElementById("cursoricon2");
   // const subcontent1_text = document.querySelector(".subcontent1_text");
   // ! Scroll on button click
 
@@ -945,6 +945,29 @@ async function setupFeaturedClients(db) {
       "mt-[-70px]"
     );
 
+    card.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(9)", "none");
+      cursor.style.outlineStyle = "solid";
+      cursor.style.outlineColor = "white";
+      cursor.style.outlineWidth = "0.1px";
+      cursor.style.backgroundColor = "#00000050";
+      cursortext.innerHTML = `CLICK TO VIEW MORE`;
+      //  <br> <span class="timesi italic uppercase text-[1.9px]">${clientProject.project_title}</span>`;
+      cursortext.classList.add("text-black", "text-[1px]", "!font-bold");
+      cursortext.style.transform = "scale(0.7)";
+      addClass(cursor, "partially_transparent");
+      addClass(cursortext, "active");
+    });
+
+    card.addEventListener("mouseout", () => {
+      cursor.style.outline = "none";
+      cursorTransformShadowBlend();
+      cursor.style.backgroundColor = "white";
+      cursortext.classList.remove("text-black");
+      removeClass(cursor, "partially_transparent");
+      removeClass(cursortext, "active");
+    });
+
     // Header with title and link
     const headerDiv = document.createElement("div");
     headerDiv.classList.add(
@@ -1220,9 +1243,42 @@ async function setupFeaturedClients(db) {
   const closePopup = document.getElementById("closePopup");
   const prevImage = document.getElementById("prevImage");
   const nextImage = document.getElementById("nextImage");
+  const dotsContainer = document.querySelector(".dotsContainer");
 
   let currentImages = [];
   let currentIndex = 0;
+
+  function updateDots() {
+    // Clear existing dots
+    dotsContainer.innerHTML = "";
+
+    if (currentImages.length > 1)
+      currentImages.forEach((_, index) => {
+        const dot = document.createElement("div");
+        dot.classList.add(
+          "dot",
+          "w-2",
+          "h-2",
+          "rounded-full",
+          "cursor-pointer",
+          "bg-gray-500"
+        );
+
+        if (index === currentIndex) {
+          dot.classList.remove("bg-gray-500");
+          dot.classList.add("bg-white");
+        }
+
+        // Add click event to jump to the corresponding image
+        dot.addEventListener("click", () => {
+          currentIndex = index;
+          updateImage();
+          updateDots();
+        });
+
+        dotsContainer.appendChild(dot);
+      });
+  }
 
   function openPopup(images, title, description, startIndex = 0) {
     currentImages = images;
@@ -1240,7 +1296,6 @@ async function setupFeaturedClients(db) {
   }
 
   function closePopupHandler() {
-    console.log("hey there");
     popupContent.classList.remove("scale-100", "translate-y-0");
     popupContent.classList.add("translate-y-[100%]");
     setTimeout(() => {
@@ -1251,6 +1306,7 @@ async function setupFeaturedClients(db) {
   function updateImage() {
     if (currentImages.length > 0) {
       popupImage.src = currentImages[currentIndex];
+      updateDots();
     }
   }
 
@@ -1285,6 +1341,14 @@ async function setupFeaturedClients(db) {
         clientProject.project_images.length > 0
           ? clientProject.project_images
           : [clientProject.banner_image_URL];
+
+      if (projectImages.length <= 1) {
+        prevImage.classList.add("hidden");
+        nextImage.classList.add("hidden");
+      } else {
+        prevImage.classList.remove("hidden");
+        nextImage.classList.remove("hidden");
+      }
 
       const projectTitle = clientProject.project_title || "Untitled Project";
       const projectDescription =

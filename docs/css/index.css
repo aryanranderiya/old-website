@@ -411,6 +411,10 @@ header {
   font-style: italic;
 }
 
+.times {
+  font-family: Times !important;
+}
+
 .scroll_btn:hover::before {
   font-size: 18px;
   opacity: 1;
