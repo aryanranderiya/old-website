@@ -279,7 +279,7 @@ function addMouseHovers() {
   logos.addEventListener(
     "mouseover",
     () => {
-      cursor.style.transform = "scale(8)";
+      cursor.style.transform = "scale(10)";
       cursor.style.boxShadow = "none";
       cursor.style.outlineWidth = "0px";
       addClass(cursortext, "active");
@@ -369,6 +369,10 @@ async function processDataAndHidePreloader() {
       const card = document.createElement("div");
       addClass(card, "card");
 
+      // <span class="card-type">
+      //   <i>${projectType === "Web Application" ? "Website" : projectType}</i>
+      // </span>;
+
       card.innerHTML = `
       <div class="card-content">
       </div>
@@ -383,9 +387,7 @@ async function processDataAndHidePreloader() {
           <div class="card-info">
             <div class="card-info-title">
               <span class="card-title">${projectTitle}</span>
-              <span class="card-type"><i>${
-                projectType === "Web Application" ? "Website" : projectType
-              }</i></span>
+      
               <div class="card-tech-stack">
               <div class="special-tags">
               ${
@@ -423,12 +425,14 @@ async function processDataAndHidePreloader() {
         </div>
       </div>
       <div class="buttons">
-        <button class="button_secondary view_project" aria-label="View Project Info" onClick='window.location.href="Project.html?id=${projectId}"'>
-          View Project
-          <div class="icon">
-            <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
-          </div>
-        </button>
+        <a href="./Project.html?id=${projectId}" class="w-full">
+          <button class="button_secondary view_project w-full" aria-label="View Project Info">
+            View Project
+            <div class="icon">
+              <i class="fa-solid fa-up-right-from-square btn_icon_2" style="font-size:1em"></i>
+            </div>
+          </button>
+        </a>
         <button class="heart_button">
           <div class="heart-container" title="Like">
             <input type="checkbox" id="${projectId}" class="heart_checkboxes">
@@ -646,7 +650,7 @@ function marqueeScrollAnimation() {
     .to(".logos-slide", {
       xPercent: -100,
       repeat: -1,
-      duration: 10,
+      duration: 25,
       ease: "linear",
     })
     .totalProgress(0.5);

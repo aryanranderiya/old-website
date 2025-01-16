@@ -20,6 +20,15 @@ body {
   margin: 0;
 }
 
+.relive {
+  font-family: Relive !important;
+}
+
+@font-face {
+  font-family: Relive;
+  src: url("../fonts/Relieve.ttf") format("truetype");
+}
+
 @font-face {
   font-family: Pilowlava;
   src: url("../fonts/Pilowlava-Regular.woff") format("woff");

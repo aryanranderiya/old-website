@@ -37,8 +37,6 @@
       "project_short_description": "The Official Website of Encode - The Computer Science Club at PDEU",
       "project_tech_stack": [
         "tailwindcss",
-        "HTML",
-        "CSS",
         "JavaScript",
         "MongoDB",
         "Express",
@@ -68,7 +66,6 @@
         "React",
         "Express",
         "Tailwind",
-        "Vitejs",
         "Mongodb",
         "Javascript",
         "Redis"
@@ -81,19 +78,11 @@
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2Fblog_project_banner.png",
       "demo_type": "none",
       "project_creation": "August 2024",
-      "project_description": "My personal blogging website",
+      "project_description": "My personal blogging website built using Next.js",
       "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2F13_project_Pesronal_Blog_1725057851497_documentation.md",
       "project_personal_comments": "My first project built using Next.js",
-      "project_short_description": "My personal blogging website",
-      "project_tech_stack": [
-        "nextjs",
-        "typescript",
-        "tailwindcss",
-        "sqlite",
-        "JavaScript",
-        "React",
-        "vitejs"
-      ],
+      "project_short_description": "My personal blogging website built using Next.js",
+      "project_tech_stack": ["nextjs", "typescript", "tailwindcss", "sqlite"],
       "project_title": "Personal Blog",
       "project_type": "Website"
     },
@@ -122,7 +111,7 @@
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2Fmwicollage.png",
       "demo_type": "demo_pc_image",
       "project_creation": "October 2024",
-      "project_description": "Move With Intention",
+      "project_description": "Move With Intention. Commissioned Client work.",
       "project_images": [
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ClientWork/mwicollage.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
@@ -148,10 +137,8 @@
       "project_tech_stack": [
         "TypeScript",
         "TailwindCSS",
-        "MongoDB",
-        "Express",
-        "React",
-        "Nodejs"
+        "nextjs",
+        "tailwindcss"
       ],
       "project_title": "MWI",
       "project_type": "Web Application"
@@ -162,7 +149,7 @@
       "client_work": true,
       "demo_type": "none",
       "project_creation": "November 2024",
-      "project_description": "Greeting card creation application",
+      "project_description": "Create personalized greeting cards, send them via email, and receive responses. Use AI for card templates with an easy, Canva-like design interface.",
       "project_images": [
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ClientWork/lyfelanecollage.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/1.webp",
@@ -180,9 +167,8 @@
         ["lyfelane.com", "https://lyfelane.com"],
         ["Live URL", "https://life-lane.vercel.app"]
       ],
-      "project_short_description": "Greeting card creation application",
+      "project_short_description": "Create personalized greeting cards, send them via email, and receive responses. Use AI for card templates with an easy, Canva-like design interface.",
       "project_tech_stack": [
-        "Vitejs",
         "Google",
         "MongoDB",
         "Express",
@@ -280,7 +266,6 @@
       "project_short_description": "Generate custom or randomised short URLs that redirect to a long URL while facilitating link Expiration.",
       "project_tech_stack": [
         "Tailwind",
-        "Vercel",
         "MongoDB",
         "Express",
         "React",
@@ -338,7 +323,13 @@
       ],
       "project_personal_comments": "(The website you're currently viewing!) I spent so much time and effort (literally worked for months until I got burnt out 😅) working on this project, and as of today I still work on it now and then as it really holds a special place in my heart. I hope you enjoy!",
       "project_short_description": "Created a responsive portfolio website with smooth scrolling animations, interactive navigation, custom cursors, and dynamic content loaded from Firebase Realtime Database. Hosted on GitHub Pages and Firebase Hosting.",
-      "project_tech_stack": ["Firebase", "HTML", "CSS", "JavaScript"],
+      "project_tech_stack": [
+        "Firebase",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TailwindCSS"
+      ],
       "project_title": "Personal Portfolio",
       "project_type": "Website"
     },

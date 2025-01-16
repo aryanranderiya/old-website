@@ -1,5 +1,5 @@
 :root {
-  --card-color: rgba(10, 10, 10, 0.8);
+  --card-color: rgba(20, 20, 20, 0.8);
   /* --card-color: red; */
 }
 
@@ -36,7 +36,7 @@
     box-shadow 0.3s ease;
 
   filter: brightness(100%);
-  border: 1px solid rgb(48, 48, 48);
+  /* border: 1px solid rgb(48, 48, 48); */
   transform: translateY(10%);
 }
 
@@ -75,6 +75,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.2em;
+  margin-top: 0.6em;
 }
 
 .special-tags {
@@ -138,7 +139,7 @@
   object-fit: cover;
   background-image: url(../media//bg_aryan_swirl.webp);
   background-size: contain;
-  outline: 1px solid rgb(55, 55, 55);
+  /* outline: 1px solid rgb(55, 55, 55); */
 }
 
 .card-image-div {
@@ -258,14 +259,26 @@
   justify-content: center;
   bottom: -1px;
   position: absolute;
-  gap: 5px;
+  gap: 15px;
+}
+
+.buttons a,
+.buttons a button {
+  width: 100%;
 }
 
 .button_secondary {
   margin: 0;
-  background: rgba(10, 10, 10, 1);
-  border: 1px solid rgb(48, 48, 48);
-  box-shadow: 0px -25px 30px 0px black;
+  /* background: rgba(10, 10, 10, 1); */
+  /* outline: none; */
+  /* background-color: rgba(25, 25, 25, 0.9); */
+  background-color: rgba(35, 35, 35);
+  border: none;
+  position: relative;
+  bottom: 5px;
+  left: 5px;
+  /* border: 1px solid #00bbff; */
+  /* box-shadow: 0px -25px 30px 0px black; */
   flex-grow: 1;
 }
 
@@ -362,14 +375,24 @@ option {
   z-index: 2;
   gap: 15%;
   font-size: 1em;
+  position: relative;
+  bottom: 5px;
+  right: 5px;
   margin: 0;
-  background: rgba(10, 10, 10, 1);
-  border: 1px solid rgb(48, 48, 48);
-  box-shadow: 0px -25px 30px 0px black;
+  /* background-color: rgba(27, 27, 27, 0.9); */
+  background-color: rgba(35, 35, 35);
+  outline: none;
+  border: none;
   color: white;
-  height: 2.9em;
+  height: fit-content;
   padding: 1em;
+  max-height: 3em;
   border-radius: 15px;
+  /* border: 2px solid rgb(255, 60, 76); */
+  /* box-shadow: 0px -25px 30px 0px black; */
+  /* height: 2.6em; */
+  /* min-height: 2.4em; */
+  /* height: 2.4em; */
 }
 
 .heart_button:hover .heart-container,
@@ -473,10 +496,11 @@ option {
 .featuredtag,
 .clienttag,
 .hackathon {
-  background-color: rgb(255, 230, 10);
+  background-color: rgb(255, 177, 10, 0.3);
+  outline: 1px solid rgb(255, 177, 10);
   border-radius: 100px;
   padding: 0px 10px;
-  color: black;
+  color: rgb(255, 238, 201);
   padding: 0.7% 2%;
   display: flex;
   align-items: center;
@@ -489,9 +513,12 @@ option {
   font-size: 17px;
 }
 .hackathon {
-  background-color: rgb(46, 60, 255);
-  color: white;
+  background-color: rgba(46, 60, 255, 0.3);
+  outline: 2px solid rgb(46, 60, 255);
+  color: rgb(205, 208, 255);
 }
 .clienttag {
-  background-color: rgb(0, 255, 64);
+  background-color: rgb(0, 255, 64, 0.3);
+  outline: 2px solid rgb(0, 255, 64);
+  color: rgb(0, 255, 64);
 }
