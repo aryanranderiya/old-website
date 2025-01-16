@@ -337,25 +337,25 @@
           Software & Design related projects.
         </h1>
 
-        <div
+        <!-- <div
           class="absolute w-full justify-end h-screen items-center sm:flex hidden"
         >
           <div class="relative right-[23vw] sm:bottom-[21vh] group">
             <img
               class="size-[120px] rounded-xl absolute rotate-[7deg] z-[0] bg-zinc-800 group-hover:-rotate-[10deg] group-hover:-translate-x-8 transition-all"
               width="120px"
-              height="120px"
               src="./media/favicons/android-chrome-512x512.png"
+              height="120px"
             />
 
             <img
               class="size-[120px] rounded-xl absolute rotate-[7deg] z-[1] group-hover:rotate-[10deg] transition-all group-hover:translate-x-8"
               width="120px"
+              src="./media/notion_face.png"
               height="120px"
-              src="./media/selfie.webp"
             />
           </div>
-        </div>
+        </div> -->
 
         <div
           class="flex w-full justify-start items-center gap-3 max-w-screen-xl flex-col sm:flex-row pt-4"
@@ -459,7 +459,7 @@
 
       <div
         id="projectPopup"
-        class="hidden fixed inset-0 z-[5000] items-center justify-center select-none"
+        class="hidden fixed inset-0 z-[5000] items-center justify-center select-none rounded-none"
       >
         <div
           id="popupContent"
@@ -488,19 +488,23 @@
               class="absolute bottom-4 flex-row flex justify-between dotsContainer gap-1"
             ></div>
 
-            <!-- Navigation Buttons -->
-            <button
-              id="prevImage"
-              class="absolute left-7 text-xl text-white bg-[#00bbff] bg-opacity-35 rounded-full px-3 py-1 border-[#00bbff] border-[2px] border-solid"
+            <div
+              class="flex flex-row w-full justify-around absolute sm:relative bottom-[15vh]"
             >
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button
-              id="nextImage"
-              class="absolute right-7 text-xl text-white bg-[#00bbff] bg-opacity-35 rounded-full px-3 py-1 border-[#00bbff] border-[2px] border-solid"
-            >
-              <i class="fas fa-chevron-right"></i>
-            </button>
+              <!-- Navigation Buttons -->
+              <button
+                id="prevImage"
+                class="sm:absolute relative left-7 text-2xl text-white bg-[#00bbff] bg-opacity-35 rounded-full size-12 min-w-12 max-w-12 min-h-12 max-h-12 border-[#00bbff] border-[2px] border-solid"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button
+                id="nextImage"
+                class="sm:absolute relative right-7 text-2xl text-white bg-[#00bbff] bg-opacity-35 rounded-full size-12 min-w-12 max-w-12 min-h-12 max-h-12 border-[#00bbff] border-[2px] border-solid"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
           </div>
 
           <!-- Title and Description -->
@@ -551,7 +555,7 @@
 
       <section class="services_section" id="section5">
         <div class="services">
-          <span class="title_heading sm:text-7xl text-4xl ogg"
+          <span class="title_heading sm:text-7xl text-4xl"
             >MY SERVICES <i class="fa-solid fa-hand-holding-heart"></i>
           </span>
         </div>

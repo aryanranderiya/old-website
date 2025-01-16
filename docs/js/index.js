@@ -14,6 +14,7 @@ const cursoriconwave = document.getElementById("cursoriconwave");
 const scrollBtn = document.querySelector(".scroll_btn");
 const welcoming = document.querySelector(".welcoming");
 const subcontent1 = document.querySelector(".subcontent1");
+const section_about = document.querySelector("#section_about");
 const title_heading_1 = document.querySelector(".title_heading_1");
 const cursoricon2 = document.getElementById("cursoricon2");
 
@@ -674,8 +675,7 @@ function addListeners(scrollBtn) {
     cursorTransformShadowBlend();
     removeClass(cursoricon2, "active");
 
-    subcontent1.scrollIntoView({
-      top: subcontent1.offsetTop + 200,
+    section_about.scrollIntoView({
       behavior: "smooth",
     });
   });
@@ -926,7 +926,7 @@ async function setupFeaturedClients(db) {
       "outline",
       "outline-[black]",
       "outline-[2px]",
-      "rounded-2xl",
+      "rounded-3xl",
       "min-h-fit",
       "clientProjectCard",
       "sm:min-h-[0vh]",
@@ -935,7 +935,8 @@ async function setupFeaturedClients(db) {
       "flex",
       "flex-col",
       "box-border",
-      "px-5",
+      "sm:px-5",
+      "px-3",
       "py-2",
       "sm:pb-3",
       "pb-[30px]",
@@ -981,54 +982,55 @@ async function setupFeaturedClients(db) {
     const titleDiv = document.createElement("div");
     titleDiv.classList.add(
       "w-full",
-      "text-xl",
+      "sm:text-xl",
+      "text-lg",
       "font-bold",
       "uppercase",
       "text-center"
     );
     titleDiv.textContent = clientProject.project_title;
 
-    const mainProjectLink = clientProject.project_links[0][1];
-    if (mainProjectLink) {
-      const anchor = document.createElement("a");
-      anchor.classList.add(
-        "client_anchor",
-        "w-fit",
-        "h-fit",
-        "bg-white",
-        "text-black",
-        "sm:text-lg",
-        "text-md",
-        "text-right",
-        "font-bold",
-        "uppercase",
-        "rounded-full",
-        "outline",
-        "outline-2",
-        "py-0",
-        "px-5",
-        "text-nowrap"
-      );
-      anchor.textContent = "View";
-      anchor.href = mainProjectLink;
-      anchor.target = "_blank";
+    // const mainProjectLink = clientProject.project_links[0][1];
+    // if (mainProjectLink) {
+    //   const anchor = document.createElement("a");
+    //   anchor.classList.add(
+    //     "client_anchor",
+    //     "w-fit",
+    //     "h-fit",
+    //     "bg-white",
+    //     "text-black",
+    //     "sm:text-lg",
+    //     "text-md",
+    //     "text-right",
+    //     "font-bold",
+    //     "uppercase",
+    //     "rounded-full",
+    //     "outline",
+    //     "outline-2",
+    //     "py-0",
+    //     "px-5",
+    //     "text-nowrap"
+    //   );
+    //   anchor.textContent = "View";
+    //   anchor.href = mainProjectLink;
+    //   anchor.target = "_blank";
 
-      headerDiv.appendChild(anchor);
-      headerDiv.appendChild(titleDiv);
+    //   headerDiv.appendChild(anchor);
 
-      anchor.addEventListener("mouseover", () => {
-        cursorTransformShadowBlend("scale(1.3)", "none");
-        addClass(cursor, "transparent");
-        addClass(cursoricon5, "active");
-      });
+    //   anchor.addEventListener("mouseover", () => {
+    //     cursorTransformShadowBlend("scale(1.3)", "none");
+    //     addClass(cursor, "transparent");
+    //     addClass(cursoricon5, "active");
+    //   });
 
-      anchor.addEventListener("mouseout", () => {
-        cursorTransformShadowBlend();
-        removeClass(cursor, "transparent");
-        removeClass(cursoricon5, "active");
-      });
-    }
+    //   anchor.addEventListener("mouseout", () => {
+    //     cursorTransformShadowBlend();
+    //     removeClass(cursor, "transparent");
+    //     removeClass(cursoricon5, "active");
+    //   });
+    // }
 
+    headerDiv.appendChild(titleDiv);
     card.appendChild(headerDiv);
 
     const contentDiv = document.createElement("div");
@@ -1102,99 +1104,99 @@ async function setupFeaturedClients(db) {
     contentDiv.appendChild(imageContainer2);
     card.appendChild(contentDiv);
 
-    const controlsContainer = document.createElement("div");
+    // const controlsContainer = document.createElement("div");
 
-    controlsContainer.classList.add(
-      // "sm:absolute",
-      // "relative",
-      // "sm:bottom-[40px]",
-      // "sm:bottom-0",
-      // "left-0",
-      // "w-full",
-      imagesArray.length > 1 ? "visible" : "invisible",
-      "flex",
-      "justify-center",
-      "z-[5]",
-      "controls_container"
-    );
+    // controlsContainer.classList.add(
+    //   // "sm:absolute",
+    //   // "relative",
+    //   // "sm:bottom-[40px]",
+    //   // "sm:bottom-0",
+    //   // "left-0",
+    //   // "w-full",
+    //   imagesArray.length > 1 ? "visible" : "invisible",
+    //   "flex",
+    //   "justify-center",
+    //   "z-[5]",
+    //   "controls_container"
+    // );
 
-    // Create the button container
-    const buttonContainer = document.createElement("div");
-    buttonContainer.classList.add(
-      "bg-black",
-      "rounded-full",
-      // "py-1",
-      // "px-1",
-      "flex",
-      "outline",
-      "items-center",
-      "gap-3",
-      "outline-black"
-    );
+    // // Create the button container
+    // const buttonContainer = document.createElement("div");
+    // buttonContainer.classList.add(
+    //   "bg-black",
+    //   "rounded-full",
+    //   // "py-1",
+    //   // "px-1",
+    //   "flex",
+    //   "outline",
+    //   "items-center",
+    //   "gap-3",
+    //   "outline-black"
+    // );
 
-    // Create the backward button
-    const controlBackward = document.createElement("i");
-    controlBackward.id = "control_backward";
-    controlBackward.classList.add(
-      "fa-solid",
-      "fa-circle-chevron-left",
-      "text-[30px]",
-      "text-white"
-    );
+    // // Create the backward button
+    // const controlBackward = document.createElement("i");
+    // controlBackward.id = "control_backward";
+    // controlBackward.classList.add(
+    //   "fa-solid",
+    //   "fa-circle-chevron-left",
+    //   "text-[30px]",
+    //   "text-white"
+    // );
 
-    // Create the forward button
-    const controlForward = document.createElement("i");
-    controlForward.id = "control_forward";
-    controlForward.classList.add(
-      "fa-solid",
-      "fa-circle-chevron-right",
-      "text-[30px]",
-      "text-white"
-    );
+    // // Create the forward button
+    // const controlForward = document.createElement("i");
+    // controlForward.id = "control_forward";
+    // controlForward.classList.add(
+    //   "fa-solid",
+    //   "fa-circle-chevron-right",
+    //   "text-[30px]",
+    //   "text-white"
+    // );
 
-    // Add event listeners to cycle images on button click
-    controlBackward.addEventListener("click", () => {
-      if (imagesArray.length <= 1) return;
+    // // Add event listeners to cycle images on button click
+    // controlBackward.addEventListener("click", () => {
+    //   if (imagesArray.length <= 1) return;
 
-      currentImageIndex =
-        (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
-      preloadedImages[currentImageIndex].then((preloadedURL) => {
-        image.src = preloadedURL; // Update the image with the preloaded URL
-      });
-    });
+    //   currentImageIndex =
+    //     (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
+    //   preloadedImages[currentImageIndex].then((preloadedURL) => {
+    //     image.src = preloadedURL; // Update the image with the preloaded URL
+    //   });
+    // });
 
-    controlForward.addEventListener("click", () => {
-      if (imagesArray.length <= 1) return;
+    // controlForward.addEventListener("click", () => {
+    //   if (imagesArray.length <= 1) return;
 
-      currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
-      preloadedImages[currentImageIndex].then((preloadedURL) => {
-        image.src = preloadedURL; // Update the image with the preloaded URL
-      });
-    });
+    //   currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
+    //   preloadedImages[currentImageIndex].then((preloadedURL) => {
+    //     image.src = preloadedURL; // Update the image with the preloaded URL
+    //   });
+    // });
 
-    [controlBackward, controlForward].forEach((control) => {
-      control.addEventListener("mouseover", () => {
-        cursorTransformShadowBlend("scale(1.3)", "none");
-        addClass(cursor, "transparent");
-        addClass(cursoricon5, "active");
-      });
+    // [controlBackward, controlForward].forEach((control) => {
+    //   control.addEventListener("mouseover", () => {
+    //     cursorTransformShadowBlend("scale(1.3)", "none");
+    //     addClass(cursor, "transparent");
+    //     addClass(cursoricon5, "active");
+    //   });
 
-      control.addEventListener("mouseout", () => {
-        cursorTransformShadowBlend();
-        removeClass(cursor, "transparent");
-        removeClass(cursoricon5, "active");
-      });
-    });
+    //   control.addEventListener("mouseout", () => {
+    //     cursorTransformShadowBlend();
+    //     removeClass(cursor, "transparent");
+    //     removeClass(cursoricon5, "active");
+    //   });
+    // });
 
     // Append the backward and forward buttons to the button container
-    buttonContainer.appendChild(controlBackward);
-    buttonContainer.appendChild(controlForward);
+    // buttonContainer.appendChild(controlBackward);
+    // buttonContainer.appendChild(controlForward);
 
     // Append the button container to the controls container
-    controlsContainer.appendChild(buttonContainer);
+    // controlsContainer.appendChild(buttonContainer);
 
     // card.appendChild(controlsContainer);
-    headerDiv.appendChild(controlsContainer);
+    // headerDiv.appendChild(controlsContainer);
     fragment.appendChild(card);
     ScrollTrigger.refresh();
   });
@@ -1245,6 +1247,20 @@ async function setupFeaturedClients(db) {
   const nextImage = document.getElementById("nextImage");
   const dotsContainer = document.querySelector(".dotsContainer");
 
+  [nextImage, prevImage, closePopup].forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.3)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    element.addEventListener("mouseout", () => {
+      cursorTransformShadowBlend();
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+    });
+  });
+
   let currentImages = [];
   let currentIndex = 0;
 
@@ -1261,11 +1277,11 @@ async function setupFeaturedClients(db) {
           "h-2",
           "rounded-full",
           "cursor-pointer",
-          "bg-gray-500"
+          "bg-gray-600"
         );
 
         if (index === currentIndex) {
-          dot.classList.remove("bg-gray-500");
+          dot.classList.remove("bg-gray-600");
           dot.classList.add("bg-white");
         }
 
@@ -1442,7 +1458,7 @@ async function setupTestimonials(db) {
       start: "top-=100 top",
       end: "bottom-=370 top",
       pin: true,
-      anticipatePin: true,
+      // anticipatePin: true,
       scrub: true,
     },
   });

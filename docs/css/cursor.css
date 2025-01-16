@@ -113,7 +113,7 @@
 }
 
 .cursor.transparent {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .cursor.partially_transparent {

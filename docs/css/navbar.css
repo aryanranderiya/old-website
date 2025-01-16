@@ -71,7 +71,7 @@ body {
   opacity: 1;
   transition: all 0.2s ease;
   -webkit-transition: all 0.2s ease;
-  outline: 1px solid rgb(179, 179, 179);
+  outline: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   backdrop-filter: blur(50px);
   padding: 0px 20px 0 10px;
@@ -212,7 +212,7 @@ a {
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   align-items: center;
-  line-height: 10px;
+  /* line-height: 10px; */
   transform: translateX(15%);
 }
 

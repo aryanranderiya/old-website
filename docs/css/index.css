@@ -188,7 +188,7 @@ header {
 
 .aryan_randeriya {
   transform: translateY(100%);
-  font-size: clamp(3.3em, 10vw, 8em);
+  font-size: clamp(3.1em, 10vw, 8em);
   /* font-family: "Times New Roman", Times, serif; */
 }
 
