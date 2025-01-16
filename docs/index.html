@@ -15,6 +15,16 @@
         src: url("./fonts/Helvetica.woff2") format("woff2");
       }
 
+      @font-face {
+        font-family: Pilowlava;
+        src: url("./fonts/Pilowlava-Regular.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: Pilowlava;
+        src: url("./fonts/Pilowlava-Regular.woff2") format("woff2");
+      }
+
       * {
         font-family: Helvs;
       }
@@ -77,6 +87,11 @@
         font-style: italic;
         src: url("./fonts/Ogg-MediumItalic-BF646c18fc56520.otf")
           format("opentype");
+      }
+
+      @font-face {
+        font-family: Relive;
+        src: url("./fonts/Relieve.ttf") format("truetype");
       }
     </style>
 
@@ -437,11 +452,72 @@
       <!-- <div class="max-w-screen overflow-hidden"> -->
       <section class="clientsection box-border" id="section3">
         <span
-          class="title text-[9.5vw] overflow-hidden text-nowrap sticky sm:!top-[0px] top-[10px] box-border max-w-screen right-[-100%] leading-none"
+          class="title text-[8vw] overflow-hidden text-nowrap sticky sm:!top-[0px] top-[10px] box-border max-w-screen right-[-100%] leading-none"
           >CLIENT SHOWCASE</span
         >
       </section>
-      <!-- </div> -->
+
+      <div
+        id="projectPopup"
+        class="hidden fixed inset-0 z-[5000] items-center justify-center select-none"
+      >
+        <div
+          id="popupContent"
+          class="relative rounded-xl shadow-xl w-screen bg-black bg-opacity-80 backdrop-blur-xl h-screen overflow-hidden flex flex-col transition-transform scale-0 translate-y-[100%]"
+        >
+          <!-- Close Icon -->
+          <button
+            id="closePopup"
+            class="absolute top-7 right-7 text-3xl font-bold text-white bg-transparent outline-none border-none z-[2]"
+          >
+            &times;
+          </button>
+
+          <!-- Image Section -->
+          <div
+            class="relative flex-grow overflow-hidden flex items-center justify-center"
+          >
+            <img
+              id="popupImage"
+              src=""
+              alt="Project Image"
+              class="rounded-2xl object-cover max-h-[90%] max-w-[90%] select-none"
+            />
+
+            <!-- Navigation Buttons -->
+            <button
+              id="prevImage"
+              class="absolute left-4 text-xl text-white bg-[#00bbff] bg-opacity-35 rounded-full px-3 py-1 border-[#00bbff] border-[2px] border-solid"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              id="nextImage"
+              class="absolute right-4 text-xl text-white bg-[#00bbff] bg-opacity-35 rounded-full px-3 py-1 border-[#00bbff] border-[2px] border-solid"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- Title and Description -->
+          <div class="p-4 text-center text-white">
+            <h2 id="popupTitle" class="text-2xl font-bold mb-2 uppercase">
+              Project Title
+            </h2>
+            <p id="popupDescription" class="text-gray-300">
+              Project Description goes here.
+            </p>
+            <a
+              id="popupAnchor"
+              href=""
+              target="_blank"
+              class="!uppercase text-xs text-[#00bbff] font-medium"
+            >
+              <u> VIEW PROJECT </u>
+            </a>
+          </div>
+        </div>
+      </div>
 
       <div
         id="sectiontestimonial"

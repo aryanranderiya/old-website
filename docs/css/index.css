@@ -24,6 +24,14 @@
   font-family: "Ogg" !important;
 }
 
+.pilowlava {
+  font-family: Pilowlava !important;
+}
+
+.relive {
+  font-family: Relive !important;
+}
+
 html,
 body {
   margin: 0;

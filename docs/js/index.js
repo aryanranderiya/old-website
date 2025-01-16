@@ -453,37 +453,37 @@ async function setupServices(db) {
 
 function setupAnimationLargeText() {
   async function doConfetti(angle, xOrigin = 0, yOrigin = 0.2, emojis = []) {
-    confetti({
-      particleCount: 20,
-      angle,
-      origin: { x: xOrigin, y: yOrigin },
-      shapes: ["image"],
-      scalar: 3,
-      wobble: {
-        distance: 10,
-        enable: true,
-      },
-      shapeOptions: {
-        image: emojis.map((emoji) => {
-          return {
-            src: `https://emojicdn.elk.sh/${emoji}`,
-            width: 30,
-            height: 30,
-          };
-        }),
-      },
-      // particles: {
-      //   move: {
-      //     decay: 0.01,
-      //   },
-      //   opacity: {
-      //     animation: {
-      //       enable: true,
-      //       speed: 10,
-      //     },
-      //   },
-      // },
-    });
+    // confetti({
+    //   particleCount: 20,
+    //   angle,
+    //   origin: { x: xOrigin, y: yOrigin },
+    //   shapes: ["image"],
+    //   scalar: 3,
+    //   wobble: {
+    //     distance: 10,
+    //     enable: true,
+    //   },
+    //   shapeOptions: {
+    //     image: emojis.map((emoji) => {
+    //       return {
+    //         src: `https://emojicdn.elk.sh/${emoji}`,
+    //         width: 30,
+    //         height: 30,
+    //       };
+    //     }),
+    //   },
+    // particles: {
+    //   move: {
+    //     decay: 0.01,
+    //   },
+    //   opacity: {
+    //     animation: {
+    //       enable: true,
+    //       speed: 10,
+    //     },
+    //   },
+    // },
+    // });
   }
 
   const tl = gsap.timeline({
@@ -939,7 +939,7 @@ async function setupFeaturedClients(db) {
 
     const card = document.createElement("div");
     const topValue = `${index * 45 + 10}px`;
-    const smTopValue = `${170}px`;
+    const smTopValue = `${8}vw`;
 
     card.style.top = window.innerWidth >= 600 ? smTopValue : topValue;
     card.classList.add(
@@ -948,8 +948,9 @@ async function setupFeaturedClients(db) {
       "outline",
       "outline-[black]",
       "outline-[2px]",
-      "rounded-3xl",
+      "rounded-2xl",
       "min-h-fit",
+      "clientProjectCard",
       "sm:min-h-[0vh]",
       "h-fit",
       "w-[95vw]",
@@ -1071,14 +1072,29 @@ async function setupFeaturedClients(db) {
     preloadedImages[0].then((preloadedURL) => {
       image.src = preloadedURL;
     });
-    image.classList.add("rounded-xl", "h-fit", "object-contain");
+    image.classList.add(
+      "rounded-3xl",
+      "h-fit",
+      "object-cover",
+      "sm:min-h-[80vh]",
+      "sm:max-h-[80vh]",
+      "aspect-video"
+    );
 
     image.addEventListener("load", () => {
       ScrollTrigger.refresh();
     });
 
     const imageContainer2 = document.createElement("div");
-    imageContainer2.classList.add("w-full", "flex", "flex-col", "relative");
+    imageContainer2.classList.add(
+      "w-full",
+      "flex",
+      "flex-col",
+      "relative",
+      "sm:min-h-[80vh]",
+      "sm:max-h-[80vh]",
+      "overflow-hidden"
+    );
     imageContainer2.appendChild(image);
 
     contentDiv.appendChild(imageContainer1);
@@ -1215,6 +1231,96 @@ async function setupFeaturedClients(db) {
     x: "-20%",
   });
   ScrollTrigger.refresh();
+
+  // ! Setting up popup
+
+  const popup = document.getElementById("projectPopup");
+  const popupContent = document.getElementById("popupContent");
+  const popupImage = document.getElementById("popupImage");
+  const popupTitle = document.getElementById("popupTitle");
+  const popupDescription = document.getElementById("popupDescription");
+  const closePopup = document.getElementById("closePopup");
+  const prevImage = document.getElementById("prevImage");
+  const nextImage = document.getElementById("nextImage");
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function openPopup(images, title, description, startIndex = 0) {
+    currentImages = images;
+    currentIndex = startIndex;
+
+    popupTitle.textContent = title;
+    popupDescription.textContent = description;
+    updateImage();
+
+    popup.classList.remove("hidden");
+    setTimeout(() => {
+      popupContent.classList.add("scale-100", "translate-y-0");
+      popupContent.classList.remove("translate-y-[100%]");
+    }, 10);
+  }
+
+  function closePopupHandler() {
+    console.log("hey there");
+    popupContent.classList.remove("scale-100", "translate-y-0");
+    popupContent.classList.add("translate-y-[100%]");
+    setTimeout(() => {
+      popup.classList.add("hidden");
+    }, 300); // Ensure this matches the CSS transition duration
+  }
+
+  function updateImage() {
+    if (currentImages.length > 0) {
+      popupImage.src = currentImages[currentIndex];
+    }
+  }
+
+  function prevImageHandler() {
+    if (currentImages.length > 1) {
+      currentIndex =
+        (currentIndex - 1 + currentImages.length) % currentImages.length;
+      updateImage();
+    }
+  }
+
+  function nextImageHandler() {
+    if (currentImages.length > 1) {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      updateImage();
+    }
+  }
+
+  closePopup.addEventListener("click", closePopupHandler);
+  prevImage.addEventListener("click", prevImageHandler);
+  nextImage.addEventListener("click", nextImageHandler);
+
+  // For testing purposes:
+  document.querySelectorAll(".clientProjectCard").forEach((card, index) => {
+    card.addEventListener("click", () => {
+      const projectData = projectPromises[index];
+      if (!projectData) return;
+
+      const { clientProject } = projectData;
+      const projectImages =
+        Array.isArray(clientProject.project_images) &&
+        clientProject.project_images.length > 0
+          ? clientProject.project_images
+          : [clientProject.banner_image_URL];
+
+      const projectTitle = clientProject.project_title || "Untitled Project";
+      const projectDescription =
+        clientProject.project_description || "No description available.";
+
+      openPopup(projectImages, projectTitle, projectDescription);
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !popup.classList.contains("hidden")) {
+      closePopupHandler();
+    }
+  });
 }
 
 async function setupTestimonials(db) {
