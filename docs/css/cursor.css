@@ -311,4 +311,8 @@
   .cursor_glow_three {
     width: 400px;
   }
+
+  .scrollbar_progress_container_parent {
+    display: none;
+  }
 }

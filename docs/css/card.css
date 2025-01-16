@@ -196,12 +196,36 @@
 }
 
 @media screen and (max-width: 600px) {
+  .search_div {
+    width: 93vw !important;
+  }
+
+  .cards {
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5%;
+    margin-bottom: 5em;
+    position: relative;
+    z-index: 1;
+    cursor: none; */
+    justify-content: center;
+    margin: 0 !important;
+  }
+
   .input_icon {
     margin: 5% !important;
   }
+  .search_and_filter_div {
+    flex-direction: row;
+  }
 
   .card {
-    min-width: 360px;
+    width: 90vw;
+    min-width: 95vw;
+    max-width: 95vw;
     filter: grayscale(0%) brightness(100%);
   }
 
@@ -253,7 +277,7 @@
   justify-content: flex-end;
   flex-direction: column;
   align-items: flex-end;
-  margin: 3% 5%;
+  margin: 0 5%;
 }
 
 .input-icons {

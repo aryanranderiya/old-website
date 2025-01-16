@@ -77,6 +77,11 @@ body {
 
 /* !Responsive */
 @media screen and (max-width: 600px) {
+  .project_filters_parent {
+    gap: 2px !important;
+    padding: 8% 3% 8% 3% !important;
+  }
+
   .title-heading {
     margin-top: 40px;
     transform: translateX(0%) !important;
@@ -427,4 +432,42 @@ anv .github_readme a {
 .github_readme tr {
   display: flex;
   flex-wrap: wrap;
+}
+
+.chip {
+  z-index: 2 !important;
+  padding: 5px 15px !important;
+  font-size: 1.2em !important;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  user-select: none;
+}
+
+.chip .material-symbols-rounded {
+  font-size: 20px;
+}
+
+.chip.selected {
+  background-color: #00bbff80;
+  border: solid 2px #00bbff;
+}
+
+.project_filters_parent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0.5% 5% 2% 5%;
+}
+
+.filter-count {
+  background-color: #ffffff40;
+  border-radius: 1000px;
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

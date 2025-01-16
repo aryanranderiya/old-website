@@ -1,6 +1,6 @@
 const cursor_glow = document.querySelector(".cursor_glow_div");
 const button_blue = document.querySelector(".button_blue");
-const cursoricon5 = document.querySelector("#cursoricon5");
+const cursor_icon5 = document.querySelector("#cursoricon5");
 const websitename = document.querySelector(".websitename");
 
 document.addEventListener("mousemove", (e) => {
@@ -9,29 +9,29 @@ document.addEventListener("mousemove", (e) => {
 });
 
 button_blue.addEventListener("mouseover", () => {
-  cursoricon5.style.opacity = "1";
-  cursoricon5.style.transform = "scale(1.3)";
+  cursor_icon5.style.opacity = "1";
+  cursor_icon5.style.transform = "scale(1.3)";
 
-  addClass(cursoricon5, "transparent");
+  addClass(cursor_icon5, "transparent");
   addClass(cursor, "transparent");
 });
 
 button_blue.addEventListener("mouseout", () => {
-  cursoricon5.style.opacity = "0";
-  removeClass(cursoricon5, "active");
+  cursor_icon5.style.opacity = "0";
+  removeClass(cursor_icon5, "active");
   removeClass(cursor, "transparent");
 });
 
 websitename.addEventListener("mouseover", () => {
-  cursoricon5.style.opacity = "1";
-  cursoricon5.style.transform = "scale(0.8)";
-  addClass(cursoricon5, "transparent");
+  cursor_icon5.style.opacity = "1";
+  cursor_icon5.style.transform = "scale(0.8)";
+  addClass(cursor_icon5, "transparent");
   addClass(cursor, "transparent");
 });
 
 websitename.addEventListener("mouseout", () => {
-  cursoricon5.style.opacity = "0";
-  removeClass(cursoricon5, "active");
+  cursor_icon5.style.opacity = "0";
+  removeClass(cursor_icon5, "active");
   removeClass(cursor, "transparent");
 });
 

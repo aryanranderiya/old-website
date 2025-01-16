@@ -1,11 +1,9 @@
-const cursortext2 = document.getElementById("cursortext2");
+const cursor_txt_2 = document.getElementById("cursortext2");
 const title_Heading = document.querySelector(".title-heading");
 const subtitle = document.querySelector(".softwareprojects_subtitle");
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
-
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 
@@ -16,8 +14,7 @@ import {
   onValue,
   update,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-
-const firebaseConfig = {
+const firebase = {
   apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
   authDomain: "aryanranderiya-portfolio.firebaseapp.com",
   projectId: "aryanranderiya-portfolio",
@@ -27,42 +24,22 @@ const firebaseConfig = {
   measurementId: "G-S3XP36W3P9",
 };
 
-initializeApp(firebaseConfig);
-const database = getDatabase();
+initializeApp(firebase);
+const firebase_db = getDatabase();
 
-fetchGithubData();
-
-// ! FIREBASE INIT END --------------------------------------------------------------------------------------
-
-const projectsRef = ref(database, "Projects/");
-const SoftwareIconsRef = ref(database, "SoftwareIcons/");
 try {
-  const [softwareIconsSnapshot, projectsSnapshot] = await Promise.all([
-    get(SoftwareIconsRef),
-    get(projectsRef),
-  ]);
-  processProjectIcons(softwareIconsSnapshot);
-  processDataAndHidePreloader(projectsSnapshot);
+  generateLoadingText();
+  processDataAndHidePreloader();
+  fetchGithubData();
+  processProjectIcons();
 } catch (error) {
-  console.error("Error fetching Firebase data:", error);
+  console.error("Error:", error);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   modifyScrollBar();
-
   addMouseHovers();
   document.addEventListener("scroll", updateProgressBarandBtn);
-
-  generateLoadingText();
-
-  const selectElement = document.querySelector(".project_type_select");
-
-  selectElement.addEventListener("change", function () {
-    if (this.selectedIndex === 0) selectElement.style.backgroundColor = "";
-    else selectElement.style.backgroundColor = "#00bbff";
-  });
-
-  // ! END OF DOMCONTENTLOADED
 });
 
 function searchCards() {
@@ -70,7 +47,7 @@ function searchCards() {
   const cards = document.querySelectorAll(".card");
 
   search_project.addEventListener("input", (e) => {
-    var searchText = e.target.value.trim().toLowerCase();
+    const searchText = e.target.value.trim().toLowerCase();
 
     cards.forEach((card) => {
       const title = card.querySelector(".card-title").textContent.toLowerCase();
@@ -82,18 +59,15 @@ function searchCards() {
         .textContent.toLowerCase();
 
       tech_stack.forEach((element) => {
-        var techstack = element.textContent.toLowerCase();
+        const techstack = element.textContent.toLowerCase();
 
-        if (
+        card.style.display =
           !title.includes(searchText) &&
           !description.includes(searchText) &&
           !type.includes(searchText) &&
           !techstack.includes(searchText)
-        ) {
-          card.style.display = "none";
-        } else {
-          card.style.display = "flex";
-        }
+            ? "none"
+            : "flex";
 
         if (searchText === "") card.style.display = "flex";
       });
@@ -101,28 +75,106 @@ function searchCards() {
   });
 }
 
-function filterCards(select) {
+function filterCards() {
   const cards = document.querySelectorAll(".card");
+  const filters = document.querySelectorAll(".project_type_select.chip");
 
-  select.addEventListener("change", () => {
-    cards.forEach((card) => {
-      if (select.value === "") {
-        card.style.display = "flex";
-        return;
+  filters.forEach((filter) => {
+    const filterValue = filter.dataset.filter.toLowerCase();
+
+    // Count the number of matching cards
+    const count = Array.from(cards).filter((card) => {
+      const isClientWork = card.querySelector(".clienttag");
+      const isFeatured = card.querySelector(".featuredtag");
+      const isWebsite = card
+        .querySelector(".card-type")
+        .textContent.toLowerCase()
+        .includes("website");
+      const isMobileApp = card
+        .querySelector(".card-type")
+        .textContent.toLowerCase()
+        .includes("mobile app");
+      const isHackathon = card.querySelector(".hackathon");
+      const isOther =
+        !isClientWork &&
+        !isFeatured &&
+        !isWebsite &&
+        !isMobileApp &&
+        !isHackathon;
+
+      switch (filterValue) {
+        case "client work":
+          return isClientWork;
+        case "featured":
+          return isFeatured;
+        case "websites":
+          return isWebsite;
+        case "mobile apps":
+          return isMobileApp;
+        case "hackathon":
+          return isHackathon;
+        case "others":
+          return isOther;
+        default:
+          return false;
       }
+    }).length;
 
-      const tech_stack = card.querySelectorAll(".card-tech-stack");
-      let displayCard = false;
+    const countSpan = document.createElement("span");
+    countSpan.classList.add("filter-count");
+    countSpan.textContent = `${count}`;
+    filter.appendChild(countSpan);
 
-      tech_stack.forEach((element) => {
-        var techstack = element.textContent.trim().toLowerCase();
+    // Toggle filter selection and update card visibility
+    filter.addEventListener("click", () => {
+      filter.classList.toggle("selected");
 
-        if (techstack.includes(select.value.toLowerCase())) {
-          displayCard = true;
-        }
+      const activeFilters = Array.from(filters)
+        .filter((f) => f.classList.contains("selected"))
+        .map((f) => f.dataset.filter.toLowerCase());
+
+      cards.forEach((card) => {
+        const isClientWork = card.querySelector(".clienttag");
+        const isFeatured = card.querySelector(".featuredtag");
+        const isWebsite = card
+          .querySelector(".card-type")
+          .textContent.toLowerCase()
+          .includes("website");
+        const isMobileApp = card
+          .querySelector(".card-type")
+          .textContent.toLowerCase()
+          .includes("mobile app");
+        const isHackathon = card.querySelector(".hackathon");
+        const isOther =
+          !isClientWork &&
+          !isFeatured &&
+          !isWebsite &&
+          !isMobileApp &&
+          !isHackathon;
+
+        const shouldDisplay =
+          activeFilters.length === 0 ||
+          activeFilters.some((filter) => {
+            switch (filter) {
+              case "client work":
+                return isClientWork;
+              case "featured":
+                return isFeatured;
+              case "websites":
+                return isWebsite;
+              case "mobile apps":
+                return isMobileApp;
+              case "hackathon":
+                return isHackathon;
+              case "others":
+                return isOther;
+              default:
+                return false;
+            }
+          });
+
+        card.style.display = shouldDisplay ? "flex" : "none";
       });
-
-      card.style.display = displayCard ? "flex" : "none";
     });
   });
 }
@@ -135,7 +187,7 @@ function modifyScrollBar() {
     cursor.style.transform = "scale(5)";
     cursor.style.boxShadow = "none";
     cursor.style.outlineWidth = "0px";
-    addClass(cursortext2, "active");
+    addClass(cursor_txt_2, "active");
     addClass(cursor, "transparent");
     updateProgressBarandBtn();
   });
@@ -144,7 +196,7 @@ function modifyScrollBar() {
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 30px white";
-    removeClass(cursortext2, "active");
+    removeClass(cursor_txt_2, "active");
     removeClass(cursor, "transparent");
   });
 }
@@ -152,17 +204,32 @@ function modifyScrollBar() {
 function updateProgressBarandBtn() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
-  const scrollPercent = percentage + "%";
+  const scrollPercent = `${percentage}%`;
 
   document
     .querySelector(".scrollbar_progress")
     .style.setProperty("--height", scrollPercent);
 
-  cursortext2.textContent = Math.round(percentage) + "%";
+  cursor_txt_2.textContent = `${Math.round(percentage)}%`;
 }
 
 // Functions
 function addMouseHovers() {
+  const chips = document.querySelectorAll(".project_type_select");
+  chips.forEach((chip) => {
+    chip.parentElement.addEventListener("mouseover", () => {
+      cursorTransformShadowBlend("scale(1.3)", "none");
+      addClass(cursor, "transparent");
+      addClass(cursoricon5, "active");
+    });
+
+    chip.parentElement.parentElement.addEventListener("mouseout", () => {
+      removeClass(cursor, "transparent");
+      removeClass(cursoricon5, "active");
+      cursorTransformShadowBlend();
+    });
+  });
+
   const logos = document.querySelector(".logos");
   const github_heading_div = document.querySelector(".github_heading_div");
 
@@ -192,7 +259,7 @@ function addMouseHovers() {
   });
   // Cards Cursor Title
 
-  document.addEventListener("mouseover", function (event) {
+  document.addEventListener("mouseover", (event) => {
     if (event.target.classList.contains("card")) {
       cursor.style.transform = "scale(1)";
       cursor.style.boxShadow =
@@ -200,7 +267,7 @@ function addMouseHovers() {
     }
   });
 
-  document.addEventListener("mouseout", function (event) {
+  document.addEventListener("mouseout", (event) => {
     if (event.target.classList.contains("card")) {
       cursor.style.transform = "none";
       cursor.style.boxShadow = "0px 0px 30px white";
@@ -234,21 +301,17 @@ function addMouseHovers() {
   );
 }
 
-// function reverseObject(obj) {
-//   const reversedObj = {};
-//   const entries = Object.entries(obj);
+async function processDataAndHidePreloader() {
+  let db = {};
+  try {
+    const response = await fetch("./db/db.json");
+    db = await response.json();
+    removePreloader();
+  } catch (e) {
+    return;
+  }
 
-//   for (let i = entries.length - 1; i >= 0; i--) {
-//     const [key, value] = entries[i];
-//     reversedObj[key] = value;
-//   }
-
-//   return reversedObj;
-// }
-
-function processDataAndHidePreloader(snapshot) {
-  const projects = snapshot.val();
-
+  const projects = db.Projects;
   const cards = document.querySelector(".cards");
 
   const observer1 = new IntersectionObserver(handleIntersection1, {
@@ -346,7 +409,7 @@ function processDataAndHidePreloader(snapshot) {
                 ${projectTechStack
                   .map((element) => {
                     const replacedElement =
-                      replacements[element] || element + "-plain colored";
+                      replacements[element] || `${element}-plain colored`;
                     return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${
                       element.charAt(0).toUpperCase() + element.slice(1)
                     }&nbsp;</text></div>`;
@@ -404,31 +467,8 @@ function processDataAndHidePreloader(snapshot) {
       hoverOnCards();
     });
 
-  removePreloader();
-
-  const select = document.querySelector(".project_type_select");
-  const tech_stack = document.querySelectorAll(".card-tech-stack text");
-
-  const uniqueValues = Array.from(tech_stack)
-    .map((element) => element.textContent.trim())
-    .filter(
-      (item, index, self) =>
-        self.findIndex(
-          (other) => other.toLowerCase() === item.toLowerCase()
-        ) === index
-    )
-    .filter((value, index, array) => array.indexOf(value) === index)
-    .sort();
-
-  uniqueValues.forEach((value) => {
-    const option = document.createElement("option");
-    option.value = value;
-    option.textContent = value;
-    select.appendChild(option);
-  });
-
   searchCards();
-  filterCards(select);
+  filterCards();
   setupHearts();
 }
 
@@ -468,7 +508,7 @@ function setupHearts() {
 
     const likes_count_text = checkbox.parentElement.nextElementSibling;
     const svgContainer = checkbox.nextElementSibling;
-    const projectRef = ref(database, `Projects/${projectId}`);
+    const projectRef = ref(firebase_db, `Projects/${projectId}`);
 
     let currentLikes = 0;
 
@@ -520,12 +560,12 @@ function generateLoadingText() {
       span.innerHTML = char;
     });
 
-    translation = translation - 5.5;
+    translation -= 5.5;
 
     loadingTextElement.appendChild(div);
 
     setTimeout(() => {
-      translation = translation - 5.56;
+      translation -= 5.56;
       div.style.transform = `translateY(${translation}%)`;
     }, index);
   }
@@ -580,11 +620,8 @@ function hoverOnCards() {
     const iconColor = window.getComputedStyle(item.firstElementChild).color;
 
     item.addEventListener("mouseover", function () {
-      if (iconColor === "rgb(255, 255, 255)") {
-        this.style.backgroundColor = "rgb(255, 255, 255)";
-      } else {
-        this.style.backgroundColor = iconColor;
-      }
+      this.style.backgroundColor =
+        iconColor === "rgb(255, 255, 255)" ? "rgb(255, 255, 255)" : iconColor;
 
       for (const child of this.children) {
         child.style.color = "black";
@@ -605,7 +642,7 @@ function marqueeScrollAnimation() {
   let currentScroll = 0;
   let isScrollingDown = true;
 
-  let tween = gsap
+  const tween = gsap
     .to(".logos-slide", {
       xPercent: -100,
       repeat: -1,
@@ -614,9 +651,8 @@ function marqueeScrollAnimation() {
     })
     .totalProgress(0.5);
 
-  window.addEventListener("scroll", function () {
-    if (window.pageYOffset > currentScroll) isScrollingDown = true;
-    else isScrollingDown = false;
+  window.addEventListener("scroll", () => {
+    isScrollingDown = window.pageYOffset > currentScroll;
 
     gsap.to(tween, {
       timeScale: isScrollingDown ? 1 : -1,
@@ -644,7 +680,7 @@ async function fetchGithubData() {
   const github_cards = document.querySelector(".github_cards");
 
   let token = "";
-  const qDtadW_2ZSeiRJtuRTvv = ref(database, "qDtadW_2ZSeiRJtuRTvv/");
+  const qDtadW_2ZSeiRJtuRTvv = ref(firebase_db, "qDtadW_2ZSeiRJtuRTvv/");
   await new Promise((resolve) => {
     onValue(qDtadW_2ZSeiRJtuRTvv, (snapshot) => {
       token = snapshot.val();
@@ -674,13 +710,13 @@ async function fetchGithubData() {
     ".github_heading"
   ).innerHTML = `${repoArray.length} Github Repositories`;
 
-  let languagesColorsArray = await fetchColors();
+  const languagesColorsArray = await fetchColors();
 
   repoArray.forEach((repo) => {
     if (repo.name === "aryanranderiya.github.io") return;
     if (repo.name === "github-readme-stats") return;
 
-    let colourHex = searchColor(languagesColorsArray, repo.language);
+    const colourHex = searchColor(languagesColorsArray, repo.language);
 
     const github_card = document.createElement("div");
     addClass(github_card, "github_card");
@@ -703,18 +739,18 @@ async function fetchGithubData() {
     let time_left;
     if (daysDifference <= 1) {
       if (hoursDifference <= 1 && hoursDifference > 0)
-        time_left = hoursDifference + " Hour";
-      else if (hoursDifference > 1) time_left = hoursDifference + " Hours";
+        time_left = `${hoursDifference} Hour`;
+      else if (hoursDifference > 1) time_left = `${hoursDifference} Hours`;
       else if (minutesDifference > 0)
-        time_left = minutesDifference + " Minutes";
+        time_left = `${minutesDifference} Minutes`;
       else time_left = "Less than a minute";
     } else {
-      time_left = daysDifference + " Days";
+      time_left = `${daysDifference} Days`;
     }
 
     // ! Set Description
-    let description = repo.description;
-    if (repo.description === null) description = "No Description";
+    const description =
+      repo.description === null ? "No Description" : repo.description;
 
     const btn_disabled =
       repo.visibility.toLowerCase() === "private" ? "disabled" : "";
@@ -763,7 +799,7 @@ async function fetchGithubData() {
       repo.language == null ||
       repo.language === undefined
     ) {
-      let id = repo.name;
+      const id = repo.name;
       const card_temp = document.querySelector(`#${id}`);
       card_temp.querySelector(".color_circle").remove();
       card_temp.querySelector(".github_language").remove();
@@ -784,7 +820,9 @@ async function fetchGithubData() {
 
     //! Set Github Topics
     const github_topics = github_card.querySelector(".github_topics");
-    if (repo.topics.length != 0) {
+    if (repo.topics.length == 0) {
+      github_topics.remove();
+    } else {
       repo.topics.forEach((topic) => {
         const github_topic = document.createElement("div");
         const topic_anchor = document.createElement("a");
@@ -807,8 +845,6 @@ async function fetchGithubData() {
           cursorTransformShadowBlend();
         });
       });
-    } else {
-      github_topics.remove();
     }
 
     const observer2 = new IntersectionObserver(handleIntersection1, {
@@ -860,7 +896,7 @@ async function fetchGithubData() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  let sections = gsap.utils.toArray(".github_card");
+  const sections = gsap.utils.toArray(".github_card");
 
   ScrollTrigger.normalizeScroll(true);
 
@@ -876,7 +912,7 @@ async function fetchGithubData() {
       scrub: 1,
       start: "top top",
       // anticipatePin: 1,
-      end: () => "+=" + github_cards.offsetWidth,
+      end: () => `+=${github_cards.offsetWidth}`,
     },
   });
 }
@@ -903,7 +939,7 @@ function removeClass(element, className) {
 function removePreloader() {
   const blackCover = document.querySelector(".black_cover");
 
-  setTimeout(function () {
+  setTimeout(() => {
     blackCover.classList.add("hide");
     setTimeout(() => (document.body.style.overflow = "auto"), 200);
   }, 500);
@@ -915,15 +951,14 @@ function removePreloader() {
   function handleIntersectionTranslate(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        if (!alreadyanimatedflag) timeout = 700;
-        else timeout = 0;
+        timeout = alreadyanimatedflag ? 0 : 700;
         setTimeout(() => addClass(title_Heading, "show"), timeout);
         setTimeout(() => addClass(subtitle, "show"), timeout + 60);
         alreadyanimatedflag = true;
-      } else {
-        removeClass(title_Heading, "show");
-        removeClass(subtitle, "show");
+        return;
       }
+      removeClass(title_Heading, "show");
+      removeClass(subtitle, "show");
     });
   }
   const observerTranslate = new IntersectionObserver(
@@ -936,7 +971,11 @@ function removePreloader() {
   observerTranslate.observe(document.querySelector(".title"));
 }
 
-function processProjectIcons(snapshot) {
+async function processProjectIcons() {
+  const SoftwareIconsRef = ref(firebase_db, "SoftwareIcons/");
+
+  const [snapshot] = await Promise.all([get(SoftwareIconsRef)]);
+
   const logosSlide = document.querySelector(".logos-slide");
 
   snapshot.forEach((childSnapshot) => {

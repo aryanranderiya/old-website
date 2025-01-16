@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const footerContainer = document.getElementById("footerContainer");
-  const navbar = document.querySelector(".navbar");
-
-  if (footerContainer) {
+  if (document.getElementById("footerContainer")) {
     fetch("footer.html")
       .then((response) => response.text())
       .then((data) => {
@@ -91,9 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
           cursorTransformShadowBlend("scale(10)", "none");
           addClass(cursor, "partially_transparent");
         });
-        
+
         bottomName.addEventListener("mouseout", () => {
-        removeClass(cursor, "partially_transparent");
+          removeClass(cursor, "partially_transparent");
           cursorTransformShadowBlend();
         });
 

@@ -26,7 +26,23 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/media/ss_SoftwareProjects.webp" />
 
+    <link
+      rel="preload"
+      href="./fonts/Helvetica.woff2"
+      crossorigin="anonymous"
+      as="font"
+      type="font/woff2"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,400,1,200&display=swap"
+    />
+
     <link rel="stylesheet" type="text/css" href="css/cursor.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/software_projects.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/software_projects.css" />
     <link rel="stylesheet" type="text/css" href="css/preloader.css" />
     <link rel="stylesheet" type="text/css" href="css/navbar.css" />
@@ -180,17 +196,53 @@
                   type="search"
                   name="search_project"
                   id="search_project"
-                  placeholder="Search Project by Name / Language / Description / Tools"
+                  placeholder="Search Projects..."
                 />
               </div>
+            </div>
+            <!-- 
+            <select
+              name="project_type_select"
+              id="project_type_select"
+              class="project_type_select"
+            >
+              <option value="">Filter Tech Stack</option>
+            </select> -->
+          </div>
 
-              <select
-                name="project_type_select"
-                id="project_type_select"
-                class="project_type_select"
-              >
-                <option value="">Filter Tech Stack</option>
-              </select>
+          <div class="project_filters_parent">
+            <div class="project_type_select chip" data-filter="Client Work">
+              <span class="material-symbols-rounded">payments</span>
+              Client Work
+            </div>
+
+            <div class="project_type_select chip" data-filter="Featured">
+              <span class="material-symbols-rounded">star</span>
+              Featured
+            </div>
+
+            <div class="project_type_select chip" data-filter="Websites">
+              <span class="material-symbols-rounded">devices</span>
+              Websites
+            </div>
+
+            <div class="project_type_select chip" data-filter="Mobile Apps">
+              <span class="material-symbols-rounded">phone_iphone</span>
+              Mobile Apps
+            </div>
+
+            <div class="project_type_select chip" data-filter="hackathon">
+              <span class="material-symbols-rounded">trophy</span>
+              Hackathons
+            </div>
+
+            <div
+              class="project_type_select chip"
+              id="others"
+              data-filter="Others"
+            >
+              <span class="material-symbols-rounded">category</span>
+              Others
             </div>
           </div>
 
@@ -232,11 +284,11 @@
         window.location.href = "Project.html";
       }
     </script>
+    <script src="js/navbar.js"></script>
     <script src="js/cursor.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/card.css" />
     <script src="js/software_projects.js" type="module"></script>
-    <script defer src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
     <script>

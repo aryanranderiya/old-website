@@ -9,34 +9,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const projectId = urlParams.get("id");
 if (projectId === null) window.location.href = "SoftwareProjects.html";
 
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-
-import {
-  getDatabase,
-  ref,
-  onValue,
-} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
-  authDomain: "aryanranderiya-portfolio.firebaseapp.com",
-  projectId: "aryanranderiya-portfolio",
-  storageBucket: "aryanranderiya-portfolio.appspot.com",
-  messagingSenderId: "540599201791",
-  appId: "1:540599201791:web:757239eec07a33dc9ec1ca",
-  measurementId: "G-S3XP36W3P9",
-};
-
-initializeApp(firebaseConfig);
-const database = getDatabase();
-const projectRef = ref(database, "Projects/" + projectId);
-
-// ! FIREBASE INIT --------------------------------------------------------------------------------------
-
-onValue(projectRef, processData);
-
+processData();
 // ! INIT
 const dot = document.querySelector(".dot");
 const mockups = document.querySelectorAll(".mockup");
@@ -45,7 +18,7 @@ const iconMain = document.querySelector(".icon_main");
 const mockup_pc = document.querySelector(".mockup_pc");
 const tech_stack = document.querySelector(".tech_stack");
 const ptypeText = document.querySelector(".p_type_text");
-const progressBar = document.querySelector("#progress-bar");
+const progress_bar = document.querySelector("#progress-bar");
 const btnScrollTop = document.querySelector(".scrolltotop");
 const mockup_phone = document.querySelector(".mockup_phone");
 const pInfoText = document.querySelector(".project_info_text");
@@ -68,7 +41,7 @@ const controlsContainer = document.querySelector(".video_controls_container");
 const popupContainer = document.querySelector(".popup_image_container");
 const popupImage = document.querySelector(".popup_image");
 const close_text = document.querySelector(".close_text");
-const cursortext2 = document.querySelector("#cursortext2");
+const cursor_text2 = document.querySelector("#cursortext2");
 const created_on = document.querySelector(".created_on");
 const creation_date = document.querySelector(".creation_date");
 const personal_comments = document.querySelector(".personal_comments");
@@ -143,7 +116,7 @@ function setTechStack(p_techStack) {
   tech_stack.innerHTML = `${Object.values(p_techStack)
     .map((element) => {
       const replacedElement =
-        replacements[element] || element + "-plain colored";
+        replacements[element] || `${element}-plain colored`;
       return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${element}&nbsp;</text></div>`;
     })
     .join(" ")}`;
@@ -154,11 +127,8 @@ function setTechStack(p_techStack) {
     const iconColor = window.getComputedStyle(item.firstElementChild).color;
 
     item.addEventListener("mouseover", function () {
-      if (iconColor === "rgb(255, 255, 255)") {
-        this.style.backgroundColor = "rgb(255, 255, 255)";
-      } else {
-        this.style.backgroundColor = iconColor;
-      }
+      this.style.backgroundColor =
+        iconColor === "rgb(255, 255, 255)" ? "rgb(255, 255, 255)" : iconColor;
 
       for (const child of this.children) {
         child.style.color = "black";
@@ -214,22 +184,34 @@ function setupAnimation(pInfoText) {
 
 // ! Start Processing & Setting Data
 async function processData(snapshot) {
-  const snapshotData = snapshot.val();
-  setPageUrl(snapshotData.project_title);
+  let db = {};
+  try {
+    const response = await fetch("./db/db.json");
+    db = await response.json();
+    console.log(db);
+  } catch (e) {
+    return;
+  }
 
-  var p_title = snapshotData.project_title;
+  const projects = db.Projects;
+  const data = projects[projectId];
 
-  var p_desc = snapshotData.project_description;
-  var p_type = snapshotData.project_type;
-  var p_techStack = snapshotData.project_tech_stack;
-  var links = snapshotData.project_links;
-  var p_demoURL = snapshotData.demo_file_URL;
-  var p_demoType = snapshotData.demo_type;
-  var p_documentationURL = snapshotData.project_documentation_URL;
-  var project_creation = snapshotData.project_creation;
-  var personal_comments = snapshotData.project_personal_comments;
-  var github_link = snapshotData.github_link || null;
-  const project_images = snapshotData.project_images;
+  // const data = snapshot.val();
+  setPageUrl(data.project_title);
+
+  const p_title = data.project_title;
+
+  const p_desc = data.project_description;
+  const p_type = data.project_type;
+  const p_techStack = data.project_tech_stack;
+  const links = data.project_links;
+  const p_demoURL = data.demo_file_URL;
+  const p_demoType = data.demo_type;
+  const p_documentationURL = data.project_documentation_URL;
+  const project_creation = data.project_creation;
+  const personal_comments = data.project_personal_comments;
+  const github_link = data.github_link || null;
+  const project_images = data.project_images;
 
   setOthers(p_title, p_type, p_desc, project_creation, personal_comments);
   setupDocumentation(p_documentationURL, pInfoText);
@@ -237,8 +219,7 @@ async function processData(snapshot) {
   setTechStack(p_techStack);
   setLinks(links);
   setGithub(github_link);
-  let flag = createImages(project_images);
-  normalHeaders(flag);
+  createImages(project_images);
 }
 async function setGithub(github_link) {
   try {
@@ -251,30 +232,30 @@ async function setGithub(github_link) {
       }
       const response_json = await response.json();
       response_json.forEach((repo) => {
-        if (repo.html_url === github_link) {
-          const createdAt = new Date(repo.created_at).toDateString();
-          const updatedAt = new Date(repo.updated_at).toDateString();
-          const githubLink = document.querySelector(".github_link");
-          githubLink.href = repo.html_url;
-          document.querySelector(".repo_name").innerHTML = repo.full_name;
-          document.querySelector(".repo_stars").innerHTML =
-            repo.stargazers_count;
-          document.querySelector(".repo_lang").innerHTML = repo.language;
-          document.querySelector(".repo_created").innerHTML = createdAt;
-          document.querySelector(".repo_updated").innerHTML = updatedAt;
-
-          githubLink.addEventListener("mouseover", () => {
-            cursorTransformShadowBlend("scale(1.3)", "none");
-            addClass(cursor, "transparent");
-            addClass(cursoricon5, "active");
-          });
-
-          githubLink.addEventListener("mouseout", () => {
-            removeClass(cursor, "transparent");
-            removeClass(cursoricon5, "active");
-            cursorTransformShadowBlend();
-          });
+        if (repo.html_url !== github_link) {
+          return;
         }
+        const createdAt = new Date(repo.created_at).toDateString();
+        const updatedAt = new Date(repo.updated_at).toDateString();
+        const githubLink = document.querySelector(".github_link");
+        githubLink.href = repo.html_url;
+        document.querySelector(".repo_name").innerHTML = repo.full_name;
+        document.querySelector(".repo_stars").innerHTML = repo.stargazers_count;
+        document.querySelector(".repo_lang").innerHTML = repo.language;
+        document.querySelector(".repo_created").innerHTML = createdAt;
+        document.querySelector(".repo_updated").innerHTML = updatedAt;
+
+        githubLink.addEventListener("mouseover", () => {
+          cursorTransformShadowBlend("scale(1.3)", "none");
+          addClass(cursor, "transparent");
+          addClass(cursoricon5, "active");
+        });
+
+        githubLink.addEventListener("mouseout", () => {
+          removeClass(cursor, "transparent");
+          removeClass(cursoricon5, "active");
+          cursorTransformShadowBlend();
+        });
       });
     } else {
       github_bento_card.remove();
@@ -331,7 +312,7 @@ function handleIntersection1(entries, observer) {
       controlsContainer.style.opacity = isIntersecting ? "1" : "0";
     }, 500);
     iconMain.style.visibility = isIntersecting ? "visible" : "hidden";
-    progressBar.style.backgroundColor = isIntersecting ? "#00bbff" : "#4d4d4d";
+    progress_bar.style.backgroundColor = isIntersecting ? "#00bbff" : "#4d4d4d";
   });
 }
 
@@ -342,13 +323,13 @@ function handleIntersectionImage(entries, observer) {
       // mockupLaptopImage.style.opacity = "1";
       entry.target.style.opacity = "1";
       entry.target.style.filter = "grayscale(0%)";
-    } else {
-      progressBar.style.backgroundColor = "#4d4d4d";
-      iconMain.style.visibility = "hidden";
-      // mockupLaptopImage.style.opacity = "0.3";
-      entry.target.style.opacity = "0.3";
-      entry.target.style.filter = "grayscale(100%)";
+      return;
     }
+    progress_bar.style.backgroundColor = "#4d4d4d";
+    iconMain.style.visibility = "hidden";
+    // mockupLaptopImage.style.opacity = "0.3";
+    entry.target.style.opacity = "0.3";
+    entry.target.style.filter = "grayscale(100%)";
   });
 }
 
@@ -361,7 +342,7 @@ function createIntersectionObserver(threshold) {
   });
 }
 
-const observer1 = createIntersectionObserver(0.7);
+const observer_1 = createIntersectionObserver(0.7);
 const observer2 = createIntersectionObserver(0.8);
 const observerImage = new IntersectionObserver(handleIntersectionImage, {
   root: null,
@@ -369,8 +350,8 @@ const observerImage = new IntersectionObserver(handleIntersectionImage, {
   threshold: 0.8,
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  var cursor_glow = document.querySelector(".cursor_glow_div");
+document.addEventListener("DOMContentLoaded", () => {
+  const cursor_glow = document.querySelector(".cursor_glow_div");
 
   // document.addEventListener("mousemove", (e) => {
   //   cursor_glow.style.left = e.clientX + "px";
@@ -384,10 +365,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (button_primary) addEventListeners(button_primary);
   if (button_secondary) addEventListeners(button_secondary);
 
-  window.onscroll = function () {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
-      btnScrollTop.style.opacity = 1;
-    else btnScrollTop.style.opacity = 0;
+  window.onscroll = () => {
+    btnScrollTop.style.opacity =
+      document.body.scrollTop > 20 || document.documentElement.scrollTop > 20
+        ? 1
+        : 0;
   };
 
   btnScrollTop.addEventListener("click", () => {
@@ -464,7 +446,9 @@ function hoverDevices(mockups) {
       controlPlay.style.opacity = "0";
       iconsMainReplay.style.opacity = "0";
       iconsMainReplay.style.visibility = "hidden";
-    } else if (video.ended) {
+      return;
+    }
+    if (video.ended) {
       cursortext.innerHTML = 'Restart<br><i class="fa-solid fa-repeat"></i>';
       controlPause.style.opacity = "0";
       controlPlay.style.opacity = "0";
@@ -472,13 +456,13 @@ function hoverDevices(mockups) {
       iconsMainReplay.style.visibility = "visible";
       video.style.opacity = "0.3";
       video.style.filter = "grayscale(100%)";
-    } else {
-      cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
-      controlPause.style.opacity = "0";
-      controlPlay.style.opacity = "1";
-      iconsMainReplay.style.visibility = "hidden";
-      playback_icons_main.style.display = "";
+      return;
     }
+    cursortext.innerHTML = 'Play<br><i class="fa-solid fa-play"></i>';
+    controlPause.style.opacity = "0";
+    controlPlay.style.opacity = "1";
+    iconsMainReplay.style.visibility = "hidden";
+    playback_icons_main.style.display = "";
   };
 
   const mediaElements = [mobileMedia, laptopVideo];
@@ -493,12 +477,16 @@ function playPauseVideo(video) {
   const isPaused = video.paused;
   video.style.opacity = isPaused ? "1" : "0.3";
   video.style.filter = isPaused ? "grayscale(0%)" : "grayscale(100%)";
-  isPaused ? video.play() : video.pause();
+  if (isPaused) {
+    video.play();
+  } else {
+    video.pause();
+  }
   controlPlay.style.opacity = isPaused ? "0" : "1";
   controlPause.style.opacity = isPaused ? "1" : "0";
   iconsMainReplay.style.opacity = "0";
   iconsMainReplay.style.visibility = "hidden";
-  progressBar.style.backgroundColor = isPaused ? "white" : "#4d4d4d";
+  progress_bar.style.backgroundColor = isPaused ? "white" : "#4d4d4d";
 }
 
 function removeCover() {
@@ -506,7 +494,7 @@ function removeCover() {
 
   addClass(blackCover, "hide");
 
-  setTimeout(function () {
+  setTimeout(() => {
     document.body.style.overflow = "auto";
   }, 500);
 }
@@ -543,7 +531,7 @@ function setupMockups(demo_type, demoDownloadURL) {
     // END OF IF
   } else if (demo_type == "demo_mobile") {
     setMockup(
-      observer1,
+      observer_1,
       mobileVideo,
       demoDownloadURL,
       observerScroller_mobile,
@@ -617,7 +605,7 @@ function setVideoProgressBar(video) {
     const videoDuration = video.duration;
     const currentTime = video.currentTime;
     const progressPercent = (currentTime / videoDuration) * 100;
-    progressBar.style.setProperty("--progress", `${progressPercent}%`);
+    progress_bar.style.setProperty("--progress", `${progressPercent}%`);
   });
 }
 
@@ -639,12 +627,9 @@ function removeClass(element, className) {
 }
 
 Object.defineProperty(HTMLMediaElement.prototype, "playing", {
-  get: function () {
-    return !!(
-      this.currentTime > 0 &&
-      !this.paused &&
-      !this.ended &&
-      this.readyState > 2
+  get() {
+    return (
+      this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2
     );
   },
 });
@@ -690,7 +675,7 @@ export function modifyScrollBar() {
     cursor.style.transform = "scale(5)";
     cursor.style.boxShadow = "none";
     cursor.style.outlineWidth = "0px";
-    addClass(cursortext2, "active");
+    addClass(cursor_text2, "active");
     addClass(cursor, "transparent");
   });
 
@@ -698,7 +683,7 @@ export function modifyScrollBar() {
     cursor.style.transform = "none";
     cursor.style.mixBlendMode = "normal";
     cursor.style.boxShadow = "0px 0px 30px white";
-    removeClass(cursortext2, "active");
+    removeClass(cursor_text2, "active");
     removeClass(cursor, "transparent");
   });
 }
@@ -706,13 +691,13 @@ export function modifyScrollBar() {
 function updateProgressBarandBtn() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
-  const scrollPercent = percentage + "%";
+  const scrollPercent = `${percentage}%`;
 
   document
     .querySelector(".scrollbar_progress")
     .style.setProperty("--height", scrollPercent);
 
-  cursortext2.textContent = Math.round(percentage) + "%";
+  cursor_text2.textContent = `${Math.round(percentage)}%`;
 }
 
 function createImages(project_images) {
@@ -734,7 +719,7 @@ function createImages(project_images) {
       initializeSlider();
     }
 
-    return true; 
+    return true;
   } else {
     document.querySelector(".image_gallery").remove();
     return false;
@@ -820,22 +805,6 @@ function initializeSlider() {
 
 function normalHeaders(flag) {
   if (!flag) return;
-
-  const slider = document.querySelector(".slider");
-  const cursoricondrag = document.getElementById("cursoricondrag");
-
-  // Change cursor to drag when hover on headers
-  slider.addEventListener("mouseover", () => {
-    cursorTransformShadowBlend("none", "none");
-    addClass(cursor, "transparent");
-    addClass(cursoricondrag, "active");
-  });
-
-  slider.addEventListener("mouseout", () => {
-    cursorTransformShadowBlend(undefined, undefined);
-    removeClass(cursor, "transparent");
-    removeClass(cursoricondrag, "active");
-  });
 
   // Header Scrolling Carousel
   const lerp = (f0, f1, t) => (1 - t) * f0 + t * f1;

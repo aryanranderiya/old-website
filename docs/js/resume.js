@@ -7,7 +7,7 @@ import {
   onValue,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
-const firebaseConfig = {
+const firebase_config = {
   apiKey: "AIzaSyAUfVSJ3BpDrlV7-6Ou9DWE3KX1jHHFGEY",
   authDomain: "aryanranderiya-portfolio.firebaseapp.com",
   projectId: "aryanranderiya-portfolio",
@@ -17,10 +17,9 @@ const firebaseConfig = {
   measurementId: "G-S3XP36W3P9",
 };
 
-initializeApp(firebaseConfig);
-const database = getDatabase();
-const projectRef = ref(database, "Resume/");
-const mainRef = ref(database);
+initializeApp(firebase_config);
+const db = getDatabase();
+const projectRef = ref(db, "Resume/");
 
 // ! FIREBASE INIT --------------------------------------------------------------------------------------
 

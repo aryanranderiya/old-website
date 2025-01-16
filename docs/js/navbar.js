@@ -28,16 +28,17 @@ async function loadNavbar() {
 
 loadNavbar();
 
-// Functions
+const cursor_variable = document.querySelector(".cursor");
+const cursor_background = document.querySelector(".cursor_bg");
 
 function cursorTransformShadowBlend(
   param_transform = "none",
   param_boxShadow = "0px 0px 30px white",
   param_mixBlendMode = "normal"
 ) {
-  cursor.style.transform = param_transform;
-  cursor.style.boxShadow = param_boxShadow;
-  cursor.style.mixBlendMode = param_mixBlendMode;
+  cursor_variable.style.transform = param_transform;
+  cursor_variable.style.boxShadow = param_boxShadow;
+  cursor_variable.style.mixBlendMode = param_mixBlendMode;
 }
 
 function addClass(element, className) {
@@ -67,24 +68,24 @@ function addMouseListeners(navbar_menu) {
 
   title.addEventListener("mouseover", () => {
     cursorTransformShadowBlend("scale(1.3)", "none");
-    addClass(cursor, "transparent");
+    addClass(cursor_variable, "transparent");
     addClass(cursoricon5, "active");
   });
 
   title.addEventListener("mouseout", () => {
-    removeClass(cursor, "transparent");
+    removeClass(cursor_variable, "transparent");
     removeClass(cursoricon5, "active");
     cursorTransformShadowBlend();
   });
 
   navbar_menu_btn.addEventListener("mouseover", () => {
     cursorTransformShadowBlend("scale(1.3)", "none");
-    addClass(cursor, "transparent");
+    addClass(cursor_variable, "transparent");
     addClass(cursoricon5, "active");
   });
 
   navbar_menu_btn.addEventListener("mouseout", () => {
-    removeClass(cursor, "transparent");
+    removeClass(cursor_variable, "transparent");
     removeClass(cursoricon5, "active");
     cursorTransformShadowBlend();
   });
