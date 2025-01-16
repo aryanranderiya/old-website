@@ -951,21 +951,21 @@ async function setupFeaturedClients(db) {
       cursor.style.outlineStyle = "solid";
       cursor.style.outlineColor = "white";
       cursor.style.outlineWidth = "0.1px";
-      cursor.style.backgroundColor = "#00000050";
+      // cursor.style.backgroundColor = "#00000050";
       cursortext.innerHTML = `CLICK TO VIEW MORE`;
       //  <br> <span class="timesi italic uppercase text-[1.9px]">${clientProject.project_title}</span>`;
       cursortext.classList.add("text-black", "text-[1px]", "!font-bold");
       cursortext.style.transform = "scale(0.7)";
-      addClass(cursor, "partially_transparent");
+      addClass(cursor, "partially_transparent2");
       addClass(cursortext, "active");
     });
 
     card.addEventListener("mouseout", () => {
       cursor.style.outline = "none";
       cursorTransformShadowBlend();
-      cursor.style.backgroundColor = "white";
+      // cursor.style.backgroundColor = "white";
       cursortext.classList.remove("text-black");
-      removeClass(cursor, "partially_transparent");
+      removeClass(cursor, "partially_transparent2");
       removeClass(cursortext, "active");
     });
 
