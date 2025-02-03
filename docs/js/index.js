@@ -871,7 +871,9 @@ function removeBlackCover() {
   setTimeout(() => welcoming.remove(), 1600);
 }
 
-async function preloadImage(url) {
+async function preloadImage(url, delay) {
+  await new Promise((resolve) => setTimeout(resolve, delay)); // Delay execution
+
   try {
     const response = await fetch(url);
     const blob = await response.blob();
@@ -881,7 +883,6 @@ async function preloadImage(url) {
     return null;
   }
 }
-
 async function setupFeaturedClients(db) {
   const clientsection = document.querySelector(".clientsection");
   let index = 0;
@@ -900,7 +901,7 @@ async function setupFeaturedClients(db) {
   const fragment = document.createDocumentFragment();
 
   // Process each client project
-  projectPromises.forEach(({ clientProject, projectId }) => {
+  projectPromises.forEach(async ({ clientProject, projectId }) => {
     index++;
 
     const projectImage =
@@ -913,7 +914,11 @@ async function setupFeaturedClients(db) {
       ? projectImage
       : [projectImage];
 
-    const preloadedImages = imagesArray.map(preloadImage);
+    // const preloadedImages = imagesArray.map(preloadImage);
+
+    const preloadedImages = imagesArray.map((url, index) =>
+      preloadImage(url, (index + 1) * 700)
+    ); // 5s timeout
 
     const card = document.createElement("div");
     const topValue = `${index * 45 + 10}px`;

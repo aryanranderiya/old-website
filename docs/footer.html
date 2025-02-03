@@ -1,4 +1,36 @@
-<!--! Google icons -->
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+  rel="stylesheet"
+/> -->
+
+<style>
+  .flex {
+    display: flex;
+    /* justify-content: space-between; */
+  }
+
+  .stroke span {
+    position: relative;
+    color: #ffffff;
+  }
+
+  .stroke span::after {
+    content: attr(data-char);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: transparent;
+    z-index: -1;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #ff0000;
+  }
+
+  .text-pressure-title {
+    color: #ffffff;
+  }
+</style>
 
 <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
@@ -199,3 +231,135 @@
     </div>
   </div>
 </div>
+
+<!-- <div
+  id="text-pressure-container"
+  style="position: relative; width: 100%; height: 100%; background: transparent"
+>
+  <h1
+    id="text-pressure-title"
+    style="
+      text-transform: uppercase;
+      margin: 0;
+      text-align: center;
+      user-select: none;
+      white-space: nowrap;
+      font-weight: 100;
+      width: 100%;
+    "
+  ></h1> -->
+<!-- </div> -->
+<!-- 
+<script>
+  const container = document.getElementById("text-pressure-container");
+  const title = document.getElementById("text-pressure-title");
+
+  const text = "aryanranderiya";
+  const fontFamily = "Inter";
+  const minFontSize = 24; // Set your desired minimum font size
+
+  const settings = {
+    width: true,
+    weight: true,
+    italic: true,
+    alpha: false,
+    flex: true,
+    stroke: false,
+    scale: false,
+  };
+
+  const chars = text.split("");
+  const mouse = { x: 0, y: 0 };
+  const cursor = { x: 0, y: 0 };
+  let spans = [];
+
+  function dist(a, b) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function setSize() {
+    const containerRect = container.getBoundingClientRect();
+    const containerW = containerRect.width;
+
+    // Calculate the font size based on the container width
+    let fontSize = containerW / (chars.length / 2);
+    fontSize = Math.max(fontSize, minFontSize); // Ensure it doesn't go below the minimum size
+
+    title.style.fontSize = `${fontSize}px`;
+
+    if (settings.scale) {
+      const textRect = title.getBoundingClientRect();
+      if (textRect.height > 0) {
+        const yRatio = containerRect.height / textRect.height;
+        title.style.transform = `scale(1, ${yRatio})`;
+      }
+    }
+  }
+
+  function animate() {
+    mouse.x += (cursor.x - mouse.x) / 15;
+    mouse.y += (cursor.y - mouse.y) / 15;
+
+    spans.forEach((span) => {
+      const rect = span.getBoundingClientRect();
+      const charCenter = {
+        x: rect.x + rect.width / 2,
+        y: rect.y + rect.height / 2,
+      };
+
+      const maxDist = title.getBoundingClientRect().width / 2;
+      const distance = dist(mouse, charCenter);
+
+      const getAttr = (distance, min, max) => {
+        const val = max - Math.abs((max * distance) / maxDist);
+        return Math.max(min, val + min);
+      };
+
+      const wdth = settings.width ? Math.floor(getAttr(distance, 5, 200)) : 100;
+      const wght = settings.weight
+        ? Math.floor(getAttr(distance, 100, 900))
+        : 400;
+      const italVal = settings.italic ? getAttr(distance, 0, 1).toFixed(2) : 0;
+
+      span.style.fontVariationSettings = `'wght' ${wght}, 'wdth' ${wdth}, 'ital' ${italVal}`;
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  function init() {
+    // Create spans for each character
+    title.innerHTML = "";
+    title.style.fontFamily = fontFamily;
+    chars.forEach((char) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.dataset.char = char;
+      span.style.display = "inline-block";
+      title.appendChild(span);
+      spans.push(span);
+    });
+
+    setSize();
+    animate();
+
+    window.addEventListener("resize", setSize);
+    window.addEventListener("mousemove", (e) => {
+      cursor.x = e.clientX;
+      cursor.y = e.clientY;
+    });
+    window.addEventListener(
+      "touchmove",
+      (e) => {
+        const t = e.touches[0];
+        cursor.x = t.clientX;
+        cursor.y = t.clientY;
+      },
+      { passive: false }
+    );
+  }
+
+  init();
+</script> -->

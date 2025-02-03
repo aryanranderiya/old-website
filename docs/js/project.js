@@ -188,7 +188,6 @@ async function processData(snapshot) {
   try {
     const response = await fetch("./db/db.json");
     db = await response.json();
-    console.log(db);
   } catch (e) {
     return;
   }
@@ -196,8 +195,7 @@ async function processData(snapshot) {
   const projects = db.Projects;
   const data = projects[projectId];
 
-  // const data = snapshot.val();
-  setPageUrl(data.project_title);
+  // setPageUrl(data.project_title);
 
   const p_title = data.project_title;
 

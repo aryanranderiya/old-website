@@ -456,14 +456,15 @@
   "Testimonials": [
     {
       "client": "Aditya Gandhi",
-      "client_image": "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FRezrek%2Faditygandhi.webp?alt=media&token=938cae67-a29a-489f-83bf-c087ff226e0a",
+      "client_image": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FRezrek%2Faditygandhi.webp",
       "company": "Rezrek",
       "position": "Founder and CEO",
       "text": "Working with Aryan has been absolutely delightful. He is a quick, intuitive and curious individual who takes his time to understand the project, and builds it thoughtfully. Over the couple of months we've worked together, his insights, as a developer and someone with knowledge of graphics, have been very crucial in shaping and propelling the project towards a better version. Will most certainly work with him in the future too!"
     },
     {
       "client": "Khevna Gandhi",
-      "client_image": "https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FRezrek%2Fkhevnagandhi.webp?alt=media&token=014a8645-f2e6-4055-b6c6-cf61dfe6cee7",
+      "client_image": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FRezrek%2Fkhevnagandhi.webp",
+
       "company": "Rezrek",
       "position": "Founder and CMO",
       "text": "Aryan is more than a software engineer. He is an artist who paints his imagination through code. He has a lot of ideas, feedback, and a sense of ownership in his projects. It is a delight to watch him bring our vision to life in a way we hadn't even imagined. As a fellow team member, he is accepting, understanding, and a friend you don't expect to find in such circumstances. Looking forward to working with him and finding more reasons to be amused by his work every single day."
