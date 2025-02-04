@@ -1246,6 +1246,7 @@ async function setupFeaturedClients(db) {
   const popupContent = document.getElementById("popupContent");
   const popupImage = document.getElementById("popupImage");
   const popupTitle = document.getElementById("popupTitle");
+  const popupAnchor = document.getElementById("popupAnchor");
   const popupDescription = document.getElementById("popupDescription");
   const closePopup = document.getElementById("closePopup");
   const prevImage = document.getElementById("prevImage");
@@ -1301,11 +1302,12 @@ async function setupFeaturedClients(db) {
       });
   }
 
-  function openPopup(images, title, description, startIndex = 0) {
+  function openPopup(images, title, description, projectId, startIndex = 0) {
     currentImages = images;
     currentIndex = startIndex;
 
     popupTitle.textContent = title;
+    popupAnchor.href = `./Project.html?id=${projectId}`;
     popupDescription.textContent = description;
     updateImage();
 
@@ -1371,11 +1373,11 @@ async function setupFeaturedClients(db) {
         nextImage.classList.remove("hidden");
       }
 
+      const projectID = projectData.projectId || "";
       const projectTitle = clientProject.project_title || "Untitled Project";
       const projectDescription =
         clientProject.project_description || "No description available.";
-
-      openPopup(projectImages, projectTitle, projectDescription);
+      openPopup(projectImages, projectTitle, projectDescription, projectID);
     });
   });
 

@@ -1,19 +1,20 @@
 {
   "Homepage_Featured_Clients": [
-    "12_project_Rezrek_1725057348970",
-    "11_project_Encode_Official_1725056450639",
-    "16_project_LyfeLane_1733261979212",
-    "15_project_MWI_1733261515855"
+    "BlinkAnalytics",
+    "LyfeLane",
+    "MWI",
+    "Encode",
+    "Rezrek"
   ],
   "Homepage_Featured_Projects": {
-    "0": "5_project_TicketBus_1712174799259",
-    "1": "9_project_GAIA_1720459720309",
-    "3": "7_project_YouTube_Shorts Automator_1712176765756",
-    "Latest": "13_project_Personal_Blog_1725057851497"
+    "0": "TicketBus",
+    "1": "Blog",
+    "3": "YouTube_Shorts_Automator",
+    "Latest": "GAIA"
   },
   "Now": ["Working on GAIA", "Freelancing", "Learning AI"],
   "Projects": {
-    "11_project_Encode_Official_1725056450639": {
+    "Encode": {
       "Likes": 14,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/image.png",
       "demo_type": "none",
@@ -22,7 +23,7 @@
       "project_creation": "August 2024",
       "project_description": "The Official Website of Encode - The Computer Science Club at PDEU",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ClientWork/encodecollage.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/encode.png",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/1.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/2.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/3.webp",
@@ -46,19 +47,21 @@
       "project_title": "Encode",
       "project_type": "Website"
     },
-    "12_project_Rezrek_1725057348970": {
+    "Rezrek": {
       "Likes": 36,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/image%20(1).png",
       "client_work": true,
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/rezrek%20main.webp",
-      "demo_type": "demo_pc",
+      "demo_type": "none",
       "featured": "true",
       "project_creation": "May 2024",
       "project_description": "A content-based e commerce platform.",
       "project_images": [
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/rezrek%20main.webp"
       ],
-      "project_links": [["Live URL", "https://rezrek.com"]],
+      "project_links": [
+        ["Rezrek.com", "https://rezrek.com"],
+        ["Live URL", "https://rezrek.vercel.app/"]
+      ],
       "project_personal_comments": "One of my very first experiences working on a large scale project like this. Was a pleasure working with them, wonderful people.",
       "project_short_description": "A content-based e commerce platform.",
       "project_tech_stack": [
@@ -73,7 +76,7 @@
       "project_title": "Rezrek",
       "project_type": "Website"
     },
-    "13_project_Personal_Blog_1725057851497": {
+    "Blog": {
       "Likes": 9,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2Fblog_project_banner.png",
       "demo_type": "none",
@@ -86,7 +89,7 @@
       "project_title": "Personal Blog",
       "project_type": "Website"
     },
-    "14_project_Nasa_Space Apps_Hackathon_1733261252675": {
+    "Nasa_Space_Apps_Hackathon": {
       "Likes": 0,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FNasa_Space%20Apps%20Hackathon%202024%2F2024-12-04_02-54.png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2FUntitled%20video%20-%20Made%20with%20Clipchamp%20(3).mp4",
@@ -104,16 +107,44 @@
       "project_title": "SUSTAIN",
       "project_type": "Web Application"
     },
-    "15_project_MWI_1733261515855": {
+    "BlinkAnalytics": {
+      "Likes": 0,
+      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png",
+      "client_work": true,
+      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png",
+      "demo_type": "demo_pc_image",
+      "project_creation": "February 2025",
+      "project_description": "Official website of Blink Analytics",
+      "project_images": [
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/2.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/3.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/4.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/5.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/6.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/7.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/8.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/9.webp"
+      ],
+      "project_links": [
+        ["blinkanalytics.in", "https://blinkanalytics.in"],
+        ["Live URL", "https://blink-analytics.pages.dev"]
+      ],
+      "project_short_description": "Official website of Blink Analytics",
+      "project_tech_stack": ["TypeScript", "TailwindCSS", "React"],
+      "project_title": "Blink Analytics",
+      "project_type": "Web Application"
+    },
+    "MWI": {
       "Likes": 0,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
       "client_work": true,
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2Fmwicollage.png",
       "demo_type": "demo_pc_image",
       "project_creation": "October 2024",
-      "project_description": "Move With Intention. Commissioned Client work.",
+      "project_description": "Official website of Move With Intention.",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ClientWork/mwicollage.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/2025-02-04_19-02.png",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/2.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/3.webp",
@@ -133,7 +164,7 @@
         ["mwi.gg", "https://mwi.gg"],
         ["Live URL", "https://movewithintention.vercel.app"]
       ],
-      "project_short_description": "Move With Intention",
+      "project_short_description": "Official website of Move With Intention.",
       "project_tech_stack": [
         "TypeScript",
         "TailwindCSS",
@@ -143,7 +174,7 @@
       "project_title": "MWI",
       "project_type": "Web Application"
     },
-    "16_project_LyfeLane_1733261979212": {
+    "LyfeLane": {
       "Likes": 0,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/2024-11-22_22-18.png",
       "client_work": true,
@@ -151,8 +182,8 @@
       "project_creation": "November 2024",
       "project_description": "Create personalized greeting cards, send them via email, and receive responses. Use AI for card templates with an easy, Canva-like design interface.",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ClientWork/lyfelanecollage.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/1.webp",
+        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ClientWork/lyfelanecollage.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/2.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/3.webp",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/4.webp",
@@ -169,7 +200,6 @@
       ],
       "project_short_description": "Create personalized greeting cards, send them via email, and receive responses. Use AI for card templates with an easy, Canva-like design interface.",
       "project_tech_stack": [
-        "Google",
         "MongoDB",
         "Express",
         "React",
@@ -179,7 +209,7 @@
       "project_title": "LyfeLane",
       "project_type": "Web Application"
     },
-    "1_project_Wi-Fi_Attendance_1712172995880": {
+    "WiFi_Attendance": {
       "Likes": 0,
       "bad": true,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2Fwifi_project_banner.png",
@@ -204,7 +234,7 @@
       "project_title": "Wi-Fi Attendance",
       "project_type": "Mobile App"
     },
-    "2_project_Spotify_Tools_1712173676155": {
+    "SpotifyTools": {
       "Likes": 2,
       "bad": true,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2Fspotify_tools_project_banner.png",
@@ -228,7 +258,7 @@
       "project_title": "Spotify Tools",
       "project_type": "Desktop Application"
     },
-    "3_project_Google_Contacts Email Scraper_1712174126624": {
+    "GoogleContactsEmailScraper": {
       "Likes": 4,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2Fproject_banner_google_contacts.png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2F2024-03-30_22-39.png",
@@ -248,7 +278,7 @@
       "project_title": "Google Contacts Email Scraper",
       "project_type": "Python Script"
     },
-    "4_project_URL_Shortener_1712174448679": {
+    "URLShortener": {
       "Likes": 7,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2Fproject_banner.png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2FURLShortener.png",
@@ -274,7 +304,7 @@
       "project_title": "URL Shortener",
       "project_type": "Website"
     },
-    "5_project_TicketBus_1712174799259": {
+    "TicketBus": {
       "Likes": 10,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBus_project_banner.png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketbus.mp4",
@@ -282,7 +312,7 @@
       "featured": true,
       "project_creation": "June 2022-23",
       "project_description": "Led a team to build a Public Transportation mobile application that streamlined travel processes, and implemented QR-based ticket booking, bus passes, e-wallets, user profiles and a comprehensive map module.",
-      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2F5_project_TicketBus_1712174799259_documentation.md",
+      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBus_documentation.md",
       "project_images": [
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FAdminPanel.png",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FAdminPanel_Bus.png",
@@ -305,12 +335,12 @@
         ]
       ],
       "project_personal_comments": "Worked on this Project with a team of 6 of my classmates in college as a final year project and ended up winning 1st place in the Project Fair! This was the first coding project I've ever worked on and it's what ignited my love for software development",
-      "project_short_description": "Public Transportation Android App with QR-based ticketing & bus passes, e-wallets, detailed maps, and route information to the user",
+      "project_short_description": "Public Transportation Android App with QR-based tickets, bus passes, e-wallets, map module and more.",
       "project_tech_stack": ["Firebase", "Android", "Java"],
       "project_title": "TicketBus",
       "project_type": "Mobile App"
     },
-    "6_project_Personal_Portfolio_1712175736205": {
+    "Portfolio": {
       "Likes": 13,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FWebsite-Homepage.png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FPortfolioRecordingCompressed.mp4",
@@ -322,7 +352,7 @@
         ["Try Here ( aryanranderiya.com )", "https://aryanranderiya.com"]
       ],
       "project_personal_comments": "(The website you're currently viewing!) I spent so much time and effort (literally worked for months until I got burnt out 😅) working on this project, and as of today I still work on it now and then as it really holds a special place in my heart. I hope you enjoy!",
-      "project_short_description": "Created a responsive portfolio website with smooth scrolling animations, interactive navigation, custom cursors, and dynamic content loaded from Firebase Realtime Database. Hosted on GitHub Pages and Firebase Hosting.",
+      "project_short_description": "My responsive website with smooth scrolling animations, interactive navigation, custom cursors, and more!",
       "project_tech_stack": [
         "Firebase",
         "HTML",
@@ -333,14 +363,14 @@
       "project_title": "Personal Portfolio",
       "project_type": "Website"
     },
-    "7_project_YouTube_Shorts Automator_1712176765756": {
+    "YouTube_Shorts_Automator": {
       "Likes": 9,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FYouTube_Shorts%20Automator%2Fproject_banner%20(2).png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FYouTube_Shorts%20Automator%2F2024-04-04_02-07.png",
       "demo_type": "demo_pc_image",
       "featured": true,
       "project_creation": "March 2024",
-      "project_description": "Automated creation and uploading of YT Shorts from user prompts by generating video script, voice-over, subtitles, background media and video metadata.",
+      "project_description": "Created a pipeline for the automated creation and uploading of YT Shorts from user prompts by generating video script, voice-over, subtitles, background media and video metadata.",
       "project_links": [
         [
           "YouTube (@Film_Facts_Unleashed)",
@@ -348,13 +378,13 @@
         ],
         ["YouTube (@aryanranderiya)", "https://youtube.com/@aryanranderiya"]
       ],
-      "project_personal_comments": "Tested it out on a channel and got 4k+ views in under 3 days.",
-      "project_short_description": "Automated creation and uploading of YT Shorts from user prompts by generating video script, voice-over, subtitles, background media and video metadata.",
+      "project_personal_comments": "Tested it out on a channel and got 4k+ views in under 3 days. I still work on this project here and there when I feel like it because the YT algorithm keeps changing and then i need to refine the workflow and prompting.",
+      "project_short_description": "Created a pipeline for the automated creation and uploading of YT Shorts from using AI",
       "project_tech_stack": ["Python", "HTML", "CSS", "MongoDB", "Flask"],
       "project_title": "YouTube Shorts Automator",
       "project_type": "Website"
     },
-    "8_project_University_Research Portal_1716203436758": {
+    "University_Research_Portal": {
       "Likes": 9,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2FUniversityPortalBanner.png",
       "demo_type": "none",
@@ -378,7 +408,7 @@
       "project_title": "University Research Portal",
       "project_type": "Website"
     },
-    "9_project_GAIA_1720459720309": {
+    "GAIA": {
       "Likes": 10,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FIntroducingGAIABanner.png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2FGaia-1.png",
