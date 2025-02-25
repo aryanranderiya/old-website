@@ -101,6 +101,7 @@ function addHoverImage(items) {
   ].forEach((imageUrl) => {
     const img = new Image();
     img.src = imageUrl;
+    img.alt = imageUrl;
   });
 
   const image = document.querySelector(".nav_menu_image_image");

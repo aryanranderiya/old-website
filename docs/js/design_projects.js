@@ -237,7 +237,7 @@ function generateMerchItems(heading_titles) {
     const itemImg = document.createElement("div");
     addClass(itemImg, "item-img");
 
-    itemImg.innerHTML = `<img src="${item.imgSrc}" alt="" loading="eager" class="apparel_image" />`;
+    itemImg.innerHTML = `<img src="${item.imgSrc}" alt="${item.title}" loading="eager" class="apparel_image" />`;
 
     // const itemCopy = document.createElement("div");
     // addClass(itemCopy, "item-copy");

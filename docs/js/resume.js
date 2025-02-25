@@ -34,19 +34,16 @@ function processResume(snapshot) {
   const resume_subtitle = document.querySelector(".subtitle");
 
   if (url) {
-    const mainUrl = url + "#view=FitV&navpanes=0";
+    const mainUrl = `${url}#view=FitV&navpanes=0`;
     resume_element.src = mainUrl;
     resume_anchor.href = mainUrl;
-  } else {
-    resume_element.src = "./media/Resume.pdf#view=FitV&navpanes=0";
-    resume_anchor.href = "./media/Resume.pdf";
+
+    resume_subtitle.innerHTML = text;
+
+    resume_element.addEventListener("load", function () {
+      document.querySelector(".resumeload_container").remove();
+    });
   }
-
-  resume_subtitle.innerHTML = text;
-
-  resume_element.addEventListener("load", function () {
-    document.querySelector(".resumeload_container").remove();
-  });
 }
 
 const btn_download = document.querySelector(".btn_download");
