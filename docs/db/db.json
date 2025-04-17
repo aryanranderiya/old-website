@@ -89,8 +89,54 @@
       "project_title": "Personal Blog",
       "project_type": "Website"
     },
+    "DungeonQuest": {
+      "Likes": 0,
+      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/DungeonQuest/banner.png",
+      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/DungeonQuest/Screenshot%20from%202025-04-17%2014-43-46.png",
+      "demo_type": "demo_pc_image",
+      "github_link": "https://github.com/aryanranderiya/dungeon-quest",
+      "project_creation": "April 2025",
+      "hackathon": true,
+      "project_description": "Retro-style platform with pixel art and collectible items.",
+      "project_links": [["Live URL", "https://pixel-quest.vercel.app/"]],
+      "project_personal_comments": "I built this project for a Frontend UI Hackathon hosted by Outlier.ai",
+      "project_short_description": "Retro-style platform with pixel art and collectible items.",
+      "project_tech_stack": ["nextjs", "typescript", "tailwindcss"],
+      "project_title": "Dungeon Quest",
+      "project_type": "Website"
+    },
+    "Slate": {
+      "Likes": 0,
+      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Slate/banner.png",
+      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Slate/screenshot.png",
+      "demo_type": "demo_pc_image",
+      "github_link": "https://github.com/aryanranderiya/slate",
+      "project_creation": "April 2025",
+      "hackathon": true,
+      "project_description": "Minimalistic color-coded note-taking app.",
+      "project_links": [["Live URL", "https://slate-notetaking.vercel.app"]],
+      "project_personal_comments": "I built this project for a Frontend UI Hackathon hosted by Outlier.ai",
+      "project_short_description": "Minimalistic color-coded note-taking app.",
+      "project_tech_stack": ["nextjs", "typescript", "tailwindcss"],
+      "project_title": "Slate",
+      "project_type": "Website"
+    },
+    "IEEE": {
+      "Likes": 0,
+      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/IEEE/screenshot.png",
+      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/IEEE/screenshot.png",
+      "demo_type": "demo_pc_image",
+      "project_creation": "April 2025",
+      "project_description": "Landing page for IEEE PDEU",
+      "project_links": [["Live URL", "https://ieee-pdeu.vercel.app"]],
+      "project_short_description": "Landing page for IEEE PDEU",
+      "project_tech_stack": ["astro"],
+      "project_title": "IEEE PDEU",
+      "project_type": "Website"
+    },
     "Nasa_Space_Apps_Hackathon": {
       "Likes": 0,
+      "bad": true,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FNasa_Space%20Apps%20Hackathon%202024%2F2024-12-04_02-54.png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2FUntitled%20video%20-%20Made%20with%20Clipchamp%20(3).mp4",
       "demo_type": "demo_pc",
@@ -410,6 +456,7 @@
     },
     "GAIA": {
       "Likes": 10,
+      "featured": true,
       "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FIntroducingGAIABanner.png",
       "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2FGaia-1.png",
       "demo_type": "demo_pc_image",
@@ -419,7 +466,8 @@
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2Fhomepage_image.png",
         "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FWhatsApp%20Image%202024-06-22%20at%2020.09.10.jpeg"
       ],
-      "project_links": [["Landing Page", "https://gaia.aryanranderiya.com"]],
+
+      "project_links": [["Landing Page", "https://heygaia.io"]],
       "project_personal_comments": "Working on this project during buildspace nights and weekends season 5.",
       "project_short_description": "A General-purpose AI Assistant",
       "project_tech_stack": [

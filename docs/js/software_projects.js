@@ -325,8 +325,8 @@ async function processDataAndHidePreloader() {
       if (projectA.featured && !projectB.featured) return -1;
       if (!projectA.featured && projectB.featured) return 1;
 
-      if (projectB.Likes !== projectA.Likes)
-        return projectB.Likes - projectA.Likes;
+      // if (projectB.Likes !== projectA.Likes)
+      //   return projectB.Likes - projectA.Likes;
 
       if (projectA.client_work && !projectB.client_work) return -1;
       if (!projectA.client_work && projectB.client_work) return 1;
