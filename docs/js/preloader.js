@@ -1,44 +1,19 @@
+/**
+ * @module preloader
+ * @description Preloader functionality for page loading
+ */
+
+import { generateLoadingText, hidePreloader } from './modules/components/loadingText.js';
+
+// Scroll to top before page unload
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
 
+// Generate loading text on page load
 generateLoadingText();
 
+// Hide preloader when page is fully loaded
 window.onload = () => {
-  const blackCover = document.querySelector(".black_cover");
-
-  setTimeout(() => {
-    blackCover.classList.add("hide");
-    setTimeout(() => {
-      document.body.style.overflow = "auto";
-    }, 200);
-  }, 500);
+  hidePreloader();
 };
-
-function generateLoadingText() {
-  const websiteName = "aryanranderiya.com".split("");
-  const loadingTextElement = document.getElementById("loading_text");
-
-  let translation = 103.5;
-
-  for (let index = 0; index < websiteName.length; index++) {
-    loadingTextElement.style.opacity = "1";
-    const div = document.createElement("div");
-    div.classList.add("loading_text_inner");
-
-    websiteName.forEach((char) => {
-      const span = document.createElement("span");
-      div.appendChild(span);
-      span.innerHTML = char;
-    });
-
-    translation -= 5.5;
-
-    loadingTextElement.appendChild(div);
-
-    setTimeout(() => {
-      translation -= 5.56;
-      div.style.transform = `translateY(${translation}%)`;
-    }, index);
-  }
-}

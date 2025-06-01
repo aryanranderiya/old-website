@@ -1,54 +1,20 @@
+/**
+ * @module success
+ * @description Success page functionality
+ */
+
+import { initButtonHover, initWebsiteNameHover, initCursorGlow } from './modules/components/successHover.js';
+
+// Get DOM elements
 const cursor_glow = document.querySelector(".cursor_glow_div");
 const button_blue = document.querySelector(".button_blue");
 const cursor_icon5 = document.querySelector("#cursoricon5");
 const websitename = document.querySelector(".websitename");
+const cursor = document.querySelector('.cursor');
 
-document.addEventListener("mousemove", (e) => {
-  cursor_glow.style.left = e.clientX + "px";
-  cursor_glow.style.top = e.clientY + "px";
-});
+// Initialize cursor glow movement
+initCursorGlow(cursor_glow);
 
-button_blue.addEventListener("mouseover", () => {
-  cursor_icon5.style.opacity = "1";
-  cursor_icon5.style.transform = "scale(1.3)";
-
-  addClass(cursor_icon5, "transparent");
-  addClass(cursor, "transparent");
-});
-
-button_blue.addEventListener("mouseout", () => {
-  cursor_icon5.style.opacity = "0";
-  removeClass(cursor_icon5, "active");
-  removeClass(cursor, "transparent");
-});
-
-websitename.addEventListener("mouseover", () => {
-  cursor_icon5.style.opacity = "1";
-  cursor_icon5.style.transform = "scale(0.8)";
-  addClass(cursor_icon5, "transparent");
-  addClass(cursor, "transparent");
-});
-
-websitename.addEventListener("mouseout", () => {
-  cursor_icon5.style.opacity = "0";
-  removeClass(cursor_icon5, "active");
-  removeClass(cursor, "transparent");
-});
-
-// Functions
-function cursorTransformShadowBlend(
-  param_transform = "none",
-  param_boxShadow = "0px 0px 30px white",
-  param_mixBlendMode = "normal"
-) {
-  cursor.style.transform = param_transform;
-  cursor.style.boxShadow = param_boxShadow;
-  cursor.style.mixBlendMode = param_mixBlendMode;
-}
-
-function addClass(element, className) {
-  element.classList.add(className);
-}
-function removeClass(element, className) {
-  element.classList.remove(className);
-}
+// Initialize hover effects
+initButtonHover(button_blue, cursor, cursor_icon5);
+initWebsiteNameHover(websitename, cursor, cursor_icon5);
