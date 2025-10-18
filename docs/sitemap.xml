@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Homepage -->
@@ -458,5 +457,509 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- SOFTWARE PROJECTS START - Auto-generated, do not edit below this line -->
+
+  <!-- Encode -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Encode</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/image.png</image:loc>
+      <image:title>Encode - Project Screenshot</image:title>
+      <image:caption>The Official Website of Encode - The Computer Science Club at PDEU</image:caption>
+    </image:image>
+  </url>
+
+  <!-- GAIA -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=GAIA</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FIntroducingGAIABanner.png</image:loc>
+      <image:title>GAIA - Project Screenshot</image:title>
+      <image:caption>A General-purpose AI Assistant</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Rezrek -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Rezrek</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/image%20(1).png</image:loc>
+      <image:title>Rezrek - Project Screenshot</image:title>
+      <image:caption>A content-based e commerce platform.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- TicketBus -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=TicketBus</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBus_project_banner.png</image:loc>
+      <image:title>TicketBus - Project Screenshot</image:title>
+      <image:caption>Led a team to build a Public Transportation mobile application that streamlined travel processes, and implemented QR-based ticket booking, bus pass...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- YouTube Shorts Automator -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=YouTube_Shorts_Automator</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FYouTube_Shorts%20Automator%2Fproject_banner%20(2).png</image:loc>
+      <image:title>YouTube Shorts Automator - Project Screenshot</image:title>
+      <image:caption>Created a pipeline for the automated creation and uploading of YT Shorts from user prompts by generating video script, voice-over, subtitles, backg...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blink Analytics -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=BlinkAnalytics</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png</image:loc>
+      <image:title>Blink Analytics - Project Screenshot</image:title>
+      <image:caption>Official website of Blink Analytics</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Dungeon Quest -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=DungeonQuest</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/DungeonQuest/banner.png</image:loc>
+      <image:title>Dungeon Quest - Project Screenshot</image:title>
+      <image:caption>Retro-style platform with pixel art and collectible items.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Google Contacts Email Scraper -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=GoogleContactsEmailScraper</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2Fproject_banner_google_contacts.png</image:loc>
+      <image:title>Google Contacts Email Scraper - Project Screenshot</image:title>
+      <image:caption>Use the Google People&apos;s (Contacts) API to fetch email addresses from a large contacts directory and from personal contacts &amp; write them to...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- IEEE PDEU -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=IEEE</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/IEEE/screenshot.png</image:loc>
+      <image:title>IEEE PDEU - Project Screenshot</image:title>
+      <image:caption>Landing page for IEEE PDEU</image:caption>
+    </image:image>
+  </url>
+
+  <!-- LyfeLane -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=LyfeLane</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/2024-11-22_22-18.png</image:loc>
+      <image:title>LyfeLane - Project Screenshot</image:title>
+      <image:caption>Create personalized greeting cards, send them via email, and receive responses. Use AI for card templates with an easy, Canva-like design interface.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- MWI -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=MWI</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp</image:loc>
+      <image:title>MWI - Project Screenshot</image:title>
+      <image:caption>Official website of Move With Intention.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Personal Blog -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Blog</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2Fblog_project_banner.png</image:loc>
+      <image:title>Personal Blog - Project Screenshot</image:title>
+      <image:caption>My personal blogging website built using Next.js</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Personal Portfolio -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Portfolio</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FWebsite-Homepage.png</image:loc>
+      <image:title>Personal Portfolio - Project Screenshot</image:title>
+      <image:caption>Developed a responsive, interactive and creative portfolio website using HTML, CSS, and vanilla JavaScript. Implemented features such as smooth scr...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Slate -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Slate</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Slate/banner.png</image:loc>
+      <image:title>Slate - Project Screenshot</image:title>
+      <image:caption>Minimalistic color-coded note-taking app.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Spotify Tools -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=SpotifyTools</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2Fspotify_tools_project_banner.png</image:loc>
+      <image:title>Spotify Tools - Project Screenshot</image:title>
+      <image:caption>Python Desktop Application with a Graphical User Interface (GUI) that uses the Tkinter library leverages theSpotify API to to provide a set of usef...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SUSTAIN -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Nasa_Space_Apps_Hackathon</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FNasa_Space%20Apps%20Hackathon%202024%2F2024-12-04_02-54.png</image:loc>
+      <image:title>SUSTAIN - Project Screenshot</image:title>
+      <image:caption>Participated in NASA Space Apps 2024. Created a tool to help farmers analyze soil moisture and water data, optimizing water usage and improving cro...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- University Research Portal -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=University_Research_Portal</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2FUniversityPortalBanner.png</image:loc>
+      <image:title>University Research Portal - Project Screenshot</image:title>
+      <image:caption>Full-stack website for university professors to upload &amp; manage research data efficiently.
+Utilised by the Computer Science department to effec...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- URL Shortener -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=URLShortener</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2Fproject_banner.png</image:loc>
+      <image:title>URL Shortener - Project Screenshot</image:title>
+      <image:caption>Full Stack MERN (MongoDB, Express.js, React and Node.js) Website to generate custom or randomised short URLs that redirect to the long URL with Exp...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Wi-Fi Attendance -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=WiFi_Attendance</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2Fwifi_project_banner.png</image:loc>
+      <image:title>Wi-Fi Attendance - Project Screenshot</image:title>
+      <image:caption>Led a team in New India Vibrant Hackathon 2023 to develop an Android Application using Java with Firebase that streamlined the attendance-taking pr...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SOFTWARE PROJECTS END -->
+
+  <!-- SOFTWARE PROJECTS START - Auto-generated, do not edit below this line -->
+
+  <!-- Encode -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Encode</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/image.png</image:loc>
+      <image:title>Encode - Project Screenshot</image:title>
+      <image:caption>The Official Website of Encode - The Computer Science Club at PDEU</image:caption>
+    </image:image>
+  </url>
+
+  <!-- GAIA -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=GAIA</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FIntroducingGAIABanner.png</image:loc>
+      <image:title>GAIA - Project Screenshot</image:title>
+      <image:caption>A General-purpose AI Assistant</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Rezrek -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Rezrek</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/image%20(1).png</image:loc>
+      <image:title>Rezrek - Project Screenshot</image:title>
+      <image:caption>A content-based e commerce platform.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- TicketBus -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=TicketBus</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBus_project_banner.png</image:loc>
+      <image:title>TicketBus - Project Screenshot</image:title>
+      <image:caption>Led a team to build a Public Transportation mobile application that streamlined travel processes, and implemented QR-based ticket booking, bus pass...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- YouTube Shorts Automator -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=YouTube_Shorts_Automator</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FYouTube_Shorts%20Automator%2Fproject_banner%20(2).png</image:loc>
+      <image:title>YouTube Shorts Automator - Project Screenshot</image:title>
+      <image:caption>Created a pipeline for the automated creation and uploading of YT Shorts from user prompts by generating video script, voice-over, subtitles, backg...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blink Analytics -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=BlinkAnalytics</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png</image:loc>
+      <image:title>Blink Analytics - Project Screenshot</image:title>
+      <image:caption>Official website of Blink Analytics</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Dungeon Quest -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=DungeonQuest</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/DungeonQuest/banner.png</image:loc>
+      <image:title>Dungeon Quest - Project Screenshot</image:title>
+      <image:caption>Retro-style platform with pixel art and collectible items.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Google Contacts Email Scraper -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=GoogleContactsEmailScraper</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2Fproject_banner_google_contacts.png</image:loc>
+      <image:title>Google Contacts Email Scraper - Project Screenshot</image:title>
+      <image:caption>Use the Google People&apos;s (Contacts) API to fetch email addresses from a large contacts directory and from personal contacts &amp; write them to...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- IEEE PDEU -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=IEEE</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/IEEE/screenshot.png</image:loc>
+      <image:title>IEEE PDEU - Project Screenshot</image:title>
+      <image:caption>Landing page for IEEE PDEU</image:caption>
+    </image:image>
+  </url>
+
+  <!-- LyfeLane -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=LyfeLane</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/2024-11-22_22-18.png</image:loc>
+      <image:title>LyfeLane - Project Screenshot</image:title>
+      <image:caption>Create personalized greeting cards, send them via email, and receive responses. Use AI for card templates with an easy, Canva-like design interface.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- MWI -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=MWI</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp</image:loc>
+      <image:title>MWI - Project Screenshot</image:title>
+      <image:caption>Official website of Move With Intention.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Personal Blog -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Blog</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2Fblog_project_banner.png</image:loc>
+      <image:title>Personal Blog - Project Screenshot</image:title>
+      <image:caption>My personal blogging website built using Next.js</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Personal Portfolio -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Portfolio</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FWebsite-Homepage.png</image:loc>
+      <image:title>Personal Portfolio - Project Screenshot</image:title>
+      <image:caption>Developed a responsive, interactive and creative portfolio website using HTML, CSS, and vanilla JavaScript. Implemented features such as smooth scr...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Slate -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Slate</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Slate/banner.png</image:loc>
+      <image:title>Slate - Project Screenshot</image:title>
+      <image:caption>Minimalistic color-coded note-taking app.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Spotify Tools -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=SpotifyTools</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2Fspotify_tools_project_banner.png</image:loc>
+      <image:title>Spotify Tools - Project Screenshot</image:title>
+      <image:caption>Python Desktop Application with a Graphical User Interface (GUI) that uses the Tkinter library leverages theSpotify API to to provide a set of usef...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SUSTAIN -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=Nasa_Space_Apps_Hackathon</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FNasa_Space%20Apps%20Hackathon%202024%2F2024-12-04_02-54.png</image:loc>
+      <image:title>SUSTAIN - Project Screenshot</image:title>
+      <image:caption>Participated in NASA Space Apps 2024. Created a tool to help farmers analyze soil moisture and water data, optimizing water usage and improving cro...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- University Research Portal -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=University_Research_Portal</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2FUniversityPortalBanner.png</image:loc>
+      <image:title>University Research Portal - Project Screenshot</image:title>
+      <image:caption>Full-stack website for university professors to upload &amp; manage research data efficiently.
+Utilised by the Computer Science department to effec...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- URL Shortener -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=URLShortener</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2Fproject_banner.png</image:loc>
+      <image:title>URL Shortener - Project Screenshot</image:title>
+      <image:caption>Full Stack MERN (MongoDB, Express.js, React and Node.js) Website to generate custom or randomised short URLs that redirect to the long URL with Exp...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Wi-Fi Attendance -->
+  <url>
+    <loc>https://aryanranderiya.com/Project?id=WiFi_Attendance</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2Fwifi_project_banner.png</image:loc>
+      <image:title>Wi-Fi Attendance - Project Screenshot</image:title>
+      <image:caption>Led a team in New India Vibrant Hackathon 2023 to develop an Android Application using Java with Firebase that streamlined the attendance-taking pr...</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SOFTWARE PROJECTS END -->
 
 </urlset>
