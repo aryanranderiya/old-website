@@ -7,18 +7,6 @@
 
 I hope you enjoy navigating my website!<br>
 
-## Table of Contents
-
-1. [Homepage](#homepage)
-2. [Tech Stack](#tech-stack)
-3. [Software Projects](#software-projects)
-4. [View Project](#view-project)
-5. [Resume](#resume)
-6. [Contact](#contact)
-7. [Menu](#menu)
-8. [Footer](#footer)
-9. [Design Projects](#design-projects)
-
 ## Tech Stack
 
 Used HTML, CSS, vanilla Javascript and Firebase as Realtime Database, Cloud Storage & Web hosting. Utilised various libraries too such as Greensock animation platform (GSAP).

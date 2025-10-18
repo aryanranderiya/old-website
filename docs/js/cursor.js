@@ -1,15 +1,13 @@
-const cursor = document.querySelector(".cursor");
-const cursor_bg = document.querySelector(".cursor_bg");
+/**
+ * @fileoverview Custom cursor initialization
+ * @module cursor
+ */
 
-document.addEventListener("mousemove", (e) => {
-  requestAnimationFrame(() => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-    setTimeout(() => {
-      if (!!cursor_bg) {
-        cursor_bg.style.left = `${e.clientX}px`;
-        cursor_bg.style.top = `${e.clientY}px`;
-      }
-    }, 100);
-  });
+import { initializeCustomCursor } from './modules/components/customCursor.js';
+
+// Initialize custom cursor with default options
+initializeCustomCursor({
+  cursorSelector: '.cursor',
+  cursorBgSelector: '.cursor_bg',
+  bgDelay: 100
 });

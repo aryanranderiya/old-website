@@ -1,7 +1,0 @@
-{
-  "compress": true,
-  "mangle": true,
-  "output": {
-    "file": "dist/your-minified-file.js"
-  }
-}
