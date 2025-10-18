@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- ! CHANGE TITLE -->
     <title>About Me</title>
-    <link rel='stylesheet' type='text/css' href='css/FILENAME.css'> <!-- ! CHANGE CUSTOM CSS-->
+    <link rel="stylesheet" type="text/css" href="css/FILENAME.css" />
+    <!-- ! CHANGE CUSTOM CSS-->
 
-    <link rel='stylesheet' type='text/css' href='css/cursor.css'>
-    <link rel='stylesheet' type='text/css' href='css/preloader.css'>
+    <link rel="stylesheet" type="text/css" href="css/cursor.css" />
+    <link rel="stylesheet" type="text/css" href="css/preloader.css" />
 
-    <link rel='stylesheet' type='text/css' href='css/navbar.css'>
+    <link rel="stylesheet" type="text/css" href="css/navbar.css" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./media/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./media/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./media/favicons/favicon-16x16.png">
-    <link rel="manifest" href="./media/favicons/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#00bbff">
-    <meta name="theme-color" content="#ffffff">
-</head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./media/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./media/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./media/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./media/favicons/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#00bbff" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-<body>
+  <body>
     <!-- Preloader -->
     <div class="black_cover visible center-content">
-
-        <div class="preloader">
-            <div id="loading_text_container">
-                <text id="loading_text"></text>
-            </div>
-            <div class="loader_container"></div>
+      <div class="preloader">
+        <div id="loading_text_container">
+          <text id="loading_text"></text>
         </div>
-        <div class="custom-shape-divider-top-1707225707">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
-                    class="shape-fill"></path>
-            </svg>
-        </div>
+        <div class="loader_container"></div>
+      </div>
+      <div class="custom-shape-divider-top-1707225707">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
     </div>
 
     <!-- Cursor -->
     <div class="cursor"></div>
 
     <!-- Navigation Bar -->
-    <header id="navbarContainer" style="height: 50px;"></header>
+    <header id="navbarContainer" style="height: 50px"></header>
 
     <script defer src="js/navbar.js"></script>
     <script src="js/cursor.js"></script>
-    <script src="js/preloader.js"></script>
-</body>
-
+    <script type="module" src="js/preloader.js"></script>
+  </body>
 </html>
