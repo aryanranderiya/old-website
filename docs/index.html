@@ -86,6 +86,38 @@
     </style>
 
     <meta charset="utf-8" />
+
+    <!-- Favicons - Must be at top for SEO -->
+    <link
+      rel="icon"
+      href="/media/favicons/favicon.ico"
+      type="image/x-icon"
+      sizes="48x48"
+    />
+    <link
+      rel="shortcut icon"
+      href="/media/favicons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/media/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/media/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/media/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/media/favicons/site.webmanifest" />
+
     <title>Aryan Randeriya | Portfolio</title>
     <meta
       name="description"
@@ -106,7 +138,16 @@
     />
     <meta property="og:url" content="https://www.aryanranderiya.com" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/media/Website-Homepage.png" />
+    <meta
+      property="og:image"
+      content="https://aryanranderiya.com/media/Website-Homepage.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Aryan Randeriya Portfolio Homepage"
+    />
 
     <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/index_output2.css" />
@@ -124,28 +165,12 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script> -->
 
-    <link rel="icon" href="/media/favicons/favicon.ico" type="image/x-icon" />
-
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/media/favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/media/favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/media/favicons/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/media/favicons/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#00bbff" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="msapplication-config"
+      content="/media/favicons/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#00bbff" />
   </head>
 
   <body>
@@ -198,7 +223,7 @@
 
     <div class="nonfooter">
       <div class="cursor_bg"></div>
-      <!-- 
+      <!--
       <div class="scrollbar_progress_container_parent">
         <div class="scrollbar_progress_container">
           <div class="scrollbar_progress"></div>
@@ -214,8 +239,8 @@
 
           <!--! Custom Cursor -->
           <div class="cursor">
-            <h1 id="cursortext">Languages</h1>
-            <h1 id="cursortext2">0%</h1>
+            <div id="cursortext">Languages</div>
+            <div id="cursortext2">0%</div>
             <span class="material-symbols-rounded z-[2]" id="cursoricon1"
               >arrow_forward</span
             >
@@ -328,7 +353,6 @@
           building new. Welcome to my portfolio! Here, I showcase various of my
           Software & Design related projects.
         </h1>
-
 
         <div
           class="flex w-full justify-start items-center gap-3 max-w-screen-xl flex-col sm:flex-row pt-4"
@@ -997,9 +1021,9 @@
     <link defer rel="stylesheet" type="text/css" href="css/cursor.css" />
     <link defer rel="stylesheet" type="text/css" href="css/buttons.css" />
 
-    <script src="js/cursor.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/footer.js"></script>
+    <script type="module" src="js/cursor.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/footer.js"></script>
     <!-- <script src="js/animated_gradient_cursormovement.js"></script> -->
     <!-- <script
       defer

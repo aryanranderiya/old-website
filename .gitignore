@@ -66,3 +66,7 @@ node_modules/
 .env
 
 .history/
+
+.claude
+
+.DS_Store
