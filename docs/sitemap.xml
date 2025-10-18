@@ -458,14 +458,14 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- SOFTWARE PROJECTS START - Auto-generated, do not edit below this line -->
+<!-- SOFTWARE PROJECTS START - Auto-generated, do not edit below this line -->
 
   <!-- Encode -->
   <url>
     <loc>https://aryanranderiya.com/Project?id=Encode</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/image.png</image:loc>
       <image:title>Encode - Project Screenshot</image:title>
@@ -478,7 +478,7 @@
     <loc>https://aryanranderiya.com/Project?id=GAIA</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FIntroducingGAIABanner.png</image:loc>
       <image:title>GAIA - Project Screenshot</image:title>
@@ -491,7 +491,7 @@
     <loc>https://aryanranderiya.com/Project?id=Rezrek</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/image%20(1).png</image:loc>
       <image:title>Rezrek - Project Screenshot</image:title>
@@ -504,7 +504,7 @@
     <loc>https://aryanranderiya.com/Project?id=TicketBus</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBus_project_banner.png</image:loc>
       <image:title>TicketBus - Project Screenshot</image:title>
@@ -517,7 +517,7 @@
     <loc>https://aryanranderiya.com/Project?id=YouTube_Shorts_Automator</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FYouTube_Shorts%20Automator%2Fproject_banner%20(2).png</image:loc>
       <image:title>YouTube Shorts Automator - Project Screenshot</image:title>
@@ -530,7 +530,7 @@
     <loc>https://aryanranderiya.com/Project?id=BlinkAnalytics</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png</image:loc>
       <image:title>Blink Analytics - Project Screenshot</image:title>
@@ -543,7 +543,7 @@
     <loc>https://aryanranderiya.com/Project?id=DungeonQuest</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/DungeonQuest/banner.png</image:loc>
       <image:title>Dungeon Quest - Project Screenshot</image:title>
@@ -556,7 +556,7 @@
     <loc>https://aryanranderiya.com/Project?id=GoogleContactsEmailScraper</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2Fproject_banner_google_contacts.png</image:loc>
       <image:title>Google Contacts Email Scraper - Project Screenshot</image:title>
@@ -569,7 +569,7 @@
     <loc>https://aryanranderiya.com/Project?id=IEEE</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/IEEE/screenshot.png</image:loc>
       <image:title>IEEE PDEU - Project Screenshot</image:title>
@@ -582,7 +582,7 @@
     <loc>https://aryanranderiya.com/Project?id=LyfeLane</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/2024-11-22_22-18.png</image:loc>
       <image:title>LyfeLane - Project Screenshot</image:title>
@@ -595,7 +595,7 @@
     <loc>https://aryanranderiya.com/Project?id=MWI</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp</image:loc>
       <image:title>MWI - Project Screenshot</image:title>
@@ -608,7 +608,7 @@
     <loc>https://aryanranderiya.com/Project?id=Blog</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2Fblog_project_banner.png</image:loc>
       <image:title>Personal Blog - Project Screenshot</image:title>
@@ -621,7 +621,7 @@
     <loc>https://aryanranderiya.com/Project?id=Portfolio</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FWebsite-Homepage.png</image:loc>
       <image:title>Personal Portfolio - Project Screenshot</image:title>
@@ -634,7 +634,7 @@
     <loc>https://aryanranderiya.com/Project?id=Slate</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Slate/banner.png</image:loc>
       <image:title>Slate - Project Screenshot</image:title>
@@ -647,7 +647,7 @@
     <loc>https://aryanranderiya.com/Project?id=SpotifyTools</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2Fspotify_tools_project_banner.png</image:loc>
       <image:title>Spotify Tools - Project Screenshot</image:title>
@@ -660,7 +660,7 @@
     <loc>https://aryanranderiya.com/Project?id=Nasa_Space_Apps_Hackathon</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FNasa_Space%20Apps%20Hackathon%202024%2F2024-12-04_02-54.png</image:loc>
       <image:title>SUSTAIN - Project Screenshot</image:title>
@@ -673,7 +673,7 @@
     <loc>https://aryanranderiya.com/Project?id=University_Research_Portal</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2FUniversityPortalBanner.png</image:loc>
       <image:title>University Research Portal - Project Screenshot</image:title>
@@ -687,7 +687,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=URLShortener</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2Fproject_banner.png</image:loc>
       <image:title>URL Shortener - Project Screenshot</image:title>
@@ -700,7 +700,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=WiFi_Attendance</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2Fwifi_project_banner.png</image:loc>
       <image:title>Wi-Fi Attendance - Project Screenshot</image:title>
@@ -710,14 +710,14 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- SOFTWARE PROJECTS END -->
 
-  <!-- SOFTWARE PROJECTS START - Auto-generated, do not edit below this line -->
+<!-- SOFTWARE PROJECTS START - Auto-generated, do not edit below this line -->
 
   <!-- Encode -->
   <url>
     <loc>https://aryanranderiya.com/Project?id=Encode</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/image.png</image:loc>
       <image:title>Encode - Project Screenshot</image:title>
@@ -730,7 +730,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=GAIA</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FIntroducingGAIABanner.png</image:loc>
       <image:title>GAIA - Project Screenshot</image:title>
@@ -743,7 +743,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=Rezrek</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/image%20(1).png</image:loc>
       <image:title>Rezrek - Project Screenshot</image:title>
@@ -756,7 +756,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=TicketBus</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBus_project_banner.png</image:loc>
       <image:title>TicketBus - Project Screenshot</image:title>
@@ -769,7 +769,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=YouTube_Shorts_Automator</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FYouTube_Shorts%20Automator%2Fproject_banner%20(2).png</image:loc>
       <image:title>YouTube Shorts Automator - Project Screenshot</image:title>
@@ -782,7 +782,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=BlinkAnalytics</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png</image:loc>
       <image:title>Blink Analytics - Project Screenshot</image:title>
@@ -795,7 +795,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=DungeonQuest</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/DungeonQuest/banner.png</image:loc>
       <image:title>Dungeon Quest - Project Screenshot</image:title>
@@ -808,7 +808,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=GoogleContactsEmailScraper</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2Fproject_banner_google_contacts.png</image:loc>
       <image:title>Google Contacts Email Scraper - Project Screenshot</image:title>
@@ -821,7 +821,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=IEEE</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/IEEE/screenshot.png</image:loc>
       <image:title>IEEE PDEU - Project Screenshot</image:title>
@@ -834,7 +834,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=LyfeLane</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/2024-11-22_22-18.png</image:loc>
       <image:title>LyfeLane - Project Screenshot</image:title>
@@ -847,7 +847,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=MWI</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp</image:loc>
       <image:title>MWI - Project Screenshot</image:title>
@@ -860,7 +860,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=Blog</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2Fblog_project_banner.png</image:loc>
       <image:title>Personal Blog - Project Screenshot</image:title>
@@ -873,7 +873,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=Portfolio</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FWebsite-Homepage.png</image:loc>
       <image:title>Personal Portfolio - Project Screenshot</image:title>
@@ -886,7 +886,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=Slate</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Slate/banner.png</image:loc>
       <image:title>Slate - Project Screenshot</image:title>
@@ -899,7 +899,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=SpotifyTools</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2Fspotify_tools_project_banner.png</image:loc>
       <image:title>Spotify Tools - Project Screenshot</image:title>
@@ -912,7 +912,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=Nasa_Space_Apps_Hackathon</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FNasa_Space%20Apps%20Hackathon%202024%2F2024-12-04_02-54.png</image:loc>
       <image:title>SUSTAIN - Project Screenshot</image:title>
@@ -925,7 +925,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=University_Research_Portal</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2FUniversityPortalBanner.png</image:loc>
       <image:title>University Research Portal - Project Screenshot</image:title>
@@ -939,7 +939,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=URLShortener</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2Fproject_banner.png</image:loc>
       <image:title>URL Shortener - Project Screenshot</image:title>
@@ -952,7 +952,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <loc>https://aryanranderiya.com/Project?id=WiFi_Attendance</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2Fwifi_project_banner.png</image:loc>
       <image:title>Wi-Fi Attendance - Project Screenshot</image:title>
