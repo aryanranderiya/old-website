@@ -30,26 +30,39 @@
 
 <!-- Navigation Bar -->
 
-<div class="navbar_menu">
+<nav class="navbar_menu" aria-label="Mobile navigation menu">
   <div class="menu_items">
     <a href="index">
       <div class="item">
-        <div class="menu_item" id="home">HOME</h1>
-        <span class="material-symbols-rounded menu_item_icon"> home </span>
+        <div class="menu_item" id="home">HOME</div>
+        <span
+          class="material-symbols-rounded menu_item_icon"
+          aria-hidden="true"
+        >
+          home
+        </span>
       </div>
     </a>
 
     <a href="SoftwareProjects">
       <div class="item">
-        <div class="menu_item" id="software">Software Projects</h1>
-        <span class="material-symbols-rounded menu_item_icon"> terminal </span>
+        <div class="menu_item" id="software">Software Projects</div>
+        <span
+          class="material-symbols-rounded menu_item_icon"
+          aria-hidden="true"
+        >
+          terminal
+        </span>
       </div>
     </a>
 
     <a href="DesignProjects">
       <div class="item">
-        <div class="menu_item" id="design">Design Projects</h1>
-        <span class="material-symbols-rounded md-60 menu_item_icon">
+        <div class="menu_item" id="design">Design Projects</div>
+        <span
+          class="material-symbols-rounded md-60 menu_item_icon"
+          aria-hidden="true"
+        >
           palette
         </span>
       </div>
@@ -57,8 +70,11 @@
 
     <a href="Resume">
       <div class="item">
-        <div class="menu_item" id="resume">Resume</h1>
-        <span class="material-symbols-rounded md-60 menu_item_icon">
+        <div class="menu_item" id="resume">Resume</div>
+        <span
+          class="material-symbols-rounded md-60 menu_item_icon"
+          aria-hidden="true"
+        >
           file_open
         </span>
       </div>
@@ -66,8 +82,11 @@
 
     <a href="Contact">
       <div class="item">
-        <div class="menu_item" id="contact">Contact</h1>
-        <span class="material-symbols-rounded md-60 menu_item_icon">
+        <div class="menu_item" id="contact">Contact</div>
+        <span
+          class="material-symbols-rounded md-60 menu_item_icon"
+          aria-hidden="true"
+        >
           chat
         </span>
       </div>
@@ -90,22 +109,22 @@
       />
     </div>
   </div>
-</div>
+</nav>
 <div class="navbar_parent">
-  <div class="navbar group">
+  <nav class="navbar group" aria-label="Main navigation">
     <!-- src="./media/professional_photo_small.webp" -->
     <div class="relative">
       <img
         src="./media/logo.webp"
         class="navbar_image navbar_image1"
-        alt="Aryan Randeriya Logo"
+        alt="Aryan Randeriya professional logo"
         loading="eager"
       />
 
       <img
         src="./media/notion_face.webp"
         class="navbar_image navbar_image2"
-        alt="Aryan Randeriya Notion Logo"
+        alt="Aryan Randeriya avatar illustration"
         loading="lazy"
       />
     </div>
@@ -117,8 +136,12 @@
 
     <div class="navbar_menu_btn">
       <label class="hamburger">
-        <input type="checkbox" id="hamburgerCheckbox" />
-        <svg viewBox="0 0 32 32" id="hamburgerSvg">
+        <input
+          type="checkbox"
+          id="hamburgerCheckbox"
+          aria-label="Toggle navigation menu"
+        />
+        <svg viewBox="0 0 32 32" id="hamburgerSvg" aria-hidden="true">
           <path
             class="line line-top-bottom"
             d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
@@ -127,5 +150,5 @@
         </svg>
       </label>
     </div>
-  </div>
+  </nav>
 </div>

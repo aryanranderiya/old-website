@@ -9,10 +9,11 @@
       content="Explore a collection of software projects I've developed, showcasing my skills in web development, software design, and innovative solutions. Find detailed descriptions, live demos, and links to my GitHub repositories."
     />
     <meta
+      name="keywords"
       content="Aryan Randeriya, Aryan, Randeriya, Web Developer, Software Developer, Graphic Designer, Freelance Web Development"
     />
 
-    <meta name=" author" content="Aryan Randeriya" />
+    <meta name="author" content="Aryan Randeriya" />
     <meta property="og:site_name" content="Aryan Randeriya | Portfolio" />
     <meta property="og:title" content="Aryan Randeriya's Software Projects" />
     <meta
@@ -24,7 +25,54 @@
       content="https://www.aryanranderiya.com/SoftwareProjects"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/media/ss_SoftwareProjects.webp" />
+    <meta
+      property="og:image"
+      content="https://aryanranderiya.com/media/ss_SoftwareProjects.webp"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Aryan Randeriya Software Projects Portfolio"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:image:secure_url"
+      content="https://aryanranderiya.com/media/ss_SoftwareProjects.webp"
+    />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@aryanranderiya" />
+    <meta name="twitter:creator" content="@aryanranderiya" />
+    <meta name="twitter:title" content="Software Projects | Aryan Randeriya" />
+    <meta
+      name="twitter:description"
+      content="Explore a collection of software projects showcasing web development, mobile apps, and innovative solutions."
+    />
+    <meta
+      name="twitter:image"
+      content="https://aryanranderiya.com/media/ss_SoftwareProjects.webp"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Aryan Randeriya Software Projects"
+    />
+
+    <!-- Additional SEO Meta Tags -->
+    <link
+      rel="canonical"
+      href="https://www.aryanranderiya.com/SoftwareProjects"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN" />
+    <meta name="geo.placename" content="India" />
 
     <link
       rel="preload"
@@ -168,47 +216,52 @@
       <img
         src="media/icons/ios_icon_point_top.webp"
         id="cursoricon5"
-        alt="Cursor Icon"
+        alt="Cursor pointer icon for interactive elements"
       />
     </div>
 
-    <div class="nonfooter">
-      <div class="cursor_bg"></div>
+    <main>
+      <div class="nonfooter">
+        <div class="cursor_bg"></div>
 
-      <section>
-        <div class="title">
-          <h1 class="title-heading" id="software_projects_title">
-            <br />Software<br />Projects
-          </h1>
-          <h4 class="softwareprojects_subtitle">
-            Here are most of the Software Projects I've ever worked on, along
-            with explanations, live demos, images, links and documentation.<br /><br />
+        <section>
+          <div class="title">
+            <h1 class="title-heading" id="software_projects_title">
+              <br />Software<br />Projects
+            </h1>
+            <h4 class="softwareprojects_subtitle">
+              Here are most of the Software Projects I've ever worked on, along
+              with explanations, live demos, images, links and documentation.<br /><br />
 
-            Feel free to hit the <span style="color: red">❤</span> button if you
-            like any of my projects!
-          </h4>
-        </div>
-      </section>
-
-      <section>
-        <div class="logos_container">
-          <div class="logos">
-            <div class="logos-slide"></div>
+              Feel free to hit the <span style="color: red">❤</span> button if
+              you like any of my projects!
+            </h4>
           </div>
+        </section>
 
-          <div class="search_and_filter_div">
-            <div class="search_div">
-              <div class="input-icons">
-                <i class="fa fa-search input_icon"></i>
-                <input
-                  type="search"
-                  name="search_project"
-                  id="search_project"
-                  placeholder="Search Projects..."
-                />
-              </div>
+        <section>
+          <div class="logos_container">
+            <div class="logos">
+              <div class="logos-slide"></div>
             </div>
-            <!--
+
+            <div class="search_and_filter_div">
+              <div class="search_div">
+                <label for="search_project" class="sr-only"
+                  >Search Projects</label
+                >
+                <div class="input-icons">
+                  <i class="fa fa-search input_icon" aria-hidden="true"></i>
+                  <input
+                    type="search"
+                    name="search_project"
+                    id="search_project"
+                    placeholder="Search Projects..."
+                    aria-label="Search through software projects"
+                  />
+                </div>
+              </div>
+              <!--
             <select
               name="project_type_select"
               id="project_type_select"
@@ -216,72 +269,107 @@
             >
               <option value="">Filter Tech Stack</option>
             </select> -->
-          </div>
-
-          <div class="project_filters_parent">
-            <div class="project_type_select chip" data-filter="Client Work">
-              <span class="material-symbols-rounded">payments</span>
-              Freelance
             </div>
 
-            <div class="project_type_select chip" data-filter="Featured">
-              <span class="material-symbols-rounded">star</span>
-              Featured
+            <div class="project_filters_parent">
+              <button
+                class="project_type_select chip"
+                data-filter="Client Work"
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+              >
+                <span class="material-symbols-rounded">payments</span>
+                Freelance
+              </button>
+
+              <button
+                class="project_type_select chip"
+                data-filter="Featured"
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+              >
+                <span class="material-symbols-rounded">star</span>
+                Featured
+              </button>
+
+              <button
+                class="project_type_select chip"
+                data-filter="Websites"
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+              >
+                <span class="material-symbols-rounded">devices</span>
+                Websites
+              </button>
+
+              <button
+                class="project_type_select chip"
+                data-filter="Mobile Apps"
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+              >
+                <span class="material-symbols-rounded">phone_iphone</span>
+                Mobile Apps
+              </button>
+
+              <button
+                class="project_type_select chip"
+                data-filter="hackathon"
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+              >
+                <span class="material-symbols-rounded">trophy</span>
+                Hackathons
+              </button>
+
+              <button
+                class="project_type_select chip"
+                id="others"
+                data-filter="Others"
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+              >
+                <span class="material-symbols-rounded">category</span>
+                Others
+              </button>
             </div>
 
-            <div class="project_type_select chip" data-filter="Websites">
-              <span class="material-symbols-rounded">devices</span>
-              Websites
-            </div>
+            <div class="cards cardhidden"></div>
 
-            <div class="project_type_select chip" data-filter="Mobile Apps">
-              <span class="material-symbols-rounded">phone_iphone</span>
-              Mobile Apps
-            </div>
-
-            <div class="project_type_select chip" data-filter="hackathon">
-              <span class="material-symbols-rounded">trophy</span>
-              Hackathons
-            </div>
-
-            <div
-              class="project_type_select chip"
-              id="others"
-              data-filter="Others"
-            >
-              <span class="material-symbols-rounded">category</span>
-              Others
-            </div>
-          </div>
-
-          <div class="cards cardhidden"></div>
-
-          <div class="github_container">
-            <div class="github_heading_div">
-              <div class="github_logos">
-                <img
-                  src="media/github-mark-white.webp"
-                  alt=""
-                  srcset=""
-                  id="g_logo"
-                />
-                <div class="g_text">
-                  <span class="github_heading">Github Repositories</span>
-                  <a
-                    href="github.com/aryanranderiya"
-                    target="_blank"
-                    class="github_profile_link"
-                    >github.com/aryanranderiya</a
-                  >
+            <div class="github_container">
+              <div class="github_heading_div">
+                <h2 class="sr-only">GitHub Repositories</h2>
+                <div class="github_logos">
+                  <img
+                    src="media/github-mark-white.webp"
+                    alt="GitHub logo"
+                    srcset=""
+                    id="g_logo"
+                  />
+                  <div class="g_text">
+                    <span class="github_heading">Github Repositories</span>
+                    <a
+                      href="github.com/aryanranderiya"
+                      target="_blank"
+                      class="github_profile_link"
+                      >github.com/aryanranderiya</a
+                    >
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="github_cards"></div>
+              <div class="github_cards"></div>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </main>
 
     <!--! Footer -->
     <footer id="footerContainer"></footer>
@@ -312,10 +400,47 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebPage",
+        "@type": "CollectionPage",
         "name": "Software Projects by Aryan Randeriya",
-        "description": "Discover Aryan's innovative software projects.",
-        "url": "https://aryanranderiya.com/software-projects"
+        "description": "Explore a comprehensive collection of software projects showcasing web development, mobile applications, and innovative technical solutions.",
+        "url": "https://aryanranderiya.com/SoftwareProjects",
+        "author": {
+          "@type": "Person",
+          "name": "Aryan Randeriya",
+          "url": "https://aryanranderiya.com",
+          "jobTitle": "Software Developer",
+          "sameAs": [
+            "https://github.com/aryanranderiya",
+            "https://www.linkedin.com/in/aryanranderiya"
+          ]
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://aryanranderiya.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Software Projects",
+              "item": "https://aryanranderiya.com/SoftwareProjects"
+            }
+          ]
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Software Development Projects",
+        "description": "A curated list of software projects including websites, mobile applications, and web applications",
+        "numberOfItems": "25+",
+        "itemListElement": []
       }
     </script>
   </body>

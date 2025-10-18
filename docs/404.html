@@ -1,68 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Not Found</title>
+    <link rel="stylesheet" type="text/css" href="css/404.css" />
+    <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+    <link rel="stylesheet" type="text/css" href="css/cursor.css" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page Not Found</title>
-  <link rel='stylesheet' type='text/css' href='css/404.css'>
-  <link rel='stylesheet' type='text/css' href='css/buttons.css'>
-  <link rel='stylesheet' type='text/css' href='css/cursor.css'>
+    <link
+      defer
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,700,1,0&display=swap"
+    />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  <link defer rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,700,1,0&display=swap" />
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+      gtag("config", "G-S3XP36W3P9");
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"
+    ></script>
 
-    gtag("config", "G-S3XP36W3P9");
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./media/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./media/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./media/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./media/favicons/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#00bbff" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="./media/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./media/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./media/favicons/favicon-16x16.png">
-  <link rel="manifest" href="./media/favicons/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#00bbff">
-  <meta name="theme-color" content="#ffffff">
-</head>
-
-<body>
-
-  <!--! Custom Cursor -->
-  <div class="cursor">
-    <span class="material-symbols-rounded" id="cursoricon3">open_in_new</span>
-    <img src="media/icons/ios_icon_warning.webp" id="cursoriconwarning">
-    <img src="media/icons/ios_icon_point_top.webp" id="cursoricon5">
-  </div>
-
-  <!--! Main Content -->
-  <div id="message" class="content">
-    <h1 class="fourzerofour">404</h1>
-    <div>
-      <img loading="eager" src="media/error_image.webp" alt="404 Image" class="error_image">
+  <body>
+    <!--! Custom Cursor -->
+    <div class="cursor">
+      <span class="material-symbols-rounded" id="cursoricon3">open_in_new</span>
+      <img
+        src="media/icons/ios_icon_warning.webp"
+        id="cursoriconwarning"
+        alt="Cursor warning icon"
+      />
+      <img
+        src="media/icons/ios_icon_point_top.webp"
+        id="cursoricon5"
+        alt="Cursor pointer icon"
+      />
     </div>
-    <h8 class="description">The page you requested could not be found on <a href="https://aryanranderiya.com"
-        style="color:#00bbff" class="hyperlink">aryanranderiya.com</a>. <br><br>
-      This means you either entered a wrong URL or the page is still under development.</h8>
 
-    <button class="button_blue" id="btn1" onclick="history.back()" aria-label="Go Back">Go Back&nbsp;
-      <div class=" icon">
-        <span style="color:#00bbff;" class="material-symbols-rounded">arrow_back</span>
+    <!--! Main Content -->
+    <div id="message" class="content">
+      <h1 class="fourzerofour">404</h1>
+      <div>
+        <img
+          loading="eager"
+          src="media/error_image.webp"
+          alt="Page not found - 404 error illustration"
+          class="error_image"
+        />
       </div>
-    </button>
-  </div>
+      <h8 class="description"
+        >The page you requested could not be found on
+        <a
+          href="https://aryanranderiya.com"
+          style="color: #00bbff"
+          class="hyperlink"
+          >aryanranderiya.com</a
+        >. <br /><br />
+        This means you either entered a wrong URL or the page is still under
+        development.</h8
+      >
 
-  <!--! Background -->
-  <canvas class="animated_cursormovement_canvas"></canvas>
+      <button
+        class="button_blue"
+        id="btn1"
+        onclick="history.back()"
+        aria-label="Go Back"
+      >
+        Go Back&nbsp;
+        <div class="icon">
+          <span style="color: #00bbff" class="material-symbols-rounded"
+            >arrow_back</span
+          >
+        </div>
+      </button>
+    </div>
 
-  <!--! Scripts -->
-  <script src="js/404.js"></script>
-  <script src="js/cursor.js"></script>
-  <script defer src="js/animated_gradient_cursormovement.js"></script>
-</body>
+    <!--! Background -->
+    <canvas class="animated_cursormovement_canvas"></canvas>
 
+    <!--! Scripts -->
+    <script src="js/404.js"></script>
+    <script src="js/cursor.js"></script>
+    <script defer src="js/animated_gradient_cursormovement.js"></script>
+  </body>
 </html>

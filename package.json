@@ -6,7 +6,11 @@
     "minjs": "npx terser-glob docs/js/*.js --compress --mangle --output build/js",
     "mincss": "cleancss -O2 --batch --batch-suffix '.min' docs/css/*.css -o build/css/",
     "test": "cleancss --batch --batch-suffix '.min' --rename --advanced --o build/css/ docs/css/*.css",
-    "postcss": "postcss build/**/*.css --dir build/css"
+    "postcss": "postcss build/**/*.css --dir build/css",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "predeploy": "npm run sitemap",
+    "deploy": "firebase deploy",
+    "deploy:hosting": "npm run sitemap && firebase deploy --only hosting"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
