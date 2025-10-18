@@ -1,15 +1,29 @@
-# Portfolio
+# [aryanranderiya.com](aryanranderiya.com)
 
-- My Personal Portfolio using HTML, CSS and vanilla JavaScript! <br>
-- I worked on this website for over 3 months to fine-tune the transitions, animations and subtle smooth features that completely enhance the user experience and make the site enjoyable to use.<br>
-  My Website is built to showcase my Software projects that aren't publicly available on my Github and beautifully showcase all the Design Projects i've worked on over the years as I felt like my [Behance](https://behance.net/aryanranderiya) just wasn't customised enough to cut the job.<br>
-- The site is fully responsive using pure CSS using properties such as clamps and media queries to ensure a fulfilling experience over a number of devices.<br>
+- My Personal Portfolio using HTML, CSS and vanilla JavaScript
+- It was one of my first javascript projects which i built to learn js and because i also needed a personal website to showcase all my projects and design work and honestly it has served me well while i freelanced
+- I honestly just went all out on this website, adding all and any style of animations i could. I think i was going for a bit of a maximalism aesthetic
+- I worked on this website for over 3 months (maybe a little more) because i just wasn't satisfied with how it was, and i just kept fine tuning the little things over and over until i was utterly exhausted
+- Here's my contribution activity while i worked on it lol
+<img width="1200" height="256" alt="Commits from aryanranderiya" src="https://github.com/user-attachments/assets/934dfe18-ebb3-4c7f-b33b-5d6d7c0c1699" />
 
-I hope you enjoy navigating my website!<br>
+- It is built to showcase my Software projects that aren't publicly available on my Github (like client work or super secret projects 🤫 and beautifully showcase all the Design Projects i've worked on over the years as I felt like my [behance](https://behance.net/aryanranderiya) just wasn't customised enough to cut the job.
+- The site is fully responsive using pure CSS using properties such as clamps and media queries and other tidbits
+- Honestly i might just sunset this soon as I don't really freelance anymore and i want to focus on my startup, so while this portfolio has served me well, i want something that showcases my skills better. So maybe i'll work on a new cleaner but shorter portfolio website soon 🤷‍♂️ (19/10/2025)
+
+A couple decisions that i'd change if i were to make a new portfolio:
+- I'd probably fetch my projects using markdown. I initially fetched all my data from firebase and since firebase is shit and the latency was insane when fetching like a few seconds so then i just switched to json temporarily instead of using a db. but if i wanted to switch? then markdown.
+- I'd probably use astro with react components instead of vanilla html and js
+- I'd use only tailwind, this project uses a hellish mix of both vanilla css and bcz i was learning tailwind midway, i started using it too so its a weird mix of both
+
 
 ## Tech Stack
 
-Used HTML, CSS, vanilla Javascript and Firebase as Realtime Database, Cloud Storage & Web hosting. Utilised various libraries too such as Greensock animation platform (GSAP).
+Used HTML, CSS, vanilla Javascript and Firebase as Realtime Database, Cloud Storage & Web hosting. (Although i don't really use firebase for loading my projects anymore, i just use plain json)
+Utilised various libraries such as Greensock animation platform (GSAP) and Tailwind.
+
+# Screenshots
+These screenshots are really old. I just can't be arsed to update them.
 
 ## Homepage
 
