@@ -16,22 +16,22 @@
   "Projects": {
     "Encode": {
       "Likes": 14,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/image.png",
+      "banner_image_URL": "/ProjectMedia/Encode_Official%20Website/image.webp",
       "demo_type": "none",
       "featured": true,
       "github_link": "https://github.com/aryanranderiya/EncodeWebsite2024Fork",
       "project_creation": "August 2024",
       "project_description": "The Official Website of Encode - The Computer Science Club at PDEU",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/encode.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/1.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/2.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/3.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/4.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/5.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/6.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/7.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Encode_Official%20Website/8.webp"
+        "/ProjectMedia/Encode_Official%20Website/encode.webp",
+        "/ProjectMedia/Encode_Official%20Website/1.webp",
+        "/ProjectMedia/Encode_Official%20Website/2.webp",
+        "/ProjectMedia/Encode_Official%20Website/3.webp",
+        "/ProjectMedia/Encode_Official%20Website/4.webp",
+        "/ProjectMedia/Encode_Official%20Website/5.webp",
+        "/ProjectMedia/Encode_Official%20Website/6.webp",
+        "/ProjectMedia/Encode_Official%20Website/7.webp",
+        "/ProjectMedia/Encode_Official%20Website/8.webp"
       ],
       "project_links": [["Live URL", "https://encodepdeu.vercel.app"]],
       "project_personal_comments": "Worked on the homepage alongside Nemil Shah (responsible for the terminal usage), and led the web dev core committee team of encode 2024!",
@@ -49,14 +49,14 @@
     },
     "Rezrek": {
       "Likes": 36,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/image%20(1).png",
+      "banner_image_URL": "/ProjectMedia/Rezrek/image%20%281%29.webp",
       "client_work": true,
       "demo_type": "none",
       "featured": "true",
       "project_creation": "May 2024",
       "project_description": "A content-based e commerce platform.",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Rezrek/rezrek%20main.webp"
+        "/ProjectMedia/Rezrek/rezrek%20main.webp"
       ],
       "project_links": [
         ["Rezrek.com", "https://rezrek.com"],
@@ -78,11 +78,11 @@
     },
     "Blog": {
       "Likes": 9,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2Fblog_project_banner.png",
+      "banner_image_URL": "/ProjectMedia/Pesronal_Blog/blog_project_banner.webp",
       "demo_type": "none",
       "project_creation": "August 2024",
       "project_description": "My personal blogging website built using Next.js",
-      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPesronal_Blog%2F13_project_Pesronal_Blog_1725057851497_documentation.md",
+      "project_documentation_URL": "/ProjectMedia/Pesronal_Blog/13_project_Pesronal_Blog_1725057851497_documentation.md",
       "project_personal_comments": "My first project built using Next.js",
       "project_short_description": "My personal blogging website built using Next.js",
       "project_tech_stack": ["nextjs", "typescript", "tailwindcss", "sqlite"],
@@ -91,8 +91,8 @@
     },
     "DungeonQuest": {
       "Likes": 0,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/DungeonQuest/banner.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/DungeonQuest/Screenshot%20from%202025-04-17%2014-43-46.png",
+      "banner_image_URL": "/ProjectMedia/DungeonQuest/banner.webp",
+      "demo_file_URL": "/ProjectMedia/DungeonQuest/screenshot-1.webp",
       "demo_type": "demo_pc_image",
       "github_link": "https://github.com/aryanranderiya/dungeon-quest",
       "project_creation": "April 2025",
@@ -107,8 +107,8 @@
     },
     "Slate": {
       "Likes": 0,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Slate/banner.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/Slate/screenshot.png",
+      "banner_image_URL": "/ProjectMedia/Slate/banner.webp",
+      "demo_file_URL": "/ProjectMedia/Slate/screenshot.webp",
       "demo_type": "demo_pc_image",
       "github_link": "https://github.com/aryanranderiya/slate",
       "project_creation": "April 2025",
@@ -123,8 +123,8 @@
     },
     "IEEE": {
       "Likes": 0,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/IEEE/screenshot.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/IEEE/screenshot.png",
+      "banner_image_URL": "/ProjectMedia/IEEE/screenshot.webp",
+      "demo_file_URL": "/ProjectMedia/IEEE/screenshot.webp",
       "demo_type": "demo_pc_image",
       "project_creation": "April 2025",
       "project_description": "Landing page for IEEE PDEU",
@@ -137,8 +137,8 @@
     "Nasa_Space_Apps_Hackathon": {
       "Likes": 0,
       "bad": true,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FNasa_Space%20Apps%20Hackathon%202024%2F2024-12-04_02-54.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2FUntitled%20video%20-%20Made%20with%20Clipchamp%20(3).mp4",
+      "banner_image_URL": "/ProjectMedia/Nasa_Space%20Apps%20Hackathon%202024/2024-12-04_02-54.webp",
+      "demo_file_URL": "/ProjectMedia/SUSTAIN/sustain-1.webp",
       "demo_type": "demo_pc",
       "github_link": "https://github.com/Devarsh-42/SUSTAIN",
       "hackathon": true,
@@ -155,22 +155,22 @@
     },
     "BlinkAnalytics": {
       "Likes": 0,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png",
+      "banner_image_URL": "/ProjectMedia/BlinkAnalytics/1.webp",
       "client_work": true,
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png",
+      "demo_file_URL": "/ProjectMedia/BlinkAnalytics/1.webp",
       "demo_type": "demo_pc_image",
       "project_creation": "February 2025",
       "project_description": "Official website of Blink Analytics",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/1.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/2.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/3.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/4.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/5.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/6.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/7.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/8.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/BlinkAnalytics/9.webp"
+        "/ProjectMedia/BlinkAnalytics/1.webp",
+        "/ProjectMedia/BlinkAnalytics/2.webp",
+        "/ProjectMedia/BlinkAnalytics/3.webp",
+        "/ProjectMedia/BlinkAnalytics/4.webp",
+        "/ProjectMedia/BlinkAnalytics/5.webp",
+        "/ProjectMedia/BlinkAnalytics/6.webp",
+        "/ProjectMedia/BlinkAnalytics/7.webp",
+        "/ProjectMedia/BlinkAnalytics/8.webp",
+        "/ProjectMedia/BlinkAnalytics/9.webp"
       ],
       "project_links": [
         ["blinkanalytics.in", "https://blinkanalytics.in"],
@@ -183,28 +183,28 @@
     },
     "MWI": {
       "Likes": 0,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
+      "banner_image_URL": "/ProjectMedia/MWI/1.webp",
       "client_work": true,
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2Fmwicollage.png",
+      "demo_file_URL": "/ProjectMedia/MWI/1.webp",
       "demo_type": "demo_pc_image",
       "project_creation": "October 2024",
       "project_description": "Official website of Move With Intention.",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/2025-02-04_19-02.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/1.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/2.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/3.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/4.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/5.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/6.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/7.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/8.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/9.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/10.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/11.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/12.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/13.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/MWI/14.webp"
+        "/ProjectMedia/MWI/2025-02-04_19-02.webp",
+        "/ProjectMedia/MWI/1.webp",
+        "/ProjectMedia/MWI/2.webp",
+        "/ProjectMedia/MWI/3.webp",
+        "/ProjectMedia/MWI/4.webp",
+        "/ProjectMedia/MWI/5.webp",
+        "/ProjectMedia/MWI/6.webp",
+        "/ProjectMedia/MWI/7.webp",
+        "/ProjectMedia/MWI/8.webp",
+        "/ProjectMedia/MWI/9.webp",
+        "/ProjectMedia/MWI/10.webp",
+        "/ProjectMedia/MWI/11.webp",
+        "/ProjectMedia/MWI/12.webp",
+        "/ProjectMedia/MWI/13.webp",
+        "/ProjectMedia/MWI/14.webp"
       ],
       "project_links": [
         ["mwi.gg", "https://mwi.gg"],
@@ -222,23 +222,22 @@
     },
     "LyfeLane": {
       "Likes": 0,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/2024-11-22_22-18.png",
+      "banner_image_URL": "/ProjectMedia/LyfeLane/2024-11-22_22-18.webp",
       "client_work": true,
       "demo_type": "none",
       "project_creation": "November 2024",
       "project_description": "Create personalized greeting cards, send them via email, and receive responses. Use AI for card templates with an easy, Canva-like design interface.",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/1.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ClientWork/lyfelanecollage.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/2.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/3.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/4.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/5.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/6.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/7.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/8.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/9.webp",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia/LyfeLane/10.webp"
+        "/ProjectMedia/LyfeLane/1.webp",
+        "/ProjectMedia/LyfeLane/2.webp",
+        "/ProjectMedia/LyfeLane/3.webp",
+        "/ProjectMedia/LyfeLane/4.webp",
+        "/ProjectMedia/LyfeLane/5.webp",
+        "/ProjectMedia/LyfeLane/6.webp",
+        "/ProjectMedia/LyfeLane/7.webp",
+        "/ProjectMedia/LyfeLane/8.webp",
+        "/ProjectMedia/LyfeLane/9.webp",
+        "/ProjectMedia/LyfeLane/10.webp"
       ],
       "project_links": [
         ["lyfelane.com", "https://lyfelane.com"],
@@ -258,21 +257,21 @@
     "WiFi_Attendance": {
       "Likes": 0,
       "bad": true,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2Fwifi_project_banner.png",
+      "banner_image_URL": "/ProjectMedia/Wi-Fi_Attendance/wifi_project_banner.webp",
       "demo_type": "none",
       "github_link": "https://github.com/aryanranderiya/WifiClassroomAttendance",
       "hackathon": true,
       "project_creation": "November 2023",
       "project_description": "Led a team in New India Vibrant Hackathon 2023 to develop an Android Application using Java with Firebase that streamlined the attendance-taking process for students and professors by introducing a paperless system. Validated users using the university's BSSID and a unique device hardware ID and exported attendance data in Excel sheets, resulting in higher accuracy.",
-      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2F1_project_Wi-Fi_Attendance_1712172995880_documentation.md",
+      "project_documentation_URL": "/ProjectMedia/Wi-Fi_Attendance/1_project_Wi-Fi_Attendance_1712172995880_documentation.md",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2F287043334-95748acf-6050-45c4-abd3-b3590645cfdb.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2F287043315-93d9a24c-5bfe-4311-b624-463531ae9d93.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2F287043321-0016e2a9-eedd-438b-84d2-033ae890e865.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2F287043323-25c59090-053b-4d49-b83a-0b5241624a17.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2F287043329-5ebec9eb-1e0e-4c7f-8732-d92fc4d843f9.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2F287043284-8b3cd6d3-7c5c-42e4-b404-e3b1beefd9d3.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FWi-Fi_Attendance%2F287043256-4f5a301d-1d8a-4ea4-9c37-171ccb541baf.png"
+        "/ProjectMedia/Wi-Fi_Attendance/287043334-95748acf-6050-45c4-abd3-b3590645cfdb.webp",
+        "/ProjectMedia/Wi-Fi_Attendance/287043315-93d9a24c-5bfe-4311-b624-463531ae9d93.webp",
+        "/ProjectMedia/Wi-Fi_Attendance/287043321-0016e2a9-eedd-438b-84d2-033ae890e865.webp",
+        "/ProjectMedia/Wi-Fi_Attendance/287043323-25c59090-053b-4d49-b83a-0b5241624a17.webp",
+        "/ProjectMedia/Wi-Fi_Attendance/287043329-5ebec9eb-1e0e-4c7f-8732-d92fc4d843f9.webp",
+        "/ProjectMedia/Wi-Fi_Attendance/287043284-8b3cd6d3-7c5c-42e4-b404-e3b1beefd9d3.webp",
+        "/ProjectMedia/Wi-Fi_Attendance/287043256-4f5a301d-1d8a-4ea4-9c37-171ccb541baf.webp"
       ],
       "project_personal_comments": "Participated at New India Vibrant Hackathon 2023",
       "project_short_description": "Android App to streamline attendance tracking with report generation at New India Vibrant Hackathon 2023. Introduced an efficient paperless system, enhancing accuracy with Excel export.",
@@ -283,13 +282,13 @@
     "SpotifyTools": {
       "Likes": 2,
       "bad": true,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2Fspotify_tools_project_banner.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2FSpotifyTools_demo.mp4",
+      "banner_image_URL": "/ProjectMedia/Spotify_Tools/spotify_tools_project_banner.png",
+      "demo_file_URL": "/ProjectMedia/Spotify_Tools/SpotifyTools_demo.mp4",
       "demo_type": "demo_pc",
       "github_link": "https://github.com/aryanranderiya/SpotifyTools",
       "project_creation": "September 2023",
       "project_description": "Python Desktop Application with a Graphical User Interface (GUI) that uses the Tkinter library leverages theSpotify API to to provide a set of useful tools to extend the functionality of the Spotify desktop application enabling the user to explore the world of Spotify in a whole new way! Implemented various features including playlist shuffling, viewing playlists, displaying user details and more.",
-      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FSpotify_Tools%2F2_project_Spotify_Tools_1712173676155_documentation.md",
+      "project_documentation_URL": "/ProjectMedia/Spotify_Tools/2_project_Spotify_Tools_1712173676155_documentation.md",
       "project_links": [
         ["YouTube Demo", "https://www.youtube.com/watch?v=AjHZCiDU-Wk"],
         ["CS50 Python Repo", "https://github.com/aryanranderiya/cs50-python"],
@@ -306,17 +305,17 @@
     },
     "GoogleContactsEmailScraper": {
       "Likes": 4,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2Fproject_banner_google_contacts.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2F2024-03-30_22-39.png",
+      "banner_image_URL": "/ProjectMedia/Google_Contacts%20Email%20Scraper/project_banner_google_contacts.png",
+      "demo_file_URL": "/ProjectMedia/Google_Contacts%20Email%20Scraper/2024-03-30_22-39.webp",
       "demo_type": "demo_pc",
       "github_link": "https://github.com/aryanranderiya/GoogleContactsEmailScraper",
       "project_creation": "March 2024",
       "project_description": "Use the Google People's (Contacts) API to fetch email addresses from a large contacts directory and from personal contacts & write them to txt files.",
-      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2F3_project_Google_Contacts%20Email%20Scraper_1712174126624_documentation.md",
+      "project_documentation_URL": "/ProjectMedia/Google_Contacts%20Email%20Scraper/3_project_Google_Contacts%20Email%20Scraper_1712174126624_documentation.md",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2Fproject_banner_google_contacts.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2F2024-03-30_22-41.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGoogle_Contacts%20Email%20Scraper%2F2024-03-30_22-39.png"
+        "/ProjectMedia/Google_Contacts%20Email%20Scraper/project_banner_google_contacts.png",
+        "/ProjectMedia/Google_Contacts%20Email%20Scraper/2024-03-30_22-41.png",
+        "/ProjectMedia/Google_Contacts%20Email%20Scraper/2024-03-30_22-39.webp"
       ],
       "project_personal_comments": "I used this tool to fetch 44,000 Emails from my University's Directory which couldn't be natively exported using Google Contacts.",
       "project_short_description": "Use the Google People's (Contacts) API to fetch email addresses from a large contacts directory and from personal contacts & write them to txt files.",
@@ -326,13 +325,13 @@
     },
     "URLShortener": {
       "Likes": 7,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2Fproject_banner.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2FURLShortener.png",
+      "banner_image_URL": "/ProjectMedia/URL_Shortener/project_banner.png",
+      "demo_file_URL": "/ProjectMedia/URL_Shortener/URLShortener.webp",
       "demo_type": "demo_pc_image",
       "github_link": "https://github.com/aryanranderiya/URLShortener",
       "project_creation": "March 2024",
       "project_description": "Full Stack MERN (MongoDB, Express.js, React and Node.js) Website to generate custom or randomised short URLs that redirect to the long URL with Expiration date functionality. Hosted Frontend & Backend using Vercel, and the database using MongoDB Atlas.",
-      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FURL_Shortener%2F4_project_URL_Shortener_1712174448679_documentation.md",
+      "project_documentation_URL": "/ProjectMedia/URL_Shortener/4_project_URL_Shortener_1712174448679_documentation.md",
       "project_links": [
         [
           "Try Here ( links.aryanranderiya.com )",
@@ -352,27 +351,27 @@
     },
     "TicketBus": {
       "Likes": 10,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBus_project_banner.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketbus.mp4",
+      "banner_image_URL": "/ProjectMedia/TicketBus/TicketBus_project_banner.webp",
+      "demo_file_URL": "/ProjectMedia/TicketBus/Ticketbus.mp4",
       "demo_type": "demo_mobile",
       "featured": true,
       "project_creation": "June 2022-23",
       "project_description": "Led a team to build a Public Transportation mobile application that streamlined travel processes, and implemented QR-based ticket booking, bus passes, e-wallets, user profiles and a comprehensive map module.",
-      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBus_documentation.md",
+      "project_documentation_URL": "/ProjectMedia/TicketBus/5_project_TicketBus_1712174799259_documentation.md",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FAdminPanel.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FAdminPanel_Bus.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FAdminPanel_BusPass.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FAdminPanel_Location.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FAdminPanel_Users.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FBus_Pass.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FDashboard.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FLogin_Signup.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FMap.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FOnboarding.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FSplashScreen.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FTicketBooking.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FTicketBus%2FUser_Profile.png"
+        "/ProjectMedia/TicketBus/AdminPanel.webp",
+        "/ProjectMedia/TicketBus/AdminPanel_Bus.webp",
+        "/ProjectMedia/TicketBus/AdminPanel_BusPass.webp",
+        "/ProjectMedia/TicketBus/AdminPanel_Location.webp",
+        "/ProjectMedia/TicketBus/AdminPanel_Users.webp",
+        "/ProjectMedia/TicketBus/Bus_Pass.webp",
+        "/ProjectMedia/TicketBus/Dashboard.webp",
+        "/ProjectMedia/TicketBus/Login_Signup.webp",
+        "/ProjectMedia/TicketBus/Map.webp",
+        "/ProjectMedia/TicketBus/Onboarding.webp",
+        "/ProjectMedia/TicketBus/SplashScreen.webp",
+        "/ProjectMedia/TicketBus/TicketBooking.webp",
+        "/ProjectMedia/TicketBus/User_Profile.webp"
       ],
       "project_links": [
         [
@@ -388,12 +387,12 @@
     },
     "Portfolio": {
       "Likes": 13,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FWebsite-Homepage.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FPortfolioRecordingCompressed.mp4",
+      "banner_image_URL": "/ProjectMedia/Portfolio/Website-Homepage.webp",
+      "demo_file_URL": "/ProjectMedia/Portfolio/Website-Homepage.webp",
       "demo_type": "demo_pc",
       "project_creation": "November 2023",
       "project_description": "Developed a responsive, interactive and creative portfolio website using HTML, CSS, and vanilla JavaScript. Implemented features such as smooth scrolling animations, interactive navigation, custom cursors designed to capture the viewers' attention and dynamically loaded content using Firebase Realtime Database to showcase my projects and hosted using Github Pages and Firebase Hosting.",
-      "project_documentation_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPortfolio%2FREADME.md",
+      "project_documentation_URL": "/ProjectMedia/Portfolio/README.md",
       "project_links": [
         ["Try Here ( aryanranderiya.com )", "https://aryanranderiya.com"]
       ],
@@ -411,8 +410,8 @@
     },
     "YouTube_Shorts_Automator": {
       "Likes": 9,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FYouTube_Shorts%20Automator%2Fproject_banner%20(2).png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FYouTube_Shorts%20Automator%2F2024-04-04_02-07.png",
+      "banner_image_URL": "/ProjectMedia/YouTube_Shorts%20Automator/project_banner%20%282%29.png",
+      "demo_file_URL": "/ProjectMedia/YouTube_Shorts%20Automator/2024-04-04_02-07.png",
       "demo_type": "demo_pc_image",
       "featured": true,
       "project_creation": "March 2024",
@@ -432,22 +431,22 @@
     },
     "University_Research_Portal": {
       "Likes": 9,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2FUniversityPortalBanner.png",
+      "banner_image_URL": "/ProjectMedia/University_Research%20Portal/UniversityPortalBanner.webp",
       "demo_type": "none",
       "project_creation": "April 2024",
       "project_description": "Full-stack website for university professors to upload & manage research data efficiently.\nUtilised by the Computer Science department to effectively manage research data & generate analytics",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F10.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F9.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F8.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F7.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F6.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F5.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F4.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F3.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F2.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F1.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FUniversity_Research%20Portal%2F0.png"
+        "/ProjectMedia/University_Research%20Portal/10.webp",
+        "/ProjectMedia/University_Research%20Portal/9.webp",
+        "/ProjectMedia/University_Research%20Portal/8.webp",
+        "/ProjectMedia/University_Research%20Portal/7.webp",
+        "/ProjectMedia/University_Research%20Portal/6.webp",
+        "/ProjectMedia/University_Research%20Portal/5.webp",
+        "/ProjectMedia/University_Research%20Portal/4.webp",
+        "/ProjectMedia/University_Research%20Portal/3.webp",
+        "/ProjectMedia/University_Research%20Portal/2.webp",
+        "/ProjectMedia/University_Research%20Portal/1.webp",
+        "/ProjectMedia/University_Research%20Portal/0.png"
       ],
       "project_short_description": "A full-stack website for University professors to efficiently manage and analyze research data.",
       "project_tech_stack": ["Supabase", "Express", "React", "Nodejs"],
@@ -457,14 +456,14 @@
     "GAIA": {
       "Likes": 10,
       "featured": true,
-      "banner_image_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FIntroducingGAIABanner.png",
-      "demo_file_URL": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FPersonal_Portfolio%2FGaia-1.png",
+      "banner_image_URL": "/ProjectMedia/GAIA/IntroducingGAIABanner.webp",
+      "demo_file_URL": "/ProjectMedia/GAIA/gaia-dashboard.webp",
       "demo_type": "demo_pc_image",
       "project_creation": "July 2024",
       "project_description": "A General-purpose AI Assistant",
       "project_images": [
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2Fhomepage_image.png",
-        "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FGAIA%2FWhatsApp%20Image%202024-06-22%20at%2020.09.10.jpeg"
+        "/ProjectMedia/GAIA/homepage_image.webp",
+        "/ProjectMedia/GAIA/WhatsApp%20Image%202024-06-22%20at%2020.09.10.jpeg"
       ],
 
       "project_links": [["Landing Page", "https://heygaia.io"]],
@@ -485,7 +484,7 @@
   },
   "Resume": {
     "text": "Last Updated:  26th November 24",
-    "url": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/Resume%2FAryan%20Randeriya%20Resume.pdf"
+    "url": "/resume.pdf"
   },
   "Services": [
     "Full-Stack Web Development",
@@ -503,10 +502,10 @@
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-plain.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-plain-wordmark.svg",
-    "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/express-original-wordmark-svg.png",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
-    "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/flask-original-svg.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original-wordmark.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg",
@@ -514,8 +513,8 @@
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
-    "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/vercel-original-wordmark-svg.svg",
-    "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/github-original-svg.svg",
+    "/media/icons/vercel.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg",
@@ -534,19 +533,18 @@
   "Testimonials": [
     {
       "client": "Aditya Gandhi",
-      "client_image": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FRezrek%2Faditygandhi.webp",
+      "client_image": "/ProjectMedia/Rezrek/team.jpeg",
       "company": "Rezrek",
       "position": "Founder and CEO",
       "text": "Working with Aryan has been absolutely delightful. He is a quick, intuitive and curious individual who takes his time to understand the project, and builds it thoughtfully. Over the couple of months we've worked together, his insights, as a developer and someone with knowledge of graphics, have been very crucial in shaping and propelling the project towards a better version. Will most certainly work with him in the future too!"
     },
     {
       "client": "Khevna Gandhi",
-      "client_image": "https://storage.googleapis.com/aryanranderiya-portfolio.appspot.com/ProjectMedia%2FRezrek%2Fkhevnagandhi.webp",
+      "client_image": "/ProjectMedia/Rezrek/team.jpeg",
 
       "company": "Rezrek",
       "position": "Founder and CMO",
       "text": "Aryan is more than a software engineer. He is an artist who paints his imagination through code. He has a lot of ideas, feedback, and a sense of ownership in his projects. It is a delight to watch him bring our vision to life in a way we hadn't even imagined. As a fellow team member, he is accepting, understanding, and a friend you don't expect to find in such circumstances. Looking forward to working with him and finding more reasons to be amused by his work every single day."
     }
-  ],
-  "qDtadW_2ZSeiRJtuRTvv": "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"
+  ]
 }

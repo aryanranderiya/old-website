@@ -1,0 +1,17 @@
+# Vanity + legacy redirects (ported from firebase.json)
+/TicketBus        /Project?id=TicketBus      301
+/SpotifyTools     /Project?id=SpotifyTools   301
+
+# Lowercase -> canonical (Cloudflare Pages paths are case-sensitive)
+/contact          /Contact          301
+/designprojects   /DesignProjects   301
+/softwareprojects /SoftwareProjects 301
+/resume           /Resume           301
+/project          /Project          301
+/success          /Success          301
+
+# Social shortlinks
+/LinkedIn   https://www.linkedin.com/in/aryanranderiya/   301
+/linkedin   https://www.linkedin.com/in/aryanranderiya/   301
+/Github     https://github.com/aryanranderiya             301
+/github     https://github.com/aryanranderiya             301

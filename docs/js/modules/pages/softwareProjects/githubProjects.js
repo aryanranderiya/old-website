@@ -3,8 +3,6 @@
  * @description Module for fetching and displaying GitHub projects
  */
 
-import { ref, onValue } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { db } from "../../config/firebase.js";
 import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js";
 
 /**
@@ -12,23 +10,22 @@ import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/d
  */
 export async function fetchGithubProjects() {
   const githubCards = document.querySelector(".github_cards");
+  if (!githubCards) return;
 
-  // Get GitHub token from Firebase
-  const token = await getGithubToken();
-  
-  // Fetch repositories
-  const repos = await fetchRepositories(token);
-  
+  // Fetch repositories (unauthenticated public GitHub API)
+  const repos = await fetchRepositories();
+  if (!repos || !repos.length) return;
+
   // Update heading
   document.querySelector(".github_heading").innerHTML = `${repos.length} Github Repositories`;
-  
+
   // Get language colors
   const languageColors = await fetchLanguageColors();
-  
+
   // Create cards for each repository
   repos.forEach((repo) => {
     if (shouldSkipRepo(repo.name)) return;
-    
+
     const card = createGithubCard(repo, languageColors);
     githubCards.appendChild(card);
   });
@@ -38,35 +35,16 @@ export async function fetchGithubProjects() {
 }
 
 /**
- * Get GitHub token from Firebase
- * @returns {Promise<string>} GitHub token
- */
-async function getGithubToken() {
-  return new Promise((resolve) => {
-    const tokenRef = ref(db, "qDtadW_2ZSeiRJtuRTvv/");
-    onValue(tokenRef, (snapshot) => {
-      resolve(snapshot.val());
-    });
-  });
-}
-
-/**
- * Fetch repositories from GitHub API
- * @param {string} token - GitHub API token
+ * Fetch repositories from the public GitHub API (no auth required)
  * @returns {Promise<Array>} Array of repositories
  */
-async function fetchRepositories(token) {
+async function fetchRepositories() {
   const response = await fetch(
-    "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
+    "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed&per_page=100"
   );
 
   const data = await response.json();
-  const repos = data.items;
+  const repos = data.items || [];
 
   // Sort by pushed date
   repos.sort((a, b) => {

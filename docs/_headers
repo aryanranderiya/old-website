@@ -1,0 +1,11 @@
+# Long-lived caching for immutable media (ported from firebase.json image rules)
+/ProjectMedia/*
+  Cache-Control: public, max-age=31536000, immutable
+/media/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Always re-validate the project data
+/db/*
+  Cache-Control: public, max-age=0, must-revalidate

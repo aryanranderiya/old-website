@@ -64,20 +64,15 @@ export function setupBentoAnimation() {
 }
 
 /**
- * Setup GitHub bento with API data
- * @param {Object} db - Database object containing API token
+ * Setup GitHub bento with API data (unauthenticated public GitHub API)
+ * @param {Object} db - Database object (unused; kept for call-site compatibility)
  */
 export async function setupGithubBento(db) {
   try {
-    const token = db.qDtadW_2ZSeiRJtuRTvv;
-
     // Fetch GitHub repo and user info concurrently
     const [repoResponse, userResponse] = await Promise.all([
       fetch(
-        "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed"
       ),
       fetch("https://api.github.com/users/aryanranderiya"),
     ]);

@@ -1,17 +1,30 @@
 /**
  * @module pages/softwareProjects/heartsInteraction
- * @description Module for handling hearts/likes interaction
+ * @description Module for handling hearts/likes interaction.
+ * Like counts are read from the static db.json; the toggle state is
+ * persisted per-visitor in localStorage (no backend writes).
  */
 
-import { ref, onValue, update } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { db } from "../../config/firebase.js";
 import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js";
 
 /**
  * Set up hearts/likes functionality
  */
-export function setupHearts() {
+export async function setupHearts() {
   const checkboxes = document.querySelectorAll(".heart_checkboxes");
+
+  // Load static like counts from db.json
+  let likesMap = {};
+  try {
+    const response = await fetch("./db/db.json");
+    const data = await response.json();
+    const projects = data.Projects || {};
+    Object.entries(projects).forEach(([id, p]) => {
+      likesMap[id] = p.Likes || 0;
+    });
+  } catch (e) {
+    console.error("Error loading like counts:", e);
+  }
 
   checkboxes.forEach((checkbox) => {
     const projectId = checkbox.id;
@@ -22,8 +35,8 @@ export function setupHearts() {
     // Set up hover effects
     setupHeartHoverEffects(checkbox);
 
-    // Set up Firebase sync
-    setupFirebaseSync(checkbox, projectId);
+    // Set up like count + local toggle
+    setupLikeCounter(checkbox, projectId, likesMap[projectId] || 0);
   });
 }
 
@@ -48,46 +61,31 @@ function setupHeartHoverEffects(checkbox) {
 }
 
 /**
- * Set up Firebase sync for likes
+ * Set up the like counter and local (display-only) toggle
  * @param {HTMLElement} checkbox - Heart checkbox element
  * @param {string} projectId - Project ID
+ * @param {number} baseLikes - Base like count from db.json
  */
-function setupFirebaseSync(checkbox, projectId) {
+function setupLikeCounter(checkbox, projectId, baseLikes) {
   const likesCountText = checkbox.parentElement.nextElementSibling;
   const svgContainer = checkbox.nextElementSibling;
-  const projectRef = ref(db, `Projects/${projectId}`);
 
-  let currentLikes = 0;
-
-  // Listen for likes updates
-  onValue(projectRef, (snapshot) => {
-    if (snapshot.exists()) {
-      currentLikes = snapshot.val().Likes || 0;
-      likesCountText.textContent = currentLikes;
-    }
-  });
+  // Display count includes this visitor's own like if previously toggled
+  const render = () => {
+    const offset = checkbox.checked ? 1 : 0;
+    if (likesCountText) likesCountText.textContent = baseLikes + offset;
+  };
+  render();
 
   // Handle SVG container click
-  svgContainer.addEventListener("click", () => {
+  svgContainer?.addEventListener("click", () => {
     checkbox.checked = !checkbox.checked;
-    const changeEvent = new Event("change", {
-      bubbles: true,
-      cancelable: true,
-    });
-    checkbox.dispatchEvent(changeEvent);
+    checkbox.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
   });
 
-  // Handle checkbox change
+  // Handle checkbox change (local only)
   checkbox.addEventListener("change", () => {
-    const isChecked = checkbox.checked;
-    const newLikes = isChecked ? currentLikes + 1 : currentLikes - 1;
-
-    update(projectRef, { Likes: newLikes })
-      .then(() => {
-        likesCountText.textContent = newLikes;
-      })
-      .catch((error) => console.error("Error updating data:", error));
-    
-    localStorage.setItem(checkbox.id, isChecked);
+    localStorage.setItem(checkbox.id, checkbox.checked);
+    render();
   });
 }

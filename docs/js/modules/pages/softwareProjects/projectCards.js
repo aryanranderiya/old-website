@@ -61,7 +61,7 @@ function createProjectCard(projectId, project) {
   const isClientWork = project.client_work || false;
   const hackathon = project.hackathon || false;
   const projectTechStack = project.project_tech_stack || [];
-  const bannerImageURL = project.banner_image_URL || "/docs/media/bg_aryan_swirl.webp";
+  const bannerImageURL = project.banner_image_URL || "/media/bg_aryan_swirl.webp";
 
   // Preload image
   const img = new Image();
@@ -87,7 +87,7 @@ function createProjectCard(projectId, project) {
     <div class="card-content">
     </div>
     <div class="card-image-div">
-    <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.jpg" data-src="${bannerImageURL}" alt="Project Card Image">
+    <img class="card-image" loading="eager" src="./media/bg_aryan_swirl.webp" data-src="${bannerImageURL}" alt="Project Card Image">
     </img>
     </div>
     <div class="card-info-wrapper">

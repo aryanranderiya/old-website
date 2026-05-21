@@ -1,40 +1,45 @@
 /**
  * @module pages/resume/resumeLoader
- * @description Module for loading and processing resume data from Firebase
+ * @description Module for loading and processing resume data from the static db.json
  */
-
-import { ref, onValue } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { db } from "../../config/firebase.js";
 
 /**
- * Process resume data from Firebase snapshot
- * @param {DataSnapshot} snapshot - Firebase data snapshot
+ * Apply resume data to the page
+ * @param {{url: string, text: string}} resume - Resume data
  */
-export function processResume(snapshot) {
-  const snapshotData = snapshot.val();
-  const url = snapshotData.url;
-  const text = snapshotData.text;
+export function processResume(resume) {
+  if (!resume) return;
+
+  const url = resume.url;
+  const text = resume.text;
   const resumeElement = document.querySelector(".resume_pdf");
   const resumeAnchor = document.getElementById("download_resume_anchor");
   const resumeSubtitle = document.querySelector(".subtitle");
 
   if (url) {
     const mainUrl = `${url}#view=FitV&navpanes=0`;
-    resumeElement.src = mainUrl;
-    resumeAnchor.href = mainUrl;
+    if (resumeElement) resumeElement.src = mainUrl;
+    if (resumeAnchor) resumeAnchor.href = mainUrl;
 
-    resumeSubtitle.innerHTML = text;
+    if (resumeSubtitle && text) resumeSubtitle.innerHTML = text;
 
-    resumeElement.addEventListener("load", function () {
-      document.querySelector(".resumeload_container").remove();
-    });
+    if (resumeElement) {
+      resumeElement.addEventListener("load", function () {
+        document.querySelector(".resumeload_container")?.remove();
+      });
+    }
   }
 }
 
 /**
- * Initialize resume data loading from Firebase
+ * Initialize resume data loading from the static db.json
  */
-export function initializeResumeLoader() {
-  const projectRef = ref(db, "Resume/");
-  onValue(projectRef, processResume);
+export async function initializeResumeLoader() {
+  try {
+    const response = await fetch("./db/db.json");
+    const data = await response.json();
+    processResume(data.Resume);
+  } catch (e) {
+    console.error("Error loading resume data:", e);
+  }
 }
