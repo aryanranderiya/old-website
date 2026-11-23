@@ -20,4 +20,4 @@
 
 Thank you for viewing this Repo! A Star 🌟 on Github would be appreciated if this project was helpful!
 
-[**Get in touch**](https://aryanranderiya.com/contact)
+[**Get in touch**](https://old.aryanranderiya.com/Contact)

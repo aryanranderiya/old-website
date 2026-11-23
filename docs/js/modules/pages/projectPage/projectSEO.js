@@ -40,7 +40,7 @@ function getAbsoluteImageUrl(imageUrl) {
   // Remove leading slash if present
   const cleanPath = imageUrl.startsWith("/") ? imageUrl.slice(1) : imageUrl;
 
-  return `https://aryanranderiya.com/${cleanPath}`;
+  return `https://old.aryanranderiya.com/${cleanPath}`;
 }
 
 /**
@@ -63,7 +63,7 @@ function updateCanonical(projectId) {
     document.head.appendChild(canonical);
   }
 
-  const canonicalUrl = `https://aryanranderiya.com/Project?id=${projectId}`;
+  const canonicalUrl = `https://old.aryanranderiya.com/Project?id=${projectId}`;
   canonical.setAttribute("href", canonicalUrl);
 }
 
@@ -73,7 +73,7 @@ function updateCanonical(projectId) {
  * @param {string} projectId - Project ID
  */
 function updateOpenGraphTags(project, projectId) {
-  const pageUrl = `https://aryanranderiya.com/Project?id=${projectId}`;
+  const pageUrl = `https://old.aryanranderiya.com/Project?id=${projectId}`;
   const imageUrl = getAbsoluteImageUrl(
     project.project_cover_image || project.project_image
   );
@@ -150,7 +150,7 @@ function updateStructuredData(project, projectId) {
     existingSchema.remove();
   }
 
-  const pageUrl = `https://aryanranderiya.com/Project?id=${projectId}`;
+  const pageUrl = `https://old.aryanranderiya.com/Project?id=${projectId}`;
   const imageUrl = getAbsoluteImageUrl(
     project.project_cover_image || project.project_image
   );
@@ -174,7 +174,7 @@ function updateStructuredData(project, projectId) {
     author: {
       "@type": "Person",
       name: "Aryan Randeriya",
-      url: "https://aryanranderiya.com",
+      url: "https://old.aryanranderiya.com",
       sameAs: [
         "https://github.com/aryanranderiya",
         "https://www.linkedin.com/in/aryanranderiya",
@@ -227,7 +227,7 @@ function updateBreadcrumbSchema(project, projectId) {
     existingBreadcrumb.remove();
   }
 
-  const pageUrl = `https://aryanranderiya.com/Project?id=${projectId}`;
+  const pageUrl = `https://old.aryanranderiya.com/Project?id=${projectId}`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -237,13 +237,13 @@ function updateBreadcrumbSchema(project, projectId) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://aryanranderiya.com",
+        item: "https://old.aryanranderiya.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Software Projects",
-        item: "https://aryanranderiya.com/SoftwareProjects",
+        item: "https://old.aryanranderiya.com/SoftwareProjects",
       },
       {
         "@type": "ListItem",

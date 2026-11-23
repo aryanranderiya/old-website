@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Allow: /media/
-Sitemap: https://aryanranderiya.com/sitemap.xml
+Sitemap: https://old.aryanranderiya.com/sitemap.xml
