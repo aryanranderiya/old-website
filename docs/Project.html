@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Aryan Randeriya" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.aryanranderiya.com/Project" />
+    <link rel="canonical" href="https://old.aryanranderiya.com/Project" />
 
     <!-- Default meta tags - will be updated by JavaScript -->
     <meta
@@ -54,21 +54,12 @@
     <link rel="manifest" href="./media/favicons/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#00bbff" />
     <meta name="theme-color" content="#ffffff" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
+    
 
-    <script
-      src="https://kit.fontawesome.com/2fafe620ef.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" type="text/css" href="packages/fontawesome/css/all.min.css" />
+    <script src="packages/bootstrap.bundle.min.js"></script>
+  
+    <link rel="stylesheet" type="text/css" href="css/materialSymbolsRounded.css" />
   </head>
 
   <body>
@@ -102,15 +93,9 @@
     <div class="cursor">
       <div id="cursortext">Languages</div>
       <div id="cursortext2">0%</div>
-      <span class="material-symbols-rounded" id="cursoricon1">
-        arrow_forward
-      </span>
-      <span class="material-symbols-rounded" id="cursoricon2">
-        arrow_downward
-      </span>
-      <span class="material-symbols-rounded" id="cursoricon3">
-        open_in_new
-      </span>
+      <span class="material-symbols-rounded" id="cursoricon1">&#xe5c8;</span>
+      <span class="material-symbols-rounded" id="cursoricon2">&#xe5db;</span>
+      <span class="material-symbols-rounded" id="cursoricon3">&#xe895;</span>
       <i class="fa-regular fa-comments" id="cursoricon4"></i>
       <img
         src="media/icons/ios_icon_point_top.webp"
@@ -156,7 +141,7 @@
           <div class="subcontent1_titledesc">
             <!-- <div class="back_to_software_projects">
                     <i class="fa-solid fa-arrow-left"></i>
-                    <a href="https://aryanranderiya.com/SoftwareProjects">
+                    <a href="SoftwareProjects">
                         <span>Back to Software Projects</span>
                     </a>
                 </div> -->
@@ -166,7 +151,7 @@
             <div class="bento_cards">
               <div class="bento_card">
                 <div class="bento_heading">
-                  <span class="material-symbols-rounded">info</span> About
+                  <span class="material-symbols-rounded">&#xe88e;</span> About
                 </div>
 
                 <div class="bento_content">
@@ -182,7 +167,7 @@
 
               <div class="bento_card">
                 <div class="bento_heading">
-                  <span class="material-symbols-rounded">construction</span>
+                  <span class="material-symbols-rounded">&#xea3c;</span>
                   Technologies Used
                 </div>
                 <div class="bento_content">
@@ -248,7 +233,7 @@
           </div>
 
           <text class="project_demo_text">
-            <span class="material-symbols-rounded">devices</span>Project
+            <span class="material-symbols-rounded">&#xe1b1;</span>Project
             Demo</text
           >
 
@@ -376,7 +361,7 @@
 
           <div class="bento_card image_gallery">
             <div class="bento_heading">
-              <span class="material-symbols-rounded">photo_library</span> Image
+              <span class="material-symbols-rounded">&#xe413;</span> Image
               Gallery
             </div>
             <div class="bento_content">
@@ -384,15 +369,11 @@
 
               <div class="slider-button">
                 <button class="prev">
-                  <span class="material-symbols-rounded chevrons">
-                    chevron_left
-                  </span>
+                  <span class="material-symbols-rounded chevrons">&#xe408;</span>
                 </button>
                 <div class="dots"></div>
                 <button class="next">
-                  <span class="material-symbols-rounded chevrons">
-                    chevron_right
-                  </span>
+                  <span class="material-symbols-rounded chevrons">&#xe409;</span>
                 </button>
               </div>
             </div>
@@ -438,29 +419,12 @@
     <script type="module" defer src="js/footer.js"></script>
     <script type="module" src="js/cursor.js"></script>
 
-    <script
-      async
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-    ></script>
-    <script
-      async
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
-    ></script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-S3XP36W3P9");
-    </script>
+    <script src="packages/gsap.min.js"></script>
+    <script src="packages/ScrollToPlugin.min.js"></script>
+    
+    
     <script type="module" src="js/preloader.js"></script>
-    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script src="packages/lenis.min.js"></script>
     <script>
       const lenis = new Lenis();
 

@@ -30,7 +30,7 @@ function updateMetaTag(property, content, isOG = true) {
  * @returns {string} Absolute HTTPS URL
  */
 function getAbsoluteImageUrl(imageUrl) {
-  if (!imageUrl) return "https://aryanranderiya.com/media/Website-Homepage.png";
+  if (!imageUrl) return "https://old.aryanranderiya.com/media/Website-Homepage.png";
 
   // If already absolute, return as is
   if (imageUrl.startsWith("http://") || imageUrl.startsWith("https://")) {

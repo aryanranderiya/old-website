@@ -4,7 +4,7 @@
  */
 
 import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js";
-import { setupHearts } from "./heartsInteraction.js";
+import { techStackChip } from "../../utils/techIcons.js";
 
 /**
  * Process project data and create cards
@@ -28,7 +28,6 @@ export async function processProjectCards(projects) {
     });
 
   setupCardInteractions();
-  setupHearts();
 }
 
 /**
@@ -69,17 +68,6 @@ function createProjectCard(projectId, project) {
   img.style.display = "none";
   document.body.appendChild(img);
 
-  const replacements = {
-    HTML: "HTML5-plain colored",
-    CSS: "CSS3-plain colored",
-    Express: "express-original",
-    Flask: "flask-original",
-    Tailwind: "tailwindcss-original colored",
-    Vercel: "vercel-original",
-    nextjs: "nextjs-plain",
-    denojs: "denojs-wordmark",
-  };
-
   const card = document.createElement("div");
   addClass(card, "card");
 
@@ -103,19 +91,12 @@ function createProjectCard(projectId, project) {
             </span>
             <div class="card-tech-stack">
             <div class="special-tags">
-            ${isFeatured ? `<div class='featuredtag'><span class="material-symbols-rounded">star</span>Featured Project</div>` : ``}
-            ${isClientWork ? `<div class='clienttag'><span class="material-symbols-rounded">payments</span>Freelance</div>` : ``}
-            ${hackathon ? `<div class='hackathon'><span class="material-symbols-rounded">trophy</span>Hackathon Project</div>` : ``}
+            ${isFeatured ? `<div class='featuredtag'><span class="material-symbols-rounded">&#xe838;</span>Featured Project</div>` : ``}
+            ${isClientWork ? `<div class='clienttag'><span class="material-symbols-rounded">&#xef63;</span>Freelance</div>` : ``}
+            ${hackathon ? `<div class='hackathon'><span class="material-symbols-rounded">&#xe71a;</span>Hackathon Project</div>` : ``}
             </div>
             
-              ${projectTechStack
-                .map((element) => {
-                  const replacedElement = replacements[element] || `${element}-plain colored`;
-                  return `<div class="tech_stack_item"><i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i> <text>${
-                    element.charAt(0).toUpperCase() + element.slice(1)
-                  }&nbsp;</text></div>`;
-                })
-                .join(" ")}
+              ${projectTechStack.map((element) => techStackChip(element)).join("")}
                 
             </div>
           </div>

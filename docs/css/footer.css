@@ -408,3 +408,24 @@ footer {
   color: grey;
   margin-bottom: 10px;
 }
+
+.archive_footer_note {
+  width: 100%;
+  margin: 0 0 1.5rem;
+  text-align: center;
+  color: #8a8a8a;
+  font-family: Helvs;
+  font-size: 0.9em;
+  position: relative;
+  z-index: 2;
+}
+
+.archive_footer_note a {
+  color: #cfcfcf;
+  border-bottom: 1px solid rgba(207, 207, 207, 0.4);
+}
+
+.archive_footer_note a:hover {
+  color: #00bbff;
+  border-color: #00bbff;
+}

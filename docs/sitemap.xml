@@ -5,32 +5,32 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://aryanranderiya.com/</loc>
+    <loc>https://old.aryanranderiya.com/</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/logo.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/logo.webp</image:loc>
       <image:title>Aryan Randeriya - Portfolio Logo</image:title>
       <image:caption>Aryan Randeriya's professional logo and brand identity</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/selfie.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/selfie.webp</image:loc>
       <image:title>Aryan Randeriya - Profile Photo</image:title>
       <image:caption>Aryan Randeriya, Software Developer and UI/UX Designer</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/professional_photo.png</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/professional_photo.png</image:loc>
       <image:title>Aryan Randeriya - Professional Headshot</image:title>
       <image:caption>Professional photograph of Aryan Randeriya</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/Website-Homepage.png</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/Website-Homepage.png</image:loc>
       <image:title>Aryan Randeriya Portfolio - Homepage Screenshot</image:title>
       <image:caption>Homepage of Aryan Randeriya's portfolio website</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/favicons/android-chrome-512x512.png</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/favicons/android-chrome-512x512.png</image:loc>
       <image:title>Aryan Randeriya - Website Favicon</image:title>
       <image:caption>Official website favicon and brand mark</image:caption>
     </image:image>
@@ -38,7 +38,7 @@
 
   <!-- About Me Page -->
   <url>
-    <loc>https://aryanranderiya.com/AboutMe</loc>
+    <loc>https://old.aryanranderiya.com/AboutMe</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -46,12 +46,12 @@
 
   <!-- Software Projects Page -->
   <url>
-    <loc>https://aryanranderiya.com/SoftwareProjects</loc>
+    <loc>https://old.aryanranderiya.com/SoftwareProjects</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/ss_SoftwareProjects.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/ss_SoftwareProjects.webp</image:loc>
       <image:title>Software Projects Portfolio by Aryan Randeriya</image:title>
       <image:caption>Showcase of software development projects including web apps and tools</image:caption>
     </image:image>
@@ -59,384 +59,384 @@
 
   <!-- Design Projects Page -->
   <url>
-    <loc>https://aryanranderiya.com/DesignProjects</loc>
+    <loc>https://old.aryanranderiya.com/DesignProjects</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
 
     <!-- Apparel Designs -->
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtPorsche.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtPorsche.webp</image:loc>
       <image:title>Porsche T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Custom apparel design featuring Porsche automotive theme</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtTime.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtTime.webp</image:loc>
       <image:title>Time T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Minimalist time-themed apparel graphic design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtHope.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtHope.webp</image:loc>
       <image:title>Hope T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Inspirational hope-themed apparel design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtBlueRose.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtBlueRose.webp</image:loc>
       <image:title>Blue Rose T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Artistic blue rose floral apparel design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtButterfly.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtButterfly.webp</image:loc>
       <image:title>Butterfly T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Nature-inspired butterfly graphic design for apparel</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtInterstellar.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtInterstellar.webp</image:loc>
       <image:title>Interstellar T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Space and cosmos themed Interstellar movie apparel design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtCosmos.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtCosmos.webp</image:loc>
       <image:title>Children of the Cosmos T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Cosmic universe themed apparel graphic</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtEthereal.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtEthereal.webp</image:loc>
       <image:title>Ethereal Angels T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Mystical ethereal angels themed apparel design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtYe.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtYe.webp</image:loc>
       <image:title>Ye T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Hip-hop culture inspired Ye themed apparel</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtFuture.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtFuture.webp</image:loc>
       <image:title>Future T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Futuristic themed apparel graphic design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtJapan.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtJapan.webp</image:loc>
       <image:title>Japan T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Japanese culture and aesthetic inspired apparel design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtFuture2.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtFuture2.webp</image:loc>
       <image:title>Future 2 T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Alternative futuristic themed apparel design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtInterstellarOld.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtInterstellarOld.webp</image:loc>
       <image:title>Interstellar 2 T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Alternate Interstellar space themed apparel</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtMiH.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtMiH.webp</image:loc>
       <image:title>Make It Happen T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Motivational Make It Happen apparel design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/apparel/TshirtDragon.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/apparel/TshirtDragon.webp</image:loc>
       <image:title>Dragon T-Shirt Design by Aryan Randeriya</image:title>
       <image:caption>Epic dragon themed apparel graphic design</image:caption>
     </image:image>
 
     <!-- Social Media Headers -->
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner0.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__w0lfzzybanner0.webp</image:loc>
       <image:title>w0lfzzy Gaming Banner Design 1 by Aryan Randeriya</image:title>
       <image:caption>Custom gaming social media header for w0lfzzy</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner1.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__w0lfzzybanner1.webp</image:loc>
       <image:title>w0lfzzy Gaming Banner Design 2 by Aryan Randeriya</image:title>
       <image:caption>Alternative w0lfzzy social media banner design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner2.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__w0lfzzybanner2.webp</image:loc>
       <image:title>w0lfzzy Gaming Banner Design 3 by Aryan Randeriya</image:title>
       <image:caption>Third variant of w0lfzzy gaming header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner3.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__w0lfzzybanner3.webp</image:loc>
       <image:title>w0lfzzy Gaming Banner Design 4 by Aryan Randeriya</image:title>
       <image:caption>Fourth w0lfzzy social media banner design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner4.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__w0lfzzybanner4.webp</image:loc>
       <image:title>w0lfzzy Gaming Banner Design 5 by Aryan Randeriya</image:title>
       <image:caption>Fifth variant w0lfzzy gaming header design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__w0lfzzybanner5.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__w0lfzzybanner5.webp</image:loc>
       <image:title>w0lfzzy Gaming Banner Design 6 by Aryan Randeriya</image:title>
       <image:caption>Sixth w0lfzzy gaming social media header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers_f4llout_main_orange.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers_f4llout_main_orange.webp</image:loc>
       <image:title>F4llout Orange Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Orange themed F4llout esports team banner</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers_f4llout_main_blue.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers_f4llout_main_blue.webp</image:loc>
       <image:title>F4llout Blue Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Blue themed F4llout esports team banner</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers_f4llout_main_other.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers_f4llout_main_other.webp</image:loc>
       <image:title>F4llout Alternative Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Alternative color scheme F4llout esports banner</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__f4lloutesports.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__f4lloutesports.webp</image:loc>
       <image:title>F4llout Esports Official Header by Aryan Randeriya</image:title>
       <image:caption>Official F4llout esports team social media header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__teamflight.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__teamflight.webp</image:loc>
       <image:title>Team Flight Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Custom Team Flight esports banner design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__tootles.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__tootles.webp</image:loc>
       <image:title>Tootles Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Tootles gaming personality social media header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__txro.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__txro.webp</image:loc>
       <image:title>TXRO Gaming Header by Aryan Randeriya</image:title>
       <image:caption>TXRO gaming content creator banner design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers_cody.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers_cody.webp</image:loc>
       <image:title>Cody Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Cody gaming influencer social media header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__zezzy1.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__zezzy1.webp</image:loc>
       <image:title>Zezzy Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Zezzy content creator social media banner</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__anya.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__anya.webp</image:loc>
       <image:title>Anya Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Anya gaming personality banner design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__azrec.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__azrec.webp</image:loc>
       <image:title>Azrec Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Azrec gaming influencer social media header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/headers/headers__lumiin.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/headers/headers__lumiin.webp</image:loc>
       <image:title>Lumiin Gaming Header by Aryan Randeriya</image:title>
       <image:caption>Lumiin content creator social media banner</image:caption>
     </image:image>
 
     <!-- Anime Headers -->
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_1.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_1.webp</image:loc>
       <image:title>Anime Social Media Header Design 1 by Aryan Randeriya</image:title>
       <image:caption>Custom anime-themed social media banner design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_2.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_2.webp</image:loc>
       <image:title>Anime Social Media Header Design 2 by Aryan Randeriya</image:title>
       <image:caption>Anime aesthetic social media header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_3.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_3.webp</image:loc>
       <image:title>Anime Social Media Header Design 3 by Aryan Randeriya</image:title>
       <image:caption>Japanese anime style banner design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_4.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_4.webp</image:loc>
       <image:title>Anime Social Media Header Design 4 by Aryan Randeriya</image:title>
       <image:caption>Anime character themed social header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_5.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_5.webp</image:loc>
       <image:title>Anime Social Media Header Design 5 by Aryan Randeriya</image:title>
       <image:caption>Anime art style social media banner</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_6.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_6.webp</image:loc>
       <image:title>Anime Social Media Header Design 6 by Aryan Randeriya</image:title>
       <image:caption>Anime inspired social media header design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_7.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_7.webp</image:loc>
       <image:title>Anime Social Media Header Design 7 by Aryan Randeriya</image:title>
       <image:caption>Anime aesthetic banner for social platforms</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_8.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_8.webp</image:loc>
       <image:title>Anime Social Media Header Design 8 by Aryan Randeriya</image:title>
       <image:caption>Anime themed social media header graphic</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_9.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_9.webp</image:loc>
       <image:title>Anime Social Media Header Design 9 by Aryan Randeriya</image:title>
       <image:caption>Japanese anime style social banner</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_10.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_10.webp</image:loc>
       <image:title>Anime Social Media Header Design 10 by Aryan Randeriya</image:title>
       <image:caption>Anime art social media header design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_11.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_11.webp</image:loc>
       <image:title>Anime Social Media Header Design 11 by Aryan Randeriya</image:title>
       <image:caption>Anime character social media banner</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_12.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_12.webp</image:loc>
       <image:title>Anime Social Media Header Design 12 by Aryan Randeriya</image:title>
       <image:caption>Anime aesthetic social header design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_13.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_13.webp</image:loc>
       <image:title>Anime Social Media Header Design 13 by Aryan Randeriya</image:title>
       <image:caption>Anime inspired banner for social media</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_14.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_14.webp</image:loc>
       <image:title>Anime Social Media Header Design 14 by Aryan Randeriya</image:title>
       <image:caption>Japanese anime social media header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_15.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_15.webp</image:loc>
       <image:title>Anime Social Media Header Design 15 by Aryan Randeriya</image:title>
       <image:caption>Anime themed social platform banner</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_16.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_16.webp</image:loc>
       <image:title>Anime Social Media Header Design 16 by Aryan Randeriya</image:title>
       <image:caption>Anime art style social media header</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_17.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_17.webp</image:loc>
       <image:title>Anime Social Media Header Design 17 by Aryan Randeriya</image:title>
       <image:caption>Anime aesthetic social banner design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/anime_headers/anime_header_18.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/anime_headers/anime_header_18.webp</image:loc>
       <image:title>Anime Social Media Header Design 18 by Aryan Randeriya</image:title>
       <image:caption>Anime inspired social media header</image:caption>
     </image:image>
 
     <!-- Ad Mockups -->
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/ad_mockups/Ad_mockup_1.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/ad_mockups/Ad_mockup_1.webp</image:loc>
       <image:title>Advertisement Mockup Design 1 by Aryan Randeriya</image:title>
       <image:caption>Professional advertising mockup template</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/ad_mockups/Ad_mockup_2.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/ad_mockups/Ad_mockup_2.webp</image:loc>
       <image:title>Advertisement Mockup Design 2 by Aryan Randeriya</image:title>
       <image:caption>Creative ad mockup template design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/ad_mockups/Ad_mockup_3.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/ad_mockups/Ad_mockup_3.webp</image:loc>
       <image:title>Advertisement Mockup Design 3 by Aryan Randeriya</image:title>
       <image:caption>Marketing advertisement mockup concept</image:caption>
     </image:image>
 
     <!-- Thumbnails -->
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_1.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_1.webp</image:loc>
       <image:title>YouTube Thumbnail Design 1 by Aryan Randeriya</image:title>
       <image:caption>Custom YouTube video thumbnail graphic design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_2.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_2.webp</image:loc>
       <image:title>YouTube Thumbnail Design 2 by Aryan Randeriya</image:title>
       <image:caption>Eye-catching YouTube thumbnail design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_3.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_3.webp</image:loc>
       <image:title>YouTube Thumbnail Design 3 by Aryan Randeriya</image:title>
       <image:caption>Professional YouTube video thumbnail</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_4.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_4.webp</image:loc>
       <image:title>YouTube Thumbnail Design 4 by Aryan Randeriya</image:title>
       <image:caption>Creative YouTube thumbnail graphic</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_5.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_5.webp</image:loc>
       <image:title>YouTube Thumbnail Design 5 by Aryan Randeriya</image:title>
       <image:caption>Custom YouTube video thumbnail design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_6.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_6.webp</image:loc>
       <image:title>YouTube Thumbnail Design 6 by Aryan Randeriya</image:title>
       <image:caption>Engaging YouTube thumbnail graphic design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_7.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_7.webp</image:loc>
       <image:title>YouTube Thumbnail Design 7 by Aryan Randeriya</image:title>
       <image:caption>Professional YouTube video thumbnail</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_9.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_9.webp</image:loc>
       <image:title>YouTube Thumbnail Design 9 by Aryan Randeriya</image:title>
       <image:caption>Custom YouTube thumbnail design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_10.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_10.webp</image:loc>
       <image:title>YouTube Thumbnail Design 10 by Aryan Randeriya</image:title>
       <image:caption>Creative YouTube video thumbnail</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/thumbnails/thumbnail_11.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/thumbnails/thumbnail_11.webp</image:loc>
       <image:title>YouTube Thumbnail Design 11 by Aryan Randeriya</image:title>
       <image:caption>Eye-catching YouTube thumbnail design</image:caption>
     </image:image>
 
     <!-- Fallout Design Images -->
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/1.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/1.webp</image:loc>
       <image:title>Fallout Design Project 1 by Aryan Randeriya</image:title>
       <image:caption>Fallout inspired graphic design work</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/2.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/2.webp</image:loc>
       <image:title>Fallout Design Project 2 by Aryan Randeriya</image:title>
       <image:caption>Fallout themed design artwork</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/3.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/3.webp</image:loc>
       <image:title>Fallout Design Project 3 by Aryan Randeriya</image:title>
       <image:caption>Fallout brand design concept</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/4.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/4.webp</image:loc>
       <image:title>Fallout Design Project 4 by Aryan Randeriya</image:title>
       <image:caption>Fallout esports design work</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/5.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/5.webp</image:loc>
       <image:title>Fallout Design Project 5 by Aryan Randeriya</image:title>
       <image:caption>Fallout creative design project</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/6.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/6.webp</image:loc>
       <image:title>Fallout Design Project 6 by Aryan Randeriya</image:title>
       <image:caption>Fallout themed graphic design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/7.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/7.webp</image:loc>
       <image:title>Fallout Design Project 7 by Aryan Randeriya</image:title>
       <image:caption>Fallout brand identity design</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/8.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/8.webp</image:loc>
       <image:title>Fallout Design Project 8 by Aryan Randeriya</image:title>
       <image:caption>Fallout design portfolio piece</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://aryanranderiya.com/media/fallout/9.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/fallout/9.webp</image:loc>
       <image:title>Fallout Design Project 9 by Aryan Randeriya</image:title>
       <image:caption>Fallout inspired creative design</image:caption>
     </image:image>
@@ -444,7 +444,7 @@
 
   <!-- Resume Page -->
   <url>
-    <loc>https://aryanranderiya.com/Resume</loc>
+    <loc>https://old.aryanranderiya.com/Resume</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -452,7 +452,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://aryanranderiya.com/Contact</loc>
+    <loc>https://old.aryanranderiya.com/Contact</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -462,7 +462,7 @@
 
   <!-- Encode -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Encode</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Encode</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -475,7 +475,7 @@
 
   <!-- GAIA -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=GAIA</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=GAIA</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -488,7 +488,7 @@
 
   <!-- Rezrek -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Rezrek</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Rezrek</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -501,7 +501,7 @@
 
   <!-- TicketBus -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=TicketBus</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=TicketBus</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -514,7 +514,7 @@
 
   <!-- YouTube Shorts Automator -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=YouTube_Shorts_Automator</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=YouTube_Shorts_Automator</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -527,7 +527,7 @@
 
   <!-- Blink Analytics -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=BlinkAnalytics</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=BlinkAnalytics</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -540,7 +540,7 @@
 
   <!-- Dungeon Quest -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=DungeonQuest</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=DungeonQuest</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -553,7 +553,7 @@
 
   <!-- Google Contacts Email Scraper -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=GoogleContactsEmailScraper</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=GoogleContactsEmailScraper</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -566,7 +566,7 @@
 
   <!-- IEEE PDEU -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=IEEE</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=IEEE</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -579,7 +579,7 @@
 
   <!-- LyfeLane -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=LyfeLane</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=LyfeLane</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -592,7 +592,7 @@
 
   <!-- MWI -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=MWI</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=MWI</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -605,7 +605,7 @@
 
   <!-- Personal Blog -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Blog</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Blog</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -618,7 +618,7 @@
 
   <!-- Personal Portfolio -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Portfolio</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Portfolio</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -631,7 +631,7 @@
 
   <!-- Slate -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Slate</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Slate</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -644,7 +644,7 @@
 
   <!-- Spotify Tools -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=SpotifyTools</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=SpotifyTools</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -657,7 +657,7 @@
 
   <!-- SUSTAIN -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Nasa_Space_Apps_Hackathon</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Nasa_Space_Apps_Hackathon</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -670,7 +670,7 @@
 
   <!-- University Research Portal -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=University_Research_Portal</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=University_Research_Portal</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -684,7 +684,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- URL Shortener -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=URLShortener</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=URLShortener</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -697,7 +697,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Wi-Fi Attendance -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=WiFi_Attendance</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=WiFi_Attendance</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -714,7 +714,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Encode -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Encode</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Encode</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -727,7 +727,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- GAIA -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=GAIA</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=GAIA</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -740,7 +740,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Rezrek -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Rezrek</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Rezrek</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -753,7 +753,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- TicketBus -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=TicketBus</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=TicketBus</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -766,7 +766,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- YouTube Shorts Automator -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=YouTube_Shorts_Automator</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=YouTube_Shorts_Automator</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -779,7 +779,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Blink Analytics -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=BlinkAnalytics</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=BlinkAnalytics</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -792,7 +792,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Dungeon Quest -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=DungeonQuest</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=DungeonQuest</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -805,7 +805,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Google Contacts Email Scraper -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=GoogleContactsEmailScraper</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=GoogleContactsEmailScraper</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -818,7 +818,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- IEEE PDEU -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=IEEE</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=IEEE</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -831,7 +831,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- LyfeLane -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=LyfeLane</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=LyfeLane</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -844,7 +844,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- MWI -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=MWI</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=MWI</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -857,7 +857,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Personal Blog -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Blog</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Blog</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -870,7 +870,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Personal Portfolio -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Portfolio</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Portfolio</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -883,7 +883,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Slate -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Slate</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Slate</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -896,7 +896,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Spotify Tools -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=SpotifyTools</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=SpotifyTools</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -909,7 +909,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- SUSTAIN -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=Nasa_Space_Apps_Hackathon</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=Nasa_Space_Apps_Hackathon</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -922,7 +922,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- University Research Portal -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=University_Research_Portal</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=University_Research_Portal</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -936,7 +936,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- URL Shortener -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=URLShortener</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=URLShortener</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -949,7 +949,7 @@ Utilised by the Computer Science department to effec...</image:caption>
 
   <!-- Wi-Fi Attendance -->
   <url>
-    <loc>https://aryanranderiya.com/Project?id=WiFi_Attendance</loc>
+    <loc>https://old.aryanranderiya.com/Project?id=WiFi_Attendance</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>

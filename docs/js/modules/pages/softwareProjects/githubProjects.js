@@ -1,10 +1,8 @@
 /**
  * @module pages/softwareProjects/githubProjects
- * @description Module for fetching and displaying GitHub projects
+ * @description Module for displaying the bundled GitHub repository snapshot
  */
 
-import { ref, onValue } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { db } from "../../config/firebase.js";
 import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js";
 
 /**
@@ -13,22 +11,18 @@ import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/d
 export async function fetchGithubProjects() {
   const githubCards = document.querySelector(".github_cards");
 
-  // Get GitHub token from Firebase
-  const token = await getGithubToken();
-  
-  // Fetch repositories
-  const repos = await fetchRepositories(token);
-  
+  const repos = await fetchRepositories();
+
   // Update heading
   document.querySelector(".github_heading").innerHTML = `${repos.length} Github Repositories`;
-  
+
   // Get language colors
   const languageColors = await fetchLanguageColors();
-  
+
   // Create cards for each repository
   repos.forEach((repo) => {
     if (shouldSkipRepo(repo.name)) return;
-    
+
     const card = createGithubCard(repo, languageColors);
     githubCards.appendChild(card);
   });
@@ -38,35 +32,13 @@ export async function fetchGithubProjects() {
 }
 
 /**
- * Get GitHub token from Firebase
- * @returns {Promise<string>} GitHub token
- */
-async function getGithubToken() {
-  return new Promise((resolve) => {
-    const tokenRef = ref(db, "qDtadW_2ZSeiRJtuRTvv/");
-    onValue(tokenRef, (snapshot) => {
-      resolve(snapshot.val());
-    });
-  });
-}
-
-/**
- * Fetch repositories from GitHub API
- * @param {string} token - GitHub API token
+ * Load repositories from the snapshot bundled with the archive.
  * @returns {Promise<Array>} Array of repositories
  */
-async function fetchRepositories(token) {
-  const response = await fetch(
-    "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-
-  const data = await response.json();
-  const repos = data.items;
+async function fetchRepositories() {
+  const response = await fetch("./db/github-snapshot.json");
+  const snapshot = await response.json();
+  const repos = snapshot.repos;
 
   // Sort by pushed date
   repos.sort((a, b) => {
@@ -79,13 +51,11 @@ async function fetchRepositories(token) {
 }
 
 /**
- * Fetch language colors from GitHub
+ * Load the language colour map bundled with the archive.
  * @returns {Promise<Object>} Language colors object
  */
 async function fetchLanguageColors() {
-  const response = await fetch(
-    "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
-  );
+  const response = await fetch("./db/language-colors.json");
   return await response.json();
 }
 

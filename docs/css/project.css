@@ -137,6 +137,10 @@ body {
   object-fit: cover;
 }
 
+.mockup_media_laptop.image.visible {
+  display: block;
+}
+
 .mockup_media_laptop.video {
   height: 550px;
   max-width: 58vw;
@@ -327,6 +331,11 @@ body {
 }
 
 #control_playback {
+  opacity: 0;
+  display: none;
+}
+
+#control_playback.show {
   opacity: 1;
   display: flex;
 }
@@ -336,10 +345,26 @@ body {
   display: none;
 }
 
+#icons_main_pause {
+  opacity: 0;
+  display: none;
+}
+
+#icons_main_pause.show {
+  opacity: 1;
+  display: flex;
+}
+
 #icons_main_replay {
   opacity: 0;
+  display: none;
   transition: opacity 0.1s ease;
   -webkit-transition: opacity 0.1s ease;
+}
+
+#icons_main_replay.show {
+  opacity: 1;
+  display: flex;
 }
 
 .dot {
@@ -899,7 +924,7 @@ body {
   justify-content: center;
 }
 
-.dot {
+.dots .dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -908,6 +933,16 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.dot.active {
+.dots .dot.active {
   background-color: rgba(255, 255, 255, 1);
+}
+
+/* Local Devicon SVGs (the archive does not use the Devicon icon font) */
+img.tech_stack_icon {
+  width: 1.2em;
+  height: 1.2em;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
 }

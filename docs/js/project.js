@@ -24,6 +24,7 @@ import {
   setupProjectMedia,
   setupGithubLink,
 } from "./modules/pages/projectPage/projectMedia.js";
+import { setupProjectGallery } from "./modules/pages/projectPage/projectGallery.js";
 import { updateProjectSEO } from "./modules/pages/projectPage/projectSEO.js";
 
 // Scroll to top when page is refreshed
@@ -150,6 +151,9 @@ async function initializeProjectPage() {
 
   // Setup media
   setupProjectMedia(projectData, elements);
+
+  // Setup image gallery
+  setupProjectGallery(projectData.project_images);
 
   // Setup video controls
   initializeVideoControls(elements);

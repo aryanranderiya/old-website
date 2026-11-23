@@ -3,7 +3,8 @@
  * @description Handle project UI updates and rendering
  */
 
-import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+import { marked } from "../../../../packages/marked.esm.js";
+import { techStackChip } from "../../utils/techIcons.js";
 import { cursorTransformShadowBlend, addClass, removeClass } from '../../cursorUtils.js';
 
 /**
@@ -107,24 +108,7 @@ export function setProjectLinks(links, bentoLinks, linksCard) {
  * @param {HTMLElement} techStackElement - Tech stack container element
  */
 export function setTechStack(techStack, techStackElement) {
-  const replacements = {
-    HTML: 'HTML5-plain colored',
-    CSS: 'CSS3-plain colored',
-    Express: 'express-original',
-    Flask: 'flask-original',
-    Tailwind: 'tailwindcss-original colored',
-    Vercel: 'vercel-original',
-  };
-  
-  techStackElement.innerHTML = techStack
-    .map((element) => {
-      const replacedElement = replacements[element] || `${element}-plain colored`;
-      return `<div class="tech_stack_item">
-        <i class="tech_stack_icon devicon-${replacedElement.toLowerCase()}"></i>
-        <text>${element}&nbsp;</text>
-      </div>`;
-    })
-    .join(' ');
+  techStackElement.innerHTML = techStack.map((element) => techStackChip(element)).join("");
 
   setupTechStackHover();
 }

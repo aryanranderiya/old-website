@@ -64,26 +64,17 @@ export function setupBentoAnimation() {
 }
 
 /**
- * Setup GitHub bento with API data
- * @param {Object} db - Database object containing API token
+ * Setup GitHub bento from the bundled profile snapshot.
+ *
+ * The archive ships a frozen copy of the public profile so the page renders
+ * without calling the GitHub API (and without shipping an API token).
  */
-export async function setupGithubBento(db) {
+export async function setupGithubBento() {
   try {
-    const token = db.qDtadW_2ZSeiRJtuRTvv;
-
-    // Fetch GitHub repo and user info concurrently
-    const [repoResponse, userResponse] = await Promise.all([
-      fetch(
-        "https://api.github.com/search/repositories?q=user:aryanranderiya&sort=pushed",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      ),
-      fetch("https://api.github.com/users/aryanranderiya"),
-    ]);
-
-    const { items: repos } = await repoResponse.json();
-    const userInfo = await userResponse.json();
+    const response = await fetch("./db/github-snapshot.json");
+    const snapshot = await response.json();
+    const repos = snapshot.repos;
+    const userInfo = snapshot.user;
 
     // DOM elements for GitHub chips
     const githubRepoChip = document.getElementById("github_repo_chip");

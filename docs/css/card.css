@@ -522,3 +522,13 @@ option {
   outline: 2px solid rgb(0, 255, 64);
   color: rgb(0, 255, 64);
 }
+
+/* Local Devicon SVGs (the archive does not use the Devicon icon font) */
+img.tech_stack_icon {
+  width: 1.15em;
+  height: 1.15em;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}

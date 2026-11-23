@@ -8,24 +8,9 @@
     <link rel="stylesheet" type="text/css" href="css/buttons.css" />
     <link rel="stylesheet" type="text/css" href="css/cursor.css" />
 
-    <link
-      defer
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,700,1,0&display=swap"
-    />
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-S3XP36W3P9");
-    </script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S3XP36W3P9"
-    ></script>
+    <link rel="stylesheet" type="text/css" href="css/materialSymbolsRounded.css" />
+    
+    
 
     <link
       rel="apple-touch-icon"
@@ -47,12 +32,14 @@
     <link rel="manifest" href="./media/favicons/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#00bbff" />
     <meta name="theme-color" content="#ffffff" />
+  
+    <link rel="stylesheet" type="text/css" href="packages/fontawesome/css/all.min.css" />
   </head>
 
   <body>
     <!--! Custom Cursor -->
     <div class="cursor">
-      <span class="material-symbols-rounded" id="cursoricon3">open_in_new</span>
+      <span class="material-symbols-rounded" id="cursoricon3">&#xe895;</span>
       <img
         src="media/icons/ios_icon_warning.webp"
         id="cursoriconwarning"
@@ -79,7 +66,7 @@
       <h8 class="description"
         >The page you requested could not be found on
         <a
-          href="https://aryanranderiya.com"
+          href="/"
           style="color: #00bbff"
           class="hyperlink"
           >aryanranderiya.com</a
@@ -107,8 +94,8 @@
     <canvas class="animated_cursormovement_canvas"></canvas>
 
     <!--! Scripts -->
-    <script src="js/404.js"></script>
-    <script src="js/cursor.js"></script>
-    <script defer src="js/animated_gradient_cursormovement.js"></script>
+    <script type="module" src="js/404.js"></script>
+    <script type="module" src="js/cursor.js"></script>
+    <script type="module" src="js/animated_gradient_cursormovement.js"></script>
   </body>
 </html>

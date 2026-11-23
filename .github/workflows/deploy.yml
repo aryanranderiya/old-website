@@ -1,0 +1,47 @@
+# Deploy the archive as a static Cloudflare Worker.
+#
+# One-time setup: create an API token (dash.cloudflare.com → Profile → API
+# Tokens → "Edit Cloudflare Workers" template) and store it as a repo secret:
+#   gh secret set CLOUDFLARE_API_TOKEN --repo aryanranderiya/old-website
+#
+# Serving through a Worker (instead of Pages) is deliberate: the Pages
+# deployment was being rewritten by Rocket Loader, which breaks ES modules.
+
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Audit bundle
+        run: node scripts/check-archive.mjs
+
+      - name: Deploy
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: d65fe47d4d3b4f2725e87b91c772cbc3
+          command: deploy
+
+      - name: Reminder when the deploy token is missing
+        if: env.CLOUDFLARE_API_TOKEN == ''
+        run: |
+          echo "::notice::Skipping deploy. Add a repo secret named CLOUDFLARE_API_TOKEN to enable automatic deploys."
+          echo "gh secret set CLOUDFLARE_API_TOKEN --repo $GITHUB_REPOSITORY"

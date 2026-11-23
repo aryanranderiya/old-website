@@ -1,3 +1,10 @@
+> **Archived portfolio.** This is the 2025 HTML/CSS/JS portfolio, kept online
+> at [old.aryanranderiya.com](https://old.aryanranderiya.com). The current site
+> lives at [aryanranderiya.com](https://aryanranderiya.com).
+>
+> The bundle is self-contained: libraries, fonts and project media all ship in
+> `docs/`, so the archive does not depend on a CDN, Firebase, or any API.
+
 # [aryanranderiya.com](aryanranderiya.com)
 
 - My Personal Portfolio using HTML, CSS and vanilla JavaScript
@@ -27,19 +34,19 @@ These screenshots are really old. I just can't be arsed to update them.
 
 ## Homepage
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304815490-aee4f364-4434-416b-a265-cdc3c21f458a.png?alt=media&token=c7ff8744-0d63-4644-916b-ad2526211b7a)
+![](docs/media/projects/old-portfolio/304815490-aee4f364-4434-416b-a265-cdc3c21f458a.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304815557-d8f8521a-a70a-4cd8-a4ef-9320cb154029.png?alt=media&token=acd58d1c-4c77-4270-86db-eca573f21605)
+![](docs/media/projects/old-portfolio/304815557-d8f8521a-a70a-4cd8-a4ef-9320cb154029.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304815629-15d1b6c3-d8d6-4a7e-905a-07a941f76cf6.png?alt=media&token=07897721-7067-4329-8bd3-b89616d274d0)
+![](docs/media/projects/old-portfolio/304815629-15d1b6c3-d8d6-4a7e-905a-07a941f76cf6.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304815662-ac666075-fb4a-4ac5-bdcf-fd774db3fc7e.png?alt=media&token=fa432df0-ab78-41ea-9f78-785413d9ef09)
+![](docs/media/projects/old-portfolio/304815662-ac666075-fb4a-4ac5-bdcf-fd774db3fc7e.png)
 
 <br>
 
@@ -50,15 +57,15 @@ These screenshots are really old. I just can't be arsed to update them.
 • Fetch the list of languages used in each repo along with its associated colour from [ozh/github-colors](https://raw.githubusercontent.com/ozh/github-colors/master/colors.json) and search for the language from the json file and apply the colour accordingly. I had to do this because Github API does not have a field for the language colour.
 <br>
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304808063-b9372b80-6cb0-4ad2-957d-8925a2906d5c.png?alt=media&token=5876fdca-9129-4707-b0bc-1879b775510e)
+![](docs/media/projects/old-portfolio/304808063-b9372b80-6cb0-4ad2-957d-8925a2906d5c.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304808197-8f6a4391-272a-4d6d-987c-64b70b871256.png?alt=media&token=ab3a8534-7c67-443e-9aaf-d3a5e42cad9e)
+![](docs/media/projects/old-portfolio/304808197-8f6a4391-272a-4d6d-987c-64b70b871256.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304808497-7d1da441-3969-4a1d-b800-bef031322051.png?alt=media&token=6122fb79-ebb5-453b-885c-8e2d7a439460)
+![](docs/media/projects/old-portfolio/304808497-7d1da441-3969-4a1d-b800-bef031322051.png)
 
 <br>
 
@@ -68,88 +75,120 @@ These screenshots are really old. I just can't be arsed to update them.
 • Check the type of the project and set the project demo accordingly.
 <br>
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304813012-af9281fe-3eb2-46f6-ae1b-095b6ab09498.png?alt=media&token=a53a076e-a1f4-42af-8e10-7317f02fa189)
+![](docs/media/projects/old-portfolio/304813012-af9281fe-3eb2-46f6-ae1b-095b6ab09498.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304813094-6908cb56-95f2-4bd1-9d08-e9e5b458f491.png?alt=media&token=88836a65-c83a-40b1-927e-6aa56769d526)
+![](docs/media/projects/old-portfolio/304813094-6908cb56-95f2-4bd1-9d08-e9e5b458f491.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304813312-080aeaca-53f5-4c95-8ea5-e856e81abe98.png?alt=media&token=b5e1eba9-6a19-4b2b-9851-c46a443bd421)
+![](docs/media/projects/old-portfolio/304813312-080aeaca-53f5-4c95-8ea5-e856e81abe98.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304813312-080aeaca-53f5-4c95-8ea5-e856e81abe98.png?alt=media&token=b5e1eba9-6a19-4b2b-9851-c46a443bd421)
+![](docs/media/projects/old-portfolio/304813312-080aeaca-53f5-4c95-8ea5-e856e81abe98.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304813509-1a2502aa-103d-4375-8d6a-e1122c7c84cc.png?alt=media&token=7778f5e3-9b2d-4590-9716-d078d1ba72be)
+![](docs/media/projects/old-portfolio/304813509-1a2502aa-103d-4375-8d6a-e1122c7c84cc.png)
 
 <br>
 
 ## Resume
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304815810-20f915cc-cc2f-4c93-acfb-6c52c0cabd61.png?alt=media&token=3e4104ce-8935-44e8-a145-59af7926b242)
+![](docs/media/projects/old-portfolio/304815810-20f915cc-cc2f-4c93-acfb-6c52c0cabd61.png)
 
 <br>
 
 ## Contact
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304816206-f3d4bc70-edcb-4c01-adec-f209b0773c99.png?alt=media&token=152a317e-4a64-45f1-ad3d-cc0e9f3fd77e)
+![](docs/media/projects/old-portfolio/304816206-f3d4bc70-edcb-4c01-adec-f209b0773c99.png)
 
 <br>
 
 ## Menu
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304816390-05bd1f27-f3ef-4518-ad59-dfc263c96a9b.png?alt=media&token=ffe1e757-ab37-4cae-92d2-b9fefee04228)
+![](docs/media/projects/old-portfolio/304816390-05bd1f27-f3ef-4518-ad59-dfc263c96a9b.png)
 
 <br>
 
 ## Design Projects
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_0.png?alt=media&token=925d0c86-cb18-48c3-9d11-772c7f46fef5)
+![](docs/media/projects/old-portfolio/designprojects_0.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_1.png?alt=media&token=bba5c0e5-7ec9-4b62-bc70-35137cf6d5e2)
+![](docs/media/projects/old-portfolio/designprojects_1.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_2.png?alt=media&token=07fadb4d-978b-445f-8dbc-f1cb1e4ef020)
+![](docs/media/projects/old-portfolio/designprojects_2.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_3.png?alt=media&token=2db44946-fee8-4c51-b576-3ff8b7864fb8)
+![](docs/media/projects/old-portfolio/designprojects_3.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_4.png?alt=media&token=e0e468f4-9045-4802-83c2-9d9b2efffc51)
+![](docs/media/projects/old-portfolio/designprojects_4.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_5.png?alt=media&token=03868714-3856-49a2-982b-f8ad75251b42)
+![](docs/media/projects/old-portfolio/designprojects_5.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_6.png?alt=media&token=857f5e57-2e6d-4fa5-ad6a-60c3ae5ae98f)
+![](docs/media/projects/old-portfolio/designprojects_6.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_7.png?alt=media&token=3be283ec-3897-4707-871b-c1f8d541bb96)
+![](docs/media/projects/old-portfolio/designprojects_7.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_8.png?alt=media&token=a370677a-8bae-40f2-bd6b-8aa996417e28)
+![](docs/media/projects/old-portfolio/designprojects_8.png)
 
 #####
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2Fdesignprojects_9.png?alt=media&token=d01ce49d-2067-4021-904a-b7fe53c68cf1)
+![](docs/media/projects/old-portfolio/designprojects_9.png)
 
 <br>
 
 ## Footer
 
-![](https://firebasestorage.googleapis.com/v0/b/aryanranderiya-portfolio.appspot.com/o/ProjectMedia%2FPortfolio%2F304816745-734a2488-44b0-4433-9b45-eec0602c24bf.png?alt=media&token=2d2d3a0d-c78c-4e40-9b41-2e7f7a181ec0)
+![](docs/media/projects/old-portfolio/304816745-734a2488-44b0-4433-9b45-eec0602c24bf.png)
 
 Thank you for Viewing!
+
+
+## Hosting
+
+The archive is a plain static bundle in `docs/`. It is deployed as a
+Cloudflare Worker with static assets, which also sidesteps the Rocket Loader
+rewrite that used to break ES modules on the old Pages project.
+
+```sh
+bun install            # or npm install
+bun run dev            # http://127.0.0.1:8787
+bun run deploy         # wrangler deploy (needs a Cloudflare login)
+bun run check          # fail on missing local files / list external deps
+```
+
+`docs/_headers` sets long-lived caching for media and immutable vendored
+packages. `docs/_redirects` keeps the old Firebase clean URLs and share links
+working.
+
+### Rebuilding the vendored pieces
+
+`docs/packages`, `docs/media/icons/devicon`, the fonts and the project media
+are committed on purpose — the site must work with zero network calls. The
+scripts that produced them are kept for reproducibility:
+
+```sh
+node scripts/vendor-externals.mjs        # CDN libraries, icon sets, fonts
+python3 scripts/build-icon-font.py       # 24 KB Material Symbols subset
+python3 scripts/sync-project-media.py    # copy media from the 2026 portfolio
+python3 scripts/localise-markdown.py     # local images inside project docs
+python3 scripts/optimize-fonts.py        # convert remaining fonts to WOFF2
+```

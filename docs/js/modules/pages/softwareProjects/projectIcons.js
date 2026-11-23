@@ -3,20 +3,17 @@
  * @description Module for loading and displaying project icons marquee
  */
 
-import { ref, get } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { db } from "../../config/firebase.js";
-
 /**
- * Process and display project icons from Firebase
+ * Process and display project icons from the bundled database snapshot
  */
 export async function processProjectIcons() {
-  const softwareIconsRef = ref(db, "SoftwareIcons/");
-  const snapshot = await get(softwareIconsRef);
+  const response = await fetch("./db/db.json");
+  const db = await response.json();
+  const icons = db.SoftwareIcons || [];
 
   const logosSlide = document.querySelector(".logos-slide");
 
-  snapshot.forEach((childSnapshot) => {
-    const url = childSnapshot.val();
+  icons.forEach((url) => {
     const img = document.createElement("img");
     img.loading = "eager";
     img.src = url;

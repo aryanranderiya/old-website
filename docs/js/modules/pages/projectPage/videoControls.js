@@ -11,12 +11,24 @@ import { cursorTransformShadowBlend, addClass, removeClass } from '../../cursorU
  */
 export function initializeVideoControls(elements) {
   const { laptopVideo, mobileVideo, controlPlay, controlPause, iconsMainReplay } = elements;
-  
-  if (!laptopVideo && !mobileVideo) {
+
+  // The page can render a still image or no media at all; only wire playback
+  // controls when a video actually has a source.
+  const videos = [laptopVideo, mobileVideo].filter(
+    (video) => video && video.isConnected
+  );
+  const hasSource = videos.some((video) => {
+    const source = video.querySelector("source");
+    const src = video.getAttribute("src") || source?.getAttribute("src");
+    return Boolean(src);
+  });
+
+  if (!hasSource) {
     hideVideoControls(elements);
     return;
   }
   
+  addClass(controlPlay, "show");
   setupPlaybackControls(elements);
   setupVideoEventListeners(elements);
   setupControlHoverEffects(elements);
@@ -32,7 +44,7 @@ function hideVideoControls(elements) {
   const { playbackControls, otherControls, controlsContainer } = elements;
   playbackControls?.remove();
   otherControls?.remove();
-  controlsContainer?.classList.add('hidden');
+  controlsContainer?.remove();
 }
 
 /**
@@ -44,21 +56,24 @@ function setupPlaybackControls(elements) {
   const { controlPlay, controlPause, iconsMainReplay, playbackIconsMain } = elements;
   
   // Play button
-  controlPlay?.addEventListener('click', () => {
+  controlPlay?.addEventListener('click', (event) => {
+    event.stopPropagation();
     playVideos(elements);
     removeClass(controlPlay, 'show');
     addClass(controlPause, 'show');
   });
   
   // Pause button
-  controlPause?.addEventListener('click', () => {
+  controlPause?.addEventListener('click', (event) => {
+    event.stopPropagation();
     pauseVideos(elements);
     removeClass(controlPause, 'show');
     addClass(controlPlay, 'show');
   });
   
   // Replay button
-  iconsMainReplay?.addEventListener('click', () => {
+  iconsMainReplay?.addEventListener('click', (event) => {
+    event.stopPropagation();
     replayVideos(elements);
     removeClass(iconsMainReplay, 'show');
     removeClass(controlPlay, 'show');
@@ -121,6 +136,16 @@ function setupControlHoverEffects(elements) {
 }
 
 /**
+ * The mockup can be a laptop or a phone; both share one set of controls.
+ * @private
+ */
+function getActiveVideo(elements) {
+  return [elements.laptopVideo, elements.mobileVideo].find(
+    (video) => video && video.isConnected
+  );
+}
+
+/**
  * Play all videos
  * @private
  * @param {Object} elements - Video elements
@@ -167,9 +192,12 @@ function replayVideos(elements) {
  * @param {Object} elements - Video elements
  */
 function togglePlayPause(elements) {
-  const { laptopVideo, controlPlay, controlPause } = elements;
-  
-  if (laptopVideo?.paused) {
+  const { controlPlay, controlPause } = elements;
+  const video = getActiveVideo(elements);
+
+  if (!video) return;
+
+  if (video.paused) {
     playVideos(elements);
     removeClass(controlPlay, 'show');
     addClass(controlPause, 'show');
@@ -199,12 +227,13 @@ function handleVideoEnded(elements) {
  * @param {Object} elements - Video elements
  */
 function updateProgressBar(elements) {
-  const { laptopVideo, progressBar } = elements;
-  
-  if (!laptopVideo || !progressBar) return;
-  
-  const currentTime = laptopVideo.currentTime;
-  const duration = laptopVideo.duration;
+  const { progressBar } = elements;
+  const video = getActiveVideo(elements);
+
+  if (!video || !progressBar) return;
+
+  const currentTime = video.currentTime;
+  const duration = video.duration;
   
   if (duration > 0) {
     const percentage = (currentTime / duration) * 100;

@@ -24,18 +24,6 @@ function initializeGradient() {
 }
 
 /**
- * Initialize Google Analytics
- */
-function initializeAnalytics() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-  gtag('config', 'G-S3XP36W3P9');
-}
-
-/**
  * Load database from JSON file
  * @returns {Promise<Object>} Database object
  */
@@ -108,9 +96,8 @@ function initializeUI() {
  * Main initialization function
  */
 async function initialize() {
-  // Initialize gradient and analytics immediately
+  // Initialize gradient immediately
   initializeGradient();
-  initializeAnalytics();
   
   // Wait for DOM to be ready
   document.addEventListener('DOMContentLoaded', async () => {

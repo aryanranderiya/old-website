@@ -1,40 +1,26 @@
 /**
  * @module pages/resume/resumeLoader
- * @description Module for loading and processing resume data from Firebase
+ * @description Load the bundled resume PDF and its caption
  */
-
-import { ref, onValue } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { db } from "../../config/firebase.js";
 
 /**
- * Process resume data from Firebase snapshot
- * @param {DataSnapshot} snapshot - Firebase data snapshot
+ * Point the embed and download link at the copy that ships with the archive.
  */
-export function processResume(snapshot) {
-  const snapshotData = snapshot.val();
-  const url = snapshotData.url;
-  const text = snapshotData.text;
+export function initializeResumeLoader() {
   const resumeElement = document.querySelector(".resume_pdf");
   const resumeAnchor = document.getElementById("download_resume_anchor");
   const resumeSubtitle = document.querySelector(".subtitle");
+  const url = "media/resume/Aryan Randeriya Resume.pdf";
 
-  if (url) {
-    const mainUrl = `${url}#view=FitV&navpanes=0`;
-    resumeElement.src = mainUrl;
-    resumeAnchor.href = mainUrl;
+  if (!resumeElement) return;
 
-    resumeSubtitle.innerHTML = text;
+  const mainUrl = `${encodeURI(url)}#view=FitV&navpanes=0`;
+  resumeElement.src = mainUrl;
 
-    resumeElement.addEventListener("load", function () {
-      document.querySelector(".resumeload_container").remove();
-    });
-  }
-}
+  if (resumeAnchor) resumeAnchor.href = encodeURI(url);
+  if (resumeSubtitle) resumeSubtitle.textContent = "Archived copy · 2024";
 
-/**
- * Initialize resume data loading from Firebase
- */
-export function initializeResumeLoader() {
-  const projectRef = ref(db, "Resume/");
-  onValue(projectRef, processResume);
+  resumeElement.addEventListener("load", function () {
+    document.querySelector(".resumeload_container")?.remove();
+  });
 }

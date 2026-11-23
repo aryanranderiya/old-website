@@ -1,0 +1,29 @@
+# Clean URLs used by the archive's own navigation.
+/ /index.html 200
+/index /index.html 200
+/AboutMe /AboutMe.html 200
+/aboutme /AboutMe.html 200
+/Contact /Contact.html 200
+/contact /Contact.html 200
+/DesignProjects /DesignProjects.html 200
+/designprojects /DesignProjects.html 200
+/Project /Project.html 200
+/project /Project.html 200
+/Resume /Resume.html 200
+/resume /Resume.html 200
+/SoftwareProjects /SoftwareProjects.html 200
+/softwareprojects /SoftwareProjects.html 200
+/Success /Success.html 200
+/success /Success.html 200
+
+# Lower-case aliases from the Firebase Hosting era.
+
+# Old share links.
+/LinkedIn https://www.linkedin.com/in/aryanranderiya/ 301
+/linkedin https://www.linkedin.com/in/aryanranderiya/ 301
+/Github https://github.com/aryanranderiya 301
+/github https://github.com/aryanranderiya 301
+
+# Project shortcuts now resolve against the archived project database.
+/TicketBus /Project?id=TicketBus 301
+/SpotifyTools /Project?id=SpotifyTools 301

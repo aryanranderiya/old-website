@@ -70,3 +70,12 @@ node_modules/
 .claude
 
 .DS_Store
+# Vendoring download cache
+.cache/
+
+# Local deploy/tooling state
+.wrangler/
+.cache/
+.playwright-mcp/
+.snapshots/
+.DS_Store
