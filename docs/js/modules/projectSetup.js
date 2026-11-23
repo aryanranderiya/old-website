@@ -32,6 +32,7 @@ export async function setupFeaturedProjects(db) {
     if (!data) return;
 
     const featuredProject = document.createElement('a');
+    featuredProject.href = `Project.html?id=${projectId}`;
     featuredProject.innerHTML = `
       <div class="featured_project_card">
         <span class="featured_project_name">${data.project_title}</span>

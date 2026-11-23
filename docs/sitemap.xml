@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://old.aryanranderiya.com/</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -37,17 +37,11 @@
   </url>
 
   <!-- About Me Page -->
-  <url>
-    <loc>https://old.aryanranderiya.com/AboutMe</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
 
   <!-- Software Projects Page -->
   <url>
     <loc>https://old.aryanranderiya.com/SoftwareProjects</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -60,7 +54,7 @@
   <!-- Design Projects Page -->
   <url>
     <loc>https://old.aryanranderiya.com/DesignProjects</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
 
@@ -445,7 +439,7 @@
   <!-- Resume Page -->
   <url>
     <loc>https://old.aryanranderiya.com/Resume</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -453,7 +447,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://old.aryanranderiya.com/Contact</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
