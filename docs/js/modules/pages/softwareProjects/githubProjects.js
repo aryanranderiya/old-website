@@ -264,20 +264,22 @@ function setupGithubCardInteractions(card) {
 function initializeGithubScroll() {
   gsap.registerPlugin(ScrollTrigger);
 
-  const sections = gsap.utils.toArray(".github_card");
   const githubCards = document.querySelector(".github_cards");
+  if (!githubCards) return;
+
+  const distance = () => Math.max(0, githubCards.scrollWidth - window.innerWidth + 80);
 
   ScrollTrigger.normalizeScroll(true);
 
-  gsap.to(sections, {
-    xPercent: -100 * (sections.length - 1),
+  gsap.to(githubCards, {
+    x: () => -distance(),
     ease: "none",
     scrollTrigger: {
       trigger: ".github_container",
       pin: true,
       scrub: 1,
       start: "top top",
-      end: () => `+=${githubCards.offsetWidth}`,
+      end: () => `+=${distance()}`,
     },
   });
 }

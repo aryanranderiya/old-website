@@ -53,7 +53,7 @@ NAMES = [
 ]
 
 SPAN_RE = re.compile(
-    r'(<span[^>]*class="material-symbols-(?:rounded|outlined)[^"]*"[^>]*>)\s*([a-z_0-9]+)\s*(</span>)'
+    r'(<span[^>]*class="material-symbols-(?:rounded|outlined)[^"]*"[^>]*>)\s*([a-z_0-9]+)\s*(</span\s*>)'
 )
 
 

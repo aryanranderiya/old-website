@@ -421,11 +421,11 @@ footer {
 }
 
 .archive_footer_note a {
-  color: #cfcfcf;
-  border-bottom: 1px solid rgba(207, 207, 207, 0.4);
+  color: #00bbff;
+  border-bottom: 1px solid rgba(0, 187, 255, 0.5);
 }
 
 .archive_footer_note a:hover {
-  color: #00bbff;
-  border-color: #00bbff;
+  color: #ffffff;
+  border-color: #ffffff;
 }

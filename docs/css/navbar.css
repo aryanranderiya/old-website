@@ -497,14 +497,14 @@ navcb .lenis.lenis-stopped {
 
 /* Archive link inside the slide-out menu */
 .archive_link {
-  color: #ffffff;
+  color: #00bbff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.45);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .archive_link:hover {
-  color: #00bbff;
-  border-color: #00bbff;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 .archive_menu_link .menu_item {
