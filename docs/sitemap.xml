@@ -15,12 +15,12 @@
       <image:caption>Aryan Randeriya's professional logo and brand identity</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://old.aryanranderiya.com/media/selfie.webp</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/professional_photo_small.webp</image:loc>
       <image:title>Aryan Randeriya - Profile Photo</image:title>
       <image:caption>Aryan Randeriya, Software Developer and UI/UX Designer</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://old.aryanranderiya.com/media/professional_photo.png</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/professional_photo_small.webp</image:loc>
       <image:title>Aryan Randeriya - Professional Headshot</image:title>
       <image:caption>Professional photograph of Aryan Randeriya</image:caption>
     </image:image>
@@ -519,7 +519,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://old.aryanranderiya.com/media/projects/youtube-shorts-automator/project_banner (2).png</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/projects/youtube-shorts-automator/youtube-shorts-banner.png</image:loc>
       <image:title>YouTube Shorts Automator - Project Screenshot</image:title>
       <image:caption>Created a pipeline for the automated creation and uploading of YT Shorts from user prompts by generating video script, voice-over, subtitles, backg...</image:caption>
     </image:image>
@@ -771,7 +771,7 @@ Utilised by the Computer Science department to effec...</image:caption>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://old.aryanranderiya.com/media/projects/youtube-shorts-automator/project_banner (2).png</image:loc>
+      <image:loc>https://old.aryanranderiya.com/media/projects/youtube-shorts-automator/youtube-shorts-banner.png</image:loc>
       <image:title>YouTube Shorts Automator - Project Screenshot</image:title>
       <image:caption>Created a pipeline for the automated creation and uploading of YT Shorts from user prompts by generating video script, voice-over, subtitles, backg...</image:caption>
     </image:image>
