@@ -3,14 +3,14 @@
  * @description Footer loading and initialization
  */
 
-import { cursorTransformShadowBlend, addClass, removeClass } from './modules/cursorUtils.js';
+import { cursorTransformShadowBlend, addClass, removeClass } from './modules/cursorUtils.js?v=20261124b';
 import { 
   animateFooterContent, 
   animateOutFooterContent, 
   initFooterTextAnimation,
   createFooterObserver 
-} from './modules/components/footerAnimation.js';
-import { initMarqueeAnimation, addMarqueeHoverEffects } from './modules/components/marquee.js';
+} from './modules/components/footerAnimation.js?v=20261124b';
+import { initMarqueeAnimation, addMarqueeHoverEffects } from './modules/components/marquee.js?v=20261124b';
 import {
   addSocialHoverEffects,
   addPageLinkHoverEffects,
@@ -18,7 +18,7 @@ import {
   addEmailHoverEffects,
   addBottomNameHoverEffects,
   initDiscordClick
-} from './modules/components/footerHoverEffects.js';
+} from './modules/components/footerHoverEffects.js?v=20261124b';
 
 document.addEventListener("DOMContentLoaded", function () {
   const footerContainer = document.getElementById("footerContainer");

@@ -8,24 +8,24 @@ import {
   loadProjectDatabase,
   getProjectData,
   setPageUrl,
-} from "./modules/pages/projectPage/projectData.js";
+} from "./modules/pages/projectPage/projectData.js?v=20261124b";
 import {
   setupDocumentation,
   setProjectLinks,
   setTechStack,
   setProjectMetadata,
-} from "./modules/pages/projectPage/projectUI.js";
-import { initializeVideoControls } from "./modules/pages/projectPage/videoControls.js";
+} from "./modules/pages/projectPage/projectUI.js?v=20261124b";
+import { initializeVideoControls } from "./modules/pages/projectPage/videoControls.js?v=20261124b";
 import {
   setupImagePopup,
   addImagesPopupEvents,
-} from "./modules/pages/projectPage/imagePopup.js";
+} from "./modules/pages/projectPage/imagePopup.js?v=20261124b";
 import {
   setupProjectMedia,
   setupGithubLink,
-} from "./modules/pages/projectPage/projectMedia.js";
-import { setupProjectGallery } from "./modules/pages/projectPage/projectGallery.js";
-import { updateProjectSEO } from "./modules/pages/projectPage/projectSEO.js";
+} from "./modules/pages/projectPage/projectMedia.js?v=20261124b";
+import { setupProjectGallery } from "./modules/pages/projectPage/projectGallery.js?v=20261124b";
+import { updateProjectSEO } from "./modules/pages/projectPage/projectSEO.js?v=20261124b";
 
 // Scroll to top when page is refreshed
 window.onbeforeunload = () => {

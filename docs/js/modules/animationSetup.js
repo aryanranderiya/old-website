@@ -3,7 +3,7 @@
  * @description GSAP animations and ScrollTrigger setup functions
  */
 
-import { cursorTransformShadowBlend, addClass, removeClass } from './cursorUtils.js';
+import { cursorTransformShadowBlend, addClass, removeClass } from './cursorUtils.js?v=20261124b';
 
 /**
  * Setup animation for large text section

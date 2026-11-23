@@ -3,7 +3,7 @@
  * @description Footer hover effects and interactions
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js';
+import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Add hover effects to social links

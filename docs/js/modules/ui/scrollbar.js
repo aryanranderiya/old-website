@@ -3,7 +3,7 @@
  * @description Scrollbar functionality and progress tracking
  */
 
-import { addClass, removeClass } from '../cursorUtils.js';
+import { addClass, removeClass } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Modify scrollbar behavior on hover

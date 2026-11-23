@@ -3,9 +3,9 @@
  * @description Handle project UI updates and rendering
  */
 
-import { marked } from "../../../../packages/marked.esm.js";
-import { techStackChip } from "../../utils/techIcons.js";
-import { cursorTransformShadowBlend, addClass, removeClass } from '../../cursorUtils.js';
+import { marked } from "../../../../packages/marked.esm.js?v=20261124b";
+import { techStackChip } from "../../utils/techIcons.js?v=20261124b";
+import { cursorTransformShadowBlend, addClass, removeClass } from '../../cursorUtils.js?v=20261124b';
 
 /**
  * Setup project documentation

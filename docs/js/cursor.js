@@ -3,7 +3,7 @@
  * @module cursor
  */
 
-import { initializeCustomCursor } from './modules/components/customCursor.js';
+import { initializeCustomCursor } from './modules/components/customCursor.js?v=20261124b';
 
 // Initialize custom cursor with default options
 initializeCustomCursor({

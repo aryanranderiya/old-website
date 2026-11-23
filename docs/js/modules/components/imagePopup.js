@@ -3,7 +3,7 @@
  * @description Image popup functionality for thumbnails and advertisements
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js';
+import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Change cursor to magnify on image hover

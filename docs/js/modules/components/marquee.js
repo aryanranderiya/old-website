@@ -3,7 +3,7 @@
  * @description Marquee animation functionality
  */
 
-import { cursorTransformShadowBlend } from '../cursorUtils.js';
+import { cursorTransformShadowBlend } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Initialize marquee animation with GSAP

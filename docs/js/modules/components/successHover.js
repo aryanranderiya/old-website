@@ -3,7 +3,7 @@
  * @description Success page hover effects
  */
 
-import { addClass, removeClass } from '../cursorUtils.js';
+import { addClass, removeClass } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Initialize button hover effects

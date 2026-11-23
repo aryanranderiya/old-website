@@ -3,8 +3,8 @@
  * @description Module for creating and managing project cards
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js";
-import { techStackChip } from "../../utils/techIcons.js";
+import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js?v=20261124b";
+import { techStackChip } from "../../utils/techIcons.js?v=20261124b";
 
 /**
  * Process project data and create cards

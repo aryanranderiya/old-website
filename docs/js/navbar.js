@@ -3,9 +3,9 @@
  * @description Navbar loading and initialization
  */
 
-import { handleMenuOpening, initScrollBehavior } from './modules/components/navbarMenu.js';
-import { addHoverImage, addMouseListeners } from './modules/components/navbarHover.js';
-import { setActiveLink } from './modules/components/navbarActiveLink.js';
+import { handleMenuOpening, initScrollBehavior } from './modules/components/navbarMenu.js?v=20261124b';
+import { addHoverImage, addMouseListeners } from './modules/components/navbarHover.js?v=20261124b';
+import { setActiveLink } from './modules/components/navbarActiveLink.js?v=20261124b';
 
 /**
  * Load navbar and initialize functionality

@@ -3,7 +3,7 @@
  * @description Module for displaying the bundled GitHub repository snapshot
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js";
+import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js?v=20261124b";
 
 /**
  * Fetch and display GitHub projects

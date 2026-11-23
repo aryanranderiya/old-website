@@ -4,16 +4,16 @@
  */
 
 // Import modules
-import { processProjectCards, addCardHoverEffect } from "./modules/pages/softwareProjects/projectCards.js";
-import { initializeSearch, initializeFilters } from "./modules/pages/softwareProjects/searchFilter.js";
-import { fetchGithubProjects } from "./modules/pages/softwareProjects/githubProjects.js";
-import { generateLoadingText } from "./modules/pages/softwareProjects/loadingAnimation.js";
-import { processProjectIcons } from "./modules/pages/softwareProjects/projectIcons.js";
+import { processProjectCards, addCardHoverEffect } from "./modules/pages/softwareProjects/projectCards.js?v=20261124b";
+import { initializeSearch, initializeFilters } from "./modules/pages/softwareProjects/searchFilter.js?v=20261124b";
+import { fetchGithubProjects } from "./modules/pages/softwareProjects/githubProjects.js?v=20261124b";
+import { generateLoadingText } from "./modules/pages/softwareProjects/loadingAnimation.js?v=20261124b";
+import { processProjectIcons } from "./modules/pages/softwareProjects/projectIcons.js?v=20261124b";
 import { 
   initializeUIInteractions, 
   updateScrollProgress, 
   removePreloader 
-} from "./modules/pages/softwareProjects/uiInteractions.js";
+} from "./modules/pages/softwareProjects/uiInteractions.js?v=20261124b";
 
 // Global variables
 window.onbeforeunload = () => {

@@ -4,17 +4,17 @@
  */
 
 // Import external dependencies
-import { Gradient } from './gradient.js';
+import { Gradient } from './gradient.js?v=20261124b';
 
 // Import modular components
-import * as cursorUtils from './modules/cursorUtils.js';
-import * as animationSetup from './modules/animationSetup.js';
-import * as bentoSetup from './modules/bentoSetup.js';
-import * as projectSetup from './modules/projectSetup.js';
-import * as servicesSetup from './modules/servicesSetup.js';
-import * as stepsSetup from './modules/stepsSetup.js';
-import * as eventListeners from './modules/eventListeners.js';
-import * as uiHelpers from './modules/uiHelpers.js';
+import * as cursorUtils from './modules/cursorUtils.js?v=20261124b';
+import * as animationSetup from './modules/animationSetup.js?v=20261124b';
+import * as bentoSetup from './modules/bentoSetup.js?v=20261124b';
+import * as projectSetup from './modules/projectSetup.js?v=20261124b';
+import * as servicesSetup from './modules/servicesSetup.js?v=20261124b';
+import * as stepsSetup from './modules/stepsSetup.js?v=20261124b';
+import * as eventListeners from './modules/eventListeners.js?v=20261124b';
+import * as uiHelpers from './modules/uiHelpers.js?v=20261124b';
 
 /**
  * Initialize gradient animation

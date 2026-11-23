@@ -3,7 +3,7 @@
  * @description Folder navigation and hover effects
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js';
+import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Add folder click listeners for smooth scrolling

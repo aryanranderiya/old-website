@@ -3,7 +3,7 @@
  * @description Navbar menu handling functionality
  */
 
-import { addClass, removeClass } from '../cursorUtils.js';
+import { addClass, removeClass } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Handle menu opening and closing

@@ -3,7 +3,7 @@
  * @description Module for UI interactions and hover effects
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js";
+import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js?v=20261124b";
 
 /**
  * Initialize UI interactions for software projects page

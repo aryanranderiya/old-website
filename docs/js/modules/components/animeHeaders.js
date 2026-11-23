@@ -3,7 +3,7 @@
  * @description Anime headers carousel functionality
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js';
+import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Initialize anime headers carousel with controls

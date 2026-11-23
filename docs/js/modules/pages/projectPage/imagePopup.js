@@ -3,7 +3,7 @@
  * @description Image popup functionality for project documentation
  */
 
-import { addClass, removeClass } from '../../cursorUtils.js';
+import { addClass, removeClass } from '../../cursorUtils.js?v=20261124b';
 
 /**
  * Setup image popup functionality

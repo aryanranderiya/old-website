@@ -3,7 +3,7 @@
  * @description Footer animation and interaction functionality
  */
 
-import { addClass, removeClass } from '../cursorUtils.js';
+import { addClass, removeClass } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Animate footer content into view

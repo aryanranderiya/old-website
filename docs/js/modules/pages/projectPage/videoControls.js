@@ -3,7 +3,7 @@
  * @description Video playback controls and interactions
  */
 
-import { cursorTransformShadowBlend, addClass, removeClass } from '../../cursorUtils.js';
+import { cursorTransformShadowBlend, addClass, removeClass } from '../../cursorUtils.js?v=20261124b';
 
 /**
  * Initialize video controls

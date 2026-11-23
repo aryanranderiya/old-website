@@ -3,7 +3,7 @@
  * @description Module for handling resume page UI interactions and animations
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js";
+import { addClass, removeClass, cursorTransformShadowBlend } from "../../utils/domHelpers.js?v=20261124b";
 
 /**
  * Initialize resume UI interactions

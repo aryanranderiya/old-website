@@ -3,7 +3,7 @@
  * @description Functionality for the 404 error page
  */
 
-import { cursorTransformShadowBlend, addClass, removeClass } from '../cursorUtils.js';
+import { cursorTransformShadowBlend, addClass, removeClass } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Initialize 404 page interactions

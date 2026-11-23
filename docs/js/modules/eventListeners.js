@@ -3,7 +3,7 @@
  * @description Event listener setup functions
  */
 
-import { cursorTransformShadowBlend, addClass, removeClass, makeInvisible, normalCursorEmojiSpan } from './cursorUtils.js';
+import { cursorTransformShadowBlend, addClass, removeClass, makeInvisible, normalCursorEmojiSpan } from './cursorUtils.js?v=20261124b';
 
 /**
  * Add event listeners to various elements

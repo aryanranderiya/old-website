@@ -3,7 +3,7 @@
  * @description Setup functions for projects display and interactions
  */
 
-import { cursorTransformShadowBlend, addClass, removeClass } from './cursorUtils.js';
+import { cursorTransformShadowBlend, addClass, removeClass } from './cursorUtils.js?v=20261124b';
 
 /**
  * Setup featured projects section

@@ -3,7 +3,7 @@
  * @description Intersection observer configurations and handlers
  */
 
-import { addClass, removeClass } from '../cursorUtils.js';
+import { addClass, removeClass } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Create observer for title animations

@@ -3,7 +3,7 @@
  * @description Contact page functionality and interactions
  */
 
-import { cursorTransformShadowBlend, addClass, removeClass } from '../cursorUtils.js';
+import { cursorTransformShadowBlend, addClass, removeClass } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Initialize contact page functionality

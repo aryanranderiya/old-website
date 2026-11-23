@@ -3,7 +3,7 @@
  * @description Preloader functionality for page loading
  */
 
-import { generateLoadingText, hidePreloader } from './modules/components/loadingText.js';
+import { generateLoadingText, hidePreloader } from './modules/components/loadingText.js?v=20261124b';
 
 // Scroll to top before page unload
 window.onbeforeunload = () => {

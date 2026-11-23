@@ -3,14 +3,14 @@
  * @description Design projects page functionality
  */
 
-import { cursorTransformShadowBlend, addClass, removeClass } from './modules/cursorUtils.js';
-import { modifyScrollBar, updateProgressBarandBtn } from './modules/ui/scrollbar.js';
-import { createTitleObserver, createTitleObserver2, createNormalObserver } from './modules/ui/intersectionObservers.js';
-import { generateMerchItems } from './modules/components/merchItems.js';
-import { addFolderListeners, foldersHover } from './modules/components/folderNavigation.js';
-import { normalHeaders } from './modules/components/headerCarousel.js';
-import { animeHeaders } from './modules/components/animeHeaders.js';
-import { thumbnails, advertisements, closePopup } from './modules/components/imagePopup.js';
+import { cursorTransformShadowBlend, addClass, removeClass } from './modules/cursorUtils.js?v=20261124b';
+import { modifyScrollBar, updateProgressBarandBtn } from './modules/ui/scrollbar.js?v=20261124b';
+import { createTitleObserver, createTitleObserver2, createNormalObserver } from './modules/ui/intersectionObservers.js?v=20261124b';
+import { generateMerchItems } from './modules/components/merchItems.js?v=20261124b';
+import { addFolderListeners, foldersHover } from './modules/components/folderNavigation.js?v=20261124b';
+import { normalHeaders } from './modules/components/headerCarousel.js?v=20261124b';
+import { animeHeaders } from './modules/components/animeHeaders.js?v=20261124b';
+import { thumbnails, advertisements, closePopup } from './modules/components/imagePopup.js?v=20261124b';
 
 // Global variables
 const cursortext2 = document.querySelector("#cursortext2");

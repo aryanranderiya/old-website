@@ -3,7 +3,7 @@
  * @description Generate and manage merchandise items display
  */
 
-import { addClass } from '../cursorUtils.js';
+import { addClass } from '../cursorUtils.js?v=20261124b';
 
 /**
  * Generate merchandise items in the DOM

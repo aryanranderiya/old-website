@@ -3,7 +3,7 @@
  * @description Success page functionality
  */
 
-import { initButtonHover, initWebsiteNameHover, initCursorGlow } from './modules/components/successHover.js';
+import { initButtonHover, initWebsiteNameHover, initCursorGlow } from './modules/components/successHover.js?v=20261124b';
 
 // Get DOM elements
 const cursor_glow = document.querySelector(".cursor_glow_div");

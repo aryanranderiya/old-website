@@ -3,8 +3,8 @@
  * @description Header carousel functionality
  */
 
-import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js';
-import { DragScroll } from './dragScroll.js';
+import { addClass, removeClass, cursorTransformShadowBlend } from '../cursorUtils.js?v=20261124b';
+import { DragScroll } from './dragScroll.js?v=20261124b';
 
 /**
  * Initialize normal headers with drag scroll functionality

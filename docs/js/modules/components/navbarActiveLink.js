@@ -3,8 +3,8 @@
  * @description Set active link in navbar based on current page
  */
 
-import { addClass, removeClass } from '../cursorUtils.js';
-import { shuffleAnimation } from '../animations/textShuffle.js';
+import { addClass, removeClass } from '../cursorUtils.js?v=20261124b';
+import { shuffleAnimation } from '../animations/textShuffle.js?v=20261124b';
 
 /**
  * Set active link to menu item (highlight current page)
