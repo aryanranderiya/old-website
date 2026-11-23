@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const footerContainer = document.getElementById("footerContainer");
   
   if (footerContainer) {
-    fetch("footer.html")
+    fetch("footer.html?v=20261124b")
       .then((response) => response.text())
       .then((data) => {
         footerContainer.innerHTML = data;

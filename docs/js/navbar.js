@@ -13,7 +13,7 @@ import { setActiveLink } from './modules/components/navbarActiveLink.js?v=202611
 async function loadNavbar() {
   const navbarContainer = document.getElementById("navbarContainer");
 
-  return fetch("navbar.html")
+  return fetch("navbar.html?v=20261124b")
     .then((response) => response.text())
     .then((data) => {
       navbarContainer.innerHTML = data;
